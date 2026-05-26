@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>文章 - 主日靈糧</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;500;700;900&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#1a1612;--ink-soft:#2d2820;
+  --parchment:#faf7f2;--parchment-mid:#f2ede4;
+  --gold:#c9a84c;--gold-light:#e8d5a3;--gold-pale:#fdf6e3;
+  --rust:#8b3a2a;--rust-light:#b85a46;
+  --sage:#4a6a5a;
+  --muted:#8a8078;--border:#e0d8cc;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--parchment);color:var(--ink);font-family:'Noto Serif TC',serif;min-height:100vh;}
+
+/* TOP BAR */
+.top-bar{background:var(--ink);padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:56px;position:sticky;top:0;z-index:50;border-bottom:2px solid var(--gold);}
+.back-btn{color:var(--gold);text-decoration:none;font-family:'Noto Sans TC',sans-serif;font-size:13px;display:flex;align-items:center;gap:6px;transition:opacity .2s;}
+.back-btn:hover{opacity:.7;}
+.site-name{color:var(--gold-light);font-size:11px;opacity:.5;letter-spacing:.1em;}
+.top-actions{display:flex;gap:8px;}
+.action-btn{background:rgba(255,255,255,.1);border:1px solid rgba(201,168,76,.3);color:var(--gold-light);padding:6px 14px;border-radius:6px;font-size:12px;font-family:'Noto Sans TC',sans-serif;cursor:pointer;display:flex;align-items:center;gap:5px;transition:all .2s;}
+.action-btn:hover{background:rgba(201,168,76,.2);border-color:var(--gold);}
+.action-btn.copied{background:var(--sage);border-color:var(--sage);color:white;}
+
+/* ARTICLE LAYOUT */
+.article-wrap{max-width:720px;margin:0 auto;padding:48px 24px 100px;}
+
+/* HERO */
+.article-hero{margin-bottom:36px;}
+.article-eyebrow{display:flex;align-items:center;gap:8px;margin-bottom:20px;flex-wrap:wrap;}
+.tag-badge{font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;letter-spacing:.03em;}
+.tag-category{background:var(--rust);color:white;}
+.tag-renew{background:var(--sage);color:white;}
+.tag-festival{background:#7a3020;color:white;}
+.tag-date{background:transparent;border:1px solid var(--border);color:var(--muted);font-weight:400;font-family:'Noto Sans TC',sans-serif;}
+.article-title{font-size:clamp(26px,5vw,40px);font-weight:900;line-height:1.35;color:var(--ink);margin-bottom:20px;letter-spacing:-.01em;}
+.article-divider{display:flex;align-items:center;gap:16px;margin:24px 0;}
+.article-divider::before,.article-divider::after{content:'';flex:1;height:1px;}
+.article-divider::before{background:linear-gradient(to right,transparent,var(--gold));}
+.article-divider::after{background:linear-gradient(to left,transparent,var(--gold-light));}
+.article-divider-icon{color:var(--gold);font-size:16px;}
+
+/* LEAD / SUMMARY */
+.article-lead{font-size:17px;line-height:1.9;color:var(--muted);font-style:italic;border-left:3px solid var(--gold);padding-left:20px;margin-bottom:36px;position:relative;}
+
+/* BODY */
+.article-body{font-size:17px;line-height:2.1;color:var(--ink-soft);}
+.article-body p{margin-bottom:22px;}
+.article-body p:last-child{margin-bottom:0;}
+
+/* EMPTY BODY */
+.body-placeholder{background:var(--parchment-mid);border:2px dashed var(--border);border-radius:8px;padding:40px;text-align:center;color:var(--muted);font-family:'Noto Sans TC',sans-serif;font-size:14px;}
+.body-placeholder .ph-icon{font-size:32px;margin-bottom:12px;}
+
+/* FOOTER */
+.article-footer{margin-top:52px;padding-top:28px;border-top:1px solid var(--border);display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:center;}
+.footer-actions{display:flex;gap:10px;flex-wrap:wrap;}
+.foot-btn{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--border);background:white;padding:9px 18px;border-radius:6px;font-family:'Noto Sans TC',sans-serif;font-size:13px;cursor:pointer;color:var(--ink-soft);transition:all .2s;}
+.foot-btn:hover{border-color:var(--gold);color:var(--rust);}
+.foot-btn.primary{background:var(--ink);color:var(--gold);border-color:var(--ink);}
+.foot-btn.primary:hover{background:var(--ink-soft);}
+.foot-btn.copied{background:var(--sage)!important;border-color:var(--sage)!important;color:white!important;}
+
+/* PREV/NEXT NAV */
+.article-nav{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:36px;}
+.nav-card{background:white;border:1px solid var(--border);border-radius:8px;padding:14px 16px;cursor:pointer;text-decoration:none;display:flex;flex-direction:column;gap:4px;transition:all .2s;}
+.nav-card:hover{border-color:var(--gold-light);box-shadow:0 4px 16px rgba(26,22,18,.08);}
+.nav-card-dir{font-size:10px;color:var(--muted);letter-spacing:.05em;font-family:'Noto Sans TC',sans-serif;font-weight:700;text-transform:uppercase;}
+.nav-card-title{font-size:13px;font-weight:700;color:var(--ink);line-height:1.4;}
+.nav-card.prev .nav-card-dir::before{content:'← ';}
+.nav-card.next{text-align:right;}
+.nav-card.next .nav-card-dir::after{content:' →';}
+
+/* TOAST */
+.toast{position:fixed;bottom:22px;right:22px;background:var(--ink);color:var(--gold-light);padding:11px 18px;border-radius:8px;font-size:13px;border-left:3px solid var(--gold);transform:translateX(200%);transition:transform .3s;z-index:200;}
+.toast.show{transform:translateX(0);}
+
+/* RESPONSIVE */
+@media(max-width:600px){
+  .article-wrap{padding:28px 16px 80px;}
+  .top-bar{padding:0 16px;}
+  .site-name{display:none;}
+  .article-nav{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<div class="top-bar">
+  <a href="index.html" class="back-btn">← 返回靈糧庫</a>
+  <span class="site-name">主日靈糧・屬靈筆記</span>
+  <div class="top-actions">
+    <button class="action-btn" onclick="copyAll(this)">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+      複製全文
+    </button>
+    <button class="action-btn" onclick="window.print()">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+      列印
+    </button>
+  </div>
+</div>
+
+<div class="article-wrap">
+  <div class="article-hero">
+    <div class="article-eyebrow" id="eyebrow"></div>
+    <h1 class="article-title" id="artTitle">載入中…</h1>
+  </div>
+
+  <p class="article-lead" id="artDesc"></p>
+
+  <div class="article-divider"><span class="article-divider-icon">✦</span></div>
+
+  <div class="article-body" id="artBody"></div>
+
+  <div class="article-footer">
+    <div class="footer-actions">
+      <button class="foot-btn primary" onclick="copyAll(this)">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+        複製文章內容
+      </button>
+      <button class="foot-btn" onclick="copyDesc(this)">複製簡短描述</button>
+    </div>
+    <a href="index.html" class="foot-btn">← 返回列表</a>
+  </div>
+
+  <div class="article-nav" id="articleNav"></div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+/* ─── load data from localStorage ─── */
+const SEED=[
+  {id:1,section:'tongues',title:'方言的恩賜與操練',desc:'使徒行傳記載五旬節聖靈降臨，門徒按著聖靈所賜的口才用各國話講論神的大作為。方言是聖靈充滿的記號之一。',body:'使徒行傳2章記載，當五旬節那天，眾人都聚集在一處，忽然從天上有響聲下來，好像一陣大風吹過，充滿了他們所坐的屋子。又有舌頭如火焰顯現出來，分開落在他們各人頭上，他們就都被聖靈充滿，按著聖靈所賜的口才說起別國的話來。\n\n方言的恩賜是聖靈的賞賜之一，它使信徒能夠在靈裡直接與神交通。保羅在哥林多前書14章對方言的使用有詳細的教導，強調在會眾中使用方言時需要有翻譯，以便眾人都能得著造就。',date:'2024-12-01',pinned:true,renew:true,festivalType:''},
+  {id:2,section:'tongues',title:'翻譯的恩賜如何運作',desc:'在教會場合中，翻譯方言的恩賜讓會眾都能得著造就，保羅在哥林多前書14章對此有詳盡的教導。',body:'翻譯方言的恩賜是聖靈所賜的屬靈恩賜之一。當有人在聚會中說方言時，需要有人起來翻譯，使全體會眾都能明白神所要說的話，從而得著屬靈的造就。\n\n保羅說：「說方言的，應當求能翻出來。」（哥林多前書14:13）這說明翻譯的恩賜可以透過禱告和操練來培養。',date:'2024-11-17',pinned:false,renew:false,festivalType:''},
+  {id:3,section:'love',title:'神的愛永遠長存',desc:'哥林多前書13章告訴我們，愛是恆久忍耐又有恩慈，愛是不嫉妒，不自誇，不張狂。讓這份愛在日常生活中彰顯出來。',body:'哥林多前書13章，又稱「愛的詩篇」，是保羅對愛最深刻的描述。他說：「愛是恆久忍耐，又有恩慈；愛是不嫉妒；愛是不自誇，不張狂，不做害羞的事，不求自己的益處，不輕易發怒，不計算人的惡，不喜歡不義，只喜歡真理；凡事包容，凡事相信，凡事盼望，凡事忍耐。」\n\n這種愛不是出於人的情感，而是神自己的性情。當我們重生之後，神的靈住在我們裡面，這份愛也就成為我們生命的基礎。',date:'2024-12-08',pinned:true,renew:true,festivalType:''},
+  {id:4,section:'love',title:'主的叮嚀：彼此相愛',desc:'「我賜給你們一條新命令，乃是叫你們彼此相愛；我怎樣愛你們，你們也要怎樣相愛。」（約翰福音13:34）',body:'主耶穌在最後晚餐時，給門徒留下了一條新命令：「你們要彼此相愛，像我愛你們一樣，這就是我的命令。」（約翰福音15:12）\n\n這份愛的標準是「像我愛你們一樣」，這是一種捨己的愛、犧牲的愛。主耶穌用祂的生命詮釋了這份愛的深度。當我們彼此相愛時，世人就知道我們是主的門徒，這是最有力的見證。',date:'2024-11-24',pinned:false,renew:false,festivalType:''},
+  {id:5,section:'review',title:'回顧：恩典的年份',desc:'今年神在我們當中做了許多奇妙的事，從復活節的復興到聖誕節的佈道，每一個腳步都有神的引導。',body:'回顧這一年，神的恩典真是豐盛。年初的禱告會帶來了靈魂的復興，許多弟兄姊妹在禱告中經歷了突破。春天的奮興會中，有超過三十位慕道友決志信主，這是我們多年禱告的果實。\n\n夏天的短宣隊前往山區服事原住民教會，帶去了詩班獻唱和兒童主日學的協助。秋天的關懷探訪讓許多久未到會的弟兄姊妹重新歸隊。年末的聖誕佈道會更有八十位新朋友出席，其中十五位填寫了決志單。\n\n感謝神！祂的恩典夠我們用。',date:'2024-12-15',pinned:true,renew:true,festivalType:''},
+  {id:6,section:'review',title:'再讀保羅書信的啟示',desc:'保羅書信中充滿了對教會的建造原則，重溫以弗所書讓我們重新看見合一的身體是何等美好。',body:'以弗所書是保羅在獄中所寫的「獄中書信」之一，充滿了對教會奧秘的啟示。保羅在書信的前半段（1-3章）描述信徒在基督裡的地位和尊貴，後半段（4-6章）則說明信徒應有的生活方式。\n\n其中最令人印象深刻的是第4章1節：「我為主被囚的勸你們：既然蒙召，行事為人就當與蒙召的恩相稱。」保羅雖身陷囹圄，卻仍以主的囚犯自稱，他的生命見證是我們最好的榜樣。',date:'2024-10-20',pinned:false,renew:false,festivalType:''},
+  {id:7,section:'vision',title:'2025年的異象：廣傳福音',desc:'神給我們的異象是跨越城市與語言的藩籬，將福音帶給每一個需要的靈魂，讓教會成為社區的祝福。',body:'在這個新年度裡，神給我們清晰的異象：要成為社區的祝福，將福音的好消息帶給每一個角落。\n\n具體的方向包括：\n一、建立社區關懷中心，提供實際的生活幫助\n二、開展職場事工，在工作場所中作鹽作光\n三、加強跨文化宣教，支持海外宣教士\n四、培訓年輕一代成為下一代的領袖\n\n「你們往普天下去，傳福音給萬民聽。」（馬可福音16:15）這是主給我們每個人的大使命。',date:'2024-12-22',pinned:true,renew:true,festivalType:''},
+  {id:8,section:'vision',title:'末後的日子與教會的使命',desc:'先知書提醒我們要在黑暗中發光，教會是神在地上的代理人，我們要以禱告和行動回應這個時代的呼召。',body:'在末後的日子，神的靈要澆灌凡有血氣的，你們的兒女要說預言，你們的老年人要做異夢，少年人要見異象。（約珥書2:28）\n\n教會在這個時代的使命是前所未有的重要。當世界充滿黑暗、混亂和恐懼的時候，正是教會發光的時刻。我們不是退縮，而是前進；不是沉默，而是宣告；不是恐懼，而是信心。\n\n讓我們以禱告回應這個時代，以行動彰顯神的愛。',date:'2024-11-03',pinned:false,renew:false,festivalType:''},
+  {id:9,section:'weekly',title:'本週教會消息 2024/12/22',desc:'本週日崇拜將有聖誕詩班獻唱，請弟兄姊妹提前到場；週三禱告會地點變更至副堂，歡迎大家同心禱告。',body:'一、本週日（12/22）主日崇拜：聖誕主題特別崇拜，詩班將獻唱「哈利路亞大合唱」，請弟兄姊妹提前20分鐘到場就座。崇拜後有愛宴，請事先報名。\n\n二、週三（12/18）禱告會：本週禱告會移至副堂舉行，時間不變（晚上7:30），主題：為聖誕佈道會禱告。\n\n三、聖誕佈道會（12/24）：平安夜特別聚會晚上8:00開始，歡迎邀請親友出席。現場備有精美禮物。\n\n四、奉獻提醒：年底是教會財務年結的重要時期，感謝弟兄姊妹的忠心奉獻。',date:'2024-12-22',pinned:true,renew:false,festivalType:''},
+  {id:10,section:'weekly',title:'本週教會消息 2024/12/15',desc:'感謝神，上週主日有三位慕道友決志！本週五將有關懷小組聚會，請各組長準備分享題目。',body:'一、感恩報告：上週主日有三位慕道友在聖靈的感動下決志信主！請弟兄姊妹繼續為他們禱告，也歡迎大家主動關懷這些新朋友。\n\n二、週五（12/20）關懷小組：各關懷小組聚會，本月主題「如何在職場中作見證」。請各組長預備相關問題或見證分享。\n\n三、兒童主日學：下週（12/22）兒童主日學將有聖誕戲劇表演，請家長們踴躍出席為孩子們打氣！\n\n四、2025年事奉計畫會議：12/28（六）下午2:00，邀請所有事奉同工出席討論明年計畫。',date:'2024-12-15',pinned:false,renew:false,festivalType:''},
+  {id:11,section:'festival',title:'聖誕：道成肉身的奇蹟',desc:'「道成了肉身，住在我們中間，充充滿滿地有恩典有真理。」（約翰福音1:14）這是神最偉大的禮物。',body:'「道成了肉身，住在我們中間，充充滿滿地有恩典有真理。我們也見過他的榮光，正是父獨生子的榮光。」（約翰福音1:14）\n\n聖誕節不只是一個節日，它是神進入人類歷史最偉大的行動。全能的神，宇宙的創造者，選擇降卑自己，成為一個嬰孩，住在我們中間。這不是神話，不是傳說，而是真實發生在歷史中的事件。\n\n馬太福音記載：「必有童女懷孕生子，人要稱他的名為以馬內利。」（馬太福音1:23）以馬內利的意思就是「神與我們同在」。這個名字包含了整個聖誕節的信息：神選擇與我們同在！',date:'2024-12-25',pinned:true,renew:true,festivalType:'christmas'},
+  {id:12,section:'festival',title:'感恩會：數算神的恩典',desc:'在感恩的季節裡，讓我們一起回顧神在過去一年中如何引領、保護、供應我們，並以感謝的心迎接新的一年。',body:'「應當一無掛慮，只要凡事藉著禱告、祈求和感謝，將你們所要的告訴神。」（腓立比書4:6）\n\n感恩不只是一種情感，更是一種生命的態度。當我們選擇看見神的恩典，而不是我們的困境，我們的眼光就改變了。感謝的心是信心的表達，相信神掌管一切，相信祂的恩典夠我們用。\n\n今年有多少我們可以感謝的事？健康、家人、教會的弟兄姊妹、工作、神話語的供應…讓我們一一數算，讓感恩充滿我們的心。',date:'2024-11-28',pinned:false,renew:false,festivalType:'thanksgiving'},
+  {id:13,section:'festival',title:'聖難週默想：主的受苦',desc:'進入聖難週，讓我們靜下心來默想主耶穌為我們所受的苦難，從客西馬尼園到髑髏地，每一步都是為了愛。',body:'聖難週，從棕枝主日到復活節前夕，是基督徒信仰歷程中最莊嚴也最深刻的一週。\n\n在客西馬尼園，主耶穌禱告說：「我父啊，倘若可行，求你叫這杯離開我。然而，不要照我的意思，只要照你的意思。」（馬太福音26:39）這是何等深刻的順服！\n\n在審判堂前，在彼拉多面前，主耶穌沉默受審。祂本可以召天使來拯救，卻選擇了沉默，為的是完成父神的旨意。\n\n在各各他，在十字架上，主說：「成了！」（約翰福音19:30）這兩個字包含了整個人類救贖的故事。讓我們靜默思想，因祂受的傷使我們得了醫治。',date:'2024-03-24',pinned:true,renew:true,festivalType:'holy-week'},
+  {id:14,section:'festival',title:'復活節：死亡被吞滅了',desc:'「死亡被得勝吞滅了。死啊，你得勝的權勢在哪裡呢？」（哥林多前書15:54-55）主復活的真理是信仰核心！',body:'「死亡被得勝吞滅了。死啊，你得勝的權勢在哪裡呢？死啊，你的毒鉤在哪裡呢？」（哥林多前書15:54-55）\n\n主耶穌的復活不只是一個宗教故事，它是改變歷史進程的事件。使徒保羅說：「基督若沒有復活，你們的信便是徒然，你們仍在罪裡。」（哥林多前書15:17）復活是基督信仰的核心與根基。\n\n因為主耶穌復活了，死亡的權勢被打破了。因為主耶穌復活了，我們也有了復活的盼望。因為主耶穌復活了，我們今天的信仰不是虛空的，而是有真實生命支撐的活潑盼望！\n\n哈利路亞！主已復活！',date:'2024-03-31',pinned:false,renew:false,festivalType:'holy-week'},
+];
+
+const META={tongues:{name:'說翻方言',emoji:'🕊️'},love:{name:'愛的叮嚀',emoji:'💛'},review:{name:'溫故知新',emoji:'📖'},vision:{name:'異象',emoji:'👁️'},weekly:{name:'周訊',emoji:'📋'},festival:{name:'節慶',emoji:'🎄'}};
+const FEST={christmas:'🎄聖誕節','holy-week':'✝️聖難週',thanksgiving:'🙏感恩會'};
+
+function loadArticles(){
+  const d=localStorage.getItem('spiritual_articles');
+  return d?JSON.parse(d):SEED;
+}
+
+function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+function nl2p(s){return s.split(/\n\n+/).map(p=>`<p>${esc(p.trim()).replace(/\n/g,'<br>')}</p>`).join('');}
+
+const params=new URLSearchParams(window.location.search);
+const artId=parseInt(params.get('id'));
+const articles=loadArticles();
+const idx=articles.findIndex(a=>a.id===artId);
+const article=idx>=0?articles[idx]:null;
+
+if(article){
+  const m=META[article.section]||{name:article.section,emoji:'📄'};
+  document.title=article.title+' - 主日靈糧';
+
+  // eyebrow tags
+  const eyebrow=document.getElementById('eyebrow');
+  let tagsHtml=`<span class="tag-badge tag-category">${m.emoji} ${m.name}</span>`;
+  if(article.renew) tagsHtml+=`<span class="tag-badge tag-renew">🔄 心意更新</span>`;
+  if(article.festivalType&&FEST[article.festivalType]) tagsHtml+=`<span class="tag-badge tag-festival">${FEST[article.festivalType]}</span>`;
+  tagsHtml+=`<span class="tag-badge tag-date">${article.date}</span>`;
+  eyebrow.innerHTML=tagsHtml;
+
+  document.getElementById('artTitle').textContent=article.title;
+  document.getElementById('artDesc').textContent=article.desc;
+
+  const bodyEl=document.getElementById('artBody');
+  if(article.bodyType==='html'&&article.body&&article.body.trim()){
+    // full-page HTML file — embed via iframe, auto-resize
+    bodyEl.innerHTML=`<iframe id="richFrame" src="${article.body}"
+      style="width:100%;border:none;display:block;min-height:600px;"
+      onload="autoResizeFrame(this)" scrolling="no"></iframe>`;
+  } else if(article.body&&article.body.trim()){
+    bodyEl.innerHTML=nl2p(article.body);
+  } else {
+    bodyEl.innerHTML=`<div class="body-placeholder"><div class="ph-icon">✏️</div><p>這篇文章尚未填寫完整內文。<br>請點擊卡片上的「編輯」按鈕來新增內文。</p></div>`;
+  }
+
+  // prev / next
+  const navEl=document.getElementById('articleNav');
+  const sorted=[...articles].sort((a,b)=>b.date.localeCompare(a.date));
+  const si=sorted.findIndex(a=>a.id===artId);
+  let navHtml='';
+  if(si>0){
+    const prev=sorted[si-1];
+    navHtml+=`<a class="nav-card prev" href="article.html?id=${prev.id}"><div class="nav-card-dir">較新文章</div><div class="nav-card-title">${esc(prev.title)}</div></a>`;
+  } else { navHtml+='<div></div>'; }
+  if(si<sorted.length-1){
+    const next=sorted[si+1];
+    navHtml+=`<a class="nav-card next" href="article.html?id=${next.id}"><div class="nav-card-dir">較舊文章</div><div class="nav-card-title">${esc(next.title)}</div></a>`;
+  }
+  navEl.innerHTML=navHtml;
+
+} else {
+  document.getElementById('artTitle').textContent='找不到文章';
+  document.getElementById('artDesc').textContent='此文章可能已被刪除，或連結有誤。';
+  document.getElementById('artBody').innerHTML='<div class="body-placeholder"><div class="ph-icon">🔍</div><p>請返回首頁重新選擇文章。</p></div>';
+  document.getElementById('articleNav').innerHTML='';
+}
+
+function getFullText(){
+  if(!article) return '';
+  if(article.bodyType==='html') return `${article.title}\n\n${article.desc}\n\n[完整內容請見 ${article.body}]`;
+  return `${article.title}\n\n${article.desc}${article.body?'\n\n'+article.body:''}`;
+}
+
+function copyAll(btn){
+  navigator.clipboard.writeText(getFullText()).then(()=>{
+    btn.classList.add('copied');
+    const orig=btn.innerHTML; btn.textContent='✓ 已複製！';
+    showToast('✓ 全文已複製到剪貼板');
+    setTimeout(()=>{btn.classList.remove('copied');btn.innerHTML=orig;},2200);
+  });
+}
+function copyDesc(btn){
+  if(!article) return;
+  navigator.clipboard.writeText(`${article.title}\n\n${article.desc}`).then(()=>{
+    btn.classList.add('copied');
+    const orig=btn.textContent; btn.textContent='✓ 已複製！';
+    showToast('✓ 簡短描述已複製');
+    setTimeout(()=>{btn.classList.remove('copied');btn.textContent=orig;},2200);
+  });
+}
+
+function autoResizeFrame(f){
+  try{
+    const resize=()=>{
+      const h=f.contentDocument.documentElement.scrollHeight;
+      f.style.height=h+'px';
+    };
+    f.contentDocument.addEventListener('DOMContentLoaded',resize);
+    resize();
+    // also resize after fonts load (Google Fonts)
+    setTimeout(()=>{try{const h=f.contentDocument.documentElement.scrollHeight;f.style.height=h+'px';}catch(e){}},1200);
+  }catch(e){}
+}
+function showToast(msg){
+  const t=document.getElementById('toast');
+  t.textContent=msg; t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),2600);
+}
+</script>
+</body>
+</html>

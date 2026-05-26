@@ -1,0 +1,1017 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1220輯週訓【2026.5.24】神所賜下的話語</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;500;600;700;900&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --gold:       #C9A84C;
+  --gold-light: #E8D08A;
+  --gold-pale:  #FAF3DC;
+  --deep:       #14100C;
+  --ink:        #28200E;
+  --ink-soft:   #3A3020;
+  --muted:      #7A6B50;
+  --border:     #E0D4BA;
+  --parchment:  #FBF7F0;
+  --parchment2: #F4EDD8;
+  --dove:       #5C7289;
+  --dove-light: #8CAAC4;
+  --dove-pale:  #EAF1F8;
+  --ruby:       #8C2030;
+  --ruby-light: #C44058;
+  --ruby-pale:  #FAEAED;
+  --teal:       #2E7A70;
+  --teal-light: #4BADA0;
+  --teal-pale:  #E0F2EF;
+  --sage:       #4E6848;
+  --sage-light: #78A070;
+  --sage-pale:  #EAF3E6;
+  --r: 14px;
+  --r-lg: 22px;
+  --shadow: 0 2px 16px rgba(20,16,12,.07);
+  --shadow-hover: 0 8px 36px rgba(20,16,12,.14);
+}
+
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Noto Sans TC', sans-serif;
+  background: var(--parchment);
+  color: var(--ink);
+  line-height: 1.8;
+}
+
+/* ══════════════════════════════
+   HERO
+══════════════════════════════ */
+.hero {
+  background: var(--deep);
+  padding: 4rem 2rem 3.5rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content:'';
+  position:absolute; inset:0;
+  background:
+    radial-gradient(ellipse at 30% 0%, rgba(201,168,76,.14) 0%, transparent 55%),
+    radial-gradient(ellipse at 70% 100%, rgba(92,114,137,.1) 0%, transparent 55%);
+  pointer-events:none;
+}
+.hero-series {
+  display:inline-flex; align-items:center; gap:8px;
+  border:1px solid rgba(201,168,76,.4);
+  color:var(--gold); font-size:11px; letter-spacing:4px;
+  padding:5px 18px; border-radius:2px; margin-bottom:1.4rem;
+  text-transform:uppercase;
+}
+.hero h1 {
+  font-family:'Noto Serif TC',serif;
+  font-size:clamp(1.8rem,5vw,3rem);
+  color:#fff; font-weight:900; line-height:1.3; margin-bottom:.5rem;
+}
+.hero h1 em { color:var(--gold-light); font-style:normal; }
+.hero-meta {
+  color:rgba(255,255,255,.45); font-size:.82rem;
+  letter-spacing:2px; margin-bottom:2.2rem;
+}
+.hero-date-badge {
+  display:inline-block;
+  background:rgba(201,168,76,.12);
+  border:1px solid rgba(201,168,76,.3);
+  color:var(--gold-light); font-size:.78rem;
+  padding:4px 16px; border-radius:20px; letter-spacing:1.5px;
+}
+
+/* ══════════════════════════════
+   STICKY TOC (導覽錨點)
+══════════════════════════════ */
+.toc-bar {
+  background:var(--deep);
+  border-bottom:1px solid rgba(201,168,76,.25);
+  position:sticky; top:0; z-index:100;
+  overflow-x:auto; scrollbar-width:none;
+}
+.toc-bar::-webkit-scrollbar{display:none;}
+.toc-inner {
+  display:flex; align-items:center;
+  max-width:1040px; margin:0 auto;
+  padding:0 16px; gap:2px; min-width:max-content;
+}
+.toc-link {
+  display:flex; align-items:center; gap:5px;
+  padding:11px 13px;
+  color:rgba(255,255,255,.45); font-size:12px; font-weight:500;
+  text-decoration:none; white-space:nowrap;
+  border-bottom:2px solid transparent;
+  transition:all .2s;
+}
+.toc-link:hover { color:var(--gold); }
+.toc-link.active { color:var(--gold); border-bottom-color:var(--gold); }
+.toc-dot { width:6px; height:6px; border-radius:50%; flex-shrink:0; }
+
+/* ══════════════════════════════
+   OVERVIEW PANEL (最上層架構)
+══════════════════════════════ */
+.overview {
+  max-width:1040px; margin:0 auto;
+  padding:2.5rem 1.25rem 1rem;
+}
+.overview-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:.85rem;
+  margin-top:1.4rem;
+}
+.overview-card {
+  background:#fff;
+  border:0.5px solid rgba(0,0,0,.08);
+  border-radius:var(--r);
+  padding:1.2rem 1.3rem;
+  display:flex; gap:12px; align-items:flex-start;
+  box-shadow:var(--shadow);
+  cursor:pointer; text-decoration:none;
+  transition:all .22s;
+  position:relative;
+  overflow:hidden;
+}
+.overview-card::before {
+  content:''; position:absolute; top:0; left:0; right:0; height:3px;
+}
+.oc-tongues::before  { background:linear-gradient(90deg,var(--dove),var(--dove-light)); }
+.oc-vision::before   { background:linear-gradient(90deg,var(--teal),var(--teal-light)); }
+.oc-sharing::before  { background:linear-gradient(90deg,var(--gold),var(--gold-light)); }
+.oc-zhuyan::before   { background:linear-gradient(90deg,var(--ruby),var(--ruby-light)); }
+.oc-teacher::before  { background:linear-gradient(90deg,var(--sage),var(--sage-light)); }
+.overview-card:hover {
+  transform:translateY(-3px);
+  box-shadow:var(--shadow-hover);
+}
+.ov-icon {
+  width:36px; height:36px; border-radius:8px;
+  display:flex; align-items:center; justify-content:center;
+  font-size:16px; flex-shrink:0;
+}
+.oc-tongues  .ov-icon { background:var(--dove-pale); }
+.oc-vision   .ov-icon { background:var(--teal-pale); }
+.oc-sharing  .ov-icon { background:var(--gold-pale); }
+.oc-zhuyan   .ov-icon { background:var(--ruby-pale); }
+.oc-teacher  .ov-icon { background:var(--sage-pale); }
+.ov-body h4 { font-size:.88rem; font-weight:700; color:var(--ink); margin-bottom:2px; }
+.ov-body p  { font-size:.73rem; color:var(--muted); line-height:1.55; }
+
+/* ══════════════════════════════
+   SECTION WRAPPER
+══════════════════════════════ */
+.container { max-width:1040px; margin:0 auto; padding:0 1.25rem; }
+.sec { padding:2.8rem 0 1.5rem; }
+.sec-anchor { padding-top:70px; margin-top:-70px; }
+
+/* section header */
+.sec-hdr {
+  display:flex; align-items:center; gap:12px; margin-bottom:1.6rem;
+  padding-bottom:1rem; border-bottom:1px solid var(--border);
+}
+.sec-badge {
+  padding:4px 14px; border-radius:20px;
+  font-size:.7rem; font-weight:700; letter-spacing:2px; text-transform:uppercase;
+}
+.badge-tongues  { background:var(--dove-pale); color:var(--dove); }
+.badge-vision   { background:var(--teal-pale); color:var(--teal); }
+.badge-sharing  { background:var(--gold-pale); color:#7A620A; }
+.badge-zhuyan   { background:var(--ruby-pale); color:var(--ruby); }
+.badge-teacher  { background:var(--sage-pale); color:var(--sage); }
+.sec-hdr h2 {
+  font-family:'Noto Serif TC',serif;
+  font-size:1.25rem; font-weight:900; color:var(--ink);
+}
+.sec-sub { font-size:.75rem; color:var(--muted); margin-top:1px; }
+
+/* ══════════════════════════════
+   CONTENT ATOMS
+══════════════════════════════ */
+
+/* quote block */
+.qblock {
+  background:var(--deep); border-radius:var(--r-lg);
+  padding:2rem 2rem 1.6rem; margin-bottom:1.4rem; position:relative; overflow:hidden;
+}
+.qblock::before {
+  content:'"'; position:absolute; top:-1rem; left:1.2rem;
+  font-family:'Noto Serif TC',serif; font-size:7rem;
+  color:var(--gold); opacity:.12; line-height:1; pointer-events:none;
+}
+.qblock p {
+  font-family:'Noto Serif TC',serif;
+  font-size:1.02rem; color:#fff; line-height:1.95; margin-bottom:.7rem;
+}
+.qblock p em { color:var(--gold-light); font-style:normal; font-weight:700; }
+.qblock-src { font-size:.73rem; color:rgba(255,255,255,.4); letter-spacing:1.5px; }
+
+/* highlight box */
+.hbox {
+  border-radius:var(--r); padding:1.4rem 1.5rem; margin-bottom:1.2rem;
+}
+.hbox.gold  { background:var(--gold-pale);  border-left:3px solid var(--gold); }
+.hbox.dove  { background:var(--dove-pale);  border-left:3px solid var(--dove); }
+.hbox.ruby  { background:var(--ruby-pale);  border-left:3px solid var(--ruby); }
+.hbox.teal  { background:var(--teal-pale);  border-left:3px solid var(--teal); }
+.hbox.sage  { background:var(--sage-pale);  border-left:3px solid var(--sage); }
+.hbox-label {
+  font-size:.68rem; letter-spacing:2.5px; font-weight:700;
+  text-transform:uppercase; margin-bottom:.5rem;
+}
+.hbox.gold  .hbox-label { color:#7A620A; }
+.hbox.dove  .hbox-label { color:var(--dove); }
+.hbox.ruby  .hbox-label { color:var(--ruby); }
+.hbox.teal  .hbox-label { color:var(--teal); }
+.hbox.sage  .hbox-label { color:var(--sage); }
+.hbox h3 { font-family:'Noto Serif TC',serif; font-size:1rem; font-weight:700; color:var(--ink); margin-bottom:.5rem; }
+.hbox p, .hbox li { font-size:.84rem; color:var(--ink-soft); line-height:1.85; }
+.hbox ul, .hbox ol { padding-left:1.1rem; }
+.hbox li { margin-bottom:.2rem; }
+.hbox strong { color:var(--ink); }
+
+/* card grid */
+.card-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:1rem; margin-bottom:1.4rem;
+}
+.card {
+  background:#fff; border:0.5px solid rgba(0,0,0,.09);
+  border-radius:var(--r-lg); padding:1.4rem;
+  box-shadow:var(--shadow); transition:all .2s; position:relative; overflow:hidden;
+}
+.card:hover { transform:translateY(-2px); box-shadow:var(--shadow-hover); }
+.card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; }
+.card.c-gold::before  { background:linear-gradient(90deg,var(--gold),var(--gold-light)); }
+.card.c-dove::before  { background:linear-gradient(90deg,var(--dove),var(--dove-light)); }
+.card.c-ruby::before  { background:linear-gradient(90deg,var(--ruby),var(--ruby-light)); }
+.card.c-teal::before  { background:linear-gradient(90deg,var(--teal),var(--teal-light)); }
+.card.c-sage::before  { background:linear-gradient(90deg,var(--sage),var(--sage-light)); }
+.card-num {
+  font-family:'Noto Serif TC',serif; font-size:2.4rem; font-weight:900;
+  opacity:.08; position:absolute; top:.8rem; right:1rem; line-height:1;
+}
+.c-gold .card-num { color:var(--gold); }
+.c-dove .card-num { color:var(--dove); }
+.c-ruby .card-num { color:var(--ruby); }
+.c-teal .card-num { color:var(--teal); }
+.c-sage .card-num { color:var(--sage); }
+.card-icon { font-size:1.5rem; margin-bottom:.5rem; }
+.card h4 { font-family:'Noto Serif TC',serif; font-size:.95rem; font-weight:700; color:var(--ink); margin-bottom:.4rem; }
+.card p { font-size:.79rem; color:var(--muted); line-height:1.7; }
+
+/* vision item */
+.vision-list { display:flex; flex-direction:column; gap:.85rem; margin-bottom:1.4rem; }
+.vision-item {
+  background:#fff; border:0.5px solid rgba(0,0,0,.08);
+  border-radius:var(--r); padding:1.2rem 1.3rem;
+  display:flex; gap:14px; align-items:flex-start;
+  box-shadow:var(--shadow);
+}
+.v-num {
+  min-width:30px; height:30px; border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  font-size:.72rem; font-weight:700; flex-shrink:0; margin-top:1px;
+}
+.v-num.teal { background:var(--teal-pale); color:var(--teal); }
+.v-num.ruby { background:var(--ruby-pale); color:var(--ruby); }
+.v-num.gold { background:var(--gold-pale); color:#7A620A; }
+.v-num.dove { background:var(--dove-pale); color:var(--dove); }
+.v-num.sage { background:var(--sage-pale); color:var(--sage); }
+.v-body strong { display:block; font-size:.88rem; font-weight:700; color:var(--ink); margin-bottom:3px; }
+.v-body p { font-size:.8rem; color:var(--muted); line-height:1.7; }
+.v-word {
+  margin-top:.6rem; padding:.7rem .9rem;
+  border-radius:8px; font-size:.79rem; line-height:1.75;
+}
+.vw-teal { background:var(--teal-pale); border-left:2px solid var(--teal); color:#185049; }
+.vw-ruby { background:var(--ruby-pale); border-left:2px solid var(--ruby); color:#6B1621; }
+.vw-gold { background:var(--gold-pale); border-left:2px solid var(--gold); color:#7A620A; }
+.vw-dove { background:var(--dove-pale); border-left:2px solid var(--dove); color:#2B4A62; }
+.vw-sage { background:var(--sage-pale); border-left:2px solid var(--sage); color:#2E4A2B; }
+.v-word-label {
+  font-size:.65rem; letter-spacing:2px; font-weight:700;
+  text-transform:uppercase; margin-bottom:4px;
+}
+.vw-teal .v-word-label { color:var(--teal); }
+.vw-ruby .v-word-label { color:var(--ruby); }
+.vw-gold .v-word-label { color:#7A620A; }
+.vw-dove .v-word-label { color:var(--dove); }
+.vw-sage .v-word-label { color:var(--sage); }
+
+/* person share */
+.person-hdr {
+  display:flex; align-items:center; gap:10px; margin-bottom:1rem;
+  padding:.6rem 1rem; background:var(--parchment2); border-radius:8px;
+}
+.person-avatar {
+  width:34px; height:34px; border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  font-size:14px; font-weight:700; flex-shrink:0;
+  background:var(--deep); color:var(--gold);
+  font-family:'Noto Serif TC',serif;
+}
+.person-name { font-size:.85rem; font-weight:700; color:var(--ink); }
+.person-role { font-size:.72rem; color:var(--muted); }
+
+/* two-col */
+.two-col { display:grid; grid-template-columns:1fr 1fr; gap:0; background:#fff; border-radius:var(--r-lg); border:.5px solid rgba(0,0,0,.09); overflow:hidden; margin-bottom:1.4rem; }
+@media(max-width:560px){ .two-col { grid-template-columns:1fr; } }
+.col-side { padding:1.5rem 1.4rem; }
+.col-side:first-child { border-right:.5px solid rgba(0,0,0,.07); }
+.col-label { font-size:.66rem; letter-spacing:2.5px; font-weight:700; text-transform:uppercase; margin-bottom:.5rem; }
+.col-title { font-family:'Noto Serif TC',serif; font-size:1rem; font-weight:700; color:var(--ink); margin-bottom:.6rem; }
+.col-list { list-style:none; padding:0; }
+.col-list li { font-size:.79rem; color:var(--muted); line-height:1.65; padding:3px 0 3px 14px; position:relative; }
+.col-list li::before { content:'·'; position:absolute; left:2px; font-size:1rem; line-height:1.3; }
+
+/* scripture */
+.scripture {
+  background:var(--deep); border-radius:var(--r); padding:1.5rem 1.8rem;
+  margin-bottom:1.2rem; position:relative;
+}
+.scripture-ref {
+  font-size:.68rem; letter-spacing:2px; color:var(--gold); font-weight:700;
+  text-transform:uppercase; margin-bottom:.5rem;
+}
+.scripture p {
+  font-family:'Noto Serif TC',serif;
+  font-size:.88rem; color:rgba(255,255,255,.82); line-height:2;
+}
+.scripture p em { color:var(--gold-light); font-style:normal; }
+
+/* mindmap wrapper */
+.mm-wrap {
+  background:#fff; border-radius:var(--r-lg);
+  border:.5px solid rgba(0,0,0,.09); overflow:hidden; margin-bottom:1.4rem;
+}
+.mm-wrap svg { display:block; width:100%; }
+
+/* divider */
+.divider {
+  display:flex; align-items:center; gap:12px;
+  margin:.4rem 0 1.4rem; opacity:.3;
+}
+.divider::before, .divider::after { content:''; flex:1; height:.5px; background:var(--muted); }
+.divider span { font-size:9px; letter-spacing:3px; color:var(--muted); text-transform:uppercase; }
+
+/* alert */
+.alert {
+  border-radius:var(--r); padding:1rem 1.3rem; margin-bottom:1.2rem;
+  display:flex; gap:10px; align-items:flex-start;
+}
+.alert.warn { background:#FFF8E8; border:1px solid #E8C840; }
+.alert.info { background:var(--dove-pale); border:1px solid var(--dove-light); }
+.alert-icon { font-size:1.2rem; flex-shrink:0; margin-top:1px; }
+.alert p { font-size:.8rem; color:var(--ink-soft); line-height:1.75; }
+.alert strong { color:var(--ink); }
+
+/* footer */
+.page-footer {
+  background:var(--deep); text-align:center;
+  padding:2rem 1rem; margin-top:3rem;
+  border-top:1px solid rgba(201,168,76,.2);
+}
+.page-footer p { font-size:.76rem; color:rgba(255,255,255,.3); letter-spacing:1px; }
+.page-footer strong { color:var(--gold); font-weight:400; }
+
+@media(max-width:640px){
+  .hero { padding:3rem 1.2rem 2.5rem; }
+  .overview { padding:1.8rem .9rem .5rem; }
+  .container { padding:0 .9rem; }
+  .toc-link { padding:10px 10px; font-size:11px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════ HERO ═══════════════ -->
+<header class="hero">
+  <div class="hero-series">🕊️ 1220 輯週訓</div>
+  <h1>神所<em>賜下</em>的話語</h1>
+  <p class="hero-meta">2022年5月15日 台中主日敬拜</p>
+  <div class="hero-date-badge">週訓整理日期 2026年5月24日</div>
+</header>
+
+<!-- ═══════════════ TOC ═══════════════ -->
+<nav class="toc-bar" id="tocBar">
+  <div class="toc-inner">
+    <a class="toc-link active" href="#overview">
+      <span class="toc-dot" style="background:var(--gold)"></span>總覽
+    </a>
+    <a class="toc-link" href="#tongues">
+      <span class="toc-dot" style="background:var(--dove)"></span>🕊️ 翻方言
+    </a>
+    <a class="toc-link" href="#vision">
+      <span class="toc-dot" style="background:var(--teal)"></span>👁️ 異象
+    </a>
+    <a class="toc-link" href="#sharing-xiumei">
+      <span class="toc-dot" style="background:var(--gold)"></span>💛 秀美師母分享
+    </a>
+    <a class="toc-link" href="#sharing-zhuyan">
+      <span class="toc-dot" style="background:var(--ruby)"></span>📣 箴言師母回應
+    </a>
+    <a class="toc-link" href="#teacher">
+      <span class="toc-dot" style="background:var(--sage)"></span>🙏 教師回應
+    </a>
+  </div>
+</nav>
+
+<!-- ═══════════════ OVERVIEW ═══════════════ -->
+<div class="overview" id="overview">
+  <div class="sec-hdr" style="border-bottom:0;padding-bottom:0;margin-bottom:.5rem;">
+    <div>
+      <div style="font-size:.68rem;letter-spacing:3px;color:var(--gold);font-weight:700;text-transform:uppercase;margin-bottom:3px;">本期架構一覽</div>
+      <h2 style="font-family:'Noto Serif TC',serif;font-size:1.1rem;font-weight:900;color:var(--ink);">五大區塊 · 點擊直達</h2>
+    </div>
+  </div>
+
+  <!-- 核心信息摘要 -->
+  <div style="background:var(--deep);border-radius:var(--r-lg);padding:1.5rem 1.8rem;margin:1.2rem 0 1.4rem;position:relative;overflow:hidden;">
+    <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 60% 50%,rgba(201,168,76,.09),transparent 70%);pointer-events:none;"></div>
+    <div style="font-size:.68rem;letter-spacing:3px;color:var(--gold);font-weight:700;text-transform:uppercase;margin-bottom:.8rem;">本週核心三重信息</div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:.8rem;">
+      <div style="background:rgba(255,255,255,.05);border-radius:10px;padding:1rem 1.1rem;">
+        <div style="font-size:.68rem;letter-spacing:2px;color:var(--dove-light);font-weight:700;text-transform:uppercase;margin-bottom:4px;">第一重</div>
+        <div style="font-family:'Noto Serif TC',serif;font-size:.95rem;color:#fff;font-weight:700;margin-bottom:4px;">慈繩愛索的父神之愛</div>
+        <div style="font-size:.75rem;color:rgba(255,255,255,.45);line-height:1.6;">從母腹揀選 → 慈繩引導 → 警告遠離，父神的愛貫穿整個生命旅程。</div>
+      </div>
+      <div style="background:rgba(255,255,255,.05);border-radius:10px;padding:1rem 1.1rem;">
+        <div style="font-size:.68rem;letter-spacing:2px;color:var(--teal-light);font-weight:700;text-transform:uppercase;margin-bottom:4px;">第二重</div>
+        <div style="font-family:'Noto Serif TC',serif;font-size:.95rem;color:#fff;font-weight:700;margin-bottom:4px;">神之子體系的整體光景</div>
+        <div style="font-size:.75rem;color:rgba(255,255,255,.45);line-height:1.6;">異象呈現：零零落落的隊伍、只顧自己的孩子、需要聽道順服的警醒。</div>
+      </div>
+      <div style="background:rgba(255,255,255,.05);border-radius:10px;padding:1rem 1.1rem;">
+        <div style="font-size:.68rem;letter-spacing:2px;color:var(--gold-light);font-weight:700;text-transform:uppercase;margin-bottom:4px;">第三重</div>
+        <div style="font-family:'Noto Serif TC',serif;font-size:.95rem;color:#fff;font-weight:700;margin-bottom:4px;">屬靈根基的重申</div>
+        <div style="font-size:.75rem;color:rgba(255,255,255,.45);line-height:1.6;">相信全本聖經 + 牧師末後信息 + 總會帶領，恩賜與九果平衡而行。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="overview-grid">
+    <a class="overview-card oc-tongues" href="#tongues">
+      <div class="ov-icon">🕊️</div>
+      <div class="ov-body">
+        <h4>翻方言 — 父神的慈繩愛索</h4>
+        <p>服事者：吳陳麗英姊妹。父神的愛從母腹開始，慈繩愛索引導一生，但若走向不信，父神必傷痛剪斷。</p>
+      </div>
+    </a>
+    <a class="overview-card oc-vision" href="#vision">
+      <div class="ov-icon">👁️</div>
+      <div class="ov-body">
+        <h4>異象分享 — 六位服事者</h4>
+        <p>9927–9934，包含水田稻苗、牛軛重擔、隊伍零落、生命冊塗抹、說謊審判、升花跳躍等異象。</p>
+      </div>
+    </a>
+    <a class="overview-card oc-sharing" href="#sharing-xiumei">
+      <div class="ov-icon">💛</div>
+      <div class="ov-body">
+        <h4>秀美師母 — 屬靈的家庭</h4>
+        <p>從母親隱忍外遇的榜樣，談屬靈家庭的維護；異象需有好行為印證，不可成為混亂之源。</p>
+      </div>
+    </a>
+    <a class="overview-card oc-zhuyan" href="#sharing-zhuyan">
+      <div class="ov-icon">📣</div>
+      <div class="ov-body">
+        <h4>箴言師母 — 屬靈根基再重申</h4>
+        <p>三信（聖經、末後信息、總會帶領）、恩賜九果平衡論、不自誇不拆毀、魔鬼插播的辨別。</p>
+      </div>
+    </a>
+    <a class="overview-card oc-teacher" href="#teacher">
+      <div class="ov-icon">🙏</div>
+      <div class="ov-body">
+        <h4>教師回應 — 愛與沉澱</h4>
+        <p>小事反覆出現的問題、愛人如己的根本功課、時間開放給需要傾訴的弟兄姊妹。</p>
+      </div>
+    </a>
+  </div>
+</div>
+
+<!-- ═══════════════ SECTION 1: 翻方言 ═══════════════ -->
+<div class="container">
+  <div id="tongues" class="sec-anchor"></div>
+  <section class="sec">
+    <div class="sec-hdr">
+      <span class="sec-badge badge-tongues">翻方言</span>
+      <div>
+        <h2>父神的慈繩愛索</h2>
+        <div class="sec-sub">服事者：吳陳麗英姊妹 · 2022年5月15日 台中主日</div>
+      </div>
+    </div>
+
+    <!-- 核心金句 -->
+    <div class="qblock">
+      <p>我所愛的孩子們平安！為父看著你們每一位，<em>耶和華的眼目遍察全地</em>！我的眼目真是時刻看著你們每一位，我是鑒察人心肺腑的 神！自從我創造你們開始，我就愛你們了！</p>
+      <p class="qblock-src">— 6697 號翻方言 · 吳陳麗英姊妹</p>
+    </div>
+
+    <!-- 四個核心主題 -->
+    <div class="card-grid">
+      <div class="card c-dove">
+        <div class="card-num">一</div>
+        <div class="card-icon">💞</div>
+        <h4>從創造就開始的愛</h4>
+        <p>自從神創造我們，就已愛我們。在母腹中決定信祂，歸入祂名下時，祂用慈繩愛索牽引，引導我們走過每一天。</p>
+      </div>
+      <div class="card c-gold">
+        <div class="card-num">二</div>
+        <div class="card-icon">🧵</div>
+        <h4>慈繩愛索的雙向運動</h4>
+        <p>我們時而靠近、時而遠離，神都與我們同在。即便我們忘記神，祂仍在那裏等候，如同父親等候浪子回頭。</p>
+      </div>
+      <div class="card c-ruby">
+        <div class="card-num">三</div>
+        <div class="card-icon">😢</div>
+        <h4>剪斷慈繩愛索的傷痛</h4>
+        <p>當人走向不信的路，神不得不剪斷那條慈繩愛索，把名字從生命冊塗抹——那是父神何等的傷痛！</p>
+      </div>
+      <div class="card c-teal">
+        <div class="card-num">四</div>
+        <div class="card-icon">🙏</div>
+        <h4>回來吧！誠心祈求</h4>
+        <p>神再次向我們的心喊話：當懼怕、憂愁、掛慮之時，讓神安慰你的心，祂會聽禱告、撫平憂傷。</p>
+      </div>
+    </div>
+
+    <div class="divider"><span>深度展開</span></div>
+
+    <!-- 心智圖：慈繩愛索 -->
+    <div class="mm-wrap">
+      <svg viewBox="0 0 900 420" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+            <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </marker>
+        </defs>
+        <rect width="900" height="420" fill="#FDFAF3"/>
+        <!-- center -->
+        <rect x="330" y="170" width="240" height="66" rx="12" fill="#14100C" stroke="#C9A84C" stroke-width="1.5"/>
+        <text x="450" y="197" text-anchor="middle" font-family="Noto Serif TC,serif" font-size="13" fill="#E8D08A" font-weight="700">慈繩愛索的父神之愛</text>
+        <text x="450" y="220" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="10" fill="rgba(255,255,255,0.4)">6697 號翻方言</text>
+        <!-- 母腹揀選 -->
+        <path d="M370 178 Q270 130 170 100" fill="none" stroke="#5C7289" stroke-width="1.2" marker-end="url(#arr)"/>
+        <rect x="30" y="62" width="155" height="70" rx="8" fill="#EAF1F8" stroke="#5C7289" stroke-width=".8"/>
+        <text x="107" y="89" text-anchor="middle" font-family="Noto Serif TC,serif" font-size="11.5" fill="#2B4A62" font-weight="700">從母腹揀選</text>
+        <text x="107" y="107" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#5C7289">決定信神</text>
+        <text x="107" y="122" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#5C7289">歸入祂名下</text>
+        <!-- 天使護衛 -->
+        <path d="M530 178 Q630 130 730 100" fill="none" stroke="#2E7A70" stroke-width="1.2" marker-end="url(#arr)"/>
+        <rect x="715" y="62" width="168" height="70" rx="8" fill="#E0F2EF" stroke="#2E7A70" stroke-width=".8"/>
+        <text x="799" y="89" text-anchor="middle" font-family="Noto Serif TC,serif" font-size="11.5" fill="#185049" font-weight="700">天使護衛</text>
+        <text x="799" y="107" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#2E7A70">進入體系加派護衛</text>
+        <text x="799" y="122" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#2E7A70">生命長進換更大天使</text>
+        <!-- 靠近遠離 -->
+        <path d="M340 202 Q220 202 175 202" fill="none" stroke="#C9A84C" stroke-width="1.2" marker-end="url(#arr)"/>
+        <rect x="20" y="167" width="153" height="70" rx="8" fill="#FAF3DC" stroke="#C9A84C" stroke-width=".8"/>
+        <text x="96" y="194" text-anchor="middle" font-family="Noto Serif TC,serif" font-size="11.5" fill="#7A620A" font-weight="700">忽近忽遠</text>
+        <text x="96" y="212" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#9A7E3A">即便遠離</text>
+        <text x="96" y="227" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#9A7E3A">神仍等候</text>
+        <!-- 剪斷 -->
+        <path d="M560 202 Q685 202 730 202" fill="none" stroke="#8C2030" stroke-width="1.2" marker-end="url(#arr)"/>
+        <rect x="730" y="167" width="155" height="70" rx="8" fill="#FAEAED" stroke="#8C2030" stroke-width=".8"/>
+        <text x="807" y="194" text-anchor="middle" font-family="Noto Serif TC,serif" font-size="11.5" fill="#6B1621" font-weight="700">走向不信</text>
+        <text x="807" y="212" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#8C2030">從生命冊塗抹</text>
+        <text x="807" y="227" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#8C2030">剪斷慈繩愛索</text>
+        <!-- 手機電腦 -->
+        <path d="M390 234 Q300 300 225 345" fill="none" stroke="#8C2030" stroke-width="1.2" marker-end="url(#arr)"/>
+        <rect x="50" y="316" width="178" height="70" rx="8" fill="#FAEAED" stroke="#8C2030" stroke-width=".8"/>
+        <text x="139" y="343" text-anchor="middle" font-family="Noto Serif TC,serif" font-size="11.5" fill="#6B1621" font-weight="700">常見的陷阱</text>
+        <text x="139" y="361" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#8C2030">覺得手機比神快</text>
+        <text x="139" y="377" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#8C2030">把神擺在一邊</text>
+        <!-- 回來禱告 -->
+        <path d="M510 234 Q600 300 675 345" fill="none" stroke="#2E7A70" stroke-width="1.2" marker-end="url(#arr)"/>
+        <rect x="662" y="316" width="178" height="70" rx="8" fill="#E0F2EF" stroke="#2E7A70" stroke-width=".8"/>
+        <text x="751" y="343" text-anchor="middle" font-family="Noto Serif TC,serif" font-size="11.5" fill="#185049" font-weight="700">神的邀請</text>
+        <text x="751" y="361" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#2E7A70">回來！誠心祈求</text>
+        <text x="751" y="377" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#2E7A70">神撫平憂傷</text>
+        <!-- 浪子 -->
+        <path d="M450 236 L450 308" fill="none" stroke="#6B5D3E" stroke-width="1.2" stroke-dasharray="4,3" marker-end="url(#arr)"/>
+        <rect x="370" y="308" width="160" height="56" rx="8" fill="#F5EDD8" stroke="#6B5D3E" stroke-width=".8"/>
+        <text x="450" y="331" text-anchor="middle" font-family="Noto Serif TC,serif" font-size="11.5" fill="#28200E" font-weight="700">浪子回頭的父親</text>
+        <text x="450" y="351" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#7A6B50">日日在門外巴望</text>
+      </svg>
+    </div>
+
+    <div class="hbox dove">
+      <div class="hbox-label">重點提醒</div>
+      <h3>手機比神更快？</h3>
+      <p>神指出：當我們向祂呼求、禱告得到解答，開心分享後，幾天後就把神忘了。等再遇見問題，<strong>就不再找神，因為覺得手機、電腦比較快！</strong>這種反覆，讓慈繩愛索漸漸搆不著。</p>
+    </div>
+  </section>
+
+  <div class="divider"><span>異象</span></div>
+
+  <!-- ═══════════════ SECTION 2: 異象 ═══════════════ -->
+  <div id="vision" class="sec-anchor"></div>
+  <section class="sec">
+    <div class="sec-hdr">
+      <span class="sec-badge badge-vision">異象</span>
+      <div>
+        <h2>六位服事者的異象 9927–9934</h2>
+        <div class="sec-sub">2022年5月15日 台中主日 · 多位服事者</div>
+      </div>
+    </div>
+
+    <div class="vision-list">
+
+      <!-- 9927 林林秀美師母 -->
+      <div class="vision-item">
+        <div class="v-num teal">9927</div>
+        <div style="flex:1;">
+          <div class="person-hdr">
+            <div class="person-avatar">秀</div>
+            <div><div class="person-name">林林秀美師母</div><div class="person-role">異象 9927 · 三則</div></div>
+          </div>
+          <div class="vision-list" style="gap:.6rem;margin-bottom:0;">
+            <div>
+              <strong class="v-body" style="display:block;font-size:.85rem;font-weight:700;color:var(--ink);margin-bottom:3px;">① 水田稻苗 — 牧師珍惜每一株</strong>
+              <p style="font-size:.79rem;color:var(--muted);line-height:1.7;">詩班獻詩時，看到一處水田，牧師細心觀看每一株稻苗，珍惜照顧的模樣。</p>
+              <div class="v-word vw-teal">
+                <div class="v-word-label">話語</div>
+                「孩子，我僕人就是如此的珍惜你們，因你們在我眼中都是至寶。」
+              </div>
+            </div>
+            <div>
+              <strong class="v-body" style="display:block;font-size:.85rem;font-weight:700;color:var(--ink);margin-bottom:3px;">② 智安弟兄肩頭的軛</strong>
+              <p style="font-size:.79rem;color:var(--muted);line-height:1.7;">智安弟兄唱靈歌時，看見其脖子和肩頭拖著類似牛身上的軛。</p>
+              <div class="v-word vw-ruby">
+                <div class="v-word-label">話語</div>
+                「孩子，不要讓屬世的轄制了你。你是辛苦的，要把擔子卸給我才能釋放。雖然你已經習慣，但在我的眼中那是重擔。」
+              </div>
+            </div>
+            <div>
+              <strong class="v-body" style="display:block;font-size:.85rem;font-weight:700;color:var(--ink);margin-bottom:3px;">③ 草場上零落的隊伍</strong>
+              <p style="font-size:.79rem;color:var(--muted);line-height:1.7;">教師翻方言時，看見牧師在草場上撐著旗要整隊，有人坐著躺著，只顧自己；有的站好了，但整個隊伍零零落落。</p>
+              <div class="v-word vw-gold">
+                <div class="v-word-label">話語</div>
+                「我揀選的孩子在哪裏？我可用的孩子又在哪裏？」
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 9928 康裕隆弟兄 -->
+      <div class="vision-item">
+        <div class="v-num ruby">9928</div>
+        <div style="flex:1;">
+          <div class="person-hdr">
+            <div class="person-avatar">康</div>
+            <div><div class="person-name">康裕隆弟兄</div><div class="person-role">異象 9928 · 一則</div></div>
+          </div>
+          <strong class="v-body" style="display:block;font-size:.85rem;font-weight:700;color:var(--ink);margin-bottom:3px;">婦人摔碎陶罐</strong>
+          <p style="font-size:.79rem;color:var(--muted);line-height:1.7;">婦人將手上有丈夫名字的陶罐摔碎在沙灘，海浪沖走後又後悔尋找。</p>
+          <div class="v-word vw-ruby" style="margin-top:.6rem;">
+            <div class="v-word-label">話語</div>
+            「教會不是個人的避風港，先把家管理好，再來傳福音做神的工。智慧婦人建立家室；愚妄婦人親手拆毀。」
+          </div>
+        </div>
+      </div>
+
+      <!-- 9929 潘純姃姊妹 -->
+      <div class="vision-item">
+        <div class="v-num gold">9929</div>
+        <div style="flex:1;">
+          <div class="person-hdr">
+            <div class="person-avatar">潘</div>
+            <div><div class="person-name">潘純姃姊妹</div><div class="person-role">異象 9929 · 一則</div></div>
+          </div>
+          <strong class="v-body" style="display:block;font-size:.85rem;font-weight:700;color:var(--ink);margin-bottom:3px;">司會服事時的話語</strong>
+          <div class="v-word vw-gold" style="margin-top:.4rem;">
+            <div class="v-word-label">話語</div>
+            「我很看重你們的服事，我真心對待你們，你們也要誠實對待我。所以無論任何大小服事，都要專心、忠心，聚會時更要專注，不要敷衍了事，那麼你們在天上的獎賞是大的！」
+          </div>
+        </div>
+      </div>
+
+      <!-- 9930 黃劉麗貞姊妹 -->
+      <div class="vision-item">
+        <div class="v-num dove">9930</div>
+        <div style="flex:1;">
+          <div class="person-hdr">
+            <div class="person-avatar">黃</div>
+            <div><div class="person-name">黃劉麗貞姊妹</div><div class="person-role">異象 9930 · 兩則</div></div>
+          </div>
+          <strong style="display:block;font-size:.85rem;font-weight:700;color:var(--ink);margin-bottom:3px;">① 玫瑰花園 — 牧師師母散步</strong>
+          <p style="font-size:.79rem;color:var(--muted);line-height:1.7;">詩班獻唱前奏時，看見牧師與孩子們在美麗花園，粉蝶穿過花叢，牧師與孩子們一起放著風箏，心情愉快。</p>
+          <strong style="display:block;font-size:.85rem;font-weight:700;color:var(--ink);margin:.5rem 0 3px;">② 安靜心時的問話</strong>
+          <div class="v-word vw-dove" style="margin-top:.3rem;">
+            <div class="v-word-label">話語</div>
+            「今日是否領受到跟翻方言一樣的感動，為父的心腸啊！」
+          </div>
+        </div>
+      </div>
+
+      <!-- 9931 王靜巧姊妹 -->
+      <div class="vision-item">
+        <div class="v-num ruby">9931</div>
+        <div style="flex:1;">
+          <div class="person-hdr">
+            <div class="person-avatar">王</div>
+            <div><div class="person-name">王靜巧姊妹</div><div class="person-role">異象 9931 · 一則</div></div>
+          </div>
+          <strong style="display:block;font-size:.85rem;font-weight:700;color:var(--ink);margin-bottom:3px;">生命冊上的一滴眼淚</strong>
+          <p style="font-size:.79rem;color:var(--muted);line-height:1.7;">看見一本發光的生命冊，有天使用金色的筆將某人的名字塗抹時，<strong>從天上掉落一顆眼淚</strong>——這是父神心中的傷痛。</p>
+        </div>
+      </div>
+
+      <!-- 9932 陳世豐弟兄 -->
+      <div class="vision-item">
+        <div class="v-num teal">9932</div>
+        <div style="flex:1;">
+          <div class="person-hdr">
+            <div class="person-avatar">陳</div>
+            <div><div class="person-name">陳世豐弟兄</div><div class="person-role">異象 9932 · 一則</div></div>
+          </div>
+          <strong style="display:block;font-size:.85rem;font-weight:700;color:var(--ink);margin-bottom:3px;">洶湧海浪 vs 平靜海面</strong>
+          <p style="font-size:.79rem;color:var(--muted);line-height:1.7;">唱詩歌《只要相信》時，耳聽洶湧海浪聲，眼見的卻是平靜無風無浪的海面——聽見與看見完全相反。</p>
+          <div class="v-word vw-teal" style="margin-top:.5rem;">
+            <div class="v-word-label">話語</div>
+            「哪一個是真實的呢？說謊的人有罪了，他用謊言蒙蔽了真相，顛倒了是非……凡有耳的就當聽。」
+          </div>
+        </div>
+      </div>
+
+      <!-- 9933 李之馨姊妹 -->
+      <div class="vision-item">
+        <div class="v-num gold">9933</div>
+        <div style="flex:1;">
+          <div class="person-hdr">
+            <div class="person-avatar">馨</div>
+            <div><div class="person-name">李之馨姊妹</div><div class="person-role">異象 9933 · 兩則</div></div>
+          </div>
+          <strong style="display:block;font-size:.85rem;font-weight:700;color:var(--ink);margin-bottom:3px;">① 乘花升高卻不斷跳往白花的人</strong>
+          <p style="font-size:.79rem;color:var(--muted);line-height:1.7;">靈琴服事時，看到有個人乘著白花飄在空中，當白花漸漸升高要變黃花時，他就跳往其他朵白花——<strong>眼睛一直向地上看</strong>，不願升高。</p>
+          <strong style="display:block;font-size:.85rem;font-weight:700;color:var(--ink);margin:.5rem 0 3px;">② 淡藍色禮服的人</strong>
+          <p style="font-size:.79rem;color:var(--muted);line-height:1.7;">安靜心時，淡藍色小紙片從天空落下越變越大，成為穿著淡藍色禮服的人，有手指在其上畫圈使他動起來，如轉動音樂盒。</p>
+          <div class="v-word vw-gold" style="margin-top:.5rem;">
+            <div class="v-word-label">話語</div>
+            「一切都是預定的，起頭與結束都是預定的……預備我再來的道路，我愛你們！」
+          </div>
+        </div>
+      </div>
+
+    </div><!-- end vision-list -->
+
+    <div class="alert info">
+      <span class="alert-icon">ℹ️</span>
+      <p>異象 9934（章艾琳姊妹）為現場記錄分享，記述當日台中主場敬拜的種種感動，包含看見牧師師母在玫瑰園散步、nini lingling boots 的溫馨畫面，以及對各服事者神情的屬靈感受。</p>
+    </div>
+  </section>
+
+  <div class="divider"><span>師母分享</span></div>
+
+  <!-- ═══════════════ SECTION 3: 秀美師母 ═══════════════ -->
+  <div id="sharing-xiumei" class="sec-anchor"></div>
+  <section class="sec">
+    <div class="sec-hdr">
+      <span class="sec-badge badge-sharing">師母分享</span>
+      <div>
+        <h2>屬靈的家庭，你怎麼顧？</h2>
+        <div class="sec-sub">分享：林林秀美師母</div>
+      </div>
+    </div>
+
+    <div class="person-hdr" style="margin-bottom:1.2rem;">
+      <div class="person-avatar">秀</div>
+      <div><div class="person-name">林林秀美師母</div><div class="person-role">體系進入第十四年的感慨與提醒</div></div>
+    </div>
+
+    <!-- 核心論述 -->
+    <div class="two-col">
+      <div class="col-side path-a">
+        <div class="col-label" style="color:var(--ruby);">屬世的家庭</div>
+        <div class="col-title">師母母親的榜樣</div>
+        <ul class="col-list" style="--c:var(--ruby)">
+          <li style="color:var(--muted);">從28歲起面對丈夫外遇，默默隱忍</li>
+          <li style="color:var(--muted);">不讓孩子知道家裏的不幸，維護家庭和平</li>
+          <li style="color:var(--muted);">拚命工作，撐起整個家</li>
+          <li style="color:var(--muted);">孩子上初中、大學才知道此事</li>
+          <li style="color:var(--muted);">出發點：讓家有和平的樣子</li>
+        </ul>
+      </div>
+      <div class="col-side path-b">
+        <div class="col-label" style="color:var(--dove);">屬靈的家庭</div>
+        <div class="col-title">我們卻沒有去顧</div>
+        <ul class="col-list" style="--c:var(--dove)">
+          <li style="color:var(--muted);">屬世家庭很盡力，屬靈家庭卻放任</li>
+          <li style="color:var(--muted);">數十年如一日，靈性成長未見長進</li>
+          <li style="color:var(--muted);">基本的有禮貌、待人之道理當懂</li>
+          <li style="color:var(--muted);">家顧不好，讓人遺憾</li>
+          <li style="color:var(--muted);">體系若再不顧好，就要自己瓦解</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 異象需印證的原則 -->
+    <div class="hbox ruby">
+      <div class="hbox-label">重要提醒</div>
+      <h3>異象需要好行為作為印證</h3>
+      <p>師母坦言：她相信異象，但是<strong>選擇性的信</strong>——行為表現不阿門的人，其異象她不會信。若生命不美、常常出狀況，所說的異象要先打問號。</p>
+      <ul style="margin-top:.7rem;">
+        <li>有理就有理，不要用異象或靈的感覺搪塞別人</li>
+        <li>異象若未印證，不要來跟弟兄姊妹講</li>
+        <li>許多事情用常識或知識就可以判斷，不要讓人覺得我們是異端</li>
+        <li>行為不美的，讓人懷疑異象的真實性</li>
+      </ul>
+    </div>
+
+    <!-- 三個相信 -->
+    <div class="hbox gold">
+      <div class="hbox-label">牧師的教導再強調</div>
+      <h3>我們要相信什麼？</h3>
+      <p>麗英姊妹分享了牧師的叮嚀：</p>
+      <ul style="margin-top:.6rem;">
+        <li><strong>第一：相信聖經的話語</strong>——神的話語沒有問題</li>
+        <li><strong>第二：相信牧師所傳的末後信息</strong>——前無古人的珍貴啟示</li>
+        <li><strong>第三：相信神在體系的計劃</strong>——異象、翻方言、愛的叮嚀、最高學府、教師讀經</li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="divider"><span>箴言師母</span></div>
+
+  <!-- ═══════════════ SECTION 4: 箴言師母 ═══════════════ -->
+  <div id="sharing-zhuyan" class="sec-anchor"></div>
+  <section class="sec">
+    <div class="sec-hdr">
+      <span class="sec-badge badge-zhuyan">箴言師母回應</span>
+      <div>
+        <h2>屬靈根基再重申</h2>
+        <div class="sec-sub">分享：朱林箴言師母 · 長篇回應與提醒</div>
+      </div>
+    </div>
+
+    <div class="person-hdr" style="margin-bottom:1.2rem;">
+      <div class="person-avatar">箴</div>
+      <div><div class="person-name">朱林箴言師母</div><div class="person-role">「我活著的目的，就是守住這個家，不容任何人來破壞。」</div></div>
+    </div>
+
+    <!-- 三個相信 -->
+    <div class="card-grid">
+      <div class="card c-dove">
+        <div class="card-num">一</div>
+        <div class="card-icon">📖</div>
+        <h4>相信全本聖經</h4>
+        <p>包括隱藏的書、封閉的話，直到末時才揭開的各樣奧秘真理——也在聖經裏，以前是隱藏起來的。</p>
+      </div>
+      <div class="card c-gold">
+        <div class="card-num">二</div>
+        <div class="card-icon">🏛️</div>
+        <h4>相信牧師所傳</h4>
+        <p>神藉著牧師之所傳的全備真理——是我們留下來、被吸引過來的真正原因，非異象也非吃愛宴。</p>
+      </div>
+      <div class="card c-teal">
+        <div class="card-num">三</div>
+        <div class="card-icon">🏛️</div>
+        <h4>相信總會帶領</h4>
+        <p>相信神藉著總會的帶領與計劃。各種啟示、各種聖工，無論大小，都要經過團隊服事禱告求告神。</p>
+      </div>
+      <div class="card c-ruby">
+        <div class="card-num">四</div>
+        <div class="card-icon">🦅</div>
+        <h4>恩賜與九果平衡</h4>
+        <p>聖靈恩賜和聖靈九果如鳥的兩翅膀，若恩賜與行為完全不搭，這隻鳥是飛不起來的，亂飛亂撞。</p>
+      </div>
+    </div>
+
+    <!-- 保羅書信引用 -->
+    <div class="scripture">
+      <div class="scripture-ref">哥林多前書 1：26–29</div>
+      <p>弟兄們哪，可見你們蒙召的，按著肉體有智慧的不多，有能力的不多，有尊貴的也不多。<em>神卻揀選了世上愚拙的，叫有智慧的羞愧；又揀選了世上軟弱的，叫那強壯的羞愧。</em>神也揀選了世上卑賤的，被人厭惡的，以及那無有的，為要廢掉那有的，使一切有血氣的，在神面前一個也不能自誇。</p>
+    </div>
+    <div class="scripture" style="margin-bottom:1.4rem;">
+      <div class="scripture-ref">哥林多前書 12：22–24</div>
+      <p>不但如此，身上肢體人以為軟弱的，更是不可少的。身上肢體，我們看為不體面的，越發給它加上體面；不俊美的，越發得著俊美。<em>我們俊美的肢體，自然用不著裝飾；但神配搭這身子，把加倍的體面給那有缺欠的肢體。</em></p>
+    </div>
+
+    <div class="hbox ruby">
+      <div class="hbox-label">核心警告</div>
+      <h3>得了基本恩賜，不可耀武揚威</h3>
+      <p>神揀選愚拙、軟弱、卑賤的人，目的是讓自以為聰明、強壯的人無話可說。然而許多人得到基本的 ABCD 恩賜（看異象、唱靈歌、說方言）之後，<strong>就忍不住自誇自大、目中無人、搶奪神的榮耀</strong>——這是毛病。</p>
+      <p style="margin-top:.5rem;">重點不是靠神凡事都能來炫耀，而是見證：<strong>很暴躁的，結出聖靈九果了；老我很大的，變得柔和謙卑了。</strong>讓自以為聰明的人沒有一個可以自誇。</p>
+    </div>
+
+    <!-- 魔鬼插播的辨別 -->
+    <div class="hbox dove">
+      <div class="hbox-label">辨別之道</div>
+      <h3>魔鬼給你九十幾分，在緊要關頭讓你犯錯</h3>
+      <ul>
+        <li>魔鬼讓你看的、算的都很準，使你誤以為自己是神的代言人</li>
+        <li>然後在最緊要的關頭插播一個嚴重的錯誤，讓你犯下不可挽回的過失</li>
+        <li><strong>啟示的三個來源：</strong>①聖靈真實的感動 ②你魂的引動 ③仇敵的插播</li>
+        <li>生命不美、沉不住氣的人，魂的引動和仇敵插播佔比更高</li>
+        <li>主日敬拜中比較準確，但不代表每一次都準確</li>
+      </ul>
+    </div>
+
+    <div class="hbox sage">
+      <div class="hbox-label">師母的心聲</div>
+      <h3>我守住這個家，不容任何人拆毀</h3>
+      <p>師母說：「我絕不容任何一個人拆毀。你想拆毀神之子體系，門都沒有。神之子體系是牧師辛辛苦苦、受盡各種羞辱、折磨，至死不渝愛主到底所建立的。」</p>
+      <p style="margin-top:.5rem;">留在體系只有兩條路：<strong>一、完全聽從神藉著總會的帶領；二、若不能接受，請海闊天空另謀高就。</strong>沒有第三條路。</p>
+    </div>
+  </section>
+
+  <div class="divider"><span>教師回應</span></div>
+
+  <!-- ═══════════════ SECTION 5: 教師回應 ═══════════════ -->
+  <div id="teacher" class="sec-anchor"></div>
+  <section class="sec" style="padding-bottom:3rem;">
+    <div class="sec-hdr">
+      <span class="sec-badge badge-teacher">教師回應</span>
+      <div>
+        <h2>愛之深、責之切，然後沉澱</h2>
+        <div class="sec-sub">主領：林明學教師</div>
+      </div>
+    </div>
+
+    <div class="person-hdr" style="margin-bottom:1.2rem;">
+      <div class="person-avatar">林</div>
+      <div><div class="person-name">林明學教師</div><div class="person-role">翻方言提點 · 結語禱告</div></div>
+    </div>
+
+    <div class="vision-list">
+      <div class="vision-item">
+        <div class="v-num sage">01</div>
+        <div style="flex:1;">
+          <strong style="display:block;font-size:.88rem;font-weight:700;color:var(--ink);margin-bottom:4px;">同樣的問題反覆出現</strong>
+          <p style="font-size:.8rem;color:var(--muted);line-height:1.75;">今天氛圍比較沉重。這些事情都是小事情，但小事情不斷重複出現，交通完了、好像沒事了，隔一陣子同樣一件事又發生，面對的也都是同樣的對象——造成不必要的困擾，人際關係一定被破壞。</p>
+        </div>
+      </div>
+      <div class="vision-item">
+        <div class="v-num sage">02</div>
+        <div style="flex:1;">
+          <strong style="display:block;font-size:.88rem;font-weight:700;color:var(--ink);margin-bottom:4px;">根本問題：缺乏愛心</strong>
+          <p style="font-size:.8rem;color:var(--muted);line-height:1.75;">你可以愛一隻小狗、愛一隻小貓，但就是無法愛你的弟兄姊妹，不覺得很奇怪嗎？把矛頭指向別人，追根究柢就是<strong>缺乏愛心</strong>。在愛人如己的功課上要好好學習。</p>
+        </div>
+      </div>
+      <div class="vision-item">
+        <div class="v-num sage">03</div>
+        <div style="flex:1;">
+          <strong style="display:block;font-size:.88rem;font-weight:700;color:var(--ink);margin-bottom:4px;">讓當事者慢慢沉澱</strong>
+          <p style="font-size:.8rem;color:var(--muted);line-height:1.75;">當事者應該自己最清楚了。以後讓自己慢慢地去沉澱，另外需要總會來回復的、要述說的，隨時都可以，這邊都是<strong>隨時開放</strong>的。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 結束禱告 -->
+    <div class="qblock">
+      <p>孩子們滿心感謝讚美祢的恩典，今天是極其榮耀的日子。的確<em>神的大愛澆灌在我們身上</em>，然而我們所體會的卻是非常的少，甚至在許多事上，無法學習主的大愛，去愛其他的肢體……</p>
+      <p>惟願每一個弟兄姊妹，都能好好的反思，在神的保守帶領之下，能夠真正讓自己有更大的愛心，能夠去包容別人，也能夠將自己心中存在的偏見完全的化解，<em>竭力治死老我</em>。</p>
+      <p class="qblock-src">— 林明學教師結束禱告</p>
+    </div>
+
+    <!-- 補充：麗英姊妹司會分享 -->
+    <div class="alert warn" style="margin-top:1.4rem;">
+      <span class="alert-icon">📌</span>
+      <p><strong>麗英姊妹司會補充：</strong>神之子體系最終計劃——治死老我 → 成為聰明的童女 → 迎接主的再來 → 與主一同做王。2003年曾有同工看到未來住處的異象，官位越大住處越大，最小是村長的官舍。</p>
+    </div>
+
+    <div class="alert info" style="margin-top:.8rem;">
+      <span class="alert-icon">🎥</span>
+      <p><strong>教師提醒：</strong>播放過去錄影視頻時，務必先檢視畫質，若畫質已不行就不要勉強播出。印象派效果雖然復古，但講臺的品質需要提升，不可應付了事。</p>
+    </div>
+
+  </section>
+</div><!-- end container -->
+
+<!-- FOOTER -->
+<footer class="page-footer">
+  <p>1220 輯週訓 · <strong>神所賜下的話語</strong></p>
+  <p style="margin-top:4px;">2022年5月15日 台中主日敬拜 · 週訓整理日期 2026年5月24日</p>
+</footer>
+
+<script>
+// TOC active state on scroll
+const tocLinks = document.querySelectorAll('.toc-link');
+const anchors = ['overview','tongues','vision','sharing-xiumei','sharing-zhuyan','teacher'];
+const sections = anchors.map(id => document.getElementById(id));
+
+function updateToc() {
+  let current = 'overview';
+  const offset = 80;
+  sections.forEach((el, i) => {
+    if (el && el.getBoundingClientRect().top < offset + 20) {
+      current = anchors[i];
+    }
+  });
+  tocLinks.forEach(a => {
+    const href = a.getAttribute('href').replace('#','');
+    a.classList.toggle('active', href === current);
+  });
+}
+window.addEventListener('scroll', updateToc, { passive: true });
+updateToc();
+</script>
+</body>
+</html>

@@ -1,0 +1,1078 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>愛的叮嚀 — 一切都是預定的·心中的伊甸堡壘</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --gold: #C9A84C;
+  --gold-light: #E8D08A;
+  --gold-pale: #FAF3DC;
+  --deep: #1A1208;
+  --ink: #2C2416;
+  --muted: #6B5D3E;
+  --soft: #F5EDD8;
+  --parchment: #FBF6EC;
+  --teal: #2E7D72;
+  --teal-light: #4AA89C;
+  --teal-pale: #E0F2EF;
+  --ruby: #8B2130;
+  --ruby-light: #C2445A;
+  --ruby-pale: #FAEAED;
+  --blue-deep: #1E3A5F;
+  --blue-mid: #2E6DA4;
+  --blue-pale: #E8F1FA;
+  --radius: 12px;
+  --radius-lg: 20px;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family: 'Noto Sans TC', sans-serif;
+  background: var(--parchment);
+  color: var(--ink);
+  line-height: 1.8;
+}
+
+/* ── HERO ── */
+.hero {
+  background: var(--deep);
+  padding: 3.5rem 2rem 3rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content:'';
+  position:absolute; inset:0;
+  background: radial-gradient(ellipse at 50% 0%, rgba(201,168,76,0.18) 0%, transparent 70%);
+  pointer-events:none;
+}
+.hero-tag {
+  display: inline-block;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  font-size: 11px;
+  letter-spacing: 4px;
+  padding: 4px 16px;
+  border-radius: 2px;
+  margin-bottom: 1.2rem;
+  text-transform: uppercase;
+}
+.hero h1 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  color: #fff;
+  font-weight: 700;
+  line-height: 1.4;
+  margin-bottom: 0.6rem;
+}
+.hero h1 em { color: var(--gold-light); font-style:normal; }
+.hero-sub {
+  color: rgba(255,255,255,0.55);
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  margin-bottom: 2rem;
+}
+.hero-verse {
+  display: inline-block;
+  border-left: 2px solid var(--gold);
+  padding: 0.5rem 1rem;
+  text-align: left;
+  color: var(--gold-light);
+  font-family: 'Noto Serif TC', serif;
+  font-size: 0.9rem;
+  line-height: 1.9;
+}
+
+/* ── LAYOUT ── */
+.container { max-width: 960px; margin: 0 auto; padding: 0 1.25rem; }
+.section { padding: 2.5rem 0 1.5rem; }
+
+/* ── SECTION TITLE ── */
+.sec-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 1.5rem;
+}
+.sec-title .icon {
+  width: 36px; height: 36px;
+  background: var(--gold);
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 17px; color: var(--deep); flex-shrink:0;
+}
+.sec-title h2 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 1.2rem;
+  color: var(--deep);
+  font-weight: 700;
+}
+.sec-title .subtitle { font-size: 0.78rem; color: var(--muted); margin-top:1px; }
+
+/* ── CORE PILLARS ── */
+.pillars {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.pillar {
+  background: #fff;
+  border: 0.5px solid rgba(0,0,0,0.1);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  position: relative;
+  overflow: hidden;
+  cursor: default;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.pillar:hover { transform: translateY(-3px); box-shadow: 0 8px 28px rgba(0,0,0,0.08); }
+.pillar::before {
+  content:'';
+  position:absolute; top:0; left:0; right:0; height:3px;
+}
+.pillar.p1::before { background: linear-gradient(90deg, var(--gold), var(--gold-light)); }
+.pillar.p2::before { background: linear-gradient(90deg, var(--teal), var(--teal-light)); }
+.pillar.p3::before { background: linear-gradient(90deg, var(--ruby), var(--ruby-light)); }
+.pillar.p4::before { background: linear-gradient(90deg, var(--blue-deep), var(--blue-mid)); }
+.pillar-num {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: 0.6rem;
+  opacity: 0.12;
+  position: absolute;
+  top: 1rem; right: 1.2rem;
+}
+.pillar.p1 .pillar-num { color: var(--gold); }
+.pillar.p2 .pillar-num { color: var(--teal); }
+.pillar.p3 .pillar-num { color: var(--ruby); }
+.pillar.p4 .pillar-num { color: var(--blue-deep); }
+.pillar-icon { font-size: 1.6rem; margin-bottom: 0.5rem; }
+.pillar h3 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--deep);
+}
+.pillar p { font-size: 0.82rem; color: var(--muted); line-height: 1.7; }
+
+/* ── FRANKL TIMELINE ── */
+.timeline {
+  position: relative;
+  padding-left: 2.5rem;
+  margin-bottom: 1rem;
+}
+.timeline::before {
+  content:'';
+  position: absolute;
+  left: 10px; top: 12px; bottom: 12px;
+  width: 1.5px;
+  background: linear-gradient(180deg, var(--gold) 0%, var(--teal) 50%, var(--ruby) 100%);
+}
+.tl-item {
+  position: relative;
+  margin-bottom: 1.2rem;
+}
+.tl-dot {
+  position: absolute;
+  left: -2.17rem;
+  top: 0.35rem;
+  width: 12px; height: 12px;
+  border-radius: 50%;
+  border: 2px solid;
+  background: var(--parchment);
+}
+.tl-item.gold .tl-dot { border-color: var(--gold); }
+.tl-item.teal .tl-dot { border-color: var(--teal); }
+.tl-item.ruby .tl-dot { border-color: var(--ruby); }
+.tl-item.blue .tl-dot { border-color: var(--blue-mid); }
+.tl-year {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  margin-bottom: 2px;
+}
+.tl-item.gold .tl-year { color: var(--gold); }
+.tl-item.teal .tl-year { color: var(--teal); }
+.tl-item.ruby .tl-year { color: var(--ruby); }
+.tl-item.blue .tl-year { color: var(--blue-mid); }
+.tl-title { font-weight: 500; font-size: 0.9rem; color: var(--deep); margin-bottom: 2px; }
+.tl-body { font-size: 0.8rem; color: var(--muted); line-height: 1.65; }
+
+/* ── MIND MAP SVG WRAPPER ── */
+.mindmap-wrap {
+  background: #fff;
+  border-radius: var(--radius-lg);
+  border: 0.5px solid rgba(0,0,0,0.09);
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+}
+.mindmap-wrap svg { display:block; width:100%; }
+
+/* ── THREE STAGES ── */
+.stages {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 0;
+  background: #fff;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 0.5px solid rgba(0,0,0,0.09);
+  margin-bottom: 1.5rem;
+}
+@media(max-width:600px){ .stages{grid-template-columns:1fr;} }
+.stage-item {
+  padding: 1.4rem 1.2rem;
+  border-right: 0.5px solid rgba(0,0,0,0.07);
+  position: relative;
+}
+.stage-item:last-child { border-right: none; }
+.stage-no {
+  font-size: 0.7rem;
+  letter-spacing: 2px;
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+  text-transform: uppercase;
+}
+.stage-item.s1 .stage-no { color: var(--ruby); }
+.stage-item.s2 .stage-no { color: var(--muted); }
+.stage-item.s3 .stage-no { color: var(--teal); }
+.stage-title { font-family: 'Noto Serif TC', serif; font-size: 0.95rem; font-weight: 700; color: var(--deep); margin-bottom: 0.4rem; }
+.stage-body { font-size: 0.78rem; color: var(--muted); line-height: 1.65; }
+.stage-top-bar { height: 3px; background: var(--soft); position:absolute; top:0; left:0; right:0; }
+.stage-item.s1 .stage-top-bar { background: var(--ruby); }
+.stage-item.s2 .stage-top-bar { background: #bbb; }
+.stage-item.s3 .stage-top-bar { background: var(--teal); }
+
+/* ── QUOTE BLOCK ── */
+.quote-block {
+  background: var(--deep);
+  border-radius: var(--radius-lg);
+  padding: 2rem 2rem 1.5rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+  overflow: hidden;
+}
+.quote-block::before {
+  content: '"';
+  position: absolute;
+  top: -0.5rem; left: 1rem;
+  font-family: 'Noto Serif TC', serif;
+  font-size: 6rem;
+  color: var(--gold);
+  opacity: 0.15;
+  line-height: 1;
+  pointer-events: none;
+}
+.quote-text {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 1.05rem;
+  color: #fff;
+  line-height: 1.9;
+  margin-bottom: 0.8rem;
+}
+.quote-text em { color: var(--gold-light); font-style: normal; font-weight: 700; }
+.quote-src { font-size: 0.75rem; color: rgba(255,255,255,0.45); letter-spacing: 1px; }
+
+/* ── THREE PILLARS of MEANING ── */
+.meaning-pillars {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.mp-card {
+  border-radius: var(--radius);
+  padding: 1.3rem 1.2rem;
+  position: relative;
+}
+.mp-card.mp1 { background: var(--gold-pale); border: 1px solid rgba(201,168,76,0.3); }
+.mp-card.mp2 { background: var(--teal-pale); border: 1px solid rgba(46,125,114,0.25); }
+.mp-card.mp3 { background: var(--ruby-pale); border: 1px solid rgba(139,33,48,0.2); }
+.mp-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 0.7rem;
+}
+.mp-badge {
+  font-size: 0.65rem;
+  letter-spacing: 2px;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+.mp1 .mp-badge { background: var(--gold); color: var(--deep); }
+.mp2 .mp-badge { background: var(--teal); color: #fff; }
+.mp3 .mp-badge { background: var(--ruby); color: #fff; }
+.mp-card h4 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--deep);
+}
+.mp-card p { font-size: 0.8rem; color: var(--muted); line-height: 1.7; }
+.mp-example {
+  margin-top: 0.6rem;
+  padding-top: 0.6rem;
+  border-top: 1px solid rgba(0,0,0,0.06);
+  font-size: 0.75rem;
+  line-height: 1.6;
+}
+.mp1 .mp-example { color: #7A620A; }
+.mp2 .mp-example { color: #185049; }
+.mp3 .mp-example { color: #6B1621; }
+
+/* ── KEY INSIGHT BOX ── */
+.insight-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.insight-card {
+  background: #fff;
+  border-radius: var(--radius);
+  border: 0.5px solid rgba(0,0,0,0.09);
+  padding: 1.2rem;
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+.insight-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  margin-top: 0.4rem;
+  flex-shrink: 0;
+}
+.insight-card:nth-child(1) .insight-dot { background: var(--gold); }
+.insight-card:nth-child(2) .insight-dot { background: var(--teal); }
+.insight-card:nth-child(3) .insight-dot { background: var(--ruby); }
+.insight-card:nth-child(4) .insight-dot { background: var(--blue-mid); }
+.insight-card h4 { font-size: 0.88rem; font-weight: 600; color: var(--deep); margin-bottom: 0.3rem; }
+.insight-card p { font-size: 0.78rem; color: var(--muted); line-height: 1.65; }
+
+/* ── TWO PATH BOX ── */
+.two-path {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  background: #fff;
+  border-radius: var(--radius-lg);
+  border: 0.5px solid rgba(0,0,0,0.09);
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+}
+@media(max-width:500px){ .two-path{grid-template-columns:1fr;} }
+.path-side {
+  padding: 1.5rem 1.3rem;
+}
+.path-side:first-child {
+  border-right: 0.5px solid rgba(0,0,0,0.07);
+}
+.path-label {
+  font-size: 0.68rem;
+  letter-spacing: 2.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 0.6rem;
+}
+.path-a .path-label { color: var(--gold); }
+.path-b .path-label { color: var(--blue-mid); }
+.path-title {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--deep);
+  margin-bottom: 0.6rem;
+}
+.path-list {
+  list-style: none;
+  padding: 0;
+}
+.path-list li {
+  font-size: 0.8rem;
+  color: var(--muted);
+  line-height: 1.65;
+  padding: 3px 0 3px 14px;
+  position: relative;
+}
+.path-list li::before {
+  content:'·';
+  position:absolute; left:2px;
+  font-size: 1rem;
+  line-height: 1.3;
+}
+.path-a .path-list li::before { color: var(--gold); }
+.path-b .path-list li::before { color: var(--blue-mid); }
+
+/* ── REFLECTION BOX ── */
+.reflection {
+  background: var(--soft);
+  border-radius: var(--radius-lg);
+  padding: 1.8rem 1.8rem 1.5rem;
+  border-left: 3px solid var(--gold);
+  margin-bottom: 1.5rem;
+}
+.reflection h3 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--deep);
+  margin-bottom: 0.8rem;
+}
+.reflection ol {
+  padding-left: 1.2rem;
+}
+.reflection ol li {
+  font-size: 0.85rem;
+  color: var(--ink);
+  line-height: 1.8;
+  margin-bottom: 0.3rem;
+}
+.reflection ol li strong { color: var(--deep); font-weight: 600; }
+
+/* ── DIVIDER ── */
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0.5rem 0 1.5rem;
+  opacity: 0.35;
+}
+.divider::before, .divider::after {
+  content:'';
+  flex:1;
+  height: 0.5px;
+  background: var(--muted);
+}
+.divider span { font-size: 10px; letter-spacing: 3px; color: var(--muted); text-transform: uppercase; }
+
+/* ── FOOTER ── */
+.page-footer {
+  background: var(--deep);
+  text-align: center;
+  padding: 1.8rem 1rem;
+  margin-top: 2.5rem;
+}
+.page-footer p { font-size: 0.78rem; color: rgba(255,255,255,0.35); letter-spacing: 1px; }
+.page-footer strong { color: var(--gold); font-weight: 400; }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-tag">愛的叮嚀 · 第一篇</div>
+  <h1>一切都是<em>預定的</em><br>——心中的伊甸堡壘</h1>
+  <p class="hero-sub">弗蘭克爾《活出意義來》×「縫隙自由」×三根生命之柱</p>
+  <div class="hero-verse">
+    在刺激與反應之間，存在一個空間。<br>
+    在那個空間裡，人擁有選擇自己反應的能力。<br>
+    <span style="color:rgba(255,255,255,0.4);font-size:0.78rem">— 維克多·弗蘭克爾</span>
+  </div>
+</header>
+
+<main class="container">
+
+  <!-- ① 核心主題 -->
+  <section class="section">
+    <div class="sec-title">
+      <div class="icon">🗝</div>
+      <div>
+        <h2>今日核心主題</h2>
+        <div class="subtitle">師母分享的三大線索</div>
+      </div>
+    </div>
+    <div class="pillars">
+      <div class="pillar p1">
+        <div class="pillar-num">一</div>
+        <div class="pillar-icon">🌿</div>
+        <h3>一切都是預定的</h3>
+        <p>牛頓、泡麵發明家、戰俘司機……每個人的位置與使命，皆非偶然。天賦所在，即預定所在。</p>
+      </div>
+      <div class="pillar p2">
+        <div class="pillar-num">二</div>
+        <div class="pillar-icon">🔒</div>
+        <h3>心中最堅固的堡壘</h3>
+        <p>外在一切可被剝奪——身份、財產、名字——但內在回應的選擇權，任何人都無法奪走。</p>
+      </div>
+      <div class="pillar p3">
+        <div class="pillar-num">三</div>
+        <div class="pillar-icon">⚓</div>
+        <h3>三根生命之柱</h3>
+        <p>創作與工作、愛與體驗、苦難的昇華——這三條路徑，是在任何處境下都可通往意義的橋。</p>
+      </div>
+      <div class="pillar p4">
+        <div class="pillar-num">四</div>
+        <div class="pillar-icon">⚔</div>
+        <h3>前線 vs 後盾</h3>
+        <p>神之家只有兩條路：竭力打前線，或甘心守倉庫。兩者都寶貴，都無可取代。</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"><span>心智圖</span></div>
+
+  <!-- ② 心智圖 -->
+  <section class="section" style="padding-top:0">
+    <div class="sec-title">
+      <div class="icon">🧠</div>
+      <div>
+        <h2>主題心智圖</h2>
+        <div class="subtitle">全篇結構一覽</div>
+      </div>
+    </div>
+    <div class="mindmap-wrap">
+      <svg viewBox="0 0 900 500" xmlns="http://www.w3.org/2000/svg" role="img">
+        <title>愛的叮嚀心智圖</title>
+        <defs>
+          <marker id="marr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+            <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </marker>
+        </defs>
+        <rect width="900" height="500" fill="#FDFAF3"/>
+
+        <!-- Center -->
+        <rect x="335" y="210" width="230" height="68" rx="12" fill="#1A1208" stroke="#C9A84C" stroke-width="1.5"/>
+        <text x="450" y="238" text-anchor="middle" font-family="Noto Serif TC,serif" font-size="13" fill="#E8D08A" font-weight="700">一切都是預定的</text>
+        <text x="450" y="260" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="10.5" fill="rgba(255,255,255,0.5)">心中的伊甸堡壘</text>
+
+        <!-- Branch 1: 預定 (top-left) -->
+        <path d="M378 218 Q290 160 200 130" fill="none" stroke="#C9A84C" stroke-width="1.2" marker-end="url(#marr)"/>
+        <rect x="60" y="90" width="155" height="72" rx="8" fill="#FAF3DC" stroke="#C9A84C" stroke-width="0.8"/>
+        <text x="137" y="114" text-anchor="middle" font-family="Noto Serif TC,serif" font-size="11.5" fill="#7A620A" font-weight="700">預定的例子</text>
+        <text x="137" y="131" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#9A7E3A">牛頓發現地心引力</text>
+        <text x="137" y="148" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#9A7E3A">日本人發明泡麵</text>
+
+        <!-- Branch 2: Frankl (top-right) -->
+        <path d="M522 218 Q610 160 695 130" fill="none" stroke="#2E7D72" stroke-width="1.2" marker-end="url(#marr)"/>
+        <rect x="680" y="90" width="178" height="72" rx="8" fill="#E0F2EF" stroke="#2E7D72" stroke-width="0.8"/>
+        <text x="769" y="114" text-anchor="middle" font-family="Noto Serif TC,serif" font-size="11.5" fill="#185049" font-weight="700">弗蘭克爾其人</text>
+        <text x="769" y="131" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#2E7D72">集中營119104號</text>
+        <text x="769" y="148" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#2E7D72">意義療法創始人</text>
+
+        <!-- Branch 3: 三階段 (left) -->
+        <path d="M348 240 Q230 240 180 240" fill="none" stroke="#8B2130" stroke-width="1.2" marker-end="url(#marr)"/>
+        <rect x="20" y="205" width="155" height="72" rx="8" fill="#FAEAED" stroke="#8B2130" stroke-width="0.8"/>
+        <text x="97" y="229" text-anchor="middle" font-family="Noto Serif TC,serif" font-size="11.5" fill="#6B1621" font-weight="700">心理三階段</text>
+        <text x="97" y="246" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#8B2130">震驚→麻木→覺醒</text>
+        <text x="97" y="263" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#8B2130">或崩潰</text>
+
+        <!-- Branch 4: 縫隙 (right) -->
+        <path d="M552 244 Q680 244 730 244" fill="none" stroke="#1E3A5F" stroke-width="1.2" marker-end="url(#marr)"/>
+        <rect x="730" y="205" width="160" height="72" rx="8" fill="#E8F1FA" stroke="#1E3A5F" stroke-width="0.8"/>
+        <text x="810" y="229" text-anchor="middle" font-family="Noto Serif TC,serif" font-size="11.5" fill="#0C2A4A" font-weight="700">刺激與反應的縫隙</text>
+        <text x="810" y="246" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#2E6DA4">最後的人類自由</text>
+        <text x="810" y="263" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#2E6DA4">鍛鍊心智肌肉</text>
+
+        <!-- Branch 5: 三柱 (bottom-left) -->
+        <path d="M394 276 Q310 340 230 380" fill="none" stroke="#C9A84C" stroke-width="1.2" marker-end="url(#marr)"/>
+        <rect x="60" y="345" width="178" height="96" rx="8" fill="#FAF3DC" stroke="#C9A84C" stroke-width="0.8"/>
+        <text x="149" y="370" text-anchor="middle" font-family="Noto Serif TC,serif" font-size="11.5" fill="#7A620A" font-weight="700">三根意義之柱</text>
+        <text x="149" y="388" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#9A7E3A">① 創作與工作</text>
+        <text x="149" y="404" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#9A7E3A">② 愛與體驗</text>
+        <text x="149" y="420" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#9A7E3A">③ 苦難的昇華</text>
+
+        <!-- Branch 6: 前線後盾 (bottom-right) -->
+        <path d="M506 276 Q590 340 660 380" fill="none" stroke="#2E7D72" stroke-width="1.2" marker-end="url(#marr)"/>
+        <rect x="648" y="345" width="178" height="96" rx="8" fill="#E0F2EF" stroke="#2E7D72" stroke-width="0.8"/>
+        <text x="737" y="370" text-anchor="middle" font-family="Noto Serif TC,serif" font-size="11.5" fill="#185049" font-weight="700">神之家兩條路</text>
+        <text x="737" y="388" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#2E7D72">打前線：衝鋒</text>
+        <text x="737" y="404" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#2E7D72">守倉庫：後盾支撐</text>
+        <text x="737" y="420" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#2E7D72">各盡其分，缺一不可</text>
+
+        <!-- Bottom center: 情緒管理 -->
+        <path d="M450 278 L450 340" fill="none" stroke="#6B5D3E" stroke-width="1.2" stroke-dasharray="4,3" marker-end="url(#marr)"/>
+        <rect x="370" y="340" width="160" height="52" rx="8" fill="#F5EDD8" stroke="#6B5D3E" stroke-width="0.8"/>
+        <text x="450" y="361" text-anchor="middle" font-family="Noto Serif TC,serif" font-size="11.5" fill="#2C2416" font-weight="700">情緒管理</text>
+        <text x="450" y="378" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#6B5D3E">基督徒的底線功課</text>
+      </svg>
+    </div>
+  </section>
+
+  <div class="divider"><span>弗蘭克爾故事線</span></div>
+
+  <!-- ③ 弗蘭克爾故事時間軸 -->
+  <section class="section" style="padding-top:0">
+    <div class="sec-title">
+      <div class="icon">📜</div>
+      <div>
+        <h2>弗蘭克爾生命時間軸</h2>
+        <div class="subtitle">《活出意義來》的真實底稿</div>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;">
+      <div class="timeline">
+        <div class="tl-item gold">
+          <div class="tl-dot"></div>
+          <div class="tl-year">1905</div>
+          <div class="tl-title">出生維也納猶太家庭</div>
+          <div class="tl-body">少年時與佛洛伊德通信，展現早慧天才。</div>
+        </div>
+        <div class="tl-item gold">
+          <div class="tl-dot"></div>
+          <div class="tl-year">1930s</div>
+          <div class="tl-title">維也納神經科主任</div>
+          <div class="tl-body">已是名聲赫赫的精神科醫師，建立意義療法理論初稿。</div>
+        </div>
+        <div class="tl-item ruby">
+          <div class="tl-dot"></div>
+          <div class="tl-year">1942</div>
+          <div class="tl-title">被送入集中營</div>
+          <div class="tl-body">手稿被焚毀，名字換成編號 119104。父母妻兄相繼死去。</div>
+        </div>
+        <div class="tl-item ruby">
+          <div class="tl-dot"></div>
+          <div class="tl-year">1942–45</div>
+          <div class="tl-title">奧斯威辛煉獄中的頓悟</div>
+          <div class="tl-body">發現「刺激與反應之間的縫隙」，在腦海中重新寫手稿，以愛支撐求生意志。</div>
+        </div>
+      </div>
+      <div class="timeline">
+        <div class="tl-item teal">
+          <div class="tl-dot"></div>
+          <div class="tl-year">1945</div>
+          <div class="tl-title">獲救，九天寫就原稿</div>
+          <div class="tl-body">美軍解放後，在九天內寫下《活出意義來》，不為抒發悲傷，而為傳承人類精神的光。</div>
+        </div>
+        <div class="tl-item teal">
+          <div class="tl-dot"></div>
+          <div class="tl-year">出版後</div>
+          <div class="tl-title">全球 1600 萬冊</div>
+          <div class="tl-body">翻譯超過50種語言，成為20世紀最有影響力的心理學著作之一。</div>
+        </div>
+        <div class="tl-item blue">
+          <div class="tl-dot"></div>
+          <div class="tl-year">終身</div>
+          <div class="tl-title">活到 92 歲，持續工作</div>
+          <div class="tl-body">維也納大學執教、世界巡迴演講、在診間幫助無意義感中掙扎的人，直到生命最後。</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"><span>核心洞見</span></div>
+
+  <!-- ④ 縫隙圖解 -->
+  <section class="section" style="padding-top:0">
+    <div class="sec-title">
+      <div class="icon">💡</div>
+      <div>
+        <h2>最核心洞見：縫隙自由</h2>
+        <div class="subtitle">最後的人類自由</div>
+      </div>
+    </div>
+    <div class="quote-block">
+      <p class="quote-text">
+        在<em>刺激</em>與<em>反應</em>之間，存在一個空間。<br>
+        在那個空間裡，人擁有<em>選擇自己反應</em>的能力。<br>
+        在那個選擇裡，藏著人類的<em>成長與自由</em>。
+      </p>
+      <div class="quote-src">VIKTOR FRANKL · 《MAN'S SEARCH FOR MEANING》</div>
+    </div>
+
+    <div class="mindmap-wrap">
+      <svg viewBox="0 0 860 140" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <marker id="ar2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+            <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </marker>
+        </defs>
+        <rect width="860" height="140" fill="#1A1208"/>
+
+        <!-- Stimulus -->
+        <rect x="30" y="36" width="180" height="68" rx="10" fill="#8B2130"/>
+        <text x="120" y="64" text-anchor="middle" font-family="Noto Serif TC,serif" font-size="13" fill="#fff" font-weight="700">刺激</text>
+        <text x="120" y="84" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="10" fill="rgba(255,255,255,0.65)">外界強加</text>
+        <text x="120" y="99" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="rgba(255,255,255,0.5)">飢餓·羞辱·挫折</text>
+
+        <!-- Arrow -->
+        <line x1="213" y1="70" x2="278" y2="70" stroke="#C9A84C" stroke-width="1" marker-end="url(#ar2)"/>
+
+        <!-- GAP -->
+        <rect x="282" y="22" width="185" height="96" rx="12" fill="none" stroke="#C9A84C" stroke-width="1.5" stroke-dasharray="5,3"/>
+        <text x="374" y="52" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#C9A84C" letter-spacing="2">縫隙空間</text>
+        <text x="374" y="72" text-anchor="middle" font-family="Noto Serif TC,serif" font-size="14" fill="#E8D08A" font-weight="700">我選擇</text>
+        <text x="374" y="92" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="rgba(255,255,255,0.5)">可能只有 0.幾秒</text>
+        <text x="374" y="107" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="rgba(255,255,255,0.5)">但它真實存在</text>
+
+        <!-- Arrow -->
+        <line x1="470" y1="70" x2="536" y2="70" stroke="#2E7D72" stroke-width="1" marker-end="url(#ar2)"/>
+
+        <!-- Response -->
+        <rect x="540" y="36" width="280" height="68" rx="10" fill="#2E7D72"/>
+        <text x="680" y="60" text-anchor="middle" font-family="Noto Serif TC,serif" font-size="13" fill="#fff" font-weight="700">有意識的回應</text>
+        <text x="680" y="78" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="rgba(255,255,255,0.65)">崩潰 · 麻木 · 憤怒</text>
+        <text x="680" y="94" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#9FE1CB">或：尊嚴 · 愛 · 意義</text>
+      </svg>
+    </div>
+
+    <div class="insight-row" style="margin-top:1rem;">
+      <div class="insight-card">
+        <div class="insight-dot"></div>
+        <div>
+          <h4>心智肌肉</h4>
+          <p>每次在縫隙裡做出有意識的選擇，前額葉皮質就越活躍，杏仁核的自動觸發力就越弱。這是大腦重塑。</p>
+        </div>
+      </div>
+      <div class="insight-card">
+        <div class="insight-dot"></div>
+        <div>
+          <h4>不是假裝正向</h4>
+          <p>不是要壓抑情緒，也不是強迫樂觀。而是在承認苦難真實存在的前提下，保持對回應方式的自主性。</p>
+        </div>
+      </div>
+      <div class="insight-card">
+        <div class="insight-dot"></div>
+        <div>
+          <h4>崩潰的真正原因</h4>
+          <p>集中營裡最快崩潰的，不是身體最弱的，而是從未建立「內在自由習慣」的人——習慣讓外界決定情緒。</p>
+        </div>
+      </div>
+      <div class="insight-card">
+        <div class="insight-dot"></div>
+        <div>
+          <h4>情緒管理的底線</h4>
+          <p>師母說：我們若管不住自己的情緒，一天到晚被外因牽著走，談什麼服事、跟人相處？這是基督徒必守的底線。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ⑤ 心理三階段 -->
+  <section class="section">
+    <div class="sec-title">
+      <div class="icon">📊</div>
+      <div>
+        <h2>集中營的心理三階段</h2>
+        <div class="subtitle">也是我們面對苦難時的普遍歷程</div>
+      </div>
+    </div>
+    <div class="stages">
+      <div class="stage-item s1">
+        <div class="stage-top-bar"></div>
+        <div class="stage-no">階段一</div>
+        <div class="stage-title">震驚與否認</div>
+        <div class="stage-body">「這不是真的！」自我保護機制啟動。嚎啕大哭或呆若木雞。弗蘭克爾稱為「入營休克」。</div>
+      </div>
+      <div class="stage-item s2">
+        <div class="stage-top-bar"></div>
+        <div class="stage-no">階段二</div>
+        <div class="stage-title">冷漠與麻木</div>
+        <div class="stage-body">看到屍體無反應，聽哭聲不為所動。心靈選擇「關閉感受」來自我保護——活著的死亡。</div>
+      </div>
+      <div class="stage-item s3">
+        <div class="stage-top-bar"></div>
+        <div class="stage-no">階段三</div>
+        <div class="stage-title">絕望崩潰 或 覺醒</div>
+        <div class="stage-body">關鍵岔路口。期望落空的人崩潰（1944年聖誕節的死亡高峰）。內心有錨的人得以覺醒重生。</div>
+      </div>
+    </div>
+    <div style="background:var(--soft);border-radius:var(--radius);padding:1rem 1.2rem;font-size:0.8rem;color:var(--muted);line-height:1.7;border-left:2px solid var(--ruby);">
+      ⚠️ <strong style="color:var(--deep)">警示：把希望寄託在特定時間點</strong>——「等聖誕節我就得救了」——是最危險的生存策略。一旦那個時間點失效，整個存在理由瞬間瓦解。這對當代人同樣適用：「等升職、等買房、等找到對的人，生活才算開始。」
+    </div>
+  </section>
+
+  <div class="divider"><span>意義三柱</span></div>
+
+  <!-- ⑥ 意義三根之柱 -->
+  <section class="section" style="padding-top:0">
+    <div class="sec-title">
+      <div class="icon">🏛</div>
+      <div>
+        <h2>三根生命意義之柱</h2>
+        <div class="subtitle">弗蘭克爾意義療法的三條路徑</div>
+      </div>
+    </div>
+    <div class="meaning-pillars">
+      <div class="mp-card mp1">
+        <div class="mp-head">
+          <div class="mp-badge">第一柱</div>
+        </div>
+        <h4>創作與工作</h4>
+        <p>透過投注心力、對世界做出貢獻，來建立「對未來的責任感」。弗蘭克爾在集中營裡每天在腦中重寫被焚毀的手稿——「我必須活下去，因為那份手稿等我完成。」</p>
+        <div class="mp-example">
+          📌 師母提醒：「創造」應改為「創作」，因為無中生有的創造只屬神。音樂創作、寫書、烹飪，都是以創作對抗負面情緒的有效方式。
+        </div>
+      </div>
+      <div class="mp-card mp2">
+        <div class="mp-head">
+          <div class="mp-badge">第二柱</div>
+        </div>
+        <h4>愛與體驗</h4>
+        <p>愛作為一種內在體驗，本身就具有意義，不需要外在條件驗證。弗蘭克爾在行軍中浮現妻子的臉，感受到真實的愛——即便妻子已在另一集中營去世。</p>
+        <div class="mp-example">
+          📌 不只是愛情——對大自然之美的感動、對音樂的共鳴、一次深刻對話的珍惜，都是這根支柱的養分。
+        </div>
+      </div>
+      <div class="mp-card mp3">
+        <div class="mp-head">
+          <div class="mp-badge">第三柱</div>
+        </div>
+        <h4>苦難的昇華</h4>
+        <p>當苦難無可逃避，你仍可選擇以什麼姿態承受它。被帶去毒氣室前把最後一片麵包分給別人，在最後一步保持尊嚴——這就是見證人性的機會。</p>
+        <div class="mp-example">
+          📌 一塊鐵在火中可以融化、扭曲，也可以變得更堅硬鋒利。決定因素不在苦難的烈度，而在你對苦難的態度。
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ⑦ 神之家兩條路 -->
+  <section class="section">
+    <div class="sec-title">
+      <div class="icon">🛡</div>
+      <div>
+        <h2>神之家的兩條路</h2>
+        <div class="subtitle">師母的呼召與提醒</div>
+      </div>
+    </div>
+    <div class="two-path">
+      <div class="path-side path-a">
+        <div class="path-label">選項 A</div>
+        <div class="path-title">打前線 · 衝鋒</div>
+        <ul class="path-list">
+          <li>帶人接觸神，拓展神的國</li>
+          <li>需要全心全力，犧牲代價大</li>
+          <li>像秀美教師、秀偉師母的榜樣</li>
+          <li>真正能打前線的人很少</li>
+          <li>需要後盾支撐才能持守</li>
+        </ul>
+      </div>
+      <div class="path-side path-b">
+        <div class="path-label">選項 B</div>
+        <div class="path-title">守倉庫 · 後盾</div>
+        <ul class="path-list">
+          <li>在財物、禱告、情感上支持前線</li>
+          <li>不要小看，同樣有評分</li>
+          <li>要盡心竭力，不能敷衍塞責</li>
+          <li>若連情緒都管不好，就成了豬隊友</li>
+          <li>倉庫守好，前線才有底氣向前衝</li>
+        </ul>
+      </div>
+    </div>
+    <div style="background:#fff;border-radius:var(--radius);padding:1rem 1.2rem;border:0.5px solid rgba(0,0,0,0.09);font-size:0.8rem;color:var(--muted);line-height:1.7;">
+      🐷 <strong style="color:var(--deep)">小豬與貓咪的比喻：</strong>倉庫的「豬隊友」不是在罵人——小豬為了抓住繩子那一端，毫不猶豫跳進井裡，兩個都困住了。這才是真正的「諸隊友」（朋友/同伴）！反過來說：若我們連自己的情緒都掌控不好，只會增加同伴的負擔，而非幫助。
+    </div>
+  </section>
+
+  <div class="divider"><span>反思應用</span></div>
+
+  <!-- ⑧ 反思與應用 -->
+  <section class="section" style="padding-top:0">
+    <div class="sec-title">
+      <div class="icon">✍</div>
+      <div>
+        <h2>反思問題與實踐工具</h2>
+        <div class="subtitle">把講義帶進生命</div>
+      </div>
+    </div>
+    <div class="reflection">
+      <h3>🔑 弗蘭克爾留給我們的問題</h3>
+      <ol>
+        <li>如果今天你生命裡所有外在的標籤都消失了——<strong>職位、財產、社會關係</strong>——剩下的那個你，還有什麼？那就是你的核心資產，任何外力都奪不走。</li>
+        <li>你現在正在<strong>創造</strong>什麼？為這個世界留下什麼痕跡，哪怕只是微小的一個？</li>
+        <li>你上一次真正感受到與外界的<strong>深刻連結</strong>是什麼時候？</li>
+        <li>面對無法改變的困境，你希望自己成為<strong>什麼樣的人</strong>？</li>
+      </ol>
+    </div>
+    <div class="reflection" style="border-left-color:var(--teal);background:var(--teal-pale);">
+      <h3>🛠 實踐工具：察覺縫隙（每日練習）</h3>
+      <ol>
+        <li>被批評時：<strong>停頓一秒</strong>，問「我現在可以選擇如何回應？」</li>
+        <li>刷社群媒體感到焦慮時：問「這感受背後，我在渴望什麼？我在害怕失去什麼？」</li>
+        <li>面對無法改變的困境時：問「我沒法改變這處境，但我可以選擇<strong>如何面對</strong>它。」</li>
+        <li>任何衝動反應出現時：在內心對自己說——「這行為屬於他，不屬於我。他的殘忍揭示的是他的靈魂，不是我的。」</li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ⑨ 師母總結語 -->
+  <section class="section">
+    <div class="sec-title">
+      <div class="icon">🕊</div>
+      <div>
+        <h2>師母的核心提醒</h2>
+        <div class="subtitle">一切都是預定的，但我們仍要選擇光</div>
+      </div>
+    </div>
+    <div class="mindmap-wrap" style="background:var(--deep);">
+      <svg viewBox="0 0 860 200" xmlns="http://www.w3.org/2000/svg">
+        <rect width="860" height="200" fill="#1A1208"/>
+        <text x="430" y="38" text-anchor="middle" font-family="Noto Serif TC,serif" font-size="11" fill="rgba(201,168,76,0.5)" letter-spacing="4">師母的四句話</text>
+        <!-- Row 1 -->
+        <rect x="30" y="55" width="185" height="60" rx="10" fill="rgba(201,168,76,0.1)" stroke="#C9A84C" stroke-width="0.7"/>
+        <text x="122" y="80" text-anchor="middle" font-family="Noto Serif TC,serif" font-size="11.5" fill="#E8D08A" font-weight="700">一切都是預定的</text>
+        <text x="122" y="100" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="rgba(255,255,255,0.5)">半點不由人，不可強求</text>
+
+        <rect x="243" y="55" width="175" height="60" rx="10" fill="rgba(46,125,114,0.15)" stroke="#4AA89C" stroke-width="0.7"/>
+        <text x="330" y="80" text-anchor="middle" font-family="Noto Serif TC,serif" font-size="11.5" fill="#9FE1CB" font-weight="700">情緒管不住</text>
+        <text x="330" y="100" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="rgba(255,255,255,0.5)">談什麼服事、相處？</text>
+
+        <rect x="446" y="55" width="185" height="60" rx="10" fill="rgba(139,33,48,0.15)" stroke="#C2445A" stroke-width="0.7"/>
+        <text x="538" y="80" text-anchor="middle" font-family="Noto Serif TC,serif" font-size="11.5" fill="#F4A0B0" font-weight="700">主耶穌基督</text>
+        <text x="538" y="100" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="rgba(255,255,255,0.5)">永遠無法被奪走的核心</text>
+
+        <rect x="659" y="55" width="175" height="60" rx="10" fill="rgba(30,58,95,0.25)" stroke="#2E6DA4" stroke-width="0.7"/>
+        <text x="746" y="80" text-anchor="middle" font-family="Noto Serif TC,serif" font-size="11.5" fill="#A8C9F0" font-weight="700">在黑暗中選擇光</text>
+        <text x="746" y="100" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="rgba(255,255,255,0.5)">被驗證過的事實</text>
+
+        <!-- Final quote -->
+        <text x="430" y="148" text-anchor="middle" font-family="Noto Serif TC,serif" font-size="13" fill="rgba(255,255,255,0.85)">那是一團被奧斯威辛的冰雪包圍卻沒有熄滅的暖火——</text>
+        <text x="430" y="172" text-anchor="middle" font-family="Noto Serif TC,serif" font-size="13" fill="#E8D08A">現在輪到你決定，要用它來點燃什麼。</text>
+      </svg>
+    </div>
+  </section>
+
+
+  <!-- ⑩ 馨的反思 -->
+  <section class="section" style="padding-bottom:0">
+    <div class="sec-title">
+      <div class="icon" style="background:var(--ruby-light);color:#fff;">✦</div>
+      <div>
+        <h2>馨的反思</h2>
+        <div class="subtitle">七道問題·破牆而入</div>
+      </div>
+    </div>
+    <div style="background:var(--ruby-pale);border-radius:var(--radius);padding:0.9rem 1.2rem;font-size:0.78rem;color:#6B1621;margin-bottom:1.5rem;line-height:1.7;border-left:2px solid var(--ruby-light);">
+      這裡的每一個回答都有兩層：<strong>最初說出口的版本</strong>（有時是防護罩），以及<strong>破牆之後更真實的聲音</strong>。兩者都值得被看見。
+    </div>
+
+    <!-- Q1 -->
+    <div class="refl-card" style="background:#fff;border:0.5px solid rgba(0,0,0,0.09);border-radius:var(--radius-lg);margin-bottom:1rem;overflow:hidden;">
+      <div style="background:var(--deep);padding:0.9rem 1.3rem;display:flex;align-items:baseline;gap:10px;">
+        <span style="font-family:'Noto Serif TC',serif;font-size:0.72rem;letter-spacing:3px;color:var(--gold);text-transform:uppercase;">Q1</span>
+        <span style="font-family:'Noto Serif TC',serif;font-size:0.95rem;color:#fff;font-weight:700;">如果今天我失去了所有外在標籤，我還剩下什麼？</span>
+      </div>
+      <div style="padding:1.2rem 1.3rem;">
+        <div style="font-size:0.82rem;color:var(--muted);line-height:1.8;margin-bottom:1rem;">
+          我覺得，我很以自我為中心，所以感覺別人貼什麼標籤在我身上都沒有關係。可能會有點挫折，但我知道我的生命……可能被世人的價值觀不認同，但我的一生都有神的帶領和見證。孤身一人的時候，我還有天空還有風小鳥小草，這些都在證明神存在創造同在的美好。
+        </div>
+        <div style="background:var(--soft);border-radius:var(--radius);padding:1rem 1.1rem;border-left:2px solid var(--ruby);">
+          <div style="font-size:0.7rem;letter-spacing:2px;color:var(--ruby);font-weight:700;margin-bottom:0.5rem;text-transform:uppercase;">破牆後的真實聲音</div>
+          <p style="font-size:0.82rem;color:var(--ink);line-height:1.8;">「別人貼的標籤、世人的不認同，我<strong>不可能完全不在乎</strong>，我還是會感到挫折和受傷。我說自己『以自我為中心』，只是我拿來<em style="font-style:normal;color:var(--ruby);">阻絕外界傷害的防護罩</em>。真實的我是：雖然外面風雨很大、標籤很傷人，但好在我的底氣是神。我不需要假裝自己冷酷、不在乎——我承認世界不認同我時我會難過，但我會帶著這個難過，<strong>回到神的同在裡去找安慰。</strong>」</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Q2 -->
+    <div class="refl-card" style="background:#fff;border:0.5px solid rgba(0,0,0,0.09);border-radius:var(--radius-lg);margin-bottom:1rem;overflow:hidden;">
+      <div style="background:var(--deep);padding:0.9rem 1.3rem;display:flex;align-items:baseline;gap:10px;">
+        <span style="font-family:'Noto Serif TC',serif;font-size:0.72rem;letter-spacing:3px;color:var(--gold);text-transform:uppercase;">Q2</span>
+        <span style="font-family:'Noto Serif TC',serif;font-size:0.95rem;color:#fff;font-weight:700;">目前生活中，有哪一個「刺激」最容易劫持我的反應？</span>
+      </div>
+      <div style="padding:1.2rem 1.3rem;">
+        <div style="font-size:0.82rem;color:var(--muted);line-height:1.8;margin-bottom:1rem;">
+          壓力巨大時被指責、被誤會。當壓力大時其他機制反應直線下降，原本這些指責和誤會我可以很好地化解消化，但壓力大的時候會特別委屈，可能是身體機制導致的。
+        </div>
+        <div style="background:var(--soft);border-radius:var(--radius);padding:1rem 1.1rem;border-left:2px solid var(--ruby);">
+          <div style="font-size:0.7rem;letter-spacing:2px;color:var(--ruby);font-weight:700;margin-bottom:0.5rem;text-transform:uppercase;">破牆後的真實聲音</div>
+          <p style="font-size:0.82rem;color:var(--ink);line-height:1.8;">「別再拿『身體機制』當擋箭牌了。真實的情況是，我就是對<em style="font-style:normal;color:var(--ruby);">『被指責、被誤會』</em>感到無比的憤怒和委屈。平時我表現得理性、大度，拼命把衝突化解消化，那是我對自己的高要求。當巨大的壓力把我的耐性榨乾時，那些不公義的指責就<strong>直接踩到了我的底線</strong>。這不是單純的生理反應，這是我身為一個有血有肉的人，在付出努力卻得到壞結果時，最直接、最真實的情感反彈。」</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Q3 -->
+    <div class="refl-card" style="background:#fff;border:0.5px solid rgba(0,0,0,0.09);border-radius:var(--radius-lg);margin-bottom:1rem;overflow:hidden;">
+      <div style="background:var(--deep);padding:0.9rem 1.3rem;display:flex;align-items:baseline;gap:10px;">
+        <span style="font-family:'Noto Serif TC',serif;font-size:0.72rem;letter-spacing:3px;color:var(--gold);text-transform:uppercase;">Q3</span>
+        <span style="font-family:'Noto Serif TC',serif;font-size:0.95rem;color:#fff;font-weight:700;">我的「為什麼」是什麼？</span>
+      </div>
+      <div style="padding:1.2rem 1.3rem;">
+        <div style="display:flex;align-items:center;gap:12px;background:var(--teal-pale);border-radius:var(--radius);padding:1rem 1.1rem;">
+          <span style="font-size:1.5rem;flex-shrink:0;">✅</span>
+          <p style="font-size:0.83rem;color:#185049;line-height:1.75;">五項判準皆符合。我的「為什麼」是真實的，也是我願意為之承受「如何活下去」之艱難的。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Q4 -->
+    <div class="refl-card" style="background:#fff;border:0.5px solid rgba(0,0,0,0.09);border-radius:var(--radius-lg);margin-bottom:1rem;overflow:hidden;">
+      <div style="background:var(--deep);padding:0.9rem 1.3rem;display:flex;align-items:baseline;gap:10px;">
+        <span style="font-family:'Noto Serif TC',serif;font-size:0.72rem;letter-spacing:3px;color:var(--gold);text-transform:uppercase;">Q4</span>
+        <span style="font-family:'Noto Serif TC',serif;font-size:0.95rem;color:#fff;font-weight:700;">我心中是否有一份「等著我去完成」的契約？</span>
+      </div>
+      <div style="padding:1.2rem 1.3rem;">
+        <div style="font-size:0.82rem;color:var(--muted);line-height:1.8;margin-bottom:1rem;">
+          有。好好地走完這一生，神給我在地上操練的日子，至死老我，熟讀神的話，領受體會神的愛。
+        </div>
+        <div style="background:var(--soft);border-radius:var(--radius);padding:1rem 1.1rem;border-left:2px solid var(--gold);">
+          <div style="font-size:0.7rem;letter-spacing:2px;color:var(--gold);font-weight:700;margin-bottom:0.5rem;text-transform:uppercase;">破牆後的真實聲音</div>
+          <p style="font-size:0.82rem;color:var(--ink);line-height:1.8;">「這份契約是真的，但我常常把它執行得太像一場<em style="font-style:normal;color:var(--muted);">嚴格的軍事訓練</em>。我以為『至死老我』就是要把所有負面情緒、軟弱、無力都立刻消滅掉。但真實的破牆是：好好走完這一生，<strong>也包括接受自己此時此刻還是一個不完美、會累、會受挫的受造物。</strong>神的愛不是等我完美了、老我死透了才肯給我，而是在我還滿身缺點、在操練中跌倒時，祂就已經在這裡了。」</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Q5 -->
+    <div class="refl-card" style="background:#fff;border:0.5px solid rgba(0,0,0,0.09);border-radius:var(--radius-lg);margin-bottom:1rem;overflow:hidden;">
+      <div style="background:var(--deep);padding:0.9rem 1.3rem;display:flex;align-items:baseline;gap:10px;">
+        <span style="font-family:'Noto Serif TC',serif;font-size:0.72rem;letter-spacing:3px;color:var(--gold);text-transform:uppercase;">Q5</span>
+        <span style="font-family:'Noto Serif TC',serif;font-size:0.95rem;color:#fff;font-weight:700;">當我面對無可逃避的苦難時，我選擇了什麼樣的承受姿態？</span>
+      </div>
+      <div style="padding:1.2rem 1.3rem;">
+        <div style="font-size:0.82rem;color:var(--muted);line-height:1.8;margin-bottom:1rem;">
+          當「覺得」無法承受的時候，只能靠主，並請弟兄姊妹一起代禱。但是我很獨立，所以常會在局面最後一刻不得不的時候才交托。
+        </div>
+        <div style="background:var(--soft);border-radius:var(--radius);padding:1rem 1.1rem;border-left:2px solid var(--ruby);">
+          <div style="font-size:0.7rem;letter-spacing:2px;color:var(--ruby);font-weight:700;margin-bottom:0.5rem;text-transform:uppercase;">破牆後的真實聲音</div>
+          <p style="font-size:0.82rem;color:var(--ink);line-height:1.8;">「我的『獨立』有時候其實是一種<em style="font-style:normal;color:var(--ruby);">硬撐和逞強</em>。我習慣當那個掌控全局、解決問題的人，總覺得提早求助是給別人添麻煩，或是顯得自己不夠堅強。所以我常常把自己逼到懸崖邊緣、意志力快要破產的最後一刻，才肯把手放開。破牆意味著我需要承認：<strong>提早呼求神、提早向人發出代禱訊號，並不丟臉</strong>——這才叫真正的交托，而不是等到無路可走時的被迫投降。」</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Q6 -->
+    <div class="refl-card" style="background:#fff;border:0.5px solid rgba(0,0,0,0.09);border-radius:var(--radius-lg);margin-bottom:1rem;overflow:hidden;">
+      <div style="background:var(--deep);padding:0.9rem 1.3rem;display:flex;align-items:baseline;gap:10px;">
+        <span style="font-family:'Noto Serif TC',serif;font-size:0.72rem;letter-spacing:3px;color:var(--gold);text-transform:uppercase;">Q6</span>
+        <span style="font-family:'Noto Serif TC',serif;font-size:0.95rem;color:#fff;font-weight:700;">我最近一次「主動回應生命的提問」是什麼時候？</span>
+      </div>
+      <div style="padding:1.2rem 1.3rem;">
+        <div style="font-size:0.82rem;color:var(--muted);line-height:1.8;margin-bottom:1rem;">
+          近期，一個禮拜大概兩次，常常會有各種好奇議題出現，我就跟 AI 討論並分享。
+        </div>
+        <div style="background:var(--soft);border-radius:var(--radius);padding:1rem 1.1rem;border-left:2px solid var(--blue-mid);">
+          <div style="font-size:0.7rem;letter-spacing:2px;color:var(--blue-mid);font-weight:700;margin-bottom:0.5rem;text-transform:uppercase;">破牆後的真實聲音</div>
+          <p style="font-size:0.82rem;color:var(--ink);line-height:1.8;">「跟 AI 討論各種好奇議題，是我最安全、最舒適的<em style="font-style:normal;color:var(--blue-mid);">思維溫室</em>。因為 AI 永遠理智、永遠不會誤解我、不會給我帶來人際上的壓力和衝突。但真實的生命提問，往往藏在現實生活中那些<strong>混亂、不理性、需要去磨合的人際關係和環境變動裡。</strong>我用跟 AI 的高質量對話，完美地迴避了現實世界中那些真正棘手、需要我去流淚或碰撞的真實課題。」</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Q7 -->
+    <div class="refl-card" style="background:#fff;border:0.5px solid rgba(0,0,0,0.09);border-radius:var(--radius-lg);margin-bottom:2rem;overflow:hidden;">
+      <div style="background:var(--deep);padding:0.9rem 1.3rem;display:flex;align-items:baseline;gap:10px;">
+        <span style="font-family:'Noto Serif TC',serif;font-size:0.72rem;letter-spacing:3px;color:var(--gold);text-transform:uppercase;">Q7</span>
+        <span style="font-family:'Noto Serif TC',serif;font-size:0.95rem;color:#fff;font-weight:700;">哪一個情境最容易讓我陷入「活著的死亡」般的麻木？</span>
+      </div>
+      <div style="padding:1.2rem 1.3rem;">
+        <div style="font-size:0.82rem;color:var(--muted);line-height:1.8;margin-bottom:1rem;">
+          不小心陷入劃短影片、或是遊戲、或是什麼奇怪的興趣的時候。
+        </div>
+        <div style="background:var(--soft);border-radius:var(--radius);padding:1rem 1.1rem;border-left:2px solid var(--teal);">
+          <div style="font-size:0.7rem;letter-spacing:2px;color:var(--teal);font-weight:700;margin-bottom:0.5rem;text-transform:uppercase;">破牆後的真實聲音</div>
+          <p style="font-size:0.82rem;color:var(--ink);line-height:1.8;">「那根本不是『不小心』，那是我在<em style="font-style:normal;color:var(--teal);">抗議白天對自己要求太高</em>而製造出來的『絕對放空區』。因為我白天要維持獨立、要消化指責、要努力追求信仰操練，我的精神拉得太緊了。當我划短影片、打遊戲的時候，其實是我唯一允許自己<strong>『不需要神聖、不需要完美、不需要當個有用的人』</strong>的時刻。要打破這面牆，我不需要去嚴厲戒斷這些娛樂，而是要在日常生活中，就<strong>允許自己可以軟弱、可以休息、可以不用隨時都那麼緊繃。</strong>」</p>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+</main>
+
+<footer class="page-footer">
+  <p>愛的叮嚀系列 · <strong>一切都是預定的·心中的伊甸堡壘</strong></p>
+  <p style="margin-top:4px;">主要參考：弗蘭克爾《活出意義來》（Man's Search for Meaning）</p>
+</footer>
+
+</body>
+</html>
