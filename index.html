@@ -481,13 +481,71 @@ let sortModes = {tongues:'pinned',love:'pinned',review:'pinned',vision:'pinned',
 let pendingDeleteId = null;
 let searchQuery = '';
 
-/* ─── LOCALSTORAGE ─── */
-function save() { localStorage.setItem('spiritual_articles', JSON.stringify(articles)); localStorage.setItem('spiritual_nextId', String(nextId)); }
-function load() {
-  const d = localStorage.getItem('spiritual_articles');
-  const n = localStorage.getItem('spiritual_nextId');
-  if (d) { articles = JSON.parse(d); nextId = n ? parseInt(n) : articles.reduce((m,a)=>Math.max(m,a.id),0)+1; }
-  else { articles = SEED.map(a=>({...a})); nextId = 16; save(); }
+/* ─── SUPABASE ─── */
+const SUPA_URL = 'https://lhnviqsadfxpvwwmsubz.supabase.co';
+const SUPA_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxobnZpcXNhZGZ4cHZ3d21zdWJ6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzkzNDQwMjYsImV4cCI6MjA5NDkyMDAyNn0.xzUOev3w-IxFB3Z5fjatYJef2VUWqJLMI8RUJT98OzM';
+const HEADERS = {'Content-Type':'application/json','apikey':SUPA_KEY,'Authorization':'Bearer '+SUPA_KEY};
+
+function rowToArticle(r) {
+  return {id:r.id,section:r.section,title:r.title,desc:r.desc,body:r.body,bodyType:r.body_type,date:r.date,pinned:r.pinned,renew:r.renew,festivalType:r.festival_type};
+}
+function articleToRow(a) {
+  return {id:a.id,section:a.section,title:a.title,desc:a.desc,body:a.body||'',body_type:a.bodyType||'text',date:a.date,pinned:!!a.pinned,renew:!!a.renew,festival_type:a.festivalType||''};
+}
+
+async function save() {
+  // Called after any mutation — articles array is source of truth in memory.
+  // Individual CRUD functions handle Supabase directly; this is a no-op kept for compatibility.
+}
+
+async function supaInsert(article) {
+  const res = await fetch(`${SUPA_URL}/rest/v1/spiritual_articles`, {
+    method:'POST', headers:{...HEADERS,'Prefer':'return=representation'},
+    body: JSON.stringify(articleToRow(article))
+  });
+  if (!res.ok) { const e=await res.text(); throw new Error(e); }
+}
+
+async function supaUpdate(article) {
+  const res = await fetch(`${SUPA_URL}/rest/v1/spiritual_articles?id=eq.${article.id}`, {
+    method:'PATCH', headers:{...HEADERS,'Prefer':'return=representation'},
+    body: JSON.stringify(articleToRow(article))
+  });
+  if (!res.ok) { const e=await res.text(); throw new Error(e); }
+}
+
+async function supaDelete(id) {
+  const res = await fetch(`${SUPA_URL}/rest/v1/spiritual_articles?id=eq.${id}`, {
+    method:'DELETE', headers:HEADERS
+  });
+  if (!res.ok) { const e=await res.text(); throw new Error(e); }
+}
+
+async function load() {
+  showToast('⏳ 載入中…');
+  try {
+    const res = await fetch(`${SUPA_URL}/rest/v1/spiritual_articles?select=*&order=id.asc&limit=1000`, {headers:HEADERS});
+    if (!res.ok) throw new Error(await res.text());
+    const rows = await res.json();
+    if (rows.length === 0) {
+      // 第一次使用：寫入預設資料
+      articles = SEED.map(a=>({...a}));
+      nextId = articles.reduce((m,a)=>Math.max(m,a.id),0)+1;
+      await fetch(`${SUPA_URL}/rest/v1/spiritual_articles`, {
+        method:'POST', headers:{...HEADERS,'Prefer':'return=minimal'},
+        body: JSON.stringify(articles.map(articleToRow))
+      });
+    } else {
+      articles = rows.map(rowToArticle);
+      nextId = articles.reduce((m,a)=>Math.max(m,a.id),0)+1;
+    }
+  } catch(e) {
+    console.error('Supabase load error:', e);
+    showToast('⚠️ 無法連接資料庫，顯示本地備份');
+    articles = SEED.map(a=>({...a}));
+    nextId = articles.reduce((m,a)=>Math.max(m,a.id),0)+1;
+  }
+  renderAll();
 }
 
 /* ─── RENDER ─── */
@@ -608,17 +666,19 @@ function filterRenew(section,btn) {
 function setSortMode(s,v) { sortModes[s]=v; renderSection(s); }
 
 /* ─── PIN / RENEW ─── */
-function togglePin(id,e) {
+async function togglePin(id,e) {
   e.stopPropagation(); e.preventDefault();
   const a=articles.find(x=>x.id===id); if(!a) return;
-  a.pinned=!a.pinned; save(); renderAll();
-  showToast(a.pinned?'📌 已釘選至最上方':'已取消釘選');
+  a.pinned=!a.pinned;
+  try { await supaUpdate(a); renderAll(); showToast(a.pinned?'📌 已釘選至最上方':'已取消釘選'); }
+  catch(err) { a.pinned=!a.pinned; showToast('⚠️ 操作失敗'); }
 }
-function toggleRenew(id,e) {
+async function toggleRenew(id,e) {
   e.stopPropagation(); e.preventDefault();
   const a=articles.find(x=>x.id===id); if(!a) return;
-  a.renew=!a.renew; save(); renderAll();
-  showToast(a.renew?'🔄 已加入心意更新分類':'已從心意更新移除');
+  a.renew=!a.renew;
+  try { await supaUpdate(a); renderAll(); showToast(a.renew?'🔄 已加入心意更新分類':'已從心意更新移除'); }
+  catch(err) { a.renew=!a.renew; showToast('⚠️ 操作失敗'); }
 }
 
 /* ─── MODAL ─── */
@@ -668,7 +728,7 @@ function openEditModal(id,e) {
 function closeModal() { document.getElementById('modalOverlay').classList.remove('open'); }
 function closeModalOnOverlay(e) { if(e.target===document.getElementById('modalOverlay')) closeModal(); }
 
-function saveArticle() {
+async function saveArticle() {
   const title=document.getElementById('f-title').value.trim();
   if(!title){ showToast('⚠️ 請輸入標題'); return; }
   const id=document.getElementById('f-id').value;
@@ -683,7 +743,8 @@ function saveArticle() {
     a.renew=document.getElementById('f-renew').checked;
     a.pinned=document.getElementById('f-pin').checked;
     a.festivalType=document.getElementById('f-festival-type').value;
-    save(); renderAll(); closeModal(); showToast('✓ 文章已更新');
+    try { await supaUpdate(a); renderAll(); closeModal(); showToast('✓ 文章已更新'); }
+    catch(e) { showToast('⚠️ 儲存失敗：'+e.message); }
   } else {
     const article={
       id:nextId++, section:currentAddSection, title,
@@ -695,7 +756,8 @@ function saveArticle() {
       renew:document.getElementById('f-renew').checked,
       festivalType:document.getElementById('f-festival-type').value,
     };
-    articles.unshift(article); save(); renderAll(); closeModal(); showToast('✓ 文章已新增！');
+    try { await supaInsert(article); articles.unshift(article); renderAll(); closeModal(); showToast('✓ 文章已新增！'); }
+    catch(e) { showToast('⚠️ 新增失敗：'+e.message); }
   }
 }
 
@@ -719,10 +781,13 @@ function confirmDelete() {
   document.getElementById('confirmOverlay').classList.add('open');
 }
 function closeConfirm() { document.getElementById('confirmOverlay').classList.remove('open'); pendingDeleteId=null; }
-function doDelete() {
+async function doDelete() {
   if(!pendingDeleteId) return;
-  articles=articles.filter(a=>a.id!==pendingDeleteId);
-  save(); renderAll(); closeConfirm(); closeModal(); showToast('🗑 文章已刪除');
+  try {
+    await supaDelete(pendingDeleteId);
+    articles=articles.filter(a=>a.id!==pendingDeleteId);
+    renderAll(); closeConfirm(); closeModal(); showToast('🗑 文章已刪除');
+  } catch(e) { showToast('⚠️ 刪除失敗：'+e.message); }
 }
 
 /* ─── SEARCH ─── */
@@ -759,7 +824,6 @@ document.addEventListener('keydown', e=>{
 
 /* ─── INIT ─── */
 load();
-renderAll();
 </script>
 </body>
 </html>

@@ -157,9 +157,22 @@ const SEED=[
 const META={tongues:{name:'說翻方言',emoji:'🕊️'},love:{name:'愛的叮嚀',emoji:'💛'},review:{name:'溫故知新',emoji:'📖'},vision:{name:'異象',emoji:'👁️'},weekly:{name:'周訊',emoji:'📋'},festival:{name:'節慶',emoji:'🎄'}};
 const FEST={christmas:'🎄聖誕節','holy-week':'✝️聖難週',thanksgiving:'🙏感恩會'};
 
-function loadArticles(){
-  const d=localStorage.getItem('spiritual_articles');
-  return d?JSON.parse(d):SEED;
+const SUPA_URL='https://lhnviqsadfxpvwwmsubz.supabase.co';
+const SUPA_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxobnZpcXNhZGZ4cHZ3d21zdWJ6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzkzNDQwMjYsImV4cCI6MjA5NDkyMDAyNn0.xzUOev3w-IxFB3Z5fjatYJef2VUWqJLMI8RUJT98OzM';
+const SUPA_HEADERS={'apikey':SUPA_KEY,'Authorization':'Bearer '+SUPA_KEY};
+
+function rowToArticle(r){return{id:r.id,section:r.section,title:r.title,desc:r.desc,body:r.body,bodyType:r.body_type,date:r.date,pinned:r.pinned,renew:r.renew,festivalType:r.festival_type};}
+
+async function loadArticles(){
+  try {
+    const res=await fetch(`${SUPA_URL}/rest/v1/spiritual_articles?select=*&order=id.asc&limit=1000`,{headers:SUPA_HEADERS});
+    if(!res.ok) throw new Error(await res.text());
+    const rows=await res.json();
+    return rows.length>0 ? rows.map(rowToArticle) : SEED;
+  } catch(e) {
+    console.warn('Supabase load failed, using SEED',e);
+    return SEED;
+  }
 }
 
 function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
@@ -167,7 +180,9 @@ function nl2p(s){return s.split(/\n\n+/).map(p=>`<p>${esc(p.trim()).replace(/\n/
 
 const params=new URLSearchParams(window.location.search);
 const artId=parseInt(params.get('id'));
-const articles=loadArticles();
+
+(async()=>{
+const articles=await loadArticles();
 const idx=articles.findIndex(a=>a.id===artId);
 const article=idx>=0?articles[idx]:null;
 
@@ -213,14 +228,18 @@ if(article){
   }
   navEl.innerHTML=navHtml;
 
+  // expose for buttons
+  window._article=article;
 } else {
   document.getElementById('artTitle').textContent='找不到文章';
   document.getElementById('artDesc').textContent='此文章可能已被刪除，或連結有誤。';
   document.getElementById('artBody').innerHTML='<div class="body-placeholder"><div class="ph-icon">🔍</div><p>請返回首頁重新選擇文章。</p></div>';
   document.getElementById('articleNav').innerHTML='';
 }
+})(); // end async IIFE
 
 function getFullText(){
+  const article=window._article;
   if(!article) return '';
   if(article.bodyType==='html') return `${article.title}\n\n${article.desc}\n\n[完整內容請見 ${article.body}]`;
   return `${article.title}\n\n${article.desc}${article.body?'\n\n'+article.body:''}`;
