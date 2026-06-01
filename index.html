@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>主日靈糧・屬靈筆記</title>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;500;700;900&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<script src="https://accounts.google.com/gsi/client" async defer></script>
 <style>
 :root {
   --ink:#1a1612; --ink-soft:#2d2820;
@@ -36,6 +37,12 @@ header{background:var(--ink);position:sticky;top:0;z-index:100;border-bottom:2px
 .clear-search{background:none;border:none;color:rgba(255,255,255,.4);cursor:pointer;padding:4px 8px;font-size:16px;display:none;}
 .clear-search.show{display:block;}
 
+/* GOOGLE LOGIN BUTTON */
+.auth-container{display:flex;align-items:center;gap:10px;}
+#userStatus{color:var(--gold-light);font-size:12px;display:none;align-items:center;gap:8px;}
+.logout-btn{background:transparent;border:1px solid var(--rust);color:var(--rust-light);padding:4px 8px;border-radius:4px;cursor:pointer;font-size:11px;}
+.logout-btn:hover{background:var(--rust);color:white;}
+
 /* NAV TABS */
 .nav-tabs-wrap{background:var(--parchment-mid);border-bottom:1px solid var(--border);position:sticky;top:60px;z-index:90;overflow-x:auto;scrollbar-width:none;}
 .nav-tabs-wrap::-webkit-scrollbar{display:none;}
@@ -62,6 +69,13 @@ header{background:var(--ink);position:sticky;top:0;z-index:100;border-bottom:2px
 .section-desc{font-size:12px;color:var(--muted);margin-top:3px;}
 .section-actions{display:flex;gap:8px;align-items:center;flex-wrap:wrap;}
 .sort-select{border:1px solid var(--border);background:white;padding:6px 10px;border-radius:6px;font-size:12px;font-family:inherit;color:var(--ink-soft);cursor:pointer;outline:none;}
+
+/* ─── 權限控制核心樣式 ─── */
+/* 預設隱藏所有管理功能，只有當 body 加上 .is-admin 類別時才顯示 */
+.add-btn, .card-actions { display: none !important; }
+body.is-admin .add-btn { display: flex !important; }
+body.is-admin .card-actions { display: flex !important; }
+
 .add-btn{background:var(--ink);color:var(--gold);border:none;padding:7px 16px;border-radius:6px;font-size:12px;font-family:inherit;font-weight:700;cursor:pointer;display:flex;align-items:center;gap:5px;transition:background .2s;}
 .add-btn:hover{background:var(--ink-soft);}
 
@@ -187,7 +201,6 @@ header{background:var(--ink);position:sticky;top:0;z-index:100;border-bottom:2px
 </head>
 <body>
 
-<!-- HEADER -->
 <header>
   <div class="header-inner">
     <a class="logo" href="#">
@@ -199,10 +212,22 @@ header{background:var(--ink);position:sticky;top:0;z-index:100;border-bottom:2px
       <input type="text" placeholder="搜尋文章…" id="globalSearch" oninput="handleSearch(this.value)" autocomplete="off">
       <button class="clear-search" id="clearSearch" onclick="clearSearch()">✕</button>
     </div>
+    
+    <div class="auth-container">
+      <div id="g_id_onload"
+           data-client_id="855928812328-9kaom5rphks9v978p8o5es42d3u6cl73.apps.googleusercontent.com"
+           data-callback="handleCredentialResponse"
+           data-auto_select="false">
+      </div>
+      <div class="g_id_signin" data-type="standard" data-size="small" data-theme="filled_dark" data-text="signin" data-shape="rectangular"></div>
+      <div id="userStatus">
+        <span id="userName"></span>
+        <button class="logout-btn" onclick="logout()">登出</button>
+      </div>
+    </div>
   </div>
 </header>
 
-<!-- NAV TABS -->
 <div class="nav-tabs-wrap">
   <div class="nav-tabs" id="navTabs">
     <div class="nav-tab active" onclick="switchSection('renew')" id="tab-renew"><span class="tab-emoji">🔄</span>心意更新<span class="tab-count" id="count-renew">0</span></div>
@@ -216,10 +241,8 @@ header{background:var(--ink);position:sticky;top:0;z-index:100;border-bottom:2px
   </div>
 </div>
 
-<!-- MAIN -->
 <div class="main-wrap">
 
-  <!-- 心意更新 -->
   <div class="section active" id="section-renew">
     <div class="section-header">
       <div>
@@ -242,7 +265,6 @@ header{background:var(--ink);position:sticky;top:0;z-index:100;border-bottom:2px
     <div class="card-grid" id="grid-renew"></div>
   </div>
 
-  <!-- 說翻方言 -->
   <div class="section" id="section-tongues">
     <div class="section-header">
       <div>
@@ -258,7 +280,6 @@ header{background:var(--ink);position:sticky;top:0;z-index:100;border-bottom:2px
     <div class="card-grid" id="grid-tongues"></div>
   </div>
 
-  <!-- 愛的叮嚀 -->
   <div class="section" id="section-love">
     <div class="section-header">
       <div>
@@ -274,7 +295,6 @@ header{background:var(--ink);position:sticky;top:0;z-index:100;border-bottom:2px
     <div class="card-grid" id="grid-love"></div>
   </div>
 
-  <!-- 溫故知新 -->
   <div class="section" id="section-review">
     <div class="section-header">
       <div>
@@ -290,7 +310,6 @@ header{background:var(--ink);position:sticky;top:0;z-index:100;border-bottom:2px
     <div class="card-grid" id="grid-review"></div>
   </div>
 
-  <!-- 異象 -->
   <div class="section" id="section-vision">
     <div class="section-header">
       <div>
@@ -306,7 +325,6 @@ header{background:var(--ink);position:sticky;top:0;z-index:100;border-bottom:2px
     <div class="card-grid" id="grid-vision"></div>
   </div>
 
-  <!-- 周訊 -->
   <div class="section" id="section-weekly">
     <div class="section-header">
       <div>
@@ -322,7 +340,6 @@ header{background:var(--ink);position:sticky;top:0;z-index:100;border-bottom:2px
     <div class="card-grid" id="grid-weekly"></div>
   </div>
 
-  <!-- 節慶 -->
   <div class="section" id="section-festival">
     <div class="section-header">
       <div>
@@ -344,7 +361,6 @@ header{background:var(--ink);position:sticky;top:0;z-index:100;border-bottom:2px
     <div class="card-grid" id="grid-festival"></div>
   </div>
 
-  <!-- 依照日期 -->
   <div class="section" id="section-bydate">
     <div class="section-header">
       <div>
@@ -359,10 +375,7 @@ header{background:var(--ink);position:sticky;top:0;z-index:100;border-bottom:2px
     <div id="bydate-container"></div>
   </div>
 
-</div><!-- /main-wrap -->
-
-<!-- ADD / EDIT MODAL -->
-<div class="modal-overlay" id="modalOverlay" onclick="closeModalOnOverlay(event)">
+</div><div class="modal-overlay" id="modalOverlay" onclick="closeModalOnOverlay(event)">
   <div class="modal">
     <div class="modal-header">
       <h3 id="modalTitle">✚ 新增文章</h3>
@@ -425,7 +438,6 @@ header{background:var(--ink);position:sticky;top:0;z-index:100;border-bottom:2px
   </div>
 </div>
 
-<!-- CONFIRM DIALOG -->
 <div class="confirm-overlay" id="confirmOverlay">
   <div class="confirm-box">
     <h4>確認刪除</h4>
@@ -437,7 +449,6 @@ header{background:var(--ink);position:sticky;top:0;z-index:100;border-bottom:2px
   </div>
 </div>
 
-<!-- TOAST -->
 <div class="toast" id="toast"></div>
 
 <script>
@@ -460,13 +471,13 @@ const SEED = [
   {id:4,section:'love',title:'主的叮嚀：彼此相愛',desc:'「我賜給你們一條新命令，乃是叫你們彼此相愛；我怎樣愛你們，你們也要怎樣相愛。」（約翰福音13:34）',body:'主耶穌在最後晚餐時，給門徒留下了一條新命令：「你們要彼此相愛，像我愛你們一樣，這就是我的命令。」（約翰福音15:12）\n\n這份愛的標準是「像我愛你們一樣」，這是一種捨己的愛、犧牲的愛。主耶穌用祂的生命詮釋了這份愛的深度。當我們彼此相愛時，世人就知道我們是主的門徒，這是最有力的見證。',date:'2024-11-24',pinned:false,renew:false,festivalType:''},
   {id:5,section:'review',title:'回顧：恩典的年份',desc:'今年神在我們當中做了許多奇妙的事，從復活節的復興到聖誕節的佈道，每一個腳步都有神的引導。',body:'回顧這一年，神的恩典真是豐盛。年初的禱告會帶來了靈魂的復興，許多弟兄姊妹在禱告中經歷了突破。春天的奮興會中，有超過三十位慕道友決志信主，這是我們多年禱告的果實。\n\n夏天的短宣隊前往山區服事原住民教會，帶去了詩班獻唱和兒童主日學的協助。秋天的關懷探訪讓許多久未到會的弟兄姊妹重新歸隊。年末的聖誕佈道會更有八十位新朋友出席，其中十五位填寫了決志單。\n\n感謝神！祂的恩典夠我們用。',date:'2024-12-15',pinned:true,renew:true,festivalType:''},
   {id:6,section:'review',title:'再讀保羅書信的啟示',desc:'保羅書信中充滿了對教會的建造原則，重溫以弗所書讓我們重新看見合一的身體是何等美好。',body:'以弗所書是保羅在獄中所寫的「獄中書信」之一，充滿了對教會奧秘的啟示。保羅在書信的前半段（1-3章）描述信徒在基督裡的地位和尊貴，後半段（4-6章）則說明信徒應有的生活方式。\n\n其中最令人印象深刻的是第4章1節：「我為主被囚的勸你們：既然蒙召，行事為人就當與蒙召的恩相稱。」保羅雖身陷囹圄，卻仍以主的囚犯自稱，他的生命見證是我們最好的榜樣。',date:'2024-10-20',pinned:false,renew:false,festivalType:''},
-  {id:7,section:'vision',title:'2025年的異象：廣傳福音',desc:'神給我們的異象是跨越城市與語言的藩籬，將福音帶給每一個需要的靈魂，讓教會成為社區的祝福。',body:'在這個新年度裡，神給我們清晰的異象：要成為社區的祝福，將福音的好消息帶給每一個角落。\n\n具體的方向包括：\n一、建立社區關懷中心，提供實際的生活幫助\n二、開展職場事工，在工作場所中作鹽作光\n三、加強跨文化宣教，支持海外宣教士\n四、培訓年輕一代成為下一代的領袖\n\n「你們往普天下去，傳福音給萬民聽。」（馬可福音16:15）這是主給我們每個人的大使命。',date:'2024-12-22',pinned:true,renew:true,festivalType:''},
+  {id:7,section:'vision',title:'2025年的異象：廣傳福音',desc:'神給我們的異象一跨越城市與語言的藩籬，將福音帶給每一個需要的靈魂，讓教會成為社區的祝福。',body:'在這個新年度裡，神給我們清晰的異象：要成為社區的祝福，將福音的好消息帶給每一個角落。\n\n具體的方向包括：\n一、建立社區關懷中心，提供實際的生活幫助\n二、開展職場事工，在工作場所中作鹽作光\n三、加強跨文化宣教，支持海外宣教士\n四、培訓年輕一代成為下一代的領袖\n\n「你們往普天下去，傳福音給萬民聽。」（馬可福音16:15）這是主給我們每個人的大使命。',date:'2024-12-22',pinned:true,renew:true,festivalType:''},
   {id:8,section:'vision',title:'末後的日子與教會的使命',desc:'先知書提醒我們要在黑暗中發光，教會是神在地上的代理人，我們要以禱告和行動回應這個時代的呼召。',body:'在末後的日子，神的靈要澆灌凡有血氣的，你們的兒女要說預言，你們的老年人要做異夢，少年人要見異象。（約珥書2:28）\n\n教會在這個時代的使命是前所未有的重要。當世界充滿黑暗、混亂和恐懼的時候，正是教會發光的時刻。我們不是退縮，而是前進；不是沉默，而是宣告；不是恐懼，而是信心。\n\n讓我們以禱告回應這個時代，以行動彰顯神的愛。',date:'2024-11-03',pinned:false,renew:false,festivalType:''},
   {id:9,section:'weekly',title:'本週教會消息 2024/12/22',desc:'本週日崇拜將有聖誕詩班獻唱，請弟兄姊妹提前到場；週三禱告會地點變更至副堂，歡迎大家同心禱告。',body:'一、本週日（12/22）主日崇拜：聖誕主題特別崇拜，詩班將獻唱「哈利路亞大合唱」，請弟兄姊妹提前20分鐘到場就座。崇拜後有愛宴，請事先報名。\n\n二、週三（12/18）禱告會：本週禱告會移至副堂舉行，時間不變（晚上7:30），主題：為聖誕佈道會禱告。\n\n三、聖誕佈道會（12/24）：平安夜特別聚會晚上8:00開始，歡迎邀請親友出席。現場備有精美禮物。\n\n四、奉獻提醒：年底是教會財務年結的重要時期，感謝弟兄姊妹的忠心奉獻。',date:'2024-12-22',pinned:true,renew:false,festivalType:''},
   {id:10,section:'weekly',title:'本週教會消息 2024/12/15',desc:'感謝神，上週主日有三位慕道友決志！本週五將有關懷小組聚會，請各組長準備分享題目。',body:'一、感恩報告：上週主日有三位慕道友在聖靈的感動下決志信主！請弟兄姊妹繼續為他們禱告，也歡迎大家主動關懷這些新朋友。\n\n二、週五（12/20）關懷小組：各關懷小組聚會，本月主題「如何在職場中作見證」。請各組長預備相關問題或見證分享。\n\n三、兒童主日學：下週（12/22）兒童主日學將有聖誕戲劇表演，請家長們踴躍出席為孩子們打氣！\n\n四、2025年事奉計畫會議：12/28（六）下午2:00，邀請所有事奉同工出席討論明年計畫。',date:'2024-12-15',pinned:false,renew:false,festivalType:''},
   {id:11,section:'festival',title:'聖誕：道成肉身的奇蹟',desc:'「道成了肉身，住在我們中間，充充滿滿地有恩典有真理。」（約翰福音1:14）這是神最偉大的禮物。',body:'「道成了肉身，住在我們中間，充充滿滿地有恩典有真理。我們也見過他的榮光，正是父獨生子的榮光。」（約翰福音1:14）\n\n聖誕節不只是一個節日，它是神進入人類歷史最偉大的行動。全能的神，宇宙的創造者，選擇降卑自己，成為一個嬰孩，住在我們中間。這不是神話，不是傳說，而是真實發生在歷史中的事件。\n\n馬太福音記載：「必有童女懷孕生子，人要稱他的名為以馬內利。」（馬太福音1:23）以馬內利的意思就是「神與我們同在」。這個名字包含了整個聖誕節的信息：神選擇與我們同在！',date:'2024-12-25',pinned:true,renew:true,festivalType:'christmas'},
   {id:12,section:'festival',title:'感恩會：數算神的恩典',desc:'在感恩的季節裡，讓我們一起回顧神在過去一年中如何引領、保護、供應我們，並以感謝的心迎接新的一年。',body:'「應當一無掛慮，只要凡事藉著禱告、祈求和感謝，將你們所要的告訴神。」（腓立比書4:6）\n\n感恩不只是一種情感，更是一種生命的態度。當我們選擇看見神的恩典，而不是我們的困境，我們的眼光就改變了。感謝的心是信心的表達，相信神掌管一切，相信祂的恩典夠我們用。\n\n今年有多少我們可以感謝的事？健康、家人、教會的弟兄姊妹、工作、神話語的供應…讓我們一一數算，讓感恩充滿我們的心。',date:'2024-11-28',pinned:false,renew:false,festivalType:'thanksgiving'},
-  {id:13,section:'festival',title:'聖難週默想：主的受苦',desc:'進入聖難週，讓我們靜下心來默想主耶穌為我們所受的苦難，從客西馬尼園到髑髏地，每一步都是為了愛。',body:'聖難週，從棕枝主日到復活節前夕，是基督徒信仰歷程中最莊嚴也最深刻的一週。\n\n在客西馬尼園，主耶穌禱告說：「我父啊，倘若可行，求你叫這杯離開我。然而，不要照我的意思，只要照你的意思。」（馬太福音26:39）這是何等深刻的順服！\n\n在審判堂前，在彼拉多面前，主耶穌沉默受審。祂本可以召天使來拯救，卻選擇了沉默，為的是完成父神的旨意。\n\n在各各他，在十字架上，主說：「成了！」（約翰福音19:30）這兩個字包含了整個人類救贖的故事。讓我們靜默思想，因祂受的傷使我們得了醫治。',date:'2024-03-24',pinned:true,renew:true,festivalType:'holy-week'},
+  {id:13,section:'festival',title:'聖難週默想：主的受苦',desc:'進入聖難週，讓我們靜下心來默想主耶穌為我們所受的苦難，從客西馬尼園到髑髏地，每一步都是為了愛。',body:'聖難週，從棕枝主日到復活節前夕，是基督徒信仰歷程中最莊嚴也最深刻的一週。\n\n在客西馬尼園，主耶穌禱告說：「我父啊，倘若可行，求你叫這杯離開我。然而，不要照我的意思，只要照我的意思。」（馬太福音26:39）這是何等深刻的順服！\n\n在審判堂前，在彼拉多面前，主耶穌沉默受審。祂本可以召天使來拯救，卻選擇了沉默，為的是完成父神的旨意。\n\n在各各他，在十字架上，主說：「成了！」（約翰福音19:30）這兩個字包含了整個人類救贖的故事。讓我們靜默思想，因祂受的傷使我們得了醫治。',date:'2024-03-24',pinned:true,renew:true,festivalType:'holy-week'},
   {id:15,section:'love',title:'一切都是預定的・心中的伊甸堡壘',desc:'師母分享弗蘭克爾《活出意義來》：當一切外在標籤被剝奪，在刺激與反應之間那個縫隙裡，人仍然擁有選擇的自由——那是任何皮鞭與鐵絲網都無法奪走的最後堡壘。',body:'ding-ling-01.html',bodyType:'html',date:'2025-05-26',pinned:true,renew:true,festivalType:''},
   {id:14,section:'festival',title:'復活節：死亡被吞滅了',desc:'「死亡被得勝吞滅了。死啊，你得勝的權勢在哪裡呢？」（哥林多前書15:54-55）主復活的真理是信仰核心！',body:'「死亡被得勝吞滅了。死啊，你得勝的權勢在哪裡呢？死啊，你的毒鉤在哪裡呢？」（哥林多前書15:54-55）\n\n主耶穌的復活不只是一個宗教故事，它是改變歷史進程的事件。使徒保羅說：「基督若沒有復活，你們的信便是徒然，你們仍在罪裡。」（哥林多前書15:17）復活是基督信仰的核心與根基。\n\n因為主耶穌復活了，死亡的權勢被打破了。因為主耶穌復活了，我們也有了復活的盼望。因為主耶穌復活了，我們今天的信仰不是虛空的，而是有真實生命支撐的活潑盼望！\n\n哈利路亞！主已復活！',date:'2024-03-31',pinned:false,renew:false,festivalType:'holy-week'},
 ];
@@ -480,6 +491,7 @@ let currentRenewFilter = 'all';
 let sortModes = {tongues:'pinned',love:'pinned',review:'pinned',vision:'pinned',weekly:'pinned',festival:'pinned'};
 let pendingDeleteId = null;
 let searchQuery = '';
+let isAdmin = false; // 權限狀態變數
 
 /* ─── SUPABASE ─── */
 const SUPA_URL = 'https://lhnviqsadfxpvwwmsubz.supabase.co';
@@ -493,12 +505,63 @@ function articleToRow(a) {
   return {id:a.id,section:a.section,title:a.title,desc:a.desc,body:a.body||'',body_type:a.bodyType||'text',date:a.date,pinned:!!a.pinned,renew:!!a.renew,festival_type:a.festivalType||''};
 }
 
-async function save() {
-  // Called after any mutation — articles array is source of truth in memory.
-  // Individual CRUD functions handle Supabase directly; this is a no-op kept for compatibility.
+async function save() {}
+
+/* ─── GOOGLE AUTHENTICATION ─── */
+// JWT Token 解碼器
+function parseJwt(token) {
+  var base64Url = token.split('.')[1];
+  var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+  var jsonPayload = decodeURIComponent(window.atob(base64).split('').map(function(c) {
+      return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+  }).join(''));
+  return JSON.parse(jsonPayload);
+}
+
+// 登入回呼函式
+function handleCredentialResponse(response) {
+  const responsePayload = parseJwt(response.credential);
+  const userEmail = responsePayload.email;
+  
+  // 核心邏輯：判定 Email 是否為指定管理者
+  if (userEmail === "vup5xu3@gmail.com") {
+    isAdmin = true;
+    document.body.classList.add('is-admin');
+    
+    // UI 變更：隱藏登入鈕，顯示管理者稱呼
+    document.querySelector('.g_id_signin').style.display = 'none';
+    document.getElementById('userName').textContent = `✍️ 管理者: ${responsePayload.name}`;
+    document.getElementById('userStatus').style.display = 'flex';
+    showToast('🔓 驗證成功！已解鎖編輯權限');
+  } else {
+    isAdmin = false;
+    document.body.classList.remove('is-admin');
+    showToast('⚠️ 驗證失敗：此帳號無編輯權限');
+  }
+  renderAll();
+}
+
+// 登出函式
+function logout() {
+  isAdmin = false;
+  document.body.classList.remove('is-admin');
+  document.querySelector('.g_id_signin').style.display = 'block';
+  document.getElementById('userStatus').style.display = 'none';
+  showToast('🔒 已安全登出管理模式');
+  renderAll();
+}
+
+// 攔截防線：非管理者不允許調用 API
+function checkAdminPermission() {
+  if (!isAdmin) {
+    showToast('❌ 拒絕操作：您沒有修改資料的權限');
+    return false;
+  }
+  return true;
 }
 
 async function supaInsert(article) {
+  if (!checkAdminPermission()) return;
   const res = await fetch(`${SUPA_URL}/rest/v1/spiritual_articles`, {
     method:'POST', headers:{...HEADERS,'Prefer':'return=representation'},
     body: JSON.stringify(articleToRow(article))
@@ -507,6 +570,7 @@ async function supaInsert(article) {
 }
 
 async function supaUpdate(article) {
+  if (!checkAdminPermission()) return;
   const res = await fetch(`${SUPA_URL}/rest/v1/spiritual_articles?id=eq.${article.id}`, {
     method:'PATCH', headers:{...HEADERS,'Prefer':'return=representation'},
     body: JSON.stringify(articleToRow(article))
@@ -515,6 +579,7 @@ async function supaUpdate(article) {
 }
 
 async function supaDelete(id) {
+  if (!checkAdminPermission()) return;
   const res = await fetch(`${SUPA_URL}/rest/v1/spiritual_articles?id=eq.${id}`, {
     method:'DELETE', headers:HEADERS
   });
@@ -528,13 +593,15 @@ async function load() {
     if (!res.ok) throw new Error(await res.text());
     const rows = await res.json();
     if (rows.length === 0) {
-      // 第一次使用：寫入預設資料
       articles = SEED.map(a=>({...a}));
       nextId = articles.reduce((m,a)=>Math.max(m,a.id),0)+1;
-      await fetch(`${SUPA_URL}/rest/v1/spiritual_articles`, {
-        method:'POST', headers:{...HEADERS,'Prefer':'return=minimal'},
-        body: JSON.stringify(articles.map(articleToRow))
-      });
+      // 只有初始化且具有權限時才寫入預設資料（此處保留相容性，若無權限僅在前端展示不寫入庫）
+      if(isAdmin) {
+        await fetch(`${SUPA_URL}/rest/v1/spiritual_articles`, {
+          method:'POST', headers:{...HEADERS,'Prefer':'return=minimal'},
+          body: JSON.stringify(articles.map(articleToRow))
+        });
+      }
     } else {
       articles = rows.map(rowToArticle);
       nextId = articles.reduce((m,a)=>Math.max(m,a.id),0)+1;
@@ -601,7 +668,7 @@ function renderSection(s) {
   if(s==='festival'&&currentFestivalFilter!=='all') items=items.filter(a=>a.festivalType===currentFestivalFilter);
   const sorted = sortList(items, sortModes[s]||'pinned');
   g.innerHTML = sorted.length ? sorted.map(a=>makeCard(a,searchQuery)).join('') :
-    '<div class="empty-state"><div class="icon">📄</div><p>尚無文章，點擊右上角「新增」開始記錄</p></div>';
+    '<div class="empty-state"><div class="icon">📄</div><p>尚無文章</p></div>';
 }
 
 function renderRenew() {
@@ -610,7 +677,7 @@ function renderRenew() {
   if(currentRenewFilter!=='all') items=items.filter(a=>a.section===currentRenewFilter);
   const sorted = sortList(items,'pinned');
   g.innerHTML = sorted.length ? sorted.map(a=>makeCard(a,searchQuery)).join('') :
-    '<div class="empty-state"><div class="icon">🔄</div><p>尚未有文章加入「心意更新」分類<br>點擊文章卡片上的 🔄 按鈕即可加入</p></div>';
+    '<div class="empty-state"><div class="icon">🔄</div><p>尚未有文章加入「心意更新」分類</p></div>';
 }
 
 function renderByDate() {
@@ -668,6 +735,7 @@ function setSortMode(s,v) { sortModes[s]=v; renderSection(s); }
 /* ─── PIN / RENEW ─── */
 async function togglePin(id,e) {
   e.stopPropagation(); e.preventDefault();
+  if (!checkAdminPermission()) return;
   const a=articles.find(x=>x.id===id); if(!a) return;
   a.pinned=!a.pinned;
   try { await supaUpdate(a); renderAll(); showToast(a.pinned?'📌 已釘選至最上方':'已取消釘選'); }
@@ -675,6 +743,7 @@ async function togglePin(id,e) {
 }
 async function toggleRenew(id,e) {
   e.stopPropagation(); e.preventDefault();
+  if (!checkAdminPermission()) return;
   const a=articles.find(x=>x.id===id); if(!a) return;
   a.renew=!a.renew;
   try { await supaUpdate(a); renderAll(); showToast(a.renew?'🔄 已加入心意更新分類':'已從心意更新移除'); }
@@ -685,6 +754,7 @@ async function toggleRenew(id,e) {
 let currentAddSection='tongues';
 
 function openAddModal(section) {
+  if (!checkAdminPermission()) return;
   currentAddSection=section;
   document.getElementById('f-id').value='';
   document.getElementById('f-title').value='';
@@ -705,6 +775,7 @@ function openAddModal(section) {
 
 function openEditModal(id,e) {
   e && e.stopPropagation(); e && e.preventDefault();
+  if (!checkAdminPermission()) return;
   const a=articles.find(x=>x.id===id); if(!a) return;
   document.getElementById('f-id').value=id;
   document.getElementById('f-title').value=a.title;
@@ -729,6 +800,7 @@ function closeModal() { document.getElementById('modalOverlay').classList.remove
 function closeModalOnOverlay(e) { if(e.target===document.getElementById('modalOverlay')) closeModal(); }
 
 async function saveArticle() {
+  if (!checkAdminPermission()) return;
   const title=document.getElementById('f-title').value.trim();
   if(!title){ showToast('⚠️ 請輸入標題'); return; }
   const id=document.getElementById('f-id').value;
@@ -776,12 +848,14 @@ function setBodyType(type) {
 
 /* ─── DELETE ─── */
 function confirmDelete() {
+  if (!checkAdminPermission()) return;
   const id=document.getElementById('f-id').value;
   pendingDeleteId=parseInt(id);
   document.getElementById('confirmOverlay').classList.add('open');
 }
 function closeConfirm() { document.getElementById('confirmOverlay').classList.remove('open'); pendingDeleteId=null; }
 async function doDelete() {
+  if (!checkAdminPermission()) return;
   if(!pendingDeleteId) return;
   try {
     await supaDelete(pendingDeleteId);
@@ -795,10 +869,8 @@ function handleSearch(q) {
   searchQuery=q.toLowerCase();
   document.getElementById('clearSearch').classList.toggle('show', !!q);
   if(!q){ renderAll(); return; }
-  // Switch to bydate for global results
   switchSection('bydate');
   renderByDate();
-  // Also re-render current visible section cards with highlight
   SECTIONS.forEach(renderSection);
   renderRenew();
 }
