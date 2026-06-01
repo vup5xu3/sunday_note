@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>異象與感動分享</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --gold: #C9A84C;
+  --gold-light: #E8D08A;
+  --gold-pale: #FAF3DC;
+  --deep: #1A1208;
+  --ink: #2C2416;
+  --muted: #6B5D3E;
+  --soft: #F5EDD8;
+  --parchment: #FBF6EC;
+  --teal: #2E7D72;
+  --teal-light: #4AA89C;
+  --teal-pale: #E0F2EF;
+  --ruby: #8B2130;
+  --ruby-light: #C2445A;
+  --ruby-pale: #FAEAED;
+  --blue-deep: #1E3A5F;
+  --blue-mid: #2E6DA4;
+  --blue-pale: #E8F1FA;
+  --purple: #5B3A8A;
+  --purple-light: #8B6BBF;
+  --purple-pale: #F0EAF8;
+  --radius: 12px;
+  --radius-lg: 20px;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family: 'Noto Sans TC', sans-serif;
+  background: var(--parchment);
+  color: var(--ink);
+  line-height: 1.8;
+}
+
+/* ── HERO ── */
+.hero {
+  background: var(--deep);
+  padding: 3.5rem 2rem 3rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content:'';
+  position:absolute; inset:0;
+  background: radial-gradient(ellipse at 50% 0%, rgba(201,168,76,0.18) 0%, transparent 70%);
+  pointer-events:none;
+}
+.hero-tag {
+  display: inline-block;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  font-size: 11px;
+  letter-spacing: 4px;
+  padding: 4px 16px;
+  border-radius: 2px;
+  margin-bottom: 1.2rem;
+  text-transform: uppercase;
+}
+.hero h1 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  color: #fff;
+  font-weight: 700;
+  line-height: 1.4;
+  margin-bottom: 0.6rem;
+}
+.hero h1 em { color: var(--gold-light); font-style:normal; }
+.hero-sub {
+  color: rgba(255,255,255,0.55);
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  margin-bottom: 2rem;
+}
+.hero-verse {
+  display: inline-block;
+  border-left: 2px solid var(--gold);
+  padding: 0.5rem 1rem;
+  text-align: left;
+  color: var(--gold-light);
+  font-family: 'Noto Serif TC', serif;
+  font-size: 0.9rem;
+  line-height: 1.9;
+}
+
+/* ── LAYOUT ── */
+.container { max-width: 880px; margin: 0 auto; padding: 0 1.25rem; }
+.section { padding: 2.5rem 0 1.5rem; }
+
+/* ── SECTION TITLE ── */
+.sec-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 1.5rem;
+}
+.sec-title .icon {
+  width: 36px; height: 36px;
+  background: var(--gold);
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 17px; color: var(--deep); flex-shrink:0;
+}
+.sec-title h2 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 1.2rem;
+  color: var(--deep);
+  font-weight: 700;
+}
+.sec-title .subtitle { font-size: 0.78rem; color: var(--muted); margin-top:1px; }
+
+/* ── FEATURED CARD (師母) ── */
+.featured-card {
+  background: var(--deep);
+  border-radius: var(--radius-lg);
+  padding: 2rem 2rem 1.8rem;
+  margin-bottom: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+.featured-card::before {
+  content: '✦';
+  position: absolute;
+  top: 1rem; right: 1.5rem;
+  font-size: 5rem;
+  color: var(--gold);
+  opacity: 0.08;
+  line-height: 1;
+  pointer-events: none;
+}
+.featured-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--gold);
+  color: var(--deep);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  padding: 4px 12px;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+}
+.featured-card h3 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 1.1rem;
+  color: var(--gold-light);
+  font-weight: 700;
+  margin-bottom: 1.2rem;
+}
+
+.vision-block {
+  background: rgba(255,255,255,0.06);
+  border-radius: var(--radius);
+  border-left: 2px solid var(--gold);
+  padding: 1rem 1.2rem;
+  margin-bottom: 0.8rem;
+}
+.vision-block-label {
+  font-size: 0.68rem;
+  letter-spacing: 2px;
+  color: var(--gold);
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+.vision-block p {
+  font-size: 0.88rem;
+  color: rgba(255,255,255,0.82);
+  line-height: 1.85;
+}
+.vision-block.teal { border-left-color: var(--teal-light); }
+.vision-block.teal .vision-block-label { color: var(--teal-light); }
+.vision-block.ruby { border-left-color: #F4A0B0; }
+.vision-block.ruby .vision-block-label { color: #F4A0B0; }
+
+.word-highlight {
+  display: block;
+  margin-top: 1rem;
+  background: rgba(201,168,76,0.12);
+  border-radius: var(--radius);
+  padding: 0.9rem 1.1rem;
+  border: 1px solid rgba(201,168,76,0.25);
+}
+.word-highlight .label {
+  font-size: 0.68rem;
+  letter-spacing: 2px;
+  color: var(--gold);
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 0.4rem;
+}
+.word-highlight p {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 0.95rem;
+  color: var(--gold-light);
+  line-height: 1.9;
+}
+
+/* ── VISION CARDS (其他同工) ── */
+.vision-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.vision-card {
+  background: #fff;
+  border: 0.5px solid rgba(0,0,0,0.09);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.vision-card:hover { transform: translateY(-3px); box-shadow: 0 8px 28px rgba(0,0,0,0.08); }
+.vision-card::before {
+  content:'';
+  position:absolute; top:0; left:0; right:0; height:3px;
+}
+.vision-card.c1::before { background: linear-gradient(90deg, var(--gold), var(--gold-light)); }
+.vision-card.c2::before { background: linear-gradient(90deg, var(--teal), var(--teal-light)); }
+.vision-card.c3::before { background: linear-gradient(90deg, var(--ruby), var(--ruby-light)); }
+.vision-card.c4::before { background: linear-gradient(90deg, var(--blue-deep), var(--blue-mid)); }
+.vision-card.c5::before { background: linear-gradient(90deg, var(--purple), var(--purple-light)); }
+
+.card-region {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 0.8rem;
+  padding: 3px 9px;
+  border-radius: 4px;
+  display: inline-block;
+}
+.c1 .card-region { background: var(--gold-pale); color: #7A620A; }
+.c2 .card-region { background: var(--teal-pale); color: var(--teal); }
+.c3 .card-region { background: var(--ruby-pale); color: var(--ruby); }
+.c4 .card-region { background: var(--blue-pale); color: var(--blue-deep); }
+.c5 .card-region { background: var(--purple-pale); color: var(--purple); }
+
+.card-vision-item {
+  margin-bottom: 0.9rem;
+  padding-bottom: 0.9rem;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+.card-vision-item:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+
+.card-vision-num {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-bottom: 0.3rem;
+}
+.c1 .card-vision-num { color: var(--gold); }
+.c2 .card-vision-num { color: var(--teal); }
+.c3 .card-vision-num { color: var(--ruby); }
+.c4 .card-vision-num { color: var(--blue-mid); }
+.c5 .card-vision-num { color: var(--purple); }
+
+.card-vision-item p { font-size: 0.83rem; color: var(--muted); line-height: 1.78; }
+
+.card-word {
+  margin-top: 0.8rem;
+  padding: 0.7rem 0.9rem;
+  border-radius: 8px;
+  font-size: 0.82rem;
+  font-family: 'Noto Serif TC', serif;
+  line-height: 1.75;
+}
+.c1 .card-word { background: var(--gold-pale); color: #7A620A; border-left: 2px solid var(--gold); }
+.c2 .card-word { background: var(--teal-pale); color: #185049; border-left: 2px solid var(--teal); }
+.c3 .card-word { background: var(--ruby-pale); color: var(--ruby); border-left: 2px solid var(--ruby); }
+.c4 .card-word { background: var(--blue-pale); color: var(--blue-deep); border-left: 2px solid var(--blue-mid); }
+.c5 .card-word { background: var(--purple-pale); color: var(--purple); border-left: 2px solid var(--purple); }
+
+/* ── FOOTER ── */
+.page-footer {
+  background: var(--deep);
+  padding: 2rem;
+  text-align: center;
+  color: rgba(255,255,255,0.4);
+  font-size: 0.78rem;
+  line-height: 1.9;
+}
+</style>
+</head>
+<body>
+
+<!-- ── HERO ── -->
+<div class="hero">
+  <div class="hero-tag">意象與感動</div>
+  <h1>聖靈的<em>異象與感動</em>分享</h1>
+  <div class="hero-sub">各地同工與師母分享</div>
+  <div class="hero-verse">
+    我所賞賜的福分，<br>
+    是不帶著憂慮與憂愁的。
+  </div>
+</div>
+
+<main class="container">
+
+  <!-- ══════════════════════════════════
+       總結重點
+  ══════════════════════════════════ -->
+  <section class="section">
+    <div class="sec-title">
+      <div class="icon" style="background:var(--gold);">📋</div>
+      <div>
+        <h2>本次異象感動總結</h2>
+        <div class="subtitle">核心信息摘要</div>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem;margin-bottom:2rem;">
+      <div style="background:#fff;border-radius:var(--radius-lg);border:0.5px solid rgba(0,0,0,0.09);padding:1.4rem;border-top:3px solid var(--gold);">
+        <div style="font-size:1.5rem;margin-bottom:0.5rem;">🕊</div>
+        <div style="font-family:'Noto Serif TC',serif;font-size:0.95rem;font-weight:700;color:var(--deep);margin-bottom:0.5rem;">被神托住、往上升</div>
+        <p style="font-size:0.8rem;color:var(--muted);line-height:1.7;">神的手托住祂的百姓，緩緩升到寶座前；背上有翅膀、順著靈流自在飛翔。</p>
+      </div>
+      <div style="background:#fff;border-radius:var(--radius-lg);border:0.5px solid rgba(0,0,0,0.09);padding:1.4rem;border-top:3px solid var(--teal);">
+        <div style="font-size:1.5rem;margin-bottom:0.5rem;">⏳</div>
+        <div style="font-family:'Noto Serif TC',serif;font-size:0.95rem;font-weight:700;color:var(--deep);margin-bottom:0.5rem;">時候不多，緊緊跟隨</div>
+        <p style="font-size:0.8rem;color:var(--muted);line-height:1.7;">主扣門、天使開名冊——被提的時刻臨近，要跟上神的軍隊，前方是亮光，切勿回頭。</p>
+      </div>
+      <div style="background:#fff;border-radius:var(--radius-lg);border:0.5px solid rgba(0,0,0,0.09);padding:1.4rem;border-top:3px solid var(--ruby);">
+        <div style="font-size:1.5rem;margin-bottom:0.5rem;">🤝</div>
+        <div style="font-family:'Noto Serif TC',serif;font-size:0.95rem;font-weight:700;color:var(--deep);margin-bottom:0.5rem;">和睦，從自身做起</div>
+        <p style="font-size:0.8rem;color:var(--muted);line-height:1.7;">世間充滿爭戰仇恨，使人和睦的人有福了。神的兒女要化解對立，讓愛不被遮蓋。</p>
+      </div>
+      <div style="background:#fff;border-radius:var(--radius-lg);border:0.5px solid rgba(0,0,0,0.09);padding:1.4rem;border-top:3px solid var(--blue-mid);">
+        <div style="font-size:1.5rem;margin-bottom:0.5rem;">💎</div>
+        <div style="font-family:'Noto Serif TC',serif;font-size:0.95rem;font-weight:700;color:var(--deep);margin-bottom:0.5rem;">珍視神的話語</div>
+        <p style="font-size:0.8rem;color:var(--muted);line-height:1.7;">珍珠從天而降，神的話語是珍寶，要引領走榮耀之路。臨到興旺時，更不可棄之不顧。</p>
+      </div>
+      <div style="background:#fff;border-radius:var(--radius-lg);border:0.5px solid rgba(0,0,0,0.09);padding:1.4rem;border-top:3px solid var(--purple);">
+        <div style="font-size:1.5rem;margin-bottom:0.5rem;">🌊</div>
+        <div style="font-family:'Noto Serif TC',serif;font-size:0.95rem;font-weight:700;color:var(--deep);margin-bottom:0.5rem;">放下忙碌、心靈休息</div>
+        <p style="font-size:0.8rem;color:var(--muted);line-height:1.7;">混濁轉清澈，神要百姓停下忙碌，享受從祂而來的平安，知道祂與我們同在。</p>
+      </div>
+      <div style="background:#fff;border-radius:var(--radius-lg);border:0.5px solid rgba(0,0,0,0.09);padding:1.4rem;border-top:3px solid var(--muted);">
+        <div style="font-size:1.5rem;margin-bottom:0.5rem;">⚠️</div>
+        <div style="font-family:'Noto Serif TC',serif;font-size:0.95rem;font-weight:700;color:var(--deep);margin-bottom:0.5rem;">警醒私慾、自省</div>
+        <p style="font-size:0.8rem;color:var(--muted);line-height:1.7;">魔鬼在耳邊輕語，外表似狗卻如狐狸的詭變——私慾抬頭時易自我欺騙，當隨時自省。</p>
+      </div>
+    </div>
+
+    <div style="background:var(--deep);border-radius:var(--radius-lg);padding:1.5rem 1.8rem;margin-bottom:2rem;text-align:center;">
+      <div style="font-size:0.68rem;letter-spacing:3px;color:var(--gold);font-weight:700;margin-bottom:0.8rem;text-transform:uppercase;">神的應許</div>
+      <p style="font-family:'Noto Serif TC',serif;font-size:1.1rem;color:#fff;line-height:2;">「我所賞賜的福分，<br>是不帶著憂慮與憂愁的。」</p>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════
+       秀美師母分享（置頂顯示）
+  ══════════════════════════════════ -->
+  <section class="section" style="padding-top:0;">
+    <div class="sec-title">
+      <div class="icon" style="background:var(--gold);">✦</div>
+      <div>
+        <h2>秀美師母分享</h2>
+        <div class="subtitle">敬愛的師母、弟兄姊妹，大家平安</div>
+      </div>
+    </div>
+
+    <div class="featured-card">
+      <div class="featured-badge">✦ 師母分享</div>
+
+      <div class="vision-block">
+        <div class="vision-block-label">異象一 · 獻詩的時候</div>
+        <p>獻詩的時候，看見姊妹們好像都彎著腰、俯身在地上撿拾東西。這個畫面一直停格，靜止不動，沒有繼續往下發展。</p>
+      </div>
+
+      <div class="vision-block teal">
+        <div class="vision-block-label">異象二 · 靈琴服事 · 珍珠從天而降</div>
+        <p>靈琴服事的時候，看見從天上飄下銀白色的東西，不像冰、也不像雪。落到地上才看清楚，是類似珍珠的東西。這時看見弟兄姊妹都非常興奮地在地上撿拾那些寶物。</p>
+      </div>
+
+      <div class="word-highlight">
+        <div class="label">神的話語</div>
+        <p>「我所有的孩子們，我所賜下的話語和教導是珍寶，是要引領你們走榮耀之路，成為聰明的。你們要珍視、珍惜，不要在臨到興旺的時候反而棄之不顧。」</p>
+      </div>
+
+      <div class="vision-block ruby" style="margin-top:1rem;">
+        <div class="vision-block-label">異象三 · 說方言時 · 看似狗、卻似狐狸</div>
+        <p>說方言的時候，先看見一隻動物，一晃眼以為是狗，但畫面一轉，卻變得有點像狐狸。那種變化的感覺，給人有一點點詭異、有一點點心機的感受。</p>
+      </div>
+
+      <div class="word-highlight" style="background:rgba(139,33,48,0.12);border-color:rgba(139,33,48,0.25);margin-top:0;">
+        <div class="label" style="color:#F4A0B0;">神的話語</div>
+        <p style="color:#F4A0B0;">「我很多的兒女，就是如此——在私慾抬頭的時候，會有一種行為叫做『掩飾病症』而不自知。孩子們，你們要隨時自省。」</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════
+       各地同工分享
+  ══════════════════════════════════ -->
+  <section class="section" style="padding-top:0;">
+    <div class="sec-title">
+      <div class="icon" style="background:var(--teal);color:#fff;">🕊</div>
+      <div>
+        <h2>各地同工異象分享</h2>
+        <div class="subtitle">台北・台中各教區同工</div>
+      </div>
+    </div>
+
+    <div class="vision-cards">
+
+      <!-- 台北 同工一 -->
+      <div class="vision-card c1">
+        <span class="card-region">台北教區</span>
+
+        <div class="card-vision-item">
+          <div class="card-vision-num">異象一 · 神州教區獻詩敬拜時</div>
+          <p>神州教區獻詩敬拜時，看見神的手讓人被托住，並且緩緩往上升，升到神的寶座前。</p>
+        </div>
+
+        <div class="card-vision-item">
+          <div class="card-vision-num">異象二 · 帶領靈舞</div>
+          <p>看見弟兄姊妹背上有翅膀，飛身而上，看起來更自在地跳著靈舞。之後一股氣流帶領他們，順著氣流變化出許多的舞姿。</p>
+        </div>
+
+        <div class="card-vision-item">
+          <div class="card-vision-num">異象三 · 主扣門</div>
+          <p>看見主在扣一扇門，那人開門迎接主進入自己家裡。主對他說：「我已將預備再來、被提的資格都啟示我的僕人，就是我所稱為教會的。要跟上我的軍隊，時候不多了。」</p>
+        </div>
+
+        <div class="card-vision-item">
+          <div class="card-vision-num">異象四 · 天使名冊</div>
+          <p>看見天使打開手中的名冊，對照在名冊上的名字，符合的就讓他加入。</p>
+        </div>
+
+        <div class="card-word">「我所賞賜的福分，是不帶著憂慮與憂愁的。」</div>
+      </div>
+
+      <!-- 台北 同工二 -->
+      <div class="vision-card c2">
+        <span class="card-region">台北教區</span>
+
+        <div class="card-vision-item">
+          <div class="card-vision-num">說翻方言時的感動</div>
+          <p>聽見那榮耀的聲音迴盪說：「使人和睦的人有福了，因為他們要被稱為神的兒子。」</p>
+        </div>
+
+        <div class="card-vision-item">
+          <div class="card-vision-num">眼見耳聞</div>
+          <p>眼睛所看見的、耳朵所聽見的——國與國的爭戰、人與人的紛爭、各樣的仇恨與傷害明明脈脈在其中，讓愛人的心完全被遮蓋了。</p>
+        </div>
+
+        <div class="card-word">「要從你們自身做起，致力於和睦，化解各樣的對立——這才是神的兒女。」</div>
+      </div>
+
+      <!-- 台北 同工三 -->
+      <div class="vision-card c3">
+        <span class="card-region">台北教區</span>
+
+        <div class="card-vision-item">
+          <div class="card-vision-num">異象一 · 詩班獻詩時</div>
+          <p>看到從天上掉下一個很大的透明水晶座，落在他們的右方；同時在左前方，從地裡長出花花草草，大小跟那水晶座一樣大。</p>
+        </div>
+
+        <div class="card-vision-item">
+          <div class="card-vision-num">異象二 · 小鬼在耳邊</div>
+          <p>看見有小魔鬼輪流在耳邊講悄悄話，但弟兄姊妹看起來不為所動，仍然很認真地敬拜。有一個意念說：「為什麼容讓這樣的挑釁？你們中間要正面回擊！」</p>
+        </div>
+
+        <div class="card-vision-item">
+          <div class="card-vision-num">異象三 · 靈琴服事時 · 大海上方</div>
+          <p>靈琴服事的時候，看到大海上方有一坨黑的東西，蠢蠢欲動又在積蓄力量，越來越大。這時天上降下一道光落在這個球上，形成一個圓圈，也落在大地。有聲音說：「這恩典是給一人也給眾人，端看自己能不能領受。」</p>
+        </div>
+      </div>
+
+      <!-- 台中 同工一 -->
+      <div class="vision-card c4">
+        <span class="card-region">台中教區</span>
+
+        <div class="card-vision-item">
+          <div class="card-vision-num">異象 · 混濁轉清澈</div>
+          <p>看見山裡一處混濁的水坑，漸漸轉為清澈，裡面的魚蝦也恢復生機。</p>
+        </div>
+
+        <div class="card-word">「你們要放下忙碌，讓心靈休息，享受從我而來的平安。如此，你們就知道我是與你們同在的。」</div>
+      </div>
+
+      <!-- 台中 同工二 -->
+      <div class="vision-card c5">
+        <span class="card-region">台中教區</span>
+
+        <div class="card-vision-item">
+          <div class="card-vision-num">異象一 · 詩班獻詩時</div>
+          <p>詩班獻詩的時候，有字幕出現，寫著「祝福」。</p>
+        </div>
+
+        <div class="card-vision-item">
+          <div class="card-vision-num">異象二 · 唱靈歌時</div>
+          <p>聽見有聲音說：「行，當行；走，當走的路。」同時看見一個畫面：一個人往前奔跑，前面是亮光，往後看時，腳下的土地不斷坍塌落下——那人就一直往前跑。</p>
+        </div>
+
+        <div class="card-vision-item">
+          <div class="card-vision-num">異象三 · 天上來的探望</div>
+          <p>再次唱靈歌的時候，有天使帶來一位長輩，說要讓他聆聽。那位長輩的表情很溫柔高貴，安靜地聆聽靈歌，有聲音說：「辛苦了。」天使一旁引導，長輩就微笑著聆聽女兒唱靈歌的聲音。之後又看見另一位長輩，天使也帶她來聆聽地上的歌聲。</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<footer class="page-footer">
+  <p>意象與感動分享 · 各地教區同工及秀美師母</p>
+</footer>
+
+</body>
+</html>
