@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>說翻方言 — 持守所得・彼此相愛・定睛神國</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --gold: #C9A84C;
+  --gold-light: #E8D08A;
+  --gold-pale: #FAF3DC;
+  --deep: #1A1208;
+  --ink: #2C2416;
+  --muted: #6B5D3E;
+  --soft: #F5EDD8;
+  --parchment: #FBF6EC;
+  --teal: #2E7D72;
+  --teal-light: #4AA89C;
+  --teal-pale: #E0F2EF;
+  --ruby: #8B2130;
+  --ruby-light: #C2445A;
+  --ruby-pale: #FAEAED;
+  --blue-deep: #1E3A5F;
+  --blue-mid: #2E6DA4;
+  --blue-pale: #E8F1FA;
+  --dove: #5B6F8A;
+  --dove-light: #8BA3C0;
+  --dove-pale: #EBF1F8;
+  --radius: 12px;
+  --radius-lg: 20px;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family: 'Noto Sans TC', sans-serif;
+  background: var(--parchment);
+  color: var(--ink);
+  line-height: 1.8;
+}
+
+/* ── HERO ── */
+.hero {
+  background: var(--deep);
+  padding: 3.5rem 2rem 3rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content:'';
+  position:absolute; inset:0;
+  background: radial-gradient(ellipse at 50% 0%, rgba(91,111,138,0.25) 0%, rgba(201,168,76,0.1) 60%, transparent 90%);
+  pointer-events:none;
+}
+.hero-tag {
+  display: inline-block;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  font-size: 11px;
+  letter-spacing: 4px;
+  padding: 4px 16px;
+  border-radius: 2px;
+  margin-bottom: 1.2rem;
+  text-transform: uppercase;
+}
+.hero h1 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  color: #fff;
+  font-weight: 700;
+  line-height: 1.4;
+  margin-bottom: 0.6rem;
+}
+.hero h1 em { color: var(--gold-light); font-style: normal; }
+.hero-sub {
+  color: rgba(255,255,255,0.55);
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  margin-bottom: 2rem;
+}
+.hero-verse {
+  display: inline-block;
+  border-left: 2px solid var(--gold);
+  padding: 0.5rem 1rem;
+  text-align: left;
+  color: var(--gold-light);
+  font-family: 'Noto Serif TC', serif;
+  font-size: 0.9rem;
+  line-height: 1.9;
+}
+
+/* ── LAYOUT ── */
+.container { max-width: 960px; margin: 0 auto; padding: 0 1.25rem; }
+.section { padding: 2.5rem 0 1.5rem; }
+
+/* ── SECTION TITLE ── */
+.sec-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 1.5rem;
+}
+.sec-title .icon {
+  width: 36px; height: 36px;
+  background: var(--gold);
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 17px; color: var(--deep); flex-shrink:0;
+}
+.sec-title h2 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 1.2rem;
+  color: var(--deep);
+  font-weight: 700;
+}
+.sec-title .subtitle { font-size: 0.78rem; color: var(--muted); margin-top:1px; }
+
+/* ── CORE PILLARS ── */
+.pillars {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.pillar {
+  background: #fff;
+  border: 0.5px solid rgba(0,0,0,0.1);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.pillar:hover { transform: translateY(-3px); box-shadow: 0 8px 28px rgba(0,0,0,0.08); }
+.pillar::before {
+  content:'';
+  position:absolute; top:0; left:0; right:0; height:3px;
+}
+.pillar.p1::before { background: linear-gradient(90deg, var(--dove), var(--dove-light)); }
+.pillar.p2::before { background: linear-gradient(90deg, var(--ruby), var(--ruby-light)); }
+.pillar.p3::before { background: linear-gradient(90deg, var(--teal), var(--teal-light)); }
+.pillar.p4::before { background: linear-gradient(90deg, var(--gold), var(--gold-light)); }
+.pillar-num {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 2.5rem; font-weight: 700; line-height: 1;
+  margin-bottom: 0.6rem; opacity: 0.12;
+  position: absolute; top: 1rem; right: 1.2rem;
+}
+.pillar.p1 .pillar-num { color: var(--dove); }
+.pillar.p2 .pillar-num { color: var(--ruby); }
+.pillar.p3 .pillar-num { color: var(--teal); }
+.pillar.p4 .pillar-num { color: var(--gold); }
+.pillar-icon { font-size: 1.6rem; margin-bottom: 0.5rem; }
+.pillar h3 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--deep);
+}
+.pillar p { font-size: 0.82rem; color: var(--muted); line-height: 1.7; }
+
+/* ── QUOTE BLOCK ── */
+.quote-block {
+  background: var(--deep);
+  border-radius: var(--radius-lg);
+  padding: 2rem 2rem 1.5rem;
+  margin-bottom: 1.5rem;
+  position: relative; overflow: hidden;
+}
+.quote-block::before {
+  content: '"';
+  position: absolute; top: -0.5rem; left: 1rem;
+  font-family: 'Noto Serif TC', serif;
+  font-size: 6rem; color: var(--gold); opacity: 0.15;
+  line-height: 1; pointer-events: none;
+}
+.quote-text {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 1.05rem; color: #fff; line-height: 1.9; margin-bottom: 0.8rem;
+}
+.quote-text em { color: var(--gold-light); font-style: normal; font-weight: 700; }
+.quote-src { font-size: 0.75rem; color: rgba(255,255,255,0.45); letter-spacing: 1px; }
+
+/* ── THREE STAGES ── */
+.stages {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 0;
+  background: #fff;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 0.5px solid rgba(0,0,0,0.09);
+  margin-bottom: 1.5rem;
+}
+@media(max-width:600px){ .stages{grid-template-columns:1fr;} }
+.stage-item {
+  padding: 1.4rem 1.2rem;
+  border-right: 0.5px solid rgba(0,0,0,0.07);
+  position: relative;
+}
+.stage-item:last-child { border-right: none; }
+.stage-no {
+  font-size: 0.7rem; letter-spacing: 2px; font-weight: 700;
+  margin-bottom: 0.4rem; text-transform: uppercase;
+}
+.stage-item.s1 .stage-no { color: var(--dove); }
+.stage-item.s2 .stage-no { color: var(--ruby); }
+.stage-item.s3 .stage-no { color: var(--teal); }
+.stage-title { font-family: 'Noto Serif TC', serif; font-size: 0.95rem; font-weight: 700; color: var(--deep); margin-bottom: 0.4rem; }
+.stage-body { font-size: 0.78rem; color: var(--muted); line-height: 1.65; }
+.stage-top-bar { height: 3px; background: var(--soft); position:absolute; top:0; left:0; right:0; }
+.stage-item.s1 .stage-top-bar { background: var(--dove); }
+.stage-item.s2 .stage-top-bar { background: var(--ruby); }
+.stage-item.s3 .stage-top-bar { background: var(--teal); }
+
+/* ── INSIGHT ROW ── */
+.insight-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.insight-card {
+  background: #fff;
+  border-radius: var(--radius);
+  border: 0.5px solid rgba(0,0,0,0.09);
+  padding: 1.2rem;
+  display: flex; gap: 12px; align-items: flex-start;
+}
+.insight-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%; margin-top: 0.4rem; flex-shrink: 0;
+}
+.ic-gold .insight-dot { background: var(--gold); }
+.ic-ruby .insight-dot { background: var(--ruby); }
+.ic-teal .insight-dot { background: var(--teal); }
+.ic-dove .insight-dot { background: var(--dove); }
+.insight-card h4 { font-size: 0.88rem; font-weight: 600; color: var(--deep); margin-bottom: 0.3rem; }
+.insight-card p { font-size: 0.78rem; color: var(--muted); line-height: 1.65; }
+
+/* ── CALL BOX ── */
+.call-box {
+  border-radius: var(--radius-lg);
+  padding: 1.8rem 1.8rem 1.5rem;
+  margin-bottom: 1.5rem;
+}
+.call-box.dove { background: var(--dove-pale); border-left: 3px solid var(--dove); }
+.call-box.gold { background: var(--gold-pale); border-left: 3px solid var(--gold); }
+.call-box.ruby { background: var(--ruby-pale); border-left: 3px solid var(--ruby); }
+.call-box.teal { background: var(--teal-pale); border-left: 3px solid var(--teal); }
+.call-box-label {
+  font-size: 0.7rem; letter-spacing: 2.5px; font-weight: 700;
+  text-transform: uppercase; margin-bottom: 0.6rem;
+}
+.call-box.dove .call-box-label { color: var(--dove); }
+.call-box.gold .call-box-label { color: #7A620A; }
+.call-box.ruby .call-box-label { color: var(--ruby); }
+.call-box.teal .call-box-label { color: var(--teal); }
+.call-box h3 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 1.05rem; font-weight: 700; color: var(--deep); margin-bottom: 0.7rem;
+}
+.call-box p, .call-box li { font-size: 0.85rem; color: var(--ink); line-height: 1.85; }
+.call-box ul { padding-left: 1.2rem; }
+.call-box ul li { margin-bottom: 0.25rem; }
+.call-box strong { color: var(--deep); }
+
+/* ── ACTION STEPS ── */
+.action-steps {
+  background: #fff;
+  border-radius: var(--radius-lg);
+  border: 0.5px solid rgba(0,0,0,0.09);
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+}
+.action-step {
+  display: flex; gap: 1rem; padding: 1.1rem 1.3rem;
+  border-bottom: 0.5px solid rgba(0,0,0,0.06);
+  align-items: flex-start;
+}
+.action-step:last-child { border-bottom: none; }
+.step-num {
+  width: 28px; height: 28px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.72rem; font-weight: 700; flex-shrink: 0; margin-top: 2px;
+}
+.action-step:nth-child(1) .step-num { background: var(--dove-pale); color: var(--dove); }
+.action-step:nth-child(2) .step-num { background: var(--ruby-pale); color: var(--ruby); }
+.action-step:nth-child(3) .step-num { background: var(--teal-pale); color: var(--teal); }
+.action-step:nth-child(4) .step-num { background: var(--gold-pale); color: #7A620A; }
+.step-content h4 { font-size: 0.9rem; font-weight: 600; color: var(--deep); margin-bottom: 0.2rem; }
+.step-content p { font-size: 0.78rem; color: var(--muted); line-height: 1.65; }
+
+/* ── MINDMAP ── */
+.mindmap-wrap {
+  background: #fff;
+  border-radius: var(--radius-lg);
+  border: 0.5px solid rgba(0,0,0,0.09);
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+}
+.mindmap-wrap svg { display:block; width:100%; }
+
+/* ── DIVIDER ── */
+.divider {
+  display: flex; align-items: center; gap: 12px;
+  margin: 0.5rem 0 1.5rem; opacity: 0.35;
+}
+.divider::before, .divider::after {
+  content:''; flex:1; height: 0.5px; background: var(--muted);
+}
+.divider span { font-size: 10px; letter-spacing: 3px; color: var(--muted); text-transform: uppercase; }
+
+/* ── TWO PATH BOX ── */
+.two-path {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 0; background: #fff;
+  border-radius: var(--radius-lg);
+  border: 0.5px solid rgba(0,0,0,0.09);
+  overflow: hidden; margin-bottom: 1.5rem;
+}
+@media(max-width:500px){ .two-path{grid-template-columns:1fr;} }
+.path-side { padding: 1.5rem 1.3rem; }
+.path-side:first-child { border-right: 0.5px solid rgba(0,0,0,0.07); }
+.path-label {
+  font-size: 0.68rem; letter-spacing: 2.5px; font-weight: 700;
+  text-transform: uppercase; margin-bottom: 0.6rem;
+}
+.path-a .path-label { color: var(--ruby); }
+.path-b .path-label { color: var(--teal); }
+.path-title {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 1.05rem; font-weight: 700; color: var(--deep); margin-bottom: 0.6rem;
+}
+.path-list { list-style: none; padding: 0; }
+.path-list li {
+  font-size: 0.8rem; color: var(--muted);
+  line-height: 1.65; padding: 3px 0 3px 14px; position: relative;
+}
+.path-list li::before {
+  content:'·'; position:absolute; left:2px; font-size: 1rem; line-height: 1.3;
+}
+.path-a .path-list li::before { color: var(--ruby); }
+.path-b .path-list li::before { color: var(--teal); }
+
+/* ── FOOTER ── */
+.page-footer {
+  background: var(--deep); text-align: center;
+  padding: 1.8rem 1rem; margin-top: 2.5rem;
+}
+.page-footer p { font-size: 0.78rem; color: rgba(255,255,255,0.35); letter-spacing: 1px; }
+.page-footer strong { color: var(--gold); font-weight: 400; }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-tag">說翻方言 · 第二篇</div>
+  <h1>持守所得・<em>彼此相愛</em><br>——定睛神國</h1>
+  <p class="hero-sub">恩典的托付 × 愛的叮嚀 × 信心與行為相稱</p>
+  <div class="hero-verse">
+    我們應各盡其職，盡自己所能地盡力擺上，<br>
+    世界都會過去，唯有神國才是永恆的。<br>
+    <span style="color:rgba(255,255,255,0.4);font-size:0.78rem">— 說翻方言分享</span>
+  </div>
+</header>
+
+<main class="container">
+
+  <!-- ① 核心主題 -->
+  <section class="section">
+    <div class="sec-title">
+      <div class="icon">🕊️</div>
+      <div>
+        <h2>今日核心信息</h2>
+        <div class="subtitle">五大呼召主軸</div>
+      </div>
+    </div>
+    <div class="pillars">
+      <div class="pillar p1">
+        <div class="pillar-num">一</div>
+        <div class="pillar-icon">🤝</div>
+        <h3>持守所得</h3>
+        <p>各樣的奧秘、恩賜與才幹，都已藉著牧師分賜給我們了。我們應當持守所得的，並做在弟兄姊妹的身上。</p>
+      </div>
+      <div class="pillar p2">
+        <div class="pillar-num">二</div>
+        <div class="pillar-icon">❤️</div>
+        <h3>彼此相愛</h3>
+        <p>我們務必要彼此扶持、切實相愛，因為愛是最大的力量。我們留在教會中，乃是因為神的恩典，不是因為比別人好。</p>
+      </div>
+      <div class="pillar p3">
+        <div class="pillar-num">三</div>
+        <div class="pillar-icon">📚</div>
+        <h3>愛的叮嚀</h3>
+        <p>在「致死老我」的功課上，要學習師母「愛的叮嚀」，其內容在屬世與屬靈層面上都有豐富的教導，可幫助修正我們的思想。</p>
+      </div>
+      <div class="pillar p4">
+        <div class="pillar-num">四</div>
+        <div class="pillar-icon">⚖️</div>
+        <h3>信心與行為相稱</h3>
+        <p>雖然我們不是按行為得救，但只有信心而沒有行為，那信心也是死的。我們的行為務必與所蒙的恩相稱。</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"><span>心智圖</span></div>
+
+  <!-- ② 心智圖 -->
+  <section class="section" style="padding-top:0">
+    <div class="sec-title">
+      <div class="icon">🧠</div>
+      <div>
+        <h2>主題心智圖</h2>
+        <div class="subtitle">全篇結構一覽</div>
+      </div>
+    </div>
+    <div class="mindmap-wrap">
+      <svg viewBox="0 0 900 480" xmlns="http://www.w3.org/2000/svg" role="img">
+        <title>說翻方言心智圖</title>
+        <defs>
+          <marker id="marr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+            <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </marker>
+        </defs>
+        <rect width="900" height="480" fill="#FDFAF3"/>
+
+        <!-- 中心 -->
+        <rect x="310" y="195" width="280" height="70" rx="12" fill="#1A1208" stroke="#C9A84C" stroke-width="1.5"/>
+        <text x="450" y="223" text-anchor="middle" font-family="Noto Serif TC,serif" font-size="13.5" fill="#E8D08A" font-weight="700">持守所得 · 彼此相愛</text>
+        <text x="450" y="247" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="10.5" fill="rgba(255,255,255,0.5)">定睛神國</text>
+
+        <!-- 左上：恩典托付 -->
+        <path d="M363 207 Q275 155 190 120" fill="none" stroke="#5B6F8A" stroke-width="1.2" marker-end="url(#marr)"/>
+        <rect x="30" y="78" width="172" height="72" rx="8" fill="#EBF1F8" stroke="#5B6F8A" stroke-width="0.8"/>
+        <text x="116" y="103" text-anchor="middle" font-family="Noto Serif TC,serif" font-size="11.5" fill="#1E3A5F" font-weight="700">恩典的托付</text>
+        <text x="116" y="120" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#5B6F8A">才幹・恩賜・奧秘</text>
+        <text x="116" y="137" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#5B6F8A">各盡其職・持守所得</text>
+
+        <!-- 右上：信心與行為 -->
+        <path d="M537 207 Q625 155 710 120" fill="none" stroke="#8B2130" stroke-width="1.2" marker-end="url(#marr)"/>
+        <rect x="695" y="78" width="175" height="72" rx="8" fill="#FAEAED" stroke="#8B2130" stroke-width="0.8"/>
+        <text x="782" y="103" text-anchor="middle" font-family="Noto Serif TC,serif" font-size="11.5" fill="#6B1621" font-weight="700">信心與行為</text>
+        <text x="782" y="120" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#8B2130">信心若無行為是死的</text>
+        <text x="782" y="137" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#8B2130">行為與恩典相稱</text>
+
+        <!-- 左：彼此相愛 -->
+        <path d="M320 230 Q215 230 170 230" fill="none" stroke="#C9A84C" stroke-width="1.2" marker-end="url(#marr)"/>
+        <rect x="20" y="195" width="148" height="72" rx="8" fill="#FAF3DC" stroke="#C9A84C" stroke-width="0.8"/>
+        <text x="94" y="221" text-anchor="middle" font-family="Noto Serif TC,serif" font-size="11.5" fill="#7A620A" font-weight="700">彼此相愛</text>
+        <text x="94" y="238" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#9A7E3A">彼此扶持</text>
+        <text x="94" y="255" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#9A7E3A">切實相愛・愛是大力</text>
+
+        <!-- 右：定睛神國 -->
+        <path d="M580 230 Q685 230 730 230" fill="none" stroke="#2E7D72" stroke-width="1.2" marker-end="url(#marr)"/>
+        <rect x="730" y="195" width="152" height="72" rx="8" fill="#E0F2EF" stroke="#2E7D72" stroke-width="0.8"/>
+        <text x="806" y="221" text-anchor="middle" font-family="Noto Serif TC,serif" font-size="11.5" fill="#185049" font-weight="700">定睛神國</text>
+        <text x="806" y="238" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#2E7D72">不愛世界</text>
+        <text x="806" y="255" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#2E7D72">神國永恆・捨棄跟隨</text>
+
+        <!-- 左下：愛的叮嚀 -->
+        <path d="M384 262 Q295 325 215 370" fill="none" stroke="#8B2130" stroke-width="1.2" marker-end="url(#marr)"/>
+        <rect x="45" y="340" width="178" height="88" rx="8" fill="#FAEAED" stroke="#8B2130" stroke-width="0.8"/>
+        <text x="134" y="365" text-anchor="middle" font-family="Noto Serif TC,serif" font-size="11.5" fill="#6B1621" font-weight="700">愛的叮嚀</text>
+        <text x="134" y="383" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#8B2130">致死老我功課</text>
+        <text x="134" y="399" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#8B2130">屬世屬靈兼顧</text>
+        <text x="134" y="415" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#8B2130">修正思想行為</text>
+
+        <!-- 右下：首要之務 -->
+        <path d="M516 262 Q605 325 680 370" fill="none" stroke="#C9A84C" stroke-width="1.2" marker-end="url(#marr)"/>
+        <rect x="666" y="340" width="178" height="88" rx="8" fill="#FAF3DC" stroke="#C9A84C" stroke-width="0.8"/>
+        <text x="755" y="365" text-anchor="middle" font-family="Noto Serif TC,serif" font-size="11.5" fill="#7A620A" font-weight="700">首要之務</text>
+        <text x="755" y="383" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#9A7E3A">明白神的旨意</text>
+        <text x="755" y="399" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#9A7E3A">受託付努力擺上</text>
+        <text x="755" y="415" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#9A7E3A">定睛在神國裡面</text>
+
+        <!-- 中下：謙卑感恩 -->
+        <path d="M450 265 L450 330" fill="none" stroke="#6B5D3E" stroke-width="1.2" stroke-dasharray="4,3" marker-end="url(#marr)"/>
+        <rect x="365" y="330" width="170" height="52" rx="8" fill="#F5EDD8" stroke="#6B5D3E" stroke-width="0.8"/>
+        <text x="450" y="352" text-anchor="middle" font-family="Noto Serif TC,serif" font-size="11.5" fill="#2C2416" font-weight="700">謙卑感恩同行</text>
+        <text x="450" y="369" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#6B5D3E">恩典 · 非靠己能</text>
+      </svg>
+    </div>
+  </section>
+
+  <div class="divider"><span>恩典的托付</span></div>
+
+  <!-- ③ 恩典托付三重含義 -->
+  <section class="section" style="padding-top:0">
+    <div class="sec-title">
+      <div class="icon" style="background:var(--dove);color:#fff;">🤲</div>
+      <div>
+        <h2>恩典托付的三重含義</h2>
+        <div class="subtitle">持守所得，做在弟兄姊妹的身上</div>
+      </div>
+    </div>
+    <div class="stages">
+      <div class="stage-item s1">
+        <div class="stage-top-bar"></div>
+        <div class="stage-no">第一重</div>
+        <div class="stage-title">持守所得</div>
+        <p class="stage-body">才幹、恩賜與奧秘，已藉著牧師分賜給我們。我們要好好持守，不輕易放棄，讓所得的恩典在生命中扎根。</p>
+      </div>
+      <div class="stage-item s2">
+        <div class="stage-top-bar"></div>
+        <div class="stage-no">第二重</div>
+        <div class="stage-title">各盡其職</div>
+        <p class="stage-body">每一個人都有神所賜的位置，要盡自己所能地盡力擺上。不可因覺得自己不夠好而退縮，這一切都是神的恩典在運行。</p>
+      </div>
+      <div class="stage-item s3">
+        <div class="stage-top-bar"></div>
+        <div class="stage-no">第三重</div>
+        <div class="stage-title">做在弟兄姊妹身上</div>
+        <p class="stage-body">所得的恩典不只是為自己，更要流露在弟兄姊妹的關係中——彼此扶持、彼此相愛，讓愛成為教會最大的力量。</p>
+      </div>
+    </div>
+
+    <div class="call-box dove">
+      <div class="call-box-label">核心提醒</div>
+      <h3>我們能留在教會，是神的恩典</h3>
+      <p>我們今日能留在教會中繼續走這條道路，並非因為我們比別人能幹或比別人好，<strong>乃是因為有神的恩典臨到我們身上</strong>。這是值得我們珍惜的，也是我們應當謙卑感恩的理由。</p>
+    </div>
+  </section>
+
+  <div class="divider"><span>愛的叮嚀</span></div>
+
+  <!-- ④ 愛的叮嚀 -->
+  <section class="section" style="padding-top:0">
+    <div class="sec-title">
+      <div class="icon" style="background:var(--ruby);color:#fff;">📚</div>
+      <div>
+        <h2>愛的叮嚀：致死老我的功課</h2>
+        <div class="subtitle">屬世與屬靈層面的全方位教導</div>
+      </div>
+    </div>
+
+    <div class="quote-block">
+      <p class="quote-text">我們人性中的不完美，<br>都可以藉著<em>「愛的叮嚀」</em>裡的信息，<br>來修正我們的思想，走穩前面屬世與屬靈的道路。</p>
+      <p class="quote-src">— 說翻方言分享</p>
+    </div>
+
+    <div class="insight-row">
+      <div class="insight-card ic-ruby">
+        <div class="insight-dot"></div>
+        <div>
+          <h4>致死老我的鑰匙</h4>
+          <p>「愛的叮嚀」是幫助我們在「致死老我」功課上得勝的重要鑰匙，其中有許多值得深入學習的內容。</p>
+        </div>
+      </div>
+      <div class="insight-card ic-teal">
+        <div class="insight-dot"></div>
+        <div>
+          <h4>屬世層面的幫助</h4>
+          <p>在日常生活、人際關係與處世的態度上，「愛的叮嚀」提供了具體可行的指引，使我們的行為更合乎神的心意。</p>
+        </div>
+      </div>
+      <div class="insight-card ic-gold">
+        <div class="insight-dot"></div>
+        <div>
+          <h4>屬靈層面的更新</h4>
+          <p>在靈命成長與屬靈道路上，「愛的叮嚀」引導我們更新思想，幫助我們修正方向，走穩在神面前的道路。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"><span>信心與行為</span></div>
+
+  <!-- ⑤ 信心與行為 -->
+  <section class="section" style="padding-top:0">
+    <div class="sec-title">
+      <div class="icon" style="background:var(--teal);color:#fff;">⚖️</div>
+      <div>
+        <h2>信心與行為相稱</h2>
+        <div class="subtitle">不仰望世界・不愛世界・行為與恩典相乘</div>
+      </div>
+    </div>
+
+    <div class="two-path">
+      <div class="path-side path-a">
+        <div class="path-label">需要避免的</div>
+        <div class="path-title">只有信心，沒有行為</div>
+        <ul class="path-list">
+          <li>僅接受信息，卻未付諸行動</li>
+          <li>仰望世界，愛父神的心就不在裡面</li>
+          <li>行為與所蒙的恩不相稱</li>
+          <li>看環境、看人、看自己的條件</li>
+          <li>只有死的信心，沒有生命的印證</li>
+        </ul>
+      </div>
+      <div class="path-side path-b">
+        <div class="path-label">我們當追求的</div>
+        <div class="path-title">信心加上行為</div>
+        <ul class="path-list">
+          <li>行為與所蒙的恩相稱</li>
+          <li>不仰望世界，定睛在神身上</li>
+          <li>愛父神的心常在我們裡面</li>
+          <li>以行為印證信心，活出神的榮耀</li>
+          <li>努力走這條榮耀的十字架道路</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="call-box ruby">
+      <div class="call-box-label">重要警醒</div>
+      <h3>當我們仰望世界，愛神的心就不在我們裡面</h3>
+      <p>雖然我們不是按行為得救，但若只有信心而沒有行為，那信心也是死的。<strong>我們的行為務必要與所蒙的恩相稱</strong>——這是對恩典最真實的回應，也是榮耀神的方式。</p>
+    </div>
+  </section>
+
+  <div class="divider"><span>定睛神國</span></div>
+
+  <!-- ⑥ 定睛神國 -->
+  <section class="section" style="padding-top:0">
+    <div class="sec-title">
+      <div class="icon" style="background:#7A620A;color:var(--gold-pale);">👑</div>
+      <div>
+        <h2>為自己的生命擺上</h2>
+        <div class="subtitle">捨棄跟隨・明白旨意・定睛神國</div>
+      </div>
+    </div>
+
+    <div class="action-steps">
+      <div class="action-step">
+        <div class="step-num">01</div>
+        <div class="step-content">
+          <h4>為自己的生命擺上</h4>
+          <p>要懂得如何為自己的生命擺上，就是捨棄所有的來跟隨神。這不是口號，而是每天實際的選擇與委身。</p>
+        </div>
+      </div>
+      <div class="action-step">
+        <div class="step-num">02</div>
+        <div class="step-content">
+          <h4>認清世界必將過去</h4>
+          <p>世界的榮華富貴都會過去，唯有神國才是永恆的。我們的目標是朝向天上，而不是追求世上的成功與享受。</p>
+        </div>
+      </div>
+      <div class="action-step">
+        <div class="step-num">03</div>
+        <div class="step-content">
+          <h4>明白神的旨意與話語</h4>
+          <p>我們要明白神的旨意與神的話語，才知道要如何行。所傳的是什麼、所追求的是什麼，這些都必須清楚知道。</p>
+        </div>
+      </div>
+      <div class="action-step">
+        <div class="step-num">04</div>
+        <div class="step-content">
+          <h4>受託付努力，定睛神國</h4>
+          <p>首要的就是受託付努力，將全部的精神與資源都擺在最重要的事上，定睛在神國裡面，不讓次要的事佔據首位。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="call-box gold">
+      <div class="call-box-label">核心提醒</div>
+      <h3>世界都要過去，但神國是永恆的</h3>
+      <p>人生在世不過百年，這一切之後都要化為塵土。<strong>唯有在神國裡面的，才是永恆的。</strong>因此我們的目標要朝向天上，要努力擺上，把全部的精神與資源都放在最重要的事上。</p>
+    </div>
+  </section>
+
+  <div class="divider"><span>行動呼召</span></div>
+
+  <!-- ⑦ 今日回應 -->
+  <section class="section" style="padding-top:0;padding-bottom:2rem">
+    <div class="sec-title">
+      <div class="icon" style="background:var(--deep);color:var(--gold);">✦</div>
+      <div>
+        <h2>今日的回應</h2>
+        <div class="subtitle">從信息到行動</div>
+      </div>
+    </div>
+    <div class="call-box dove">
+      <div class="call-box-label">五個自我檢視</div>
+      <h3>我的回應是什麼？</h3>
+      <ul>
+        <li><strong>我是否持守所得？</strong> 神所賜的才幹與恩賜，我是否在弟兄姊妹的身上實際使用、流露出來？</li>
+        <li><strong>我是否彼此相愛？</strong> 我與弟兄姊妹的關係是否真實地彼此扶持、切實相愛？</li>
+        <li><strong>我是否認真學習愛的叮嚀？</strong> 在致死老我的功課上，我是否用心學習，讓它幫助修正我的思想與行為？</li>
+        <li><strong>我的行為是否與恩典相稱？</strong> 我有沒有仰望世界，以致愛神的心不在我裡面？</li>
+        <li><strong>我的目標是否定睛在神國？</strong> 我是否懂得為自己的生命擺上，以神國的永恆為念，而非世上的榮華？</li>
+      </ul>
+    </div>
+
+    <div class="quote-block" style="margin-top:1.5rem">
+      <p class="quote-text">我們要明白神的旨意與神的話語，<br>才知道要如何行，首要的就是<em>受託付努力</em>，<br>定睛在神國裡面。</p>
+      <p class="quote-src">— 說翻方言分享</p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="page-footer">
+  <p>說翻方言系列 · <strong>持守所得・彼此相愛・定睛神國</strong></p>
+  <p style="margin-top:4px;">神之子體系 · 預備主基督再來</p>
+</footer>
+
+</body>
+</html>
