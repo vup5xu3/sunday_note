@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1221輯週訓【2026.5.31】以賽亞書查經：神諭的兩大意義</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;500;600;700;900&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --gold:       #C9A84C;
+  --gold-light: #E8D08A;
+  --gold-pale:  #FAF3DC;
+  --deep:       #14100C;
+  --ink:        #28200E;
+  --ink-soft:   #3A3020;
+  --muted:      #7A6B50;
+  --border:     #E0D4BA;
+  --parchment:  #FBF7F0;
+  --parchment2: #F4EDD8;
+  --dove:       #5C7289;
+  --dove-light: #8CAAC4;
+  --dove-pale:  #EAF1F8;
+  --ruby:       #8C2030;
+  --ruby-light: #C44058;
+  --ruby-pale:  #FAEAED;
+  --teal:       #2E7A70;
+  --teal-light: #4BADA0;
+  --teal-pale:  #E0F2EF;
+  --sage:       #4E6848;
+  --sage-light: #78A070;
+  --sage-pale:  #EAF3E6;
+  --r: 14px;
+  --r-lg: 22px;
+  --shadow: 0 2px 16px rgba(20,16,12,.07);
+  --shadow-hover: 0 8px 36px rgba(20,16,12,.14);
+}
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Noto Sans TC', sans-serif;
+  background: var(--parchment);
+  color: var(--ink);
+  line-height: 1.8;
+}
+
+/* HERO */
+.hero {
+  background: var(--deep);
+  padding: 4rem 2rem 3.5rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content:'';
+  position:absolute; inset:0;
+  background:
+    radial-gradient(ellipse at 30% 0%, rgba(201,168,76,.14) 0%, transparent 55%),
+    radial-gradient(ellipse at 70% 100%, rgba(92,114,137,.1) 0%, transparent 55%);
+  pointer-events:none;
+}
+.hero-series {
+  display:inline-flex; align-items:center; gap:8px;
+  border:1px solid rgba(201,168,76,.4);
+  color:var(--gold); font-size:11px; letter-spacing:4px;
+  padding:5px 18px; border-radius:2px; margin-bottom:1.4rem;
+  text-transform:uppercase;
+}
+.hero h1 {
+  font-family:'Noto Serif TC',serif;
+  font-size:clamp(1.8rem,5vw,3rem);
+  color:#fff; font-weight:900; line-height:1.3; margin-bottom:.5rem;
+}
+.hero h1 em { color:var(--gold-light); font-style:normal; }
+.hero-meta { color:rgba(255,255,255,.45); font-size:.82rem; letter-spacing:2px; margin-bottom:2.2rem; }
+.hero-date-badge {
+  display:inline-block;
+  background:rgba(201,168,76,.12);
+  border:1px solid rgba(201,168,76,.3);
+  color:var(--gold-light); font-size:.78rem;
+  padding:4px 16px; border-radius:20px; letter-spacing:1.5px;
+}
+
+/* TOC */
+.toc-bar {
+  background:var(--deep);
+  border-bottom:1px solid rgba(201,168,76,.25);
+  position:sticky; top:0; z-index:100;
+  overflow-x:auto; scrollbar-width:none;
+}
+.toc-bar::-webkit-scrollbar{display:none;}
+.toc-inner {
+  display:flex; align-items:center;
+  max-width:1040px; margin:0 auto;
+  padding:0 16px; gap:2px; min-width:max-content;
+}
+.toc-link {
+  display:flex; align-items:center; gap:5px;
+  padding:11px 13px;
+  color:rgba(255,255,255,.45); font-size:12px; font-weight:500;
+  text-decoration:none; white-space:nowrap;
+  border-bottom:2px solid transparent;
+  transition:all .2s;
+}
+.toc-link:hover { color:var(--gold); }
+.toc-link.active { color:var(--gold); border-bottom-color:var(--gold); }
+.toc-dot { width:6px; height:6px; border-radius:50%; flex-shrink:0; }
+
+/* OVERVIEW */
+.overview { max-width:1040px; margin:0 auto; padding:2.5rem 1.25rem 1rem; }
+.overview-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:.85rem; margin-top:1.4rem;
+}
+.overview-card {
+  background:#fff;
+  border:0.5px solid rgba(0,0,0,.08);
+  border-radius:var(--r);
+  padding:1.2rem 1.3rem;
+  display:flex; gap:12px; align-items:flex-start;
+  box-shadow:var(--shadow);
+  cursor:pointer; text-decoration:none;
+  transition:all .22s;
+  position:relative; overflow:hidden;
+}
+.overview-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; }
+.oc-context::before  { background:linear-gradient(90deg,var(--dove),var(--dove-light)); }
+.oc-meaning1::before { background:linear-gradient(90deg,var(--teal),var(--teal-light)); }
+.oc-meaning2::before { background:linear-gradient(90deg,var(--gold),var(--gold-light)); }
+.oc-babylon::before  { background:linear-gradient(90deg,var(--ruby),var(--ruby-light)); }
+.oc-persia::before   { background:linear-gradient(90deg,var(--sage),var(--sage-light)); }
+.overview-card:hover { transform:translateY(-3px); box-shadow:var(--shadow-hover); }
+.ov-icon { width:36px; height:36px; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:16px; flex-shrink:0; }
+.oc-context  .ov-icon { background:var(--dove-pale); }
+.oc-meaning1 .ov-icon { background:var(--teal-pale); }
+.oc-meaning2 .ov-icon { background:var(--gold-pale); }
+.oc-babylon  .ov-icon { background:var(--ruby-pale); }
+.oc-persia   .ov-icon { background:var(--sage-pale); }
+.ov-body h4 { font-size:.88rem; font-weight:700; color:var(--ink); margin-bottom:2px; }
+.ov-body p  { font-size:.73rem; color:var(--muted); line-height:1.55; }
+
+/* SECTION */
+.container { max-width:1040px; margin:0 auto; padding:0 1.25rem; }
+.sec { padding:2.8rem 0 1.5rem; }
+.sec-anchor { padding-top:70px; margin-top:-70px; }
+.sec-hdr { display:flex; align-items:center; gap:12px; margin-bottom:1.6rem; padding-bottom:1rem; border-bottom:1px solid var(--border); }
+.sec-badge { padding:4px 14px; border-radius:20px; font-size:.7rem; font-weight:700; letter-spacing:2px; text-transform:uppercase; }
+.badge-context  { background:var(--dove-pale); color:var(--dove); }
+.badge-meaning1 { background:var(--teal-pale); color:var(--teal); }
+.badge-meaning2 { background:var(--gold-pale); color:#7A620A; }
+.badge-babylon  { background:var(--ruby-pale); color:var(--ruby); }
+.badge-persia   { background:var(--sage-pale); color:var(--sage); }
+.sec-hdr h2 { font-family:'Noto Serif TC',serif; font-size:1.25rem; font-weight:900; color:var(--ink); }
+.sec-sub { font-size:.75rem; color:var(--muted); margin-top:1px; }
+
+/* QUOTE BLOCK */
+.qblock {
+  background:var(--deep); border-radius:var(--r-lg);
+  padding:2rem 2rem 1.6rem; margin-bottom:1.4rem; position:relative; overflow:hidden;
+}
+.qblock::before {
+  content:'"'; position:absolute; top:-1rem; left:1.2rem;
+  font-family:'Noto Serif TC',serif; font-size:7rem;
+  color:var(--gold); opacity:.12; line-height:1; pointer-events:none;
+}
+.qblock p { font-family:'Noto Serif TC',serif; font-size:1.02rem; color:#fff; line-height:1.95; margin-bottom:.7rem; }
+.qblock p em { color:var(--gold-light); font-style:normal; font-weight:700; }
+.qblock-src { font-size:.73rem; color:rgba(255,255,255,.4); letter-spacing:1.5px; }
+
+/* HIGHLIGHT BOX */
+.hbox { border-radius:var(--r); padding:1.4rem 1.5rem; margin-bottom:1.2rem; }
+.hbox.gold  { background:var(--gold-pale);  border-left:3px solid var(--gold); }
+.hbox.dove  { background:var(--dove-pale);  border-left:3px solid var(--dove); }
+.hbox.ruby  { background:var(--ruby-pale);  border-left:3px solid var(--ruby); }
+.hbox.teal  { background:var(--teal-pale);  border-left:3px solid var(--teal); }
+.hbox.sage  { background:var(--sage-pale);  border-left:3px solid var(--sage); }
+.hbox-label { font-size:.68rem; letter-spacing:2.5px; font-weight:700; text-transform:uppercase; margin-bottom:.5rem; }
+.hbox.gold  .hbox-label { color:#7A620A; }
+.hbox.dove  .hbox-label { color:var(--dove); }
+.hbox.ruby  .hbox-label { color:var(--ruby); }
+.hbox.teal  .hbox-label { color:var(--teal); }
+.hbox.sage  .hbox-label { color:var(--sage); }
+.hbox h3 { font-family:'Noto Serif TC',serif; font-size:1rem; font-weight:700; color:var(--ink); margin-bottom:.5rem; }
+.hbox p, .hbox li { font-size:.84rem; color:var(--ink-soft); line-height:1.85; }
+.hbox ul, .hbox ol { padding-left:1.1rem; }
+.hbox li { margin-bottom:.2rem; }
+.hbox strong { color:var(--ink); }
+
+/* CARD GRID */
+.card-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:1rem; margin-bottom:1.4rem; }
+.card { background:#fff; border:0.5px solid rgba(0,0,0,.09); border-radius:var(--r-lg); padding:1.4rem; box-shadow:var(--shadow); transition:all .2s; position:relative; overflow:hidden; }
+.card:hover { transform:translateY(-2px); box-shadow:var(--shadow-hover); }
+.card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; }
+.card.c-gold::before  { background:linear-gradient(90deg,var(--gold),var(--gold-light)); }
+.card.c-dove::before  { background:linear-gradient(90deg,var(--dove),var(--dove-light)); }
+.card.c-ruby::before  { background:linear-gradient(90deg,var(--ruby),var(--ruby-light)); }
+.card.c-teal::before  { background:linear-gradient(90deg,var(--teal),var(--teal-light)); }
+.card.c-sage::before  { background:linear-gradient(90deg,var(--sage),var(--sage-light)); }
+.card-num { font-family:'Noto Serif TC',serif; font-size:2.4rem; font-weight:900; opacity:.08; position:absolute; top:.8rem; right:1rem; line-height:1; }
+.c-gold .card-num { color:var(--gold); }
+.c-dove .card-num { color:var(--dove); }
+.c-ruby .card-num { color:var(--ruby); }
+.c-teal .card-num { color:var(--teal); }
+.c-sage .card-num { color:var(--sage); }
+.card-icon { font-size:1.5rem; margin-bottom:.5rem; }
+.card h4 { font-family:'Noto Serif TC',serif; font-size:.95rem; font-weight:700; color:var(--ink); margin-bottom:.4rem; }
+.card p { font-size:.79rem; color:var(--muted); line-height:1.7; }
+
+/* VISION / STEP LIST */
+.vision-list { display:flex; flex-direction:column; gap:.85rem; margin-bottom:1.4rem; }
+.vision-item { background:#fff; border:0.5px solid rgba(0,0,0,.08); border-radius:var(--r); padding:1.2rem 1.3rem; display:flex; gap:14px; align-items:flex-start; box-shadow:var(--shadow); }
+.v-num { min-width:30px; height:30px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:.72rem; font-weight:700; flex-shrink:0; margin-top:1px; }
+.v-num.teal { background:var(--teal-pale); color:var(--teal); }
+.v-num.ruby { background:var(--ruby-pale); color:var(--ruby); }
+.v-num.gold { background:var(--gold-pale); color:#7A620A; }
+.v-num.dove { background:var(--dove-pale); color:var(--dove); }
+.v-num.sage { background:var(--sage-pale); color:var(--sage); }
+.v-word { margin-top:.6rem; padding:.7rem .9rem; border-radius:8px; font-size:.79rem; line-height:1.75; }
+.vw-teal { background:var(--teal-pale); border-left:2px solid var(--teal); color:#185049; }
+.vw-ruby { background:var(--ruby-pale); border-left:2px solid var(--ruby); color:#6B1621; }
+.vw-gold { background:var(--gold-pale); border-left:2px solid var(--gold); color:#7A620A; }
+.vw-dove { background:var(--dove-pale); border-left:2px solid var(--dove); color:#2B4A62; }
+.vw-sage { background:var(--sage-pale); border-left:2px solid var(--sage); color:#2E4A2B; }
+.v-word-label { font-size:.65rem; letter-spacing:2px; font-weight:700; text-transform:uppercase; margin-bottom:4px; }
+.vw-teal .v-word-label { color:var(--teal); }
+.vw-ruby .v-word-label { color:var(--ruby); }
+.vw-gold .v-word-label { color:#7A620A; }
+.vw-dove .v-word-label { color:var(--dove); }
+.vw-sage .v-word-label { color:var(--sage); }
+
+/* SCRIPTURE */
+.scripture { background:var(--deep); border-radius:var(--r); padding:1.5rem 1.8rem; margin-bottom:1.2rem; position:relative; }
+.scripture-ref { font-size:.68rem; letter-spacing:2px; color:var(--gold); font-weight:700; text-transform:uppercase; margin-bottom:.5rem; }
+.scripture p { font-family:'Noto Serif TC',serif; font-size:.88rem; color:rgba(255,255,255,.82); line-height:2; }
+.scripture p em { color:var(--gold-light); font-style:normal; }
+
+/* DIVIDER */
+.divider { display:flex; align-items:center; gap:12px; margin:.4rem 0 1.4rem; opacity:.3; }
+.divider::before, .divider::after { content:''; flex:1; height:.5px; background:var(--muted); }
+.divider span { font-size:9px; letter-spacing:3px; color:var(--muted); text-transform:uppercase; }
+
+/* ALERT */
+.alert { border-radius:var(--r); padding:1rem 1.3rem; margin-bottom:1.2rem; display:flex; gap:10px; align-items:flex-start; }
+.alert.warn { background:#FFF8E8; border:1px solid #E8C840; }
+.alert.info { background:var(--dove-pale); border:1px solid var(--dove-light); }
+.alert-icon { font-size:1.2rem; flex-shrink:0; margin-top:1px; }
+.alert p { font-size:.8rem; color:var(--ink-soft); line-height:1.75; }
+.alert strong { color:var(--ink); }
+
+/* NATIONS TABLE */
+.nations-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:.7rem; margin-bottom:1.4rem; }
+.nation-card { background:#fff; border:.5px solid rgba(0,0,0,.09); border-radius:var(--r); padding:1rem 1.1rem; box-shadow:var(--shadow); }
+.nation-card.highlighted { background:var(--ruby-pale); border-color:rgba(140,32,48,.2); }
+.nation-name { font-family:'Noto Serif TC',serif; font-size:.95rem; font-weight:700; color:var(--ink); margin-bottom:3px; }
+.nation-tag { font-size:.67rem; letter-spacing:1.5px; font-weight:700; text-transform:uppercase; color:var(--muted); margin-bottom:.4rem; }
+.nation-card.highlighted .nation-tag { color:var(--ruby); }
+.nation-note { font-size:.75rem; color:var(--muted); line-height:1.6; }
+.nation-card.highlighted .nation-note { color:var(--ink-soft); }
+
+/* COMPARISON TWO-COL */
+.two-col { display:grid; grid-template-columns:1fr 1fr; gap:0; background:#fff; border-radius:var(--r-lg); border:.5px solid rgba(0,0,0,.09); overflow:hidden; margin-bottom:1.4rem; }
+@media(max-width:560px){ .two-col { grid-template-columns:1fr; } }
+.col-side { padding:1.5rem 1.4rem; }
+.col-side:first-child { border-right:.5px solid rgba(0,0,0,.07); }
+.col-label { font-size:.66rem; letter-spacing:2.5px; font-weight:700; text-transform:uppercase; margin-bottom:.5rem; }
+.col-title { font-family:'Noto Serif TC',serif; font-size:1rem; font-weight:700; color:var(--ink); margin-bottom:.6rem; }
+.col-list { list-style:none; padding:0; }
+.col-list li { font-size:.79rem; color:var(--muted); line-height:1.65; padding:3px 0 3px 14px; position:relative; }
+.col-list li::before { content:'·'; position:absolute; left:2px; font-size:1rem; line-height:1.3; }
+
+/* FOOTER */
+.page-footer { background:var(--deep); text-align:center; padding:2rem 1rem; margin-top:3rem; border-top:1px solid rgba(201,168,76,.2); }
+.page-footer p { font-size:.76rem; color:rgba(255,255,255,.3); letter-spacing:1px; }
+.page-footer strong { color:var(--gold); font-weight:400; }
+
+@media(max-width:640px){
+  .hero { padding:3rem 1.2rem 2.5rem; }
+  .overview { padding:1.8rem .9rem .5rem; }
+  .container { padding:0 .9rem; }
+  .toc-link { padding:10px 10px; font-size:11px; }
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-series">📖 1221 輯週訓</div>
+  <h1>神的<em>無上權威</em>與神諭</h1>
+  <p class="hero-meta">2022年5月21日 高雄查經聚會 · 主領：林明學教師</p>
+  <div class="hero-date-badge">週訓整理日期 2026年5月31日</div>
+</header>
+
+<!-- TOC -->
+<nav class="toc-bar" id="tocBar">
+  <div class="toc-inner">
+    <a class="toc-link active" href="#overview">
+      <span class="toc-dot" style="background:var(--gold)"></span>總覽
+    </a>
+    <a class="toc-link" href="#context">
+      <span class="toc-dot" style="background:var(--dove)"></span>🌐 時代背景
+    </a>
+    <a class="toc-link" href="#meaning1">
+      <span class="toc-dot" style="background:var(--teal)"></span>⚖️ 意義一：無人倖免
+    </a>
+    <a class="toc-link" href="#meaning2">
+      <span class="toc-dot" style="background:var(--gold)"></span>👑 意義二：神的權威
+    </a>
+    <a class="toc-link" href="#babylon">
+      <span class="toc-dot" style="background:var(--ruby)"></span>🔥 巴比倫的審判
+    </a>
+    <a class="toc-link" href="#persia">
+      <span class="toc-dot" style="background:var(--sage)"></span>🏔️ 瑪代波斯的興起
+    </a>
+  </div>
+</nav>
+
+<!-- OVERVIEW -->
+<div class="overview" id="overview">
+  <div class="sec-hdr" style="border-bottom:0;padding-bottom:0;margin-bottom:.5rem;">
+    <div>
+      <div style="font-size:.68rem;letter-spacing:3px;color:var(--gold);font-weight:700;text-transform:uppercase;margin-bottom:3px;">本期架構一覽</div>
+      <h2 style="font-family:'Noto Serif TC',serif;font-size:1.1rem;font-weight:900;color:var(--ink);">五大區塊 · 點擊直達</h2>
+    </div>
+  </div>
+
+  <!-- 核心信息摘要 -->
+  <div style="background:var(--deep);border-radius:var(--r-lg);padding:1.5rem 1.8rem;margin:1.2rem 0 1.4rem;position:relative;overflow:hidden;">
+    <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 60% 50%,rgba(201,168,76,.09),transparent 70%);pointer-events:none;"></div>
+    <div style="font-size:.68rem;letter-spacing:3px;color:var(--gold);font-weight:700;text-transform:uppercase;margin-bottom:.8rem;">本週核心三重信息</div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:.8rem;">
+      <div style="background:rgba(255,255,255,.05);border-radius:10px;padding:1rem 1.1rem;">
+        <div style="font-size:.68rem;letter-spacing:2px;color:var(--dove-light);font-weight:700;text-transform:uppercase;margin-bottom:4px;">第一重</div>
+        <div style="font-family:'Noto Serif TC',serif;font-size:.95rem;color:#fff;font-weight:700;margin-bottom:4px;">神諭針對萬邦與以色列</div>
+        <div style="font-size:.75rem;color:rgba(255,255,255,.45);line-height:1.6;">無人倖免神的審判，外邦人固然受罰，以色列人也同受譴責。</div>
+      </div>
+      <div style="background:rgba(255,255,255,.05);border-radius:10px;padding:1rem 1.1rem;">
+        <div style="font-size:.68rem;letter-spacing:2px;color:var(--teal-light);font-weight:700;text-transform:uppercase;margin-bottom:4px;">第二重</div>
+        <div style="font-family:'Noto Serif TC',serif;font-size:.95rem;color:#fff;font-weight:700;margin-bottom:4px;">神的無上權威</div>
+        <div style="font-size:.75rem;color:rgba(255,255,255,.45);line-height:1.6;">宣告「除我以外沒有別神」，祂按旨意懲罰誰，誰就無法逃脫。</div>
+      </div>
+      <div style="background:rgba(255,255,255,.05);border-radius:10px;padding:1rem 1.1rem;">
+        <div style="font-size:.68rem;letter-spacing:2px;color:var(--gold-light);font-weight:700;text-transform:uppercase;margin-bottom:4px;">第三重</div>
+        <div style="font-family:'Noto Serif TC',serif;font-size:.95rem;color:#fff;font-weight:700;margin-bottom:4px;">巴比倫的象徵與滅亡</div>
+        <div style="font-size:.75rem;color:rgba(255,255,255,.45);line-height:1.6;">巴比倫代表人類邪惡象徵，神興起瑪代波斯作為審判的器皿。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="overview-grid">
+    <a class="overview-card oc-context" href="#context">
+      <div class="ov-icon">🌐</div>
+      <div class="ov-body">
+        <h4>以賽亞書的神諭背景</h4>
+        <p>第13章起共11章論外邦預言；以色列長期受外邦欺壓，先知書的民族情感與屬靈眼光。</p>
+      </div>
+    </a>
+    <a class="overview-card oc-meaning1" href="#meaning1">
+      <div class="ov-icon">⚖️</div>
+      <div class="ov-body">
+        <h4>神諭意義一：無人倖免</h4>
+        <p>外邦人受罰、以色列人同受責備；從王到百姓、從大衛王到普通子民，沒有一個逃得掉。</p>
+      </div>
+    </a>
+    <a class="overview-card oc-meaning2" href="#meaning2">
+      <div class="ov-icon">👑</div>
+      <div class="ov-body">
+        <h4>神諭意義二：神的無上權威</h4>
+        <p>「除我以外沒有別神」；士師記基甸三百人打敗米甸大軍，彰顯的不是人，而是神。</p>
+      </div>
+    </a>
+    <a class="overview-card oc-babylon" href="#babylon">
+      <div class="ov-icon">🔥</div>
+      <div class="ov-body">
+        <h4>巴比倫：邪惡的象徵</h4>
+        <p>巴比倫毀耶路撒冷聖殿、擄以色列人，成為聖經中人類邪惡最終極的代號，直到啟示錄。</p>
+      </div>
+    </a>
+    <a class="overview-card oc-persia" href="#persia">
+      <div class="ov-icon">🏔️</div>
+      <div class="ov-body">
+        <h4>瑪代波斯：神的審判器皿</h4>
+        <p>從遠方天邊而來的大軍；古列王（居魯士二世）被神興起，從東方打敗巴比倫。</p>
+      </div>
+    </a>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- 溫故知新提示 -->
+  <div class="alert warn" style="margin-bottom:1.2rem;margin-top:.5rem;">
+    <span class="alert-icon">🔁</span>
+    <p><strong>上次進度回顧：</strong>5月14日查經讀至以賽亞書第13章1–5節，本次繼續深入神諭的目的與巴比倫審判的意義，並預告下次將進入第6–16節。</p>
+  </div>
+
+  <!-- ═══ SECTION 1: 時代背景 ═══ -->
+  <div id="context" class="sec-anchor"></div>
+  <section class="sec">
+    <div class="sec-hdr">
+      <span class="sec-badge badge-context">時代背景</span>
+      <div>
+        <h2>以賽亞書的神諭結構</h2>
+        <div class="sec-sub">以賽亞書第13–24章 · 十一章論外邦預言</div>
+      </div>
+    </div>
+
+    <!-- 核心經文 -->
+    <div class="qblock">
+      <p>應當在淨光的山豎立大旗，向群眾揚聲招手，使他們進入貴胄的門。我吩咐我所挑出來的人；<em>我招呼我的勇士就是那矜誇高傲之輩，為要成就我怒中所定的。</em></p>
+      <p>山間有多人的聲音，好像是大國人民。有許多國的民聚集哄嚷的聲音；<em>這是萬軍之耶和華點齊軍隊，預備打仗。</em></p>
+      <p class="qblock-src">— 以賽亞書 13：2–4（論巴比倫的預言開篇）</p>
+    </div>
+
+    <div class="hbox dove">
+      <div class="hbox-label">結構說明</div>
+      <h3>以賽亞書第13–24章：十一章外邦神諭</h3>
+      <p>從第13章開始，以賽亞書有整整11章是針對外邦列國的「神諭」（默示）。先知書中，<strong>耶利米書、以西結書</strong>同樣有類似的外邦預言，但以賽亞書篇幅最廣、敘述最詳細。涉及的國家包括：</p>
+    </div>
+
+    <!-- 列國卡片 -->
+    <div class="nations-grid">
+      <div class="nation-card highlighted">
+        <div class="nation-tag">首先開刀</div>
+        <div class="nation-name">巴比倫</div>
+        <div class="nation-note">毀耶路撒冷聖殿（主前586年），成為邪惡的極致象徵，永不被饒恕。</div>
+      </div>
+      <div class="nation-card">
+        <div class="nation-tag">第13章後</div>
+        <div class="nation-name">非利士</div>
+        <div class="nation-note">長期與以色列為敵的海岸民族，屢次交戰。</div>
+      </div>
+      <div class="nation-card">
+        <div class="nation-tag">第15章</div>
+        <div class="nation-name">摩押</div>
+        <div class="nation-note">與以色列有複雜恩怨，路得記的背景民族。</div>
+      </div>
+      <div class="nation-card">
+        <div class="nation-tag">第17章</div>
+        <div class="nation-name">大馬色（亞蘭）</div>
+        <div class="nation-note">現今敘利亞首都，曾多次侵犯以色列北國。</div>
+      </div>
+      <div class="nation-card">
+        <div class="nation-tag">第18–19章</div>
+        <div class="nation-name">古實與埃及</div>
+        <div class="nation-note">神特別應許：「埃及是我的百姓」，得到祝福，與巴比倫待遇截然不同。</div>
+      </div>
+      <div class="nation-card">
+        <div class="nation-tag">第23章</div>
+        <div class="nation-name">推羅</div>
+        <div class="nation-note">地中海貿易大城，以繁華聞名，卻因驕傲受審判。</div>
+      </div>
+    </div>
+
+    <div class="hbox gold">
+      <div class="hbox-label">重要補充</div>
+      <h3>「馬吉安主義」：廢棄舊約的異端</h3>
+      <p>初代教會時期，有人主張新約時代是恩典時代，舊約充滿報仇咒詛，應予廢棄。此說被稱為「馬吉安主義」，隨即被打成異端。神學家指出，這種看法對舊約<strong>結構、目的與神的旨意</strong>理解太過單純，沒有舊約根基，新約根本無從建立。</p>
+    </div>
+
+    <div class="scripture">
+      <div class="scripture-ref">阿摩司書 1：3–5（論大馬色受罰）</div>
+      <p>耶和華如此說：大馬色三番四次地犯罪，我必不免去她的刑罰；因為她<em>以打糧食的鐵器打過基列</em>。我卻要降火在哈薛的家中，燒滅便哈達的宮殿……亞蘭人必被擄到吉珥。這是耶和華說的。</p>
+    </div>
+  </section>
+
+  <div class="divider"><span>意義一</span></div>
+
+  <!-- ═══ SECTION 2: 意義一 ═══ -->
+  <div id="meaning1" class="sec-anchor"></div>
+  <section class="sec">
+    <div class="sec-hdr">
+      <span class="sec-badge badge-meaning1">神諭意義一</span>
+      <div>
+        <h2>無人倖免神的審判</h2>
+        <div class="sec-sub">外邦人、以色列人、王與百姓——沒有一個逃得掉</div>
+      </div>
+    </div>
+
+    <div class="hbox teal">
+      <div class="hbox-label">核心觀點</div>
+      <h3>先知的立場：站在神公義的位置</h3>
+      <p>先知不管是對神的旨意、外邦人，還是自己的百姓，凡沒有走在神旨意中的，一律受責備、受咒詛、受懲罰。<strong>罵別人，也罵自己人；責備外邦，也責備以色列。</strong>這不是雙重標準，而是神公義的一致性。</p>
+    </div>
+
+    <!-- 四大對象 -->
+    <div class="vision-list">
+      <div class="vision-item">
+        <div class="v-num teal">①</div>
+        <div style="flex:1;">
+          <strong style="display:block;font-size:.88rem;font-weight:700;color:var(--ink);margin-bottom:4px;">外邦列國</strong>
+          <p style="font-size:.8rem;color:var(--muted);line-height:1.75;">自大、貪婪、殘暴、不義——以賽亞書13–23章對巴比倫、非利士、摩押等列國的罪行作出總結，神定意懲罰他們。</p>
+          <div class="v-word vw-teal">
+            <div class="v-word-label">罪行歸納</div>
+            我最偉大（自大）· 貪心（貪婪）· 喜歡殺人（殘暴）· 行不公不義（不義）——光這幾條，就夠神好好處置一頓了。
+          </div>
+        </div>
+      </div>
+      <div class="vision-item">
+        <div class="v-num ruby">②</div>
+        <div style="flex:1;">
+          <strong style="display:block;font-size:.88rem;font-weight:700;color:var(--ink);margin-bottom:4px;">以色列王：大衛王的案例</strong>
+          <p style="font-size:.8rem;color:var(--muted);line-height:1.75;">先知拿單對大衛王當面宣告：「你就是那人！」連被神膏立的王也不能逃脫審判。藐視神命令、行神眼中為惡的事，刀劍必永不離開你的家。</p>
+          <div class="v-word vw-ruby">
+            <div class="v-word-label">撒母耳記下 12：7–10</div>
+            「你為什麼藐視耶和華的命令，行祂眼中看為惡的事呢？……刀劍必永不離開你的家。」— 先知拿單斥責大衛王
+          </div>
+        </div>
+      </div>
+      <div class="vision-item">
+        <div class="v-num gold">③</div>
+        <div style="flex:1;">
+          <strong style="display:block;font-size:.88rem;font-weight:700;color:var(--ink);margin-bottom:4px;">以色列百姓：以西結書的轉向</strong>
+          <p style="font-size:.8rem;color:var(--muted);line-height:1.75;">以西結書33–34章，神諭的矛頭從外邦轉向以色列百姓本身。「人子啊，你要告訴本國的子民……」警告守望者若不盡責，百姓的罪就歸到他頭上。</p>
+          <div class="v-word vw-gold">
+            <div class="v-word-label">以西結書 33：1–2</div>
+            「我使刀劍臨到哪一國，那一國的民從他們中間選立一人為守望的。他見刀劍臨到那地，若吹角警戒眾民……」
+          </div>
+        </div>
+      </div>
+      <div class="vision-item">
+        <div class="v-num dove">④</div>
+        <div style="flex:1;">
+          <strong style="display:block;font-size:.88rem;font-weight:700;color:var(--ink);margin-bottom:4px;">以色列國度的「禍哉」</strong>
+          <p style="font-size:.8rem;color:var(--muted);line-height:1.75;">以賽亞書28–31章出現一連串的「禍哉！」直接針對以法蓮（以色列北國）與猶大，充滿嘲諷與警語，表達：<strong>你們表現並不比外邦人好，五十步笑百步，同樣要受懲罰。</strong></p>
+          <div class="v-word vw-dove">
+            <div class="v-word-label">以賽亞書 28：1</div>
+            「禍哉！以法蓮的酒徒，住在肥美穀的山上，他們心裏高傲，以所誇的為冠冕，猶如將殘之花。」
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 兩大比較 -->
+    <div class="two-col">
+      <div class="col-side" style="background:var(--ruby-pale);">
+        <div class="col-label" style="color:var(--ruby);">外邦列國的罪</div>
+        <div class="col-title">神的公義審判</div>
+        <ul class="col-list" style="--c:var(--ruby)">
+          <li style="color:var(--muted);">自大：自認比神更偉大</li>
+          <li style="color:var(--muted);">貪婪：貪心是人的普遍弱點</li>
+          <li style="color:var(--muted);">殘暴：喜歡殺人、殘忍不仁</li>
+          <li style="color:var(--muted);">不義：行不公不義之事</li>
+          <li style="color:var(--muted);">最終被神所用又被神廢棄</li>
+        </ul>
+      </div>
+      <div class="col-side" style="background:var(--dove-pale);">
+        <div class="col-label" style="color:var(--dove);">以色列同樣受責備</div>
+        <div class="col-title">半斤八兩，逃不掉</div>
+        <ul class="col-list" style="--c:var(--dove)">
+          <li style="color:var(--muted);">28–31章：禍哉！禍哉！</li>
+          <li style="color:var(--muted);">先知斥責王也斥責百姓</li>
+          <li style="color:var(--muted);">大衛王同受拿單的責備</li>
+          <li style="color:var(--muted);">神有一絲盼望留給以色列</li>
+          <li style="color:var(--muted);">流亡之民最終歸回耶路撒冷</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="scripture">
+      <div class="scripture-ref">以賽亞書 27：13（盼望之言）</div>
+      <p>當那日，必大發角聲，在亞述地將要滅亡的，並在埃及地被趕散的，都要來，<em>他們就在耶路撒冷聖山上敬拜耶和華。</em></p>
+    </div>
+  </section>
+
+  <div class="divider"><span>意義二</span></div>
+
+  <!-- ═══ SECTION 3: 意義二 ═══ -->
+  <div id="meaning2" class="sec-anchor"></div>
+  <section class="sec">
+    <div class="sec-hdr">
+      <span class="sec-badge badge-meaning2">神諭意義二</span>
+      <div>
+        <h2>宣告神的無上權威</h2>
+        <div class="sec-sub">「除我以外，沒有別神」——這才是神諭的核心目的</div>
+      </div>
+    </div>
+
+    <div class="hbox gold">
+      <div class="hbox-label">關鍵重點</div>
+      <h3>神諭的目的不是彰顯以色列人優越，而是宣告神的主權</h3>
+      <p>讀者若誤以為神諭是在「替以色列出氣」、彰顯以色列人的優越地位，那就誤解了先知書的核心信息。神諭真正的目的是：<strong>宣告耶和華上帝的無上權威——祂要懲罰誰就懲罰誰，無人逃脫。</strong></p>
+    </div>
+
+    <!-- 基甸案例 -->
+    <div class="vision-item" style="background:#fff;border:.5px solid rgba(0,0,0,.08);border-radius:var(--r);padding:1.3rem 1.4rem;margin-bottom:1.2rem;box-shadow:var(--shadow);">
+      <div class="v-num gold">⚡</div>
+      <div style="flex:1;">
+        <strong style="display:block;font-size:.9rem;font-weight:700;color:var(--ink);margin-bottom:5px;">基甸三百人的啟示：不是人厲害，是神的旨意</strong>
+        <p style="font-size:.82rem;color:var(--muted);line-height:1.8;">若一萬人打一千人打贏了，人會說「是我們自己厲害」。所以神讓基甸用三百人去打米甸的大軍，打贏了，所有人都只能說：「這是神讓我們打贏的！」彰顯的不是人的能力，而是<strong>神的無上權威</strong>。</p>
+        <div class="v-word vw-gold" style="margin-top:.6rem;">
+          <div class="v-word-label">士師記 7：2</div>
+          「耶和華對基甸說：『跟隨你的人過多，我不能將米甸人交在他們手中，免得以色列人向我誇大，說：是我們自己的手救了我們。』」
+        </div>
+      </div>
+    </div>
+
+    <!-- 三次宣告 -->
+    <div class="card-grid">
+      <div class="card c-gold">
+        <div class="card-num">一</div>
+        <div class="card-icon">👁️</div>
+        <h4>第一次宣告</h4>
+        <p>「我是耶和華；在我以外並沒有別神；除了我以外再沒有神。你雖不認識我，我必給你束腰。」（以賽亞書45：5）</p>
+      </div>
+      <div class="card c-teal">
+        <div class="card-num">二</div>
+        <div class="card-icon">🌏</div>
+        <h4>第二次宣告</h4>
+        <p>「從日出之地到日落之處，使人都知道除了我以外，沒有別神。我是耶和華；在我以外並沒有別神。」（以賽亞書45：6）</p>
+      </div>
+      <div class="card c-dove">
+        <div class="card-num">三</div>
+        <div class="card-icon">⚖️</div>
+        <h4>第三次宣告</h4>
+        <p>「除了我以外，再沒有神；我是公義的神，又是救主；除了我以外，再沒有別神。」（以賽亞書45：21）</p>
+      </div>
+    </div>
+
+    <div class="scripture">
+      <div class="scripture-ref">以賽亞書 45：3–5（賜給古列的話語）</div>
+      <p>我要將暗中的寶物和隱密的財寶賜給你，使你知道提名召你的，就是我耶和華、以色列的神。<em>我是耶和華，在我以外並沒有別神；除了我以外再沒有神。你雖不認識我，我必給你束腰。</em></p>
+    </div>
+
+    <div class="hbox teal">
+      <div class="hbox-label">神掌管歷史</div>
+      <h3>神用列國作器皿，用完就廢棄</h3>
+      <p>以賽亞書24–27章具體說明：列國被神用來懲罰以色列，用完了，他們自己也要受審判。最典型的例子是：<strong>神用巴比倫攻擊以色列，最後巴比倫也被神處罰。</strong>神是歷史的主宰，按旨意掌管萬邦的興衰。</p>
+      <ul style="margin-top:.5rem;">
+        <li>以賽亞書第25章6節：神為萬民設擺筵席，用肥甘陳酒款待</li>
+        <li>第27章13節：流亡散民最終歸回耶路撒冷聖山</li>
+        <li>以賽亞書19章24節：埃及、亞述甚至得到祝福，唯有巴比倫永不被饒恕</li>
+      </ul>
+    </div>
+
+    <div class="scripture">
+      <div class="scripture-ref">以賽亞書 19：24–25（埃及與亞述的應許）</div>
+      <p>當那日，以色列必與埃及、亞述三國一律，使地上的人得福；因為萬軍之耶和華賜福給他們，說：<em>「埃及是我的百姓，亞述是我手的工作，以色列是我的產業，都有福了！」</em></p>
+    </div>
+  </section>
+
+  <div class="divider"><span>巴比倫審判</span></div>
+
+  <!-- ═══ SECTION 4: 巴比倫 ═══ -->
+  <div id="babylon" class="sec-anchor"></div>
+  <section class="sec">
+    <div class="sec-hdr">
+      <span class="sec-badge badge-babylon">巴比倫的審判</span>
+      <div>
+        <h2>人類邪惡的終極象徵</h2>
+        <div class="sec-sub">從以賽亞書到啟示錄——巴比倫永不被饒恕</div>
+      </div>
+    </div>
+
+    <div class="hbox ruby">
+      <div class="hbox-label">歷史背景</div>
+      <h3>為何巴比倫是第一個開刀的對象？</h3>
+      <p>以賽亞先知寫書期間，對以色列影響最深、傷害最大的就是巴比倫。尼布甲尼撒在主前<strong>586年</strong>攻陷耶路撒冷、毀掉聖殿，將子民擄走。這是以賽亞心中最痛恨的悲劇，因此神諭從巴比倫開始。</p>
+      <p style="margin-top:.5rem;">此後「巴比倫」成為所有邪惡政權的代稱：<strong>亞述叫巴比倫、波斯也叫巴比倫</strong>，巴比倫代表一切反神、欺壓神子民的勢力。</p>
+    </div>
+
+    <!-- 聖殿被毀時間軸 -->
+    <div class="vision-list">
+      <div class="vision-item">
+        <div class="v-num ruby">前</div>
+        <div style="flex:1;">
+          <strong style="display:block;font-size:.88rem;font-weight:700;color:var(--ink);margin-bottom:4px;">主前 586 年：第一次聖殿被毀</strong>
+          <p style="font-size:.8rem;color:var(--muted);line-height:1.75;">巴比倫王尼布甲尼撒攻陷耶路撒冷，毀掉所羅門聖殿，大批猶太人被擄至巴比倫。西底家王的眼睛被挖，國破家亡。</p>
+          <div class="v-word vw-ruby">
+            <div class="v-word-label">耶利米書 52：4–7</div>
+            「巴比倫王尼布甲尼撒率領全軍來攻擊耶路撒冷，對城安營，四圍築壘攻城……城裏有大饑荒，甚至百姓都沒有糧食。」
+          </div>
+        </div>
+      </div>
+      <div class="vision-item">
+        <div class="v-num ruby">後</div>
+        <div style="flex:1;">
+          <strong style="display:block;font-size:.88rem;font-weight:700;color:var(--ink);margin-bottom:4px;">主後 70 年：第二次聖殿被毀</strong>
+          <p style="font-size:.8rem;color:var(--muted);line-height:1.75;">羅馬帝國攻占耶路撒冷，希律聖殿被毀，猶太人被擄散至各地，此後長期受壓迫，直到近代才重建以色列國。聖殿至今仍未重建。</p>
+          <div class="v-word vw-dove">
+            <div class="v-word-label">末世預兆</div>
+            教師提醒：若聖殿重建，預表末後七年大患難極可能就要開始，是非常緊張的末世預兆。
+          </div>
+        </div>
+      </div>
+      <div class="vision-item">
+        <div class="v-num ruby">末</div>
+        <div style="flex:1;">
+          <strong style="display:block;font-size:.88rem;font-weight:700;color:var(--ink);margin-bottom:4px;">啟示錄：巴比倫的最終傾倒</strong>
+          <p style="font-size:.8rem;color:var(--muted);line-height:1.75;">在啟示錄17–18章，「大巴比倫」作為世上淫婦與一切可憎之物的母，代表末世邪惡體系的最終覆滅。</p>
+          <div class="v-word vw-ruby">
+            <div class="v-word-label">啟示錄 18：2</div>
+            「巴比倫大城傾倒了！傾倒了！成了鬼魔的住處和各樣污穢之靈的巢穴。」
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="scripture">
+      <div class="scripture-ref">啟示錄 17：5（大巴比倫的標誌）</div>
+      <p>在她額上有名寫著說：<em>「奧秘哉！大巴比倫，作世上的淫婦和一切可憎之物的母。」</em></p>
+    </div>
+
+    <div class="alert info" style="margin-top:1rem;">
+      <span class="alert-icon">💡</span>
+      <p><strong>教師補充：</strong>猶太人歷史上長期受外邦壓迫——中世紀被天主教舊教欺壓（耶路撒冷教堂被大量佔用）；1939–1945年二戰期間納粹德國在歐洲屠殺六百萬猶太人。今日烏克蘭總統澤倫斯基正是猶太人後裔，見《屋上的提琴手》電影背景。</p>
+    </div>
+  </section>
+
+  <div class="divider"><span>瑪代波斯</span></div>
+
+  <!-- ═══ SECTION 5: 瑪代波斯 ═══ -->
+  <div id="persia" class="sec-anchor"></div>
+  <section class="sec" style="padding-bottom:3rem;">
+    <div class="sec-hdr">
+      <span class="sec-badge badge-persia">瑪代波斯的興起</span>
+      <div>
+        <h2>神的審判器皿：從東方來的大軍</h2>
+        <div class="sec-sub">以賽亞書13：17 · 古列王（居魯士二世）的預言</div>
+      </div>
+    </div>
+
+    <div class="hbox sage">
+      <div class="hbox-label">經文解析</div>
+      <h3>以賽亞書13章的兩層揭示</h3>
+      <p>第13章前段（第1–5節）描述一支龐大軍隊集結，卻未說明是誰。直到<strong>第17節</strong>才揭曉——神所興起的就是<strong>瑪代人</strong>（瑪代波斯帝國）。這支大軍的特點：不愛財、不愛金銀，只管殺人，銳不可擋。</p>
+    </div>
+
+    <div class="scripture">
+      <div class="scripture-ref">以賽亞書 13：17（揭曉攻擊者身份）</div>
+      <p>我必激動<em>瑪代人</em>來攻擊他們。瑪代人不注重銀子，也不喜愛金子。他們必用弓擊碎少年人，不憐憫婦人所生的，眼也不顧惜孩子。</p>
+    </div>
+
+    <!-- 古列王卡片 -->
+    <div class="card-grid">
+      <div class="card c-sage">
+        <div class="card-num">古</div>
+        <div class="card-icon">🏔️</div>
+        <h4>古列王（居魯士二世）</h4>
+        <p>波斯帝國的奠基者，又稱塞魯士王。神早在以賽亞時代就預言他的出現（以賽亞書45章），後來他真的攻克巴比倫，並允許猶太人回歸故土。</p>
+      </div>
+      <div class="card c-teal">
+        <div class="card-num">東</div>
+        <div class="card-icon">🌄</div>
+        <h4>從東方天邊而來</h4>
+        <p>以賽亞書13：5「從遠方來，從天邊來」，預表在巴比倫東方有一強大政權興起，就是現今伊朗所在地——古代波斯的核心領土。</p>
+      </div>
+      <div class="card c-gold">
+        <div class="card-num">兵</div>
+        <div class="card-icon">⚔️</div>
+        <h4>神的勇士與天兵</h4>
+        <p>第3節「我所挑出來的人」與「矜誇高傲之輩」，解經學家認為指的是巨人、天使等，被神差遣協同征服巴比倫。</p>
+      </div>
+    </div>
+
+    <div class="hbox dove">
+      <div class="hbox-label">下次預告</div>
+      <h3>以賽亞書13：6–16 留待下次繼續</h3>
+      <p>本次查經因時間關係，第6–16節的內容（描述耶和華降罰巴比倫的具體場景：日月星辰昏暗、人如驚嚇的羚羊逃竄、嬰兒被摔死、婦女被玷污等末日景象）將在下次查經繼續講解。</p>
+    </div>
+
+    <!-- 結束禱告 -->
+    <div class="qblock">
+      <p>慈愛的父神，救主耶穌基督，聖靈保惠師，孩子們滿心感謝讚美祢的恩典。主啊，謝謝祢一個禮拜來的保守跟帶領，目前肺炎疫情還是到處地蔓延，<em>所幸所造成的傷害沒有過去那麼強烈。</em></p>
+      <p>求主繼續的保守我們眾同工的腳步，願大家都能夠遠離疫情，能夠平安健康地度過每一天。若不慎有了感染，也求主賜下醫治的大能在他們身上，讓他們能夠早日康復。</p>
+      <p>讓所有的弟兄、姊妹能夠靠著主所賜予的力量，達成目標來榮耀祢。<em>謝謝祢，孩子們禱告感謝，奉靠主耶穌基督的聖名，阿們！</em></p>
+      <p class="qblock-src">— 林明學教師結束禱告</p>
+    </div>
+
+    <div class="alert warn">
+      <span class="alert-icon">📌</span>
+      <p><strong>疫情牧關提醒：</strong>教師提醒眾弟兄姊妹，Omicron疫情傳播快但重症比例低，目前視同流感處理。進出公共場所注意洗手，如有喉嚨不適可先漱口並快篩。若不幸確診，最主要症狀為喉嚨痛與多痰，靠主保守必能度過。</p>
+    </div>
+  </section>
+
+</div><!-- end container -->
+
+<!-- FOOTER -->
+<footer class="page-footer">
+  <p>1221 輯週訓 · <strong>神的無上權威與神諭</strong></p>
+  <p style="margin-top:4px;">2022年5月21日 高雄查經聚會 · 主領：林明學教師 · 週訓整理日期 2026年5月31日</p>
+</footer>
+
+<script>
+const tocLinks = document.querySelectorAll('.toc-link');
+const anchors = ['overview','context','meaning1','meaning2','babylon','persia'];
+const sections = anchors.map(id => document.getElementById(id));
+
+function updateToc() {
+  let current = 'overview';
+  const offset = 80;
+  sections.forEach((el, i) => {
+    if (el && el.getBoundingClientRect().top < offset + 20) {
+      current = anchors[i];
+    }
+  });
+  tocLinks.forEach(a => {
+    const href = a.getAttribute('href').replace('#','');
+    a.classList.toggle('active', href === current);
+  });
+}
+window.addEventListener('scroll', updateToc, { passive: true });
+updateToc();
+</script>
+</body>
+</html>
