@@ -1,0 +1,1139 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>溫故知新 · [篇名]</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════════════
+   設計語言 · DESIGN TOKENS
+   用 CSS variables 統一管理所有顏色
+═══════════════════════════════════════════════ */
+:root {
+  /* 主色 — 金 (標題、裝飾、強調) */
+  --gold:        #C9A84C;
+  --gold-light:  #E8D08A;
+  --gold-pale:   #FAF3DC;
+
+  /* 中性 — 墨 (文字) */
+  --deep:        #1A1208;   /* 最深，用於標題與背景 */
+  --ink:         #2C2416;   /* 正文 */
+  --muted:       #6B5D3E;   /* 次要說明文字 */
+  --soft:        #F5EDD8;   /* 淡色背景塊 */
+  --parchment:   #FBF6EC;   /* 頁面底色 */
+
+  /* 輔色 1 — 青 (正面、結論、希望) */
+  --teal:        #2E7D72;
+  --teal-light:  #4AA89C;
+  --teal-pale:   #E0F2EF;
+
+  /* 輔色 2 — 紅 (警告、嚴肅、對比) */
+  --ruby:        #8B2130;
+  --ruby-light:  #C2445A;
+  --ruby-pale:   #FAEAED;
+
+  /* 輔色 3 — 藍 (資訊、補充、中立) */
+  --blue-deep:   #1E3A5F;
+  --blue-mid:    #2E6DA4;
+  --blue-pale:   #E8F1FA;
+
+  /* 圓角 */
+  --radius:      12px;
+  --radius-lg:   20px;
+}
+
+/* ═══════════════════════════════════════════════
+   基礎重置
+═══════════════════════════════════════════════ */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Noto Sans TC', sans-serif;
+  background: var(--parchment);
+  color: var(--ink);
+  line-height: 1.8;
+}
+
+/* ═══════════════════════════════════════════════
+   HERO — 頁首大圖
+   修改：.hero-tag / h1 em / .hero-sub / .hero-verse
+═══════════════════════════════════════════════ */
+.hero {
+  background: var(--deep);
+  padding: 3.5rem 2rem 3rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 50% 0%, rgba(201,168,76,.18) 0%, transparent 70%);
+  pointer-events: none;
+}
+/* 小標籤 e.g. "溫故知新 · 第02篇 · 2003.10.18" */
+.hero-tag {
+  display: inline-block;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  font-size: 11px;
+  letter-spacing: 4px;
+  padding: 4px 16px;
+  border-radius: 2px;
+  margin-bottom: 1.2rem;
+  text-transform: uppercase;
+}
+/* 主標題：<em> 套金色關鍵字 */
+.hero h1 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  color: #fff;
+  font-weight: 700;
+  line-height: 1.4;
+  margin-bottom: .6rem;
+}
+.hero h1 em { color: var(--gold-light); font-style: normal; }
+/* 副標題描述 */
+.hero-sub {
+  color: rgba(255,255,255,.55);
+  font-size: .85rem;
+  letter-spacing: 1px;
+  margin-bottom: 2rem;
+}
+/* 金色引言框 */
+.hero-verse {
+  display: inline-block;
+  border-left: 2px solid var(--gold);
+  padding: .5rem 1rem;
+  text-align: left;
+  color: var(--gold-light);
+  font-family: 'Noto Serif TC', serif;
+  font-size: .9rem;
+  line-height: 1.9;
+}
+.hero-verse .src {
+  color: rgba(255,255,255,.4);
+  font-size: .78rem;
+}
+
+/* ═══════════════════════════════════════════════
+   版面容器
+═══════════════════════════════════════════════ */
+.container { max-width: 960px; margin: 0 auto; padding: 0 1.25rem; }
+.section    { padding: 2.5rem 0 1.5rem; }
+
+/* ═══════════════════════════════════════════════
+   SECTION TITLE — 區塊標題列
+   .icon 背景色可換：style="background:var(--teal);color:#fff;"
+═══════════════════════════════════════════════ */
+.sec-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 1.5rem;
+}
+.sec-title .icon {
+  width: 36px; height: 36px;
+  background: var(--gold);
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 17px; color: var(--deep); flex-shrink: 0;
+}
+.sec-title h2 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 1.2rem;
+  color: var(--deep);
+  font-weight: 700;
+}
+.sec-title .subtitle { font-size: .78rem; color: var(--muted); margin-top: 1px; }
+
+/* ═══════════════════════════════════════════════
+   DIVIDER — 分隔線
+   用法：<div class="divider"><span>段落名稱</span></div>
+═══════════════════════════════════════════════ */
+.divider {
+  display: flex; align-items: center; gap: 12px;
+  margin: .5rem 0 1.5rem; opacity: .35;
+}
+.divider::before, .divider::after {
+  content: ''; flex: 1; height: .5px; background: var(--muted);
+}
+.divider span { font-size: 10px; letter-spacing: 3px; color: var(--muted); text-transform: uppercase; }
+
+
+/* ════════════════════════════════════════════════════════════
+   ██████████  元件庫  ██████████
+   下方依元件分組，每組附使用說明
+════════════════════════════════════════════════════════════ */
+
+
+/* ───────────────────────────────────────────────
+   1. PILLAR CARDS — 核心主題卡片 (2–4欄)
+   在 .pillars 內放 .pillar.p1 / p2 / p3 / p4
+   四色條：金 / 青 / 紅 / 藍
+─────────────────────────────────────────────── */
+.pillars {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.pillar {
+  background: #fff;
+  border: .5px solid rgba(0,0,0,.1);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  position: relative;
+  overflow: hidden;
+  transition: transform .2s, box-shadow .2s;
+}
+.pillar:hover { transform: translateY(-3px); box-shadow: 0 8px 28px rgba(0,0,0,.08); }
+.pillar::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 3px;
+}
+.pillar.p1::before { background: linear-gradient(90deg, var(--gold),      var(--gold-light)); }
+.pillar.p2::before { background: linear-gradient(90deg, var(--teal),      var(--teal-light)); }
+.pillar.p3::before { background: linear-gradient(90deg, var(--ruby),      var(--ruby-light)); }
+.pillar.p4::before { background: linear-gradient(90deg, var(--blue-deep), var(--blue-mid));   }
+/* 淡底大數字裝飾 */
+.pillar-num {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 2.5rem; font-weight: 700; opacity: .12; line-height: 1;
+  position: absolute; top: 1rem; right: 1.2rem;
+}
+.pillar.p1 .pillar-num { color: var(--gold); }
+.pillar.p2 .pillar-num { color: var(--teal); }
+.pillar.p3 .pillar-num { color: var(--ruby); }
+.pillar.p4 .pillar-num { color: var(--blue-deep); }
+.pillar-icon { font-size: 1.6rem; margin-bottom: .5rem; }
+.pillar h3 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 1rem; font-weight: 700; color: var(--deep); margin-bottom: .5rem;
+}
+.pillar p { font-size: .82rem; color: var(--muted); line-height: 1.7; }
+
+
+/* ───────────────────────────────────────────────
+   2. QUOTE BLOCK — 深色引言框
+   .quote-text 內用 <em> 套金色關鍵字
+─────────────────────────────────────────────── */
+.quote-block {
+  background: var(--deep);
+  border-radius: var(--radius-lg);
+  padding: 2rem 2rem 1.5rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+  overflow: hidden;
+}
+.quote-block::before {
+  content: '"';
+  position: absolute; top: -.5rem; left: 1rem;
+  font-family: 'Noto Serif TC', serif;
+  font-size: 6rem; color: var(--gold); opacity: .15; line-height: 1;
+  pointer-events: none;
+}
+.quote-text {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 1.05rem; color: #fff; line-height: 1.9; margin-bottom: .8rem;
+}
+.quote-text em { color: var(--gold-light); font-style: normal; font-weight: 700; }
+.quote-src { font-size: .75rem; color: rgba(255,255,255,.45); letter-spacing: 1px; }
+
+
+/* ───────────────────────────────────────────────
+   3. BIBLE CARDS — 聖經節引用卡
+   四色版：.bible-card / .teal-card / .ruby-card / .blue-card
+─────────────────────────────────────────────── */
+/* 金（預設） */
+.bible-card {
+  background: var(--gold-pale);
+  border-left: 3px solid var(--gold);
+  border-radius: var(--radius);
+  padding: 1.1rem 1.3rem;
+  margin: .8rem 0 1.2rem;
+}
+.bible-card .ref {
+  font-size: .7rem; letter-spacing: 2px; color: var(--gold); font-weight: 700;
+  text-transform: uppercase; margin-bottom: .4rem;
+}
+.bible-card .verse {
+  font-family: 'Noto Serif TC', serif; font-size: .88rem; color: var(--deep); line-height: 1.85;
+}
+/* 青 */
+.teal-card { background: var(--teal-pale); border-left: 3px solid var(--teal); border-radius: var(--radius); padding: 1.1rem 1.3rem; margin: .8rem 0 1.2rem; }
+.teal-card .ref { font-size: .7rem; letter-spacing: 2px; color: var(--teal); font-weight: 700; text-transform: uppercase; margin-bottom: .4rem; }
+.teal-card .verse { font-family: 'Noto Serif TC', serif; font-size: .88rem; color: #185049; line-height: 1.85; }
+/* 紅 */
+.ruby-card { background: var(--ruby-pale); border-left: 3px solid var(--ruby); border-radius: var(--radius); padding: 1.1rem 1.3rem; margin: .8rem 0 1.2rem; }
+.ruby-card .ref { font-size: .7rem; letter-spacing: 2px; color: var(--ruby); font-weight: 700; text-transform: uppercase; margin-bottom: .4rem; }
+.ruby-card .verse { font-family: 'Noto Serif TC', serif; font-size: .88rem; color: #6B1621; line-height: 1.85; }
+/* 藍 */
+.blue-card { background: var(--blue-pale); border-left: 3px solid var(--blue-mid); border-radius: var(--radius); padding: 1.1rem 1.3rem; margin: .8rem 0 1.2rem; }
+.blue-card .ref { font-size: .7rem; letter-spacing: 2px; color: var(--blue-mid); font-weight: 700; text-transform: uppercase; margin-bottom: .4rem; }
+.blue-card .verse { font-family: 'Noto Serif TC', serif; font-size: .88rem; color: #0C2A4A; line-height: 1.85; }
+
+
+/* ───────────────────────────────────────────────
+   4. INSIGHT CARDS — 小型洞見卡 (2–4欄)
+   子卡第1~4顆點自動金/青/紅/藍
+─────────────────────────────────────────────── */
+.insight-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.insight-card {
+  background: #fff;
+  border-radius: var(--radius);
+  border: .5px solid rgba(0,0,0,.09);
+  padding: 1.2rem;
+  display: flex; gap: 12px; align-items: flex-start;
+}
+.insight-dot { width: 8px; height: 8px; border-radius: 50%; margin-top: .4rem; flex-shrink: 0; }
+.insight-card:nth-child(1) .insight-dot { background: var(--gold);     }
+.insight-card:nth-child(2) .insight-dot { background: var(--teal);     }
+.insight-card:nth-child(3) .insight-dot { background: var(--ruby);     }
+.insight-card:nth-child(4) .insight-dot { background: var(--blue-mid); }
+.insight-card h4 { font-size: .88rem; font-weight: 600; color: var(--deep); margin-bottom: .3rem; }
+.insight-card p  { font-size: .78rem; color: var(--muted); line-height: 1.65; }
+
+
+/* ───────────────────────────────────────────────
+   5. TIMELINE — 垂直時間軸
+   .tl-item.gold / .teal / .ruby / .blue
+─────────────────────────────────────────────── */
+.timeline {
+  position: relative;
+  padding-left: 2.5rem;
+  margin-bottom: 1rem;
+}
+.timeline::before {
+  content: '';
+  position: absolute; left: 10px; top: 12px; bottom: 12px;
+  width: 1.5px;
+  background: linear-gradient(180deg, var(--gold) 0%, var(--teal) 50%, var(--ruby) 100%);
+}
+.tl-item { position: relative; margin-bottom: 1.2rem; }
+.tl-dot {
+  position: absolute; left: -2.17rem; top: .35rem;
+  width: 12px; height: 12px; border-radius: 50%;
+  border: 2px solid; background: var(--parchment);
+}
+.tl-item.gold .tl-dot  { border-color: var(--gold);     }
+.tl-item.teal .tl-dot  { border-color: var(--teal);     }
+.tl-item.ruby .tl-dot  { border-color: var(--ruby);     }
+.tl-item.blue .tl-dot  { border-color: var(--blue-mid); }
+.tl-year { font-size: .72rem; font-weight: 700; letter-spacing: 1.5px; margin-bottom: 2px; }
+.tl-item.gold .tl-year  { color: var(--gold);     }
+.tl-item.teal .tl-year  { color: var(--teal);     }
+.tl-item.ruby .tl-year  { color: var(--ruby);     }
+.tl-item.blue .tl-year  { color: var(--blue-mid); }
+.tl-title { font-weight: 600; font-size: .9rem; color: var(--deep); margin-bottom: 2px; }
+.tl-body  { font-size: .8rem; color: var(--muted); line-height: 1.65; }
+
+
+/* ───────────────────────────────────────────────
+   6. THREE STAGES — 三欄橫排步驟
+   .stage-item.s1 金 / s2 青 / s3 紅
+─────────────────────────────────────────────── */
+.stages {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  background: #fff;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: .5px solid rgba(0,0,0,.09);
+  margin-bottom: 1.5rem;
+}
+@media(max-width: 600px) { .stages { grid-template-columns: 1fr; } }
+.stage-item {
+  padding: 1.4rem 1.2rem;
+  border-right: .5px solid rgba(0,0,0,.07);
+  position: relative;
+}
+.stage-item:last-child { border-right: none; }
+.stage-no    { font-size: .7rem; letter-spacing: 2px; font-weight: 700; margin-bottom: .4rem; text-transform: uppercase; }
+.stage-title { font-family: 'Noto Serif TC', serif; font-size: .95rem; font-weight: 700; color: var(--deep); margin-bottom: .4rem; }
+.stage-body  { font-size: .78rem; color: var(--muted); line-height: 1.65; }
+.stage-top-bar { height: 3px; position: absolute; top: 0; left: 0; right: 0; }
+.stage-item.s1 .stage-no    { color: var(--gold);  }
+.stage-item.s2 .stage-no    { color: var(--teal);  }
+.stage-item.s3 .stage-no    { color: var(--ruby);  }
+.stage-item.s1 .stage-top-bar { background: var(--gold);  }
+.stage-item.s2 .stage-top-bar { background: var(--teal);  }
+.stage-item.s3 .stage-top-bar { background: var(--ruby);  }
+
+
+/* ───────────────────────────────────────────────
+   7. COMPARE GRID — 左右對比表
+   .cg-side.left 金 / .cg-side.right 紅
+─────────────────────────────────────────────── */
+.compare-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 0;
+  background: #fff;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: .5px solid rgba(0,0,0,.09);
+  margin-bottom: 1.5rem;
+}
+@media(max-width: 500px) { .compare-grid { grid-template-columns: 1fr; } }
+.cg-side { padding: 1.5rem 1.3rem; }
+.cg-side:first-child { border-right: .5px solid rgba(0,0,0,.07); }
+.cg-label {
+  font-size: .68rem; letter-spacing: 2.5px; font-weight: 700;
+  text-transform: uppercase; margin-bottom: .6rem;
+}
+.cg-side.left  .cg-label { color: var(--gold); }
+.cg-side.right .cg-label { color: var(--ruby); }
+.cg-title {
+  font-family: 'Noto Serif TC', serif; font-size: 1rem;
+  font-weight: 700; color: var(--deep); margin-bottom: .6rem;
+}
+.cg-list { list-style: none; padding: 0; }
+.cg-list li {
+  font-size: .8rem; color: var(--muted); line-height: 1.65;
+  padding: 3px 0 3px 14px; position: relative;
+}
+.cg-list li::before { content: '·'; position: absolute; left: 2px; font-size: 1rem; line-height: 1.3; }
+.cg-side.left  .cg-list li::before { color: var(--gold); }
+.cg-side.right .cg-list li::before { color: var(--ruby); }
+
+
+/* ───────────────────────────────────────────────
+   8. MEANING PILLARS — 三欄意義卡 (彩底)
+   .mp-card.mp1 金 / mp2 青 / mp3 紅
+─────────────────────────────────────────────── */
+.meaning-pillars {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.mp-card { border-radius: var(--radius); padding: 1.3rem 1.2rem; position: relative; }
+.mp-card.mp1 { background: var(--gold-pale); border: 1px solid rgba(201,168,76,.3); }
+.mp-card.mp2 { background: var(--teal-pale); border: 1px solid rgba(46,125,114,.25); }
+.mp-card.mp3 { background: var(--ruby-pale); border: 1px solid rgba(139,33,48,.2);  }
+.mp-head { display: flex; align-items: center; gap: 8px; margin-bottom: .7rem; }
+.mp-badge { font-size: .65rem; letter-spacing: 2px; font-weight: 700; text-transform: uppercase; padding: 2px 8px; border-radius: 4px; }
+.mp1 .mp-badge { background: var(--gold); color: var(--deep); }
+.mp2 .mp-badge { background: var(--teal); color: #fff; }
+.mp3 .mp-badge { background: var(--ruby); color: #fff; }
+.mp-card h4 { font-family: 'Noto Serif TC', serif; font-size: .95rem; font-weight: 700; margin-bottom: .5rem; color: var(--deep); }
+.mp-card p  { font-size: .8rem; color: var(--muted); line-height: 1.7; }
+.mp-example { margin-top: .6rem; padding-top: .6rem; border-top: 1px solid rgba(0,0,0,.06); font-size: .75rem; line-height: 1.6; }
+.mp1 .mp-example { color: #7A620A; }
+.mp2 .mp-example { color: #185049; }
+.mp3 .mp-example { color: #6B1621; }
+
+
+/* ───────────────────────────────────────────────
+   9. WARN BOX — 警告框
+─────────────────────────────────────────────── */
+.warn-box {
+  background: #fff;
+  border: 1px solid rgba(139,33,48,.25);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+.warn-box .warn-head { display: flex; align-items: center; gap: 8px; margin-bottom: .8rem; }
+.warn-box .warn-badge {
+  background: var(--ruby); color: #fff;
+  font-size: .68rem; letter-spacing: 2px; font-weight: 700;
+  padding: 2px 10px; border-radius: 4px; text-transform: uppercase;
+}
+.warn-box h4 { font-family: 'Noto Serif TC', serif; font-size: 1rem; font-weight: 700; color: var(--ruby); }
+.warn-box p  { font-size: .82rem; color: var(--muted); line-height: 1.75; }
+
+
+/* ───────────────────────────────────────────────
+   10. NOTE — 補充說明框 (淡底)
+─────────────────────────────────────────────── */
+.note {
+  background: var(--soft);
+  border-radius: var(--radius);
+  padding: .9rem 1.1rem;
+  font-size: .8rem; color: var(--muted); line-height: 1.75;
+  margin-bottom: 1.2rem;
+}
+.note strong { color: var(--deep); }
+
+
+/* ───────────────────────────────────────────────
+   11. BOOK LIST — 書目清單
+─────────────────────────────────────────────── */
+.book-list { display: flex; flex-direction: column; gap: .8rem; margin-bottom: 1.5rem; }
+.book-item {
+  background: #fff;
+  border-radius: var(--radius);
+  border: .5px solid rgba(0,0,0,.09);
+  padding: 1rem 1.2rem;
+  display: flex; align-items: center; gap: 14px;
+}
+.book-num {
+  width: 32px; height: 32px; border-radius: 8px;
+  background: var(--gold); color: var(--deep);
+  font-family: 'Noto Serif TC', serif; font-size: .9rem; font-weight: 700;
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.book-item h4 { font-size: .9rem; font-weight: 600; color: var(--deep); margin-bottom: 2px; }
+.book-item p  { font-size: .76rem; color: var(--muted); line-height: 1.5; }
+
+
+/* ───────────────────────────────────────────────
+   12. GRID CARDS — 2×2 或 2×N 主題卡 (彩底)
+   .gc-card.gc1 金 / gc2 紅 / gc3 青 / gc4 藍
+─────────────────────────────────────────────── */
+.grid-cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+@media(max-width: 560px) { .grid-cards { grid-template-columns: 1fr; } }
+.gc-card { border-radius: var(--radius); padding: 1.2rem; position: relative; overflow: hidden; }
+.gc-card.gc1 { background: var(--gold-pale); border: 1px solid rgba(201,168,76,.35); }
+.gc-card.gc2 { background: var(--ruby-pale); border: 1px solid rgba(139,33,48,.2);  }
+.gc-card.gc3 { background: var(--teal-pale); border: 1px solid rgba(46,125,114,.25); }
+.gc-card.gc4 { background: var(--blue-pale); border: 1px solid rgba(46,109,164,.25); }
+/* 淡底大數字裝飾 */
+.gc-no { font-family: 'Noto Serif TC', serif; font-size: 2rem; font-weight: 700; opacity: .1; position: absolute; top: .6rem; right: .8rem; line-height: 1; }
+.gc-card.gc1 .gc-no { color: var(--gold);     }
+.gc-card.gc2 .gc-no { color: var(--ruby);     }
+.gc-card.gc3 .gc-no { color: var(--teal);     }
+.gc-card.gc4 .gc-no { color: var(--blue-mid); }
+.gc-icon { font-size: 1.4rem; margin-bottom: .4rem; }
+.gc-card h4 { font-family: 'Noto Serif TC', serif; font-size: .95rem; font-weight: 700; color: var(--deep); margin-bottom: .4rem; }
+.gc-card p  { font-size: .78rem; color: var(--muted); line-height: 1.65; }
+
+
+/* ───────────────────────────────────────────────
+   13. MINDMAP WRAP — SVG 心智圖容器
+─────────────────────────────────────────────── */
+.mindmap-wrap {
+  background: #fff;
+  border-radius: var(--radius-lg);
+  border: .5px solid rgba(0,0,0,.09);
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+}
+.mindmap-wrap svg { display: block; width: 100%; }
+
+
+/* ───────────────────────────────────────────────
+   14. REFLECTION BOX — 思考/操練框
+─────────────────────────────────────────────── */
+.reflection {
+  background: var(--soft);
+  border-radius: var(--radius-lg);
+  padding: 1.8rem 1.8rem 1.5rem;
+  border-left: 3px solid var(--gold);
+  margin-bottom: 1.5rem;
+}
+.reflection h3 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 1rem; font-weight: 700; color: var(--deep); margin-bottom: .8rem;
+}
+.reflection ol { padding-left: 1.2rem; }
+.reflection ol li { font-size: .85rem; color: var(--ink); line-height: 1.8; margin-bottom: .3rem; }
+.reflection ol li strong { color: var(--deep); font-weight: 600; }
+
+
+/* ═══════════════════════════════════════════════
+   FOOTER
+═══════════════════════════════════════════════ */
+.page-footer {
+  background: var(--deep);
+  text-align: center;
+  padding: 1.8rem 1rem;
+  margin-top: 2.5rem;
+}
+.page-footer p { font-size: .78rem; color: rgba(255,255,255,.35); letter-spacing: 1px; }
+.page-footer strong { color: var(--gold); font-weight: 400; }
+</style>
+</head>
+<body>
+
+
+<!-- ════════════════════════════════════════════
+  HERO — 修改這四個值即可換成新篇
+════════════════════════════════════════════ -->
+<header class="hero">
+  <div class="hero-tag">溫故知新 · 第__篇 · 20XX.XX.XX</div>
+  <h1>[主標題]<br>——<em>[關鍵字或副句]</em></h1>
+  <p class="hero-sub">[核心主題一] × [核心主題二] × [核心主題三]</p>
+  <div class="hero-verse">
+    [引用的聖經節或名言第一行]<br>
+    [第二行]<br>
+    <span class="src">— 書名或章節</span>
+  </div>
+</header>
+
+
+<main class="container">
+
+
+<!-- ════════════════════════════════════════════
+  ① 核心主題 PILLAR CARDS
+  最多四個 .pillar.p1~p4
+════════════════════════════════════════════ -->
+<section class="section">
+  <div class="sec-title">
+    <div class="icon">🗝</div>
+    <div>
+      <h2>今日核心主題</h2>
+      <div class="subtitle">[三到四大線索]</div>
+    </div>
+  </div>
+  <div class="pillars">
+
+    <div class="pillar p1">
+      <div class="pillar-num">一</div>
+      <div class="pillar-icon">🌿</div>
+      <h3>[主題一標題]</h3>
+      <p>[兩三句說明，精煉點出這個主題的核心張力或啟示]</p>
+    </div>
+
+    <div class="pillar p2">
+      <div class="pillar-num">二</div>
+      <div class="pillar-icon">🔍</div>
+      <h3>[主題二標題]</h3>
+      <p>[說明]</p>
+    </div>
+
+    <div class="pillar p3">
+      <div class="pillar-num">三</div>
+      <div class="pillar-icon">⚠️</div>
+      <h3>[主題三標題]</h3>
+      <p>[說明]</p>
+    </div>
+
+    <!-- 第四張可選，不需要時刪除 -->
+    <div class="pillar p4">
+      <div class="pillar-num">四</div>
+      <div class="pillar-icon">📜</div>
+      <h3>[主題四標題]</h3>
+      <p>[說明]</p>
+    </div>
+
+  </div>
+</section><!-- /pillars -->
+
+
+<div class="divider"><span>[分隔文字]</span></div>
+
+
+<!-- ════════════════════════════════════════════
+  ② QUOTE + TIMELINE — 深入展開第一主題
+  適用：有時間順序的聖經人物故事、歷史事件
+════════════════════════════════════════════ -->
+<section class="section">
+  <div class="sec-title">
+    <div class="icon" style="background:var(--teal);color:#fff;">✝</div>
+    <div>
+      <h2>[區塊標題]</h2>
+      <div class="subtitle">[說明一句話]</div>
+    </div>
+  </div>
+
+  <!-- 深色引言框 -->
+  <div class="quote-block">
+    <div class="quote-text">
+      [引言第一行，用 <em> 標記關鍵詞]<br>
+      <em>[金色強調文字]</em>——[續句]
+    </div>
+    <div class="quote-src">[來源 · 日期或章節]</div>
+  </div>
+
+  <!-- 時間軸：每個 .tl-item 可用 gold / teal / ruby / blue -->
+  <div class="timeline">
+
+    <div class="tl-item gold">
+      <div class="tl-dot"></div>
+      <div class="tl-year">[人物或時期]</div>
+      <div class="tl-title">[事件標題]</div>
+      <div class="tl-body">[事件說明，兩三句]</div>
+    </div>
+
+    <div class="tl-item teal">
+      <div class="tl-dot"></div>
+      <div class="tl-year">[人物或時期]</div>
+      <div class="tl-title">[事件標題]</div>
+      <div class="tl-body">[說明]</div>
+    </div>
+
+    <div class="tl-item ruby">
+      <div class="tl-dot"></div>
+      <div class="tl-year">[人物或時期]</div>
+      <div class="tl-title">[事件標題]</div>
+      <div class="tl-body">[說明]</div>
+    </div>
+
+    <div class="tl-item blue">
+      <div class="tl-dot"></div>
+      <div class="tl-year">[人物或時期]</div>
+      <div class="tl-title">[事件標題]</div>
+      <div class="tl-body">[說明]</div>
+    </div>
+
+  </div>
+
+  <!-- 聖經節卡片：四色可選，選最合適的 -->
+  <div class="bible-card">
+    <div class="ref">[書名 章:節]</div>
+    <div class="verse">[節文全文]</div>
+  </div>
+
+  <div class="teal-card">
+    <div class="ref">[書名 章:節]</div>
+    <div class="verse">[節文全文]</div>
+  </div>
+
+  <!-- 補充說明 -->
+  <div class="note">
+    💡 <strong>[小標]</strong>[補充說明文字，可引申應用或補充背景]
+  </div>
+
+</section><!-- /timeline section -->
+
+
+<div class="divider"><span>[分隔文字]</span></div>
+
+
+<!-- ════════════════════════════════════════════
+  ③ THREE STAGES — 三步驟 / 三原則 / 三階段
+════════════════════════════════════════════ -->
+<section class="section">
+  <div class="sec-title">
+    <div class="icon" style="background:var(--blue-mid);color:#fff;">📊</div>
+    <div>
+      <h2>[區塊標題]</h2>
+      <div class="subtitle">[說明]</div>
+    </div>
+  </div>
+
+  <div class="stages">
+    <div class="stage-item s1">
+      <div class="stage-top-bar"></div>
+      <div class="stage-no">原則一 / 階段一</div>
+      <div class="stage-title">[標題]</div>
+      <div class="stage-body">[說明]</div>
+    </div>
+    <div class="stage-item s2">
+      <div class="stage-top-bar"></div>
+      <div class="stage-no">原則二 / 階段二</div>
+      <div class="stage-title">[標題]</div>
+      <div class="stage-body">[說明]</div>
+    </div>
+    <div class="stage-item s3">
+      <div class="stage-top-bar"></div>
+      <div class="stage-no">原則三 / 階段三</div>
+      <div class="stage-title">[標題]</div>
+      <div class="stage-body">[說明]</div>
+    </div>
+  </div>
+
+  <!-- 接 INSIGHT CARDS -->
+  <div class="insight-row">
+
+    <div class="insight-card">
+      <div class="insight-dot"></div>
+      <div>
+        <h4>[洞見標題]</h4>
+        <p>[說明，連結聖經章節或原則]</p>
+      </div>
+    </div>
+
+    <div class="insight-card">
+      <div class="insight-dot"></div>
+      <div>
+        <h4>[洞見標題]</h4>
+        <p>[說明]</p>
+      </div>
+    </div>
+
+    <!-- 可加第三、第四張 -->
+
+  </div>
+
+  <div class="ruby-card">
+    <div class="ref">[書名 章:節]</div>
+    <div class="verse">[節文]</div>
+  </div>
+
+</section><!-- /stages section -->
+
+
+<div class="divider"><span>[分隔文字]</span></div>
+
+
+<!-- ════════════════════════════════════════════
+  ④ WARN BOX + COMPARE GRID — 嚴肅警告與對比
+  適用：有明確是非、嚴重後果的教義主題
+════════════════════════════════════════════ -->
+<section class="section">
+  <div class="sec-title">
+    <div class="icon" style="background:var(--ruby);color:#fff;">⚠️</div>
+    <div>
+      <h2>[警告性標題]</h2>
+      <div class="subtitle">[說明]</div>
+    </div>
+  </div>
+
+  <div class="warn-box">
+    <div class="warn-head">
+      <span class="warn-badge">嚴重警告 / 重要提醒</span>
+      <h4>[警告標題]</h4>
+    </div>
+    <p>[警告說明文字，說清楚為什麼嚴重、後果是什麼]</p>
+  </div>
+
+  <!-- 左右對比 -->
+  <div class="compare-grid">
+    <div class="cg-side left">
+      <div class="cg-label">正確 / 允許 / 應當</div>
+      <div class="cg-title">[左側標題]</div>
+      <ul class="cg-list">
+        <li>[條目一]</li>
+        <li>[條目二]</li>
+        <li>[條目三]</li>
+        <li>[條目四]</li>
+      </ul>
+    </div>
+    <div class="cg-side right">
+      <div class="cg-label">錯誤 / 禁止 / 不可</div>
+      <div class="cg-title">[右側標題]</div>
+      <ul class="cg-list">
+        <li>[條目一]</li>
+        <li>[條目二]</li>
+        <li>[條目三]</li>
+        <li>[條目四]</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="note">
+    🔑 <strong>[重點關鍵]：</strong>[補充說明]
+  </div>
+
+</section><!-- /warn section -->
+
+
+<div class="divider"><span>[分隔文字]</span></div>
+
+
+<!-- ════════════════════════════════════════════
+  ⑤ GRID CARDS — 2×2 主題卡
+  適用：四大禁戒、四大原則、四個面向等
+════════════════════════════════════════════ -->
+<section class="section">
+  <div class="sec-title">
+    <div class="icon" style="background:var(--gold);color:var(--deep);">📜</div>
+    <div>
+      <h2>[四大______]</h2>
+      <div class="subtitle">[說明來源與權威]</div>
+    </div>
+  </div>
+
+  <div class="grid-cards">
+
+    <div class="gc-card gc1">
+      <div class="gc-no">一</div>
+      <div class="gc-icon">🪆</div>
+      <h4>[名稱]</h4>
+      <p>[說明，包含實際生活應用]</p>
+    </div>
+
+    <div class="gc-card gc2">
+      <div class="gc-no">二</div>
+      <div class="gc-icon">🩸</div>
+      <h4>[名稱]</h4>
+      <p>[說明]</p>
+    </div>
+
+    <div class="gc-card gc3">
+      <div class="gc-no">三</div>
+      <div class="gc-icon">📖</div>
+      <h4>[名稱]</h4>
+      <p>[說明]</p>
+    </div>
+
+    <div class="gc-card gc4">
+      <div class="gc-no">四</div>
+      <div class="gc-icon">💍</div>
+      <h4>[名稱]</h4>
+      <p>[說明]</p>
+    </div>
+
+  </div>
+
+  <div class="blue-card">
+    <div class="ref">[書名 章:節 — 補充說明或辨明錯誤解讀]</div>
+    <div class="verse">[節文]</div>
+  </div>
+
+  <div class="note">
+    ⚖️ <strong>[辨明說明標題]：</strong>[更深的解釋或神學說明]
+  </div>
+
+</section><!-- /grid section -->
+
+
+<div class="divider"><span>[分隔文字]</span></div>
+
+
+<!-- ════════════════════════════════════════════
+  ⑥ MEANING PILLARS — 三欄意義卡
+  適用：三根柱子、三種路徑、三類身份
+════════════════════════════════════════════ -->
+<section class="section">
+  <div class="sec-title">
+    <div class="icon">🏛</div>
+    <div>
+      <h2>[三______]</h2>
+      <div class="subtitle">[說明]</div>
+    </div>
+  </div>
+
+  <div class="meaning-pillars">
+
+    <div class="mp-card mp1">
+      <div class="mp-head">
+        <span class="mp-badge">①</span>
+      </div>
+      <h4>[名稱]</h4>
+      <p>[說明]</p>
+      <div class="mp-example">📌 [實際例子或延伸應用]</div>
+    </div>
+
+    <div class="mp-card mp2">
+      <div class="mp-head">
+        <span class="mp-badge">②</span>
+      </div>
+      <h4>[名稱]</h4>
+      <p>[說明]</p>
+      <div class="mp-example">📌 [例子]</div>
+    </div>
+
+    <div class="mp-card mp3">
+      <div class="mp-head">
+        <span class="mp-badge">③</span>
+      </div>
+      <h4>[名稱]</h4>
+      <p>[說明]</p>
+      <div class="mp-example">📌 [例子]</div>
+    </div>
+
+  </div>
+
+</section><!-- /meaning pillars -->
+
+
+<div class="divider"><span>[分隔文字]</span></div>
+
+
+<!-- ════════════════════════════════════════════
+  ⑦ BOOK LIST — 推薦書目
+  適用：本次講道提及的書籍或延伸閱讀
+════════════════════════════════════════════ -->
+<section class="section">
+  <div class="sec-title">
+    <div class="icon">📚</div>
+    <div>
+      <h2>推薦參考書目</h2>
+      <div class="subtitle">[說明]</div>
+    </div>
+  </div>
+
+  <div class="book-list">
+
+    <div class="book-item">
+      <div class="book-num">📖</div>
+      <div>
+        <h4>《[書名]》</h4>
+        <p>[一句話說明這本書的核心內容或適用對象]</p>
+      </div>
+    </div>
+
+    <div class="book-item">
+      <div class="book-num">📖</div>
+      <div>
+        <h4>《[書名]》</h4>
+        <p>[說明]</p>
+      </div>
+    </div>
+
+    <div class="book-item">
+      <div class="book-num">📖</div>
+      <div>
+        <h4>《[書名]》</h4>
+        <p>[說明]</p>
+      </div>
+    </div>
+
+  </div>
+</section><!-- /books -->
+
+
+<div class="divider"><span>整合與操練</span></div>
+
+
+<!-- ════════════════════════════════════════════
+  ⑧ MINDMAP — SVG 心智圖（選用）
+  複製下方 SVG 骨架，在 Inkscape 或直接改數值
+  viewBox="0 0 580 380" 是安全尺寸
+════════════════════════════════════════════ -->
+<section class="section">
+  <div class="sec-title">
+    <div class="icon">🧠</div>
+    <div>
+      <h2>全篇結構心智圖</h2>
+      <div class="subtitle">各主題的關聯一覽</div>
+    </div>
+  </div>
+
+  <div class="mindmap-wrap">
+    <!--
+      SVG 使用指引：
+      1. 中央橢圓：fill="#1A1208" (深墨)，文字 fill="#E8D08A" (金)
+      2. 分支連線：stroke 對應各色變數
+      3. 子節點：fill 對應 pale 系列
+      4. 字體：font-family="Noto Serif TC,serif" 或 "Noto Sans TC,sans-serif"
+    -->
+    <svg viewBox="0 0 580 380" xmlns="http://www.w3.org/2000/svg" style="display:block;width:100%;max-width:580px;margin:0 auto;">
+      <defs>
+        <marker id="arr" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="7" markerHeight="7" orient="auto">
+          <path d="M1 2 L10 6 L1 10" fill="none" stroke="#9CA3AF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        </marker>
+        <filter id="sh">
+          <feDropShadow dx="0" dy="2" stdDeviation="5" flood-color="rgba(0,0,0,0.06)"/>
+        </filter>
+      </defs>
+      <rect width="580" height="380" fill="#FDFAF3"/>
+
+      <!-- 中央主題 -->
+      <ellipse cx="290" cy="190" rx="72" ry="52" fill="#1A1208" filter="url(#sh)"/>
+      <text x="290" y="183" text-anchor="middle" font-family="Noto Serif TC,serif" font-size="13" fill="#E8D08A" font-weight="700">[主題一行]</text>
+      <text x="290" y="201" text-anchor="middle" font-family="Noto Serif TC,serif" font-size="12" fill="#E8D08A" font-weight="700">[主題二行]</text>
+
+      <!-- 左上節點 -->
+      <line x1="220" y1="155" x2="160" y2="100" stroke="#C9A84C" stroke-width="1.2" stroke-dasharray="5,3" marker-end="url(#arr)"/>
+      <rect x="30" y="55" width="135" height="65" rx="12" fill="#FAF3DC" stroke="#C9A84C" stroke-width="1" filter="url(#sh)"/>
+      <text x="97" y="83" text-anchor="middle" font-family="Noto Serif TC,serif" font-size="11" fill="#7A620A" font-weight="700">[左上標題]</text>
+      <text x="97" y="100" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#9A7E3A">[說明]</text>
+
+      <!-- 右上節點 -->
+      <line x1="360" y1="155" x2="420" y2="100" stroke="#2E7D72" stroke-width="1.2" stroke-dasharray="5,3" marker-end="url(#arr)"/>
+      <rect x="415" y="55" width="140" height="65" rx="12" fill="#E0F2EF" stroke="#2E7D72" stroke-width="1" filter="url(#sh)"/>
+      <text x="485" y="83" text-anchor="middle" font-family="Noto Serif TC,serif" font-size="11" fill="#185049" font-weight="700">[右上標題]</text>
+      <text x="485" y="100" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#2E7D72">[說明]</text>
+
+      <!-- 左側節點 -->
+      <line x1="218" y1="190" x2="160" y2="190" stroke="#8B2130" stroke-width="1.2" stroke-dasharray="5,3" marker-end="url(#arr)"/>
+      <rect x="20" y="157" width="140" height="65" rx="12" fill="#FAEAED" stroke="#8B2130" stroke-width="1" filter="url(#sh)"/>
+      <text x="90" y="185" text-anchor="middle" font-family="Noto Serif TC,serif" font-size="11" fill="#6B1621" font-weight="700">[左側標題]</text>
+      <text x="90" y="202" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#8B2130">[說明]</text>
+
+      <!-- 右側節點 -->
+      <line x1="362" y1="190" x2="420" y2="190" stroke="#1E3A5F" stroke-width="1.2" stroke-dasharray="5,3" marker-end="url(#arr)"/>
+      <rect x="420" y="157" width="140" height="65" rx="12" fill="#E8F1FA" stroke="#1E3A5F" stroke-width="1" filter="url(#sh)"/>
+      <text x="490" y="185" text-anchor="middle" font-family="Noto Serif TC,serif" font-size="11" fill="#0C2A4A" font-weight="700">[右側標題]</text>
+      <text x="490" y="202" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#2E6DA4">[說明]</text>
+
+      <!-- 左下節點 -->
+      <line x1="225" y1="228" x2="160" y2="285" stroke="#C9A84C" stroke-width="1.2" stroke-dasharray="5,3" marker-end="url(#arr)"/>
+      <rect x="30" y="260" width="135" height="65" rx="12" fill="#FAF3DC" stroke="#C9A84C" stroke-width="1" filter="url(#sh)"/>
+      <text x="97" y="288" text-anchor="middle" font-family="Noto Serif TC,serif" font-size="11" fill="#7A620A" font-weight="700">[左下標題]</text>
+      <text x="97" y="305" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#9A7E3A">[說明]</text>
+
+      <!-- 右下節點 -->
+      <line x1="355" y1="228" x2="420" y2="285" stroke="#2E7D72" stroke-width="1.2" stroke-dasharray="5,3" marker-end="url(#arr)"/>
+      <rect x="415" y="260" width="140" height="65" rx="12" fill="#E0F2EF" stroke="#2E7D72" stroke-width="1" filter="url(#sh)"/>
+      <text x="485" y="288" text-anchor="middle" font-family="Noto Serif TC,serif" font-size="11" fill="#185049" font-weight="700">[右下標題]</text>
+      <text x="485" y="305" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#2E7D72">[說明]</text>
+
+    </svg>
+  </div>
+</section><!-- /mindmap -->
+
+
+<!-- ════════════════════════════════════════════
+  ⑨ REFLECTION — 思考與操練框 (收尾)
+════════════════════════════════════════════ -->
+<section class="section">
+  <div class="reflection">
+    <h3>🌱 今日的反思問題</h3>
+    <ol>
+      <li><strong>[問題一]</strong>——[延伸說明]</li>
+      <li><strong>[問題二]</strong>——[延伸說明]</li>
+      <li><strong>[問題三]</strong>——[延伸說明]</li>
+    </ol>
+  </div>
+</section>
+
+
+</main><!-- /container -->
+
+
+<footer class="page-footer">
+  <p>溫故知新系列 · <strong>[篇名]</strong></p>
+  <p style="margin-top:4px;">[日期] · [補充來源說明]</p>
+</footer>
+
+
+</body>
+</html>
+
+<!--
+════════════════════════════════════════════════
+  快速換篇清單 — 每次新篇只需要改這些地方
+════════════════════════════════════════════════
+
+  1. <title> 標題
+  2. .hero-tag   — 篇號 + 日期
+  3. .hero h1    — 主標題 + <em> 關鍵字
+  4. .hero-sub   — 副標題三主題
+  5. .hero-verse — 主題聖經節或名言
+
+  各區塊依需求選用，不需要的整組刪除即可。
+
+  元件速查：
+  ┌─────────────────────────────────────────┐
+  │  元件名             類別名              │
+  │  ─────────────────────────────────────  │
+  │  核心主題卡片       .pillars > .pillar  │
+  │  深色引言框         .quote-block        │
+  │  垂直時間軸         .timeline           │
+  │  聖經節卡 (金)      .bible-card         │
+  │  聖經節卡 (青)      .teal-card          │
+  │  聖經節卡 (紅)      .ruby-card          │
+  │  聖經節卡 (藍)      .blue-card          │
+  │  小型洞見卡         .insight-row        │
+  │  三步驟橫排         .stages             │
+  │  左右對比表         .compare-grid       │
+  │  2×2 彩底卡片       .grid-cards         │
+  │  三欄意義卡         .meaning-pillars    │
+  │  警告框             .warn-box           │
+  │  補充說明框         .note               │
+  │  書目清單           .book-list          │
+  │  SVG 心智圖容器     .mindmap-wrap       │
+  │  思考操練框         .reflection         │
+  │  分隔線             .divider            │
+  └─────────────────────────────────────────┘
+
+  色彩速查：
+  ┌────────────────────────────────┐
+  │  金  --gold / --gold-pale      │
+  │  青  --teal / --teal-pale      │
+  │  紅  --ruby / --ruby-pale      │
+  │  藍  --blue-mid / --blue-pale  │
+  │  墨  --deep / --ink / --muted  │
+  └────────────────────────────────┘
+
+════════════════════════════════════════════════
+-->
