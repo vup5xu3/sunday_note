@@ -1,0 +1,1044 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>溫故知新 — 行在神的旨意中</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --gold: #C9A84C;
+  --gold-light: #E8D08A;
+  --gold-pale: #FAF3DC;
+  --deep: #1A1208;
+  --ink: #2C2416;
+  --muted: #6B5D3E;
+  --soft: #F5EDD8;
+  --parchment: #FBF6EC;
+  --teal: #2E7D72;
+  --teal-light: #4AA89C;
+  --teal-pale: #E0F2EF;
+  --ruby: #8B2130;
+  --ruby-light: #C2445A;
+  --ruby-pale: #FAEAED;
+  --blue-deep: #1E3A5F;
+  --blue-mid: #2E6DA4;
+  --blue-pale: #E8F1FA;
+  --radius: 12px;
+  --radius-lg: 20px;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family: 'Noto Sans TC', sans-serif;
+  background: var(--parchment);
+  color: var(--ink);
+  line-height: 1.8;
+}
+
+/* ── HERO ── */
+.hero {
+  background: var(--deep);
+  padding: 3.5rem 2rem 3rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content:'';
+  position:absolute; inset:0;
+  background: radial-gradient(ellipse at 50% 0%, rgba(201,168,76,0.18) 0%, transparent 70%);
+  pointer-events:none;
+}
+.hero-tag {
+  display: inline-block;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  font-size: 11px;
+  letter-spacing: 4px;
+  padding: 4px 16px;
+  border-radius: 2px;
+  margin-bottom: 1.2rem;
+  text-transform: uppercase;
+}
+.hero h1 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  color: #fff;
+  font-weight: 700;
+  line-height: 1.4;
+  margin-bottom: 0.6rem;
+}
+.hero h1 em { color: var(--gold-light); font-style:normal; }
+.hero-sub {
+  color: rgba(255,255,255,0.55);
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  margin-bottom: 2rem;
+}
+.hero-verse {
+  display: inline-block;
+  border-left: 2px solid var(--gold);
+  padding: 0.5rem 1rem;
+  text-align: left;
+  color: var(--gold-light);
+  font-family: 'Noto Serif TC', serif;
+  font-size: 0.9rem;
+  line-height: 1.9;
+}
+
+/* ── LAYOUT ── */
+.container { max-width: 960px; margin: 0 auto; padding: 0 1.25rem; }
+.section { padding: 2.5rem 0 1.5rem; }
+
+/* ── SECTION TITLE ── */
+.sec-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 1.5rem;
+}
+.sec-title .icon {
+  width: 36px; height: 36px;
+  background: var(--gold);
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 17px; color: var(--deep); flex-shrink:0;
+}
+.sec-title h2 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 1.2rem;
+  color: var(--deep);
+  font-weight: 700;
+}
+.sec-title .subtitle { font-size: 0.78rem; color: var(--muted); margin-top:1px; }
+
+/* ── PILLAR CARDS ── */
+.pillars {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.pillar {
+  background: #fff;
+  border: 0.5px solid rgba(0,0,0,0.1);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.pillar:hover { transform: translateY(-3px); box-shadow: 0 8px 28px rgba(0,0,0,0.08); }
+.pillar::before {
+  content:'';
+  position:absolute; top:0; left:0; right:0; height:3px;
+}
+.pillar.p1::before { background: linear-gradient(90deg, var(--gold), var(--gold-light)); }
+.pillar.p2::before { background: linear-gradient(90deg, var(--teal), var(--teal-light)); }
+.pillar.p3::before { background: linear-gradient(90deg, var(--ruby), var(--ruby-light)); }
+.pillar.p4::before { background: linear-gradient(90deg, var(--blue-deep), var(--blue-mid)); }
+.pillar-num {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1;
+  opacity: 0.12;
+  position: absolute;
+  top: 1rem; right: 1.2rem;
+}
+.pillar.p1 .pillar-num { color: var(--gold); }
+.pillar.p2 .pillar-num { color: var(--teal); }
+.pillar.p3 .pillar-num { color: var(--ruby); }
+.pillar.p4 .pillar-num { color: var(--blue-deep); }
+.pillar-icon { font-size: 1.6rem; margin-bottom: 0.5rem; }
+.pillar h3 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--deep);
+}
+.pillar p { font-size: 0.82rem; color: var(--muted); line-height: 1.7; }
+
+/* ── QUOTE BLOCK ── */
+.quote-block {
+  background: var(--deep);
+  border-radius: var(--radius-lg);
+  padding: 2rem 2rem 1.5rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+  overflow: hidden;
+}
+.quote-block::before {
+  content: '"';
+  position: absolute;
+  top: -0.5rem; left: 1rem;
+  font-family: 'Noto Serif TC', serif;
+  font-size: 6rem;
+  color: var(--gold);
+  opacity: 0.15;
+  line-height: 1;
+  pointer-events: none;
+}
+.quote-text {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 1.05rem;
+  color: #fff;
+  line-height: 1.9;
+  margin-bottom: 0.8rem;
+}
+.quote-text em { color: var(--gold-light); font-style: normal; font-weight: 700; }
+.quote-src { font-size: 0.75rem; color: rgba(255,255,255,0.45); letter-spacing: 1px; }
+
+/* ── INSIGHT ROW ── */
+.insight-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.insight-card {
+  background: #fff;
+  border-radius: var(--radius);
+  border: 0.5px solid rgba(0,0,0,0.09);
+  padding: 1.2rem;
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+.insight-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  margin-top: 0.4rem;
+  flex-shrink: 0;
+}
+.insight-card:nth-child(1) .insight-dot { background: var(--gold); }
+.insight-card:nth-child(2) .insight-dot { background: var(--teal); }
+.insight-card:nth-child(3) .insight-dot { background: var(--ruby); }
+.insight-card:nth-child(4) .insight-dot { background: var(--blue-mid); }
+.insight-card h4 { font-size: 0.88rem; font-weight: 600; color: var(--deep); margin-bottom: 0.3rem; }
+.insight-card p { font-size: 0.78rem; color: var(--muted); line-height: 1.65; }
+
+/* ── TIMELINE ── */
+.timeline {
+  position: relative;
+  padding-left: 2.5rem;
+  margin-bottom: 1rem;
+}
+.timeline::before {
+  content:'';
+  position: absolute;
+  left: 10px; top: 12px; bottom: 12px;
+  width: 1.5px;
+  background: linear-gradient(180deg, var(--gold) 0%, var(--teal) 50%, var(--ruby) 100%);
+}
+.tl-item {
+  position: relative;
+  margin-bottom: 1.2rem;
+}
+.tl-dot {
+  position: absolute;
+  left: -2.17rem;
+  top: 0.35rem;
+  width: 12px; height: 12px;
+  border-radius: 50%;
+  border: 2px solid;
+  background: var(--parchment);
+}
+.tl-item.gold .tl-dot { border-color: var(--gold); }
+.tl-item.teal .tl-dot { border-color: var(--teal); }
+.tl-item.ruby .tl-dot { border-color: var(--ruby); }
+.tl-item.blue .tl-dot { border-color: var(--blue-mid); }
+.tl-year {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  margin-bottom: 2px;
+}
+.tl-item.gold .tl-year { color: var(--gold); }
+.tl-item.teal .tl-year { color: var(--teal); }
+.tl-item.ruby .tl-year { color: var(--ruby); }
+.tl-item.blue .tl-year { color: var(--blue-mid); }
+.tl-title { font-weight: 600; font-size: 0.9rem; color: var(--deep); margin-bottom: 2px; }
+.tl-body { font-size: 0.8rem; color: var(--muted); line-height: 1.65; }
+
+/* ── THREE STAGES ── */
+.stages {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 0;
+  background: #fff;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 0.5px solid rgba(0,0,0,0.09);
+  margin-bottom: 1.5rem;
+}
+@media(max-width:600px){ .stages{grid-template-columns:1fr;} }
+.stage-item {
+  padding: 1.4rem 1.2rem;
+  border-right: 0.5px solid rgba(0,0,0,0.07);
+  position: relative;
+}
+.stage-item:last-child { border-right: none; }
+.stage-no {
+  font-size: 0.7rem;
+  letter-spacing: 2px;
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+  text-transform: uppercase;
+}
+.stage-item.s1 .stage-no { color: var(--gold); }
+.stage-item.s2 .stage-no { color: var(--teal); }
+.stage-item.s3 .stage-no { color: var(--ruby); }
+.stage-title { font-family: 'Noto Serif TC', serif; font-size: 0.95rem; font-weight: 700; color: var(--deep); margin-bottom: 0.4rem; }
+.stage-body { font-size: 0.78rem; color: var(--muted); line-height: 1.65; }
+.stage-top-bar { height: 3px; position:absolute; top:0; left:0; right:0; }
+.stage-item.s1 .stage-top-bar { background: var(--gold); }
+.stage-item.s2 .stage-top-bar { background: var(--teal); }
+.stage-item.s3 .stage-top-bar { background: var(--ruby); }
+
+/* ── VERSE TAG ── */
+.verse-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--gold-pale);
+  border: 1px solid rgba(201,168,76,0.4);
+  border-radius: 6px;
+  padding: 3px 10px;
+  font-size: 0.72rem;
+  color: #7A620A;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.5rem;
+}
+
+/* ── BIBLE CARD ── */
+.bible-card {
+  background: var(--gold-pale);
+  border-left: 3px solid var(--gold);
+  border-radius: var(--radius);
+  padding: 1.1rem 1.3rem;
+  margin: 0.8rem 0 1.2rem;
+}
+.bible-card .ref {
+  font-size: 0.7rem;
+  letter-spacing: 2px;
+  color: var(--gold);
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 0.4rem;
+}
+.bible-card .verse {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 0.88rem;
+  color: var(--deep);
+  line-height: 1.85;
+}
+
+/* ── TEAL CARD ── */
+.teal-card {
+  background: var(--teal-pale);
+  border-left: 3px solid var(--teal);
+  border-radius: var(--radius);
+  padding: 1.1rem 1.3rem;
+  margin: 0.8rem 0 1.2rem;
+}
+.teal-card .ref {
+  font-size: 0.7rem; letter-spacing: 2px; color: var(--teal); font-weight: 700;
+  text-transform: uppercase; margin-bottom: 0.4rem;
+}
+.teal-card .verse {
+  font-family: 'Noto Serif TC', serif; font-size: 0.88rem; color: #185049; line-height: 1.85;
+}
+
+/* ── RUBY CARD ── */
+.ruby-card {
+  background: var(--ruby-pale);
+  border-left: 3px solid var(--ruby);
+  border-radius: var(--radius);
+  padding: 1.1rem 1.3rem;
+  margin: 0.8rem 0 1.2rem;
+}
+.ruby-card .ref {
+  font-size: 0.7rem; letter-spacing: 2px; color: var(--ruby); font-weight: 700;
+  text-transform: uppercase; margin-bottom: 0.4rem;
+}
+.ruby-card .verse {
+  font-family: 'Noto Serif TC', serif; font-size: 0.88rem; color: #6B1621; line-height: 1.85;
+}
+
+/* ── BLUE CARD ── */
+.blue-card {
+  background: var(--blue-pale);
+  border-left: 3px solid var(--blue-mid);
+  border-radius: var(--radius);
+  padding: 1.1rem 1.3rem;
+  margin: 0.8rem 0 1.2rem;
+}
+.blue-card .ref {
+  font-size: 0.7rem; letter-spacing: 2px; color: var(--blue-mid); font-weight: 700;
+  text-transform: uppercase; margin-bottom: 0.4rem;
+}
+.blue-card .verse {
+  font-family: 'Noto Serif TC', serif; font-size: 0.88rem; color: #0C2A4A; line-height: 1.85;
+}
+
+/* ── ANNOTATION NOTE ── */
+.note {
+  background: var(--soft);
+  border-radius: var(--radius);
+  padding: 0.9rem 1.1rem;
+  font-size: 0.8rem;
+  color: var(--muted);
+  line-height: 1.75;
+  margin-bottom: 1.2rem;
+}
+.note strong { color: var(--deep); }
+
+/* ── WARNING BOX ── */
+.warn-box {
+  background: #fff;
+  border: 1px solid rgba(139,33,48,0.25);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+.warn-box .warn-head {
+  display: flex; align-items: center; gap: 8px; margin-bottom: 0.8rem;
+}
+.warn-box .warn-badge {
+  background: var(--ruby);
+  color: #fff;
+  font-size: 0.68rem;
+  letter-spacing: 2px;
+  font-weight: 700;
+  padding: 2px 10px;
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+.warn-box h4 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 1rem; font-weight: 700; color: var(--ruby);
+}
+.warn-box p { font-size: 0.82rem; color: var(--muted); line-height: 1.75; }
+
+/* ── COMPARE TABLE ── */
+.compare-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  background: #fff;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 0.5px solid rgba(0,0,0,0.09);
+  margin-bottom: 1.5rem;
+}
+@media(max-width:500px){ .compare-grid{grid-template-columns:1fr;} }
+.cg-side { padding: 1.5rem 1.3rem; }
+.cg-side:first-child { border-right: 0.5px solid rgba(0,0,0,0.07); }
+.cg-label {
+  font-size: 0.68rem; letter-spacing: 2.5px; font-weight: 700;
+  text-transform: uppercase; margin-bottom: 0.6rem;
+}
+.cg-side.left .cg-label { color: var(--gold); }
+.cg-side.right .cg-label { color: var(--ruby); }
+.cg-title {
+  font-family: 'Noto Serif TC', serif; font-size: 1rem; font-weight: 700;
+  color: var(--deep); margin-bottom: 0.6rem;
+}
+.cg-list { list-style: none; padding: 0; }
+.cg-list li {
+  font-size: 0.8rem; color: var(--muted); line-height: 1.65;
+  padding: 3px 0 3px 14px; position: relative;
+}
+.cg-list li::before { content:'·'; position:absolute; left:2px; font-size:1rem; line-height:1.3; }
+.cg-side.left .cg-list li::before { color: var(--gold); }
+.cg-side.right .cg-list li::before { color: var(--ruby); }
+
+/* ── DIVIDER ── */
+.divider {
+  display: flex; align-items: center; gap: 12px;
+  margin: 0.5rem 0 1.5rem; opacity: 0.35;
+}
+.divider::before, .divider::after { content:''; flex:1; height:0.5px; background: var(--muted); }
+.divider span { font-size: 10px; letter-spacing: 3px; color: var(--muted); text-transform: uppercase; }
+
+/* ── FOOTER ── */
+.page-footer {
+  background: var(--deep);
+  text-align: center;
+  padding: 1.8rem 1rem;
+  margin-top: 2.5rem;
+}
+.page-footer p { font-size: 0.78rem; color: rgba(255,255,255,0.35); letter-spacing: 1px; }
+.page-footer strong { color: var(--gold); font-weight: 400; }
+
+/* ── BOOK LIST ── */
+.book-list {
+  display: flex; flex-direction: column; gap: 0.8rem; margin-bottom: 1.5rem;
+}
+.book-item {
+  background: #fff;
+  border-radius: var(--radius);
+  border: 0.5px solid rgba(0,0,0,0.09);
+  padding: 1rem 1.2rem;
+  display: flex; align-items: center; gap: 14px;
+}
+.book-num {
+  width: 32px; height: 32px; border-radius: 8px;
+  background: var(--gold); color: var(--deep);
+  font-family: 'Noto Serif TC', serif;
+  font-size: 0.9rem; font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.book-item h4 { font-size: 0.9rem; font-weight: 600; color: var(--deep); margin-bottom: 2px; }
+.book-item p { font-size: 0.76rem; color: var(--muted); line-height: 1.5; }
+
+/* ── FOUR COMMANDMENTS ── */
+.cmd-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+@media(max-width:560px){ .cmd-grid { grid-template-columns:1fr; } }
+.cmd-card {
+  border-radius: var(--radius);
+  padding: 1.2rem;
+  position: relative;
+  overflow: hidden;
+}
+.cmd-card.c1 { background: var(--gold-pale); border: 1px solid rgba(201,168,76,0.35); }
+.cmd-card.c2 { background: var(--ruby-pale); border: 1px solid rgba(139,33,48,0.2); }
+.cmd-card.c3 { background: var(--teal-pale); border: 1px solid rgba(46,125,114,0.25); }
+.cmd-card.c4 { background: var(--blue-pale); border: 1px solid rgba(46,109,164,0.25); }
+.cmd-no {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 2rem; font-weight: 700; opacity: 0.1;
+  position: absolute; top: 0.6rem; right: 0.8rem; line-height: 1;
+}
+.cmd-card.c1 .cmd-no { color: var(--gold); }
+.cmd-card.c2 .cmd-no { color: var(--ruby); }
+.cmd-card.c3 .cmd-no { color: var(--teal); }
+.cmd-card.c4 .cmd-no { color: var(--blue-mid); }
+.cmd-icon { font-size: 1.4rem; margin-bottom: 0.4rem; }
+.cmd-card h4 { font-family: 'Noto Serif TC', serif; font-size: 0.95rem; font-weight: 700; color: var(--deep); margin-bottom: 0.4rem; }
+.cmd-card p { font-size: 0.78rem; color: var(--muted); line-height: 1.65; }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-tag">溫故知新 · 2003.10.18</div>
+  <h1>如何<em>行在神的旨意</em>中</h1>
+  <p class="hero-sub">使徒的榜樣 · 聖靈的引導 · 四大禁戒的根基</p>
+  <div class="hero-verse">
+    我不以性命為念，也不看為寶貴，只要行完我的路程，<br>
+    盡我從主耶穌所領受的職事，證明神恩惠的福音。<br>
+    <span style="color:rgba(255,255,255,0.4);font-size:0.78rem">— 使徒行傳 20:24</span>
+  </div>
+</header>
+
+<main class="container">
+
+  <!-- ① 核心信息 -->
+  <section class="section">
+    <div class="sec-title">
+      <div class="icon">🗝</div>
+      <div>
+        <h2>本課核心主題</h2>
+        <div class="subtitle">行在神旨意中的四個關鍵面向</div>
+      </div>
+    </div>
+    <div class="pillars">
+      <div class="pillar p1">
+        <div class="pillar-num">一</div>
+        <div class="pillar-icon">🕊</div>
+        <h3>捨命順服神的旨意</h3>
+        <p>保羅、彼得等使徒明知前方有苦難，仍義無反顧——這正是「行在神旨意中」最深刻的示範。</p>
+      </div>
+      <div class="pillar p2">
+        <div class="pillar-num">二</div>
+        <div class="pillar-icon">🔍</div>
+        <h3>分辨先知的啟示</h3>
+        <p>先知的準確率可達九成以上，但並非百分之百。更重要的是：這位先知自己是否也行在神的旨意中？</p>
+      </div>
+      <div class="pillar p3">
+        <div class="pillar-num">三</div>
+        <div class="pillar-icon">⚠️</div>
+        <h3>褻瀆聖靈的嚴重性</h3>
+        <p>公開說聖靈的工作是邪靈，就是褻瀆聖靈——此罪今生來世不得赦免，因為聖靈不再感動當事人認罪。</p>
+      </div>
+      <div class="pillar p4">
+        <div class="pillar-num">四</div>
+        <div class="pillar-icon">📜</div>
+        <h3>四大禁戒的最高權威</h3>
+        <p>使徒行傳15章28節是全聖經唯一由「聖靈與十二使徒共同頒布」的命令，具有最高的法律效力。</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"><span>使徒的榜樣</span></div>
+
+  <!-- ② 使徒的榜樣 -->
+  <section class="section">
+    <div class="sec-title">
+      <div class="icon" style="background:var(--teal);color:#fff;">✝</div>
+      <div>
+        <h2>明知前路艱難，仍然順服而行</h2>
+        <div class="subtitle">保羅與彼得的生命見證</div>
+      </div>
+    </div>
+
+    <div class="quote-block">
+      <div class="quote-text">
+        知道會被抓，<em>仍然去</em>——這才是行在神旨意中的真義。<br>
+        不是因為不害怕，而是因為神的旨意比自己的性命更重要。
+      </div>
+      <div class="quote-src">講道摘要 · 2003.10.18</div>
+    </div>
+
+    <div class="timeline">
+      <div class="tl-item gold">
+        <div class="tl-dot"></div>
+        <div class="tl-year">保羅 · 回耶路撒冷</div>
+        <div class="tl-title">眾人警告，保羅仍然起行</div>
+        <div class="tl-body">先知亞迦布以及好幾位信徒，都得到啟示警告保羅「回耶路撒冷會被抓」。保羅的回應是：哭什麼？我為主耶穌的名，不但被捆綁，就是死在耶路撒冷也是甘心的。</div>
+      </div>
+      <div class="tl-item teal">
+        <div class="tl-dot"></div>
+        <div class="tl-year">彼得 · 羅馬城外</div>
+        <div class="tl-title">在城外遇見主，毅然折返</div>
+        <div class="tl-body">彼得曾試圖離開羅馬城，在城郊傳說遇見主耶穌，問：「你要去哪裡？」主說：「我要去羅馬城再被釘十字架。」彼得聽後立即折返，以倒掛十字架的方式殉道，說「我不配和主一樣正著釘」。</div>
+      </div>
+      <div class="tl-item ruby">
+        <div class="tl-dot"></div>
+        <div class="tl-year">保羅 · 提摩太後書</div>
+        <div class="tl-title">寫完最後書信後三四個月，殉道</div>
+        <div class="tl-body">保羅寫提摩太後書時已知自己即將殉道，仍沒有逃跑。他說：「那美好的仗我已經打過了，當跑的路我已經跑盡了，所信的道我已經守住了。」</div>
+      </div>
+      <div class="tl-item blue">
+        <div class="tl-dot"></div>
+        <div class="tl-year">當代 · 去大陸傳道</div>
+        <div class="tl-title">得啟示知道會被抓，仍兩度前往</div>
+        <div class="tl-body">在台灣禱告時得到啟示，知道去中國大陸傳道可能被抓，但因建立教會是神的旨意，仍然前往。兩次被抓皆有，卻都繼續行在神的旨意中。</div>
+      </div>
+    </div>
+
+    <div class="bible-card">
+      <div class="ref">使徒行傳 21:13</div>
+      <div class="verse">你們為什麼這樣痛哭，使我心碎呢？我為主耶穌的名，不但被捆綁，就是死在耶路撒冷也是甘心的。</div>
+    </div>
+
+    <div class="bible-card">
+      <div class="ref">提摩太後書 4:6–7</div>
+      <div class="verse">我現在被澆奠，我離世的時候到了。那美好的仗我已經打過了，當跑的路我已經跑盡了，所信的道我已經守住了。</div>
+    </div>
+
+    <div class="note">
+      💡 <strong>十一位使徒中，只有約翰沒有殉道，其餘十一位都殉道了。</strong>他們並非不知道危險，而是明知危險仍然選擇行在神的旨意中——這是使徒身份最深刻的印記。
+    </div>
+  </section>
+
+  <div class="divider"><span>關於先知的服事</span></div>
+
+  <!-- ③ 先知服事 -->
+  <section class="section">
+    <div class="sec-title">
+      <div class="icon" style="background:var(--blue-mid);color:#fff;">👁</div>
+      <div>
+        <h2>如何看待先知的啟示</h2>
+        <div class="subtitle">90% 準確率的先知仍有10%失誤——我們該怎麼辦？</div>
+      </div>
+    </div>
+
+    <div class="stages">
+      <div class="stage-item s1">
+        <div class="stage-top-bar"></div>
+        <div class="stage-no">原則一</div>
+        <div class="stage-title">先知服事是需要的</div>
+        <div class="stage-body">就如醫生沒有百分之百的把握，我們不能因有失誤就完全否定先知服事的價值。準確率九成以上，已是非常難得的恩賜。</div>
+      </div>
+      <div class="stage-item s2">
+        <div class="stage-top-bar"></div>
+        <div class="stage-no">原則二</div>
+        <div class="stage-title">無法承擔別人失誤的後果</div>
+        <div class="stage-body">若先知預言某門生意可做、某段婚姻蒙福，但事實相反，先知不可能替你承擔後果。這10%的失誤可能讓人付出沉重代價。</div>
+      </div>
+      <div class="stage-item s3">
+        <div class="stage-top-bar"></div>
+        <div class="stage-no">原則三</div>
+        <div class="stage-title">最重要的根本問題</div>
+        <div class="stage-body">他自己是否也行在神的旨意中？一個先知若在自己的生命決策上沒有行在神的旨意中，他的啟示更需要謹慎分辨。</div>
+      </div>
+    </div>
+
+    <div class="insight-row">
+      <div class="insight-card">
+        <div class="insight-dot"></div>
+        <div>
+          <h4>神的羊聽得懂主人的聲音</h4>
+          <p>約翰福音10章27節：「我的羊聽我的聲音，我也認識他們，他們也跟著我。」真正屬神的人，認識神的聲音，不需要完全依賴外部先知。</p>
+        </div>
+      </div>
+      <div class="insight-card">
+        <div class="insight-dot"></div>
+        <div>
+          <h4>做了許多事奉，卻「不認識」</h4>
+          <p>馬太福音7章22–23節：許多人以主的名傳道、趕鬼、行神蹟，主卻說「我從來不認識你們」——因為他們沒有行在神的旨意中。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="teal-card">
+      <div class="ref">約翰福音 10:27</div>
+      <div class="verse">我的羊聽我的聲音，我也認識他們，他們也跟著我。我又賜給他們永生，他們永不滅亡，誰也不能從我手裡把他們奪去。</div>
+    </div>
+
+    <div class="ruby-card">
+      <div class="ref">馬太福音 7:22–23</div>
+      <div class="verse">當那日必有許多人對我說：「主啊，主啊，我們不是奉你的名傳道，奉你的名趕鬼，奉你的名行許多異能嗎？」我就明明地告訴他們說：「我從來不認識你們，你們這些作惡的人，離開我去吧！」</div>
+    </div>
+  </section>
+
+  <div class="divider"><span>最嚴肅的警告</span></div>
+
+  <!-- ④ 褻瀆聖靈 -->
+  <section class="section">
+    <div class="sec-title">
+      <div class="icon" style="background:var(--ruby);color:#fff;">🔥</div>
+      <div>
+        <h2>褻瀆聖靈——今生來世不得赦免</h2>
+        <div class="subtitle">這是聖經中最嚴肅的警告之一</div>
+      </div>
+    </div>
+
+    <div class="warn-box">
+      <div class="warn-head">
+        <span class="warn-badge">嚴重警告</span>
+        <h4>什麼是褻瀆聖靈？</h4>
+      </div>
+      <p>在<strong>公開場合</strong>（兩人以上），將聖靈明顯運行的工作說成是邪靈的工作，就是褻瀆聖靈。例如：看見有人說方言、有明顯的聖靈工作，卻公開說「那不是聖靈，那是邪靈」——這就是褻瀆聖靈。</p>
+    </div>
+
+    <div class="compare-grid">
+      <div class="cg-side left">
+        <div class="cg-label">不構成褻瀆聖靈</div>
+        <div class="cg-title">心裡想，但沒說出口</div>
+        <ul class="cg-list">
+          <li>心裡懷疑，但沒有公開說出</li>
+          <li>私下與人討論疑問</li>
+          <li>只有一個人在場時的言語</li>
+          <li>對某個聚會的個人看法，未公開表達</li>
+        </ul>
+      </div>
+      <div class="cg-side right">
+        <div class="cg-label">構成褻瀆聖靈</div>
+        <div class="cg-title">公開說聖靈工作是邪靈</div>
+        <ul class="cg-list">
+          <li>在兩人或以上的場合公開說</li>
+          <li>在講台上否定聖靈的工作</li>
+          <li>告訴信徒「那個聚會是邪靈的」</li>
+          <li>以牧師權威引導整個教會否定聖靈</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="note">
+      🔑 <strong>為什麼不得赦免？</strong>邏輯很清楚：你褻瀆了聖靈，聖靈就不再感動你去認「褻瀆聖靈」的這個罪。沒有認罪，就沒有赦免。這不是神不想赦免，而是當事人永遠不會知道自己需要悔改。牧師這個群體因為擁有解釋聖經的權柄，褻瀆聖靈的風險遠高於一般信徒。
+    </div>
+
+    <div class="ruby-card">
+      <div class="ref">馬太福音 12:31–32</div>
+      <div class="verse">所以我告訴你們，人一切的罪和褻瀆的話都可得赦免，惟獨褻瀆聖靈，總不得赦免。凡說話干犯人子的，還可得赦免；惟獨說話干犯聖靈的，今世來世總不得赦免。</div>
+    </div>
+  </section>
+
+  <div class="divider"><span>第一個進樂園的人</span></div>
+
+  <!-- ⑤ 樂園的強盜 -->
+  <section class="section">
+    <div class="sec-title">
+      <div class="icon" style="background:var(--teal);color:#fff;">🌿</div>
+      <div>
+        <h2>第一個進入樂園的人</h2>
+        <div class="subtitle">十字架旁的強盜——恩典的奇妙示範</div>
+      </div>
+    </div>
+
+    <div class="quote-block">
+      <div class="quote-text">
+        「主啊，你得國降臨的時候，求你紀念我。」<br>
+        <em>「我實在告訴你，今日你要同我在樂園裡了。」</em>
+      </div>
+      <div class="quote-src">路加福音 23:42–43</div>
+    </div>
+
+    <div class="insight-row">
+      <div class="insight-card">
+        <div class="insight-dot"></div>
+        <div>
+          <h4>主耶穌六小時就斷氣</h4>
+          <p>通常釘十字架需要三天才會斷氣。主耶穌因承受極大的鞭打與苦難，當天六小時後就已斷氣，遠早於兩位強盜。</p>
+        </div>
+      </div>
+      <div class="insight-card">
+        <div class="insight-dot"></div>
+        <div>
+          <h4>強盜是第一個進樂園的人</h4>
+          <p>主耶穌應許強盜「今日你要同我在樂園裡了」。兩位強盜被羅馬兵丁在安息日前打斷腿，強盜死後，成為進入樂園的第一人。</p>
+        </div>
+      </div>
+      <div class="insight-card">
+        <div class="insight-dot"></div>
+        <div>
+          <h4>舊約聖徒之前在陰間</h4>
+          <p>主耶穌釘十字架之前，所有去世的舊約聖徒（亞伯拉罕、以撒、雅各等）都在陰間等候。主復活升天後，才把他們帶到天堂。</p>
+        </div>
+      </div>
+      <div class="insight-card">
+        <div class="insight-dot"></div>
+        <div>
+          <h4>生命最後一刻至關重要</h4>
+          <p>人的歸處由生命最後一刻的狀態決定。若此刻正行在神的旨意中，靈魂就蒙福；若帶著未認的罪離開，就可能不得進入樂園。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="teal-card">
+      <div class="ref">以弗所書 4:8–9（補充）</div>
+      <div class="verse">所以他說：「他升上高天的時候，擄掠了仇敵，將各樣的恩賜賞給人。」既說升上，豈不是先降在地下嗎？那降下的，就是遠升諸天之上要充滿萬有的。</div>
+    </div>
+  </section>
+
+  <div class="divider"><span>真假使徒的辨別</span></div>
+
+  <!-- ⑥ 真假使徒 -->
+  <section class="section">
+    <div class="sec-title">
+      <div class="icon" style="background:var(--blue-deep);color:#fff;">⚖️</div>
+      <div>
+        <h2>真使徒 vs 假使徒</h2>
+        <div class="subtitle">工作的果效不是標準——保羅才是標準</div>
+      </div>
+    </div>
+
+    <div class="note">
+      📌 目前台灣至少有十位自稱或被稱為使徒的人，全球自稱使徒者可能超過一百人。然而，使徒的身份不是靠「工作做得多」或「果效顯著」來認定，就如博士必須有博士學位——學問再好，沒有文憑就不是博士。
+    </div>
+
+    <div class="compare-grid">
+      <div class="cg-side left">
+        <div class="cg-label">真使徒的標準（以保羅為準）</div>
+        <div class="cg-title">有符合聖經的憑據</div>
+        <ul class="cg-list">
+          <li>能正確傳授「如何預備主基督再來」</li>
+          <li>在末世奧秘的啟示上不能出錯</li>
+          <li>蒙主直接差派，有使徒的印記</li>
+          <li>生命行事符合使徒的標準</li>
+        </ul>
+      </div>
+      <div class="cg-side right">
+        <div class="cg-label">不能作為判斷使徒的標準</div>
+        <div class="cg-title">工作量與果效</div>
+        <ul class="cg-list">
+          <li>建立了多少教會</li>
+          <li>帶領了多少人信主</li>
+          <li>辦了多少次特會</li>
+          <li>成立了「使徒學校」或「使徒聖工」</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="bible-card">
+      <div class="ref">哥林多後書 12:12</div>
+      <div class="verse">我在你們中間，用百般的忍耐，藉著神蹟、奇事、異能，顯出使徒的憑據來。</div>
+    </div>
+
+    <div class="note">
+      🔑 <strong>使徒最關鍵的特點：</strong>使徒必須能正確領受並傳授「主基督再來的預備」。這個末世奧秘是唯獨對使徒說的。若一個自稱使徒的人，在這件事上傳錯了，當主耶穌再來時，就變成笑話。所以真使徒在這件事上，<strong>不可能出錯</strong>。
+    </div>
+
+    <div class="book-list">
+      <div class="book-item">
+        <div class="book-num">📖</div>
+        <div>
+          <h4>《現今最重要的信息與侍奉》</h4>
+          <p>了解末後時代最重要的服事原則與方向</p>
+        </div>
+      </div>
+      <div class="book-item">
+        <div class="book-num">📖</div>
+        <div>
+          <h4>《真假使徒》</h4>
+          <p>按照聖經保羅的標準，辨別當代真假使徒的試金石</p>
+        </div>
+      </div>
+      <div class="book-item">
+        <div class="book-num">📖</div>
+        <div>
+          <h4>《聖樂與魔音》</h4>
+          <p>分辨當代敬拜音樂的屬靈源頭——旋律是否來自神，還是來自仇敵？</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"><span>四大禁戒</span></div>
+
+  <!-- ⑦ 四大禁戒 -->
+  <section class="section">
+    <div class="sec-title">
+      <div class="icon" style="background:var(--gold);color:var(--deep);">📜</div>
+      <div>
+        <h2>四大禁戒——全聖經最高的命令</h2>
+        <div class="subtitle">聖靈與十二使徒共同頒布 · 使徒行傳15章28節</div>
+      </div>
+    </div>
+
+    <div class="quote-block">
+      <div class="quote-text">
+        「因為聖靈和我們定意，不將別的重擔放在你們身上，惟有幾件事是不可少的，就是<em>禁戒祭偶像的物和血，並勒死的牲畜和姦淫</em>。這幾件你們若能自己禁戒，就好了。願你們平安。」
+      </div>
+      <div class="quote-src">使徒行傳 15:28–29</div>
+    </div>
+
+    <div class="note">
+      ⚡ <strong>這段經文的獨特性：</strong>全聖經唯一用「聖靈和我們」這個表達方式頒布的命令——不是保羅寫的，不是彼得寫的，而是聖靈與十二個使徒共同的決議，具有最高的法律效力。這四件事是外邦信徒「不可少的」，並非可選擇的建議。
+    </div>
+
+    <div class="cmd-grid">
+      <div class="cmd-card c1">
+        <div class="cmd-no">一</div>
+        <div class="cmd-icon">🪆</div>
+        <h4>禁戒祭偶像的物</h4>
+        <p>不可吃獻給偶像的食物。這在台灣仍然普遍——廟會祭品、拜拜供品，皆在禁戒之列。</p>
+      </div>
+      <div class="cmd-card c2">
+        <div class="cmd-no">二</div>
+        <div class="cmd-icon">🩸</div>
+        <h4>禁戒血</h4>
+        <p>不可吃血。包括豬血糕、鴨血、各種血製食品。許多教派以「凡神所造的物都是好的」為由允許吃血，這是對聖經的錯誤解讀。</p>
+      </div>
+      <div class="cmd-card c3">
+        <div class="cmd-no">三</div>
+        <div class="cmd-icon">🐄</div>
+        <h4>禁戒勒死的牲畜</h4>
+        <p>不可吃勒死（未放血）的動物。按照舊約原則，動物必須先放血才可食用，這個原則在新約仍然有效。</p>
+      </div>
+      <div class="cmd-card c4">
+        <div class="cmd-no">四</div>
+        <div class="cmd-icon">💍</div>
+        <h4>禁戒姦淫</h4>
+        <p>包括婚前性行為、婚外情，以及主耶穌在新約中所加的限制：除非配偶犯淫，否則休妻再娶即等同姦淫。</p>
+      </div>
+    </div>
+
+    <div class="blue-card">
+      <div class="ref">提摩太前書 4:4–5（辨明正確解讀）</div>
+      <div class="verse">凡神所造的物都是好的，若感謝著領受，就沒有一樣可棄的，都因神的道和人的祈求成為聖潔了。</div>
+    </div>
+
+    <div class="note">
+      ⚖️ <strong>如何正確理解提摩太前書4:4？</strong>這節經文常被用來合理化吃血或吃祭偶像之物，但這是錯誤的解讀。法律有位階：較高位階的法律優先於較低位階。使徒行傳15章是聖靈與十二使徒的最高命令，不可能被保羅的個人書信「蓋過」。況且「神所造的物」並非全指食物，不能斷章取義。
+    </div>
+
+    <div class="bible-card">
+      <div class="ref">馬太福音 19:9（關於休妻的新約標準）</div>
+      <div class="verse">我告訴你們，凡休妻另娶的，若不是為淫亂的緣故，就是犯姦淫了；有人娶那被休的婦人，也是犯姦淫了。</div>
+    </div>
+
+    <div class="note">
+      📌 <strong>關於外邦信徒與猶太信徒的區別：</strong>四大禁戒主要針對外邦信徒。信耶穌的猶太人，仍然需要守全部的舊約律法。但舊約律法在新約中若已被修正（如離婚的條件、某些食物禁忌），就以新約為準。在新約未修正的律法，一律仍要遵守。
+    </div>
+  </section>
+
+  <div class="divider"><span>生命的整合</span></div>
+
+  <!-- ⑧ 結語 -->
+  <section class="section">
+    <div class="sec-title">
+      <div class="icon">🌱</div>
+      <div>
+        <h2>行在神旨意中的實際生命</h2>
+        <div class="subtitle">不是理論，而是每一天都活在神的管教與引導之下</div>
+      </div>
+    </div>
+
+    <div style="background:#fff;border-radius:var(--radius-lg);border:0.5px solid rgba(0,0,0,0.09);overflow:hidden;margin-bottom:1.5rem;">
+      <svg viewBox="0 0 580 380" xmlns="http://www.w3.org/2000/svg" style="display:block;width:100%;max-width:580px;margin:0 auto;">
+        <defs>
+          <marker id="arr" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="7" markerHeight="7" orient="auto">
+            <path d="M1 2 L10 6 L1 10" fill="none" stroke="#9CA3AF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </marker>
+          <filter id="sh" x="-8%" y="-8%" width="116%" height="116%">
+            <feDropShadow dx="0" dy="2" stdDeviation="5" flood-color="rgba(0,0,0,0.06)"/>
+          </filter>
+        </defs>
+        <rect width="580" height="380" fill="#FDFAF3"/>
+
+        <!-- 中央主題 -->
+        <ellipse cx="290" cy="190" rx="68" ry="52" fill="#1A1208" filter="url(#sh)"/>
+        <text x="290" y="183" text-anchor="middle" font-family="Noto Serif TC,serif" font-size="13" fill="#E8D08A" font-weight="700">行在</text>
+        <text x="290" y="201" text-anchor="middle" font-family="Noto Serif TC,serif" font-size="13" fill="#E8D08A" font-weight="700">神的旨意</text>
+
+        <!-- 左上：殉道榜樣 -->
+        <rect x="20" y="20" width="160" height="80" rx="14" fill="#fff" stroke="#E8D08A" stroke-width="1.2" filter="url(#sh)"/>
+        <rect x="20" y="20" width="160" height="5" rx="14" fill="#C9A84C"/>
+        <text x="100" y="51" text-anchor="middle" font-family="Noto Serif TC,serif" font-size="12" fill="#7A620A" font-weight="700">✝ 使徒的榜樣</text>
+        <text x="100" y="68" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#9A7E3A">明知危險仍然順服</text>
+        <text x="100" y="84" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9" fill="#B8952A">保羅·彼得·11位使徒</text>
+        <line x1="180" y1="80" x2="220" y2="155" stroke="#C9A84C" stroke-width="1.2" stroke-dasharray="5,3" marker-end="url(#arr)"/>
+
+        <!-- 右上：聖靈引導 -->
+        <rect x="400" y="20" width="160" height="80" rx="14" fill="#fff" stroke="#9FE1CB" stroke-width="1.2" filter="url(#sh)"/>
+        <rect x="400" y="20" width="160" height="5" rx="14" fill="#2E7D72"/>
+        <text x="480" y="51" text-anchor="middle" font-family="Noto Serif TC,serif" font-size="12" fill="#185049" font-weight="700">🕊 聖靈的引導</text>
+        <text x="480" y="68" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#2E7D72">先知啟示需要分辨</text>
+        <text x="480" y="84" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9" fill="#4AA89C">最終以神的旨意為準</text>
+        <line x1="400" y1="80" x2="358" y2="155" stroke="#2E7D72" stroke-width="1.2" stroke-dasharray="5,3" marker-end="url(#arr)"/>
+
+        <!-- 左下：嚴肅的警告 -->
+        <rect x="20" y="280" width="160" height="80" rx="14" fill="#fff" stroke="#F4A0B0" stroke-width="1.2" filter="url(#sh)"/>
+        <rect x="20" y="280" width="160" height="5" rx="14" fill="#8B2130"/>
+        <text x="100" y="311" text-anchor="middle" font-family="Noto Serif TC,serif" font-size="12" fill="#6B1621" font-weight="700">⚠️ 褻瀆聖靈</text>
+        <text x="100" y="328" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#C2445A">公開說聖靈是邪靈</text>
+        <text x="100" y="344" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9" fill="#D4737F">今生來世不得赦免</text>
+        <line x1="180" y1="300" x2="220" y2="228" stroke="#8B2130" stroke-width="1.2" stroke-dasharray="5,3" marker-end="url(#arr)"/>
+
+        <!-- 右下：四大禁戒 -->
+        <rect x="400" y="280" width="160" height="80" rx="14" fill="#fff" stroke="#A8C9F0" stroke-width="1.2" filter="url(#sh)"/>
+        <rect x="400" y="280" width="160" height="5" rx="14" fill="#1E3A5F"/>
+        <text x="480" y="311" text-anchor="middle" font-family="Noto Serif TC,serif" font-size="12" fill="#0C2A4A" font-weight="700">📜 四大禁戒</text>
+        <text x="480" y="328" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#2E6DA4">聖靈與使徒的決議</text>
+        <text x="480" y="344" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9" fill="#5B8EC4">全聖經最高命令</text>
+        <line x1="400" y1="300" x2="358" y2="228" stroke="#1E3A5F" stroke-width="1.2" stroke-dasharray="5,3" marker-end="url(#arr)"/>
+
+        <!-- 中間底部：歸結 -->
+        <rect x="175" y="290" width="230" height="60" rx="14" fill="#FAF3DC" stroke="#C9A84C" stroke-width="1.2"/>
+        <text x="290" y="315" text-anchor="middle" font-family="Noto Serif TC,serif" font-size="11" fill="#7A620A" font-weight="700">生命最後一刻決定歸處</text>
+        <text x="290" y="333" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#9A7E3A">時刻保持與神同行·隨時認罪悔改</text>
+        <line x1="290" y1="242" x2="290" y2="286" stroke="#C9A84C" stroke-width="1.2" stroke-dasharray="5,3" marker-end="url(#arr)"/>
+      </svg>
+    </div>
+
+    <div style="background:var(--soft);border-radius:var(--radius);padding:1rem 1.2rem;font-size:0.82rem;color:var(--muted);line-height:1.8;margin-bottom:1.5rem;">
+      🌿 <strong style="color:var(--deep)">今日的反思問題：</strong><br>
+      我在日常生活中是否也有「知道神的旨意，卻遲疑順服」的時刻？先知的預言、教會的建議、自己的判斷——在衝突時，我能否像保羅一樣，把神的旨意放在自己的安全與利益之上？四大禁戒中，有哪一項是我過去未曾認真面對的？
+    </div>
+  </section>
+
+</main>
+
+<footer class="page-footer">
+  <p>溫故知新系列 · <strong>如何行在神的旨意中</strong></p>
+  <p style="margin-top:4px;">溫故知新講道摘要 · 2003年10月18日</p>
+</footer>
+
+</body>
+</html>
