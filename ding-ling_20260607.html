@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>愛的叮嚀 — 走出自設的網羅·谷底的態度，光明的一念</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --gold: #C9A84C;
+  --gold-light: #E8D08A;
+  --gold-pale: #FAF3DC;
+  --deep: #1A1208;
+  --ink: #2C2416;
+  --muted: #6B5D3E;
+  --soft: #F5EDD8;
+  --parchment: #FBF6EC;
+  --teal: #2E7D72;
+  --teal-light: #4AA89C;
+  --teal-pale: #E0F2EF;
+  --ruby: #8B2130;
+  --ruby-light: #C2445A;
+  --ruby-pale: #FAEAED;
+  --blue-deep: #1E3A5F;
+  --blue-mid: #2E6DA4;
+  --blue-pale: #E8F1FA;
+  --radius: 12px;
+  --radius-lg: 20px;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family: 'Noto Sans TC', sans-serif;
+  background: var(--parchment);
+  color: var(--ink);
+  line-height: 1.8;
+}
+
+/* ── HERO ── */
+.hero {
+  background: var(--deep);
+  padding: 3.5rem 2rem 3rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content:'';
+  position:absolute; inset:0;
+  background: radial-gradient(ellipse at 50% 0%, rgba(201,168,76,0.18) 0%, transparent 70%);
+  pointer-events:none;
+}
+.hero-tag {
+  display: inline-block;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  font-size: 11px;
+  letter-spacing: 4px;
+  padding: 4px 16px;
+  border-radius: 2px;
+  margin-bottom: 1.2rem;
+  text-transform: uppercase;
+}
+.hero h1 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  color: #fff;
+  font-weight: 700;
+  line-height: 1.4;
+  margin-bottom: 0.6rem;
+}
+.hero h1 em { color: var(--gold-light); font-style:normal; }
+.hero-sub {
+  color: rgba(255,255,255,0.55);
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  margin-bottom: 2rem;
+}
+.hero-verse {
+  display: inline-block;
+  border-left: 2px solid var(--gold);
+  padding: 0.5rem 1rem;
+  text-align: left;
+  color: var(--gold-light);
+  font-family: 'Noto Serif TC', serif;
+  font-size: 0.9rem;
+  line-height: 1.9;
+}
+
+/* ── LAYOUT ── */
+.container { max-width: 960px; margin: 0 auto; padding: 0 1.25rem; }
+.section { padding: 2.5rem 0 1.5rem; }
+
+/* ── SECTION TITLE ── */
+.sec-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 1.5rem;
+}
+.sec-title .icon {
+  width: 36px; height: 36px;
+  background: var(--gold);
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 17px; color: var(--deep); flex-shrink:0;
+}
+.sec-title h2 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 1.2rem;
+  color: var(--deep);
+  font-weight: 700;
+}
+.sec-title .subtitle { font-size: 0.78rem; color: var(--muted); margin-top:1px; }
+
+/* ── CORE PILLARS ── */
+.pillars {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.pillar {
+  background: #fff;
+  border: 0.5px solid rgba(0,0,0,0.1);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  position: relative;
+  overflow: hidden;
+  cursor: default;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.pillar:hover { transform: translateY(-3px); box-shadow: 0 8px 28px rgba(0,0,0,0.08); }
+.pillar::before {
+  content:'';
+  position:absolute; top:0; left:0; right:0; height:3px;
+}
+.pillar.p1::before { background: linear-gradient(90deg, var(--gold), var(--gold-light)); }
+.pillar.p2::before { background: linear-gradient(90deg, var(--teal), var(--teal-light)); }
+.pillar.p3::before { background: linear-gradient(90deg, var(--ruby), var(--ruby-light)); }
+.pillar.p4::before { background: linear-gradient(90deg, var(--blue-deep), var(--blue-mid)); }
+.pillar-num {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: 0.6rem;
+  opacity: 0.12;
+  position: absolute;
+  top: 1rem; right: 1.2rem;
+}
+.pillar.p1 .pillar-num { color: var(--gold); }
+.pillar.p2 .pillar-num { color: var(--teal); }
+.pillar.p3 .pillar-num { color: var(--ruby); }
+.pillar.p4 .pillar-num { color: var(--blue-deep); }
+.pillar-icon { font-size: 1.6rem; margin-bottom: 0.5rem; }
+.pillar h3 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--deep);
+}
+.pillar p { font-size: 0.82rem; color: var(--muted); line-height: 1.7; }
+
+/* ── FRANKL TIMELINE ── */
+.timeline {
+  position: relative;
+  padding-left: 2.5rem;
+  margin-bottom: 1rem;
+}
+.timeline::before {
+  content:'';
+  position: absolute;
+  left: 10px; top: 12px; bottom: 12px;
+  width: 1.5px;
+  background: linear-gradient(180deg, var(--gold) 0%, var(--teal) 50%, var(--ruby) 100%);
+}
+.tl-item {
+  position: relative;
+  margin-bottom: 1.2rem;
+}
+.tl-dot {
+  position: absolute;
+  left: -2.17rem;
+  top: 0.35rem;
+  width: 12px; height: 12px;
+  border-radius: 50%;
+  border: 2px solid;
+  background: var(--parchment);
+}
+.tl-item.gold .tl-dot { border-color: var(--gold); }
+.tl-item.teal .tl-dot { border-color: var(--teal); }
+.tl-item.ruby .tl-dot { border-color: var(--ruby); }
+.tl-item.blue .tl-dot { border-color: var(--blue-mid); }
+.tl-year {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  margin-bottom: 2px;
+}
+.tl-item.gold .tl-year { color: var(--gold); }
+.tl-item.teal .tl-year { color: var(--teal); }
+.tl-item.ruby .tl-year { color: var(--ruby); }
+.tl-item.blue .tl-year { color: var(--blue-mid); }
+.tl-title { font-weight: 500; font-size: 0.9rem; color: var(--deep); margin-bottom: 2px; }
+.tl-body { font-size: 0.8rem; color: var(--muted); line-height: 1.65; }
+
+/* ── MIND MAP SVG WRAPPER ── */
+.mindmap-wrap {
+  background: #fff;
+  border-radius: var(--radius-lg);
+  border: 0.5px solid rgba(0,0,0,0.09);
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+}
+.mindmap-wrap svg { display:block; width:100%; }
+
+/* ── THREE STAGES ── */
+.stages {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 0;
+  background: #fff;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 0.5px solid rgba(0,0,0,0.09);
+  margin-bottom: 1.5rem;
+}
+@media(max-width:600px){ .stages{grid-template-columns:1fr;} }
+.stage-item {
+  padding: 1.4rem 1.2rem;
+  border-right: 0.5px solid rgba(0,0,0,0.07);
+  position: relative;
+}
+.stage-item:last-child { border-right: none; }
+.stage-no {
+  font-size: 0.7rem;
+  letter-spacing: 2px;
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+  text-transform: uppercase;
+}
+.stage-item.s1 .stage-no { color: var(--ruby); }
+.stage-item.s2 .stage-no { color: var(--muted); }
+.stage-item.s3 .stage-no { color: var(--teal); }
+.stage-title { font-family: 'Noto Serif TC', serif; font-size: 0.95rem; font-weight: 700; color: var(--deep); margin-bottom: 0.4rem; }
+.stage-body { font-size: 0.78rem; color: var(--muted); line-height: 1.65; }
+.stage-top-bar { height: 3px; background: var(--soft); position:absolute; top:0; left:0; right:0; }
+.stage-item.s1 .stage-top-bar { background: var(--ruby); }
+.stage-item.s2 .stage-top-bar { background: #bbb; }
+.stage-item.s3 .stage-top-bar { background: var(--teal); }
+
+/* ── QUOTE BLOCK ── */
+.quote-block {
+  background: var(--deep);
+  border-radius: var(--radius-lg);
+  padding: 2rem 2rem 1.5rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+  overflow: hidden;
+}
+.quote-block::before {
+  content: '"';
+  position: absolute;
+  top: -0.5rem; left: 1rem;
+  font-family: 'Noto Serif TC', serif;
+  font-size: 6rem;
+  color: var(--gold);
+  opacity: 0.15;
+  line-height: 1;
+  pointer-events: none;
+}
+.quote-text {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 1.05rem;
+  color: #fff;
+  line-height: 1.9;
+  margin-bottom: 0.8rem;
+}
+.quote-text em { color: var(--gold-light); font-style: normal; font-weight: 700; }
+.quote-src { font-size: 0.75rem; color: rgba(255,255,255,0.45); letter-spacing: 1px; }
+
+/* ── THREE PILLARS of MEANING ── */
+.meaning-pillars {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.mp-card {
+  border-radius: var(--radius);
+  padding: 1.3rem 1.2rem;
+  position: relative;
+}
+.mp-card.mp1 { background: var(--gold-pale); border: 1px solid rgba(201,168,76,0.3); }
+.mp-card.mp2 { background: var(--teal-pale); border: 1px solid rgba(46,125,114,0.25); }
+.mp-card.mp3 { background: var(--ruby-pale); border: 1px solid rgba(139,33,48,0.2); }
+.mp-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 0.7rem;
+}
+.mp-badge {
+  font-size: 0.65rem;
+  letter-spacing: 2px;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+.mp1 .mp-badge { background: var(--gold); color: var(--deep); }
+.mp2 .mp-badge { background: var(--teal); color: #fff; }
+.mp3 .mp-badge { background: var(--ruby); color: #fff; }
+.mp-card h4 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--deep);
+}
+.mp-card p { font-size: 0.8rem; color: var(--muted); line-height: 1.7; }
+.mp-example {
+  margin-top: 0.6rem;
+  padding-top: 0.6rem;
+  border-top: 1px solid rgba(0,0,0,0.06);
+  font-size: 0.75rem;
+  line-height: 1.6;
+}
+.mp1 .mp-example { color: #7A620A; }
+.mp2 .mp-example { color: #185049; }
+.mp3 .mp-example { color: #6B1621; }
+
+/* ── KEY INSIGHT BOX ── */
+.insight-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.insight-card {
+  background: #fff;
+  border-radius: var(--radius);
+  border: 0.5px solid rgba(0,0,0,0.09);
+  padding: 1.2rem;
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+.insight-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  margin-top: 0.4rem;
+  flex-shrink: 0;
+}
+.insight-card:nth-child(1) .insight-dot { background: var(--gold); }
+.insight-card:nth-child(2) .insight-dot { background: var(--teal); }
+.insight-card:nth-child(3) .insight-dot { background: var(--ruby); }
+.insight-card:nth-child(4) .insight-dot { background: var(--blue-mid); }
+.insight-card h4 { font-size: 0.88rem; font-weight: 600; color: var(--deep); margin-bottom: 0.3rem; }
+.insight-card p { font-size: 0.78rem; color: var(--muted); line-height: 1.65; }
+
+/* ── TWO PATH BOX ── */
+.two-path {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  background: #fff;
+  border-radius: var(--radius-lg);
+  border: 0.5px solid rgba(0,0,0,0.09);
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+}
+@media(max-width:500px){ .two-path{grid-template-columns:1fr;} }
+.path-side {
+  padding: 1.5rem 1.3rem;
+}
+.path-side:first-child {
+  border-right: 0.5px solid rgba(0,0,0,0.07);
+}
+.path-label {
+  font-size: 0.68rem;
+  letter-spacing: 2.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 0.6rem;
+}
+.path-a .path-label { color: var(--gold); }
+.path-b .path-label { color: var(--blue-mid); }
+.path-title {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--deep);
+  margin-bottom: 0.6rem;
+}
+.path-list {
+  list-style: none;
+  padding: 0;
+}
+.path-list li {
+  font-size: 0.8rem;
+  color: var(--muted);
+  line-height: 1.65;
+  padding: 3px 0 3px 14px;
+  position: relative;
+}
+.path-list li::before {
+  content:'·';
+  position:absolute; left:2px;
+  font-size: 1rem;
+  line-height: 1.3;
+}
+.path-a .path-list li::before { color: var(--gold); }
+.path-b .path-list li::before { color: var(--blue-mid); }
+
+/* ── REFLECTION BOX ── */
+.reflection {
+  background: var(--soft);
+  border-radius: var(--radius-lg);
+  padding: 1.8rem 1.8rem 1.5rem;
+  border-left: 3px solid var(--gold);
+  margin-bottom: 1.5rem;
+}
+.reflection h3 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--deep);
+  margin-bottom: 0.8rem;
+}
+.reflection ol {
+  padding-left: 1.2rem;
+}
+.reflection ol li {
+  font-size: 0.85rem;
+  color: var(--ink);
+  line-height: 1.8;
+  margin-bottom: 0.3rem;
+}
+.reflection ol li strong { color: var(--deep); font-weight: 600; }
+
+/* ── DIVIDER ── */
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0.5rem 0 1.5rem;
+  opacity: 0.35;
+}
+.divider::before, .divider::after {
+  content:'';
+  flex:1;
+  height: 0.5px;
+  background: var(--muted);
+}
+.divider span { font-size: 10px; letter-spacing: 3px; color: var(--muted); text-transform: uppercase; }
+
+/* ── REFLECTION Q&A CARD（反思問答：最初回答＋破牆後的真實聲音）── */
+.refl-card {
+  background:#fff; border:0.5px solid rgba(0,0,0,0.09);
+  border-radius:var(--radius-lg); margin-bottom:1rem; overflow:hidden;
+}
+.refl-q {
+  background:var(--deep); padding:0.9rem 1.3rem;
+  display:flex; align-items:baseline; gap:10px;
+}
+.refl-q .qno {
+  font-family:'Noto Serif TC',serif; font-size:0.72rem;
+  letter-spacing:3px; color:var(--gold); text-transform:uppercase; flex-shrink:0;
+}
+.refl-q .qtext { font-family:'Noto Serif TC',serif; font-size:0.95rem; color:#fff; font-weight:700; }
+.refl-body { padding:1.2rem 1.3rem; }
+.refl-first { font-size:0.82rem; color:var(--muted); line-height:1.8; margin-bottom:1rem; }
+.refl-break {
+  background:var(--soft); border-radius:var(--radius);
+  padding:1rem 1.1rem; border-left:2px solid var(--ruby);
+}
+.refl-break.gold { border-left-color:var(--gold); }
+.refl-break.teal { border-left-color:var(--teal); }
+.refl-break.blue { border-left-color:var(--blue-mid); }
+.refl-break-label {
+  font-size:0.7rem; letter-spacing:2px; color:var(--ruby);
+  font-weight:700; margin-bottom:0.5rem; text-transform:uppercase;
+}
+.refl-break.gold .refl-break-label { color:var(--gold); }
+.refl-break.teal .refl-break-label { color:var(--teal); }
+.refl-break.blue .refl-break-label { color:var(--blue-mid); }
+.refl-break p { font-size:0.82rem; color:var(--ink); line-height:1.8; }
+.refl-break em { font-style:normal; color:var(--ruby); }
+.refl-ok {
+  display:flex; align-items:center; gap:12px;
+  background:var(--teal-pale); border-radius:var(--radius); padding:1rem 1.1rem;
+}
+.refl-ok span { font-size:1.5rem; flex-shrink:0; }
+.refl-ok p { font-size:0.83rem; color:#185049; line-height:1.75; }
+.refl-note {
+  background:var(--ruby-pale); border-radius:var(--radius);
+  padding:0.9rem 1.2rem; font-size:0.78rem; color:#6B1621;
+  margin-bottom:1.5rem; line-height:1.7; border-left:2px solid var(--ruby-light);
+}
+
+/* ── ARTICLE（文章產出：深度反思文章）── */
+.article-block {
+  background:#fff; border:0.5px solid rgba(0,0,0,0.09);
+  border-radius:var(--radius-lg); padding:2.2rem 2.4rem;
+  margin-bottom:1.5rem;
+}
+@media(max-width:600px){ .article-block { padding:1.6rem 1.3rem; } }
+.article-block h3 {
+  font-family:'Noto Serif TC',serif; font-size:1.15rem; font-weight:700;
+  color:var(--deep); margin-bottom:1.2rem; text-align:center;
+}
+.article-block .art-meta {
+  text-align:center; font-size:0.72rem; letter-spacing:2px;
+  color:var(--muted); margin:-0.8rem 0 1.4rem;
+}
+.article-block p {
+  font-family:'Noto Serif TC',serif; font-size:0.92rem;
+  color:var(--ink); line-height:2.05; margin-bottom:1rem;
+  text-align:justify;
+}
+.article-block p:first-of-type::first-letter { font-size:1.6em; color:var(--gold); font-weight:700; }
+.article-block p strong { color:var(--deep); }
+.article-block p em { font-style:normal; color:#7A620A; font-weight:600; }
+.art-sep { text-align:center; color:var(--gold); letter-spacing:8px; margin:1.2rem 0; opacity:.6; }
+
+/* ── FOOTER ── */
+.page-footer {
+  background: var(--deep);
+  text-align: center;
+  padding: 1.8rem 1rem;
+  margin-top: 2.5rem;
+}
+.page-footer p { font-size: 0.78rem; color: rgba(255,255,255,0.35); letter-spacing: 1px; }
+.page-footer strong { color: var(--gold); font-weight: 400; }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════ HERO ═══════════════ -->
+<header class="hero">
+  <div class="hero-tag">愛的叮嚀 · 2026.06.07</div>
+  <h1>走出<em>自設的網羅</em><br>——谷底的態度，光明的一念</h1>
+  <p class="hero-sub">四個真實故事 × 境界與格局 × 腦科學的覺察 × 神所安放的陪伴</p>
+  <div class="hero-verse">
+    眼界決定境界，態度決定高度，格局決定結局。<br>
+    對待谷底的態度，決定人生的格局。<br>
+    <span style="color:rgba(255,255,255,0.4);font-size:0.78rem">— 秀美師母 · 愛的叮嚀</span>
+  </div>
+</header>
+
+<main class="container">
+
+  <!-- ═══════════════ ① 核心主題 ═══════════════ -->
+  <section class="section">
+    <div class="sec-title">
+      <div class="icon">🗝</div>
+      <div>
+        <h2>今日核心主題</h2>
+        <div class="subtitle">師母分享的四大線索</div>
+      </div>
+    </div>
+    <div class="pillars">
+      <div class="pillar p1">
+        <div class="pillar-num">一</div>
+        <div class="pillar-icon">🕸</div>
+        <h3>走出自設的網羅</h3>
+        <p>師母服事中最掛心的事：怎樣讓弟兄姊妹不陷在自己所設的網羅裡。出路是加強悟性、打開眼界——不做井底之蛙，把井口那一小圈天空當成全世界。</p>
+      </div>
+      <div class="pillar p2">
+        <div class="pillar-num">二</div>
+        <div class="pillar-icon">🧭</div>
+        <h3>境界與格局</h3>
+        <p>眼界決定境界、態度決定高度、格局決定結局。尤其落到谷底的時刻——對待谷底的態度，決定人生的格局。總之一句話：內心一定要強大。</p>
+      </div>
+      <div class="pillar p3">
+        <div class="pillar-num">三</div>
+        <div class="pillar-icon">🧠</div>
+        <h3>覺察與醫治</h3>
+        <p>情緒失靈可能與腦部結構的萎縮或失調有關，所以不怪罪任何人；但要先覺察，知道自己哪裡不對，然後靠 神——因為在 神凡事都能。</p>
+      </div>
+      <div class="pillar p4">
+        <div class="pillar-num">四</div>
+        <div class="pillar-icon">🕊</div>
+        <h3>選擇與陪伴</h3>
+        <p>神給人自由意志，人心有光明的一念、也有黑暗的一念； 神卻在狗狗身上安放了忠誠無限的愛，差派牠們陪伴受傷的我們。</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"><span>心智圖</span></div>
+
+  <!-- ═══════════════ ② 主題心智圖 ═══════════════ -->
+  <section class="section" style="padding-top:0">
+    <div class="sec-title">
+      <div class="icon">🧠</div>
+      <div>
+        <h2>主題心智圖</h2>
+        <div class="subtitle">全篇結構一覽</div>
+      </div>
+    </div>
+    <div class="mindmap-wrap">
+      <svg viewBox="0 0 900 500" xmlns="http://www.w3.org/2000/svg" role="img">
+        <title>走出自設的網羅 心智圖</title>
+        <defs>
+          <marker id="marr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+            <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </marker>
+        </defs>
+        <rect width="900" height="500" fill="#FDFAF3"/>
+
+        <!-- 中心 -->
+        <rect x="335" y="210" width="230" height="68" rx="12" fill="#1A1208" stroke="#C9A84C" stroke-width="1.5"/>
+        <text x="450" y="238" text-anchor="middle" font-family="Noto Serif TC,serif" font-size="13" fill="#E8D08A" font-weight="700">走出自設的網羅</text>
+        <text x="450" y="260" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="10.5" fill="rgba(255,255,255,0.5)">愛的叮嚀 · 2026.06.07</text>
+
+        <!-- 左上：打開眼界（金） -->
+        <path d="M380 210 Q300 165 234 122" fill="none" stroke="#C9A84C" stroke-width="1.2" marker-end="url(#marr)"/>
+        <rect x="60" y="66" width="170" height="78" rx="8" fill="#FAF3DC" stroke="#C9A84C" stroke-width="0.8"/>
+        <text x="145" y="92" text-anchor="middle" font-family="Noto Serif TC,serif" font-size="11.5" fill="#7A620A" font-weight="700">打開眼界・提升悟性</text>
+        <text x="145" y="110" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#9A7E3A">不做井底之蛙</text>
+        <text x="145" y="127" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#9A7E3A">井口不是全世界</text>
+
+        <!-- 右上：谷底的態度（青） -->
+        <path d="M520 210 Q600 165 666 122" fill="none" stroke="#2E7D72" stroke-width="1.2" marker-end="url(#marr)"/>
+        <rect x="670" y="66" width="170" height="78" rx="8" fill="#E0F2EF" stroke="#2E7D72" stroke-width="0.8"/>
+        <text x="755" y="92" text-anchor="middle" font-family="Noto Serif TC,serif" font-size="11.5" fill="#185049" font-weight="700">谷底的態度</text>
+        <text x="755" y="110" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#2F7568">態度決定高度</text>
+        <text x="755" y="127" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#2F7568">內心一定要強大</text>
+
+        <!-- 左中：四個真實故事（紅） -->
+        <path d="M335 244 Q272 250 209 252" fill="none" stroke="#8B2130" stroke-width="1.2" marker-end="url(#marr)"/>
+        <rect x="35" y="215" width="170" height="78" rx="8" fill="#FAEAED" stroke="#8B2130" stroke-width="0.8"/>
+        <text x="120" y="241" text-anchor="middle" font-family="Noto Serif TC,serif" font-size="11.5" fill="#6B1621" font-weight="700">四個真實故事</text>
+        <text x="120" y="259" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#A04A57">畢業生・馬內</text>
+        <text x="120" y="276" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#A04A57">女伯爵・忠犬</text>
+
+        <!-- 右中：腦科學的覺察（藍） -->
+        <path d="M565 244 Q628 250 691 252" fill="none" stroke="#2E6DA4" stroke-width="1.2" marker-end="url(#marr)"/>
+        <rect x="695" y="215" width="170" height="78" rx="8" fill="#E8F1FA" stroke="#1E3A5F" stroke-width="0.8"/>
+        <text x="780" y="241" text-anchor="middle" font-family="Noto Serif TC,serif" font-size="11.5" fill="#0C2A4A" font-weight="700">腦科學的覺察</text>
+        <text x="780" y="259" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#46729E">杏仁核・海馬迴</text>
+        <text x="780" y="276" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#46729E">不怪罪，先覺察</text>
+
+        <!-- 左下：自由意志的選擇（青） -->
+        <path d="M390 278 Q330 330 272 380" fill="none" stroke="#2E7D72" stroke-width="1.2" marker-end="url(#marr)"/>
+        <rect x="115" y="384" width="170" height="78" rx="8" fill="#E0F2EF" stroke="#2E7D72" stroke-width="0.8"/>
+        <text x="200" y="410" text-anchor="middle" font-family="Noto Serif TC,serif" font-size="11.5" fill="#185049" font-weight="700">自由意志的選擇</text>
+        <text x="200" y="428" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#2F7568">光明的一念・黑暗的一念</text>
+        <text x="200" y="445" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#2F7568">在縫隙中覺察</text>
+
+        <!-- 右下：在 神凡事都能（金） -->
+        <path d="M510 278 Q570 330 628 380" fill="none" stroke="#C9A84C" stroke-width="1.2" marker-end="url(#marr)"/>
+        <rect x="615" y="384" width="170" height="78" rx="8" fill="#FAF3DC" stroke="#C9A84C" stroke-width="0.8"/>
+        <text x="700" y="410" text-anchor="middle" font-family="Noto Serif TC,serif" font-size="11.5" fill="#7A620A" font-weight="700">在 神凡事都能</text>
+        <text x="700" y="428" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#9A7E3A">覺察，然後全心仰望</text>
+        <text x="700" y="445" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#9A7E3A"> 神必醫治</text>
+      </svg>
+    </div>
+  </section>
+
+  <div class="divider"><span>四個故事</span></div>
+
+  <!-- ═══════════════ ③ 四個真實故事 ═══════════════ -->
+  <section class="section" style="padding-top:0">
+    <div class="sec-title">
+      <div class="icon">🎬</div>
+      <div>
+        <h2>四個真實故事</h2>
+        <div class="subtitle">畢業生・球星・女伯爵・忠犬——善與忠誠的迴路</div>
+      </div>
+    </div>
+    <div class="insight-row">
+      <div class="insight-card">
+        <div class="insight-dot"></div>
+        <div>
+          <h4>🎓 半顆地瓜的孩子｜台大畢業生</h4>
+          <p>來自坦尚尼亞山區，曾在月光下讀書、在沙地上寫數學題；因珍古德博士一句「有困難請來找我」改寫一生。如今每月寄一半生活費回鄉，供五個孩子上學，夢想在家鄉蓋一所學校。</p>
+        </div>
+      </div>
+      <div class="insight-card">
+        <div class="insight-dot"></div>
+        <div>
+          <h4>⚽ 最省錢的球星｜馬內</h4>
+          <p>年薪兩千萬歐元，卻用著螢幕破裂的手機。他在家鄉巴里蓋醫院、建學校、資助家庭：「買十台法拉利對世界有什麼幫助？我寧願把這些錢拿來幫助人。」</p>
+        </div>
+      </div>
+      <div class="insight-card">
+        <div class="insight-dot"></div>
+        <div>
+          <h4>🌷 一朵白百合｜女伯爵</h4>
+          <p>一九二七年，新娘伊麗莎白讓婚禮馬車停下，讓送葬的少年先過，把白百合放上棺木。十五年後，當年的少年深夜打開集中營牢門，救回她與兩個孩子。</p>
+        </div>
+      </div>
+      <div class="insight-card">
+        <div class="insight-dot"></div>
+        <div>
+          <h4>🐕 等候主人的狗</h4>
+          <p>在伊斯坦堡，牠七年來每天重走與逝去主人同行的六十公里路線——地鐵、公車、輪渡，到海邊的小島等候，再獨自返回。全城的人默默守護牠。</p>
+        </div>
+      </div>
+    </div>
+    <div class="quote-block">
+      <p class="quote-text">
+        你今天對別人的每一份善意都不會白白消失，<br>
+        它會在<em>命運的長河</em>裡慢慢流淌，<br>
+        終有一天，以你意想不到的方式回到你身邊。
+      </p>
+      <div class="quote-src">— 第三個故事 · 女伯爵的白百合</div>
+    </div>
+  </section>
+
+  <div class="divider"><span>境界與格局</span></div>
+
+  <!-- ═══════════════ ④ 三句格言＋谷底的兩條路 ═══════════════ -->
+  <section class="section" style="padding-top:0">
+    <div class="sec-title">
+      <div class="icon">🧭</div>
+      <div>
+        <h2>三句格言</h2>
+        <div class="subtitle">師母親手寫下的話</div>
+      </div>
+    </div>
+    <div class="meaning-pillars">
+      <div class="mp-card mp1">
+        <div class="mp-head"><span class="mp-badge">格言一</span></div>
+        <h4>眼界決定境界</h4>
+        <p>唯有打開眼界，境界才會寬敞。不要像井底之蛙，把井口上那一小圈天空當成全部的世界。</p>
+        <div class="mp-example">先打開眼界，才能加強悟性、提升格局，走出自設的網羅。</div>
+      </div>
+      <div class="mp-card mp2">
+        <div class="mp-head"><span class="mp-badge">格言二</span></div>
+        <h4>態度決定高度</h4>
+        <p>面對事情的態度，決定處事的高度。在惡劣的環境中不被人事物所綑綁，保持清醒：我現在面對的是什麼處境？我要選擇用什麼態度面對？</p>
+        <div class="mp-example">如師母曾分享的心理學家故事：環境再惡劣，人仍能選擇自己的態度。</div>
+      </div>
+      <div class="mp-card mp3">
+        <div class="mp-head"><span class="mp-badge">格言三</span></div>
+        <h4>格局決定結局</h4>
+        <p>格局若是小鼻子小眼睛，結局也必侷限。對待谷底的態度，就決定了人生的格局。</p>
+        <div class="mp-example">情緒跌到谷底時的那個選擇，正在寫我們的結局。</div>
+      </div>
+    </div>
+    <div class="two-path">
+      <div class="path-side path-a">
+        <div class="path-label">向上的路</div>
+        <div class="path-title">自我挑戰・自我突破</div>
+        <ul class="path-list">
+          <li>結局一直往上提升</li>
+          <li>每天遇見更好的自己</li>
+          <li>內心強大，不被環境與人事物綑綁</li>
+          <li>在谷底仍尋求 神光明的那一念</li>
+        </ul>
+      </div>
+      <div class="path-side path-b">
+        <div class="path-label">向下的路</div>
+        <div class="path-title">自我沉淪</div>
+        <ul class="path-list">
+          <li>格局一路下沉</li>
+          <li>任憑情緒氾濫，越來越失控</li>
+          <li>困在自設的網羅裡出不來</li>
+          <li>把井口當成全世界</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"><span>覺察與醫治</span></div>
+
+  <!-- ═══════════════ ⑤ 腦科學與覺察 ═══════════════ -->
+  <section class="section" style="padding-top:0">
+    <div class="sec-title">
+      <div class="icon">💡</div>
+      <div>
+        <h2>情緒失靈的生理線索</h2>
+        <div class="subtitle">不怪罪任何人——但要覺察</div>
+      </div>
+    </div>
+    <div class="quote-block">
+      <p class="quote-text">
+        我們不會怪罪任何一個情緒失控、情緒不穩的人。<br>
+        只是我們要先<em>覺察</em>，知道自己哪裡不對——<br>
+        因為在 神凡事都能， 神能夠醫治我們。
+      </p>
+      <div class="quote-src">— 秀美師母 · 愛的叮嚀</div>
+    </div>
+    <div class="insight-row">
+      <div class="insight-card">
+        <div class="insight-dot"></div>
+        <div>
+          <h4>前扣帶迴｜情緒的剎車</h4>
+          <p>負責情緒的調節與衝動的控制，是理性的剎車；一旦萎縮失靈，便容易失控。</p>
+        </div>
+      </div>
+      <div class="insight-card">
+        <div class="insight-dot"></div>
+        <div>
+          <h4>前島葉・腹內側前額葉｜內在的感應器</h4>
+          <p>感應緊張、害怕等內在感受，判斷自我價值與外來威脅；失靈時感受便混亂失準。</p>
+        </div>
+      </div>
+      <div class="insight-card">
+        <div class="insight-dot"></div>
+        <div>
+          <h4>杏仁核｜過度敏感</h4>
+          <p>警報器若太過活躍，人就容易終日焦慮、坐立難安。</p>
+        </div>
+      </div>
+      <div class="insight-card">
+        <div class="insight-dot"></div>
+        <div>
+          <h4>海馬迴｜比較弱小</h4>
+          <p>海馬迴較弱的人，可能比較容易憂鬱、想不開。</p>
+        </div>
+      </div>
+    </div>
+    <div class="mindmap-wrap">
+      <svg viewBox="0 0 860 140" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <marker id="ar2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+            <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </marker>
+        </defs>
+        <rect width="860" height="140" fill="#1A1208"/>
+        <!-- 起點 -->
+        <rect x="30" y="36" width="180" height="68" rx="10" fill="#8B2130"/>
+        <text x="120" y="64" text-anchor="middle" font-family="Noto Serif TC,serif" font-size="13" fill="#fff" font-weight="700">情緒失靈</text>
+        <text x="120" y="84" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="10" fill="rgba(255,255,255,0.65)">失控・焦慮・憂鬱</text>
+        <line x1="213" y1="70" x2="278" y2="70" stroke="#C9A84C" stroke-width="1" marker-end="url(#ar2)"/>
+        <!-- 中間關鍵 -->
+        <rect x="282" y="22" width="185" height="96" rx="12" fill="none" stroke="#C9A84C" stroke-width="1.5" stroke-dasharray="5,3"/>
+        <text x="374" y="52" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#C9A84C" letter-spacing="2">關鍵的一步</text>
+        <text x="374" y="74" text-anchor="middle" font-family="Noto Serif TC,serif" font-size="14" fill="#E8D08A" font-weight="700">覺察</text>
+        <text x="374" y="96" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="rgba(255,255,255,0.5)">承認自己哪裡不對</text>
+        <line x1="470" y1="70" x2="536" y2="70" stroke="#2E7D72" stroke-width="1" marker-end="url(#ar2)"/>
+        <!-- 終點 -->
+        <rect x="540" y="36" width="280" height="68" rx="10" fill="#2E7D72"/>
+        <text x="680" y="60" text-anchor="middle" font-family="Noto Serif TC,serif" font-size="13" fill="#fff" font-weight="700">全心仰望 ·  神的醫治</text>
+        <text x="680" y="82" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="rgba(255,255,255,0.65)">在 神凡事都能</text>
+      </svg>
+    </div>
+  </section>
+
+  <div class="divider"><span>選擇與陪伴</span></div>
+
+  <!-- ═══════════════ ⑥ 自由意志與 神安放的愛 ═══════════════ -->
+  <section class="section" style="padding-top:0">
+    <div class="sec-title">
+      <div class="icon">🕊</div>
+      <div>
+        <h2>自由意志與 神安放的愛</h2>
+        <div class="subtitle">光明的一念・黑暗的一念・忠誠的陪伴</div>
+      </div>
+    </div>
+    <div class="quote-block">
+      <p class="quote-text">
+        神給人自由意志的選擇——人心裡有<em>光明的一念</em>，也有<em>黑暗的一念</em>；<br>
+        神卻在狗狗身上，安放了忠誠而無限的愛。
+      </p>
+      <div class="quote-src">— 秀美師母 · 愛的叮嚀</div>
+    </div>
+    <div class="insight-row">
+      <div class="insight-card">
+        <div class="insight-dot"></div>
+        <div>
+          <h4>縫隙中的選擇</h4>
+          <p>遇到事情的那一刻，要發揮人性的光輝，還是任憑罪性氾濫？就看那個縫隙裡的覺察。</p>
+        </div>
+      </div>
+      <div class="insight-card">
+        <div class="insight-dot"></div>
+        <div>
+          <h4>善的迴路</h4>
+          <p>女伯爵發揮了光明的一念，少年長大後以感恩回應，成就了一樁奇妙的拯救——這一切都在 神的律定之中。</p>
+        </div>
+      </div>
+      <div class="insight-card">
+        <div class="insight-dot"></div>
+        <div>
+          <h4>神安放的陪伴</h4>
+          <p>科學發現，狗把主人當作自己的爸爸媽媽，心智永遠停在依賴的孩子那一層；牠們天生帶著療癒，不離不棄地陪伴受傷的我們。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"><span>反思</span></div>
+
+  <!-- ═══════════════ 反思提問清單 ═══════════════ -->
+  <section class="section" style="padding-top:0">
+    <div class="sec-title">
+      <div class="icon">🪞</div>
+      <div>
+        <h2>反思</h2>
+        <div class="subtitle">七道問題 · 留給日後的思考</div>
+      </div>
+    </div>
+    <div class="reflection">
+      <h3>這一次先不回答——留給以後再讀的時候，安靜思想。</h3>
+      <ol>
+        <li><strong>Q1</strong>　目前的生活中，哪一個處境最像「自設的網羅」——明明出口就在那裡，我卻一直繞不出去？</li>
+        <li><strong>Q2</strong>　誠實地看，我最近的眼界被什麼框住了（像井口上方那一小圈天空）？是某個人的評價、一件懸而未決的事，還是對自己的既定看法？</li>
+        <li><strong>Q3</strong>　回想最近一次跌到「谷底」的時刻，我當時用什麼態度面對？若對照「對待谷底的態度，決定人生的格局」這句話，我想換成什麼態度？</li>
+        <li><strong>Q4</strong>　我的情緒最常在什麼情況下「失靈」（焦慮、低落、或衝動）？聽到「這可能與腦部結構有關，不必先怪罪自己」時，心裡浮現的第一個感覺是什麼？</li>
+        <li><strong>Q5</strong>　四個故事（台大畢業生、馬內、女伯爵、等候主人的狗）中，哪一個最觸動我？它碰到了我心裡的哪一塊？</li>
+        <li><strong>Q6</strong>　最近一次站在「光明那一念」與「黑暗那一念」的岔路口，我選了哪一邊？現在回頭看，神在那個縫隙裡對我說了什麼？</li>
+        <li><strong>Q7</strong>　「在神凡事都能——只要我們覺察，然後全心仰望。」這一週，我願意從哪一個具體的小行動開始操練「覺察」？</li>
+      </ol>
+    </div>
+  </section>
+
+  <div class="divider"><span>文章</span></div>
+
+  <!-- ═══════════════ 文章產出 ═══════════════ -->
+  <section class="section" style="padding-top:0">
+    <div class="sec-title">
+      <div class="icon">✒️</div>
+      <div>
+        <h2>本篇文章</h2>
+        <div class="subtitle">從四個故事，到谷底的選擇</div>
+      </div>
+    </div>
+    <div class="article-block">
+      <h3>谷底的態度，光明的一念</h3>
+      <div class="art-meta">愛的叮嚀 · 2026.06.07</div>
+      <p>一九二七年深秋的維也納，金色馬車載著全城最美的新娘，迎面卻走來一支衣衫襤褸的送葬隊伍。所有人都等著看送葬的讓路，伊麗莎白女伯爵卻吩咐：停下音樂，讓馬車靠邊，讓他們先過。「逝者為大，沒有什麼比讓一個母親安心上路更重要的事。」她從捧花裡抽出一朵最潔白的百合，輕輕放在那口薄薄的棺木上。十五年後，集中營的牢門在深夜打開——當年那位十六歲的少年，把一朵乾枯卻完整的白百合，連同她和兩個孩子的性命，一起還給了她。</p>
+      <p>師母這一次一連讓我們看了四個故事：在月光下讀書、在沙地上寫數學題的坦尚尼亞孩子，因著珍古德博士一句「有困難請來找我」而改寫一生，如今每月把一半生活費寄回家鄉，供五個孩子上學；年薪兩千萬歐元的馬內，用著螢幕破裂的手機，卻在家鄉蓋起醫院與學校；還有伊斯坦堡那隻狗，七年來每天重走六十公里，沿著與主人同行過的路線，等一個不會回來的人。這些畫面之所以擊中我們，是因為它們都指向師母真正掛心的那件事：<strong>我們怎樣才能從「自己所設的網羅」裡走出來。</strong></p>
+      <div class="art-sep">✦ ✦ ✦</div>
+      <p>出路不在網羅外面，而在眼界裡面。井底的青蛙以為井口那一小圈天空就是全世界；我們也常以為眼前這一點處境、這一口情緒，就是人生的全部。所以師母把那三句話寫下來：<strong>眼界決定境界，態度決定高度，格局決定結局。</strong>尤其是跌到谷底的時刻——<strong>對待谷底的態度，決定人生的格局。</strong>自我沉淪，格局就一路下沉；自我挑戰、自我突破，結局就一直往上提升，每天遇見更好的自己。總之一句話：<em>內心一定要強大。</em></p>
+      <p>然而師母沒有停在勵志的層面，她把科學研究誠實地擺在我們面前：許多情緒的失靈——失控、憂鬱、焦慮、想不開——背後可能是腦部結構的萎縮或失調：負責踩剎車的前扣帶迴、感應內在的前島葉、過度敏感的杏仁核、比較弱的海馬迴。所以我們不怪罪任何一個情緒不穩的人，也不必先怪罪自己。但不怪罪，不等於放任；<strong>覺察，是責任的起點。</strong>若沒有察覺、任憑氾濫，我們真的會越來越失控。</p>
+      <p>神給人自由意志，人心裡同時有光明的一念與黑暗的一念，而人往往選擇了黑暗。奇妙的是， 神卻在狗狗身上安放了忠誠而無限之愛的基因——科學發現，狗不是把我們當高高在上的主人，而是當作牠的爸爸媽媽，心智永遠停留在依賴的孩子那一層，不離不棄地陪伴著受傷的我們。<em>彷彿 神早知道人會跌倒，便預先差派了陪伴。</em>而女伯爵與少年的故事告訴我們：當人肯發揮光明的那一念，善意不會消失，它會在命運的長河裡慢慢流淌，終有一天成為別人——也成為自己——生命裡的光。</p>
+      <div class="art-sep">✦ ✦ ✦</div>
+      <p>所以底線只有一條：<strong>先覺察，再仰望。</strong>承認自己有時情緒失靈、常往黑暗那一面傾斜；然後把這一切帶到 神面前，因為在 神凡事都能。主啊，求祢打開我們的眼界，堅固我們的內心，在每一個谷底，幫助我們選擇光明的那一念。阿們。</p>
+    </div>
+  </section>
+
+  <!-- ═══════════════ 收尾禱告 ═══════════════ -->
+  <section class="section" style="padding-top:0;padding-bottom:2rem;">
+    <div class="sec-title">
+      <div class="icon">🙏</div>
+      <div>
+        <h2>收尾的禱告</h2>
+        <div class="subtitle">回到底線與盼望</div>
+      </div>
+    </div>
+    <div class="quote-block">
+      <p class="quote-text">主啊，求祢打開我們的眼界，堅固我們的內心，<br>在每一個谷底，幫助我們選擇<em>光明的那一念</em>。<br>因為在 神凡事都能。阿們。</p>
+      <div class="quote-src">— 愛的叮嚀 · 2026.06.07</div>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="page-footer">
+  <p>愛的叮嚀 · <strong>走出自設的網羅——谷底的態度，光明的一念</strong></p>
+  <p style="margin-top:4px;">2026.06.07</p>
+</footer>
+
+</body>
+</html>
