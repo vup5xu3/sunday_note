@@ -1,0 +1,1357 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>聖難週八日 — 從棕枝到空墳墓</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --gold: #C9A84C;
+  --gold-light: #E8D08A;
+  --gold-pale: #FAF3DC;
+  --deep: #1A1208;
+  --ink: #2C2416;
+  --muted: #6B5D3E;
+  --soft: #F5EDD8;
+  --parchment: #FBF6EC;
+  --teal: #2E7D72;
+  --teal-light: #4AA89C;
+  --teal-pale: #E0F2EF;
+  --ruby: #8B2130;
+  --ruby-light: #C2445A;
+  --ruby-pale: #FAEAED;
+  --blue-deep: #1E3A5F;
+  --blue-mid: #2E6DA4;
+  --blue-pale: #E8F1FA;
+  --grey: #8A8170;
+  --radius: 12px;
+  --radius-lg: 20px;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+
+body {
+  font-family: 'Noto Sans TC', sans-serif;
+  background: var(--parchment);
+  color: var(--ink);
+  line-height: 1.8;
+}
+section[id] { scroll-margin-top: 64px; }
+
+/* ── HERO ── */
+.hero {
+  background: var(--deep);
+  padding: 3.5rem 2rem 2.6rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content:'';
+  position:absolute; inset:0;
+  background: radial-gradient(ellipse at 50% 0%, rgba(201,168,76,0.18) 0%, transparent 70%);
+  pointer-events:none;
+}
+.hero-tag {
+  display: inline-block;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  font-size: 11px;
+  letter-spacing: 4px;
+  padding: 4px 16px;
+  border-radius: 2px;
+  margin-bottom: 1.2rem;
+  text-transform: uppercase;
+}
+.hero h1 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  color: #fff;
+  font-weight: 700;
+  line-height: 1.4;
+  margin-bottom: 0.6rem;
+}
+.hero h1 em { color: var(--gold-light); font-style:normal; }
+.hero-sub {
+  color: rgba(255,255,255,0.55);
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  margin-bottom: 1.8rem;
+}
+.hero-verse {
+  display: inline-block;
+  border-left: 2px solid var(--gold);
+  padding: 0.5rem 1rem;
+  text-align: left;
+  color: var(--gold-light);
+  font-family: 'Noto Serif TC', serif;
+  font-size: 0.9rem;
+  line-height: 1.9;
+}
+.hero-days {
+  display:flex; justify-content:center; flex-wrap:wrap; gap:6px;
+  margin-top: 1.8rem; position:relative;
+}
+.hero-days span {
+  width: 38px; height: 38px;
+  display:flex; align-items:center; justify-content:center;
+  border: 1px solid rgba(201,168,76,0.45);
+  border-radius: 50%;
+  font-family: 'Noto Serif TC', serif;
+  font-size: 0.95rem;
+  color: var(--gold-light);
+}
+.hero-days span.hd-dark { border-color: rgba(255,255,255,0.25); color: rgba(255,255,255,0.5); }
+.hero-days span.hd-bright { background: var(--gold); color: var(--deep); font-weight:700; border-color: var(--gold); }
+
+/* ── CHAPTER NAV ── */
+.chapter-nav {
+  position: sticky; top: 0; z-index: 50;
+  background: rgba(26,18,8,0.96);
+  backdrop-filter: blur(6px);
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  padding: 9px 14px;
+  border-bottom: 1px solid rgba(201,168,76,0.3);
+  scrollbar-width: none;
+}
+.chapter-nav::-webkit-scrollbar { display:none; }
+.chapter-nav a {
+  color: rgba(255,255,255,0.72);
+  font-size: 0.74rem;
+  letter-spacing: 1px;
+  padding: 3px 12px;
+  border: 1px solid rgba(201,168,76,0.35);
+  border-radius: 999px;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background .15s, color .15s;
+}
+.chapter-nav a:hover { background: var(--gold); color: var(--deep); }
+
+/* ── LAYOUT ── */
+.container { max-width: 980px; margin: 0 auto; padding: 0 1.25rem; }
+.section { padding: 2.5rem 0 1.2rem; }
+
+/* ── SECTION TITLE ── */
+.sec-title { display:flex; align-items:center; gap:10px; margin-bottom:1.4rem; }
+.sec-title .icon {
+  width:36px; height:36px; background:var(--gold); border-radius:8px;
+  display:flex; align-items:center; justify-content:center;
+  font-size:17px; color:var(--deep); flex-shrink:0;
+}
+.sec-title h2 { font-family:'Noto Serif TC',serif; font-size:1.2rem; color:var(--deep); font-weight:700; }
+.sec-title .subtitle { font-size:0.78rem; color:var(--muted); margin-top:1px; }
+
+/* ── DIVIDER ── */
+.divider { display:flex; align-items:center; gap:12px; margin:0.5rem 0 1rem; opacity:0.35; }
+.divider::before, .divider::after { content:''; flex:1; height:0.5px; background:var(--muted); }
+.divider span { font-size:10px; letter-spacing:3px; color:var(--muted); text-transform:uppercase; }
+
+/* ── PILLARS ── */
+.pillars { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:1rem; margin-bottom:1.5rem; }
+.pillar {
+  background:#fff; border:0.5px solid rgba(0,0,0,0.1); border-radius:var(--radius-lg);
+  padding:1.4rem; position:relative; overflow:hidden;
+  transition:transform .2s, box-shadow .2s;
+}
+.pillar:hover { transform:translateY(-3px); box-shadow:0 8px 28px rgba(0,0,0,0.08); }
+.pillar::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; }
+.pillar.p1::before { background:linear-gradient(90deg,var(--gold),var(--gold-light)); }
+.pillar.p2::before { background:linear-gradient(90deg,var(--teal),var(--teal-light)); }
+.pillar.p3::before { background:linear-gradient(90deg,var(--ruby),var(--ruby-light)); }
+.pillar.p4::before { background:linear-gradient(90deg,var(--blue-deep),var(--blue-mid)); }
+.pillar-num {
+  font-family:'Noto Serif TC',serif; font-size:2.5rem; font-weight:700; line-height:1;
+  opacity:0.12; position:absolute; top:1rem; right:1.2rem;
+}
+.pillar.p1 .pillar-num{color:var(--gold);} .pillar.p2 .pillar-num{color:var(--teal);}
+.pillar.p3 .pillar-num{color:var(--ruby);} .pillar.p4 .pillar-num{color:var(--blue-deep);}
+.pillar-icon { font-size:1.5rem; margin-bottom:0.4rem; }
+.pillar h3 { font-family:'Noto Serif TC',serif; font-size:1rem; font-weight:700; margin-bottom:0.4rem; color:var(--deep); }
+.pillar p { font-size:0.8rem; color:var(--muted); line-height:1.7; }
+
+/* ── SVG WRAP ── */
+.svg-wrap {
+  background:#fff; border-radius:var(--radius-lg);
+  border:0.5px solid rgba(0,0,0,0.09); overflow:hidden; margin-bottom:1.4rem;
+}
+.svg-wrap svg { display:block; width:100%; }
+
+/* ── MEMORY CHAIN ── */
+.mem-chain { display:grid; grid-template-columns:repeat(8,1fr); gap:8px; margin-bottom:1.4rem; }
+@media(max-width:680px){ .mem-chain{ grid-template-columns:repeat(4,1fr); } }
+.mem-cell {
+  background:#fff; border-radius:12px; border:0.5px solid rgba(0,0,0,0.09);
+  text-align:center; padding:0.85rem 0.2rem 0.7rem; position:relative; overflow:hidden;
+  text-decoration:none; display:block; transition:transform .15s;
+}
+.mem-cell:hover { transform:translateY(-2px); }
+.mem-cell::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; }
+.mem-char { font-family:'Noto Serif TC',serif; font-size:1.65rem; font-weight:700; color:var(--deep); line-height:1.2; }
+.mem-day { font-size:0.62rem; color:var(--muted); letter-spacing:1px; margin-top:3px; }
+.mc1::before{background:#C9A84C;} .mc2::before{background:#2E7D72;}
+.mc3::before{background:#2E6DA4;} .mc4::before{background:#8A8170;}
+.mc5::before{background:#C2445A;} .mc6::before{background:#8B2130;}
+.mc7::before{background:#4A4238;} .mc8::before{background:#E8B33C;}
+
+/* ── LOCATION FLOW ── */
+.loc-flow { display:flex; flex-wrap:wrap; gap:6px; align-items:center; margin-bottom:1.4rem; font-size:0.78rem; }
+.loc-chip { background:var(--soft); border:1px solid rgba(0,0,0,0.08); border-radius:999px; padding:3px 13px; color:var(--ink); }
+.loc-arrow { color:var(--gold); font-weight:700; }
+
+/* ── STAT CARDS ── */
+.stat-row { display:grid; grid-template-columns:repeat(auto-fit,minmax(140px,1fr)); gap:0.9rem; margin-bottom:1.4rem; }
+.stat-card { background:#fff; border:0.5px solid rgba(0,0,0,0.09); border-radius:14px; padding:1rem 0.6rem; text-align:center; }
+.stat-num { font-family:'Noto Serif TC',serif; font-size:2rem; font-weight:700; line-height:1.2; }
+.stat-card:nth-child(1) .stat-num{color:var(--gold);} .stat-card:nth-child(2) .stat-num{color:var(--teal);}
+.stat-card:nth-child(3) .stat-num{color:var(--blue-mid);} .stat-card:nth-child(4) .stat-num{color:var(--ruby);}
+.stat-card:nth-child(5) .stat-num{color:var(--gold);} .stat-card:nth-child(6) .stat-num{color:var(--teal);}
+.stat-label { font-size:0.72rem; color:var(--muted); margin-top:2px; }
+
+/* ── BAR CHART ── */
+.chart-duo { display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1.4rem; }
+@media(max-width:760px){ .chart-duo{ grid-template-columns:1fr; } }
+.barchart { background:#fff; border:0.5px solid rgba(0,0,0,0.09); border-radius:14px; padding:1.2rem 1.3rem; }
+.bc-title { font-family:'Noto Serif TC',serif; font-size:0.92rem; font-weight:700; color:var(--deep); margin-bottom:0.2rem; }
+.bc-sub { font-size:0.7rem; color:var(--muted); margin-bottom:0.9rem; }
+.bar-row { display:grid; grid-template-columns:92px 1fr 30px; align-items:center; gap:10px; margin-bottom:7px; font-size:0.76rem; color:var(--ink); }
+.bar-track { background:var(--soft); border-radius:99px; height:13px; overflow:hidden; }
+.bar-fill { height:100%; border-radius:99px; }
+.bar-val { text-align:right; color:var(--muted); font-weight:600; }
+
+/* ── DAY CHAPTER ── */
+.day-head {
+  display:flex; gap:1.1rem; align-items:flex-start;
+  background:#fff; border-radius:var(--radius-lg); padding:1.5rem 1.7rem;
+  border:0.5px solid rgba(0,0,0,0.09); position:relative; overflow:hidden;
+  margin-bottom:1.1rem;
+}
+.day-head::before { content:''; position:absolute; top:0; left:0; right:0; height:4px; }
+.day-no { font-family:'Noto Serif TC',serif; font-size:2.8rem; font-weight:700; line-height:1; opacity:0.18; flex-shrink:0; margin-top:0.2rem; }
+.day-kicker { font-size:0.72rem; letter-spacing:2px; font-weight:700; margin-bottom:2px; }
+.day-head h2 { font-family:'Noto Serif TC',serif; font-size:1.4rem; color:var(--deep); font-weight:700; line-height:1.4; }
+.day-en { font-size:0.78rem; color:var(--muted); font-weight:400; letter-spacing:1.5px; margin-left:6px; }
+.day-summary { font-size:0.84rem; color:var(--muted); margin-top:0.35rem; line-height:1.7; }
+.day-key {
+  position:absolute; right:1.1rem; bottom:-0.8rem;
+  font-family:'Noto Serif TC',serif; font-size:4.6rem; font-weight:700; opacity:0.07; pointer-events:none;
+}
+.c1::before{background:linear-gradient(90deg,#C9A84C,#E8D08A);} .c1 .day-no,.c1 .day-kicker,.c1 .day-key{color:#C9A84C;}
+.c2::before{background:linear-gradient(90deg,#2E7D72,#4AA89C);} .c2 .day-no,.c2 .day-kicker,.c2 .day-key{color:#2E7D72;}
+.c3::before{background:linear-gradient(90deg,#1E3A5F,#2E6DA4);} .c3 .day-no,.c3 .day-kicker,.c3 .day-key{color:#2E6DA4;}
+.c4::before{background:linear-gradient(90deg,#6B5D3E,#8A8170);} .c4 .day-no,.c4 .day-kicker,.c4 .day-key{color:#8A8170;}
+.c5::before{background:linear-gradient(90deg,#8B2130,#C2445A);} .c5 .day-no,.c5 .day-kicker,.c5 .day-key{color:#C2445A;}
+.c6::before{background:linear-gradient(90deg,#5A0F1B,#8B2130);} .c6 .day-no,.c6 .day-kicker,.c6 .day-key{color:#8B2130;}
+.c7::before{background:linear-gradient(90deg,#2C2416,#4A4238);} .c7 .day-no,.c7 .day-kicker,.c7 .day-key{color:#4A4238;}
+.c8::before{background:linear-gradient(90deg,#C9A84C,#F0C75E);} .c8 .day-no,.c8 .day-kicker,.c8 .day-key{color:#E8B33C;}
+
+/* ── SCRIPTURE ── */
+.scripture {
+  background:#fff; border:0.5px solid rgba(0,0,0,0.09); border-left:3px solid var(--gold);
+  border-radius:var(--radius); padding:1.15rem 1.35rem; margin-bottom:1rem;
+}
+.scripture.teal{border-left-color:var(--teal);} .scripture.ruby{border-left-color:var(--ruby);}
+.scripture.blue{border-left-color:var(--blue-mid);} .scripture.grey{border-left-color:var(--grey);}
+.s-head { display:flex; gap:8px; align-items:center; margin-bottom:0.5rem; }
+.s-emoji { font-size:1rem; }
+.s-ref { font-size:0.74rem; font-weight:700; letter-spacing:1.5px; color:var(--muted); }
+.scripture p { font-family:'Noto Serif TC',serif; font-size:0.9rem; line-height:2; color:var(--ink); }
+.scripture p strong { color:var(--ruby); font-weight:700; }
+
+/* ── EXPAND BOX（深入解析） ── */
+.expand-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:0.9rem; margin-bottom:1.1rem; }
+.expand-box { background:var(--teal-pale); border-radius:var(--radius); padding:1.05rem 1.15rem; border:1px solid rgba(46,125,114,0.22); }
+.expand-box.gold { background:var(--gold-pale); border-color:rgba(201,168,76,0.35); }
+.expand-box.ruby { background:var(--ruby-pale); border-color:rgba(139,33,48,0.2); }
+.expand-box.blue { background:var(--blue-pale); border-color:rgba(46,109,164,0.22); }
+.eb-label { font-size:0.64rem; letter-spacing:2px; font-weight:700; color:var(--teal); margin-bottom:0.35rem; text-transform:uppercase; }
+.expand-box.gold .eb-label{color:#7A620A;} .expand-box.ruby .eb-label{color:var(--ruby);} .expand-box.blue .eb-label{color:var(--blue-mid);}
+.expand-box h4 { font-family:'Noto Serif TC',serif; font-size:0.92rem; color:var(--deep); margin-bottom:0.3rem; font-weight:700; }
+.expand-box p { font-size:0.78rem; color:#185049; line-height:1.75; }
+.expand-box.gold p{color:#6B5413;} .expand-box.ruby p{color:#6B1621;} .expand-box.blue p{color:#0C2A4A;}
+
+/* ── TEACH CARDS（比喻/教導卡） ── */
+.teach-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:0.9rem; margin-bottom:1.1rem; }
+.teach-card { background:#fff; border:0.5px solid rgba(0,0,0,0.09); border-radius:14px; padding:1.05rem 1.15rem; position:relative; overflow:hidden; }
+.teach-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; }
+.teach-card:nth-child(4n+1)::before{background:var(--gold);} .teach-card:nth-child(4n+2)::before{background:var(--teal);}
+.teach-card:nth-child(4n+3)::before{background:var(--ruby);} .teach-card:nth-child(4n+4)::before{background:var(--blue-mid);}
+.tc-ref { font-size:0.66rem; letter-spacing:1.5px; font-weight:700; color:var(--muted); }
+.teach-card h4 { font-family:'Noto Serif TC',serif; font-size:0.96rem; margin:0.15rem 0 0.3rem; color:var(--deep); font-weight:700; }
+.tc-point { font-size:0.78rem; color:var(--muted); line-height:1.7; }
+
+/* ── COLLAPSIBLE PASSAGE ── */
+details.passage { background:var(--parchment); border:0.5px solid rgba(0,0,0,0.1); border-radius:10px; margin-top:0.6rem; }
+details.passage summary { cursor:pointer; padding:0.5rem 0.9rem; font-size:0.73rem; color:var(--muted); font-weight:600; letter-spacing:0.5px; list-style-position:inside; }
+details.passage summary:hover { color:var(--deep); }
+details.passage[open] summary { border-bottom:0.5px dashed rgba(0,0,0,0.15); }
+details.passage .p-body { padding:0.85rem 1rem; font-family:'Noto Serif TC',serif; font-size:0.85rem; line-height:1.95; color:var(--ink); }
+
+/* ── SEVEN WORDS ── */
+.seven-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(225px,1fr)); gap:0.9rem; margin-bottom:1.1rem; }
+.word-card { background:var(--deep); border-radius:14px; padding:1.05rem 1.15rem; position:relative; overflow:hidden; }
+.word-card::after {
+  content:'✝'; position:absolute; right:0.7rem; bottom:-0.5rem;
+  font-size:3rem; color:var(--gold); opacity:0.1; pointer-events:none;
+}
+.word-no { font-size:0.64rem; letter-spacing:2.5px; color:var(--gold); font-weight:700; margin-bottom:0.35rem; }
+.w-text { font-family:'Noto Serif TC',serif; color:#fff; font-size:0.92rem; line-height:1.85; margin-bottom:0.4rem; }
+.word-src { font-size:0.68rem; color:rgba(255,255,255,0.45); letter-spacing:1px; }
+.word-note { font-size:0.74rem; color:var(--gold-light); margin-top:0.3rem; line-height:1.6; }
+
+/* ── TWO PATH ── */
+.two-path {
+  display:grid; grid-template-columns:1fr 1fr; gap:0;
+  background:#fff; border-radius:var(--radius-lg); border:0.5px solid rgba(0,0,0,0.09);
+  overflow:hidden; margin-bottom:1.1rem;
+}
+@media(max-width:520px){ .two-path{grid-template-columns:1fr;} }
+.path-side { padding:1.4rem 1.3rem; }
+.path-side:first-child { border-right:0.5px solid rgba(0,0,0,0.07); }
+.path-label { font-size:0.66rem; letter-spacing:2.5px; font-weight:700; text-transform:uppercase; margin-bottom:0.5rem; }
+.path-a .path-label { color:var(--ruby); }
+.path-b .path-label { color:var(--teal); }
+.path-title { font-family:'Noto Serif TC',serif; font-size:1rem; font-weight:700; color:var(--deep); margin-bottom:0.5rem; }
+.path-list { list-style:none; padding:0; }
+.path-list li { font-size:0.79rem; color:var(--muted); line-height:1.7; padding:3px 0 3px 14px; position:relative; }
+.path-list li::before { content:'·'; position:absolute; left:2px; font-size:1rem; line-height:1.3; }
+.path-a .path-list li::before { color:var(--ruby); }
+.path-b .path-list li::before { color:var(--teal); }
+
+/* ── QUOTE BLOCK ── */
+.quote-block {
+  background:var(--deep); border-radius:var(--radius-lg);
+  padding:2rem 2rem 1.5rem; margin-bottom:1.4rem; position:relative; overflow:hidden;
+}
+.quote-block::before {
+  content:'"'; position:absolute; top:-0.5rem; left:1rem;
+  font-family:'Noto Serif TC',serif; font-size:6rem; color:var(--gold);
+  opacity:0.15; line-height:1; pointer-events:none;
+}
+.quote-text { font-family:'Noto Serif TC',serif; font-size:1.05rem; color:#fff; line-height:1.95; margin-bottom:0.8rem; }
+.quote-text em { color:var(--gold-light); font-style:normal; font-weight:700; }
+.quote-src { font-size:0.75rem; color:rgba(255,255,255,0.45); letter-spacing:1px; }
+
+/* ── PROPHECY MAP ── */
+.prophecy-row { display:grid; grid-template-columns:1fr 36px 1fr; gap:10px; align-items:stretch; margin-bottom:0.8rem; }
+@media(max-width:600px){
+  .prophecy-row{ grid-template-columns:1fr; }
+  .pr-arrow{ transform:rotate(90deg); padding:0; }
+}
+.pr-old, .pr-new { border-radius:var(--radius); padding:0.8rem 1rem; }
+.pr-old { background:var(--gold-pale); border:1px solid rgba(201,168,76,0.35); }
+.pr-new { background:var(--teal-pale); border:1px solid rgba(46,125,114,0.25); }
+.pr-arrow { display:flex; align-items:center; justify-content:center; color:var(--gold); font-weight:700; font-size:1.1rem; }
+.pr-ref { font-size:0.66rem; font-weight:700; letter-spacing:1.5px; margin-bottom:2px; }
+.pr-old .pr-ref{ color:#7A620A; } .pr-new .pr-ref{ color:#185049; }
+.pr-old p, .pr-new p { font-size:0.78rem; line-height:1.65; color:var(--ink); }
+
+/* ── REFLECTION ── */
+.reflection {
+  background:var(--soft); border-radius:var(--radius-lg);
+  padding:1.7rem 1.7rem 1.4rem; border-left:3px solid var(--gold); margin-bottom:1.4rem;
+}
+.reflection h3 { font-family:'Noto Serif TC',serif; font-size:1rem; font-weight:700; color:var(--deep); margin-bottom:0.8rem; }
+.reflection ol { padding-left:1.2rem; }
+.reflection ol li { font-size:0.85rem; color:var(--ink); line-height:1.85; margin-bottom:0.35rem; }
+.reflection ol li strong { color:var(--deep); font-weight:600; }
+
+/* ── FOOTER ── */
+.page-footer { background:var(--deep); text-align:center; padding:1.8rem 1rem; margin-top:2.5rem; }
+.page-footer p { font-size:0.78rem; color:rgba(255,255,255,0.35); letter-spacing:1px; }
+.page-footer strong { color:var(--gold); font-weight:400; }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════ HERO ═══════════════ -->
+<header class="hero">
+  <div class="hero-tag">節慶系列 · 聖難週 HOLY WEEK</div>
+  <h1>聖難週八日<br>——從<em>棕枝</em>到<em>空墳墓</em></h1>
+  <p class="hero-sub">棕樹主日 × 最後晚餐 × 十架七言 × 復活清晨</p>
+  <div class="hero-verse">
+    哪知祂為我們的過犯受害，為我們的罪孽壓傷。<br>
+    因祂受的刑罰，我們得平安；因祂受的鞭傷，我們得醫治。<br>
+    <span style="color:rgba(255,255,255,0.4);font-size:0.78rem">— 以賽亞書 53:5</span>
+  </div>
+  <div class="hero-days">
+    <span>棕</span><span>訓</span><span>辨</span><span class="hd-dark">修</span>
+    <span>餐</span><span class="hd-dark">難</span><span class="hd-dark">墓</span><span class="hd-bright">活</span>
+  </div>
+</header>
+
+<!-- ═══════════════ CHAPTER NAV ═══════════════ -->
+<nav class="chapter-nav">
+  <a href="#overview">總覽</a>
+  <a href="#stats">數據</a>
+  <a href="#day1">壹 · 棕枝</a>
+  <a href="#day2">貳 · 訓誨</a>
+  <a href="#day3">參 · 辨惑</a>
+  <a href="#day4">肆 · 退修</a>
+  <a href="#day5">伍 · 聖餐</a>
+  <a href="#day6">陸 · 受難</a>
+  <a href="#day7">柒 · 墳墓</a>
+  <a href="#day8">捌 · 復活</a>
+  <a href="#prophecy">預言應驗</a>
+  <a href="#reflect">默想</a>
+</nav>
+
+<main class="container">
+
+  <!-- ═══════════════ 八日總覽 ═══════════════ -->
+  <section class="section" id="overview">
+    <div class="sec-title">
+      <div class="icon">🗺</div>
+      <div>
+        <h2>八日總覽 · 一條走向十架與復活的路</h2>
+        <div class="subtitle">從禮拜天騎驢進城，到下一個禮拜天空墳墓的清晨</div>
+      </div>
+    </div>
+
+    <div class="svg-wrap">
+      <svg viewBox="0 0 920 250" xmlns="http://www.w3.org/2000/svg" role="img">
+        <title>聖難週八日時間軸</title>
+        <rect width="920" height="250" fill="#FDFAF3"/>
+        <line x1="36" y1="125" x2="876" y2="125" stroke="#C9A84C" stroke-width="1.6" opacity="0.55"/>
+        <path d="M876 125 L866 120 L866 130 Z" fill="#C9A84C" opacity="0.8"/>
+
+        <!-- 第一天（上） -->
+        <text x="70" y="62" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#C9A84C" font-weight="700">第一天 · 主日</text>
+        <text x="70" y="82" text-anchor="middle" font-family="Noto Serif TC,serif" font-size="12.5" fill="#2C2416" font-weight="700">棕樹主日</text>
+        <text x="70" y="100" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9" fill="#6B5D3E">騎驢進耶路撒冷</text>
+        <line x1="70" y1="106" x2="70" y2="115" stroke="#C9A84C" stroke-width="1"/>
+        <circle cx="70" cy="125" r="9" fill="#C9A84C"/>
+
+        <!-- 第二天（下） -->
+        <circle cx="180" cy="125" r="9" fill="#2E7D72"/>
+        <line x1="180" y1="135" x2="180" y2="144" stroke="#2E7D72" stroke-width="1"/>
+        <text x="180" y="162" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#2E7D72" font-weight="700">第二天 · 週一</text>
+        <text x="180" y="182" text-anchor="middle" font-family="Noto Serif TC,serif" font-size="12.5" fill="#2C2416" font-weight="700">訓誨日</text>
+        <text x="180" y="200" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9" fill="#6B5D3E">潔淨聖殿 · 殿裏醫治</text>
+
+        <!-- 第三天（上） -->
+        <text x="290" y="62" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#2E6DA4" font-weight="700">第三天 · 週二</text>
+        <text x="290" y="82" text-anchor="middle" font-family="Noto Serif TC,serif" font-size="12.5" fill="#2C2416" font-weight="700">辨惑日</text>
+        <text x="290" y="100" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9" fill="#6B5D3E">比喻教導 · 橄欖山講論</text>
+        <line x1="290" y1="106" x2="290" y2="115" stroke="#2E6DA4" stroke-width="1"/>
+        <circle cx="290" cy="125" r="9" fill="#2E6DA4"/>
+
+        <!-- 第四天（下） -->
+        <circle cx="400" cy="125" r="9" fill="#8A8170"/>
+        <line x1="400" y1="135" x2="400" y2="144" stroke="#8A8170" stroke-width="1"/>
+        <text x="400" y="162" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#8A8170" font-weight="700">第四天 · 週三</text>
+        <text x="400" y="182" text-anchor="middle" font-family="Noto Serif TC,serif" font-size="12.5" fill="#2C2416" font-weight="700">退修日</text>
+        <text x="400" y="200" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9" fill="#6B5D3E">安靜禱告 · 暗中的密謀</text>
+
+        <!-- 第五天（上） -->
+        <text x="510" y="62" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#C2445A" font-weight="700">第五天 · 週四</text>
+        <text x="510" y="82" text-anchor="middle" font-family="Noto Serif TC,serif" font-size="12.5" fill="#2C2416" font-weight="700">聖餐日 · 逾越節</text>
+        <text x="510" y="100" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9" fill="#6B5D3E">最後晚餐 · 客西馬尼</text>
+        <line x1="510" y1="106" x2="510" y2="115" stroke="#C2445A" stroke-width="1"/>
+        <circle cx="510" cy="125" r="9" fill="#C2445A"/>
+
+        <!-- 第六天（下） -->
+        <circle cx="620" cy="125" r="11" fill="#8B2130"/>
+        <text x="620" y="129" text-anchor="middle" font-family="Noto Serif TC,serif" font-size="10" fill="#fff" font-weight="700">✝</text>
+        <line x1="620" y1="137" x2="620" y2="144" stroke="#8B2130" stroke-width="1"/>
+        <text x="620" y="162" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#8B2130" font-weight="700">第六天 · 週五</text>
+        <text x="620" y="182" text-anchor="middle" font-family="Noto Serif TC,serif" font-size="12.5" fill="#2C2416" font-weight="700">受難日</text>
+        <text x="620" y="200" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9" fill="#6B5D3E">十字架 · 七言 · 安葬</text>
+
+        <!-- 第七天（上） -->
+        <text x="730" y="62" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#4A4238" font-weight="700">第七天 · 週六</text>
+        <text x="730" y="82" text-anchor="middle" font-family="Noto Serif TC,serif" font-size="12.5" fill="#2C2416" font-weight="700">墳墓日</text>
+        <text x="730" y="100" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9" fill="#6B5D3E">安息日 · 封石看守</text>
+        <line x1="730" y1="106" x2="730" y2="115" stroke="#4A4238" stroke-width="1"/>
+        <circle cx="730" cy="125" r="9" fill="#4A4238"/>
+
+        <!-- 第八天（下，發光） -->
+        <circle cx="840" cy="125" r="14" fill="none" stroke="#E8B33C" stroke-width="1" opacity="0.5"/>
+        <circle cx="840" cy="125" r="11" fill="#E8B33C"/>
+        <text x="840" y="129" text-anchor="middle" font-family="Noto Serif TC,serif" font-size="10" fill="#1A1208" font-weight="700">☀</text>
+        <line x1="840" y1="139" x2="840" y2="144" stroke="#E8B33C" stroke-width="1"/>
+        <text x="840" y="162" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#B4791F" font-weight="700">第八天 · 主日</text>
+        <text x="840" y="182" text-anchor="middle" font-family="Noto Serif TC,serif" font-size="12.5" fill="#2C2416" font-weight="700">復活日</text>
+        <text x="840" y="200" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9" fill="#6B5D3E">空墳墓 · 以馬忤斯</text>
+      </svg>
+    </div>
+
+    <!-- 八字記憶鏈 -->
+    <div class="sec-title" style="margin-top:0.5rem;">
+      <div class="icon">🧠</div>
+      <div>
+        <h2>八字記憶鏈</h2>
+        <div class="subtitle">一天一個字：棕 → 訓 → 辨 → 修 → 餐 → 難 → 墓 → 活（點字可跳到該章）</div>
+      </div>
+    </div>
+    <div class="mem-chain">
+      <a class="mem-cell mc1" href="#day1"><div class="mem-char">棕</div><div class="mem-day">日 · 棕樹主日</div></a>
+      <a class="mem-cell mc2" href="#day2"><div class="mem-char">訓</div><div class="mem-day">一 · 訓誨日</div></a>
+      <a class="mem-cell mc3" href="#day3"><div class="mem-char">辨</div><div class="mem-day">二 · 辨惑日</div></a>
+      <a class="mem-cell mc4" href="#day4"><div class="mem-char">修</div><div class="mem-day">三 · 退修日</div></a>
+      <a class="mem-cell mc5" href="#day5"><div class="mem-char">餐</div><div class="mem-day">四 · 聖餐日</div></a>
+      <a class="mem-cell mc6" href="#day6"><div class="mem-char">難</div><div class="mem-day">五 · 受難日</div></a>
+      <a class="mem-cell mc7" href="#day7"><div class="mem-char">墓</div><div class="mem-day">六 · 墳墓日</div></a>
+      <a class="mem-cell mc8" href="#day8"><div class="mem-char">活</div><div class="mem-day">日 · 復活日</div></a>
+    </div>
+
+    <!-- 四重身分 -->
+    <div class="pillars">
+      <div class="pillar p1">
+        <div class="pillar-num">一</div>
+        <div class="pillar-icon">👑</div>
+        <h3>君王</h3>
+        <p>棕枝主日，溫柔的王騎着驢駒進城，應驗撒迦利亞的預言；群眾高喊「和散那」。</p>
+      </div>
+      <div class="pillar p2">
+        <div class="pillar-num">二</div>
+        <div class="pillar-icon">📜</div>
+        <h3>夫子</h3>
+        <p>訓誨日潔淨聖殿、辨惑日以比喻與智慧堵住試探者的口——「我的殿必稱為禱告的殿」。</p>
+      </div>
+      <div class="pillar p3">
+        <div class="pillar-num">三</div>
+        <div class="pillar-icon">🐑</div>
+        <h3>羔羊</h3>
+        <p>逾越節的晚上設立聖餐，隔日在十架上成為代罪羔羊——以無罪代替有罪，使罪得赦。</p>
+      </div>
+      <div class="pillar p4">
+        <div class="pillar-num">四</div>
+        <div class="pillar-icon">🌅</div>
+        <h3>得勝者</h3>
+        <p>第三日清晨墳墓空了。「為甚麼在死人中找活人呢？祂不在這裏，已經復活了。」</p>
+      </div>
+    </div>
+
+    <!-- 一週動線 -->
+    <div class="sec-title" style="margin-top:0.5rem;">
+      <div class="icon">📍</div>
+      <div>
+        <h2>一週動線</h2>
+        <div class="subtitle">主耶穌這八天行走的足跡</div>
+      </div>
+    </div>
+    <div class="loc-flow">
+      <span class="loc-chip">伯法其</span><span class="loc-arrow">→</span>
+      <span class="loc-chip">橄欖山</span><span class="loc-arrow">→</span>
+      <span class="loc-chip">耶路撒冷聖殿</span><span class="loc-arrow">⇄</span>
+      <span class="loc-chip">伯大尼（夜宿）</span><span class="loc-arrow">→</span>
+      <span class="loc-chip">馬可樓（最後晚餐）</span><span class="loc-arrow">→</span>
+      <span class="loc-chip">客西馬尼園</span><span class="loc-arrow">→</span>
+      <span class="loc-chip">大祭司院 · 彼拉多衙門</span><span class="loc-arrow">→</span>
+      <span class="loc-chip">髑髏地（各各他）</span><span class="loc-arrow">→</span>
+      <span class="loc-chip">新墳墓</span><span class="loc-arrow">→</span>
+      <span class="loc-chip">以馬忤斯路上</span>
+    </div>
+  </section>
+
+  <div class="divider"><span>數據統計</span></div>
+
+  <!-- ═══════════════ 數據看聖難週 ═══════════════ -->
+  <section class="section" id="stats" style="padding-top:0">
+    <div class="sec-title">
+      <div class="icon">📊</div>
+      <div>
+        <h2>用數據看聖難週</h2>
+        <div class="subtitle">本頁經文與事件的統計一覽</div>
+      </div>
+    </div>
+
+    <div class="stat-row">
+      <div class="stat-card"><div class="stat-num">8</div><div class="stat-label">天的旅程<br>主日到主日</div></div>
+      <div class="stat-card"><div class="stat-num">39</div><div class="stat-label">處經文引用<br>橫跨新舊約六卷書</div></div>
+      <div class="stat-card"><div class="stat-num">7</div><div class="stat-label">個比喻與教導<br>集中在辨惑日</div></div>
+      <div class="stat-card"><div class="stat-num">7</div><div class="stat-label">句十架之言<br>出自四卷福音書</div></div>
+      <div class="stat-card"><div class="stat-num">3</div><div class="stat-label">次客西馬尼禱告<br>「照祢的意思」</div></div>
+      <div class="stat-card"><div class="stat-num">3</div><div class="stat-label">次彼得不認主<br>雞叫以先</div></div>
+    </div>
+
+    <div class="chart-duo">
+      <div class="barchart">
+        <div class="bc-title">八日事件密度</div>
+        <div class="bc-sub">福音書記載的主要事件數（按日統計）——週二與週五最密集</div>
+        <div class="bar-row"><span>日1 棕樹主日</span><div class="bar-track"><div class="bar-fill" style="width:33%;background:#C9A84C"></div></div><span class="bar-val">3</span></div>
+        <div class="bar-row"><span>日2 訓誨日</span><div class="bar-track"><div class="bar-fill" style="width:33%;background:#2E7D72"></div></div><span class="bar-val">3</span></div>
+        <div class="bar-row"><span>日3 辨惑日</span><div class="bar-track"><div class="bar-fill" style="width:100%;background:#2E6DA4"></div></div><span class="bar-val">9</span></div>
+        <div class="bar-row"><span>日4 退修日</span><div class="bar-track"><div class="bar-fill" style="width:11%;background:#8A8170"></div></div><span class="bar-val">1</span></div>
+        <div class="bar-row"><span>日5 聖餐日</span><div class="bar-track"><div class="bar-fill" style="width:67%;background:#C2445A"></div></div><span class="bar-val">6</span></div>
+        <div class="bar-row"><span>日6 受難日</span><div class="bar-track"><div class="bar-fill" style="width:89%;background:#8B2130"></div></div><span class="bar-val">8</span></div>
+        <div class="bar-row"><span>日7 墳墓日</span><div class="bar-track"><div class="bar-fill" style="width:11%;background:#4A4238"></div></div><span class="bar-val">1</span></div>
+        <div class="bar-row"><span>日8 復活日</span><div class="bar-track"><div class="bar-fill" style="width:56%;background:#E8B33C"></div></div><span class="bar-val">5</span></div>
+      </div>
+      <div class="barchart">
+        <div class="bc-title">本頁引用經文分布</div>
+        <div class="bc-sub">按書卷統計（含十架七言出處）</div>
+        <div class="bar-row"><span>馬太福音</span><div class="bar-track"><div class="bar-fill" style="width:100%;background:#C9A84C"></div></div><span class="bar-val">19</span></div>
+        <div class="bar-row"><span>路加福音</span><div class="bar-track"><div class="bar-fill" style="width:58%;background:#2E7D72"></div></div><span class="bar-val">11</span></div>
+        <div class="bar-row"><span>約翰福音</span><div class="bar-track"><div class="bar-fill" style="width:26%;background:#2E6DA4"></div></div><span class="bar-val">5</span></div>
+        <div class="bar-row"><span>馬可福音</span><div class="bar-track"><div class="bar-fill" style="width:6%;background:#8B2130"></div></div><span class="bar-val">1</span></div>
+        <div class="bar-row"><span>舊約預言</span><div class="bar-track"><div class="bar-fill" style="width:16%;background:#8A8170"></div></div><span class="bar-val">3</span></div>
+        <div style="font-size:0.68rem;color:var(--muted);margin-top:0.8rem;line-height:1.6">舊約：撒迦利亞書 9:9、以賽亞書 9:6–7、詩篇 118:25–26。馬太福音是聖難週記載最完整的一卷。</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"><span>第一章</span></div>
+
+  <!-- ═══════════════ 第一天 棕樹主日 ═══════════════ -->
+  <section class="section day-chapter" id="day1" style="padding-top:0">
+    <div class="day-head c1">
+      <div class="day-no">壹</div>
+      <div>
+        <div class="day-kicker">第一天 · 禮拜天 · 記憶字「棕」</div>
+        <h2>棕樹主日<span class="day-en">PALM SUNDAY</span></h2>
+        <p class="day-summary">溫柔的王騎着驢駒進耶路撒冷，眾人把衣服和樹枝鋪在路上，高喊「和散那歸於大衛的子孫」，合城都驚動了。</p>
+      </div>
+      <div class="day-key">棕</div>
+    </div>
+
+    <div class="loc-flow">
+      <span class="loc-chip">📍 伯法其</span><span class="loc-arrow">→</span>
+      <span class="loc-chip">橄欖山</span><span class="loc-arrow">→</span>
+      <span class="loc-chip">耶路撒冷</span>
+    </div>
+
+    <div class="scripture">
+      <div class="s-head"><span class="s-emoji">🌿</span><span class="s-ref">馬太福音 21:1–11</span></div>
+      <p>耶穌和門徒將近耶路撒冷，到了伯法其，在橄欖山那裏。耶穌就打發兩個門徒，對他們說：「你們往對面村子裏去，必看見一匹驢拴在那裏，還有驢駒同在一處；你們解開，牽到我這裏來。若有人對你們說甚麼，你們就說：『主要用牠。』那人必立時讓你們牽來。」這事成就，是要應驗先知的話，說：要對錫安的居民（原文：女子）說：看哪，你的王來到你這裏，是溫柔的，又騎着驢，就是騎着驢駒子。門徒就照耶穌所吩咐的去行，牽了驢和驢駒來，把自己的衣服搭在上面，耶穌就騎上。眾人多半把衣服鋪在路上；還有人砍下樹枝來鋪在路上。前行後隨的眾人喊着說：<strong>「和散那（原有求救的意思，在此是稱頌的話）歸於大衛的子孫！奉主名來的是應當稱頌的！高高在上和散那！」</strong>耶穌既進了耶路撒冷，合城都驚動了，說：「這是誰？」眾人說：「這是加利利拿撒勒的先知耶穌。」</p>
+    </div>
+
+    <p style="font-size:0.84rem;color:var(--muted);margin-bottom:0.8rem;">這事成就，為要應驗先知的預言——</p>
+
+    <div class="scripture gold">
+      <div class="s-head"><span class="s-emoji">📜</span><span class="s-ref">撒迦利亞書 9:9 ── 馬太直接引用的預言</span></div>
+      <p>錫安的民哪，應當大大喜樂；耶路撒冷的民哪，應當歡呼。看哪，你的王來到你這裏！祂是公義的，並且施行拯救，謙謙和和地騎着驢，就是騎着驢的駒子。</p>
+    </div>
+
+    <div class="scripture gold">
+      <div class="s-head"><span class="s-emoji">📜</span><span class="s-ref">以賽亞書 9:6–7 ── 君王的身分</span></div>
+      <p>因有一嬰孩為我們而生，有一子賜給我們。政權必擔在祂的肩頭上；祂名稱為「奇妙策士、全能的　神、永在的父、和平的君」。祂的政權與平安必加增無窮。祂必在大衛的寶座上治理祂的國，以公平公義使國堅定穩固，從今直到永遠。萬軍之耶和華的熱心必成就這事。</p>
+    </div>
+
+    <div class="scripture gold">
+      <div class="s-head"><span class="s-emoji">📜</span><span class="s-ref">詩篇 118:25–26 ── 「和散那」的出處</span></div>
+      <p>耶和華啊，求祢拯救！耶和華啊，求祢使我們亨通！奉耶和華名來的是應當稱頌的！我們從耶和華的殿中為你們祝福！</p>
+    </div>
+
+    <div class="expand-grid">
+      <div class="expand-box">
+        <div class="eb-label">📖 深入 · 字義</div>
+        <h4>「和散那」是甚麼意思？</h4>
+        <p>希伯來文原意是「求祢拯救」（詩篇 118:25），到了主耶穌的時代已成為歡呼稱頌的話。群眾用迎接君王的最高禮儀——鋪衣服、揮樹枝——迎接祂。</p>
+      </div>
+      <div class="expand-box gold">
+        <div class="eb-label">📖 深入 · 象徵</div>
+        <h4>為甚麼騎驢，不騎馬？</h4>
+        <p>君王騎馬出征、騎驢出巡：馬代表戰爭，驢代表和平。主耶穌不是來推翻羅馬的政治彌賽亞，而是「和平的君」——溫柔謙和，卻帶着天國的權柄。</p>
+      </div>
+      <div class="expand-box ruby">
+        <div class="eb-label">📖 深入 · 時序</div>
+        <h4>羔羊進城的日子</h4>
+        <p>按出埃及記 12:3，逾越節前數日（正月初十）家家要把羔羊牽進家中查驗，預備宰殺。就在那幾天，　神的羔羊也進了耶路撒冷——被查驗、被棄絕、被獻上。</p>
+      </div>
+      <div class="expand-box blue">
+        <div class="eb-label">📖 深入 · 對照</div>
+        <h4>同一群人，兩種喊聲</h4>
+        <p>主日喊「和散那」的群眾，到了禮拜五卻喊「釘他十字架」。群眾期待的是地上的王；當期待落空，稱頌就變成棄絕——這是聖難週最沉重的對照。</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"><span>第二章</span></div>
+
+  <!-- ═══════════════ 第二天 訓誨日 ═══════════════ -->
+  <section class="section day-chapter" id="day2" style="padding-top:0">
+    <div class="day-head c2">
+      <div class="day-no">貳</div>
+      <div>
+        <div class="day-kicker">第二天 · 禮拜一 · 記憶字「訓」</div>
+        <h2>訓誨日<span class="day-en">CLEANSING THE TEMPLE</span></h2>
+        <p class="day-summary">主耶穌來到聖殿，發現許多販賣牛羊鴿子、兌換銀錢之事（多為官商勾結）。主耶穌很生氣，推倒桌子，宣告：「我的殿必稱為禱告的殿。」</p>
+      </div>
+      <div class="day-key">訓</div>
+    </div>
+
+    <div class="loc-flow">
+      <span class="loc-chip">📍 耶路撒冷聖殿</span><span class="loc-arrow">→</span>
+      <span class="loc-chip">伯大尼（住宿）</span>
+    </div>
+
+    <div class="scripture teal">
+      <div class="s-head"><span class="s-emoji">✨</span><span class="s-ref">馬太福音 21:12–17</span></div>
+      <p>耶穌進了　神的殿，趕出殿裏一切做買賣的人，推倒兌換銀錢之人的桌子，和賣鴿子之人的凳子，對他們說：「經上記着說：<strong>我的殿必稱為禱告的殿，你們倒使它成為賊窩了。</strong>」在殿裏有瞎子、瘸子到耶穌跟前，祂就治好了他們。祭司長和文士看見耶穌所行的奇事，又見小孩子在殿裏喊着說：「和散那歸於大衛的子孫！」就甚惱怒，對祂說：「這些人所說的，你聽見了嗎？」耶穌說：「是的。經上說『祢從嬰孩和吃奶的口中完全了讚美』的話，你們沒有念過嗎？」於是離開他們，出城到伯大尼去，在那裏住宿。</p>
+    </div>
+
+    <div class="expand-grid">
+      <div class="expand-box">
+        <div class="eb-label">📖 深入 · 背景</div>
+        <h4>聖殿裏為甚麼有買賣？</h4>
+        <p>各地來守節的人需要獻祭的牛羊鴿子，又必須用聖殿認可的銀幣繳殿稅，兌換與販賣便成了壟斷暴利的生意，且多佔據外邦人禱告的院子。主引用以賽亞書 56:7「禱告的殿」與耶利米書 7:11「賊窩」，一句話點破敬拜變質的核心。</p>
+      </div>
+      <div class="expand-box gold">
+        <div class="eb-label">📖 深入 · 恩典</div>
+        <h4>潔淨之後，殿裏的醫治</h4>
+        <p>桌子被推倒之後，瞎子、瘸子卻被接納、得醫治，小孩子在殿裏讚美（引詩篇 8:2）。審判與恩典在同一天、同一個殿裏發生——殿被潔淨，正是為了讓人回到　神面前。</p>
+      </div>
+      <div class="expand-box ruby">
+        <div class="eb-label">📖 深入 · 同日事件</div>
+        <h4>無花果樹的警戒</h4>
+        <p>馬太福音 21:18–19 記載，當天清早主在路旁看見一棵無花果樹，找不着甚麼，只有葉子，就說：「從今以後，你永不結果子。」有葉無果——徒有敬虔外貌而沒有果子的信仰，正是這一週主反覆警告的事。</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"><span>第三章</span></div>
+
+  <!-- ═══════════════ 第三天 辨惑日 ═══════════════ -->
+  <section class="section day-chapter" id="day3" style="padding-top:0">
+    <div class="day-head c3">
+      <div class="day-no">參</div>
+      <div>
+        <div class="day-kicker">第三天 · 禮拜二 · 記憶字「辨」</div>
+        <h2>辨惑日<span class="day-en">DAY OF TEACHING &amp; CONTROVERSY</span></h2>
+        <p class="day-summary">主耶穌一早來到聖殿傳福音。祂所傳的與祭司、長老所傳的不同，他們便來試探，欲駁倒祂、抓祂把柄；但主有從　神而來的智慧，所答的讓眾人啞口無言。下午在橄欖山，主以許多比喻警告眾人辨別法利賽人的舊酵，並預言聖殿被毀與主再來。</p>
+      </div>
+      <div class="day-key">辨</div>
+    </div>
+
+    <div class="loc-flow">
+      <span class="loc-chip">📍 上午 · 聖殿（辯論）</span><span class="loc-arrow">→</span>
+      <span class="loc-chip">下午 · 橄欖山（講論）</span>
+    </div>
+
+    <div class="scripture blue">
+      <div class="s-head"><span class="s-emoji">👨‍🏫</span><span class="s-ref">馬太福音 21:23–27 ── 權柄之問</span></div>
+      <p>耶穌進了殿，正教訓人的時候，祭司長和民間的長老來問祂說：「你仗着甚麼權柄做這些事？給你這權柄的是誰呢？」耶穌回答說：「我也要問你們一句話，你們若告訴我，我就告訴你們我仗着甚麼權柄做這些事。約翰的洗禮是從哪裏來的？是從天上來的？是從人間來的呢？」他們彼此商議說：「我們若說『從天上來』，他必對我們說：『這樣，你們為甚麼不信他呢？』若說『從人間來』，我們又怕百姓，因為他們都以約翰為先知。」於是回答耶穌說：「我們不知道。」耶穌說：「我也不告訴你們我仗着甚麼權柄做這些事。」</p>
+    </div>
+
+    <div class="sec-title" style="margin-top:1.4rem;">
+      <div class="icon" style="background:var(--blue-mid);color:#fff;">💬</div>
+      <div>
+        <h2>七個比喻與教導</h2>
+        <div class="subtitle">一日之內最密集的教導 · 點開卡片下方可讀經文全文</div>
+      </div>
+    </div>
+
+    <div class="teach-grid">
+      <div class="teach-card">
+        <div class="tc-ref">馬太福音 21:28–32</div>
+        <h4>① 兩個兒子的比喻</h4>
+        <p class="tc-point">口裏說「父啊，我去」卻不去，不如先說「不去」後來懊悔而去。稅吏和娼妓倒比自以為義的人先進　神的國。</p>
+        <details class="passage">
+          <summary>📖 展開經文全文</summary>
+          <div class="p-body">又說：「一個人有兩個兒子。他來對大兒子說：『我兒，你今天到葡萄園裏去做工。』他回答說：『我不去』，以後自己懊悔，就去了。又來對小兒子也是這樣說。他回答說：『父啊，我去』，他卻不去。你們想，這兩個兒子是哪一個遵行父命呢？」他們說：「大兒子。」耶穌說：「我實在告訴你們，稅吏和娼妓倒比你們先進　神的國。因為約翰遵着義路到你們這裏來，你們卻不信他；稅吏和娼妓倒信他。你們看見了，後來還是不懊悔去信他。」</div>
+        </details>
+      </div>
+
+      <div class="teach-card">
+        <div class="tc-ref">馬太福音 21:33–46</div>
+        <h4>② 凶惡園戶的比喻</h4>
+        <p class="tc-point">園戶殺了僕人，最後連園主的兒子也殺了——主預言自己將被棄絕殺害；「匠人所棄的石頭，已作了房角的頭塊石頭」。</p>
+        <details class="passage">
+          <summary>📖 展開經文全文</summary>
+          <div class="p-body">「你們再聽一個比喻：有個家主栽了一個葡萄園，周圍圈上籬笆，裏面挖了一個壓酒池，蓋了一座樓，租給園戶，就往外國去了。收果子的時候近了，就打發僕人到園戶那裏去收果子。園戶拿住僕人，打了一個，殺了一個，用石頭打死一個。主人又打發別的僕人去，比先前更多；園戶還是照樣待他們。後來打發他的兒子到他們那裏去，意思說：『他們必尊敬我的兒子。』不料，園戶看見他兒子，就彼此說：『這是承受產業的。來吧，我們殺他，佔他的產業！』他們就拿住他，推出葡萄園外，殺了。園主來的時候要怎樣處治這些園戶呢？」他們說：「要下毒手除滅那些惡人，將葡萄園另租給那按着時候交果子的園戶。」耶穌說：「經上寫着：匠人所棄的石頭，已作了房角的頭塊石頭。這是主所做的，在我們眼中看為希奇。這經你們沒有念過嗎？所以我告訴你們，　神的國必從你們奪去，賜給那能結果子的百姓。誰掉在這石頭上，必要跌碎；這石頭掉在誰的身上，就要把誰砸得稀爛。」</div>
+        </details>
+      </div>
+
+      <div class="teach-card">
+        <div class="tc-ref">馬太福音 22:1–14</div>
+        <h4>③ 喜宴的比喻</h4>
+        <p class="tc-point">王為兒子擺設娶親的筵席，被召的人卻不肯來；岔路口上的人都被召聚。「被召的人多，選上的人少」——還要穿上禮服。</p>
+        <details class="passage">
+          <summary>📖 展開經文全文</summary>
+          <div class="p-body">耶穌又用比喻對他們說：「天國好比一個王為他兒子擺設娶親的筵席，就打發僕人去，請那些被召的人來赴席，他們卻不肯來。王又打發別的僕人，說：『你們告訴那被召的人，我的筵席已經預備好了，牛和肥畜已經宰了，各樣都齊備，請你們來赴席。』那些人不理就走了；一個到自己田裏去；一個做買賣去；其餘的拿住僕人，凌辱他們，把他們殺了。王就大怒，發兵除滅那些兇手，燒毀他們的城。於是對僕人說：『喜筵已經齊備，只是所召的人不配。所以你們要往岔路口上去，凡遇見的，都召來赴席。』那些僕人就出去，到大路上，凡遇見的，不論善惡都召聚了來，筵席上就坐滿了客。王進來觀看賓客，見那裏有一個沒有穿禮服的，就對他說：『朋友，你到這裏來怎麼不穿禮服呢？』那人無言可答。於是王對使喚的人說：『捆起他的手腳來，把他丟在外面的黑暗裏；在那裏必要哀哭切齒了。』因為被召的人多，選上的人少。」</div>
+        </details>
+      </div>
+
+      <div class="teach-card">
+        <div class="tc-ref">馬太福音 22:16–22</div>
+        <h4>④ 納稅給凱撒的問題</h4>
+        <p class="tc-point">法利賽人與希律黨設下兩難的圈套，主一語化解：「凱撒的物當歸給凱撒，　神的物當歸給　神。」</p>
+        <details class="passage">
+          <summary>📖 展開經文全文</summary>
+          <div class="p-body">就打發他們的門徒同希律黨的人去見耶穌，說：「夫子，我們知道你是誠實人，並且誠誠實實傳　神的道，甚麼人你都不徇情面，因為你不看人的外貌。請告訴我們，你的意見如何？納稅給凱撒可以不可以？」耶穌看出他們的惡意，就說：「假冒為善的人哪，為甚麼試探我？拿一個上稅的錢給我看！」他們就拿一個銀錢來給祂。耶穌說：「這像和這號是誰的？」他們說：「是凱撒的。」耶穌說：「這樣，凱撒的物當歸給凱撒；　神的物當歸給　神。」他們聽見就希奇，離開祂走了。</div>
+        </details>
+      </div>
+
+      <div class="teach-card">
+        <div class="tc-ref">馬太福音 22:34–40</div>
+        <h4>⑤ 最大的誡命</h4>
+        <p class="tc-point">盡心、盡性、盡意愛主你的　神——這是第一且是最大的；其次是愛人如己。這兩條是律法和先知一切道理的總綱。</p>
+        <details class="passage">
+          <summary>📖 展開經文全文</summary>
+          <div class="p-body">法利賽人聽見耶穌堵住了撒都該人的口，他們就聚集。內中有一個人是律法師，要試探耶穌，就問祂說：「夫子，律法上的誡命，哪一條是最大的呢？」耶穌對他說：「你要盡心、盡性、盡意愛主－你的　神。這是誡命中的第一，且是最大的。其次也相倣，就是要愛人如己。這兩條誡命是律法和先知一切道理的總綱。」</div>
+        </details>
+      </div>
+
+      <div class="teach-card">
+        <div class="tc-ref">馬太福音 24:32–35</div>
+        <h4>⑥ 無花果樹的比方</h4>
+        <p class="tc-point">樹枝發嫩長葉，就知道夏天近了；看見這一切的事，也該知道人子近了，正在門口了。「天地要廢去，我的話卻不能廢去。」</p>
+        <details class="passage">
+          <summary>📖 展開經文全文</summary>
+          <div class="p-body">「你們可以從無花果樹學個比方：當樹枝發嫩長葉的時候，你們就知道夏天近了。這樣，你們看見這一切的事，也該知道人子近了，正在門口了。我實在告訴你們，這世代還沒有過去，這些事都要成就。天地要廢去，我的話卻不能廢去。」</div>
+        </details>
+      </div>
+
+      <div class="teach-card">
+        <div class="tc-ref">馬太福音 24:45–51</div>
+        <h4>⑦ 忠心與不忠心的僕人</h4>
+        <p class="tc-point">忠心有見識的僕人按時分糧；惡僕說「我的主人必來得遲」就放縱自己。主人要在想不到的日子、不知道的時辰來到。</p>
+        <details class="passage">
+          <summary>📖 展開經文全文</summary>
+          <div class="p-body">「誰是忠心有見識的僕人，為主人所派，管理家裏的人，按時分糧給他們呢？主人來到，看見他這樣行，那僕人就有福了。我實在告訴你們，主人要派他管理一切所有的。倘若那惡僕心裏說：『我的主人必來得遲』，就動手打他的同伴，又和酒醉的人一同吃喝。在想不到的日子，不知道的時辰，那僕人的主人要來，重重地處治他，定他和假冒為善的人同罪；在那裏必要哀哭切齒了。」</div>
+        </details>
+      </div>
+    </div>
+
+    <div class="sec-title" style="margin-top:1.4rem;">
+      <div class="icon" style="background:var(--blue-deep);color:#fff;">🏛</div>
+      <div>
+        <h2>橄欖山上的預言</h2>
+        <div class="subtitle">聖殿被毀 · 末期的兆頭 · 主再來</div>
+      </div>
+    </div>
+
+    <div class="scripture blue">
+      <div class="s-head"><span class="s-emoji">👨‍🏫</span><span class="s-ref">路加福音 21:5–6 ── 聖殿被毀的預言</span></div>
+      <p>有人談論聖殿是用美石和供物妝飾的；耶穌就說：「論到你們所看見的這一切，將來日子到了，<strong>在這裏沒有一塊石頭留在石頭上，不被拆毀了。</strong>」</p>
+    </div>
+
+    <div class="scripture blue">
+      <div class="s-head"><span class="s-emoji">👨‍🏫</span><span class="s-ref">路加福音 21:8–11 ── 末期的兆頭</span></div>
+      <p>耶穌說：「你們要謹慎，不要受迷惑；因為將來有好些人冒我的名來，說：『我是基督』，又說：『時候近了』，你們不要跟從他們！你們聽見打仗和擾亂的事，不要驚惶；因為這些事必須先有，只是末期不能立時就到。」當時，耶穌對他們說：「民要攻打民，國要攻打國；地要大大震動，多處必有饑荒、瘟疫，又有可怕的異象和大神蹟從天上顯現。」</p>
+    </div>
+
+    <div class="expand-grid">
+      <div class="expand-box blue">
+        <div class="eb-label">📖 深入 · 歷史應驗</div>
+        <h4>主後 70 年，預言成真</h4>
+        <p>主預言希律王所建的聖殿將要毀滅。約四十年後（主後 70 年左右），羅馬將軍提多率軍攻陷耶路撒冷，聖殿被火焚毀拆平，僅留下西牆（今「哭牆」）——「沒有一塊石頭留在石頭上」一語成讖。</p>
+      </div>
+      <div class="expand-box">
+        <div class="eb-label">📖 深入 · 同日教導</div>
+        <h4>橄欖山講論的其他比喻</h4>
+        <p>同一篇講論中（馬太福音 24–25 章），主還說了十個童女、按才幹受託付、綿羊與山羊三個比喻——主題一致：警醒預備，因為人子要在想不到的時刻再來。</p>
+      </div>
+      <div class="expand-box gold">
+        <div class="eb-label">📖 深入 · 細節</div>
+        <h4>寡婦的兩個小錢</h4>
+        <p>馬可福音 12:41–44 記載，同在這幾天，主坐在銀庫對面，看見窮寡婦投入兩個小錢，說她比眾人投得更多——因為她是自己不足，把一切養生的都投上了。辨惑日不只辨明假冒，也指出何為真實。</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"><span>第四章</span></div>
+
+  <!-- ═══════════════ 第四天 退修日 ═══════════════ -->
+  <section class="section day-chapter" id="day4" style="padding-top:0">
+    <div class="day-head c4">
+      <div class="day-no">肆</div>
+      <div>
+        <div class="day-kicker">第四天 · 禮拜三 · 記憶字「修」</div>
+        <h2>退修日<span class="day-en">SILENT WEDNESDAY</span></h2>
+        <p class="day-summary">聖經對這一天無明確記載，推測主耶穌當天前往曠野安靜靈修禱告。風暴前的寧靜——主以禱告預備自己走十架的路。</p>
+      </div>
+      <div class="day-key">修</div>
+    </div>
+
+    <div class="loc-flow">
+      <span class="loc-chip">📍 伯大尼 / 曠野（推測）</span>
+    </div>
+
+    <div class="scripture grey">
+      <div class="s-head"><span class="s-emoji">🌅</span><span class="s-ref">馬太福音 6:9–13 ── 主禱文</span></div>
+      <p>所以，你們禱告要這樣說：我們在天上的父：願人都尊祢的名為聖。願祢的國降臨；願祢的旨意行在地上，如同行在天上。我們日用的飲食，今日賜給我們。免我們的債，如同我們免了人的債。不叫我們遇見試探；救我們脫離凶惡。因為國度、權柄、榮耀，全是祢的，直到永遠。阿們！</p>
+    </div>
+
+    <div class="expand-grid">
+      <div class="expand-box">
+        <div class="eb-label">📖 深入 · 屬靈意義</div>
+        <h4>風暴前的安靜</h4>
+        <p>八天之中最「空白」的一天，卻可能是最重要的一天。面對隔日的最後晚餐與十架，主選擇退到父面前。服事愈忙碌、爭戰愈激烈，愈需要退修安靜——主自己為我們留下榜樣。</p>
+      </div>
+      <div class="expand-box ruby">
+        <div class="eb-label">📖 深入 · 同時發生</div>
+        <h4>暗處的三十塊錢</h4>
+        <p>馬太福音 26:14–16 記載，正是在這幾天，加略人猶大去見祭司長說：「我把祂交給你們，你們願意給我多少錢？」他們就給了他三十塊錢——應驗撒迦利亞書 11:12 的預言。明處主在禱告，暗處陰謀已成形。</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"><span>第五章</span></div>
+
+  <!-- ═══════════════ 第五天 聖餐日 ═══════════════ -->
+  <section class="section day-chapter" id="day5" style="padding-top:0">
+    <div class="day-head c5">
+      <div class="day-no">伍</div>
+      <div>
+        <div class="day-kicker">第五天 · 禮拜四 · 記憶字「餐」</div>
+        <h2>聖餐日 · 逾越節<span class="day-en">MAUNDY THURSDAY</span></h2>
+        <p class="day-summary">正逢猶太人逾越節，家家戶戶吃羔羊紀念出埃及。主與門徒共進最後的晚餐、為門徒洗腳，設立聖餐；並預言彼得三次不認主、猶大賣主。夜裏在客西馬尼園三次禱告，隨後被捕。</p>
+      </div>
+      <div class="day-key">餐</div>
+    </div>
+
+    <div class="loc-flow">
+      <span class="loc-chip">📍 馬可樓（晚餐）</span><span class="loc-arrow">→</span>
+      <span class="loc-chip">橄欖山</span><span class="loc-arrow">→</span>
+      <span class="loc-chip">客西馬尼園（被捕）</span>
+    </div>
+
+    <div class="expand-box gold" style="margin-bottom:1rem;">
+      <div class="eb-label">📖 背景 · 逾越節</div>
+      <h4>羔羊的血，越過的夜</h4>
+      <p>當年　神顯神蹟擊殺埃及一切頭生的，唯有門框上塗抹羔羊血的人家，滅命的災殃越門而過（出埃及記 12 章）。一千多年來，以色列家家戶戶吃羔羊紀念平安出埃及——而這一夜，真正的逾越節羔羊正坐在席上。</p>
+    </div>
+
+    <div class="scripture ruby">
+      <div class="s-head"><span class="s-emoji">💖</span><span class="s-ref">馬太福音 26:17–30 ── 最後的晚餐與設立聖餐</span></div>
+      <p>除酵節的第一天，門徒來問耶穌說：「祢吃逾越節的筵席，要我們在哪裏給祢預備？」耶穌說：「你們進城去，到某人那裏，對他說：『夫子說：我的時候快到了，我與門徒要在你家裏守逾越節。』」門徒遵着耶穌所吩咐的就去預備了逾越節的筵席。到了晚上，耶穌和十二個門徒坐席。正吃的時候，耶穌說：「我實在告訴你們，你們中間有一個人要賣我了。」他們就甚憂愁，一個一個地問祂說：「主，是我嗎？」耶穌回答說：「同我蘸手在盤子裏的，就是他要賣我。人子必要去世，正如經上指着祂所寫的；但賣人子的人有禍了！那人不生在世上倒好。」賣耶穌的猶大問祂說：「拉比，是我嗎？」耶穌說：「你說的是。」<br>他們吃的時候，耶穌拿起餅來，祝福，就擘開，遞給門徒，說：<strong>「你們拿着吃，這是我的身體」</strong>；又拿起杯來，祝謝了，遞給他們，說：<strong>「你們都喝這個；因為這是我立約的血，為多人流出來，使罪得赦。</strong>但我告訴你們，從今以後，我不再喝這葡萄汁，直到我在我父的國裏同你們喝新的那日子。」他們唱了詩，就出來往橄欖山去。</p>
+    </div>
+
+    <div class="scripture ruby">
+      <div class="s-head"><span class="s-emoji">💖</span><span class="s-ref">約翰福音 13:3–11 ── 為門徒洗腳</span></div>
+      <p>耶穌知道父已將萬有交在祂手裏，且知道自己是從　神出來的，又要歸到　神那裏去，就離席站起來，脫了衣服，拿一條手巾束腰，隨後把水倒在盆裏，就洗門徒的腳，並用自己所束的手巾擦乾。挨到西門‧彼得，彼得對祂說：「主啊，祢洗我的腳嗎？」耶穌回答說：「我所做的，你如今不知道，後來必明白。」彼得說：「祢永不可洗我的腳！」耶穌說：「我若不洗你，你就與我無分了。」西門‧彼得說：「主啊，不但我的腳，連手和頭也要洗。」耶穌說：「凡洗過澡的人，只要把腳一洗，全身就乾淨了。你們是乾淨的，然而不都是乾淨的。」耶穌原知道要賣祂的是誰，所以說：「你們不都是乾淨的。」</p>
+    </div>
+
+    <div class="scripture ruby">
+      <div class="s-head"><span class="s-emoji">💖</span><span class="s-ref">約翰福音 13:14</span></div>
+      <p><strong>我是你們的主，你們的夫子，尚且洗你們的腳，你們也當彼此洗腳。</strong></p>
+    </div>
+
+    <div class="expand-grid">
+      <div class="expand-box ruby">
+        <div class="eb-label">📖 深入 · 聖餐</div>
+        <h4>舊筵席，新意義</h4>
+        <p>主耶穌賦予逾越節晚餐新的意義——就是聖餐：餅代表主的身體，杯代表主流出的寶血，成為世人的救贖和新約。從此教會擘餅喝杯，是記念主的死，直等到祂來（哥林多前書 11:26）。</p>
+      </div>
+      <div class="expand-box">
+        <div class="eb-label">📖 深入 · 字源</div>
+        <h4>Maundy Thursday 的由來</h4>
+        <p>這一夜主賜下新命令（拉丁文 mandatum）：「你們要彼此相愛，像我愛你們一樣。」（約翰福音 13:34）英文「Maundy Thursday（濯足節）」即源於這個「命令」——謙卑相互服事、彼此相愛。</p>
+      </div>
+      <div class="expand-box gold">
+        <div class="eb-label">📖 深入 · 細節</div>
+        <h4>他們唱的是哪首詩？</h4>
+        <p>「他們唱了詩，就出來往橄欖山去。」按逾越節傳統，席間吟唱「哈利路詩篇」（詩篇 113–118）——其中正包括「匠人所棄的石頭」與「奉耶和華名來的是應當稱頌的」。主是唱着預言自己的詩，走向客西馬尼。</p>
+      </div>
+    </div>
+
+    <div class="sec-title" style="margin-top:1.4rem;">
+      <div class="icon" style="background:var(--ruby);color:#fff;">🌒</div>
+      <div>
+        <h2>客西馬尼園</h2>
+        <div class="subtitle">汗如血點 · 三次禱告 · 深夜被捕</div>
+      </div>
+    </div>
+
+    <p style="font-size:0.85rem;color:var(--muted);line-height:1.85;margin-bottom:1rem;">
+      晚餐後，他們唱了逾越節的詩篇，到客西馬尼園去（「客西馬尼」原意是「壓油之處」——橄欖在此被壓出油，主在此被壓出血汗）。主耶穌懇切禱告，汗珠如大血點滴在地上（路加福音 22:44），因深知自己即將承受這苦杯、走這苦傷道。禱告完卻見門徒沉睡，因而憂愁哀傷。三次禱告之後，猶大以親嘴為暗號帶人前來，主被捕；彼得拿刀削掉大祭司僕人馬勒古的一隻耳朵（約翰福音 18:10），主卻摸那人的耳朵，把他治好（路加福音 22:51）。
+    </p>
+
+    <div class="scripture ruby">
+      <div class="s-head"><span class="s-emoji">😭</span><span class="s-ref">馬太福音 26:39–41</span></div>
+      <p>祂就稍往前走，俯伏在地，禱告說：「我父啊，倘若可行，求祢叫這杯離開我。<strong>然而，不要照我的意思，只要照祢的意思。</strong>」來到門徒那裏，見他們睡着了，就對彼得說：「怎麼樣？你們不能同我警醒片時嗎？總要警醒禱告，免得入了迷惑。你們心靈固然願意，肉體卻軟弱了。」</p>
+    </div>
+
+    <div class="scripture ruby">
+      <div class="s-head"><span class="s-emoji">😭</span><span class="s-ref">馬太福音 26:45</span></div>
+      <p>於是來到門徒那裏，對他們說：「現在你們仍然睡覺安歇吧！時候到了，人子被賣在罪人手裏了。起來！我們走吧。看哪，賣我的人近了。」</p>
+    </div>
+  </section>
+
+  <div class="divider"><span>第六章</span></div>
+
+  <!-- ═══════════════ 第六天 受難日 ═══════════════ -->
+  <section class="section day-chapter" id="day6" style="padding-top:0">
+    <div class="day-head c6">
+      <div class="day-no">陸</div>
+      <div>
+        <div class="day-kicker">第六天 · 禮拜五 · 記憶字「難」</div>
+        <h2>受難日<span class="day-en">GOOD FRIDAY</span></h2>
+        <p class="day-summary">主耶穌被釘十字架的日子——以無罪代替有罪來滿足　神的義，使人的罪得以被　神赦免，成為代罪羔羊。這天也發生彼得三次不認主；彼拉多查不出主的罪，最終釋放巴拉巴，把主交給人釘十字架。</p>
+      </div>
+      <div class="day-key">難</div>
+    </div>
+
+    <div class="loc-flow">
+      <span class="loc-chip">📍 公會</span><span class="loc-arrow">→</span>
+      <span class="loc-chip">彼拉多衙門</span><span class="loc-arrow">→</span>
+      <span class="loc-chip">髑髏地（各各他）</span><span class="loc-arrow">→</span>
+      <span class="loc-chip">新墳墓</span>
+    </div>
+
+    <div class="expand-box gold" style="margin-bottom:1rem;">
+      <div class="eb-label">💡 為甚麼叫 GOOD FRIDAY</div>
+      <h4>最黑暗的一天，為何稱「好」？</h4>
+      <p>受難日英文稱「Good Friday」，源於主耶穌在十架上最後道出<strong>「成了！」</strong>一詞——救贖已完成。對主是極痛的一日，對世人卻是得救恩最「好」的一日。</p>
+    </div>
+
+    <!-- 受難日時刻軸 -->
+    <div class="svg-wrap">
+      <svg viewBox="0 0 880 200" xmlns="http://www.w3.org/2000/svg" role="img">
+        <title>受難日一日時刻軸</title>
+        <rect width="880" height="200" fill="#1A1208"/>
+        <text x="36" y="36" font-family="Noto Sans TC,sans-serif" font-size="10" fill="#C9A84C" letter-spacing="3">受難日（禮拜五）時刻軸</text>
+        <line x1="50" y1="108" x2="838" y2="108" stroke="#C9A84C" stroke-width="1.2" opacity="0.65"/>
+        <path d="M838 108 L828 103 L828 113 Z" fill="#C9A84C"/>
+
+        <!-- 清晨 -->
+        <text x="100" y="84" text-anchor="middle" font-family="Noto Serif TC,serif" font-size="13" fill="#E8D08A" font-weight="700">清晨</text>
+        <circle cx="100" cy="108" r="6" fill="#C2445A"/>
+        <text x="100" y="136" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="rgba(255,255,255,0.85)">公會定罪 · 解往彼拉多</text>
+        <text x="100" y="152" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9" fill="rgba(255,255,255,0.5)">雞叫了，彼得三次不認主</text>
+
+        <!-- 上午九時 -->
+        <text x="280" y="84" text-anchor="middle" font-family="Noto Serif TC,serif" font-size="13" fill="#E8D08A" font-weight="700">上午九時 · 巳初</text>
+        <circle cx="280" cy="108" r="6" fill="#8B2130"/>
+        <text x="280" y="136" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="rgba(255,255,255,0.85)">釘十字架於髑髏地</text>
+        <text x="280" y="152" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9" fill="rgba(255,255,255,0.5)">（馬可福音 15:25）</text>
+
+        <!-- 正午 -->
+        <text x="450" y="84" text-anchor="middle" font-family="Noto Serif TC,serif" font-size="13" fill="#E8D08A" font-weight="700">正午 · 午正</text>
+        <circle cx="450" cy="108" r="6" fill="#4A4238"/>
+        <text x="450" y="136" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="rgba(255,255,255,0.85)">遍地都黑暗了</text>
+        <text x="450" y="152" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9" fill="rgba(255,255,255,0.5)">直到申初，約三小時</text>
+
+        <!-- 下午三時 -->
+        <text x="620" y="84" text-anchor="middle" font-family="Noto Serif TC,serif" font-size="13" fill="#E8D08A" font-weight="700">下午三時 · 申初</text>
+        <circle cx="620" cy="108" r="7" fill="#C9A84C"/>
+        <text x="620" y="136" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="rgba(255,255,255,0.9)">「成了」· 主斷氣</text>
+        <text x="620" y="152" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9" fill="rgba(255,255,255,0.5)">殿裏的幔子從當中裂為兩半</text>
+
+        <!-- 黃昏 -->
+        <text x="780" y="84" text-anchor="middle" font-family="Noto Serif TC,serif" font-size="13" fill="#E8D08A" font-weight="700">黃昏 · 約六時</text>
+        <circle cx="780" cy="108" r="6" fill="#2E7D72"/>
+        <text x="780" y="136" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="rgba(255,255,255,0.85)">安放新墳墓</text>
+        <text x="780" y="152" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9" fill="rgba(255,255,255,0.5)">趕在安息日之前完成安葬</text>
+      </svg>
+    </div>
+
+    <div class="scripture ruby">
+      <div class="s-head"><span class="s-emoji">🌑</span><span class="s-ref">馬太福音 27:23–26 ── 巴拉巴替換</span></div>
+      <p>巡撫說：「為甚麼呢？祂做了甚麼惡事呢？」他們便極力地喊着說：「把祂釘十字架！」彼拉多見說也無濟於事，反要生亂，就拿水在眾人面前洗手，說：「流這義人的血，罪不在我，你們承當吧。」眾人都回答說：「祂的血歸到我們和我們的子孫身上。」於是彼拉多釋放巴拉巴給他們，把耶穌鞭打了，交給人釘十字架。</p>
+    </div>
+
+    <div class="expand-grid">
+      <div class="expand-box ruby">
+        <div class="eb-label">📖 深入 · 審訊</div>
+        <h4>一夜之間的多場審訊</h4>
+        <p>從深夜到清晨，主先後被解到亞那、該亞法與公會、清晨的公會、彼拉多、希律，再回到彼拉多面前。當時判死刑必須由羅馬官長決定，猶太人不可自行定奪；彼拉多三次說「我查不出祂有甚麼罪來」，最終仍把祂交出。</p>
+      </div>
+      <div class="expand-box blue">
+        <div class="eb-label">📖 深入 · 彼得</div>
+        <h4>雞叫以先，三次不認</h4>
+        <p>正如主所預言，彼得在大祭司的院子裏三次說「我不認得那個人」。雞叫了，主轉過身來看彼得，彼得就出去痛哭（路加福音 22:61–62）。復活的主後來在提比哩亞海邊三次問他「你愛我嗎」，恢復了這位失敗的門徒。</p>
+      </div>
+      <div class="expand-box gold">
+        <div class="eb-label">📖 深入 · 幔子</div>
+        <h4>裂開的幔子</h4>
+        <p>主斷氣時，殿裏隔開至聖所的幔子從上到下裂為兩半。希伯來書 10:19–20 說，我們靠耶穌的血、藉着祂的身體（幔子的實體），得以坦然進入至聖所——人到　神面前的路，從此敞開。</p>
+      </div>
+    </div>
+
+    <!-- 兩個強盜 -->
+    <div class="sec-title" style="margin-top:1.4rem;">
+      <div class="icon" style="background:var(--ruby);color:#fff;">⚖</div>
+      <div>
+        <h2>同釘十架的兩個強盜</h2>
+        <div class="subtitle">一左一右，同樣靠近基督，卻有不同結局</div>
+      </div>
+    </div>
+
+    <div class="scripture ruby">
+      <div class="s-head"><span class="s-emoji">🌑</span><span class="s-ref">路加福音 23:39–43</span></div>
+      <p>那同釘的兩個犯人有一個譏誚祂，說：「你不是基督嗎？可以救自己和我們吧！」那一個就應聲責備他，說：「你既是一樣受刑的，還不怕　神嗎？我們是應該的，因我們所受的與我們所做的相稱，但這個人沒有做過一件不好的事。」就說：「耶穌啊，祢得國降臨的時候，求祢記念我！」耶穌對他說：「我實在告訴你，<strong>今日你要同我在樂園裏了。</strong>」</p>
+    </div>
+
+    <div class="two-path">
+      <div class="path-side path-a">
+        <div class="path-label">譏誚的強盜</div>
+        <div class="path-title">靠近，卻不相信</div>
+        <ul class="path-list">
+          <li>「你不是基督嗎？可以救自己和我們吧！」</li>
+          <li>把基督當作脫困的工具，不是救主</li>
+          <li>至死沒有承認自己的罪</li>
+        </ul>
+      </div>
+      <div class="path-side path-b">
+        <div class="path-label">悔改的強盜</div>
+        <div class="path-title">承認，並且仰望</div>
+        <ul class="path-list">
+          <li>「我們所受的與我們所做的相稱」——承認己罪</li>
+          <li>「這個人沒有做過一件不好的事」——承認主義</li>
+          <li>「求祢記念我」——得着樂園的應許</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="scripture ruby">
+      <div class="s-head"><span class="s-emoji">🌑</span><span class="s-ref">路加福音 23:44–46 ── 午正到申初</span></div>
+      <p>那時約有午正，遍地都黑暗了，直到申初，日頭變黑了；殿裏的幔子從當中裂為兩半。耶穌大聲喊着說：「父啊！我將我的靈魂交在祢手裏。」說了這話，氣就斷了。</p>
+    </div>
+
+    <div class="scripture ruby">
+      <div class="s-head"><span class="s-emoji">🌑</span><span class="s-ref">馬太福音 27:57–61 ── 黃昏安葬</span></div>
+      <p>到了晚上，有一個財主，名叫約瑟，是亞利馬太來的，他也是耶穌的門徒。這人去見彼拉多，求耶穌的身體；彼拉多就吩咐給他。約瑟取了身體，用乾淨細麻布裹好，安放在自己的新墳墓裏，就是他鑿在磐石裏的。他又把大石頭滾到墓門口，就去了。有抹大拉的馬利亞和那個馬利亞在那裏，對着墳墓坐着。</p>
+    </div>
+
+    <div class="expand-box" style="margin-bottom:1.2rem;">
+      <div class="eb-label">📖 深入 · 安葬</div>
+      <h4>與財主同葬——又一個預言應驗</h4>
+      <p>亞利馬太的約瑟是議士、是財主，尼哥底母也帶着約一百斤的沒藥和沉香前來（約翰福音 19:39）。以賽亞書 53:9 早已預言：「誰知死的時候與財主同葬。」連安葬的細節，都在七百年前寫好了。</p>
+    </div>
+
+    <!-- 十架七言 -->
+    <div class="sec-title" style="margin-top:1.6rem;" id="sevenwords">
+      <div class="icon" style="background:var(--deep);color:var(--gold);">✝</div>
+      <div>
+        <h2>十架七言</h2>
+        <div class="subtitle">主耶穌在十字架上的最後七句話 · 按先後次序</div>
+      </div>
+    </div>
+
+    <div class="seven-grid">
+      <div class="word-card">
+        <div class="word-no">第一言 · 赦免</div>
+        <p class="w-text">「父啊，赦免他們，因為他們所做的，他們不曉得。」</p>
+        <div class="word-src">路加福音 23:34</div>
+        <div class="word-note">為釘祂的人代求——十架上的第一句話是饒恕。</div>
+      </div>
+      <div class="word-card">
+        <div class="word-no">第二言 · 救恩</div>
+        <p class="w-text">「我實在告訴你，今日你要同我在樂園裏了。」</p>
+        <div class="word-src">路加福音 23:43</div>
+        <div class="word-note">對悔改的強盜——臨終的信心也得着完整的救恩。</div>
+      </div>
+      <div class="word-card">
+        <div class="word-no">第三言 · 親情</div>
+        <p class="w-text">「婦人，看哪，你的兒子。看哪，你的母親。」</p>
+        <div class="word-src">約翰福音 19:26–27</div>
+        <div class="word-note">將母親馬利亞託付給約翰——極痛中仍盡孝道。</div>
+      </div>
+      <div class="word-card">
+        <div class="word-no">第四言 · 離棄</div>
+        <p class="w-text">「以利！以利！拉馬撒巴各大尼？」（我的　神！我的　神！為甚麼離棄我？）</p>
+        <div class="word-src">馬太福音 27:46 · 馬可福音 15:34</div>
+        <div class="word-note">引詩篇 22:1——擔當世人的罪，承受與父隔絕之痛。</div>
+      </div>
+      <div class="word-card">
+        <div class="word-no">第五言 · 苦楚</div>
+        <p class="w-text">「我渴了。」</p>
+        <div class="word-src">約翰福音 19:28</div>
+        <div class="word-note">全然真實的人性之苦；應驗詩篇 69:21 的預言。</div>
+      </div>
+      <div class="word-card">
+        <div class="word-no">第六言 · 完成</div>
+        <p class="w-text">「成了！」</p>
+        <div class="word-src">約翰福音 19:30</div>
+        <div class="word-note">救贖大功告成——「Good Friday」之名由此而來。</div>
+      </div>
+      <div class="word-card">
+        <div class="word-no">第七言 · 交託</div>
+        <p class="w-text">「父啊，我將我的靈魂交在祢手裏。」</p>
+        <div class="word-src">路加福音 23:46</div>
+        <div class="word-note">以全然的信靠結束——不是被奪去，而是主動交付。</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"><span>第七章</span></div>
+
+  <!-- ═══════════════ 第七天 墳墓日 ═══════════════ -->
+  <section class="section day-chapter" id="day7" style="padding-top:0">
+    <div class="day-head c7">
+      <div class="day-no">柒</div>
+      <div>
+        <div class="day-kicker">第七天 · 禮拜六 · 記憶字「墓」</div>
+        <h2>墳墓日<span class="day-en">HOLY SATURDAY</span></h2>
+        <p class="day-summary">猶太人的安息日，主耶穌的身體安放在墳墓裏。祭司長和法利賽人怕百姓相信「三日後復活」之說，請彼拉多封石派兵，嚴加看守。</p>
+      </div>
+      <div class="day-key">墓</div>
+    </div>
+
+    <div class="loc-flow">
+      <span class="loc-chip">📍 磐石鑿成的新墳墓</span>
+    </div>
+
+    <div class="scripture grey">
+      <div class="s-head"><span class="s-emoji">☁️</span><span class="s-ref">馬太福音 27:62–66</span></div>
+      <p>次日，就是預備日的第二天，祭司長和法利賽人聚集來見彼拉多，說：「大人，我們記得那誘惑人的還活着的時候曾說：『三日後我要復活。』因此，請吩咐人將墳墓把守妥當，直到第三日，恐怕他的門徒來把他偷了去，就告訴百姓說：『祂從死裏復活了。』這樣，那後來的迷惑比先前的更厲害了！」彼拉多說：「你們有看守的兵，去吧！盡你們所能的把守妥當。」他們就帶着看守的兵同去，封了石頭，將墳墓把守妥當。</p>
+    </div>
+
+    <div class="expand-grid">
+      <div class="expand-box">
+        <div class="eb-label">📖 深入 · 反證</div>
+        <h4>嚴防偷屍，反成復活的旁證</h4>
+        <p>封石、官印、兵丁——人能想到的防範都做了。正因如此，空墳墓無法用「門徒偷屍」解釋：守衛森嚴之下遺體仍然不見，反而成了復活最有力的歷史旁證。</p>
+      </div>
+      <div class="expand-box gold">
+        <div class="eb-label">📖 深入 · 安息</div>
+        <h4>在安息日安息的主</h4>
+        <p>第七日　神歇了創造的工（創世記 2:2）；如今救贖的工已「成了」，主在安息日安息於墳墓。婦女們也遵着誡命安息，預備了香料，等第一日的黎明（路加福音 23:56）。</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"><span>第八章</span></div>
+
+  <!-- ═══════════════ 第八天 復活日 ═══════════════ -->
+  <section class="section day-chapter" id="day8" style="padding-top:0">
+    <div class="day-head c8">
+      <div class="day-no">捌</div>
+      <div>
+        <div class="day-kicker">第八天 · 禮拜天 · 記憶字「活」</div>
+        <h2>復活日<span class="day-en">EASTER / RESURRECTION DAY</span></h2>
+        <p class="day-summary">七日的頭一日黎明，婦女發現石頭滾開、遺體不見；天使宣告「祂不在這裏，已經復活了」。主在以馬忤斯路上與耶路撒冷向門徒顯現——死亡被勝過，盼望從空墳墓升起。</p>
+      </div>
+      <div class="day-key">活</div>
+    </div>
+
+    <div class="loc-flow">
+      <span class="loc-chip">📍 空墳墓</span><span class="loc-arrow">→</span>
+      <span class="loc-chip">以馬忤斯路上</span><span class="loc-arrow">→</span>
+      <span class="loc-chip">耶路撒冷（顯現）</span><span class="loc-arrow">→</span>
+      <span class="loc-chip">伯大尼對面（祝福）</span>
+    </div>
+
+    <div class="scripture">
+      <div class="s-head"><span class="s-emoji">🌠</span><span class="s-ref">路加福音 24:1–10 ── 空墳墓的清晨</span></div>
+      <p>七日的頭一日，黎明的時候，那些婦女帶着所預備的香料來到墳墓前，看見石頭已經從墳墓滾開了，她們就進去，只是不見主耶穌的身體。正在猜疑之間，忽然有兩個人站在旁邊，衣服放光。婦女們驚怕，將臉伏地。那兩個人就對她們說：<strong>「為甚麼在死人中找活人呢？祂不在這裏，已經復活了。</strong>當記念祂還在加利利的時候怎樣告訴你們，說：『人子必須被交在罪人手裏，釘在十字架上，第三日復活。』」她們就想起耶穌的話來，便從墳墓那裏回去，把這一切的事告訴十一個使徒和其餘的人。那告訴使徒的就是抹大拉的馬利亞和約亞拿，並雅各的母親馬利亞，還有與她們在一處的婦女。</p>
+    </div>
+
+    <div class="scripture">
+      <div class="s-head"><span class="s-emoji">🌠</span><span class="s-ref">路加福音 24:13–15 ── 以馬忤斯路上</span></div>
+      <p>正當那日，門徒中有兩個人往一個村子去；這村子名叫以馬忤斯，離耶路撒冷約有二十五里。他們彼此談論所遇見的這一切事。正談論相問的時候，耶穌親自就近他們，和他們同行；只是他們的眼睛迷糊了，不認識祂。</p>
+    </div>
+
+    <div class="scripture">
+      <div class="s-head"><span class="s-emoji">🌠</span><span class="s-ref">路加福音 24:30–36 ── 擘餅認主 · 向眾人顯現</span></div>
+      <p>到了坐席的時候，耶穌拿起餅來，祝謝了，擘開，遞給他們。他們的眼睛明亮了，這才認出祂來。忽然耶穌不見了。他們彼此說：「在路上，祂和我們說話，給我們講解聖經的時候，<strong>我們的心豈不是火熱的嗎？</strong>」他們就立時起身，回耶路撒冷去，正遇見十一個使徒和他們的同人聚集在一處，說：「主果然復活，已經現給西門看了。」兩個人就把路上所遇見，和擘餅的時候怎麼被他們認出來的事，都述說了一遍。正說這話的時候，耶穌親自站在他們當中，說：「願你們平安！」</p>
+    </div>
+
+    <div class="scripture">
+      <div class="s-head"><span class="s-emoji">🌠</span><span class="s-ref">路加福音 24:50–53 ── 祝福與升天</span></div>
+      <p>耶穌領他們到伯大尼的對面，就舉手給他們祝福。正祝福的時候，祂就離開他們，被帶到天上去了。他們就拜祂，大大地歡喜，回耶路撒冷去，常在殿裏稱頌　神。</p>
+    </div>
+
+    <div class="expand-grid">
+      <div class="expand-box gold">
+        <div class="eb-label">📖 深入 · 主日</div>
+        <h4>「七日的頭一日」與主日</h4>
+        <p>主在七日的頭一日復活，門徒從此在這一日聚會擘餅（使徒行傳 20:7）、稱之為「主日」（啟示錄 1:10）。每一個禮拜天的敬拜，都是對復活清晨的記念。</p>
+      </div>
+      <div class="expand-box">
+        <div class="eb-label">📖 深入 · 顯現</div>
+        <h4>四十天之久的顯現</h4>
+        <p>使徒行傳 1:3 記載，主受害之後用許多憑據將自己活活地顯給使徒看，四十天之久向他們顯現，講說　神國的事——路加福音 24 章的祝福升天，是這四十天的尾聲。</p>
+      </div>
+      <div class="expand-box blue">
+        <div class="eb-label">📖 深入 · 意義</div>
+        <h4>初熟的果子</h4>
+        <p>「基督若沒有復活，我們所傳的便是枉然，你們所信的也是枉然。」（哥林多前書 15:14）但基督已經從死裏復活，成為睡了之人初熟的果子——祂的復活，是所有信祂之人復活的保證。</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"><span>預言與應驗</span></div>
+
+  <!-- ═══════════════ 預言與應驗 ═══════════════ -->
+  <section class="section" id="prophecy" style="padding-top:0">
+    <div class="sec-title">
+      <div class="icon">🔗</div>
+      <div>
+        <h2>預言與應驗對照</h2>
+        <div class="subtitle">寫在幾百年前的細節，在這八天逐一成就</div>
+      </div>
+    </div>
+
+    <div class="prophecy-row">
+      <div class="pr-old"><div class="pr-ref">撒迦利亞書 9:9</div><p>你的王來到你這裏……謙謙和和地騎着驢，就是騎着驢的駒子。</p></div>
+      <div class="pr-arrow">➜</div>
+      <div class="pr-new"><div class="pr-ref">日1 · 馬太福音 21:1–11</div><p>主騎驢駒進耶路撒冷，群眾鋪衣揮枝迎接。</p></div>
+    </div>
+    <div class="prophecy-row">
+      <div class="pr-old"><div class="pr-ref">詩篇 118:25–26</div><p>耶和華啊，求祢拯救！……奉耶和華名來的是應當稱頌的！</p></div>
+      <div class="pr-arrow">➜</div>
+      <div class="pr-new"><div class="pr-ref">日1 · 馬太福音 21:9</div><p>眾人喊着：「和散那歸於大衛的子孫！奉主名來的是應當稱頌的！」</p></div>
+    </div>
+    <div class="prophecy-row">
+      <div class="pr-old"><div class="pr-ref">詩篇 118:22</div><p>匠人所棄的石頭，已成了房角的頭塊石頭。</p></div>
+      <div class="pr-arrow">➜</div>
+      <div class="pr-new"><div class="pr-ref">日3 · 馬太福音 21:42</div><p>凶惡園戶的比喻——主預言自己被棄絕，卻成為房角石。</p></div>
+    </div>
+    <div class="prophecy-row">
+      <div class="pr-old"><div class="pr-ref">撒迦利亞書 11:12</div><p>他們就給了三十塊錢，作為我的工價。</p></div>
+      <div class="pr-arrow">➜</div>
+      <div class="pr-new"><div class="pr-ref">日4 · 馬太福音 26:14–16</div><p>猶大以三十塊錢之價答應交出主。</p></div>
+    </div>
+    <div class="prophecy-row">
+      <div class="pr-old"><div class="pr-ref">出埃及記 12 章</div><p>逾越節羔羊的血塗在門上，滅命之災越門而過。</p></div>
+      <div class="pr-arrow">➜</div>
+      <div class="pr-new"><div class="pr-ref">日5 · 馬太福音 26:26–28</div><p>主設立聖餐：「這是我立約的血，為多人流出來，使罪得赦。」</p></div>
+    </div>
+    <div class="prophecy-row">
+      <div class="pr-old"><div class="pr-ref">詩篇 22:1</div><p>我的　神，我的　神，為甚麼離棄我？</p></div>
+      <div class="pr-arrow">➜</div>
+      <div class="pr-new"><div class="pr-ref">日6 · 馬太福音 27:46</div><p>十架第四言：「以利！以利！拉馬撒巴各大尼？」</p></div>
+    </div>
+    <div class="prophecy-row">
+      <div class="pr-old"><div class="pr-ref">以賽亞書 53:9</div><p>誰知死的時候與財主同葬。</p></div>
+      <div class="pr-arrow">➜</div>
+      <div class="pr-new"><div class="pr-ref">日6 · 馬太福音 27:57–60</div><p>財主亞利馬太的約瑟把主安放在自己的新墳墓裏。</p></div>
+    </div>
+    <div class="prophecy-row">
+      <div class="pr-old"><div class="pr-ref">主自己的預言 · 馬太福音 16:21</div><p>人子必須被交在罪人手裏，釘在十字架上，第三日復活。</p></div>
+      <div class="pr-arrow">➜</div>
+      <div class="pr-new"><div class="pr-ref">日8 · 路加福音 24:6–7</div><p>天使宣告：「祂不在這裏，已經復活了。當記念祂怎樣告訴你們。」</p></div>
+    </div>
+  </section>
+
+  <div class="divider"><span>默想</span></div>
+
+  <!-- ═══════════════ 默想與回應 ═══════════════ -->
+  <section class="section" id="reflect" style="padding-top:0">
+    <div class="sec-title">
+      <div class="icon">🪞</div>
+      <div>
+        <h2>默想與回應</h2>
+        <div class="subtitle">走過八日之後，五個留給自己的問題</div>
+      </div>
+    </div>
+    <div class="reflection">
+      <h3>讓這一週的每一天，都問我一個問題——</h3>
+      <ol>
+        <li><strong>棕</strong>　群眾主日喊「和散那」、週五喊「釘他十字架」——我的信仰跟着環境，還是跟着基督？</li>
+        <li><strong>訓</strong>　主潔淨聖殿：我這座「禱告的殿」裏，有沒有需要被推倒的桌子？</li>
+        <li><strong>餐</strong>　主說「你們也當彼此洗腳」——這個禮拜，我願意彎下腰服事誰？</li>
+        <li><strong>難</strong>　兩個強盜同樣靠近十架，結局卻不同——靠近不等於相信，我是哪一個？</li>
+        <li><strong>活</strong>　天使問：「為甚麼在死人中找活人呢？」我是否仍在絕望裏找盼望、在舊我裏找新生命？</li>
+      </ol>
+    </div>
+
+    <div class="quote-block">
+      <p class="quote-text">
+        祂不在這裏，<em>已經復活了</em>。<br>
+        十字架的盡頭不是墳墓，是空的墳墓；<br>
+        聖難週的最後一個字，不是「難」，是<em>「活」</em>。
+      </p>
+      <div class="quote-src">— 路加福音 24:6 · 聖難週默想</div>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="page-footer">
+  <p>節慶系列 · <strong>聖難週 HOLY WEEK</strong> · 從棕枝到空墳墓</p>
+  <p style="margin-top:4px;">八日章節 · 棕訓辨修餐難墓活 · 2026年6月整理</p>
+</footer>
+
+</body>
+</html>
