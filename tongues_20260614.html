@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>說翻方言 — 末世決戰·治死老我·迎接主再來</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --gold: #C9A84C;
+  --gold-light: #E8D08A;
+  --gold-pale: #FAF3DC;
+  --deep: #1A1208;
+  --ink: #2C2416;
+  --muted: #6B5D3E;
+  --soft: #F5EDD8;
+  --parchment: #FBF6EC;
+  --teal: #2E7D72;
+  --teal-light: #4AA89C;
+  --teal-pale: #E0F2EF;
+  --ruby: #8B2130;
+  --ruby-light: #C2445A;
+  --ruby-pale: #FAEAED;
+  --blue-deep: #1E3A5F;
+  --blue-mid: #2E6DA4;
+  --blue-pale: #E8F1FA;
+  --dove: #5B6F8A;
+  --dove-light: #8BA3C0;
+  --dove-pale: #EBF1F8;
+  --radius: 12px;
+  --radius-lg: 20px;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family: 'Noto Sans TC', sans-serif;
+  background: var(--parchment);
+  color: var(--ink);
+  line-height: 1.8;
+}
+
+/* ── HERO ── */
+.hero {
+  background: var(--deep);
+  padding: 3.5rem 2rem 3rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content:'';
+  position:absolute; inset:0;
+  background: radial-gradient(ellipse at 50% 0%, rgba(91,111,138,0.25) 0%, rgba(201,168,76,0.1) 60%, transparent 90%);
+  pointer-events:none;
+}
+.hero-tag {
+  display: inline-block;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  font-size: 11px;
+  letter-spacing: 4px;
+  padding: 4px 16px;
+  border-radius: 2px;
+  margin-bottom: 1.2rem;
+  text-transform: uppercase;
+}
+.hero h1 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  color: #fff;
+  font-weight: 700;
+  line-height: 1.4;
+  margin-bottom: 0.6rem;
+}
+.hero h1 em { color: var(--gold-light); font-style: normal; }
+.hero-sub {
+  color: rgba(255,255,255,0.55);
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  margin-bottom: 2rem;
+}
+.hero-verse {
+  display: inline-block;
+  border-left: 2px solid var(--gold);
+  padding: 0.5rem 1rem;
+  text-align: left;
+  color: var(--gold-light);
+  font-family: 'Noto Serif TC', serif;
+  font-size: 0.9rem;
+  line-height: 1.9;
+}
+
+/* ── LAYOUT ── */
+.container { max-width: 960px; margin: 0 auto; padding: 0 1.25rem; }
+.section { padding: 2.5rem 0 1.5rem; }
+
+/* ── SECTION TITLE ── */
+.sec-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 1.5rem;
+}
+.sec-title .icon {
+  width: 36px; height: 36px;
+  background: var(--gold);
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 17px; color: var(--deep); flex-shrink:0;
+}
+.sec-title h2 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 1.2rem;
+  color: var(--deep);
+  font-weight: 700;
+}
+.sec-title .subtitle { font-size: 0.78rem; color: var(--muted); margin-top:1px; }
+
+/* ── CORE PILLARS ── */
+.pillars {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.pillar {
+  background: #fff;
+  border: 0.5px solid rgba(0,0,0,0.1);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.pillar:hover { transform: translateY(-3px); box-shadow: 0 8px 28px rgba(0,0,0,0.08); }
+.pillar::before {
+  content:'';
+  position:absolute; top:0; left:0; right:0; height:3px;
+}
+.pillar.p1::before { background: linear-gradient(90deg, var(--dove), var(--dove-light)); }
+.pillar.p2::before { background: linear-gradient(90deg, var(--gold), var(--gold-light)); }
+.pillar.p3::before { background: linear-gradient(90deg, var(--ruby), var(--ruby-light)); }
+.pillar.p4::before { background: linear-gradient(90deg, var(--teal), var(--teal-light)); }
+.pillar-num {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 2.5rem; font-weight: 700; line-height: 1;
+  margin-bottom: 0.6rem; opacity: 0.12;
+  position: absolute; top: 1rem; right: 1.2rem;
+}
+.pillar.p1 .pillar-num { color: var(--dove); }
+.pillar.p2 .pillar-num { color: var(--gold); }
+.pillar.p3 .pillar-num { color: var(--ruby); }
+.pillar.p4 .pillar-num { color: var(--teal); }
+.pillar-icon { font-size: 1.6rem; margin-bottom: 0.5rem; }
+.pillar h3 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--deep);
+}
+.pillar p { font-size: 0.82rem; color: var(--muted); line-height: 1.7; }
+
+/* ── QUOTE BLOCK ── */
+.quote-block {
+  background: var(--deep);
+  border-radius: var(--radius-lg);
+  padding: 2rem 2rem 1.5rem;
+  margin-bottom: 1.5rem;
+  position: relative; overflow: hidden;
+}
+.quote-block::before {
+  content: '"';
+  position: absolute; top: -0.5rem; left: 1rem;
+  font-family: 'Noto Serif TC', serif;
+  font-size: 6rem; color: var(--gold); opacity: 0.15;
+  line-height: 1; pointer-events: none;
+}
+.quote-text {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 1.05rem; color: #fff; line-height: 1.9; margin-bottom: 0.8rem;
+}
+.quote-text em { color: var(--gold-light); font-style: normal; font-weight: 700; }
+.quote-src { font-size: 0.75rem; color: rgba(255,255,255,0.45); letter-spacing: 1px; }
+
+/* ── THREE STAGES ── */
+.stages {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 0;
+  background: #fff;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 0.5px solid rgba(0,0,0,0.09);
+  margin-bottom: 1.5rem;
+}
+@media(max-width:600px){ .stages{grid-template-columns:1fr;} }
+.stage-item {
+  padding: 1.4rem 1.2rem;
+  border-right: 0.5px solid rgba(0,0,0,0.07);
+  position: relative;
+}
+.stage-item:last-child { border-right: none; }
+.stage-no {
+  font-size: 0.7rem; letter-spacing: 2px; font-weight: 700;
+  margin-bottom: 0.4rem; text-transform: uppercase;
+}
+.stage-item.s1 .stage-no { color: var(--dove); }
+.stage-item.s2 .stage-no { color: var(--ruby); }
+.stage-item.s3 .stage-no { color: var(--teal); }
+.stage-title { font-family: 'Noto Serif TC', serif; font-size: 0.95rem; font-weight: 700; color: var(--deep); margin-bottom: 0.4rem; }
+.stage-body { font-size: 0.78rem; color: var(--muted); line-height: 1.65; }
+.stage-top-bar { height: 3px; background: var(--soft); position:absolute; top:0; left:0; right:0; }
+.stage-item.s1 .stage-top-bar { background: var(--dove); }
+.stage-item.s2 .stage-top-bar { background: var(--ruby); }
+.stage-item.s3 .stage-top-bar { background: var(--teal); }
+
+/* ── INSIGHT ROW ── */
+.insight-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.insight-card {
+  background: #fff;
+  border-radius: var(--radius);
+  border: 0.5px solid rgba(0,0,0,0.09);
+  padding: 1.2rem;
+  display: flex; gap: 12px; align-items: flex-start;
+}
+.insight-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%; margin-top: 0.4rem; flex-shrink: 0;
+}
+.ic-gold .insight-dot { background: var(--gold); }
+.ic-ruby .insight-dot { background: var(--ruby); }
+.ic-teal .insight-dot { background: var(--teal); }
+.ic-dove .insight-dot { background: var(--dove); }
+.insight-card h4 { font-size: 0.88rem; font-weight: 600; color: var(--deep); margin-bottom: 0.3rem; }
+.insight-card p { font-size: 0.78rem; color: var(--muted); line-height: 1.65; }
+
+/* ── CALL BOX ── */
+.call-box {
+  border-radius: var(--radius-lg);
+  padding: 1.8rem 1.8rem 1.5rem;
+  margin-bottom: 1.5rem;
+}
+.call-box.dove { background: var(--dove-pale); border-left: 3px solid var(--dove); }
+.call-box.gold { background: var(--gold-pale); border-left: 3px solid var(--gold); }
+.call-box.ruby { background: var(--ruby-pale); border-left: 3px solid var(--ruby); }
+.call-box.teal { background: var(--teal-pale); border-left: 3px solid var(--teal); }
+.call-box-label {
+  font-size: 0.7rem; letter-spacing: 2.5px; font-weight: 700;
+  text-transform: uppercase; margin-bottom: 0.6rem;
+}
+.call-box.dove .call-box-label { color: var(--dove); }
+.call-box.gold .call-box-label { color: #7A620A; }
+.call-box.ruby .call-box-label { color: var(--ruby); }
+.call-box.teal .call-box-label { color: var(--teal); }
+.call-box h3 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 1.05rem; font-weight: 700; color: var(--deep); margin-bottom: 0.7rem;
+}
+.call-box p, .call-box li { font-size: 0.85rem; color: var(--ink); line-height: 1.85; }
+.call-box ul { padding-left: 1.2rem; }
+.call-box ul li { margin-bottom: 0.25rem; }
+.call-box strong { color: var(--deep); }
+
+/* ── ACTION STEPS ── */
+.action-steps {
+  background: #fff;
+  border-radius: var(--radius-lg);
+  border: 0.5px solid rgba(0,0,0,0.09);
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+}
+.action-step {
+  display: flex; gap: 1rem; padding: 1.1rem 1.3rem;
+  border-bottom: 0.5px solid rgba(0,0,0,0.06);
+  align-items: flex-start;
+}
+.action-step:last-child { border-bottom: none; }
+.step-num {
+  width: 28px; height: 28px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.72rem; font-weight: 700; flex-shrink: 0; margin-top: 2px;
+}
+.action-step:nth-child(1) .step-num { background: var(--dove-pale); color: var(--dove); }
+.action-step:nth-child(2) .step-num { background: var(--ruby-pale); color: var(--ruby); }
+.action-step:nth-child(3) .step-num { background: var(--teal-pale); color: var(--teal); }
+.action-step:nth-child(4) .step-num { background: var(--gold-pale); color: #7A620A; }
+.step-content h4 { font-size: 0.9rem; font-weight: 600; color: var(--deep); margin-bottom: 0.2rem; }
+.step-content p { font-size: 0.78rem; color: var(--muted); line-height: 1.65; }
+
+/* ── MINDMAP ── */
+.mindmap-wrap {
+  background: #fff;
+  border-radius: var(--radius-lg);
+  border: 0.5px solid rgba(0,0,0,0.09);
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+}
+.mindmap-wrap svg { display:block; width:100%; }
+
+/* ── DIVIDER ── */
+.divider {
+  display: flex; align-items: center; gap: 12px;
+  margin: 0.5rem 0 1.5rem; opacity: 0.35;
+}
+.divider::before, .divider::after {
+  content:''; flex:1; height: 0.5px; background: var(--muted);
+}
+.divider span { font-size: 10px; letter-spacing: 3px; color: var(--muted); text-transform: uppercase; }
+
+/* ── TWO PATH BOX ── */
+.two-path {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 0; background: #fff;
+  border-radius: var(--radius-lg);
+  border: 0.5px solid rgba(0,0,0,0.09);
+  overflow: hidden; margin-bottom: 1.5rem;
+}
+@media(max-width:500px){ .two-path{grid-template-columns:1fr;} }
+.path-side { padding: 1.5rem 1.3rem; }
+.path-side:first-child { border-right: 0.5px solid rgba(0,0,0,0.07); }
+.path-label {
+  font-size: 0.68rem; letter-spacing: 2.5px; font-weight: 700;
+  text-transform: uppercase; margin-bottom: 0.6rem;
+}
+.path-a .path-label { color: var(--ruby); }
+.path-b .path-label { color: var(--teal); }
+.path-title {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 1.05rem; font-weight: 700; color: var(--deep); margin-bottom: 0.6rem;
+}
+.path-list { list-style: none; padding: 0; }
+.path-list li {
+  font-size: 0.8rem; color: var(--muted);
+  line-height: 1.65; padding: 3px 0 3px 14px; position: relative;
+}
+.path-list li::before {
+  content:'·'; position:absolute; left:2px; font-size: 1rem; line-height: 1.3;
+}
+.path-a .path-list li::before { color: var(--ruby); }
+.path-b .path-list li::before { color: var(--teal); }
+
+/* ── FOOTER ── */
+.page-footer {
+  background: var(--deep); text-align: center;
+  padding: 1.8rem 1rem; margin-top: 2.5rem;
+}
+.page-footer p { font-size: 0.78rem; color: rgba(255,255,255,0.35); letter-spacing: 1px; }
+.page-footer strong { color: var(--gold); font-weight: 400; }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-tag">說翻方言 · 2026.06.14</div>
+  <h1>末世決戰·<em>治死老我</em><br>——迎接主再來</h1>
+  <p class="hero-sub">末世的徵兆 × 與老我的決戰 × 成為合用的器皿</p>
+  <div class="hero-verse">
+    孩子們，是該醒的時候，也是該起來征戰的時候了。<br>
+    因為黑夜已深，白晝將近，我的再來絕不再拖延。<br>
+    <span style="color:rgba(255,255,255,0.4);font-size:0.78rem">— 父神的話語 · 2026.06.14</span>
+  </div>
+</header>
+
+<main class="container">
+
+  <!-- ① 核心主題 -->
+  <section class="section">
+    <div class="sec-title">
+      <div class="icon">🕊️</div>
+      <div>
+        <h2>今日核心信息</h2>
+        <div class="subtitle">四大信息主軸</div>
+      </div>
+    </div>
+    <div class="pillars">
+      <div class="pillar p1">
+        <div class="pillar-num">一</div>
+        <div class="pillar-icon">🌍</div>
+        <h3>末世徵兆已現</h3>
+        <p>民攻打民、國攻打國，到處有飢荒、地震，瘟疫又捲土重來。種種跡象都顯明：主的再來已經進入倒數計時。</p>
+      </div>
+      <div class="pillar p2">
+        <div class="pillar-num">二</div>
+        <div class="pillar-icon">⏳</div>
+        <h3>莫存僥倖之心</h3>
+        <p>許多人假裝看不見、自以為還有時間預備。於是「主的再來」與「我的日常」成了兩條沒有交集的平行線——只因仍停在孩童的階段。</p>
+      </div>
+      <div class="pillar p3">
+        <div class="pillar-num">三</div>
+        <div class="pillar-icon">⚔️</div>
+        <h3>與老我決一死戰</h3>
+        <p>末日的決戰，就是與自己的老我決戰。若不治死老我到流血的地步，仇敵就能輕易藉著老我來轄制你。</p>
+      </div>
+      <div class="pillar p4">
+        <div class="pillar-num">四</div>
+        <div class="pillar-icon">🔥</div>
+        <h3>起來警醒征戰</h3>
+        <p>黑夜已深，白晝將近。該醒、該起來了——脫離兒童班的水平，成為結出聖靈果子、散發基督馨香、神所合用的器皿。</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"><span>心智圖</span></div>
+
+  <!-- ② 心智圖 -->
+  <section class="section" style="padding-top:0">
+    <div class="sec-title">
+      <div class="icon">🧠</div>
+      <div>
+        <h2>主題心智圖</h2>
+        <div class="subtitle">全篇結構一覽</div>
+      </div>
+    </div>
+    <div class="mindmap-wrap">
+      <svg viewBox="0 0 900 480" xmlns="http://www.w3.org/2000/svg" role="img">
+        <title>說翻方言心智圖 2026.06.14</title>
+        <defs>
+          <marker id="marr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+            <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </marker>
+        </defs>
+        <rect width="900" height="480" fill="#FDFAF3"/>
+
+        <!-- 中心 -->
+        <rect x="320" y="195" width="260" height="70" rx="12" fill="#1A1208" stroke="#C9A84C" stroke-width="1.5"/>
+        <text x="450" y="223" text-anchor="middle" font-family="Noto Serif TC,serif" font-size="13.5" fill="#E8D08A" font-weight="700">末世決戰 · 治死老我</text>
+        <text x="450" y="247" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="10.5" fill="rgba(255,255,255,0.5)">迎接主再來</text>
+
+        <!-- 左上：末世徵兆 -->
+        <path d="M363 207 Q275 155 190 120" fill="none" stroke="#5B6F8A" stroke-width="1.2" marker-end="url(#marr)"/>
+        <rect x="45" y="78" width="160" height="72" rx="8" fill="#EBF1F8" stroke="#5B6F8A" stroke-width="0.8"/>
+        <text x="125" y="103" text-anchor="middle" font-family="Noto Serif TC,serif" font-size="11.5" fill="#1E3A5F" font-weight="700">末世徵兆</text>
+        <text x="125" y="120" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#5B6F8A">戰爭四起天災不斷</text>
+        <text x="125" y="137" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#5B6F8A">瘟疫捲土重來</text>
+
+        <!-- 右上：僥倖的心態 -->
+        <path d="M537 207 Q625 155 710 120" fill="none" stroke="#8B2130" stroke-width="1.2" marker-end="url(#marr)"/>
+        <rect x="695" y="78" width="175" height="72" rx="8" fill="#FAEAED" stroke="#8B2130" stroke-width="0.8"/>
+        <text x="782" y="103" text-anchor="middle" font-family="Noto Serif TC,serif" font-size="11.5" fill="#6B1621" font-weight="700">僥倖的心態</text>
+        <text x="782" y="120" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#8B2130">假裝看不見</text>
+        <text x="782" y="137" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#8B2130">自以為還有時間</text>
+
+        <!-- 左：老我坐大 -->
+        <path d="M330 230 Q215 230 170 230" fill="none" stroke="#C9A84C" stroke-width="1.2" marker-end="url(#marr)"/>
+        <rect x="20" y="195" width="148" height="72" rx="8" fill="#FAF3DC" stroke="#C9A84C" stroke-width="0.8"/>
+        <text x="94" y="221" text-anchor="middle" font-family="Noto Serif TC,serif" font-size="11.5" fill="#7A620A" font-weight="700">老我坐大</text>
+        <text x="94" y="238" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#9A7E3A">心剛硬不順服</text>
+        <text x="94" y="255" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#9A7E3A">往來傳舌製造事端</text>
+
+        <!-- 右：連於源頭 -->
+        <path d="M570 230 Q685 230 730 230" fill="none" stroke="#2E7D72" stroke-width="1.2" marker-end="url(#marr)"/>
+        <rect x="730" y="195" width="152" height="72" rx="8" fill="#E0F2EF" stroke="#2E7D72" stroke-width="0.8"/>
+        <text x="806" y="221" text-anchor="middle" font-family="Noto Serif TC,serif" font-size="11.5" fill="#185049" font-weight="700">連於生命源頭</text>
+        <text x="806" y="238" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#2E7D72">體貼聖靈得平安</text>
+        <text x="806" y="255" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#2E7D72">叫人生長的是神</text>
+
+        <!-- 左下：與老我決戰 -->
+        <path d="M384 262 Q295 325 215 370" fill="none" stroke="#8B2130" stroke-width="1.2" marker-end="url(#marr)"/>
+        <rect x="45" y="340" width="178" height="88" rx="8" fill="#FAEAED" stroke="#8B2130" stroke-width="0.8"/>
+        <text x="134" y="365" text-anchor="middle" font-family="Noto Serif TC,serif" font-size="11.5" fill="#6B1621" font-weight="700">與老我決戰</text>
+        <text x="134" y="383" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#8B2130">治死老我到流血</text>
+        <text x="134" y="399" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#8B2130">不做糊塗人</text>
+        <text x="134" y="415" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#8B2130">靠聖靈潔淨剛強</text>
+
+        <!-- 右下：成熟的器皿 -->
+        <path d="M516 262 Q605 325 680 370" fill="none" stroke="#C9A84C" stroke-width="1.2" marker-end="url(#marr)"/>
+        <rect x="666" y="340" width="178" height="88" rx="8" fill="#FAF3DC" stroke="#C9A84C" stroke-width="0.8"/>
+        <text x="755" y="365" text-anchor="middle" font-family="Noto Serif TC,serif" font-size="11.5" fill="#7A620A" font-weight="700">成熟的器皿</text>
+        <text x="755" y="383" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#9A7E3A">結出聖靈的果子</text>
+        <text x="755" y="399" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#9A7E3A">聰明童女 · 細麻衣</text>
+        <text x="755" y="415" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#9A7E3A">散發基督馨香之氣</text>
+
+        <!-- 中下：警醒起來征戰 -->
+        <path d="M450 265 L450 330" fill="none" stroke="#6B5D3E" stroke-width="1.2" stroke-dasharray="4,3" marker-end="url(#marr)"/>
+        <rect x="365" y="330" width="170" height="52" rx="8" fill="#F5EDD8" stroke="#6B5D3E" stroke-width="0.8"/>
+        <text x="450" y="352" text-anchor="middle" font-family="Noto Serif TC,serif" font-size="11.5" fill="#2C2416" font-weight="700">警醒起來征戰</text>
+        <text x="450" y="369" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#6B5D3E">黑夜已深 · 白晝將近</text>
+      </svg>
+    </div>
+  </section>
+
+  <div class="divider"><span>末世的徵兆</span></div>
+
+  <!-- ③ 末世的徵兆 -->
+  <section class="section" style="padding-top:0">
+    <div class="sec-title">
+      <div class="icon" style="background:var(--dove);color:#fff;">🌍</div>
+      <div>
+        <h2>末世的徵兆已顯明在眼前</h2>
+        <div class="subtitle">經上所說的，正一一應驗</div>
+      </div>
+    </div>
+    <div class="stages">
+      <div class="stage-item s1">
+        <div class="stage-top-bar"></div>
+        <div class="stage-no">戰爭</div>
+        <div class="stage-title">民攻打民、國攻打國</div>
+        <p class="stage-body">觀看現今國際局勢，戰爭四起，好幾場戰爭至今仍在進行。經上所說「民要攻打民，國要攻打國」，已分明顯在眼前。</p>
+      </div>
+      <div class="stage-item s2">
+        <div class="stage-top-bar"></div>
+        <div class="stage-no">天災</div>
+        <div class="stage-title">飢荒地震不斷</div>
+        <p class="stage-body">水災、風災、地震不斷冒出。「到處有飢荒、地震」——種種天災正是末世景況的記號，提醒我們時候近了。</p>
+      </div>
+      <div class="stage-item s3">
+        <div class="stage-top-bar"></div>
+        <div class="stage-no">瘟疫</div>
+        <div class="stage-title">疾病捲土重來</div>
+        <p class="stage-body">三年疫情奪去數百萬人性命；好不容易過去，伊波拉等舊有傳染病又再出現。「已有的事後必再有」，正一一應驗。</p>
+      </div>
+    </div>
+
+    <div class="quote-block">
+      <p class="quote-text">這種種的跡象，都再一次顯明：<br>我的再來，已經進入<em>倒數計時</em>了。<br>然而你們許多人，還保持著僥倖的心態。</p>
+      <p class="quote-src">— 父神的話語 · 2026.06.14</p>
+    </div>
+
+    <div class="call-box ruby">
+      <div class="call-box-label">嚴肅的提問</div>
+      <h3>難道還能得過且過嗎？</h3>
+      <p>我們既然活在這世上，又來到了神之子體系、是其中的一員，<strong>難道還可以抱著假裝看不見、得過且過的心態嗎？</strong>每天只面對如何餬口度日、成就自己的六子登科，對於預備迎接主的再來，卻總覺得「反正還早，有的是時間」。</p>
+    </div>
+  </section>
+
+  <div class="divider"><span>兩條平行線</span></div>
+
+  <!-- ④ 兩條平行線 -->
+  <section class="section" style="padding-top:0">
+    <div class="sec-title">
+      <div class="icon" style="background:#7A620A;color:var(--gold-pale);">🛤️</div>
+      <div>
+        <h2>兩條沒有交集的平行線</h2>
+        <div class="subtitle">主的再來，與我的日常，是否還毫不相干？</div>
+      </div>
+    </div>
+
+    <div class="two-path">
+      <div class="path-side path-a">
+        <div class="path-label">孩童的光景</div>
+        <div class="path-title">僥倖度日</div>
+        <ul class="path-list">
+          <li>假裝看不見末世的徵兆</li>
+          <li>坐下吃喝、起來玩耍</li>
+          <li>老我依然坐大，心剛硬不順服</li>
+          <li>喜歡往來傳舌、製造事端</li>
+          <li>屬世屬靈兩邊都不及格</li>
+        </ul>
+      </div>
+      <div class="path-side path-b">
+        <div class="path-label">成熟的生命</div>
+        <div class="path-title">警醒長進</div>
+        <ul class="path-list">
+          <li>正視時候已近，倒數計時</li>
+          <li>該醒、該起來征戰</li>
+          <li>治死老我，順服聖靈</li>
+          <li>體貼聖靈，得著生命平安</li>
+          <li>結出果子，成為合用器皿</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="call-box gold">
+      <div class="call-box-label">幼嫩的徵狀</div>
+      <h3>仍停在孩童的階段</h3>
+      <p>之所以「主的再來」與「我的日常」沒有交集，乃是因為我們的屬靈生命還很幼嫩，仍停在<strong>只想坐下吃喝、起來玩耍的孩童階段</strong>。牧師如今不遺餘力地教導我們，正是要我們快快長大，脫離這階段，成為神所合用的器皿。</p>
+    </div>
+  </section>
+
+  <div class="divider"><span>與老我決戰</span></div>
+
+  <!-- ⑤ 與老我決戰 -->
+  <section class="section" style="padding-top:0">
+    <div class="sec-title">
+      <div class="icon" style="background:var(--ruby);color:#fff;">⚔️</div>
+      <div>
+        <h2>末世最大的敵人——老我</h2>
+        <div class="subtitle">體貼肉體的就是死，體貼聖靈的乃是生命平安</div>
+      </div>
+    </div>
+
+    <div class="quote-block">
+      <p class="quote-text">你們若不治死老我到<em>流血</em>的地步，<br>仇敵就能輕易藉著你們的老我來轄制你。<br>正如保羅所說：「我所願意的，我不去做；<br>我所不願意的，我倒去做。」</p>
+      <p class="quote-src">— 父神的話語 · 2026.06.14</p>
+    </div>
+
+    <div class="insight-row">
+      <div class="insight-card ic-ruby">
+        <div class="insight-dot"></div>
+        <div>
+          <h4>不做糊塗人</h4>
+          <p>糊塗人就是落入自設的網羅卻渾然不知。豈不知體貼肉體的就是死，也是與神為敵？唯有體貼聖靈的，才有真正的平安。</p>
+        </div>
+      </div>
+      <div class="insight-card ic-teal">
+        <div class="insight-dot"></div>
+        <div>
+          <h4>軟弱時親近主</h4>
+          <p>你們若有軟弱，就當時常親近主，因為軟弱有聖靈的幫助。靠著聖靈潔淨、提升我們的意志力，才能在面對老我時走出一條活路。</p>
+        </div>
+      </div>
+      <div class="insight-card ic-gold">
+        <div class="insight-dot"></div>
+        <div>
+          <h4>連於生命源頭</h4>
+          <p>要時常連於主這生命的源頭，因為叫人生長的，乃是神。不再渾渾噩噩度日——因為那日子何時臨到，我們並不知道。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"><span>牧者的心與操練</span></div>
+
+  <!-- ⑥ 牧者的心與屬靈操練 -->
+  <section class="section" style="padding-top:0">
+    <div class="sec-title">
+      <div class="icon" style="background:var(--teal);color:#fff;">🌱</div>
+      <div>
+        <h2>牧者焦急的心與屬靈操練</h2>
+        <div class="subtitle">從兒童班的水平，提升為成熟的器皿</div>
+      </div>
+    </div>
+
+    <div class="call-box dove">
+      <div class="call-box-label">牧者的心腸</div>
+      <h3>為長不大的肢體，心裡焦急如火燒</h3>
+      <p>神所愛的、我們的牧師，為我們心裡焦急，如同火燒，不住地在神面前為我們代求；他在世時留下各樣教導與十幾本書，如今師母也用許多理論配合例子提升我們。<strong>然而我們回報的又是什麼？老我依然坐大、心依然剛硬——連一個聖靈的果子，恐怕都還沒結出來。</strong></p>
+    </div>
+
+    <div class="action-steps">
+      <div class="action-step">
+        <div class="step-num">01</div>
+        <div class="step-content">
+          <h4>常常接近聖靈</h4>
+          <p>靠聖靈來提升意志力、潔淨自己。面對仇敵、面對老我的時候，唯有倚靠聖靈，才能走出一條活路。</p>
+        </div>
+      </div>
+      <div class="action-step">
+        <div class="step-num">02</div>
+        <div class="step-content">
+          <h4>善用牧師與師母的教導</h4>
+          <p>牧師在世時的教導與留下的十幾本書、師母如今的理論與實例，都是治死老我、面對仇敵的裝備。不好好學習，就會被仇敵轄制。</p>
+        </div>
+      </div>
+      <div class="action-step">
+        <div class="step-num">03</div>
+        <div class="step-content">
+          <h4>起來面對仇敵爭戰</h4>
+          <p>該是覺醒、起來的時候了。求神的光、神的引領，治死老我，不再做落入網羅的糊塗人，免得最終成為被撇下的人。</p>
+        </div>
+      </div>
+      <div class="action-step">
+        <div class="step-num">04</div>
+        <div class="step-content">
+          <h4>結出果子，成為合用器皿</h4>
+          <p>脫離坐下吃喝、起來玩耍的兒童班水平，提升為成熟、為主散發基督馨香之氣的器皿——成為聰明童女，穿上光明潔白的細麻衣。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="call-box teal">
+      <div class="call-box-label">珍惜光陰</div>
+      <h3>不要做活的死人</h3>
+      <p>若就這樣渾噩地活下去、不知長進，真是生不如死，與一個活的死人有何兩樣？<strong>當珍惜這有限的時間，努力學習，成為神所使用的器皿，迎接主的再來。</strong></p>
+    </div>
+  </section>
+
+  <div class="divider"><span>行動呼召</span></div>
+
+  <!-- ⑦ 今日回應 -->
+  <section class="section" style="padding-top:0;padding-bottom:2rem">
+    <div class="sec-title">
+      <div class="icon" style="background:var(--deep);color:var(--gold);">✦</div>
+      <div>
+        <h2>今日的回應</h2>
+        <div class="subtitle">從信息到行動</div>
+      </div>
+    </div>
+    <div class="call-box dove">
+      <div class="call-box-label">三個自我檢視</div>
+      <h3>我的回應是什麼？</h3>
+      <ul>
+        <li><strong>我是否仍存僥倖？</strong> 末世徵兆已現眼前，我是否還假裝看不見、自以為還有的是時間？</li>
+        <li><strong>我的老我是否依然坐大？</strong> 心仍剛硬不順服、仍往來傳舌——肉體叫我做了我不願做的？</li>
+        <li><strong>我結出果子了嗎？</strong> 還是仍停在坐下吃喝、起來玩耍的兒童班，連一個聖靈果子都還沒結出？</li>
+      </ul>
+    </div>
+
+    <div class="quote-block" style="margin-top:1.5rem">
+      <p class="quote-text">孩子們，不要再渾渾噩噩度日，<br>因為那日子何時臨到，你們並不知道。<br>如果我現在就再來，你們能夠<em>安然地面對我</em>嗎？</p>
+      <p class="quote-src">— 父神的話語 · 2026.06.14</p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="page-footer">
+  <p>說翻方言系列 · <strong>末世決戰·治死老我·迎接主再來</strong></p>
+  <p style="margin-top:4px;">2026.06.14 · 神之子體系 · 預備主基督再來</p>
+</footer>
+
+</body>
+</html>
