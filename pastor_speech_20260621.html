@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>溫故知新 · 認罪之後，還有一步</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════════════
+   設計語言 · DESIGN TOKENS
+   用 CSS variables 統一管理所有顏色
+═══════════════════════════════════════════════ */
+:root {
+  /* 主色 — 金 (標題、裝飾、強調) */
+  --gold:        #C9A84C;
+  --gold-light:  #E8D08A;
+  --gold-pale:   #FAF3DC;
+
+  /* 中性 — 墨 (文字) */
+  --deep:        #1A1208;   /* 最深，用於標題與背景 */
+  --ink:         #2C2416;   /* 正文 */
+  --muted:       #6B5D3E;   /* 次要說明文字 */
+  --soft:        #F5EDD8;   /* 淡色背景塊 */
+  --parchment:   #FBF6EC;   /* 頁面底色 */
+
+  /* 輔色 1 — 青 (正面、結論、希望) */
+  --teal:        #2E7D72;
+  --teal-light:  #4AA89C;
+  --teal-pale:   #E0F2EF;
+
+  /* 輔色 2 — 紅 (警告、嚴肅、對比) */
+  --ruby:        #8B2130;
+  --ruby-light:  #C2445A;
+  --ruby-pale:   #FAEAED;
+
+  /* 輔色 3 — 藍 (資訊、補充、中立) */
+  --blue-deep:   #1E3A5F;
+  --blue-mid:    #2E6DA4;
+  --blue-pale:   #E8F1FA;
+
+  /* 圓角 */
+  --radius:      12px;
+  --radius-lg:   20px;
+}
+
+/* ═══════════════════════════════════════════════
+   基礎重置
+═══════════════════════════════════════════════ */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Noto Sans TC', sans-serif;
+  background: var(--parchment);
+  color: var(--ink);
+  line-height: 1.8;
+}
+
+/* ═══════════════════════════════════════════════
+   HERO — 頁首大圖
+   修改：.hero-tag / h1 em / .hero-sub / .hero-verse
+═══════════════════════════════════════════════ */
+.hero {
+  background: var(--deep);
+  padding: 3.5rem 2rem 3rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 50% 0%, rgba(201,168,76,.18) 0%, transparent 70%);
+  pointer-events: none;
+}
+/* 小標籤 e.g. "溫故知新 · 第02篇 · 2003.10.18" */
+.hero-tag {
+  display: inline-block;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  font-size: 11px;
+  letter-spacing: 4px;
+  padding: 4px 16px;
+  border-radius: 2px;
+  margin-bottom: 1.2rem;
+  text-transform: uppercase;
+}
+/* 主標題：<em> 套金色關鍵字 */
+.hero h1 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  color: #fff;
+  font-weight: 700;
+  line-height: 1.4;
+  margin-bottom: .6rem;
+}
+.hero h1 em { color: var(--gold-light); font-style: normal; }
+/* 副標題描述 */
+.hero-sub {
+  color: rgba(255,255,255,.55);
+  font-size: .85rem;
+  letter-spacing: 1px;
+  margin-bottom: 2rem;
+}
+/* 金色引言框 */
+.hero-verse {
+  display: inline-block;
+  border-left: 2px solid var(--gold);
+  padding: .5rem 1rem;
+  text-align: left;
+  color: var(--gold-light);
+  font-family: 'Noto Serif TC', serif;
+  font-size: .9rem;
+  line-height: 1.9;
+}
+.hero-verse .src {
+  color: rgba(255,255,255,.4);
+  font-size: .78rem;
+}
+
+/* ═══════════════════════════════════════════════
+   版面容器
+═══════════════════════════════════════════════ */
+.container { max-width: 960px; margin: 0 auto; padding: 0 1.25rem; }
+.section    { padding: 2.5rem 0 1.5rem; }
+
+/* ═══════════════════════════════════════════════
+   SECTION TITLE — 區塊標題列
+   .icon 背景色可換：style="background:var(--teal);color:#fff;"
+═══════════════════════════════════════════════ */
+.sec-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 1.5rem;
+}
+.sec-title .icon {
+  width: 36px; height: 36px;
+  background: var(--gold);
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 17px; color: var(--deep); flex-shrink: 0;
+}
+.sec-title h2 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 1.2rem;
+  color: var(--deep);
+  font-weight: 700;
+}
+.sec-title .subtitle { font-size: .78rem; color: var(--muted); margin-top: 1px; }
+
+/* ═══════════════════════════════════════════════
+   DIVIDER — 分隔線
+   用法：<div class="divider"><span>段落名稱</span></div>
+═══════════════════════════════════════════════ */
+.divider {
+  display: flex; align-items: center; gap: 12px;
+  margin: .5rem 0 1.5rem; opacity: .35;
+}
+.divider::before, .divider::after {
+  content: ''; flex: 1; height: .5px; background: var(--muted);
+}
+.divider span { font-size: 10px; letter-spacing: 3px; color: var(--muted); text-transform: uppercase; }
+
+
+/* ════════════════════════════════════════════════════════════
+   ██████████  元件庫  ██████████
+   下方依元件分組，每組附使用說明
+════════════════════════════════════════════════════════════ */
+
+
+/* ───────────────────────────────────────────────
+   1. PILLAR CARDS — 核心主題卡片 (2–4欄)
+   在 .pillars 內放 .pillar.p1 / p2 / p3 / p4
+   四色條：金 / 青 / 紅 / 藍
+─────────────────────────────────────────────── */
+.pillars {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);   /* 4 張卡：固定 2×2，避免 3+1 落單換行 */
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+@media(max-width: 560px) { .pillars { grid-template-columns: 1fr; } }
+.pillar {
+  background: #fff;
+  border: .5px solid rgba(0,0,0,.1);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  position: relative;
+  overflow: hidden;
+  transition: transform .2s, box-shadow .2s;
+}
+.pillar:hover { transform: translateY(-3px); box-shadow: 0 8px 28px rgba(0,0,0,.08); }
+.pillar::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 3px;
+}
+.pillar.p1::before { background: linear-gradient(90deg, var(--gold),      var(--gold-light)); }
+.pillar.p2::before { background: linear-gradient(90deg, var(--teal),      var(--teal-light)); }
+.pillar.p3::before { background: linear-gradient(90deg, var(--ruby),      var(--ruby-light)); }
+.pillar.p4::before { background: linear-gradient(90deg, var(--blue-deep), var(--blue-mid));   }
+/* 淡底大數字裝飾 */
+.pillar-num {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 2.5rem; font-weight: 700; opacity: .12; line-height: 1;
+  position: absolute; top: 1rem; right: 1.2rem;
+}
+.pillar.p1 .pillar-num { color: var(--gold); }
+.pillar.p2 .pillar-num { color: var(--teal); }
+.pillar.p3 .pillar-num { color: var(--ruby); }
+.pillar.p4 .pillar-num { color: var(--blue-deep); }
+.pillar-icon { font-size: 1.6rem; margin-bottom: .5rem; }
+.pillar h3 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 1rem; font-weight: 700; color: var(--deep); margin-bottom: .5rem;
+}
+.pillar p { font-size: .82rem; color: var(--muted); line-height: 1.7; }
+
+
+/* ───────────────────────────────────────────────
+   2. QUOTE BLOCK — 深色引言框
+   .quote-text 內用 <em> 套金色關鍵字
+─────────────────────────────────────────────── */
+.quote-block {
+  background: var(--deep);
+  border-radius: var(--radius-lg);
+  padding: 2rem 2rem 1.5rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+  overflow: hidden;
+}
+.quote-block::before {
+  content: '"';
+  position: absolute; top: -.5rem; left: 1rem;
+  font-family: 'Noto Serif TC', serif;
+  font-size: 6rem; color: var(--gold); opacity: .15; line-height: 1;
+  pointer-events: none;
+}
+.quote-text {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 1.05rem; color: #fff; line-height: 1.9; margin-bottom: .8rem;
+}
+.quote-text em { color: var(--gold-light); font-style: normal; font-weight: 700; }
+.quote-src { font-size: .75rem; color: rgba(255,255,255,.45); letter-spacing: 1px; }
+
+
+/* ───────────────────────────────────────────────
+   3. BIBLE CARDS — 聖經節引用卡
+   四色版：.bible-card / .teal-card / .ruby-card / .blue-card
+─────────────────────────────────────────────── */
+/* 金（預設） */
+.bible-card {
+  background: var(--gold-pale);
+  border-left: 3px solid var(--gold);
+  border-radius: var(--radius);
+  padding: 1.1rem 1.3rem;
+  margin: .8rem 0 1.2rem;
+}
+.bible-card .ref {
+  font-size: .7rem; letter-spacing: 2px; color: var(--gold); font-weight: 700;
+  text-transform: uppercase; margin-bottom: .4rem;
+}
+.bible-card .verse {
+  font-family: 'Noto Serif TC', serif; font-size: .88rem; color: var(--deep); line-height: 1.85;
+}
+/* 青 */
+.teal-card { background: var(--teal-pale); border-left: 3px solid var(--teal); border-radius: var(--radius); padding: 1.1rem 1.3rem; margin: .8rem 0 1.2rem; }
+.teal-card .ref { font-size: .7rem; letter-spacing: 2px; color: var(--teal); font-weight: 700; text-transform: uppercase; margin-bottom: .4rem; }
+.teal-card .verse { font-family: 'Noto Serif TC', serif; font-size: .88rem; color: #185049; line-height: 1.85; }
+/* 紅 */
+.ruby-card { background: var(--ruby-pale); border-left: 3px solid var(--ruby); border-radius: var(--radius); padding: 1.1rem 1.3rem; margin: .8rem 0 1.2rem; }
+.ruby-card .ref { font-size: .7rem; letter-spacing: 2px; color: var(--ruby); font-weight: 700; text-transform: uppercase; margin-bottom: .4rem; }
+.ruby-card .verse { font-family: 'Noto Serif TC', serif; font-size: .88rem; color: #6B1621; line-height: 1.85; }
+/* 藍 */
+.blue-card { background: var(--blue-pale); border-left: 3px solid var(--blue-mid); border-radius: var(--radius); padding: 1.1rem 1.3rem; margin: .8rem 0 1.2rem; }
+.blue-card .ref { font-size: .7rem; letter-spacing: 2px; color: var(--blue-mid); font-weight: 700; text-transform: uppercase; margin-bottom: .4rem; }
+.blue-card .verse { font-family: 'Noto Serif TC', serif; font-size: .88rem; color: #0C2A4A; line-height: 1.85; }
+
+
+/* ───────────────────────────────────────────────
+   4. INSIGHT CARDS — 小型洞見卡 (2–4欄)
+   子卡第1~4顆點自動金/青/紅/藍
+─────────────────────────────────────────────── */
+.insight-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.insight-card {
+  background: #fff;
+  border-radius: var(--radius);
+  border: .5px solid rgba(0,0,0,.09);
+  padding: 1.2rem;
+  display: flex; gap: 12px; align-items: flex-start;
+}
+.insight-dot { width: 8px; height: 8px; border-radius: 50%; margin-top: .4rem; flex-shrink: 0; }
+.insight-card:nth-child(1) .insight-dot { background: var(--gold);     }
+.insight-card:nth-child(2) .insight-dot { background: var(--teal);     }
+.insight-card:nth-child(3) .insight-dot { background: var(--ruby);     }
+.insight-card:nth-child(4) .insight-dot { background: var(--blue-mid); }
+.insight-card h4 { font-size: .88rem; font-weight: 600; color: var(--deep); margin-bottom: .3rem; }
+.insight-card p  { font-size: .78rem; color: var(--muted); line-height: 1.65; }
+
+
+/* ───────────────────────────────────────────────
+   5. TIMELINE — 垂直時間軸
+   .tl-item.gold / .teal / .ruby / .blue
+─────────────────────────────────────────────── */
+.timeline {
+  position: relative;
+  padding-left: 2.5rem;
+  margin-bottom: 1rem;
+}
+.timeline::before {
+  content: '';
+  position: absolute; left: 10px; top: 12px; bottom: 12px;
+  width: 1.5px;
+  background: linear-gradient(180deg, var(--gold) 0%, var(--teal) 50%, var(--ruby) 100%);
+}
+.tl-item { position: relative; margin-bottom: 1.2rem; }
+.tl-dot {
+  position: absolute; left: -2.17rem; top: .35rem;
+  width: 12px; height: 12px; border-radius: 50%;
+  border: 2px solid; background: var(--parchment);
+}
+.tl-item.gold .tl-dot  { border-color: var(--gold);     }
+.tl-item.teal .tl-dot  { border-color: var(--teal);     }
+.tl-item.ruby .tl-dot  { border-color: var(--ruby);     }
+.tl-item.blue .tl-dot  { border-color: var(--blue-mid); }
+.tl-year { font-size: .72rem; font-weight: 700; letter-spacing: 1.5px; margin-bottom: 2px; }
+.tl-item.gold .tl-year  { color: var(--gold);     }
+.tl-item.teal .tl-year  { color: var(--teal);     }
+.tl-item.ruby .tl-year  { color: var(--ruby);     }
+.tl-item.blue .tl-year  { color: var(--blue-mid); }
+.tl-title { font-weight: 600; font-size: .9rem; color: var(--deep); margin-bottom: 2px; }
+.tl-body  { font-size: .8rem; color: var(--muted); line-height: 1.65; }
+
+
+/* ───────────────────────────────────────────────
+   6. THREE STAGES — 三欄橫排步驟
+   .stage-item.s1 金 / s2 青 / s3 紅
+─────────────────────────────────────────────── */
+.stages {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  background: #fff;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: .5px solid rgba(0,0,0,.09);
+  margin-bottom: 1.5rem;
+}
+@media(max-width: 600px) { .stages { grid-template-columns: 1fr; } }
+.stage-item {
+  padding: 1.4rem 1.2rem;
+  border-right: .5px solid rgba(0,0,0,.07);
+  position: relative;
+}
+.stage-item:last-child { border-right: none; }
+.stage-no    { font-size: .7rem; letter-spacing: 2px; font-weight: 700; margin-bottom: .4rem; text-transform: uppercase; }
+.stage-title { font-family: 'Noto Serif TC', serif; font-size: .95rem; font-weight: 700; color: var(--deep); margin-bottom: .4rem; }
+.stage-body  { font-size: .78rem; color: var(--muted); line-height: 1.65; }
+.stage-top-bar { height: 3px; position: absolute; top: 0; left: 0; right: 0; }
+.stage-item.s1 .stage-no    { color: var(--gold);  }
+.stage-item.s2 .stage-no    { color: var(--teal);  }
+.stage-item.s3 .stage-no    { color: var(--ruby);  }
+.stage-item.s1 .stage-top-bar { background: var(--gold);  }
+.stage-item.s2 .stage-top-bar { background: var(--teal);  }
+.stage-item.s3 .stage-top-bar { background: var(--ruby);  }
+
+
+/* ───────────────────────────────────────────────
+   7. COMPARE GRID — 左右對比表
+   .cg-side.left 金 / .cg-side.right 紅
+─────────────────────────────────────────────── */
+.compare-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 0;
+  background: #fff;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: .5px solid rgba(0,0,0,.09);
+  margin-bottom: 1.5rem;
+}
+@media(max-width: 500px) { .compare-grid { grid-template-columns: 1fr; } }
+.cg-side { padding: 1.5rem 1.3rem; }
+.cg-side:first-child { border-right: .5px solid rgba(0,0,0,.07); }
+.cg-label {
+  font-size: .68rem; letter-spacing: 2.5px; font-weight: 700;
+  text-transform: uppercase; margin-bottom: .6rem;
+}
+.cg-side.left  .cg-label { color: var(--gold); }
+.cg-side.right .cg-label { color: var(--ruby); }
+.cg-title {
+  font-family: 'Noto Serif TC', serif; font-size: 1rem;
+  font-weight: 700; color: var(--deep); margin-bottom: .6rem;
+}
+.cg-list { list-style: none; padding: 0; }
+.cg-list li {
+  font-size: .8rem; color: var(--muted); line-height: 1.65;
+  padding: 3px 0 3px 14px; position: relative;
+}
+.cg-list li::before { content: '·'; position: absolute; left: 2px; font-size: 1rem; line-height: 1.3; }
+.cg-side.left  .cg-list li::before { color: var(--gold); }
+.cg-side.right .cg-list li::before { color: var(--ruby); }
+
+
+/* ───────────────────────────────────────────────
+   9. WARN BOX — 警告框
+─────────────────────────────────────────────── */
+.warn-box {
+  background: #fff;
+  border: 1px solid rgba(139,33,48,.25);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+.warn-box .warn-head { display: flex; align-items: center; gap: 8px; margin-bottom: .8rem; }
+.warn-box .warn-badge {
+  background: var(--ruby); color: #fff;
+  font-size: .68rem; letter-spacing: 2px; font-weight: 700;
+  padding: 2px 10px; border-radius: 4px; text-transform: uppercase;
+}
+.warn-box h4 { font-family: 'Noto Serif TC', serif; font-size: 1rem; font-weight: 700; color: var(--ruby); }
+.warn-box p  { font-size: .82rem; color: var(--muted); line-height: 1.75; }
+.warn-box p strong { color: var(--ruby); }
+
+
+/* ───────────────────────────────────────────────
+   10. NOTE — 補充說明框 (淡底)
+─────────────────────────────────────────────── */
+.note {
+  background: var(--soft);
+  border-radius: var(--radius);
+  padding: .9rem 1.1rem;
+  font-size: .8rem; color: var(--muted); line-height: 1.75;
+  margin-bottom: 1.2rem;
+}
+.note strong { color: var(--deep); }
+
+
+/* ───────────────────────────────────────────────
+   14. REFLECTION BOX — 思考/操練框
+─────────────────────────────────────────────── */
+.reflection {
+  background: var(--soft);
+  border-radius: var(--radius-lg);
+  padding: 1.8rem 1.8rem 1.5rem;
+  border-left: 3px solid var(--gold);
+  margin-bottom: 1.5rem;
+}
+.reflection h3 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 1rem; font-weight: 700; color: var(--deep); margin-bottom: .8rem;
+}
+.reflection ol { padding-left: 1.2rem; }
+.reflection ol li { font-size: .85rem; color: var(--ink); line-height: 1.8; margin-bottom: .3rem; }
+.reflection ol li strong { color: var(--deep); font-weight: 600; }
+
+
+/* ═══════════════════════════════════════════════
+   FOOTER
+═══════════════════════════════════════════════ */
+.page-footer {
+  background: var(--deep);
+  text-align: center;
+  padding: 1.8rem 1rem;
+  margin-top: 2.5rem;
+}
+.page-footer p { font-size: .78rem; color: rgba(255,255,255,.35); letter-spacing: 1px; }
+.page-footer strong { color: var(--gold); font-weight: 400; }
+</style>
+</head>
+<body>
+
+
+<!-- ════════════════════════════════════════════
+  HERO
+════════════════════════════════════════════ -->
+<header class="hero">
+  <div class="hero-tag">溫故知新 · 講師 朱虹恩使徒 · 2026.06.22</div>
+  <h1>認罪之後，還有一步<br>——<em>聖餐，塗抹魔鬼的控告</em></h1>
+  <p class="hero-sub">罪的真相 × 認罪得赦免 × 聖餐除去魔鬼的記錄</p>
+  <div class="hero-verse">
+    人應當自己省察，然後吃這餅、喝這杯。<br>
+    因為人吃喝，若不分辨是主的身體，就是吃喝自己的罪了。<br>
+    <span class="src">— 哥林多前書 11:28-29</span>
+  </div>
+</header>
+
+
+<main class="container">
+
+
+<!-- ════════════════════════════════════════════
+  ① 重點摘要
+════════════════════════════════════════════ -->
+<section class="section">
+  <div class="sec-title">
+    <div class="icon">🗝</div>
+    <div>
+      <h2>今日核心重點</h2>
+      <div class="subtitle">一眼看懂這篇在講什麼</div>
+    </div>
+  </div>
+
+  <div class="pillars">
+
+    <div class="pillar p1">
+      <div class="pillar-num">一</div>
+      <div class="pillar-icon">⚖️</div>
+      <h3>罪不分大小，但都得認</h3>
+      <p>婚前性行為（連已訂婚者）、離婚再婚等，在主耶穌的標準下都是罪；有輕重之別，但都是罪，不認就算數。</p>
+    </div>
+
+    <div class="pillar p2">
+      <div class="pillar-num">二</div>
+      <div class="pillar-icon">🙏</div>
+      <h3>真誠認罪就得赦免</h3>
+      <p>不論多嚴重，只要在主面前真心認罪、求寶血遮蓋，當天就得赦免；但若到死都沒認，就被定罪。</p>
+    </div>
+
+    <div class="pillar p3">
+      <div class="pillar-num">三</div>
+      <div class="pillar-icon">🍷</div>
+      <h3>認罪只是第一步，聖餐才塗抹罪案</h3>
+      <p>認罪除去「天使的記錄」，但「魔鬼的記錄」要按理領聖餐才撤銷，否則魔鬼仍能到神面前控告。</p>
+    </div>
+
+    <div class="pillar p4">
+      <div class="pillar-num">四</div>
+      <div class="pillar-icon">⚔️</div>
+      <h3>末後的呼召與爭戰</h3>
+      <p>信息後半呼召「預定得榮耀」的聖徒受裝備、成為領袖，迎接主再來、與魔鬼末日爭戰。</p>
+    </div>
+
+  </div>
+
+  <div class="quote-block">
+    <div class="quote-text">
+      認罪，除去的是<em>天使的記錄</em>；<br>
+      唯有按理領聖餐，才塗抹<em>魔鬼的控告</em>。
+    </div>
+    <div class="quote-src">本篇信息核心</div>
+  </div>
+
+</section><!-- /重點摘要 -->
+
+
+<div class="divider"><span>關鍵轉捩點</span></div>
+
+
+<!-- ════════════════════════════════════════════
+  ② 轉捩點
+════════════════════════════════════════════ -->
+<section class="section">
+  <div class="sec-title">
+    <div class="icon" style="background:var(--ruby);color:#fff;">⚠️</div>
+    <div>
+      <h2>轉捩點</h2>
+      <div class="subtitle">最容易被忽略、立場最關鍵的地方</div>
+    </div>
+  </div>
+
+  <div class="warn-box">
+    <div class="warn-head">
+      <span class="warn-badge">關鍵提醒</span>
+      <h4>認罪 ≠ 罪案撤銷</h4>
+    </div>
+    <p>人犯罪時有兩本記錄：天使記一本、魔鬼記一本。認罪悔改時，天使那本就消去；但魔鬼那本要到<strong>按理吃餅、喝主杯</strong>時才撤銷，否則魔鬼隨時能到神面前控告。一般人以為「認過罪就沒事了」，正是忽略了這最後一步。</p>
+  </div>
+
+  <div class="compare-grid">
+    <div class="cg-side left">
+      <div class="cg-label">講者 · 依聖經</div>
+      <div class="cg-title">離婚再婚＝犯姦淫罪</div>
+      <ul class="cg-list">
+        <li>凡離婚再婚，都是犯姦淫罪</li>
+        <li>即使配偶不信主、惡待、敗家，也一樣</li>
+        <li>唯一例外：對方確實犯淫亂、力勸不聽</li>
+        <li>信主以前就離婚的，聖經沒明文，故不定罪</li>
+      </ul>
+    </div>
+    <div class="cg-side right">
+      <div class="cg-label">某輔導 · 被反對的主張</div>
+      <div class="cg-title">離婚再嫁是神的祝福</div>
+      <ul class="cg-list">
+        <li>主張離婚再嫁不是犯姦淫罪</li>
+        <li>視為神的祝福，根本不必認罪</li>
+        <li>講者明確反對：不合聖經與主耶穌的話</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="note">
+    🔄 <strong>信息的轉向：</strong>講道後半，從「罪與聖餐」轉入對「預定得榮耀的聖徒」的呼召——進入末世的裝備與爭戰。
+  </div>
+
+</section><!-- /轉捩點 -->
+
+
+<div class="divider"><span>內容脈絡</span></div>
+
+
+<!-- ════════════════════════════════════════════
+  ③ 內容脈絡
+════════════════════════════════════════════ -->
+<section class="section">
+  <div class="sec-title">
+    <div class="icon" style="background:var(--teal);color:#fff;">✝</div>
+    <div>
+      <h2>內容脈絡</h2>
+      <div class="subtitle">照講道順序，細看來龍去脈</div>
+    </div>
+  </div>
+
+  <div class="timeline">
+
+    <div class="tl-item gold">
+      <div class="tl-dot"></div>
+      <div class="tl-year">一 · 什麼是罪</div>
+      <div class="tl-title">以婚姻為例</div>
+      <div class="tl-body">婚前性行為，即使兩人已訂婚、過幾天就結婚，照樣是犯姦淫罪（俗稱「先上車後補票」）。講者過去常問未婚弟兄姊妹是否守貞，發現守住的極少，因此特別講過嚴格的信息。</div>
+    </div>
+
+    <div class="tl-item teal">
+      <div class="tl-dot"></div>
+      <div class="tl-year">二 · 離婚與再婚</div>
+      <div class="tl-title">最關鍵的一段</div>
+      <div class="tl-body">某知名婚姻輔導主張離婚再嫁是神的祝福、不必認罪。講者引四福音書、對照四種譯本反駁：凡離婚再婚都是犯姦淫罪，除非配偶確實犯淫亂、力勸不聽才可再婚；信主前已離婚的，聖經沒明文，故不定罪。有人因這教導覺得不公平而離開，講者強調這是主耶穌講的。</div>
+    </div>
+
+    <div class="tl-item ruby">
+      <div class="tl-dot"></div>
+      <div class="tl-year">三 · 認罪得赦免</div>
+      <div class="tl-title">真誠認罪，當天就潔淨</div>
+      <div class="tl-body">任何一條罪，到死前都沒認，就會被定罪；但只要真誠認罪、求主寶血遮蓋，連墮胎這類重罪也能得赦免。罪有輕重（偷一千萬與偷一萬都是偷），結局也有別：得永生上天堂，或到樂園；樂園之下是陰間，陰間比地獄輕得多。</div>
+    </div>
+
+    <div class="tl-item blue">
+      <div class="tl-dot"></div>
+      <div class="tl-year">四 · 聖餐</div>
+      <div class="tl-title">天使與魔鬼的兩本記錄</div>
+      <div class="tl-body">認罪除去天使的記錄，魔鬼的記錄要按理領聖餐才撤銷。正確程序其實很簡單：領餐前先認罪，先擘餅、同領，再分杯、同領；但多數教會做不到（不先檢查認罪、各自先吃），反而吃喝自己的罪、自取審判，以致軟弱、生病、死亡。</div>
+    </div>
+
+    <div class="tl-item gold">
+      <div class="tl-dot"></div>
+      <div class="tl-year">五 · 末後的學府</div>
+      <div class="tl-title">呼召、規則與爭戰</div>
+      <div class="tl-body">信息後半轉入一所「最高學府」的開學：不設學歷門檻，強調由聖靈恩膏、主基督親自教導；宗旨是訓練「預定得榮耀」的聖徒成為領袖，將來與主一同作王一千年，迎接主再來、與魔鬼爭戰。</div>
+    </div>
+
+  </div>
+
+  <div class="ruby-card">
+    <div class="ref">馬太福音 19:9</div>
+    <div class="verse">凡休妻另娶的，若不是為淫亂的緣故，就是犯姦淫了；有人娶那被休的婦人，也是犯姦淫了。</div>
+  </div>
+
+  <div class="blue-card">
+    <div class="ref">哥林多前書 11:30 — 不按理領餐的後果</div>
+    <div class="verse">因此，在你們中間有好些軟弱的與患病的，死的也不少。</div>
+  </div>
+
+  <div class="note">
+    📋 <strong>入學須知（關乎態度與學習方式）：</strong>入學須先繳報名費，作為心志的篩選（捨不得交就不要來）；不得遲到、早退，無故曠課兩次即退學；上課採「邊學邊問」的問答方式，學員編號、對號入座，並備有名牌。
+  </div>
+
+  <div class="note">
+    ⚔️ <strong>末日爭戰問答：</strong>藉問答帶出這場爭戰已局部展開（如「民攻打民、國攻打國」、各處災難），有得勝也有傷亡；真正的末日大決戰尚未全面開打。講者以波斯灣戰爭與二戰對比，說明神也賜下「屬靈的精良裝備」，人受裝備後才有兵器可用。
+  </div>
+
+</section><!-- /內容脈絡 -->
+
+
+<!-- ════════════════════════════════════════════
+  ④ 反思
+════════════════════════════════════════════ -->
+<section class="section">
+  <div class="reflection">
+    <h3>🌱 今日的反思問題</h3>
+    <ol>
+      <li><strong>我有沒有把「認過罪」當成「已了結」？</strong>——我是否同樣看重藉聖餐除去魔鬼的控告？</li>
+      <li><strong>面對聖經中嚴格的教導，我的第一反應是順服，還是覺得「不公平」而想離開？</strong></li>
+      <li><strong>若末後的爭戰已經開始，我是「什麼裝備都沒有」，還是正在被聖靈裝備、預備好上陣？</strong></li>
+    </ol>
+  </div>
+</section>
+
+
+</main><!-- /container -->
+
+
+<footer class="page-footer">
+  <p>溫故知新系列 · <strong>認罪之後，還有一步</strong></p>
+  <p style="margin-top:4px;">2026.06.22 · 講師 朱虹恩使徒</p>
+</footer>
+
+
+</body>
+</html>

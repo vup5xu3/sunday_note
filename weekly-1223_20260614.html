@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1223輯週訓【2026.6.14】以賽亞書查經：耶和華的日子與巴比倫的覆滅</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;500;600;700;900&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --gold:       #C9A84C;
+  --gold-light: #E8D08A;
+  --gold-pale:  #FAF3DC;
+  --deep:       #14100C;
+  --ink:        #28200E;
+  --ink-soft:   #3A3020;
+  --muted:      #7A6B50;
+  --border:     #E0D4BA;
+  --parchment:  #FBF7F0;
+  --parchment2: #F4EDD8;
+  --dove:       #5C7289;
+  --dove-light: #8CAAC4;
+  --dove-pale:  #EAF1F8;
+  --ruby:       #8C2030;
+  --ruby-light: #C44058;
+  --ruby-pale:  #FAEAED;
+  --teal:       #2E7A70;
+  --teal-light: #4BADA0;
+  --teal-pale:  #E0F2EF;
+  --sage:       #4E6848;
+  --sage-light: #78A070;
+  --sage-pale:  #EAF3E6;
+  --r: 14px;
+  --r-lg: 22px;
+  --shadow: 0 2px 16px rgba(20,16,12,.07);
+  --shadow-hover: 0 8px 36px rgba(20,16,12,.14);
+}
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Noto Sans TC', sans-serif;
+  background: var(--parchment);
+  color: var(--ink);
+  line-height: 1.8;
+}
+
+/* HERO */
+.hero {
+  background: var(--deep);
+  padding: 4rem 2rem 3.5rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content:'';
+  position:absolute; inset:0;
+  background:
+    radial-gradient(ellipse at 30% 0%, rgba(201,168,76,.14) 0%, transparent 55%),
+    radial-gradient(ellipse at 70% 100%, rgba(92,114,137,.1) 0%, transparent 55%);
+  pointer-events:none;
+}
+.hero-series {
+  display:inline-flex; align-items:center; gap:8px;
+  border:1px solid rgba(201,168,76,.4);
+  color:var(--gold); font-size:11px; letter-spacing:4px;
+  padding:5px 18px; border-radius:2px; margin-bottom:1.4rem;
+  text-transform:uppercase;
+}
+.hero h1 {
+  font-family:'Noto Serif TC',serif;
+  font-size:clamp(1.8rem,5vw,3rem);
+  color:#fff; font-weight:900; line-height:1.3; margin-bottom:.5rem;
+}
+.hero h1 em { color:var(--gold-light); font-style:normal; }
+.hero-meta { color:rgba(255,255,255,.45); font-size:.82rem; letter-spacing:2px; margin-bottom:2.2rem; }
+.hero-date-badge {
+  display:inline-block;
+  background:rgba(201,168,76,.12);
+  border:1px solid rgba(201,168,76,.3);
+  color:var(--gold-light); font-size:.78rem;
+  padding:4px 16px; border-radius:20px; letter-spacing:1.5px;
+}
+
+/* TOC */
+.toc-bar {
+  background:var(--deep);
+  border-bottom:1px solid rgba(201,168,76,.25);
+  position:sticky; top:0; z-index:100;
+  overflow-x:auto; scrollbar-width:none;
+}
+.toc-bar::-webkit-scrollbar{display:none;}
+.toc-inner {
+  display:flex; align-items:center;
+  max-width:1040px; margin:0 auto;
+  padding:0 16px; gap:2px; min-width:max-content;
+}
+.toc-link {
+  display:flex; align-items:center; gap:5px;
+  padding:11px 13px;
+  color:rgba(255,255,255,.45); font-size:12px; font-weight:500;
+  text-decoration:none; white-space:nowrap;
+  border-bottom:2px solid transparent;
+  transition:all .2s;
+}
+.toc-link:hover { color:var(--gold); }
+.toc-link.active { color:var(--gold); border-bottom-color:var(--gold); }
+.toc-dot { width:6px; height:6px; border-radius:50%; flex-shrink:0; }
+
+/* OVERVIEW */
+.overview { max-width:1040px; margin:0 auto; padding:2.5rem 1.25rem 1rem; }
+.overview-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:.85rem; margin-top:1.4rem;
+}
+.overview-card {
+  background:#fff;
+  border:0.5px solid rgba(0,0,0,.08);
+  border-radius:var(--r);
+  padding:1.2rem 1.3rem;
+  display:flex; gap:12px; align-items:flex-start;
+  box-shadow:var(--shadow);
+  cursor:pointer; text-decoration:none;
+  transition:all .22s;
+  position:relative; overflow:hidden;
+}
+.overview-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; }
+.oc-dove::before  { background:linear-gradient(90deg,var(--dove),var(--dove-light)); }
+.oc-teal::before { background:linear-gradient(90deg,var(--teal),var(--teal-light)); }
+.oc-gold::before { background:linear-gradient(90deg,var(--gold),var(--gold-light)); }
+.oc-ruby::before  { background:linear-gradient(90deg,var(--ruby),var(--ruby-light)); }
+.oc-sage::before   { background:linear-gradient(90deg,var(--sage),var(--sage-light)); }
+.overview-card:hover { transform:translateY(-3px); box-shadow:var(--shadow-hover); }
+.ov-icon { width:36px; height:36px; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:16px; flex-shrink:0; }
+.oc-dove  .ov-icon { background:var(--dove-pale); }
+.oc-teal .ov-icon { background:var(--teal-pale); }
+.oc-gold .ov-icon { background:var(--gold-pale); }
+.oc-ruby  .ov-icon { background:var(--ruby-pale); }
+.oc-sage   .ov-icon { background:var(--sage-pale); }
+.ov-body h4 { font-size:.88rem; font-weight:700; color:var(--ink); margin-bottom:2px; }
+.ov-body p  { font-size:.73rem; color:var(--muted); line-height:1.55; }
+
+/* SECTION */
+.container { max-width:1040px; margin:0 auto; padding:0 1.25rem; }
+.sec { padding:2.8rem 0 1.5rem; }
+.sec-anchor { padding-top:70px; margin-top:-70px; }
+.sec-hdr { display:flex; align-items:center; gap:12px; margin-bottom:1.6rem; padding-bottom:1rem; border-bottom:1px solid var(--border); }
+.sec-badge { padding:4px 14px; border-radius:20px; font-size:.7rem; font-weight:700; letter-spacing:2px; text-transform:uppercase; }
+.badge-dove  { background:var(--dove-pale); color:var(--dove); }
+.badge-teal { background:var(--teal-pale); color:var(--teal); }
+.badge-gold { background:var(--gold-pale); color:#7A620A; }
+.badge-ruby  { background:var(--ruby-pale); color:var(--ruby); }
+.badge-sage   { background:var(--sage-pale); color:var(--sage); }
+.sec-hdr h2 { font-family:'Noto Serif TC',serif; font-size:1.25rem; font-weight:900; color:var(--ink); }
+.sec-sub { font-size:.75rem; color:var(--muted); margin-top:1px; }
+
+/* QUOTE BLOCK */
+.qblock {
+  background:var(--deep); border-radius:var(--r-lg);
+  padding:2rem 2rem 1.6rem; margin-bottom:1.4rem; position:relative; overflow:hidden;
+}
+.qblock::before {
+  content:'"'; position:absolute; top:-1rem; left:1.2rem;
+  font-family:'Noto Serif TC',serif; font-size:7rem;
+  color:var(--gold); opacity:.12; line-height:1; pointer-events:none;
+}
+.qblock p { font-family:'Noto Serif TC',serif; font-size:1.02rem; color:#fff; line-height:1.95; margin-bottom:.7rem; }
+.qblock p em { color:var(--gold-light); font-style:normal; font-weight:700; }
+.qblock-src { font-size:.73rem; color:rgba(255,255,255,.4); letter-spacing:1.5px; }
+
+/* HIGHLIGHT BOX */
+.hbox { border-radius:var(--r); padding:1.4rem 1.5rem; margin-bottom:1.2rem; }
+.hbox.gold  { background:var(--gold-pale);  border-left:3px solid var(--gold); }
+.hbox.dove  { background:var(--dove-pale);  border-left:3px solid var(--dove); }
+.hbox.ruby  { background:var(--ruby-pale);  border-left:3px solid var(--ruby); }
+.hbox.teal  { background:var(--teal-pale);  border-left:3px solid var(--teal); }
+.hbox.sage  { background:var(--sage-pale);  border-left:3px solid var(--sage); }
+.hbox-label { font-size:.68rem; letter-spacing:2.5px; font-weight:700; text-transform:uppercase; margin-bottom:.5rem; }
+.hbox.gold  .hbox-label { color:#7A620A; }
+.hbox.dove  .hbox-label { color:var(--dove); }
+.hbox.ruby  .hbox-label { color:var(--ruby); }
+.hbox.teal  .hbox-label { color:var(--teal); }
+.hbox.sage  .hbox-label { color:var(--sage); }
+.hbox h3 { font-family:'Noto Serif TC',serif; font-size:1rem; font-weight:700; color:var(--ink); margin-bottom:.5rem; }
+.hbox p, .hbox li { font-size:.84rem; color:var(--ink-soft); line-height:1.85; }
+.hbox ul, .hbox ol { padding-left:1.1rem; }
+.hbox li { margin-bottom:.2rem; }
+.hbox strong { color:var(--ink); }
+
+/* CARD GRID */
+.card-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:1rem; margin-bottom:1.4rem; }
+.card { background:#fff; border:0.5px solid rgba(0,0,0,.09); border-radius:var(--r-lg); padding:1.4rem; box-shadow:var(--shadow); transition:all .2s; position:relative; overflow:hidden; }
+.card:hover { transform:translateY(-2px); box-shadow:var(--shadow-hover); }
+.card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; }
+.card.c-gold::before  { background:linear-gradient(90deg,var(--gold),var(--gold-light)); }
+.card.c-dove::before  { background:linear-gradient(90deg,var(--dove),var(--dove-light)); }
+.card.c-ruby::before  { background:linear-gradient(90deg,var(--ruby),var(--ruby-light)); }
+.card.c-teal::before  { background:linear-gradient(90deg,var(--teal),var(--teal-light)); }
+.card.c-sage::before  { background:linear-gradient(90deg,var(--sage),var(--sage-light)); }
+.card-num { font-family:'Noto Serif TC',serif; font-size:2.4rem; font-weight:900; opacity:.08; position:absolute; top:.8rem; right:1rem; line-height:1; }
+.c-gold .card-num { color:var(--gold); }
+.c-dove .card-num { color:var(--dove); }
+.c-ruby .card-num { color:var(--ruby); }
+.c-teal .card-num { color:var(--teal); }
+.c-sage .card-num { color:var(--sage); }
+.card-icon { font-size:1.5rem; margin-bottom:.5rem; }
+.card h4 { font-family:'Noto Serif TC',serif; font-size:.95rem; font-weight:700; color:var(--ink); margin-bottom:.4rem; }
+.card p { font-size:.79rem; color:var(--muted); line-height:1.7; }
+
+/* VISION / STEP LIST */
+.vision-list { display:flex; flex-direction:column; gap:.85rem; margin-bottom:1.4rem; }
+.vision-item { background:#fff; border:0.5px solid rgba(0,0,0,.08); border-radius:var(--r); padding:1.2rem 1.3rem; display:flex; gap:14px; align-items:flex-start; box-shadow:var(--shadow); }
+.v-num { min-width:30px; height:30px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:.72rem; font-weight:700; flex-shrink:0; margin-top:1px; }
+.v-num.teal { background:var(--teal-pale); color:var(--teal); }
+.v-num.ruby { background:var(--ruby-pale); color:var(--ruby); }
+.v-num.gold { background:var(--gold-pale); color:#7A620A; }
+.v-num.dove { background:var(--dove-pale); color:var(--dove); }
+.v-num.sage { background:var(--sage-pale); color:var(--sage); }
+.v-word { margin-top:.6rem; padding:.7rem .9rem; border-radius:8px; font-size:.79rem; line-height:1.75; }
+.vw-teal { background:var(--teal-pale); border-left:2px solid var(--teal); color:#185049; }
+.vw-ruby { background:var(--ruby-pale); border-left:2px solid var(--ruby); color:#6B1621; }
+.vw-gold { background:var(--gold-pale); border-left:2px solid var(--gold); color:#7A620A; }
+.vw-dove { background:var(--dove-pale); border-left:2px solid var(--dove); color:#2B4A62; }
+.vw-sage { background:var(--sage-pale); border-left:2px solid var(--sage); color:#2E4A2B; }
+.v-word-label { font-size:.65rem; letter-spacing:2px; font-weight:700; text-transform:uppercase; margin-bottom:4px; }
+.vw-teal .v-word-label { color:var(--teal); }
+.vw-ruby .v-word-label { color:var(--ruby); }
+.vw-gold .v-word-label { color:#7A620A; }
+.vw-dove .v-word-label { color:var(--dove); }
+.vw-sage .v-word-label { color:var(--sage); }
+
+/* SCRIPTURE */
+.scripture { background:var(--deep); border-radius:var(--r); padding:1.5rem 1.8rem; margin-bottom:1.2rem; position:relative; }
+.scripture-ref { font-size:.68rem; letter-spacing:2px; color:var(--gold); font-weight:700; text-transform:uppercase; margin-bottom:.5rem; }
+.scripture p { font-family:'Noto Serif TC',serif; font-size:.88rem; color:rgba(255,255,255,.82); line-height:2; }
+.scripture p em { color:var(--gold-light); font-style:normal; }
+
+/* DIVIDER */
+.divider { display:flex; align-items:center; gap:12px; margin:.4rem 0 1.4rem; opacity:.3; }
+.divider::before, .divider::after { content:''; flex:1; height:.5px; background:var(--muted); }
+.divider span { font-size:9px; letter-spacing:3px; color:var(--muted); text-transform:uppercase; }
+
+/* ALERT */
+.alert { border-radius:var(--r); padding:1rem 1.3rem; margin-bottom:1.2rem; display:flex; gap:10px; align-items:flex-start; }
+.alert.warn { background:#FFF8E8; border:1px solid #E8C840; }
+.alert.info { background:var(--dove-pale); border:1px solid var(--dove-light); }
+.alert-icon { font-size:1.2rem; flex-shrink:0; margin-top:1px; }
+.alert p { font-size:.8rem; color:var(--ink-soft); line-height:1.75; }
+.alert strong { color:var(--ink); }
+
+/* NATIONS TABLE */
+.nations-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:.7rem; margin-bottom:1.4rem; }
+.nation-card { background:#fff; border:.5px solid rgba(0,0,0,.09); border-radius:var(--r); padding:1rem 1.1rem; box-shadow:var(--shadow); }
+.nation-card.highlighted { background:var(--ruby-pale); border-color:rgba(140,32,48,.2); }
+.nation-name { font-family:'Noto Serif TC',serif; font-size:.95rem; font-weight:700; color:var(--ink); margin-bottom:3px; }
+.nation-tag { font-size:.67rem; letter-spacing:1.5px; font-weight:700; text-transform:uppercase; color:var(--muted); margin-bottom:.4rem; }
+.nation-card.highlighted .nation-tag { color:var(--ruby); }
+.nation-note { font-size:.75rem; color:var(--muted); line-height:1.6; }
+.nation-card.highlighted .nation-note { color:var(--ink-soft); }
+
+/* COMPARISON TWO-COL */
+.two-col { display:grid; grid-template-columns:1fr 1fr; gap:0; background:#fff; border-radius:var(--r-lg); border:.5px solid rgba(0,0,0,.09); overflow:hidden; margin-bottom:1.4rem; }
+@media(max-width:560px){ .two-col { grid-template-columns:1fr; } }
+.col-side { padding:1.5rem 1.4rem; }
+.col-side:first-child { border-right:.5px solid rgba(0,0,0,.07); }
+.col-label { font-size:.66rem; letter-spacing:2.5px; font-weight:700; text-transform:uppercase; margin-bottom:.5rem; }
+.col-title { font-family:'Noto Serif TC',serif; font-size:1rem; font-weight:700; color:var(--ink); margin-bottom:.6rem; }
+.col-list { list-style:none; padding:0; }
+.col-list li { font-size:.79rem; color:var(--muted); line-height:1.65; padding:3px 0 3px 14px; position:relative; }
+.col-list li::before { content:'·'; position:absolute; left:2px; font-size:1rem; line-height:1.3; }
+
+/* PERSON HEADER */
+.person-hdr { display:flex; align-items:center; gap:10px; margin-bottom:1rem; padding:.6rem 1rem; background:var(--parchment2); border-radius:8px; }
+.person-avatar { width:34px; height:34px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:14px; font-weight:700; flex-shrink:0; background:var(--deep); color:var(--gold); font-family:'Noto Serif TC',serif; }
+.person-name { font-size:.85rem; font-weight:700; color:var(--ink); }
+.person-role { font-size:.72rem; color:var(--muted); }
+
+/* FOOTER */
+.page-footer { background:var(--deep); text-align:center; padding:2rem 1rem; margin-top:3rem; border-top:1px solid rgba(201,168,76,.2); }
+.page-footer p { font-size:.76rem; color:rgba(255,255,255,.3); letter-spacing:1px; }
+.page-footer strong { color:var(--gold); font-weight:400; }
+
+@media(max-width:640px){
+  .hero { padding:3rem 1.2rem 2.5rem; }
+  .overview { padding:1.8rem .9rem .5rem; }
+  .container { padding:0 .9rem; }
+  .toc-link { padding:10px 10px; font-size:11px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════ HERO ═══════════════ -->
+<header class="hero">
+  <div class="hero-series">📖 1223 輯週訓</div>
+  <h1>《耶和華的日子》與<em>巴比倫</em>的覆滅</h1>
+  <p class="hero-meta">2022年6月4日 查經聚會 · 主領：林明學教師</p>
+  <div class="hero-date-badge">週訓整理日期 2026.6.14</div>
+</header>
+
+<!-- ═══════════════ TOC 置頂導覽 ═══════════════ -->
+<nav class="toc-bar" id="tocBar">
+  <div class="toc-inner">
+    <a class="toc-link active" href="#overview">
+      <span class="toc-dot" style="background:var(--gold)"></span>總覽
+    </a>
+    <a class="toc-link" href="#context">
+      <span class="toc-dot" style="background:var(--dove)"></span>📜 背景與溫故
+    </a>
+    <a class="toc-link" href="#judgment">
+      <span class="toc-dot" style="background:var(--teal)"></span>🌑 震動的審判
+    </a>
+    <a class="toc-link" href="#shaddai">
+      <span class="toc-dot" style="background:var(--gold)"></span>⚡ 全能者與約珥書
+    </a>
+    <a class="toc-link" href="#babylon">
+      <span class="toc-dot" style="background:var(--ruby)"></span>🏛️ 巴比倫傾覆
+    </a>
+    <a class="toc-link" href="#light">
+      <span class="toc-dot" style="background:var(--sage)"></span>🌅 黑暗盡後永光
+    </a>
+  </div>
+</nav>
+
+<!-- ═══════════════ OVERVIEW 總覽 ═══════════════ -->
+<div class="overview" id="overview">
+  <div class="sec-hdr" style="border-bottom:0;padding-bottom:0;margin-bottom:.5rem;">
+    <div>
+      <div style="font-size:.68rem;letter-spacing:3px;color:var(--gold);font-weight:700;text-transform:uppercase;margin-bottom:3px;">本期架構一覽</div>
+      <h2 style="font-family:'Noto Serif TC',serif;font-size:1.1rem;font-weight:900;color:var(--ink);">5 大區塊 · 點擊直達</h2>
+    </div>
+  </div>
+
+  <div style="background:var(--deep);border-radius:var(--r-lg);padding:1.5rem 1.8rem;margin:1.2rem 0 1.4rem;position:relative;overflow:hidden;">
+    <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 60% 50%,rgba(201,168,76,.09),transparent 70%);pointer-events:none;"></div>
+    <div style="font-size:.68rem;letter-spacing:3px;color:var(--gold);font-weight:700;text-transform:uppercase;margin-bottom:.8rem;">本週核心三重信息</div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:.8rem;">
+      <div style="background:rgba(255,255,255,.05);border-radius:10px;padding:1rem 1.1rem;">
+        <div style="font-size:.68rem;letter-spacing:2px;color:var(--dove-light);font-weight:700;text-transform:uppercase;margin-bottom:4px;">第一重</div>
+        <div style="font-family:'Noto Serif TC',serif;font-size:.95rem;color:#fff;font-weight:700;margin-bottom:4px;">《耶和華的日子》＝ 神親自介入</div>
+        <div style="font-size:.75rem;color:rgba(255,255,255,.45);line-height:1.6;">耶和華一出現就是整頓全地、審判惡人之日 → 舊約的審判預言，正是新約「主再來」的世界末日</div>
+      </div>
+      <div style="background:rgba(255,255,255,.05);border-radius:10px;padding:1rem 1.1rem;">
+        <div style="font-size:.68rem;letter-spacing:2px;color:var(--teal-light);font-weight:700;text-transform:uppercase;margin-bottom:4px;">第二重</div>
+        <div style="font-family:'Noto Serif TC',serif;font-size:.95rem;color:#fff;font-weight:700;margin-bottom:4px;">巴比倫的覆滅＝審判的記號</div>
+        <div style="font-size:.75rem;color:rgba(255,255,255,.45);line-height:1.6;">列國的榮耀、迦勒底人矜誇的華美 → 終如所多瑪、蛾摩拉傾覆，淪為野獸出沒的鬼城</div>
+      </div>
+      <div style="background:rgba(255,255,255,.05);border-radius:10px;padding:1rem 1.1rem;">
+        <div style="font-size:.68rem;letter-spacing:2px;color:var(--gold-light);font-weight:700;text-transform:uppercase;margin-bottom:4px;">第三重</div>
+        <div style="font-family:'Noto Serif TC',serif;font-size:.95rem;color:#fff;font-weight:700;margin-bottom:4px;">全能者既毀滅、也拯救</div>
+        <div style="font-size:.75rem;color:rgba(255,255,255,.45);line-height:1.6;">Shaddai 的雙重意義：為以色列打敗仇敵，也能毀滅全地 → 熬煉智慧人成純金，黑暗盡後永光降臨</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="overview-grid">
+    <a class="overview-card oc-dove" href="#context">
+      <div class="ov-icon">📜</div>
+      <div class="ov-body">
+        <h4>背景與溫故知新</h4>
+        <p>續讀【以賽亞書】13:6–22；《耶和華的日子》第二首詩歌，「哀號」(heli Lu) 道盡末日的無助絕望。</p>
+      </div>
+    </a>
+    <a class="overview-card oc-teal" href="#judgment">
+      <div class="ov-icon">🌑</div>
+      <div class="ov-body">
+        <h4>天地震動的審判</h4>
+        <p>人手軟弱、人心消化、臉如死灰；天搖地動、日月無光 —— 唯有天父上帝是 Number one。</p>
+      </div>
+    </a>
+    <a class="overview-card oc-gold" href="#shaddai">
+      <div class="ov-icon">⚡</div>
+      <div class="ov-body">
+        <h4>全能者與【約珥書】</h4>
+        <p>全能者 Shaddai（shad＝毀滅暴力）的兩種意義；【約珥書】以蝗災、黑暗呼應「耶和華的日子」＝主再來。</p>
+      </div>
+    </a>
+    <a class="overview-card oc-ruby" href="#babylon">
+      <div class="ov-icon">🏛️</div>
+      <div class="ov-body">
+        <h4>巴比倫必如所多瑪傾覆</h4>
+        <p>米底亞人來攻，列國榮耀化為廢墟鬼城、不留餘民；與【詩篇】137 巴比倫哀歌相呼應。</p>
+      </div>
+    </a>
+    <a class="overview-card oc-sage" href="#light">
+      <div class="ov-icon">🌅</div>
+      <div class="ov-body">
+        <h4>黑暗盡後的永光</h4>
+        <p>智慧人被熬煉成純金（俄斐金）；新紀元惡盡、不再有黑夜；教師結束禱告與牧關代禱。</p>
+      </div>
+    </a>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- 溫故知新（查經固定槽位） -->
+  <div class="alert warn" style="margin-bottom:1.2rem;margin-top:.5rem;">
+    <span class="alert-icon">🔁</span>
+    <p><strong>上次進度回顧：</strong>上次讀經讀到【以賽亞書】第 13 章，約至第 5–6 節（第 7 節還沒讀完）。本次從<strong>第 6 節</strong>開始，讀第 13 章 6–22 節 —— 即《耶和華的日子》第二首詩歌，講述巴比倫的覆滅。</p>
+  </div>
+
+  <!-- ═══════════════ Section 1：背景與溫故 ═══════════════ -->
+  <div id="context" class="sec-anchor"></div>
+  <section class="sec">
+    <div class="sec-hdr">
+      <span class="sec-badge badge-dove">背景脈絡</span>
+      <div>
+        <h2>《耶和華的日子》與哀號</h2>
+        <div class="sec-sub">以賽亞書 13:6–22 · 第二首《耶和華的日子》詩歌</div>
+      </div>
+    </div>
+
+    <div class="qblock">
+      <p>你們要哀號，因為<em>耶和華的日子</em>臨近了！這日來到，好像毀滅從全能者來到。</p>
+      <p class="qblock-src">— 以賽亞書 13:6（《耶和華的日子》詩歌起首）</p>
+    </div>
+
+    <div class="hbox dove">
+      <div class="hbox-label">詩歌脈絡</div>
+      <h3>第一首與第二首《耶和華的日子》</h3>
+      <p>第一首詩歌從第 <strong>2 章 12–19 節</strong>；第二首從第 <strong>13 章第 6 節</strong>開始。「哀號」的希伯來文是 <strong>heli Lu</strong>，用來描繪人陷入無助、淒慘恐怖的情景 —— 碰到很可怕、很痛苦的事才會哀號。哀號與求助不同：哀號時可能連求助的時間都沒有了，只剩大哭或慘叫，表示已危在旦夕、徹底絕望。</p>
+    </div>
+
+    <p style="font-size:.84rem;color:var(--ink-soft);line-height:1.85;margin:0 0 1rem;">這些較恐怖的《耶和華的日子》詩歌，有一半以上是針對外邦人 —— 內容關乎以色列的上帝會如何懲罰外邦人。受審的對象與經文範圍：</p>
+
+    <div class="nations-grid">
+      <div class="nation-card highlighted">
+        <div class="nation-tag">審判主角</div>
+        <div class="nation-name">巴比倫</div>
+        <div class="nation-note">Babylon ＝ 一切惡人的代表（發音近「野蠻人」Barbarian）；連同非利士人、他施的船隻一併受審。</div>
+      </div>
+      <div class="nation-card">
+        <div class="nation-tag">以賽亞書</div>
+        <div class="nation-name">13–23 章</div>
+        <div class="nation-note">針對外邦人的預言</div>
+      </div>
+      <div class="nation-card">
+        <div class="nation-tag">耶利米書</div>
+        <div class="nation-name">46–51 章</div>
+        <div class="nation-note">針對外邦人的預言</div>
+      </div>
+      <div class="nation-card">
+        <div class="nation-tag">以西結書</div>
+        <div class="nation-name">25–32 章</div>
+        <div class="nation-note">針對外邦人的預言</div>
+      </div>
+    </div>
+
+    <div class="scripture">
+      <div class="scripture-ref">以賽亞書 13:6–8</div>
+      <p>你們要哀號，因為耶和華的日子臨近了！這日來到，好像毀滅從全能者來到。所以，<em>人手都必軟弱；人心都必消化</em>。他們必驚惶悲痛；愁苦必將他們抓住。他們疼痛，好像產難的婦人一樣，彼此驚奇相看，臉如火焰。</p>
+    </div>
+  </section>
+
+  <div class="divider"><span>天地震動的審判</span></div>
+
+  <!-- ═══════════════ Section 2：天地震動的審判 ═══════════════ -->
+  <div id="judgment" class="sec-anchor"></div>
+  <section class="sec">
+    <div class="sec-hdr">
+      <span class="sec-badge badge-teal">逐節默想</span>
+      <div>
+        <h2>天地震動、日月無光的審判</h2>
+        <div class="sec-sub">以賽亞書 13:7–13 · 末日景象</div>
+      </div>
+    </div>
+
+    <div class="hbox teal">
+      <div class="hbox-label">論點主旨</div>
+      <h3>耶和華一出現，就是整頓全地之時</h3>
+      <p>《耶和華的日子》的詩歌都是負面的，因為耶和華出現時，就是開始整頓地球的時候，景象<strong>極其恐怖</strong>。從第 9 節到第 16 節，與第 6 至 8 節一樣，都在描寫《耶和華的日子》。</p>
+    </div>
+
+    <div class="vision-list">
+      <div class="vision-item">
+        <div class="v-num teal">7</div>
+        <div style="flex:1;">
+          <strong style="display:block;font-size:.88rem;font-weight:700;color:var(--ink);margin-bottom:4px;">人手都必軟弱</strong>
+          <p style="font-size:.8rem;color:var(--muted);line-height:1.75;">若還有希望，人一定會打起精神、鼓起勇氣面對；如今連手都軟弱了，表示反抗也沒用，只好等著被砍頭。</p>
+          <div class="v-word vw-teal">
+            <div class="v-word-label">以賽亞書 13:7</div>
+            「人手都必軟弱。」
+          </div>
+        </div>
+      </div>
+      <div class="vision-item">
+        <div class="v-num teal">7</div>
+        <div style="flex:1;">
+          <strong style="display:block;font-size:.88rem;font-weight:700;color:var(--ink);margin-bottom:4px;">人心都必消化</strong>
+          <p style="font-size:.8rem;color:var(--muted);line-height:1.75;">有堅定的信心與堅強的意志，才能生力量對付敵人；連心也沒了，手軟腳軟，等於完全沒有希望 —— 對處境的恐懼、痛苦，心中沮喪，徹底絕望。面對末日就是這個樣子。</p>
+        </div>
+      </div>
+      <div class="vision-item">
+        <div class="v-num teal">8</div>
+        <div style="flex:1;">
+          <strong style="display:block;font-size:.88rem;font-weight:700;color:var(--ink);margin-bottom:4px;">臉如火焰</strong>
+          <p style="font-size:.8rem;color:var(--muted);line-height:1.75;">這裏並非燒得紅紅的；翻得較正確的應是<strong>面色變成蠟黃（死灰）色</strong> —— 活人絕不會是這種臉色，是很難看的臉色。此經文針對巴比倫。</p>
+        </div>
+      </div>
+      <div class="vision-item">
+        <div class="v-num teal">13</div>
+        <div style="flex:1;">
+          <strong style="display:block;font-size:.88rem;font-weight:700;color:var(--ink);margin-bottom:4px;">天震動、地搖撼</strong>
+          <p style="font-size:.8rem;color:var(--muted);line-height:1.75;">巴比倫在主前 538 年遭到戲劇性的覆敗，突然滅亡；其滅亡伴隨天災 —— 可能是八級、九級的大地震（我們偶遇三級就嚇得哇哇叫了）。</p>
+          <div class="v-word vw-ruby">
+            <div class="v-word-label">以賽亞書 13:13</div>
+            「我—萬軍之耶和華在忿恨中發烈怒的日子，必使天震動，使地搖撼，離其本位。」
+          </div>
+        </div>
+      </div>
+      <div class="vision-item">
+        <div class="v-num teal">10</div>
+        <div style="flex:1;">
+          <strong style="display:block;font-size:.88rem;font-weight:700;color:var(--ink);margin-bottom:4px;">日、月、星都不發光</strong>
+          <p style="font-size:.8rem;color:var(--muted);line-height:1.75;">月亮、太陽都不見了。不是日全蝕，而是地球的大氣層被<strong>火山灰</strong>厚厚蒙起來，太陽光根本照不進來。</p>
+          <div class="v-word vw-dove">
+            <div class="v-word-label">以賽亞書 13:10</div>
+            「天上的眾星群宿都不發光；日頭一出就變黑暗；月亮也不放光。」
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="scripture">
+      <div class="scripture-ref">以賽亞書 13:9–11</div>
+      <p>耶和華的日子臨到，必有殘忍、忿恨、烈怒，使這地荒涼，<em>從其中除滅罪人</em>。……我必因邪惡刑罰世界，因罪孽刑罰惡人，使驕傲人的狂妄止息，制伏強暴人的狂傲。</p>
+    </div>
+
+    <div class="hbox gold">
+      <div class="hbox-label">核心</div>
+      <h3>誰才是能力最強的「Number one」？</h3>
+      <p>天搖地動、日月無光，天上地上整個都變了 —— 這表明<strong>唯有天父上帝才是能力最強的</strong>。巴比倫被傾覆，也是耶和華讓它倒掉的。第 6 節說「好像毀滅從全能者來到」，全能者就是指上帝：上帝說滅，它就滅了。</p>
+    </div>
+
+    <div class="alert info">
+      <span class="alert-icon">💡</span>
+      <p><strong>教師補充：</strong>教師親歷最大的一次地震約四級多 —— 甲仙大地震（2010 年 3 月 4 日 8 時 18 分，震度 6.4 級）。當時在學校服務，前一天才做完避震演練，隔天清晨八點地板上下跳動、辦公室左右晃動，全校師生十秒內疏散到空曠處。又談及科學家認為六千萬年前恐龍大滅絕，正是隕石撞擊引發各地火山爆發、火山灰蔽日、氣溫驟降所致；草食恐龍先餓死，肉食恐龍隨之，唯餘蟑螂等小生物存活。</p>
+    </div>
+  </section>
+
+  <div class="divider"><span>全能者與約珥書</span></div>
+
+  <!-- ═══════════════ Section 3：全能者 Shaddai 與約珥書 ═══════════════ -->
+  <div id="shaddai" class="sec-anchor"></div>
+  <section class="sec">
+    <div class="sec-hdr">
+      <span class="sec-badge badge-gold">字義與呼應</span>
+      <div>
+        <h2>全能者 Shaddai 與【約珥書】的呼應</h2>
+        <div class="sec-sub">毀滅與拯救的雙重意義</div>
+      </div>
+    </div>
+
+    <div class="hbox gold">
+      <div class="hbox-label">字義</div>
+      <h3>全能者 Shaddai —— 毀滅暴力的力量</h3>
+      <p>希伯來文中，上帝有一個古代的稱呼叫做 <strong>Shaddai</strong>；前面的 shad 是「毀滅、暴力」的意思，這個毀滅是用非常強烈的手段使其毀滅掉。Shaddai 所表現出來的震撼與毀滅力量，含有兩種意義。</p>
+    </div>
+
+    <div class="two-col">
+      <div class="col-side" style="background:var(--sage-pale);">
+        <div class="col-label" style="color:var(--sage);">第一種意義</div>
+        <div class="col-title">為以色列爭戰的 神</div>
+        <ul class="col-list">
+          <li style="color:var(--ink-soft);">幫以色列人打敗敵人的，是全能的 神。</li>
+        </ul>
+      </div>
+      <div class="col-side" style="background:var(--ruby-pale);">
+        <div class="col-label" style="color:var(--ruby);">第二種意義</div>
+        <div class="col-title">能毀滅全地的 神</div>
+        <ul class="col-list">
+          <li style="color:var(--ink-soft);">祂也是可以毀滅這地上所有生物的 神。</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="vision-list">
+      <div class="vision-item">
+        <div class="v-num gold">一</div>
+        <div style="flex:1;">
+          <strong style="display:block;font-size:.88rem;font-weight:700;color:var(--ink);margin-bottom:4px;">【約珥書】第 1 章：約珥預示主降重災</strong>
+          <p style="font-size:.8rem;color:var(--muted);line-height:1.75;">先知預告主耶和華要降下重災懲罰世人。第 5 節描寫一隊蝗蟲又強盛又無數，毀壞葡萄樹、剝盡無花果樹的皮 —— 農作物全被破壞（降災）。</p>
+          <div class="v-word vw-gold">
+            <div class="v-word-label">約珥書 1:5（節錄）</div>
+            「酒醉的人哪，要清醒哭泣……有一隊蝗蟲，又強盛又無數，侵犯我的地；它的牙齒如獅子的牙齒……它毀壞我的葡萄樹，剝了我無花果樹的皮。」
+          </div>
+        </div>
+      </div>
+      <div class="vision-item">
+        <div class="v-num gold">二</div>
+        <div style="flex:1;">
+          <strong style="display:block;font-size:.88rem;font-weight:700;color:var(--ink);margin-bottom:4px;">【約珥書】第 2 章：預言主日將臨萬民戰兢</strong>
+          <p style="font-size:.8rem;color:var(--muted);line-height:1.75;">「主耶和華的日子」說清楚一點，就是<strong>世界末日</strong>，也就是新約所說「主再來的日子」，那日子更恐怖。第 2 節「那日是黑暗、幽冥、密雲、烏黑的日子」；經文中的蝗蟲，其實是指不知從哪一國來的軍隊。</p>
+          <div class="v-word vw-ruby">
+            <div class="v-word-label">約珥書 2:10–11</div>
+            「它們一來，地震天動，日月昏暗，星宿無光。耶和華在祂軍旅前發聲……因為耶和華的日子大而可畏，誰能當得起呢？」
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"><span>巴比倫必如所多瑪傾覆</span></div>
+
+  <!-- ═══════════════ Section 4：巴比倫必如所多瑪傾覆 ═══════════════ -->
+  <div id="babylon" class="sec-anchor"></div>
+  <section class="sec">
+    <div class="sec-hdr">
+      <span class="sec-badge badge-ruby">預言焦點</span>
+      <div>
+        <h2>巴比倫必如所多瑪之傾覆</h2>
+        <div class="sec-sub">以賽亞書 13:17–22 · 列國榮耀淪為鬼城</div>
+      </div>
+    </div>
+
+    <div class="hbox ruby">
+      <div class="hbox-label">預言焦點</div>
+      <h3>話語集中於巴比倫</h3>
+      <p>從第 17 節到 22 節，話語集中在巴比倫，黑體標題正是<strong>「巴比倫必如所多瑪之傾覆」</strong>。所多瑪與蛾摩拉，就是被 神毀滅的那兩座城。</p>
+    </div>
+
+    <div class="vision-list">
+      <div class="vision-item">
+        <div class="v-num ruby">17</div>
+        <div style="flex:1;">
+          <strong style="display:block;font-size:.88rem;font-weight:700;color:var(--ink);margin-bottom:4px;"> 神激動米底亞人（瑪代）來攻</strong>
+          <p style="font-size:.8rem;color:var(--muted);line-height:1.75;">米底亞人不注重銀子，也不喜愛金子，必用弓擊碎少年人，不憐憫婦人所生的，眼也不顧惜孩子。【耶利米書】51:11 也說，耶和華激動了瑪代君王的心，定意攻擊巴比倫。</p>
+          <div class="v-word vw-ruby">
+            <div class="v-word-label">耶利米書 51:11</div>
+            「……耶和華定意攻擊巴比倫，將他毀滅，所以激動了瑪代君王的心；因這是耶和華報仇，就是為自己的殿報仇。」
+          </div>
+        </div>
+      </div>
+      <div class="vision-item">
+        <div class="v-num ruby">19</div>
+        <div style="flex:1;">
+          <strong style="display:block;font-size:.88rem;font-weight:700;color:var(--ink);margin-bottom:4px;">列國的榮耀、迦勒底人矜誇的華美</strong>
+          <p style="font-size:.8rem;color:var(--muted);line-height:1.75;">巴比倫有一座「空中花園」，是古代七大奇觀之一，被建設得非常華美。<strong>迦勒底人</strong>即尼布甲尼撒的臣民、主前第六世紀巴比倫帝國的百姓，他們曾攻破耶路撒冷、把人擄去。</p>
+        </div>
+      </div>
+      <div class="vision-item">
+        <div class="v-num ruby">20</div>
+        <div style="flex:1;">
+          <strong style="display:block;font-size:.88rem;font-weight:700;color:var(--ink);margin-bottom:4px;">必如所多瑪、蛾摩拉，不留餘民</strong>
+          <p style="font-size:.8rem;color:var(--muted);line-height:1.75;">如今輪到巴比倫覆滅，且這次<strong>不留餘民、沒有生還者</strong>。對照【以賽亞書】1:9：「若不是萬軍之耶和華給我們稍留餘種，我們早已像所多瑪、蛾摩拉的樣子了。」能否留餘種，全看 神的預定。</p>
+        </div>
+      </div>
+      <div class="vision-item">
+        <div class="v-num ruby">21</div>
+        <div style="flex:1;">
+          <strong style="display:block;font-size:.88rem;font-weight:700;color:var(--ink);margin-bottom:4px;">荒涼鬼城，野獸出沒</strong>
+          <p style="font-size:.8rem;color:var(--muted);line-height:1.75;">滅亡後再無人居住，連遊牧民族也不願在此過夜，如同鬼屋、鬼城無人敢去。曠野的鳥獸往這荒城移動：咆哮的獸（有版本譯作「箭豬」，即豪豬）、跳舞的野山羊。西方傳說的「森林之精靈」即公山羊（如《美女與野獸》的造型），是邪惡、醜陋的代表 ——【利未記】17:7 即以「公山羊」預表鬼魔。城中還有吃腐肉的郊狼群聚遊蕩。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="scripture">
+      <div class="scripture-ref">以賽亞書 13:19–22</div>
+      <p>巴比倫素來為列國的榮耀，為迦勒底人所矜誇的華美，必像 神所傾覆的所多瑪、蛾摩拉一樣。其內必永無人煙，世世代代無人居住。……豺狼必在它宮中呼號；野狗必在它華美殿內吼叫。<em>巴比倫受罰之時臨近；它的日子必不長久</em>。</p>
+    </div>
+
+    <div class="hbox dove">
+      <div class="hbox-label">對照</div>
+      <h3>與【詩篇】137 巴比倫哀歌相呼應</h3>
+      <p>「被擄於巴比倫者之哀歌」與本章用相同的情緒作結 —— 因受巴比倫的苦實在太大，故盼巴比倫被滅。第 9 節「從其中除滅罪人」：除巴比倫之外，凡曾惡待以色列的（如非利士人）也都要被除滅。</p>
+    </div>
+
+    <div class="alert info">
+      <span class="alert-icon">💡</span>
+      <p><strong>教師補充：</strong>這幾年新冠疫情，大家足不出戶，歐美許多國家的野生動物反而跑出來逛大街 —— 正如「無人之地就是野獸的天堂」，與巴比倫荒城野獸群聚的景象相互輝映。</p>
+    </div>
+  </section>
+
+  <div class="divider"><span>黑暗盡後的永光</span></div>
+
+  <!-- ═══════════════ Section 5：黑暗盡後的永光（收尾） ═══════════════ -->
+  <div id="light" class="sec-anchor"></div>
+  <section class="sec" style="padding-bottom:3rem;">
+    <div class="sec-hdr">
+      <span class="sec-badge badge-sage">熬煉與盼望</span>
+      <div>
+        <h2>黑暗盡後的永光</h2>
+        <div class="sec-sub">純金的熬煉、新紀元的盼望 · 結束禱告</div>
+      </div>
+    </div>
+
+    <p style="font-size:.84rem;color:var(--ink-soft);line-height:1.85;margin:0 0 1rem;">這「黑暗的天空」異象，會讓人想起聖經中 神顯現、受苦與審判的場景：</p>
+
+    <div class="nations-grid">
+      <div class="nation-card">
+        <div class="nation-tag">出埃及記 20:21</div>
+        <div class="nation-name">摩西進幽暗</div>
+        <div class="nation-note">「摩西就挨近 神所在的幽暗之中」；百姓遠遠站立，惟摩西敢走進雲彩。</div>
+      </div>
+      <div class="nation-card">
+        <div class="nation-tag">詩篇 18:7–11</div>
+        <div class="nation-name"> 神顯現的異象</div>
+        <div class="nation-note">地搖撼戰抖、鼻孔冒煙、口中發火，有黑雲在祂腳下，以黑暗為藏身之處。</div>
+      </div>
+      <div class="nation-card">
+        <div class="nation-tag">約伯記 23:16–17 / 5:14</div>
+        <div class="nation-name">受苦的預表</div>
+        <div class="nation-note">「 神使我喪膽；全能者使我驚惶」；白晝遇見黑暗，午間摸索如在夜間。</div>
+      </div>
+      <div class="nation-card">
+        <div class="nation-tag">阿摩司書 5:18–20</div>
+        <div class="nation-name">那日黑暗無光</div>
+        <div class="nation-note">想望耶和華日子的有禍了！躲避獅子又遇見熊，幽暗毫無光輝。</div>
+      </div>
+    </div>
+
+    <div class="vision-list">
+      <div class="vision-item">
+        <div class="v-num gold">純</div>
+        <div style="flex:1;">
+          <strong style="display:block;font-size:.88rem;font-weight:700;color:var(--ink);margin-bottom:4px;">智慧人被熬煉成純金</strong>
+          <p style="font-size:.8rem;color:var(--muted);line-height:1.75;">第 12 節「我必使人比精金還少，使人比俄斐純金更少」。被審判所熬煉出來的就是智慧人，最後被熬煉出來的最珍貴 —— 比精金更貴重的<strong>俄斐金</strong>。俄斐金來自遙遠的國度（古說印度，亦有說阿拉伯或東非，眾說紛紜），如同他施的船隻、黎巴嫩的香柏樹，只是借其傳奇性的氛圍作象徵罷了。</p>
+          <div class="v-word vw-gold">
+            <div class="v-word-label">但以理書 11:35</div>
+            「智慧人中有些撲倒的，為要熬煉其餘的人，使他們清淨潔白，直到末了；因為到了定期，事就了結。」
+          </div>
+        </div>
+      </div>
+      <div class="vision-item">
+        <div class="v-num sage">光</div>
+        <div style="flex:1;">
+          <strong style="display:block;font-size:.88rem;font-weight:700;color:var(--ink);margin-bottom:4px;">黑暗盡後，永光降臨</strong>
+          <p style="font-size:.8rem;color:var(--muted);line-height:1.75;">新紀元（如千禧年國）來到時，世上的惡會被消滅；惡盡之後黑暗才會消失，整個世界進入新的國度、變得非常美。不過那時想留一條命也不簡單，碰到那麼大的災難，要存活下來也很難。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="scripture">
+      <div class="scripture-ref">以賽亞書 60:20 · 啟示錄 22:5</div>
+      <p>你的日頭不再下落；你的月亮也不退縮；因為<em>耶和華必做你永遠的光</em>。你悲哀的日子也完畢了。（賽 60:20）……不再有黑夜；他們也不用燈光、日光，因為主 神要光照他們。他們要作王，直到永永遠遠。（啟 22:5）</p>
+    </div>
+
+    <div class="hbox dove">
+      <div class="hbox-label">本章小結</div>
+      <h3>第 13 章讀畢 —— 巴比倫從最強盛淪為廢墟</h3>
+      <p>今天因時間的關係讀到這裏（第 13 章 6–22 節）。巴比倫從最繁華、最強盛的帝國，變成野獸出沒的廢墟鬼城 —— 這完全是耶和華的作為。</p>
+    </div>
+
+    <div class="qblock">
+      <p>慈愛的 父神、救主耶穌基督、聖靈保惠師，孩子們滿心感謝讚美 祢的恩典。主啊，謝謝祢一個禮拜來的<em>保守和帶領</em>。</p>
+      <p>雖然這肺炎疫情還是四處蔓延，教會北中南也有弟兄、姊妹確診，但謝謝祢的保守，讓他們都能在幾天之內康復、重新調整腳步、再度正常生活，這一切都是祢的保守跟帶領。</p>
+      <p>也求主保守這疫情在全球慢慢降下來，讓全球經濟活絡、民眾過正常的生活。孩子們禱告、感謝，<em>奉靠主耶穌基督的聖名，阿們！</em></p>
+      <p class="qblock-src">— 林明學教師 結束禱告</p>
+    </div>
+
+    <div class="alert warn">
+      <span class="alert-icon">📌</span>
+      <p><strong>牧關提醒（代禱事項）：</strong>孫小朋友被熱水燙傷已一個多月、代禱逾一個月，傷處應已恢復到一個程度。請各教會負責人<strong>主動向聯繫平台同工報備最新傷況</strong>；若已復原即可把此禱告項目撤下，勿沿用一、兩個月前的舊禱告詞。這是各教會負責人要留意的事。</p>
+    </div>
+  </section>
+
+</div><!-- end container -->
+
+<!-- ═══════════════ FOOTER ═══════════════ -->
+<footer class="page-footer">
+  <p>1223 輯週訓 · <strong>《耶和華的日子》與巴比倫的覆滅</strong></p>
+  <p style="margin-top:4px;">2022年6月4日 查經聚會 · 主領：林明學教師 · 週訓整理日期 2026.6.14</p>
+</footer>
+
+<script>
+const tocLinks = document.querySelectorAll('.toc-link');
+const anchors = ['overview','context','judgment','shaddai','babylon','light'];
+const sections = anchors.map(id => document.getElementById(id));
+
+function updateToc() {
+  let current = 'overview';
+  const offset = 80;
+  sections.forEach((el, i) => {
+    if (el && el.getBoundingClientRect().top < offset + 20) {
+      current = anchors[i];
+    }
+  });
+  tocLinks.forEach(a => {
+    const href = a.getAttribute('href').replace('#','');
+    a.classList.toggle('active', href === current);
+  });
+}
+window.addEventListener('scroll', updateToc, { passive: true });
+updateToc();
+</script>
+</body>
+</html>
