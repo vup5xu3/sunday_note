@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#141d2e">
 <title>父親節祝賀 ‧ 神之子台北基督教會</title>
+<script>/* mark early so embedded styles apply before first paint */if(window.self!==window.top){document.documentElement.className+=' embedded';}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=LXGW+WenKai+TC&family=Noto+Serif+TC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -174,6 +175,19 @@
     .scene, .letter-paper, .envelope, .seal-glow{ transition-duration:.25s !important; }
     .open-hint{ opacity:.85; }
   }
+
+  /* ===== Embedded in an auto-resizing iframe (e.g. article.html) ===== */
+  html.embedded, html.embedded body{ height:auto; overflow:visible; background:transparent; }
+  /* cover becomes a compact normal-flow card, not a full-viewport fixed layer */
+  html.embedded .scene{
+    position:relative; inset:auto; z-index:1; min-height:auto;
+    padding:44px 18px 38px; border-radius:6px;
+  }
+  html.embedded .scene.is-gone{ display:none; }
+  html.embedded .envelope{ width:min(86%,560px); }
+  /* letter stays out of the layout (adds no height) until opened */
+  html.embedded .letter-paper{ display:none; min-height:auto; opacity:1; transform:none; pointer-events:auto; }
+  html.embedded .letter-paper.is-shown{ display:block; }
 </style>
 </head>
 <body>
@@ -273,7 +287,7 @@
       </blockquote>
 
       <section class="closing">
-        <p>感謝讚美主的恩典，將你們放在我的生命裡。盼望這份愛與榜樣，在我們每個人身上，繼續流傳下去。，將你們放在我的生命裡。盼望這份愛與榜樣，在我們每個人身上，繼續流傳下去。</p>
+        <p>感謝讚美主的恩典，將你們放在我的生命裡。盼望這份愛與榜樣，在我們每個人身上，繼續流傳下去。</p>
       </section>
 
       <footer class="signoff">
@@ -295,23 +309,49 @@
       var scene = document.getElementById('scene');
       var letter = document.getElementById('letter');
       var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var embedded = (window.self !== window.top);
       var opened = false;
+
+      // when embedded, drive our own iframe height (same-origin: the parent already reads our document)
+      function resizeFrame(){
+        if (!embedded) return;
+        try { var fe = window.frameElement; if (fe) fe.style.height = document.documentElement.scrollHeight + 'px'; }
+        catch(e){}
+      }
+
       function reveal(){
         scene.classList.add('is-gone');
         letter.classList.add('is-shown');
         letter.removeAttribute('aria-hidden');
         document.body.classList.add('revealed');
-        letter.setAttribute('tabindex','-1');
-        try { letter.focus({ preventScroll:true }); } catch(e){ letter.focus(); }
-        window.setTimeout(function(){ scene.style.display = 'none'; }, 960);
+        if (embedded){
+          scene.style.display = 'none';
+          resizeFrame();
+          window.setTimeout(resizeFrame, 250);
+          window.setTimeout(resizeFrame, 900);
+          window.setTimeout(resizeFrame, 1600);
+        } else {
+          letter.setAttribute('tabindex','-1');
+          try { letter.focus({ preventScroll:true }); } catch(e){ letter.focus(); }
+          window.setTimeout(function(){ scene.style.display = 'none'; }, 960);
+        }
       }
       function open(){
         if (opened) return; opened = true;
         seal.classList.add('is-open');
         seal.setAttribute('aria-expanded','true');
-        if (reduce) { reveal(); } else { window.setTimeout(reveal, 900); }
+        if (reduce || embedded) { reveal(); } else { window.setTimeout(reveal, 900); }
       }
       seal.addEventListener('click', open);
+
+      if (embedded){
+        resizeFrame();
+        window.addEventListener('load', resizeFrame);
+        window.addEventListener('resize', resizeFrame);
+        if (document.fonts && document.fonts.ready) { document.fonts.ready.then(resizeFrame); }
+        window.setTimeout(resizeFrame, 300);
+        window.setTimeout(resizeFrame, 1200);
+      }
     })();
   </script>
 
