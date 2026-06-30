@@ -5,7 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#141d2e">
 <title>父親節祝賀 ‧ 神之子台北基督教會</title>
-<script>/* mark early so embedded styles apply before first paint */if(window.self!==window.top){document.documentElement.className+=' embedded';}</script>
+<script>/* If loaded inside the article iframe, break out to a full page (same-origin).
+   replace() swaps the article.html entry so Back returns to the list, not a redirect loop.
+   The 'embedded' class + fallback below only kick in if top-navigation is blocked. */
+(function(){
+  if (window.self === window.top) return;
+  document.documentElement.className += ' embedded';
+  try { window.top.location.replace(window.location.href); } catch (e) {}
+})();</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=LXGW+WenKai+TC&family=Noto+Serif+TC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
