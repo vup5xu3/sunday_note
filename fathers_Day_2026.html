@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#141d2e">
+<title>父親節祝賀 ‧ 神之子台北基督教會</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=LXGW+WenKai+TC&family=Noto+Serif+TC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    /* palette drawn from the cover photo: navy ground, ivory paper, gold foil, dusty-blue botanicals, burgundy wax */
+    --navy:#141d2e; --navy-2:#1d2942; --navy-soft:#2a3a5a;
+    --paper:#F7F1E1; --paper-2:#EFE6CF; --surface:#1a2336;
+    --ink:#3b3326; --ink-soft:#5e503a; --ink-faint:#857257;
+    --gold:#B7924A; --gold-2:#D2AE63; --gold-faint:rgba(183,146,74,.34);
+    --blue:#5d7798; --blue-2:#869ebb; --blue-faint:rgba(93,119,152,.5);
+    --wax:#8E2F22; --wax-hi:#B7523B; --wax-lo:#641c11;
+    --font-head:"Noto Serif TC","Songti TC",serif;
+    --font-body:"LXGW WenKai TC","Kaiti TC","DFKai-SB","BiauKai","標楷體","STKaiti",serif;
+  }
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  html,body{ height:100%; }
+  body{
+    font-family:var(--font-body);
+    background:var(--surface);
+    color:var(--ink);
+    overflow:hidden;
+    -webkit-font-smoothing:antialiased;
+  }
+  body.revealed{ overflow:auto; }
+
+  /* ===================== COVER (the photo) ===================== */
+  .scene{
+    position:fixed; inset:0; z-index:50;
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    padding:20px;
+    background:
+      radial-gradient(120% 90% at 50% 40%, #243149 0%, #1a2438 48%, #0f1626 82%, #0b101c 100%);
+    transition:opacity .85s ease, transform .9s ease;
+  }
+  .scene.is-gone{ opacity:0; transform:scale(1.05); pointer-events:none; }
+
+  .scene-eyebrow{
+    font-family:"Cormorant Garamond",serif; font-style:italic;
+    color:#cdb588; letter-spacing:.2em; font-size:1.05rem;
+    margin-bottom:24px; opacity:.85; text-align:center;
+  }
+
+  .envelope-wrap{ position:relative; animation:floaty 7s ease-in-out infinite; }
+  @keyframes floaty{ 0%,100%{ transform:translateY(0); } 50%{ transform:translateY(-7px); } }
+
+  .envelope{
+    position:relative; display:block; border:0; padding:0; cursor:pointer;
+    width:clamp(280px, min(88vw, 70vh*1.5), 620px);
+    background:transparent; border-radius:8px; overflow:hidden;
+    box-shadow:0 38px 70px -28px rgba(0,0,0,.8), 0 6px 20px -8px rgba(0,0,0,.55);
+    -webkit-tap-highlight-color:transparent;
+    transition:transform .5s cubic-bezier(.2,.7,.2,1), box-shadow .5s ease;
+  }
+  .envelope img{ display:block; width:100%; height:auto; }
+  .envelope:hover{ transform:translateY(-4px) scale(1.012); box-shadow:0 46px 86px -30px rgba(0,0,0,.85); }
+  .envelope:focus-visible{ outline:none; box-shadow:0 0 0 3px var(--gold-2), 0 38px 70px -28px rgba(0,0,0,.8); }
+  /* warm glow that blooms from the wax seal on open */
+  .envelope .seal-glow{
+    position:absolute; left:50%; top:62%; width:50%; aspect-ratio:1;
+    transform:translate(-50%,-50%) scale(.5); transform-origin:center;
+    background:radial-gradient(circle, rgba(255,228,170,.9), rgba(255,206,132,0) 60%);
+    opacity:0; pointer-events:none;
+  }
+  .envelope.is-open .seal-glow{ opacity:1; transform:translate(-50%,-50%) scale(2.4); transition:opacity 1s ease, transform 1.1s ease; }
+  .envelope.is-open{ transform:scale(1.04); }
+
+  .open-hint{
+    margin-top:34px; font-family:var(--font-head); font-size:.84rem; letter-spacing:.3em;
+    text-indent:.3em; color:#d4b988; animation:breathe 3.2s ease-in-out infinite; text-align:center;
+  }
+  @keyframes breathe{ 0%,100%{ opacity:.45; } 50%{ opacity:1; } }
+
+  /* ===================== THE LETTER ===================== */
+  .letter-paper{
+    position:relative; min-height:100vh;
+    padding:clamp(26px,5vw,72px) 14px clamp(50px,7vw,96px);
+    background:
+      radial-gradient(140% 70% at 50% 0%, #243149 0%, var(--navy) 55%),
+      var(--navy);
+    opacity:0; transform:translateY(28px) scale(.992); pointer-events:none;
+    transition:opacity .9s ease .12s, transform 1s cubic-bezier(.2,.7,.2,1) .12s;
+  }
+  .letter-paper.is-shown{ opacity:1; transform:none; pointer-events:auto; }
+  .letter-paper:focus{ outline:none; }
+
+  .letter-inner{
+    position:relative; max-width:684px; margin:0 auto;
+    background:
+      radial-gradient(120% 70% at 30% 6%, rgba(255,252,240,.6), transparent 52%),
+      linear-gradient(176deg, var(--paper) 0%, var(--paper-2) 100%);
+    border-radius:5px;
+    padding:clamp(44px,7vw,84px) clamp(24px,6vw,66px);
+    box-shadow:0 50px 100px -45px rgba(0,0,0,.7), 0 1px 0 rgba(255,255,255,.55) inset;
+    overflow:hidden;
+  }
+  /* gold double frame echoing the envelope border */
+  .letter-inner::before{ content:""; position:absolute; inset:14px; border:1.5px solid var(--gold-faint);
+    border-radius:3px; pointer-events:none; }
+  .letter-inner::after{ content:""; position:absolute; inset:18px; border:1px solid rgba(183,146,74,.18);
+    border-radius:2px; pointer-events:none; }
+
+  .letter-inner > *{ position:relative; z-index:1; }
+
+  /* small gold cross in each of the four corners (CSS only, echoes the wax-seal cross) */
+  .corner-cross{ position:absolute; width:13px; height:18px; z-index:1; pointer-events:none; opacity:.7; }
+  .corner-cross::before,.corner-cross::after{ content:""; position:absolute; background:var(--gold); border-radius:1px; }
+  .corner-cross::before{ left:42%; top:0; width:16%; height:100%; }
+  .corner-cross::after{ top:26%; left:0; width:100%; height:16%; }
+  .corner-cross.tl{ top:26px; left:26px; }
+  .corner-cross.tr{ top:26px; right:26px; }
+  .corner-cross.bl{ bottom:26px; left:26px; }
+  .corner-cross.br{ bottom:26px; right:26px; }
+
+  .divider{ display:flex; align-items:center; justify-content:center; gap:13px; margin:0 auto; max-width:200px; }
+  .divider span{ height:1px; flex:1; background:linear-gradient(90deg, transparent, var(--gold)); }
+  .divider span:last-child{ background:linear-gradient(90deg, var(--gold), transparent); }
+  .divider i{ flex:0 0 auto; width:7px; height:7px; transform:rotate(45deg); background:var(--gold);
+    box-shadow:0 0 0 3px rgba(183,146,74,.16); }
+
+  .letterhead{ text-align:center; margin-bottom:clamp(26px,5vw,40px); }
+  .eyebrow{ font-family:var(--font-head); font-size:.74rem; letter-spacing:.32em; text-indent:.32em; color:var(--gold); margin-bottom:18px; }
+  .letterhead .divider{ margin-bottom:clamp(18px,3.5vw,26px); }
+  .title{ font-family:var(--font-head); font-weight:600; font-size:clamp(2rem,7.4vw,2.95rem); letter-spacing:.18em; text-indent:.18em; color:var(--ink); line-height:1.2; }
+  .subtitle{ font-family:var(--font-head); margin-top:.7em; font-size:clamp(.92rem,3.4vw,1.06rem); letter-spacing:.24em; text-indent:.24em; color:var(--ink-soft); }
+
+  .prose p{
+    font-size:clamp(1.05rem,3vw,1.16rem); line-height:2.1; letter-spacing:.01em;
+    color:var(--ink); margin:0 0 1.3em; text-align:justify; text-indent:2em;
+  }
+  .prose p:last-child{ margin-bottom:0; }
+
+  .movement{ margin-top:clamp(40px,7vw,62px); }
+  .section-head{ text-align:center; margin-bottom:clamp(22px,4.2vw,32px); }
+  .section-head .divider{ max-width:120px; margin-bottom:clamp(16px,3vw,22px); }
+  .section-head h2{ font-family:var(--font-head); font-weight:600; font-size:clamp(1.42rem,5.1vw,1.82rem); letter-spacing:.12em; text-indent:.12em; color:var(--ink); }
+  .section-head .role{ font-family:var(--font-head); margin-top:.5em; font-size:clamp(.84rem,3vw,.98rem); letter-spacing:.22em; text-indent:.22em; color:var(--gold); }
+
+  .verse{
+    position:relative; margin:clamp(42px,7vw,62px) auto; max-width:90%;
+    padding:clamp(24px,4.5vw,34px) clamp(14px,5vw,34px); text-align:center;
+    background:linear-gradient(180deg, rgba(93,119,152,.08), rgba(93,119,152,.02));
+    border-top:1px solid var(--gold-faint); border-bottom:1px solid var(--gold-faint);
+  }
+  .verse p{ font-size:clamp(1.1rem,3.4vw,1.32rem); line-height:1.95; letter-spacing:.04em; color:var(--ink-soft); }
+  .verse cite{ font-family:var(--font-head); display:block; margin-top:1.1em; font-style:normal; font-size:.84rem; letter-spacing:.28em; text-indent:.28em; color:var(--gold); }
+
+  .closing{ margin-top:clamp(36px,6vw,52px); }
+  .closing p{ font-size:clamp(1.05rem,3vw,1.16rem); line-height:2.1; color:var(--ink); text-align:justify; text-indent:2em; }
+
+  .signoff{ margin-top:clamp(32px,5.5vw,46px); text-align:right; }
+  .behalf{ font-size:clamp(.96rem,2.9vw,1.05rem); line-height:1.95; color:var(--ink); margin-bottom:.9em; }
+  .sign{ font-size:clamp(.96rem,2.9vw,1.05rem); letter-spacing:.1em; color:var(--ink); }
+
+  .page-foot{ text-align:center; margin-top:clamp(40px,7vw,60px); }
+  .page-foot .divider{ max-width:150px; margin-bottom:18px; }
+  .page-foot p{ font-family:var(--font-head); font-size:.78rem; letter-spacing:.26em; text-indent:.26em; color:var(--gold); }
+
+  @media (max-width:430px){
+    .letter-inner::before{ inset:11px; }
+    .letter-inner::after{ inset:14px; }
+    .verse::before,.verse::after{ font-size:2.5rem; }
+    .botanic{ opacity:.85; }
+  }
+  @media (prefers-reduced-motion: reduce){
+    .envelope-wrap, .open-hint{ animation:none !important; }
+    .scene, .letter-paper, .envelope, .seal-glow{ transition-duration:.25s !important; }
+    .open-hint{ opacity:.85; }
+  }
+</style>
+</head>
+<body>
+
+  <!-- ===== Cover : the photographed envelope ===== -->
+  <div class="scene" id="scene">
+    <p class="scene-eyebrow">A letter awaits you</p>
+
+    <div class="envelope-wrap">
+      <button class="envelope" id="seal" aria-expanded="false"
+              aria-label="開啟來自神之子台北基督教會的父親節祝賀信件">
+        <img src="png_fathers_Day_2026.png"
+             alt="米白信封，燙金邊框，紅蠟金十字封印，藍色水彩葉飾，封面印著「來自神之子台北基督教會的父親節祝賀」">
+        <span class="seal-glow" aria-hidden="true"></span>
+      </button>
+    </div>
+
+    <p class="open-hint">輕觸蠟封 ‧ 開啟此信</p>
+  </div>
+
+  <!-- ===== The letter ===== -->
+  <main class="letter-paper" id="letter" aria-hidden="true">
+    <article class="letter-inner">
+
+      <!-- small gold crosses in the four corners -->
+      <span class="corner-cross tl" aria-hidden="true"></span>
+      <span class="corner-cross tr" aria-hidden="true"></span>
+      <span class="corner-cross bl" aria-hidden="true"></span>
+      <span class="corner-cross br" aria-hidden="true"></span>
+
+      <header class="letterhead">
+        <p class="eyebrow">神之子台北基督教會 ‧ 父親節祝賀</p>
+        <div class="divider"><span></span><i></i><span></span></div>
+        <h1 class="title">父親節感言</h1>
+        <p class="subtitle">給我生命中的三位父親</p>
+      </header>
+
+      <section class="prose">
+        <p>今年的父親節，對之馨來說格外不同。去年十二月，我的爸爸離開了我們，大約半年過去了。這半年裡，每一次想起他，心裡總是又酸又暖——酸的是這世上再也沒有他的身影，暖的是他留給我們的，實在太多太多。</p>
+        <p>在世人眼中，我的爸爸或許只是個平凡的人，沒有顯赫的頭銜，也不擅言辭；但在我心裡，他是一位真正偉大的父親。他的偉大，不是轟轟烈烈的那一種，而是把一個家穩穩撐住、日復一日從不喊累的那一種——他總把愛放進一個又一個不聲不響的舉動裡，把責任靜靜扛在肩上，不居功，也不求回報。能作他的女兒，是我這一生極大的福分。</p>
+        <p>也正是在思念爸爸的這段日子裡，我越來越深地看見神的奇妙——原來在我的生命中，神一直為我安排著「父親」這樣的角色，一位接著一位，默默守候、堅定承擔，把我一步步引向祂。</p>
+      </section>
+
+      <section class="movement">
+        <div class="section-head">
+          <div class="divider"><span></span><i></i><span></span></div>
+          <h2>朱虹恩牧師</h2>
+          <p class="role">我的屬靈父親</p>
+        </div>
+        <div class="prose">
+          <p>老實說，一開始我並不太明白「屬靈父親」是什麼意思。從小到大待過幾間教會，為什麼到了這裡，突然有了屬靈父親？為什麼是從這裡重生？在我還似懂非懂的時候，光是知道自己有一位屬靈父親，心裡就湧上滿滿的溫暖。</p>
+          <p>牧師，對我來說，您是一位未曾離開的人，您一直都在——在弟兄姊妹的言談中，在異象與翻方言裡，在溫故知新的話語間，在師母深深的思念中，在一篇篇善勸文裡，也在神之子體系的每一個小細節中。您是那麼鮮明、那麼溫暖、那麼幽默風趣，又那麼有擔當。在過往的記錄裡，在神的恩典下，您是這樣行動派、有恩膏、不畏懼，愛主又笑看風浪，讓我每逢環境臨到，心裡都有一個可以仰望的標竿與楷模。您愛主，像小孩子那樣單純；也愛每一位屬靈所生的孩子，不論他們的行為如何——因為我知道，您愛的是他們的靈魂。藉著您活出來的樣式，我真實地看見了神對人的愛，這也是神之子體系裡，最特別、也最讓我珍惜的地方。</p>
+          <p>看見屬靈父母如膠似漆的情感，看見這一切在神的預定中如此驚心動魄，我真的覺得自己太幸福了。來到神之子體系，不只是來到一間教會，更是多了一個真正的屬靈家園。因著您的順服，在神的建造下，我們才有今天這般美好。謝謝您，牧師，在神的愛中建造神之子體系這個大家園。</p>
+        </div>
+      </section>
+
+      <section class="movement">
+        <div class="section-head">
+          <div class="divider"><span></span><i></i><span></span></div>
+          <h2>明學教師</h2>
+          <p class="role">穩穩踏步的大家長</p>
+        </div>
+        <div class="prose">
+          <p>親愛的教師，您的溫和、謙遜、有禮、和藹，又這樣忠心良善，是這個家中不可或缺的重要角色。神真是奇妙，祂揀選、交在您身上的權柄看似溫和，卻在祂的旨意下堅定守候——那是一種不經意間不易察覺、卻無比堅韌的力量。</p>
+          <p>我常想，這場長長的馬拉松，您總是穩穩踏步，給人一種格外安心的感覺。彷彿在不知不覺間，神之子體系一直都穩穩地走在神的帶領下；即使環境再怎麼變動，您依然穩固，堅守崗位、不離不棄。這份安定，讓人更加相信這一切都是神最完美的安排與預定——「不看環境、不看人」，正是我在您身上學到的功課。長兄如父——我不知道這樣寫是否恰當，但因著總會單單聽命於神的帶領，比弟兄姊妹更警醒、更順服、更敬畏神，我才漸漸明白，這份安全感原來是建立在您與師母們完全的順服之上。</p>
+          <p>您的親切和藹，那種不經意間的穩固與強大，是我好羨慕的人格特質。看您因著謙卑敬畏神，在順服中看見責任、承擔起來、繼續往前走，這份抗壓性與堅韌，實在令人佩服。</p>
+          <p>也願神親自保守教師與師母，在服事的路上，身心靈都蒙神看顧，常有從神而來的喜樂、平安與力量；您怎樣忠心地托住我們，願神也加倍以祂的愛澆灌您、托住您。</p>
+        </div>
+      </section>
+
+      <section class="movement">
+        <div class="section-head">
+          <div class="divider"><span></span><i></i><span></span></div>
+          <h2>我親愛的爸爸</h2>
+          <p class="role">話不多，卻一直都在</p>
+        </div>
+        <div class="prose">
+          <p>而我在地上的爸爸，也是這樣一位默默堅守家園的人。他話不多，卻總是用最安靜的方式陪伴、付出；尤其對待阿嬤，那份負責、體諒與同理，還有她生病時細心的守候，一直是我們最好的榜樣。爸爸用一生教會我——愛，不一定要說很多；願意陪伴、願意承擔，本身就是最深的愛。</p>
+        </div>
+      </section>
+
+      <section class="movement">
+        <div class="section-head">
+          <div class="divider"><span></span><i></i><span></span></div>
+          <h2>三位父親</h2>
+          <p class="role">同一個方向</p>
+        </div>
+        <div class="prose">
+          <p>慢慢我才看見，這三位父親身上，有著同一條線——你們都默默守護著家，都用忠心、責任與陪伴去愛，也都把身邊的人，輕輕指向神。</p>
+          <p>把三位父親的優點放在一起，我們要成長的方向，似乎清晰，也似乎是個高標準——從牧師，學那份愛主的火熱與行動的勇敢；從教師，學那份穩穩踏步的堅韌與謙卑；從爸爸，學那份話不多卻始終如一的陪伴與承擔。但奇妙的是，這份高標準帶來的不是壓力，而是滿滿的幸福——因為我們竟然擁有這樣的家。</p>
+        </div>
+      </section>
+
+      <blockquote class="verse">
+        <p>我們曉得萬事都互相效力，叫愛神的人得益處，就是按他旨意被召的人。</p>
+        <cite>羅馬書 八：28</cite>
+      </blockquote>
+
+      <section class="closing">
+        <p>感謝讚美主的恩典，將你們放在我的生命裡。盼望這份愛與榜樣，在我們每個人身上，繼續流傳下去。，將你們放在我的生命裡。盼望這份愛與榜樣，在我們每個人身上，繼續流傳下去。</p>
+      </section>
+
+      <footer class="signoff">
+        <p class="behalf">僅代表台北教會全體，獻上最真摯的父親節祝賀。</p>
+        <p class="sign">李之馨姊妹　敬上</p>
+      </footer>
+
+      <div class="page-foot">
+        <div class="divider"><span></span><i></i><span></span></div>
+        <p>神之子台北基督教會 ‧ 2026 父親節</p>
+      </div>
+
+    </article>
+  </main>
+
+  <script>
+    (function(){
+      var seal = document.getElementById('seal');
+      var scene = document.getElementById('scene');
+      var letter = document.getElementById('letter');
+      var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var opened = false;
+      function reveal(){
+        scene.classList.add('is-gone');
+        letter.classList.add('is-shown');
+        letter.removeAttribute('aria-hidden');
+        document.body.classList.add('revealed');
+        letter.setAttribute('tabindex','-1');
+        try { letter.focus({ preventScroll:true }); } catch(e){ letter.focus(); }
+        window.setTimeout(function(){ scene.style.display = 'none'; }, 960);
+      }
+      function open(){
+        if (opened) return; opened = true;
+        seal.classList.add('is-open');
+        seal.setAttribute('aria-expanded','true');
+        if (reduce) { reveal(); } else { window.setTimeout(reveal, 900); }
+      }
+      seal.addEventListener('click', open);
+    })();
+  </script>
+
+</body>
+</html>
