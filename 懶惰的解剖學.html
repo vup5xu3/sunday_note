@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>懶惰的解剖學｜箴言 26:13-16 四階退化模型</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700;900&family=Noto+Sans+TC:wght@300;400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#14151f;
+    --panel:#1b1d2e;
+    --panel2:#23253a;
+    --gold:#c9a15e;
+    --gold-soft:#e6cf98;
+    --rust:#c1523b;
+    --text:#ede7da;
+    --dim:#948fa3;
+    --line: rgba(201,161,94,.16);
+    --serif:'Noto Serif TC', serif;
+    --sans:'Noto Sans TC', sans-serif;
+    --mono:'IBM Plex Mono', monospace;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:
+      radial-gradient(ellipse at 20% -10%, rgba(201,161,94,.10), transparent 45%),
+      radial-gradient(ellipse at 90% 10%, rgba(193,82,59,.08), transparent 40%),
+      var(--bg);
+    color:var(--text);
+    font-family:var(--sans);
+    line-height:1.75;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{background:var(--gold); color:#1b1d2e;}
+
+  .wrap{max-width:920px; margin:0 auto; padding:0 28px;}
+  .eyebrow{
+    font-family:var(--mono); font-size:.72rem; letter-spacing:.28em;
+    color:var(--gold); text-transform:uppercase; margin:0 0 14px;
+  }
+  h1,h2,h3{font-family:var(--serif); font-weight:700; margin:0;}
+  a{color:inherit;}
+
+  /* progress rail */
+  #rail{position:fixed; top:0; left:0; height:3px; width:0%;
+    background:linear-gradient(90deg,var(--gold),var(--rust)); z-index:50; transition:width .1s linear;}
+
+  nav.sticky{
+    position:sticky; top:0; z-index:40;
+    backdrop-filter:blur(10px);
+    background:rgba(20,21,31,.72);
+    border-bottom:1px solid var(--line);
+  }
+  nav.sticky .inner{
+    max-width:920px; margin:0 auto; padding:14px 28px;
+    display:flex; gap:22px; align-items:center; overflow-x:auto;
+    font-family:var(--mono); font-size:.75rem; letter-spacing:.05em; color:var(--dim);
+  }
+  nav.sticky a{white-space:nowrap; text-decoration:none; color:var(--dim); transition:color .2s;}
+  nav.sticky a:hover, nav.sticky a:focus-visible{color:var(--gold-soft);}
+  nav.sticky .brand{color:var(--gold); font-weight:500; margin-right:auto;}
+
+  /* ---------- HERO ---------- */
+  header.hero{padding:96px 0 70px; position:relative;}
+  header.hero h1{font-size:clamp(2.4rem, 6vw, 4.1rem); line-height:1.15; letter-spacing:.01em;}
+  header.hero h1 em{font-style:normal; color:var(--gold);}
+  .lede{max-width:56ch; color:var(--dim); font-size:1.05rem; margin-top:20px;}
+
+  .door-stage{
+    margin-top:56px; border:1px solid var(--line); border-radius:14px;
+    background:linear-gradient(180deg, var(--panel), var(--bg));
+    padding:38px 32px 30px; position:relative; overflow:hidden;
+  }
+  .door-scene{
+    height:170px; position:relative; display:flex; align-items:flex-end; justify-content:center;
+    perspective:600px;
+  }
+  .doorframe{
+    width:120px; height:150px; border:3px solid var(--dim); border-radius:3px;
+    position:relative; opacity:.35;
+  }
+  .door{
+    position:absolute; left:0; top:0; width:120px; height:150px;
+    background:linear-gradient(135deg, var(--gold-soft), var(--gold) 60%, #8a6c3a);
+    border-radius:2px; transform-origin:left center;
+    box-shadow:0 10px 30px rgba(0,0,0,.4);
+    animation:swing 4.2s ease-in-out infinite;
+  }
+  @keyframes swing{
+    0%,100%{transform:rotateY(0deg);}
+    50%{transform:rotateY(-62deg);}
+  }
+  .hinge-label{
+    position:absolute; left:8px; top:50%; transform:translateY(-50%);
+    font-family:var(--mono); font-size:.62rem; color:var(--bg); writing-mode:vertical-rl;
+  }
+  .door-meta{
+    display:flex; justify-content:space-between; align-items:center; margin-top:28px;
+    font-family:var(--mono); font-size:.78rem; color:var(--dim); flex-wrap:wrap; gap:12px;
+  }
+  .displacement{display:flex; align-items:center; gap:10px;}
+  .displacement .bar{width:140px; height:6px; background:var(--panel2); border-radius:4px; overflow:hidden;}
+  .displacement .bar i{display:block; height:100%; width:0%; background:var(--rust);}
+  .door-caption{margin-top:16px; color:var(--dim); font-size:.92rem;}
+  .door-caption b{color:var(--gold-soft); font-weight:500;}
+
+  @media (prefers-reduced-motion: reduce){
+    .door{animation:none; transform:rotateY(-38deg);}
+    html{scroll-behavior:auto;}
+  }
+
+  /* ---------- SECTION shell ---------- */
+  section{padding:76px 0;}
+  section + section{border-top:1px solid var(--line);}
+  .kicker{display:flex; align-items:baseline; gap:14px; margin-bottom:8px;}
+  .kicker .num{font-family:var(--mono); color:var(--rust); font-size:.85rem;}
+  h2.title{font-size:clamp(1.6rem, 3.4vw, 2.3rem);}
+  .sub{color:var(--dim); max-width:62ch; margin-top:12px; font-size:.98rem;}
+
+  /* ---------- SCRIPTURE GRID ---------- */
+  .verse-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:16px; margin-top:38px;}
+  @media (max-width:680px){.verse-grid{grid-template-columns:1fr;}}
+  .verse-card{
+    border:1px solid var(--line); border-radius:12px; padding:24px;
+    background:var(--panel); position:relative; transition:border-color .25s, transform .25s;
+  }
+  .verse-card:hover{border-color:var(--gold); transform:translateY(-3px);}
+  .verse-card .vnum{font-family:var(--mono); color:var(--gold); font-size:.78rem; letter-spacing:.1em;}
+  .verse-card .vtext{font-family:var(--serif); font-size:1.12rem; margin:10px 0 16px; line-height:1.7;}
+  .heb-row{
+    display:flex; justify-content:space-between; align-items:center;
+    border-top:1px dashed var(--line); padding-top:12px; font-family:var(--mono); font-size:.8rem; color:var(--dim);
+  }
+  .heb-row .heb{color:var(--gold-soft); font-size:.95rem; direction:rtl;}
+  .verse-card .gloss{margin-top:10px; font-size:.86rem; color:var(--dim);}
+
+  /* ---------- MODEL / STAGES ---------- */
+  .stage-track{position:relative; margin-top:50px;}
+  .stage-track::before{
+    content:''; position:absolute; left:19px; top:8px; bottom:8px; width:1px;
+    background:linear-gradient(var(--gold), var(--rust));
+    opacity:.4;
+  }
+  .stage{display:flex; gap:22px; margin-bottom:34px; position:relative;}
+  .stage-dot{
+    flex:0 0 auto; width:40px; height:40px; border-radius:50%;
+    background:var(--panel2); border:1px solid var(--gold); color:var(--gold-soft);
+    display:flex; align-items:center; justify-content:center;
+    font-family:var(--mono); font-weight:500; z-index:1;
+  }
+  .stage-body{flex:1; border:1px solid var(--line); border-radius:12px; background:var(--panel); padding:22px 24px;}
+  .stage-body h3{font-size:1.2rem; color:var(--text);}
+  .stage-body .stage-tag{font-family:var(--mono); font-size:.72rem; color:var(--rust); letter-spacing:.06em;}
+  .tabs{display:flex; gap:8px; margin:14px 0 12px;}
+  .tab-btn{
+    font-family:var(--mono); font-size:.72rem; letter-spacing:.04em; color:var(--dim);
+    background:transparent; border:1px solid var(--line); padding:6px 12px; border-radius:20px; cursor:pointer;
+    transition:all .2s;
+  }
+  .tab-btn.active{color:var(--bg); background:var(--gold); border-color:var(--gold);}
+  .tab-panel{display:none; color:var(--dim); font-size:.92rem;}
+  .tab-panel.active{display:block;}
+
+  /* ---------- CHECKLIST ---------- */
+  .meter{
+    margin-top:36px; border:1px solid var(--line); border-radius:14px; padding:22px 26px;
+    background:var(--panel); display:flex; align-items:center; gap:22px; flex-wrap:wrap;
+  }
+  .meter .count{font-family:var(--serif); font-size:2.6rem; color:var(--gold); min-width:80px;}
+  .meter .count span{font-size:1.1rem; color:var(--dim); font-family:var(--mono);}
+  .meter .verdict{flex:1; min-width:220px;}
+  .meter .verdict-title{font-weight:700; font-size:1.02rem; color:var(--text);}
+  .meter .verdict-desc{color:var(--dim); font-size:.88rem; margin-top:4px;}
+  .meter-bar{width:100%; height:8px; background:var(--panel2); border-radius:6px; overflow:hidden; margin-top:14px;}
+  .meter-bar i{display:block; height:100%; width:0%; background:linear-gradient(90deg,var(--gold),var(--rust)); transition:width .35s ease;}
+
+  .traits{display:grid; grid-template-columns:1fr; gap:12px; margin-top:26px;}
+  .trait{
+    display:flex; gap:16px; align-items:flex-start; border:1px solid var(--line); border-radius:10px;
+    padding:16px 18px; background:var(--panel); cursor:pointer; transition:border-color .2s, background .2s;
+  }
+  .trait:hover{border-color:var(--gold);}
+  .trait.checked{border-color:var(--rust); background:linear-gradient(90deg, rgba(193,82,59,.10), transparent);}
+  .trait .box{
+    flex:0 0 auto; width:22px; height:22px; border-radius:5px; border:1px solid var(--dim); margin-top:2px;
+    display:flex; align-items:center; justify-content:center; font-size:.8rem; color:transparent; transition:all .2s;
+  }
+  .trait.checked .box{background:var(--rust); border-color:var(--rust); color:#fff;}
+  .trait .tnum{font-family:var(--mono); color:var(--gold); font-size:.78rem; margin-right:6px;}
+  .trait .ttitle{font-weight:500;}
+  .trait .tdesc{color:var(--dim); font-size:.87rem; margin-top:4px;}
+  .reset-btn{
+    margin-top:20px; font-family:var(--mono); font-size:.75rem; letter-spacing:.05em; color:var(--dim);
+    background:transparent; border:1px solid var(--line); padding:9px 16px; border-radius:20px; cursor:pointer;
+  }
+  .reset-btn:hover{color:var(--gold-soft); border-color:var(--gold);}
+
+  /* ---------- WORRY BARS ---------- */
+  .worry-list{margin-top:36px; display:flex; flex-direction:column; gap:14px;}
+  .worry-row{display:grid; grid-template-columns:170px 1fr 56px; align-items:center; gap:14px;}
+  .worry-row .wlabel{font-size:.88rem; color:var(--dim);}
+  .worry-track{height:14px; background:var(--panel2); border-radius:8px; overflow:hidden; border:1px solid var(--line);}
+  .worry-track i{display:block; height:100%; width:0%; border-radius:8px; background:var(--gold);}
+  .worry-row.hot .worry-track i{background:var(--rust);}
+  .worry-row .wval{font-family:var(--mono); text-align:right; color:var(--gold-soft); font-size:.85rem;}
+  .worry-note{margin-top:22px; color:var(--dim); font-size:.9rem; max-width:60ch;}
+
+  /* ---------- CLOSING ---------- */
+  .closing{text-align:center; padding:96px 0 110px;}
+  .closing h2{font-size:clamp(1.8rem,4vw,2.6rem); color:var(--gold-soft);}
+  .closing p{color:var(--dim); max-width:52ch; margin:18px auto 0;}
+  .amen{
+    margin-top:34px; font-family:var(--mono); font-size:.78rem; letter-spacing:.24em; color:var(--gold);
+    text-transform:uppercase;
+  }
+  footer{text-align:center; padding:30px 0 50px; color:var(--dim); font-size:.78rem; font-family:var(--mono);}
+
+  .reveal{opacity:0; transform:translateY(18px); transition:opacity .6s ease, transform .6s ease;}
+  .reveal.in{opacity:1; transform:translateY(0);}
+</style>
+</head>
+<body>
+
+<div id="rail"></div>
+
+<nav class="sticky">
+  <div class="inner">
+    <span class="brand">箴 26:13–16</span>
+    <a href="#scripture">經文考據</a>
+    <a href="#model">四階模型</a>
+    <a href="#checklist">自我檢視</a>
+    <a href="#worry">憂慮統計</a>
+    <a href="#closing">結語</a>
+  </div>
+</nav>
+
+<div class="wrap">
+
+  <header class="hero">
+    <p class="eyebrow">Proverbs 26 · 原文考據與生活應用</p>
+    <h1>懶惰的<em>解剖學</em></h1>
+    <p class="lede">門在樞紐上轉了又轉，看起來很努力，位移卻是零。箴言用四節經文，精準拆解了懶惰從「找藉口」到「自我神化」的完整病程——這是一份診斷書，也是一面鏡子。</p>
+
+    <div class="door-stage reveal">
+      <div class="door-scene">
+        <div class="doorframe">
+          <div class="door"><span class="hinge-label">צִיר · tsiyr</span></div>
+        </div>
+      </div>
+      <div class="door-meta">
+        <span>轉動角度：<b style="color:var(--gold-soft)">持續擺動</b></span>
+        <div class="displacement">
+          <span>實際位移</span>
+          <div class="bar"><i id="doorBar"></i></div>
+          <span id="doorPct">0%</span>
+        </div>
+      </div>
+      <p class="door-caption"><b>箴 26:14</b>——門在樞紐轉動，懶惰人在床上也是如此。動作不等於前進，忙碌不等於突破。</p>
+    </div>
+  </header>
+
+  <section id="scripture">
+    <div class="kicker"><span class="num">01</span><span class="eyebrow" style="margin:0">原文考據</span></div>
+    <h2 class="title reveal">四節經文，四個希伯來字根</h2>
+    <p class="sub reveal">每一節都藏著一個關鍵字，字根義比中文翻譯更鋒利。點選卡片可留意其當代背景。</p>
+
+    <div class="verse-grid">
+      <div class="verse-card reveal">
+        <span class="vnum">箴 26:13</span>
+        <p class="vtext">懶惰人說：道上有猛獅，街上有壯獅。</p>
+        <p class="gloss">在城市街道宣稱有獅子，是極度誇飾——為了逃避責任而捏造的極端藉口。</p>
+        <div class="heb-row"><span class="heb">עָצֵל</span><span>'atsel · 懶惰人</span></div>
+      </div>
+      <div class="verse-card reveal">
+        <span class="vnum">箴 26:14</span>
+        <p class="vtext">門在樞紐轉動，懶惰人在床上也是如此。</p>
+        <p class="gloss">門軸不斷開關，製造出「有在動」的錯覺，卻從未離開原本的位置。</p>
+        <div class="heb-row"><span class="heb">צִיר</span><span>tsiyr · 樞紐</span></div>
+      </div>
+      <div class="verse-card reveal">
+        <span class="vnum">箴 26:15</span>
+        <p class="vtext">懶惰人放手在盤子裏，就是向口撤回也以為勞乏。</p>
+        <p class="gloss">連把手拿回嘴邊都嫌累，形容懶惰到違背基本生存本能的地步。</p>
+        <div class="heb-row"><span class="heb">צַלַּחַת</span><span>tsallachat · 盤子</span></div>
+      </div>
+      <div class="verse-card reveal">
+        <span class="vnum">箴 26:16</span>
+        <p class="vtext">懶惰人看自己比七個善於應對的人更有智慧。</p>
+        <p class="gloss">封閉的自我感覺良好，拒絕任何客觀的良性反饋，是最強烈的反諷。</p>
+        <div class="heb-row"><span class="heb">חָכָם</span><span>chakam · 智慧</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="model">
+    <div class="kicker"><span class="num">02</span><span class="eyebrow" style="margin:0">退化模型</span></div>
+    <h2 class="title reveal">屬靈與心智退化的四階模型</h2>
+    <p class="sub reveal">這四節並非隨機排列，而是精確的病程推進。每一階都附上神學分析與白話文對照，切換標籤查看。</p>
+
+    <div class="stage-track">
+      <div class="stage reveal">
+        <div class="stage-dot">1</div>
+        <div class="stage-body">
+          <span class="stage-tag">藉口的極端化</span>
+          <h3>捏造變數，拒絕執行</h3>
+          <div class="tabs">
+            <button class="tab-btn active" data-tab="0-a">神學分析</button>
+            <button class="tab-btn" data-tab="0-b">白話文</button>
+          </div>
+          <div class="tab-panel active" id="0-a">懶惰人並非沒有大腦，他們甚至會做「風險評估」，卻把主觀恐懼與極端小機率無限放大，作為不踏出舒適圈的合理化數據。屬靈上，我們常以誇大的外在阻力，掩飾內心對操練與使命的逃避。</div>
+          <div class="tab-panel" id="0-b">「我不能出門，外面可能有暴龍把我吃掉！」——為了不面對挑戰，懶惰的人能編出全宇宙最荒謬的藉口，不是缺乏想像力，而是把想像力全用來嚇自己。</div>
+        </div>
+      </div>
+
+      <div class="stage reveal">
+        <div class="stage-dot">2</div>
+        <div class="stage-body">
+          <span class="stage-tag">動態的停滯</span>
+          <h3>無效運轉，原地打轉</h3>
+          <div class="tabs">
+            <button class="tab-btn active" data-tab="1-a">神學分析</button>
+            <button class="tab-btn" data-tab="1-b">白話文</button>
+          </div>
+          <div class="tab-panel active" id="1-a">門在樞紐上轉動，看似「有在做事」，實際位移是零。我們可能維持聚會、聽道等固定儀式，在同一個節點來回擺盪，生命卻沒有實質推進。</div>
+          <div class="tab-panel" id="1-b">手指滑手機滑得飛快，腦中想了千百個計畫，翻了無數個身——一整天下來，人根本沒離開過那張床。這就是原地打轉的「偽努力」。</div>
+        </div>
+      </div>
+
+      <div class="stage reveal">
+        <div class="stage-dot">3</div>
+        <div class="stage-body">
+          <span class="stage-tag">動力的徹底喪失</span>
+          <h3>拒絕攝取，靈命萎縮</h3>
+          <div class="tabs">
+            <button class="tab-btn active" data-tab="2-a">神學分析</button>
+            <button class="tab-btn" data-tab="2-b">白話文</button>
+          </div>
+          <div class="tab-panel active" id="2-a">這是懶惰的末期症狀。恩典與真理的「盤子」已端到面前，人卻連伸手取用並咀嚼的意志力都喪失。當連最基礎的讀經禱告都覺得勞乏，屬靈生命就進入系統性衰竭。</div>
+          <div class="tab-panel" id="2-b">手都伸進袋子裡了，卻懶得把東西塞進嘴巴。資源明明就在手邊，卻連最後一步的行動力都擠不出來。</div>
+        </div>
+      </div>
+
+      <div class="stage reveal">
+        <div class="stage-dot">4</div>
+        <div class="stage-body">
+          <span class="stage-tag">傲慢的防禦機制</span>
+          <h3>封閉系統，自我神化</h3>
+          <div class="tabs">
+            <button class="tab-btn active" data-tab="3-a">神學分析</button>
+            <button class="tab-btn" data-tab="3-b">白話文</button>
+          </div>
+          <div class="tab-panel active" id="3-a">最致命的病徵。懶惰人為保護自己的不作為，建立一套扭曲邏輯，認為努力行動、提出勸誡的人都是愚笨的。切斷與客觀真理及群體的反饋，陷入「我最聰明」的盲點，便是無藥可救的驕傲。</div>
+          <div class="tab-panel" id="3-b">傳說中的「懂伯」與鍵盤俠——躺在床上什麼都不做，卻覺得每天流汗努力、好心給建議的人都是笨蛋。用傲慢掩飾不作為，其實只是在逃避現實。</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="checklist">
+    <div class="kicker"><span class="num">03</span><span class="eyebrow" style="margin:0">自我檢視</span></div>
+    <h2 class="title reveal">廢物的九項特點</h2>
+    <p class="sub reveal">點選符合自己的項目，看看目前處在哪個階段。這不是定罪，是提醒——願彼此共勉之。</p>
+
+    <div class="meter reveal">
+      <div class="count"><span id="cnt">0</span><span> / 9</span></div>
+      <div class="verdict">
+        <div class="verdict-title" id="vTitle">尚未勾選</div>
+        <div class="verdict-desc" id="vDesc">點選下方項目，開始誠實地檢視自己。</div>
+        <div class="meter-bar"><i id="vBar"></i></div>
+      </div>
+    </div>
+
+    <div class="traits" id="traits">
+      <div class="trait" data-i="1"><div class="box">✓</div><div><span class="tnum">01</span><span class="ttitle">猶豫不決，懼怕犯錯</span><div class="tdesc">懼怕犯錯導致裹足不前，毀壞進步，故步自封。</div></div></div>
+      <div class="trait" data-i="2"><div class="box">✓</div><div><span class="tnum">02</span><span class="ttitle">拖延</span><div class="tdesc">誤以為休息是為了走更長遠的路，其實是毫無作為、自我放棄。</div></div></div>
+      <div class="trait" data-i="3"><div class="box">✓</div><div><span class="tnum">03</span><span class="ttitle">三分鐘熱度</span><div class="tdesc">百分之八十的失敗源於三分鐘熱度，無法貫徹始終就難以成功。</div></div></div>
+      <div class="trait" data-i="4"><div class="box">✓</div><div><span class="tnum">04</span><span class="ttitle">害怕被拒絕</span><div class="tdesc">放不下自尊心、死要面子，一直害怕被拒絕。</div></div></div>
+      <div class="trait" data-i="5"><div class="box">✓</div><div><span class="tnum">05</span><span class="ttitle">自己設限，故步自封</span><div class="tdesc">「我這個不行、那個也不行」，一天到晚自我設限。</div></div></div>
+      <div class="trait" data-i="6"><div class="box">✓</div><div><span class="tnum">06</span><span class="ttitle">逃避現實</span><div class="tdesc">沉溺於能麻痺自己的事物，感性軟弱到無法面對現實，理性與神的話語都不見了。</div></div></div>
+      <div class="trait" data-i="7"><div class="box">✓</div><div><span class="tnum">07</span><span class="ttitle">總找藉口</span><div class="tdesc">找藉口導致失去進取心，停留在自以為是的舒適區。</div></div></div>
+      <div class="trait" data-i="8"><div class="box">✓</div><div><span class="tnum">08</span><span class="ttitle">恐懼</span><div class="tdesc">怕批評、怕犯錯、過度自我保護，不敢踏出愛人的那一步。愛裏沒有懼怕，懼怕裏含著刑罰。</div></div></div>
+      <div class="trait" data-i="9"><div class="box">✓</div><div><span class="tnum">09</span><span class="ttitle">拒絕學習</span><div class="tdesc">誤以為「消費了就是學習」——買書不看、報名不上課，都是學習的錯覺。</div></div></div>
+    </div>
+
+    <button class="reset-btn" id="resetBtn">重新檢視</button>
+  </section>
+
+  <section id="worry">
+    <div class="kicker"><span class="num">04</span><span class="eyebrow" style="margin:0">憂慮統計</span></div>
+    <h2 class="title reveal">你所擔憂的事，其實多半不會發生</h2>
+    <p class="sub reveal">人們所擔憂的事情，大致可以拆解成以下幾類——多數的憂慮，其實都是多餘的。</p>
+
+    <div class="worry-list">
+      <div class="worry-row reveal" data-val="40"><span class="wlabel">從來不會發生</span><div class="worry-track"><i></i></div><span class="wval">40%</span></div>
+      <div class="worry-row reveal" data-val="30"><span class="wlabel">已經發生，無法改變</span><div class="worry-track"><i></i></div><span class="wval">30%</span></div>
+      <div class="worry-row reveal" data-val="14"><span class="wlabel">瑣碎之事</span><div class="worry-track"><i></i></div><span class="wval">14%</span></div>
+      <div class="worry-row reveal" data-val="12"><span class="wlabel">他人自卑感的批評</span><div class="worry-track"><i></i></div><span class="wval">12%</span></div>
+      <div class="worry-row hot reveal" data-val="4"><span class="wlabel">完全不能控制（如地震）</span><div class="worry-track"><i></i></div><span class="wval">4%</span></div>
+    </div>
+    <p class="worry-note reveal">剩下的比例落在「合理範圍」——值得留意，但無需被吞噬。擔憂本身不能改變結果，保守自己的心，勝過保守一切，因為一生的果效由心發出。</p>
+  </section>
+
+  <section id="closing" class="closing">
+    <h2 class="reveal">凡事感謝，凡事讚美</h2>
+    <p class="reveal">真正的聰明，不是躺在床上找藉口，而是勇敢推開那扇門，面對真實的世界。今天就給自己一個小小的具體目標，一起破除原地打轉的魔咒。</p>
+    <p class="amen reveal">靠主得勝 · 靠主剛強</p>
+  </section>
+
+</div>
+
+<footer>箴言 26:13–16 · 原文考據與生活應用整理</footer>
+
+<script>
+  // scroll progress rail
+  const rail = document.getElementById('rail');
+  window.addEventListener('scroll', () => {
+    const h = document.documentElement;
+    const pct = (h.scrollTop) / (h.scrollHeight - h.clientHeight) * 100;
+    rail.style.width = pct + '%';
+  });
+
+  // reveal on scroll
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, {threshold:.15});
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // door displacement counter (loops with the swing animation ~4.2s)
+  const doorBar = document.getElementById('doorBar');
+  const doorPct = document.getElementById('doorPct');
+  let t0 = performance.now();
+  function tickDoor(now){
+    const el = (now - t0) % 4200 / 4200; // 0..1 progress within one swing cycle
+    const swing = Math.abs(Math.sin(el * Math.PI)); // 0 -> 1 -> 0, mirrors the CSS motion
+    doorBar.style.width = (swing*100).toFixed(0) + '%';
+    doorPct.textContent = '0%'; // net displacement is always zero — that's the point
+    requestAnimationFrame(tickDoor);
+  }
+  requestAnimationFrame(tickDoor);
+
+  // stage tabs
+  document.querySelectorAll('.stage-body').forEach(body => {
+    const btns = body.querySelectorAll('.tab-btn');
+    btns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        btns.forEach(b => b.classList.remove('active'));
+        body.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+        btn.classList.add('active');
+        document.getElementById(btn.dataset.tab).classList.add('active');
+      });
+    });
+  });
+
+  // checklist
+  const traits = document.querySelectorAll('.trait');
+  const cnt = document.getElementById('cnt');
+  const vTitle = document.getElementById('vTitle');
+  const vDesc = document.getElementById('vDesc');
+  const vBar = document.getElementById('vBar');
+  const levels = [
+    {max:0, title:'尚未勾選', desc:'點選下方項目，開始誠實地檢視自己。'},
+    {max:2, title:'破口初現', desc:'已經出現幾個小徵狀，這是提醒你留意的訊號，還不算晚。'},
+    {max:5, title:'無效運轉期', desc:'忙碌感增加，實質進展卻停滯。是時候停下來，誠實面對哪裡卡住了。'},
+    {max:9, title:'末期徵狀', desc:'這已經是系統性的停滯。真正的聰明，不是找藉口，而是推開那扇門。'}
+  ];
+  function update(){
+    const n = document.querySelectorAll('.trait.checked').length;
+    cnt.textContent = n;
+    vBar.style.width = (n/9*100) + '%';
+    const lvl = n===0 ? levels[0] : n<=2 ? levels[1] : n<=5 ? levels[2] : levels[3];
+    vTitle.textContent = lvl.title;
+    vDesc.textContent = lvl.desc;
+  }
+  traits.forEach(t => t.addEventListener('click', () => { t.classList.toggle('checked'); update(); }));
+  document.getElementById('resetBtn').addEventListener('click', () => {
+    traits.forEach(t => t.classList.remove('checked'));
+    update();
+  });
+  update();
+
+  // worry bars animate on reveal
+  const worryIO = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if(e.isIntersecting){
+        const row = e.target;
+        const val = row.dataset.val;
+        if(val){ row.querySelector('.worry-track i').style.width = val + '%'; }
+        worryIO.unobserve(row);
+      }
+    });
+  }, {threshold:.4});
+  document.querySelectorAll('.worry-row').forEach(el => worryIO.observe(el));
+</script>
+</body>
+</html>
