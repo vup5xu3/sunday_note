@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1226輯週訓【2026.7.5】神所賜下的話語：一切都是出於愛</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;500;600;700;900&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --gold:       #C9A84C;
+  --gold-light: #E8D08A;
+  --gold-pale:  #FAF3DC;
+  --deep:       #14100C;
+  --ink:        #28200E;
+  --ink-soft:   #3A3020;
+  --muted:      #7A6B50;
+  --border:     #E0D4BA;
+  --parchment:  #FBF7F0;
+  --parchment2: #F4EDD8;
+  --dove:       #5C7289;
+  --dove-light: #8CAAC4;
+  --dove-pale:  #EAF1F8;
+  --ruby:       #8C2030;
+  --ruby-light: #C44058;
+  --ruby-pale:  #FAEAED;
+  --teal:       #2E7A70;
+  --teal-light: #4BADA0;
+  --teal-pale:  #E0F2EF;
+  --sage:       #4E6848;
+  --sage-light: #78A070;
+  --sage-pale:  #EAF3E6;
+  --r: 14px;
+  --r-lg: 22px;
+  --shadow: 0 2px 16px rgba(20,16,12,.07);
+  --shadow-hover: 0 8px 36px rgba(20,16,12,.14);
+}
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Noto Sans TC', sans-serif; background: var(--parchment); color: var(--ink); line-height: 1.8; }
+
+/* HERO */
+.hero { background: var(--deep); padding: 4rem 2rem 3.5rem; text-align: center; position: relative; overflow: hidden; }
+.hero::before { content:''; position:absolute; inset:0; background: radial-gradient(ellipse at 30% 0%, rgba(201,168,76,.14) 0%, transparent 55%), radial-gradient(ellipse at 70% 100%, rgba(92,114,137,.1) 0%, transparent 55%); pointer-events:none; }
+.hero-series { display:inline-flex; align-items:center; gap:8px; border:1px solid rgba(201,168,76,.4); color:var(--gold); font-size:11px; letter-spacing:4px; padding:5px 18px; border-radius:2px; margin-bottom:1.4rem; text-transform:uppercase; }
+.hero h1 { font-family:'Noto Serif TC',serif; font-size:clamp(1.8rem,5vw,3rem); color:#fff; font-weight:900; line-height:1.3; margin-bottom:.5rem; }
+.hero h1 em { color:var(--gold-light); font-style:normal; }
+.hero-meta { color:rgba(255,255,255,.45); font-size:.82rem; letter-spacing:2px; margin-bottom:2.2rem; }
+.hero-date-badge { display:inline-block; background:rgba(201,168,76,.12); border:1px solid rgba(201,168,76,.3); color:var(--gold-light); font-size:.78rem; padding:4px 16px; border-radius:20px; letter-spacing:1.5px; }
+
+/* TOC */
+.toc-bar { background:var(--deep); border-bottom:1px solid rgba(201,168,76,.25); position:sticky; top:0; z-index:100; overflow-x:auto; scrollbar-width:none; }
+.toc-bar::-webkit-scrollbar{display:none;}
+.toc-inner { display:flex; align-items:center; max-width:1040px; margin:0 auto; padding:0 16px; gap:2px; min-width:max-content; }
+.toc-link { display:flex; align-items:center; gap:5px; padding:11px 13px; color:rgba(255,255,255,.45); font-size:12px; font-weight:500; text-decoration:none; white-space:nowrap; border-bottom:2px solid transparent; transition:all .2s; }
+.toc-link:hover { color:var(--gold); }
+.toc-link.active { color:var(--gold); border-bottom-color:var(--gold); }
+.toc-dot { width:6px; height:6px; border-radius:50%; flex-shrink:0; }
+
+/* OVERVIEW */
+.overview { max-width:1040px; margin:0 auto; padding:2.5rem 1.25rem 1rem; }
+.overview-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:.85rem; margin-top:1.4rem; }
+.overview-card { background:#fff; border:0.5px solid rgba(0,0,0,.08); border-radius:var(--r); padding:1.2rem 1.3rem; display:flex; gap:12px; align-items:flex-start; box-shadow:var(--shadow); cursor:pointer; text-decoration:none; transition:all .22s; position:relative; overflow:hidden; }
+.overview-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; }
+.oc-dove::before  { background:linear-gradient(90deg,var(--dove),var(--dove-light)); }
+.oc-teal::before { background:linear-gradient(90deg,var(--teal),var(--teal-light)); }
+.oc-gold::before { background:linear-gradient(90deg,var(--gold),var(--gold-light)); }
+.oc-ruby::before  { background:linear-gradient(90deg,var(--ruby),var(--ruby-light)); }
+.oc-sage::before   { background:linear-gradient(90deg,var(--sage),var(--sage-light)); }
+.overview-card:hover { transform:translateY(-3px); box-shadow:var(--shadow-hover); }
+.ov-icon { width:36px; height:36px; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:16px; flex-shrink:0; }
+.oc-dove  .ov-icon { background:var(--dove-pale); }
+.oc-teal .ov-icon { background:var(--teal-pale); }
+.oc-gold .ov-icon { background:var(--gold-pale); }
+.oc-ruby  .ov-icon { background:var(--ruby-pale); }
+.oc-sage   .ov-icon { background:var(--sage-pale); }
+.ov-body h4 { font-size:.88rem; font-weight:700; color:var(--ink); margin-bottom:2px; }
+.ov-body p  { font-size:.73rem; color:var(--muted); line-height:1.55; }
+
+/* SECTION */
+.container { max-width:1040px; margin:0 auto; padding:0 1.25rem; }
+.sec { padding:2.8rem 0 1.5rem; }
+.sec-anchor { padding-top:70px; margin-top:-70px; }
+.sec-hdr { display:flex; align-items:center; gap:12px; margin-bottom:1.6rem; padding-bottom:1rem; border-bottom:1px solid var(--border); }
+.sec-badge { padding:4px 14px; border-radius:20px; font-size:.7rem; font-weight:700; letter-spacing:2px; text-transform:uppercase; }
+.badge-dove  { background:var(--dove-pale); color:var(--dove); }
+.badge-teal { background:var(--teal-pale); color:var(--teal); }
+.badge-gold { background:var(--gold-pale); color:#7A620A; }
+.badge-ruby  { background:var(--ruby-pale); color:var(--ruby); }
+.badge-sage   { background:var(--sage-pale); color:var(--sage); }
+.sec-hdr h2 { font-family:'Noto Serif TC',serif; font-size:1.25rem; font-weight:900; color:var(--ink); }
+.sec-sub { font-size:.75rem; color:var(--muted); margin-top:1px; }
+
+/* QUOTE BLOCK */
+.qblock { background:var(--deep); border-radius:var(--r-lg); padding:2rem 2rem 1.6rem; margin-bottom:1.4rem; position:relative; overflow:hidden; }
+.qblock::before { content:'"'; position:absolute; top:-1rem; left:1.2rem; font-family:'Noto Serif TC',serif; font-size:7rem; color:var(--gold); opacity:.12; line-height:1; pointer-events:none; }
+.qblock p { font-family:'Noto Serif TC',serif; font-size:1.02rem; color:#fff; line-height:1.95; margin-bottom:.7rem; }
+.qblock p em { color:var(--gold-light); font-style:normal; font-weight:700; }
+.qblock-src { font-size:.73rem; color:rgba(255,255,255,.4); letter-spacing:1.5px; }
+
+/* HIGHLIGHT BOX */
+.hbox { border-radius:var(--r); padding:1.4rem 1.5rem; margin-bottom:1.2rem; }
+.hbox.gold  { background:var(--gold-pale);  border-left:3px solid var(--gold); }
+.hbox.dove  { background:var(--dove-pale);  border-left:3px solid var(--dove); }
+.hbox.ruby  { background:var(--ruby-pale);  border-left:3px solid var(--ruby); }
+.hbox.teal  { background:var(--teal-pale);  border-left:3px solid var(--teal); }
+.hbox.sage  { background:var(--sage-pale);  border-left:3px solid var(--sage); }
+.hbox-label { font-size:.68rem; letter-spacing:2.5px; font-weight:700; text-transform:uppercase; margin-bottom:.5rem; }
+.hbox.gold  .hbox-label { color:#7A620A; }
+.hbox.dove  .hbox-label { color:var(--dove); }
+.hbox.ruby  .hbox-label { color:var(--ruby); }
+.hbox.teal  .hbox-label { color:var(--teal); }
+.hbox.sage  .hbox-label { color:var(--sage); }
+.hbox h3 { font-family:'Noto Serif TC',serif; font-size:1rem; font-weight:700; color:var(--ink); margin-bottom:.5rem; }
+.hbox p, .hbox li { font-size:.84rem; color:var(--ink-soft); line-height:1.85; }
+.hbox ul, .hbox ol { padding-left:1.1rem; }
+.hbox li { margin-bottom:.2rem; }
+.hbox strong { color:var(--ink); }
+
+/* CARD GRID */
+.card-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:1rem; margin-bottom:1.4rem; }
+.card { background:#fff; border:0.5px solid rgba(0,0,0,.09); border-radius:var(--r-lg); padding:1.4rem; box-shadow:var(--shadow); transition:all .2s; position:relative; overflow:hidden; }
+.card:hover { transform:translateY(-2px); box-shadow:var(--shadow-hover); }
+.card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; }
+.card.c-gold::before  { background:linear-gradient(90deg,var(--gold),var(--gold-light)); }
+.card.c-dove::before  { background:linear-gradient(90deg,var(--dove),var(--dove-light)); }
+.card.c-ruby::before  { background:linear-gradient(90deg,var(--ruby),var(--ruby-light)); }
+.card.c-teal::before  { background:linear-gradient(90deg,var(--teal),var(--teal-light)); }
+.card.c-sage::before  { background:linear-gradient(90deg,var(--sage),var(--sage-light)); }
+.card-num { font-family:'Noto Serif TC',serif; font-size:2.4rem; font-weight:900; opacity:.08; position:absolute; top:.8rem; right:1rem; line-height:1; }
+.c-gold .card-num { color:var(--gold); }
+.c-dove .card-num { color:var(--dove); }
+.c-ruby .card-num { color:var(--ruby); }
+.c-teal .card-num { color:var(--teal); }
+.c-sage .card-num { color:var(--sage); }
+.card-icon { font-size:1.5rem; margin-bottom:.5rem; }
+.card h4 { font-family:'Noto Serif TC',serif; font-size:.95rem; font-weight:700; color:var(--ink); margin-bottom:.4rem; }
+.card p { font-size:.79rem; color:var(--muted); line-height:1.7; }
+
+/* VISION / STEP LIST */
+.vision-list { display:flex; flex-direction:column; gap:.85rem; margin-bottom:1.4rem; }
+.vision-item { background:#fff; border:0.5px solid rgba(0,0,0,.08); border-radius:var(--r); padding:1.2rem 1.3rem; display:flex; gap:14px; align-items:flex-start; box-shadow:var(--shadow); }
+.v-num { min-width:30px; height:30px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:.72rem; font-weight:700; flex-shrink:0; margin-top:1px; }
+.v-num.teal { background:var(--teal-pale); color:var(--teal); }
+.v-num.ruby { background:var(--ruby-pale); color:var(--ruby); }
+.v-num.gold { background:var(--gold-pale); color:#7A620A; }
+.v-num.dove { background:var(--dove-pale); color:var(--dove); }
+.v-num.sage { background:var(--sage-pale); color:var(--sage); }
+.v-body strong { display:block; font-size:.88rem; font-weight:700; color:var(--ink); margin-bottom:3px; }
+.v-body p { font-size:.8rem; color:var(--muted); line-height:1.7; }
+.v-word { margin-top:.6rem; padding:.7rem .9rem; border-radius:8px; font-size:.79rem; line-height:1.75; }
+.vw-teal { background:var(--teal-pale); border-left:2px solid var(--teal); color:#185049; }
+.vw-ruby { background:var(--ruby-pale); border-left:2px solid var(--ruby); color:#6B1621; }
+.vw-gold { background:var(--gold-pale); border-left:2px solid var(--gold); color:#7A620A; }
+.vw-dove { background:var(--dove-pale); border-left:2px solid var(--dove); color:#2B4A62; }
+.vw-sage { background:var(--sage-pale); border-left:2px solid var(--sage); color:#2E4A2B; }
+.v-word-label { font-size:.65rem; letter-spacing:2px; font-weight:700; text-transform:uppercase; margin-bottom:4px; }
+.vw-teal .v-word-label { color:var(--teal); }
+.vw-ruby .v-word-label { color:var(--ruby); }
+.vw-gold .v-word-label { color:#7A620A; }
+.vw-dove .v-word-label { color:var(--dove); }
+.vw-sage .v-word-label { color:var(--sage); }
+
+/* SCRIPTURE */
+.scripture { background:var(--deep); border-radius:var(--r); padding:1.5rem 1.8rem; margin-bottom:1.2rem; position:relative; }
+.scripture-ref { font-size:.68rem; letter-spacing:2px; color:var(--gold); font-weight:700; text-transform:uppercase; margin-bottom:.5rem; }
+.scripture p { font-family:'Noto Serif TC',serif; font-size:.88rem; color:rgba(255,255,255,.82); line-height:2; }
+.scripture p em { color:var(--gold-light); font-style:normal; }
+
+/* MINDMAP */
+.mm-wrap { background:#fff; border-radius:var(--r-lg); border:.5px solid rgba(0,0,0,.09); overflow:hidden; margin-bottom:1.4rem; }
+.mm-wrap svg { display:block; width:100%; }
+
+/* DIVIDER */
+.divider { display:flex; align-items:center; gap:12px; margin:.4rem 0 1.4rem; opacity:.3; }
+.divider::before, .divider::after { content:''; flex:1; height:.5px; background:var(--muted); }
+.divider span { font-size:9px; letter-spacing:3px; color:var(--muted); text-transform:uppercase; }
+
+/* ALERT */
+.alert { border-radius:var(--r); padding:1rem 1.3rem; margin-bottom:1.2rem; display:flex; gap:10px; align-items:flex-start; }
+.alert.warn { background:#FFF8E8; border:1px solid #E8C840; }
+.alert.info { background:var(--dove-pale); border:1px solid var(--dove-light); }
+.alert-icon { font-size:1.2rem; flex-shrink:0; margin-top:1px; }
+.alert p { font-size:.8rem; color:var(--ink-soft); line-height:1.75; }
+.alert strong { color:var(--ink); }
+
+/* NATIONS TABLE */
+.nations-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:.7rem; margin-bottom:1.4rem; }
+.nation-card { background:#fff; border:.5px solid rgba(0,0,0,.09); border-radius:var(--r); padding:1rem 1.1rem; box-shadow:var(--shadow); }
+.nation-card.highlighted { background:var(--ruby-pale); border-color:rgba(140,32,48,.2); }
+.nation-name { font-family:'Noto Serif TC',serif; font-size:.95rem; font-weight:700; color:var(--ink); margin-bottom:3px; }
+.nation-tag { font-size:.67rem; letter-spacing:1.5px; font-weight:700; text-transform:uppercase; color:var(--muted); margin-bottom:.4rem; }
+.nation-card.highlighted .nation-tag { color:var(--ruby); }
+.nation-note { font-size:.75rem; color:var(--muted); line-height:1.6; }
+.nation-card.highlighted .nation-note { color:var(--ink-soft); }
+
+/* COMPARISON TWO-COL */
+.two-col { display:grid; grid-template-columns:1fr 1fr; gap:0; background:#fff; border-radius:var(--r-lg); border:.5px solid rgba(0,0,0,.09); overflow:hidden; margin-bottom:1.4rem; }
+@media(max-width:560px){ .two-col { grid-template-columns:1fr; } }
+.col-side { padding:1.5rem 1.4rem; }
+.col-side:first-child { border-right:.5px solid rgba(0,0,0,.07); }
+.col-label { font-size:.66rem; letter-spacing:2.5px; font-weight:700; text-transform:uppercase; margin-bottom:.5rem; }
+.col-title { font-family:'Noto Serif TC',serif; font-size:1rem; font-weight:700; color:var(--ink); margin-bottom:.6rem; }
+.col-list { list-style:none; padding:0; }
+.col-list li { font-size:.79rem; color:var(--muted); line-height:1.65; padding:3px 0 3px 14px; position:relative; }
+.col-list li::before { content:'·'; position:absolute; left:2px; font-size:1rem; line-height:1.3; }
+
+/* PERSON HEADER */
+.person-hdr { display:flex; align-items:center; gap:10px; margin-bottom:1rem; padding:.6rem 1rem; background:var(--parchment2); border-radius:8px; }
+.person-avatar { width:34px; height:34px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:14px; font-weight:700; flex-shrink:0; background:var(--deep); color:var(--gold); font-family:'Noto Serif TC',serif; }
+.person-name { font-size:.85rem; font-weight:700; color:var(--ink); }
+.person-role { font-size:.72rem; color:var(--muted); }
+
+/* FOOTER */
+.page-footer { background:var(--deep); text-align:center; padding:2rem 1rem; margin-top:3rem; border-top:1px solid rgba(201,168,76,.2); }
+.page-footer p { font-size:.76rem; color:rgba(255,255,255,.3); letter-spacing:1px; }
+.page-footer strong { color:var(--gold); font-weight:400; }
+
+@media(max-width:640px){
+  .hero { padding:3rem 1.2rem 2.5rem; }
+  .overview { padding:1.8rem .9rem .5rem; }
+  .container { padding:0 .9rem; }
+  .toc-link { padding:10px 10px; font-size:11px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════ HERO ═══════════════ -->
+<header class="hero">
+  <div class="hero-series">🕊️ 1226 輯週訓</div>
+  <h1>一切都是<em>出於愛</em></h1>
+  <p class="hero-meta">2022年6月5日 高雄聖餐主日 · 主領：林明學教師</p>
+  <div class="hero-date-badge">週訓整理日期 2026.7.5</div>
+</header>
+
+<!-- ═══════════════ TOC ═══════════════ -->
+<nav class="toc-bar" id="tocBar">
+  <div class="toc-inner">
+    <a class="toc-link active" href="#overview">
+      <span class="toc-dot" style="background:var(--gold)"></span>總覽
+    </a>
+    <a class="toc-link" href="#tongues">
+      <span class="toc-dot" style="background:var(--dove)"></span>🕊️ 翻方言 6700
+    </a>
+    <a class="toc-link" href="#vision">
+      <span class="toc-dot" style="background:var(--teal)"></span>👁️ 異象 9951–9958
+    </a>
+    <a class="toc-link" href="#teacher">
+      <span class="toc-dot" style="background:var(--gold)"></span>📖 教師信息
+    </a>
+    <a class="toc-link" href="#admonition">
+      <span class="toc-dot" style="background:var(--ruby)"></span>💛 愛的叮嚀
+    </a>
+  </div>
+</nav>
+
+<!-- ═══════════════ OVERVIEW ═══════════════ -->
+<div class="overview" id="overview">
+  <div class="sec-hdr" style="border-bottom:0;padding-bottom:0;margin-bottom:.5rem;">
+    <div>
+      <div style="font-size:.68rem;letter-spacing:3px;color:var(--gold);font-weight:700;text-transform:uppercase;margin-bottom:3px;">本期架構一覽</div>
+      <h2 style="font-family:'Noto Serif TC',serif;font-size:1.1rem;font-weight:900;color:var(--ink);">4 大區塊 · 點擊直達</h2>
+    </div>
+  </div>
+
+  <div style="background:var(--deep);border-radius:var(--r-lg);padding:1.5rem 1.8rem;margin:1.2rem 0 1.4rem;position:relative;overflow:hidden;">
+    <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 60% 50%,rgba(201,168,76,.09),transparent 70%);pointer-events:none;"></div>
+    <div style="font-size:.68rem;letter-spacing:3px;color:var(--gold);font-weight:700;text-transform:uppercase;margin-bottom:.8rem;">本週核心三重信息</div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:.8rem;">
+      <div style="background:rgba(255,255,255,.05);border-radius:10px;padding:1rem 1.1rem;">
+        <div style="font-size:.68rem;letter-spacing:2px;color:var(--dove-light);font-weight:700;text-transform:uppercase;margin-bottom:4px;">第一重</div>
+        <div style="font-family:'Noto Serif TC',serif;font-size:.95rem;color:#fff;font-weight:700;margin-bottom:4px;">一切都是出於愛</div>
+        <div style="font-size:.75rem;color:rgba(255,255,255,.45);line-height:1.6;">神因愛差僕人來教導帶領、傳末後奧祕真理 → 忠心的僕人是神設立的末後首位使徒</div>
+      </div>
+      <div style="background:rgba(255,255,255,.05);border-radius:10px;padding:1rem 1.1rem;">
+        <div style="font-size:.68rem;letter-spacing:2px;color:var(--teal-light);font-weight:700;text-transform:uppercase;margin-bottom:4px;">第二重</div>
+        <div style="font-family:'Noto Serif TC',serif;font-size:.95rem;color:#fff;font-weight:700;margin-bottom:4px;">儆醒預備 · 作聰明童女</div>
+        <div style="font-size:.75rem;color:rgba(255,255,255,.45);line-height:1.6;">仇敵設下陷阱網羅、光暗混淆的世代 → 積極預備油在器皿裏、背起十架跟隨、切記彼此相愛</div>
+      </div>
+      <div style="background:rgba(255,255,255,.05);border-radius:10px;padding:1rem 1.1rem;">
+        <div style="font-size:.68rem;letter-spacing:2px;color:var(--gold-light);font-weight:700;text-transform:uppercase;margin-bottom:4px;">第三重</div>
+        <div style="font-family:'Noto Serif TC',serif;font-size:.95rem;color:#fff;font-weight:700;margin-bottom:4px;">認清罪性 · 謙卑相愛</div>
+        <div style="font-size:.75rem;color:rgba(255,255,255,.45);line-height:1.6;">公義與慈愛齊頭並進、以清潔的心服事 → 藉愛的叮嚀省察自己：看別人比自己強、凡事感恩</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="overview-grid">
+    <a class="overview-card oc-dove" href="#tongues">
+      <div class="ov-icon">🕊️</div>
+      <div class="ov-body">
+        <h4>翻方言 6700 — 一切都是出於愛</h4>
+        <p>服事者：楊承鑫弟兄。僕人憑愛心教導末後奧祕、預備主再來；愛的叮嚀是省察自己，非指責別人。</p>
+      </div>
+    </a>
+    <a class="overview-card oc-teal" href="#vision">
+      <div class="ov-icon">👁️</div>
+      <div class="ov-body">
+        <h4>異象 9951–9958 — 八位服事者</h4>
+        <p>降災也賜福、放下石頭、瀑布大光與陷阱網羅、精準射擊、誠實溫柔…要預備油作聰明童女。</p>
+      </div>
+    </a>
+    <a class="overview-card oc-gold" href="#teacher">
+      <div class="ov-icon">📖</div>
+      <div class="ov-body">
+        <h4>教師信息 — 公義與慈愛齊頭並進</h4>
+        <p>林明學教師：行在神的旨意中、認清罪性求寶血塗抹、以清潔的心謙卑服事。</p>
+      </div>
+    </a>
+    <a class="overview-card oc-ruby" href="#admonition">
+      <div class="ov-icon">💛</div>
+      <div class="ov-body">
+        <h4>愛的叮嚀 — 看別人比自己強</h4>
+        <p>朱林箴言師母：由導盲犬與流浪犬看人的罪性、廢物九項特點、克服恐懼、凡事感謝。</p>
+      </div>
+    </a>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- ═══════════════ Section 1：翻方言 6700 ═══════════════ -->
+  <div id="tongues" class="sec-anchor"></div>
+  <section class="sec">
+    <div class="sec-hdr">
+      <span class="sec-badge badge-dove">翻方言 6700</span>
+      <div>
+        <h2>一切都是出於愛</h2>
+        <div class="sec-sub">服事者：楊承鑫弟兄 · 2022年6月5日 高雄聖餐主日</div>
+      </div>
+    </div>
+
+    <div class="qblock">
+      <p>我所愛的孩子們平安！我愛你們，因此我讓我的僕人來教導你們、帶領你們，他對你們一切的教導都是<em>憑著愛心</em>所做……因著我僕人所做的一切都是出於愛心，所以他雖然辛苦，但他住在我的愛中，他得著一切的富足，這就是<em>我的忠心僕人</em>！也是我所設立的末後首位使徒！</p>
+      <p class="qblock-src">— 6700 號翻方言 · 楊承鑫弟兄</p>
+    </div>
+
+    <div class="card-grid">
+      <div class="card c-dove">
+        <div class="card-num">一</div>
+        <div class="card-icon">❤️</div>
+        <h4>僕人的愛心</h4>
+        <p>僕人一切教導都憑愛心：教導末後奧祕真理、不分晝夜解決家庭問題，甚至處罰你們也是要讓你們得基業、避免受虧損。他住在主的愛中得著富足，是忠心的僕人、末後首位使徒。</p>
+      </div>
+      <div class="card c-gold">
+        <div class="card-num">二</div>
+        <div class="card-icon">🔍</div>
+        <h4>愛的叮嚀的用意</h4>
+        <p>神藉使女的「愛的叮嚀」，讓你看清自己的不足、認清罪性與老我，靠恩典一一除去人性的不義。不是拿來指著別人說某人有哪些缺點，而是用來<strong>省察自己</strong>。</p>
+      </div>
+      <div class="card c-ruby">
+        <div class="card-num">三</div>
+        <div class="card-icon">🔁</div>
+        <h4>一再犯錯的警戒</h4>
+        <p>有人一再犯同樣的錯，是因沒把僕人使女的教導放在心上，一離開教會就忘、繼續照本性行事。心意要更新而變化，不要把世上的價值觀當成追求的目的。</p>
+      </div>
+      <div class="card c-teal">
+        <div class="card-num">四</div>
+        <div class="card-icon">🤍</div>
+        <h4>以清潔的心服事</h4>
+        <p>服事中容易顯出人性的不義——有的想掌權、有的要取利、有的要彰顯自己、有的要高人一等，但這些都不能使你們滿足。要學僕人的樣式，以無偽的信心與無虧的良心行事。</p>
+      </div>
+    </div>
+
+    <div class="hbox ruby">
+      <div class="hbox-label">核心警戒</div>
+      <h3>完全的愛與完全的公義，都在十架上顯明</h3>
+      <p>神藉獨生愛子為世人被釘十字架，<strong>完全的愛</strong>在此向世人顯明；同樣的，<strong>完全的公義</strong>也要如此顯明，因為犯罪必須付上贖價。既是如此，若不遵著 神藉僕人所教導的來行，當審判的日子，<strong>沒有一人能站立得住！</strong>謹記今日的話語。</p>
+    </div>
+  </section>
+
+  <div class="divider"><span>異象 9951–9958</span></div>
+
+  <!-- ═══════════════ Section 2：異象 9951–9958 ═══════════════ -->
+  <div id="vision" class="sec-anchor"></div>
+  <section class="sec">
+    <div class="sec-hdr">
+      <span class="sec-badge badge-teal">異象</span>
+      <div>
+        <h2>八位服事者的異象 9951–9958</h2>
+        <div class="sec-sub">2022年6月5日 高雄聖餐主日 · 多位服事者</div>
+      </div>
+    </div>
+
+    <div class="vision-list">
+
+      <div class="vision-item">
+        <div class="v-num teal">9951</div>
+        <div style="flex:1;">
+          <div class="person-hdr">
+            <div class="person-avatar">林</div>
+            <div><div class="person-name">林林秀美師母</div><div class="person-role">異象 9951 · 四則</div></div>
+          </div>
+          <strong style="display:block;font-size:.85rem;font-weight:700;color:var(--ink);margin-bottom:3px;">① 風和日麗、聯合排練的舞蹈</strong>
+          <p style="font-size:.79rem;color:var(--muted);line-height:1.7;">看見天空有亮光照射下來，風和日麗，人們正常活動，並看到聯合排練的舞蹈畫面。</p>
+          <div class="v-word vw-gold" style="margin-top:.5rem;">
+            <div class="v-word-label">話語</div>
+            「天地萬物皆我所造。我可以降災，也可以賜福。孩子們，你們當存敬畏的心，必蒙賜福。」
+          </div>
+          <strong style="display:block;font-size:.85rem;font-weight:700;color:var(--ink);margin:.8rem 0 3px;">② 四兩撥千斤，彈回射來的針</strong>
+          <p style="font-size:.79rem;color:var(--muted);line-height:1.7;">箴言師母唱靈歌時，看到四面有針射向她，師母以旋律配合動作，四兩撥千斤把針彈回，射回原先射針的人，只見他們痛得哀哀叫。</p>
+          <strong style="display:block;font-size:.85rem;font-weight:700;color:var(--ink);margin:.8rem 0 3px;">③ 田中辛苦工作、滿頭大汗</strong>
+          <p style="font-size:.79rem;color:var(--muted);line-height:1.7;">靈歌服事時，看到有人在田中辛苦工作、滿頭大汗。</p>
+          <div class="v-word vw-dove" style="margin-top:.5rem;">
+            <div class="v-word-label">話語</div>
+            「孩子們，屬世的工作，你們都要有這一份擔當。有的人連務農都不行，你們應當存著感恩的心。不可埋怨。」
+          </div>
+          <strong style="display:block;font-size:.85rem;font-weight:700;color:var(--ink);margin:.8rem 0 3px;">④ 牧師鳴槍——凡事皆有定時</strong>
+          <p style="font-size:.79rem;color:var(--muted);line-height:1.7;">說翻方言時，看見牧師鳴槍。</p>
+          <div class="v-word vw-gold" style="margin-top:.5rem;">
+            <div class="v-word-label">話語</div>
+            「凡事皆有定時。做事要得時，不是隨心所欲。我的兒女們要懂得分辨和拿捏，並要識時務。對人對事，皆要如此。這是你們學習的方向。」
+          </div>
+        </div>
+      </div>
+
+      <div class="vision-item">
+        <div class="v-num ruby">9952</div>
+        <div style="flex:1;">
+          <div class="person-hdr">
+            <div class="person-avatar">康</div>
+            <div><div class="person-name">康裕隆弟兄</div><div class="person-role">異象 9952 · 一則</div></div>
+          </div>
+          <strong style="display:block;font-size:.85rem;font-weight:700;color:var(--ink);margin-bottom:3px;">領聖餐後：拿石頭，還是放下石頭？</strong>
+          <p style="font-size:.79rem;color:var(--muted);line-height:1.7;">看見領完聖餐之後，有些人自我省思，有些人的手卻指向他人。</p>
+          <div class="v-word vw-ruby" style="margin-top:.5rem;">
+            <div class="v-word-label">話語</div>
+            「人若沒有過失，就可以拿石頭丟別人。省思你自己是拿石頭的人，還是放下石頭的人。」
+          </div>
+        </div>
+      </div>
+
+      <div class="vision-item">
+        <div class="v-num gold">9953</div>
+        <div style="flex:1;">
+          <div class="person-hdr">
+            <div class="person-avatar">黃</div>
+            <div><div class="person-name">黃劉麗貞姊妹</div><div class="person-role">異象 9953 · 七則重點</div></div>
+          </div>
+          <strong style="display:block;font-size:.85rem;font-weight:700;color:var(--ink);margin-bottom:3px;">各服事時段賜下的「今日重點」</strong>
+          <p style="font-size:.79rem;color:var(--muted);line-height:1.7;">
+            ① 詩班獻詩時 神說：「我的所作所為非人能做！今日重點：<strong>尊主為大</strong>。」<br>
+            ② 箴言師母唱靈歌時，叫記錄者「今日只管歡喜」。<br>
+            ③ 金蘭姊妹唱靈歌時：「所生的要<strong>榮耀主名</strong>。」<br>
+            ④ 承鑫弟兄唱靈歌時：「<strong>持守</strong>，將來有許多人必因你們而蒙福！」<br>
+            ⑤ 明敏姊妹唱靈歌時：「頌讚有對象」（指著我 神），要好好感恩！<br>
+            ⑥ 守聖餐時，今日重點是非常要命的「<strong>切記彼此相愛</strong>」，並要記錄者常常省察、「吾日三省其過」。<br>
+            ⑦ 巧克力很有話聊，出現牠生病時乖乖讓師母換紗布的情景。
+          </p>
+        </div>
+      </div>
+
+      <div class="vision-item">
+        <div class="v-num ruby">9954</div>
+        <div style="flex:1;">
+          <div class="person-hdr">
+            <div class="person-avatar">黃</div>
+            <div><div class="person-name">黃裕達弟兄</div><div class="person-role">異象 9954 · 二則</div></div>
+          </div>
+          <strong style="display:block;font-size:.85rem;font-weight:700;color:var(--ink);margin-bottom:3px;">① 瀑布大水澆灌、大光中的警告</strong>
+          <p style="font-size:.79rem;color:var(--muted);line-height:1.7;">站立禱告時，看見教會四圍有瀑布大水澆灌；全體站立恭迎 父神寶座降臨時，有大光壟罩教會，從大光中有聲音說話。教師擘餅祝謝時，看見光體壟罩在教師身上，教師也成為光體；擘餅時那光體便破碎了。</p>
+          <div class="v-word vw-ruby" style="margin-top:.5rem;">
+            <div class="v-word-label">話語</div>
+            「在這光明與黑暗混淆的世代裏，仇敵設下陷阱與網羅要擄去我的兒女……這個世代是罪的世代，各樣的災難已被釋放，如同在埃及的日子。不背起十架跟隨我的，不配做我的兒女與門徒。」
+          </div>
+          <div class="v-word vw-gold" style="margin-top:.5rem;">
+            <div class="v-word-label">話語</div>
+            「孩子們，你們要特別小心，撒旦已經設定強而有力的流程，要設下陷阱網羅你們。你們要積極<strong>預備油在器皿裏</strong>，如同我僕人所教導你們的，才能成為聰明的童女。」
+          </div>
+        </div>
+      </div>
+
+      <div class="vision-item">
+        <div class="v-num teal">9955</div>
+        <div style="flex:1;">
+          <div class="person-hdr">
+            <div class="person-avatar">王</div>
+            <div><div class="person-name">王靜巧姊妹</div><div class="person-role">異象 9955 · 二則</div></div>
+          </div>
+          <strong style="display:block;font-size:.85rem;font-weight:700;color:var(--ink);margin-bottom:3px;">① 精準射擊的訓練</strong>
+          <p style="font-size:.79rem;color:var(--muted);line-height:1.7;">看見一群軍人正在訓練精準射擊，訓練的人說：「要十分專注才能射中靶心。」靶掛在運轉帶上持續移動，軍人們全神貫注練習，剛開始能力較弱，多次練習後就精準許多。</p>
+          <strong style="display:block;font-size:.85rem;font-weight:700;color:var(--ink);margin:.8rem 0 3px;">② 主耶穌被鞭打</strong>
+          <p style="font-size:.79rem;color:var(--muted);line-height:1.7;">領聖餐時，看見主耶穌被鞭打。</p>
+          <div class="v-word vw-ruby" style="margin-top:.5rem;">
+            <div class="v-word-label">話語</div>
+            「我所受的鞭傷是為你們，你們為我做什麼？」
+          </div>
+        </div>
+      </div>
+
+      <div class="vision-item">
+        <div class="v-num dove">9956</div>
+        <div style="flex:1;">
+          <div class="person-hdr">
+            <div class="person-avatar">陳</div>
+            <div><div class="person-name">陳世豐弟兄</div><div class="person-role">異象 9956 · 一則</div></div>
+          </div>
+          <strong style="display:block;font-size:.85rem;font-weight:700;color:var(--ink);margin-bottom:3px;">是就說是、誠實溫柔</strong>
+          <p style="font-size:.79rem;color:var(--muted);line-height:1.7;">說翻方言服事時，同時聽見話語賜下。</p>
+          <div class="v-word vw-dove" style="margin-top:.5rem;">
+            <div class="v-word-label">話語</div>
+            「你們心中若想著『是』，口中便要說出『是』；心裏想著『不是』，口中也是說出『不是』。不要說謊，讓把柄落在仇敵手中……誠實說話，不作虛偽假冒偽善的人；說話也要溫柔，不要輕易發怒。怒氣如同翻騰的海浪，若時常發怒，就會沖垮淹沒良善的本性，凡有耳的就應當聽。」
+          </div>
+        </div>
+      </div>
+
+      <div class="vision-item">
+        <div class="v-num dove">9957</div>
+        <div style="flex:1;">
+          <div class="person-hdr">
+            <div class="person-avatar">李</div>
+            <div><div class="person-name">李之馨姊妹</div><div class="person-role">異象 9957 · 一則</div></div>
+          </div>
+          <strong style="display:block;font-size:.85rem;font-weight:700;color:var(--ink);margin-bottom:3px;">空中的藍色桔梗花</strong>
+          <p style="font-size:.79rem;color:var(--muted);line-height:1.7;">教師為杯祝謝時，看見空中有一朵很大的藍色的花，有感動說那是桔梗花。藍色桔梗花的花語是「孤獨憂鬱的愛，帶有悲傷寂寞的感覺；將它送給內心孤獨的人，表達感同身受，希望對方能擺脫孤獨、變得開心快樂」。</p>
+        </div>
+      </div>
+
+    </div><!-- end vision-list -->
+
+    <div class="alert info">
+      <span class="alert-icon">ℹ️</span>
+      <p><strong>異象 9958（章艾琳姊妹）</strong>為現場記錄分享，以時間軸記述高雄聖餐主日實況（08:52AM–11:22AM）：《數算主恩》《高舉主榮耀十架》《如鹿切慕溪水》、詩班獻詩《真 神之愛》；司會明敏姊妹以「敬虔加上知足的心便是大利了」【提前 6:6、6:8】分享；誦讀【箴言】十五章；靈舞中默想主耶穌在客西馬尼的順服，並引【哈巴谷書 3:17–19】「雖然無花果樹不發旺……然而我要因耶和華歡欣」、【約壹 3:24】。艾琳並於每月第一個主日與另一半 Steve 一同守聖餐，深深感恩。</p>
+    </div>
+  </section>
+
+  <div class="divider"><span>教師信息</span></div>
+
+  <!-- ═══════════════ Section 3：教師信息 ═══════════════ -->
+  <div id="teacher" class="sec-anchor"></div>
+  <section class="sec">
+    <div class="sec-hdr">
+      <span class="sec-badge badge-gold">教師信息</span>
+      <div>
+        <h2>公義與慈愛，齊頭並進</h2>
+        <div class="sec-sub">主領：林明學教師 · 2022年6月5日 高雄聖餐主日</div>
+      </div>
+    </div>
+
+    <div class="person-hdr" style="margin-bottom:1.2rem;">
+      <div class="person-avatar">林</div>
+      <div><div class="person-name">林明學教師</div><div class="person-role">「認識 神的公義，行在 神的旨意當中，才能蒙 神的喜悅」</div></div>
+    </div>
+
+    <div class="hbox gold">
+      <div class="hbox-label">核心教導</div>
+      <h3> 神是公義的 神，也是慈愛的 神</h3>
+      <p> 神賜下祂的獨生愛子來到世間，為罪惡滿盈的世人送上十架完成贖罪祭、賜下救恩，這是<strong>慈愛</strong>；然而犯罪必須付上贖價，若不行在 神的旨意中、不按 神藉牧師的教導而行，所受的懲罰<strong>不會有例外</strong>，這是<strong>公義</strong>。公義跟慈愛是齊頭並進的。</p>
+    </div>
+
+    <div class="hbox dove">
+      <div class="hbox-label">辨別提醒</div>
+      <h3>認清罪性，求寶血一一塗抹</h3>
+      <p>牧師帶領我們有了屬靈恩賜（看異象、說翻方言），然而在生活行為、待人處事上仍有許多不足、常常犯錯。於是箴言師母以「<strong>愛的叮嚀</strong>」配合牧師「最高學府」的課程，讓我們認清自己的罪性、求主寶血塗抹，除去屬世屬靈生活上的渣滓，靈程才能長進。恩賜不是誇耀自己，乃要更謙卑、帶著感恩的心，用清潔的心服事 神與弟兄姊妹。</p>
+    </div>
+
+    <div class="alert warn">
+      <span class="alert-icon">📌</span>
+      <p><strong>教會報告：</strong>臺北的朱宗信老弟兄（牧師的二哥，眾人習稱「二伯」）已於 5 月 23 日過世。二伯晚年因失智安置於養老院。因疫情與家屬信仰之故，委由基督教形式的告別禮拜辦理，於 6 月 6 日下午一點在桃園殯儀館舉行追思禮拜；臺北教會派五、六位弟兄姊妹代表出席、以錄音獻詩，並播放二伯生平與教會活動的追思視頻。教師特別謝謝臺北弟兄姊妹的用心。</p>
+    </div>
+  </section>
+
+  <div class="divider"><span>愛的叮嚀</span></div>
+
+  <!-- ═══════════════ Section 4：愛的叮嚀（收尾） ═══════════════ -->
+  <div id="admonition" class="sec-anchor"></div>
+  <section class="sec" style="padding-bottom:3rem;">
+    <div class="sec-hdr">
+      <span class="sec-badge badge-ruby">愛的叮嚀</span>
+      <div>
+        <h2>看別人比自己強</h2>
+        <div class="sec-sub">分享：朱林箴言師母 · 2022年6月5日 高雄聖餐主日</div>
+      </div>
+    </div>
+
+    <div class="person-hdr" style="margin-bottom:1.2rem;">
+      <div class="person-avatar">朱</div>
+      <div><div class="person-name">朱林箴言師母</div><div class="person-role">「看別人比自己強，這是毋庸置疑的」</div></div>
+    </div>
+
+    <div class="hbox sage">
+      <div class="hbox-label">師母的心聲</div>
+      <h3>從導盲犬與流浪犬，看人的虧欠</h3>
+      <p>導盲犬 24 小時守著看不見的主人，犧牲一切、失去自由，卻毫無怨言 —— 牠們從未失去起初愛人類的心，比人類強太多了。 神讓師母經歷愛犬巧克力的喪子之痛，是要師母告訴大家：<strong>認清人的虧欠和罪性</strong>。聖經明訓「人心比萬物都詭詐，惡到極處」；人的罪性傾向過河拆橋、把人或動物當工具。 神要我們愛護萬物、愛人如己、民胞物與，重點是要<strong>知道感恩</strong>。</p>
+    </div>
+
+    <div class="hbox dove">
+      <div class="hbox-label">見證</div>
+      <h3>收養跛腳流浪犬「小黑」Shalon</h3>
+      <p>師母在中央公園遇見右前腳受傷的流浪犬「小黑」，幾番掙扎、逃避，終究因「好撒瑪利亞人」的意念揮之不去而決定收養，取名 <strong>Shalon</strong>（典故出自「耶和華是賜我們平安的 神」）。關心牠的人很多，能收養的卻一個也沒有，最後落到師母身上 —— 就像那隻負責去為貓繫鈴的老鼠，成了「老鼠界的英雄」，心中卻有說不出的酸楚與無奈。</p>
+    </div>
+
+    <div style="font-size:.84rem;color:var(--ink-soft);line-height:1.85;margin:1.4rem 0 1rem;"><strong>師母自省 ——「什麼叫做廢物？」廢物有九項特點：</strong></div>
+
+    <div class="card-grid">
+      <div class="card c-ruby"><div class="card-num">一</div><h4>猶豫不決</h4><p>懼怕犯錯就猶豫不決、裹足不前，就是毀壞進步、故步自封。</p></div>
+      <div class="card c-gold"><div class="card-num">二</div><h4>拖延</h4><p>覺得事情難就一拖再拖；懶惰誤以為是安逸休息，其實是躺平、自我放棄。</p></div>
+      <div class="card c-dove"><div class="card-num">三</div><h4>三分鐘熱度</h4><p>百分之八十的失敗源於三分鐘熱度，不能貫徹始終就永遠不會成功。</p></div>
+      <div class="card c-teal"><div class="card-num">四</div><h4>害怕被拒絕</h4><p>放不下自尊心、死要面子、一直害怕被拒絕。</p></div>
+      <div class="card c-sage"><div class="card-num">五</div><h4>自己設限</h4><p>一天到晚「我不行、那也不行」，自我設限、故步自封。</p></div>
+      <div class="card c-ruby"><div class="card-num">六</div><h4>逃避現實</h4><p>沉溺遊戲、無法面對現實；當理性與 神的話語都不見了，就是廢物。</p></div>
+      <div class="card c-gold"><div class="card-num">七</div><h4>總找藉口</h4><p>找藉口導致沒有進取心，老停留在自以為是的舒適區。</p></div>
+      <div class="card c-dove"><div class="card-num">八</div><h4>恐懼</h4><p>怕挫折、怕批評、怕犯錯。「愛裏沒有懼怕，愛既完全，就把懼怕除去。」</p></div>
+      <div class="card c-teal"><div class="card-num">九</div><h4>拒絕學習</h4><p>不肯加強悟性、20 種商數、11 種生活機制；還有錯覺——以為消費（買書、報名）就是學習。</p></div>
+    </div>
+
+    <div class="hbox dove">
+      <div class="hbox-label">克服恐懼</div>
+      <h3>擔憂，其實大多是多餘的</h3>
+      <p>人們擔憂的事：<strong>40%</strong> 從來不會發生、<strong>30%</strong> 是過去已無法改變的、<strong>12%</strong> 是別人出於自卑的批評論斷、<strong>14%</strong> 是瑣碎之事 —— 合計 92% 都是多餘的；只有 8% 算合理，其中還有 4% 是你完全不能控制的（例如地震）。所以擔憂真的是多餘的。</p>
+    </div>
+
+    <div class="hbox sage">
+      <div class="hbox-label">共勉</div>
+      <h3>凡事感謝、凡事讚美</h3>
+      <p><strong>凡事感謝！凡事讚美！靠主得勝！靠主剛強！</strong>保守自己的心勝過保守一切，因一生的果效由心發出！願彼此共勉之。</p>
+    </div>
+
+    <div class="alert info" style="margin-bottom:1.4rem;">
+      <span class="alert-icon">💬</span>
+      <p><strong>明學教師的回應：</strong>謝謝箴言師母的分享。講到狗狗的付出，像導盲犬 24 小時值班，就是怕主人有閃失，忠心到極點，實在令人讚歎。現在要面對的就是疫情，剩下的節目至少還有五、六個月準備，大家加油。</p>
+    </div>
+
+    <div class="qblock">
+      <p>慈愛的 父神，救主耶穌基督，聖靈保惠師，孩子們滿心感謝讚美祢的恩典。今天謝謝祢賜下了<em>餅跟杯</em>，讓孩子們能夠手潔心清來到祢的面前重新得力，成為祢所合用的器皿。惟願這肺炎疫情不要再嚴重下去，讓疫情慢慢止息、病毒轉為普通感冒一般，不至造成太大傷害。</p>
+      <p>主啊，謝謝祢今天透過弟兄姊妹賜給孩子們寶貴的異象，也透過箴言師母「愛的叮嚀」，讓我們再一次瞭解：在生活上、服事上、與弟兄姊妹相處、在愛心的付出上，真的還需要進一步的加強與學習，這樣才能成為祢所合用的器皿。我們這樣禱告，<em>感謝奉靠主耶穌基督的聖名，阿們！</em></p>
+      <p class="qblock-src">— 林明學教師 結束禱告</p>
+    </div>
+  </section>
+
+</div><!-- end container -->
+
+<!-- ═══════════════ FOOTER ═══════════════ -->
+<footer class="page-footer">
+  <p>1226 輯週訓 · <strong>一切都是出於愛</strong></p>
+  <p style="margin-top:4px;">2022年6月5日 高雄聖餐主日 · 主領：林明學教師 · 週訓整理日期 2026.7.5</p>
+</footer>
+
+<script>
+const tocLinks = document.querySelectorAll('.toc-link');
+const anchors = ['overview','tongues','vision','teacher','admonition'];
+const sections = anchors.map(id => document.getElementById(id));
+
+function updateToc() {
+  let current = 'overview';
+  const offset = 80;
+  sections.forEach((el, i) => {
+    if (el && el.getBoundingClientRect().top < offset + 20) {
+      current = anchors[i];
+    }
+  });
+  tocLinks.forEach(a => {
+    const href = a.getAttribute('href').replace('#','');
+    a.classList.toggle('active', href === current);
+  });
+}
+window.addEventListener('scroll', updateToc, { passive: true });
+updateToc();
+</script>
+</body>
+</html>
