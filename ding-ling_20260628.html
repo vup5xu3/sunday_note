@@ -1,0 +1,1100 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>愛的叮嚀 — 眼界、制度，與一顆要保守的心</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --gold: #C9A84C;
+  --gold-light: #E8D08A;
+  --gold-pale: #FAF3DC;
+  --deep: #1A1208;
+  --ink: #2C2416;
+  --muted: #6B5D3E;
+  --soft: #F5EDD8;
+  --parchment: #FBF6EC;
+  --teal: #2E7D72;
+  --teal-light: #4AA89C;
+  --teal-pale: #E0F2EF;
+  --ruby: #8B2130;
+  --ruby-light: #C2445A;
+  --ruby-pale: #FAEAED;
+  --blue-deep: #1E3A5F;
+  --blue-mid: #2E6DA4;
+  --blue-pale: #E8F1FA;
+  --radius: 12px;
+  --radius-lg: 20px;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family: 'Noto Sans TC', sans-serif;
+  background: var(--parchment);
+  color: var(--ink);
+  line-height: 1.8;
+}
+
+/* ── HERO ── */
+.hero {
+  background: var(--deep);
+  padding: 3.5rem 2rem 3rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content:'';
+  position:absolute; inset:0;
+  background: radial-gradient(ellipse at 50% 0%, rgba(201,168,76,0.18) 0%, transparent 70%);
+  pointer-events:none;
+}
+.hero-tag {
+  display: inline-block;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  font-size: 11px;
+  letter-spacing: 4px;
+  padding: 4px 16px;
+  border-radius: 2px;
+  margin-bottom: 1.2rem;
+  text-transform: uppercase;
+}
+.hero h1 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  color: #fff;
+  font-weight: 700;
+  line-height: 1.4;
+  margin-bottom: 0.6rem;
+}
+.hero h1 em { color: var(--gold-light); font-style:normal; }
+.hero-sub {
+  color: rgba(255,255,255,0.55);
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  margin-bottom: 2rem;
+}
+.hero-verse {
+  display: inline-block;
+  border-left: 2px solid var(--gold);
+  padding: 0.5rem 1rem;
+  text-align: left;
+  color: var(--gold-light);
+  font-family: 'Noto Serif TC', serif;
+  font-size: 0.9rem;
+  line-height: 1.9;
+}
+
+/* ── LAYOUT ── */
+.container { max-width: 960px; margin: 0 auto; padding: 0 1.25rem; }
+.section { padding: 2.5rem 0 1.5rem; }
+
+/* ── SECTION TITLE ── */
+.sec-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 1.5rem;
+}
+.sec-title .icon {
+  width: 36px; height: 36px;
+  background: var(--gold);
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 17px; color: var(--deep); flex-shrink:0;
+}
+.sec-title h2 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 1.2rem;
+  color: var(--deep);
+  font-weight: 700;
+}
+.sec-title .subtitle { font-size: 0.78rem; color: var(--muted); margin-top:1px; }
+
+/* ── CORE PILLARS ── */
+.pillars {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.pillar {
+  background: #fff;
+  border: 0.5px solid rgba(0,0,0,0.1);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  position: relative;
+  overflow: hidden;
+  cursor: default;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.pillar:hover { transform: translateY(-3px); box-shadow: 0 8px 28px rgba(0,0,0,0.08); }
+.pillar::before {
+  content:'';
+  position:absolute; top:0; left:0; right:0; height:3px;
+}
+.pillar.p1::before { background: linear-gradient(90deg, var(--gold), var(--gold-light)); }
+.pillar.p2::before { background: linear-gradient(90deg, var(--teal), var(--teal-light)); }
+.pillar.p3::before { background: linear-gradient(90deg, var(--ruby), var(--ruby-light)); }
+.pillar.p4::before { background: linear-gradient(90deg, var(--blue-deep), var(--blue-mid)); }
+.pillar-num {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: 0.6rem;
+  opacity: 0.12;
+  position: absolute;
+  top: 1rem; right: 1.2rem;
+}
+.pillar.p1 .pillar-num { color: var(--gold); }
+.pillar.p2 .pillar-num { color: var(--teal); }
+.pillar.p3 .pillar-num { color: var(--ruby); }
+.pillar.p4 .pillar-num { color: var(--blue-deep); }
+.pillar-icon { font-size: 1.6rem; margin-bottom: 0.5rem; }
+.pillar h3 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--deep);
+}
+.pillar p { font-size: 0.82rem; color: var(--muted); line-height: 1.7; }
+
+/* ── TIMELINE ── */
+.timeline {
+  position: relative;
+  padding-left: 2.5rem;
+  margin-bottom: 1rem;
+}
+.timeline::before {
+  content:'';
+  position: absolute;
+  left: 10px; top: 12px; bottom: 12px;
+  width: 1.5px;
+  background: linear-gradient(180deg, var(--gold) 0%, var(--teal) 50%, var(--ruby) 100%);
+}
+.tl-item {
+  position: relative;
+  margin-bottom: 1.2rem;
+}
+.tl-dot {
+  position: absolute;
+  left: -2.17rem;
+  top: 0.35rem;
+  width: 12px; height: 12px;
+  border-radius: 50%;
+  border: 2px solid;
+  background: var(--parchment);
+}
+.tl-item.gold .tl-dot { border-color: var(--gold); }
+.tl-item.teal .tl-dot { border-color: var(--teal); }
+.tl-item.ruby .tl-dot { border-color: var(--ruby); }
+.tl-item.blue .tl-dot { border-color: var(--blue-mid); }
+.tl-year {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  margin-bottom: 2px;
+}
+.tl-item.gold .tl-year { color: var(--gold); }
+.tl-item.teal .tl-year { color: var(--teal); }
+.tl-item.ruby .tl-year { color: var(--ruby); }
+.tl-item.blue .tl-year { color: var(--blue-mid); }
+.tl-title { font-weight: 500; font-size: 0.9rem; color: var(--deep); margin-bottom: 2px; }
+.tl-body { font-size: 0.8rem; color: var(--muted); line-height: 1.65; }
+
+/* ── MIND MAP SVG WRAPPER ── */
+.mindmap-wrap {
+  background: #fff;
+  border-radius: var(--radius-lg);
+  border: 0.5px solid rgba(0,0,0,0.09);
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+}
+.mindmap-wrap svg { display:block; width:100%; }
+
+/* ── THREE STAGES ── */
+.stages {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 0;
+  background: #fff;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 0.5px solid rgba(0,0,0,0.09);
+  margin-bottom: 1.5rem;
+}
+@media(max-width:600px){ .stages{grid-template-columns:1fr;} }
+.stage-item {
+  padding: 1.4rem 1.2rem;
+  border-right: 0.5px solid rgba(0,0,0,0.07);
+  position: relative;
+}
+.stage-item:last-child { border-right: none; }
+.stage-no {
+  font-size: 0.7rem;
+  letter-spacing: 2px;
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+  text-transform: uppercase;
+}
+.stage-item.s1 .stage-no { color: var(--ruby); }
+.stage-item.s2 .stage-no { color: var(--muted); }
+.stage-item.s3 .stage-no { color: var(--teal); }
+.stage-title { font-family: 'Noto Serif TC', serif; font-size: 0.95rem; font-weight: 700; color: var(--deep); margin-bottom: 0.4rem; }
+.stage-body { font-size: 0.78rem; color: var(--muted); line-height: 1.65; }
+.stage-top-bar { height: 3px; background: var(--soft); position:absolute; top:0; left:0; right:0; }
+.stage-item.s1 .stage-top-bar { background: var(--ruby); }
+.stage-item.s2 .stage-top-bar { background: #bbb; }
+.stage-item.s3 .stage-top-bar { background: var(--teal); }
+
+/* ── QUOTE BLOCK ── */
+.quote-block {
+  background: var(--deep);
+  border-radius: var(--radius-lg);
+  padding: 2rem 2rem 1.5rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+  overflow: hidden;
+}
+.quote-block::before {
+  content: '"';
+  position: absolute;
+  top: -0.5rem; left: 1rem;
+  font-family: 'Noto Serif TC', serif;
+  font-size: 6rem;
+  color: var(--gold);
+  opacity: 0.15;
+  line-height: 1;
+  pointer-events: none;
+}
+.quote-text {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 1.05rem;
+  color: #fff;
+  line-height: 1.9;
+  margin-bottom: 0.8rem;
+}
+.quote-text em { color: var(--gold-light); font-style: normal; font-weight: 700; }
+.quote-src { font-size: 0.75rem; color: rgba(255,255,255,0.45); letter-spacing: 1px; }
+
+/* ── THREE PILLARS of MEANING ── */
+.meaning-pillars {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.mp-card {
+  border-radius: var(--radius);
+  padding: 1.3rem 1.2rem;
+  position: relative;
+}
+.mp-card.mp1 { background: var(--gold-pale); border: 1px solid rgba(201,168,76,0.3); }
+.mp-card.mp2 { background: var(--teal-pale); border: 1px solid rgba(46,125,114,0.25); }
+.mp-card.mp3 { background: var(--ruby-pale); border: 1px solid rgba(139,33,48,0.2); }
+.mp-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 0.7rem;
+}
+.mp-badge {
+  font-size: 0.65rem;
+  letter-spacing: 2px;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+.mp1 .mp-badge { background: var(--gold); color: var(--deep); }
+.mp2 .mp-badge { background: var(--teal); color: #fff; }
+.mp3 .mp-badge { background: var(--ruby); color: #fff; }
+.mp-card h4 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--deep);
+}
+.mp-card p { font-size: 0.8rem; color: var(--muted); line-height: 1.7; }
+.mp-example {
+  margin-top: 0.6rem;
+  padding-top: 0.6rem;
+  border-top: 1px solid rgba(0,0,0,0.06);
+  font-size: 0.75rem;
+  line-height: 1.6;
+}
+.mp1 .mp-example { color: #7A620A; }
+.mp2 .mp-example { color: #185049; }
+.mp3 .mp-example { color: #6B1621; }
+
+/* ── KEY INSIGHT BOX ── */
+.insight-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.insight-card {
+  background: #fff;
+  border-radius: var(--radius);
+  border: 0.5px solid rgba(0,0,0,0.09);
+  padding: 1.2rem;
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+.insight-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  margin-top: 0.4rem;
+  flex-shrink: 0;
+}
+.insight-card:nth-child(1) .insight-dot { background: var(--gold); }
+.insight-card:nth-child(2) .insight-dot { background: var(--teal); }
+.insight-card:nth-child(3) .insight-dot { background: var(--ruby); }
+.insight-card:nth-child(4) .insight-dot { background: var(--blue-mid); }
+.insight-card h4 { font-size: 0.88rem; font-weight: 600; color: var(--deep); margin-bottom: 0.3rem; }
+.insight-card p { font-size: 0.78rem; color: var(--muted); line-height: 1.65; }
+
+/* ── TWO PATH BOX ── */
+.two-path {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  background: #fff;
+  border-radius: var(--radius-lg);
+  border: 0.5px solid rgba(0,0,0,0.09);
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+}
+@media(max-width:500px){ .two-path{grid-template-columns:1fr;} }
+.path-side {
+  padding: 1.5rem 1.3rem;
+}
+.path-side:first-child {
+  border-right: 0.5px solid rgba(0,0,0,0.07);
+}
+.path-label {
+  font-size: 0.68rem;
+  letter-spacing: 2.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 0.6rem;
+}
+.path-a .path-label { color: var(--gold); }
+.path-b .path-label { color: var(--blue-mid); }
+.path-title {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--deep);
+  margin-bottom: 0.6rem;
+}
+.path-list {
+  list-style: none;
+  padding: 0;
+}
+.path-list li {
+  font-size: 0.8rem;
+  color: var(--muted);
+  line-height: 1.65;
+  padding: 3px 0 3px 14px;
+  position: relative;
+}
+.path-list li::before {
+  content:'·';
+  position:absolute; left:2px;
+  font-size: 1rem;
+  line-height: 1.3;
+}
+.path-a .path-list li::before { color: var(--gold); }
+.path-b .path-list li::before { color: var(--blue-mid); }
+
+/* ── REFLECTION BOX ── */
+.reflection {
+  background: var(--soft);
+  border-radius: var(--radius-lg);
+  padding: 1.8rem 1.8rem 1.5rem;
+  border-left: 3px solid var(--gold);
+  margin-bottom: 1.5rem;
+}
+.reflection h3 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--deep);
+  margin-bottom: 0.8rem;
+}
+.reflection ol {
+  padding-left: 1.2rem;
+}
+.reflection ol li {
+  font-size: 0.85rem;
+  color: var(--ink);
+  line-height: 1.8;
+  margin-bottom: 0.3rem;
+}
+.reflection ol li strong { color: var(--deep); font-weight: 600; }
+
+/* ── DIVIDER ── */
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0.5rem 0 1.5rem;
+  opacity: 0.35;
+}
+.divider::before, .divider::after {
+  content:'';
+  flex:1;
+  height: 0.5px;
+  background: var(--muted);
+}
+.divider span { font-size: 10px; letter-spacing: 3px; color: var(--muted); text-transform: uppercase; }
+
+/* ── ARTICLE（文章產出：深度反思文章）── */
+.article-block {
+  background:#fff; border:0.5px solid rgba(0,0,0,0.09);
+  border-radius:var(--radius-lg); padding:2.2rem 2.4rem;
+  margin-bottom:1.5rem;
+}
+@media(max-width:600px){ .article-block { padding:1.6rem 1.3rem; } }
+.article-block h3 {
+  font-family:'Noto Serif TC',serif; font-size:1.15rem; font-weight:700;
+  color:var(--deep); margin-bottom:1.2rem; text-align:center;
+}
+.article-block .art-meta {
+  text-align:center; font-size:0.72rem; letter-spacing:2px;
+  color:var(--muted); margin:-0.8rem 0 1.4rem;
+}
+.article-block p {
+  font-family:'Noto Serif TC',serif; font-size:0.92rem;
+  color:var(--ink); line-height:2.05; margin-bottom:1rem;
+  text-align:justify;
+}
+.article-block p:first-of-type::first-letter { font-size:1.6em; color:var(--gold); font-weight:700; }
+.article-block p strong { color:var(--deep); }
+.article-block p em { font-style:normal; color:#7A620A; font-weight:600; }
+.art-sep { text-align:center; color:var(--gold); letter-spacing:8px; margin:1.2rem 0; opacity:.6; }
+
+/* ── FOOTER ── */
+.page-footer {
+  background: var(--deep);
+  text-align: center;
+  padding: 1.8rem 1rem;
+  margin-top: 2.5rem;
+}
+.page-footer p { font-size: 0.78rem; color: rgba(255,255,255,0.35); letter-spacing: 1px; }
+.page-footer strong { color: var(--gold); font-weight: 400; }
+
+/* ── SCRIPTURE（經文・和合本，附加樣式）── */
+.scripture {
+  background:#fff; border:0.5px solid rgba(0,0,0,0.09);
+  border-left:3px solid var(--gold); border-radius:var(--radius);
+  padding:1.3rem 1.4rem; margin-bottom:1rem;
+}
+.scripture .ref {
+  font-family:'Noto Serif TC',serif; font-size:0.9rem; font-weight:700;
+  color:#7A620A; letter-spacing:1px; margin-bottom:0.6rem;
+}
+.scripture p {
+  font-family:'Noto Serif TC',serif; font-size:0.9rem;
+  color:var(--ink); line-height:2.05; text-align:justify;
+}
+.scripture .vn {
+  font-size:0.66rem; color:var(--gold); font-weight:700;
+  vertical-align:0.3em; margin:0 3px 0 5px;
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════ HERO ═══════════════ -->
+<header class="hero">
+  <div class="hero-tag">愛的叮嚀 · 2026.06.28</div>
+  <h1>眼界、制度<br>——<em>與一顆要保守的心</em></h1>
+  <p class="hero-sub">眼界決定境界 × 國家為什麼會失敗 × 神之制度 × 一切都是預定的</p>
+  <div class="hero-verse">
+    你所定的日子，我尚未度一日，<br>
+    你都寫在你的冊上了。<br>
+    <span style="color:rgba(255,255,255,0.4);font-size:0.78rem">— 詩篇 139：16</span>
+  </div>
+</header>
+
+<main class="container">
+
+  <!-- ═══════════════ ① 核心主題 ═══════════════ -->
+  <section class="section">
+    <div class="sec-title">
+      <div class="icon">🗝</div>
+      <div>
+        <h2>今日核心主題</h2>
+        <div class="subtitle">師母從一本諾貝爾獎的書，帶出的四條線索</div>
+      </div>
+    </div>
+    <div class="pillars">
+      <div class="pillar p1">
+        <div class="pillar-num">一</div>
+        <div class="pillar-icon">👁</div>
+        <h3>眼界決定境界</h3>
+        <p>不要像井底之蛙，只見井口那片天。打開眼界、讓知性感性靈性均衡；態度決定高度，格局決定結局，內心一定要強大。</p>
+      </div>
+      <div class="pillar p2">
+        <div class="pillar-num">二</div>
+        <div class="pillar-icon">⚖</div>
+        <h3>制度決定貧富</h3>
+        <p>《國家為什麼會失敗》：真正決定貧富的是制度，制度背後是權力。榨取型讓少數人掠奪，廣納型讓多數人創造。</p>
+      </div>
+      <div class="pillar p3">
+        <div class="pillar-num">三</div>
+        <div class="pillar-icon">🏛</div>
+        <h3>神之制度不可改變</h3>
+        <p>神給我們的制度是最好的制度。牧師留下的體制、章程與信仰傳承絕不可動搖——團隊服侍、禱告問神、行所當行。</p>
+      </div>
+      <div class="pillar p4">
+        <div class="pillar-num">四</div>
+        <div class="pillar-icon">🕊</div>
+        <h3>一切都是預定的</h3>
+        <p>詩篇、羅馬書、使徒行傳都說預定。有得榮耀的器皿，也有毀滅的器皿；預定不是強迫，是你在 神面前自己選的。</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"><span>心智圖</span></div>
+
+  <!-- ═══════════════ ② 主題心智圖 ═══════════════ -->
+  <section class="section" style="padding-top:0">
+    <div class="sec-title">
+      <div class="icon">🧠</div>
+      <div>
+        <h2>主題心智圖</h2>
+        <div class="subtitle">全篇結構一覽</div>
+      </div>
+    </div>
+    <div class="mindmap-wrap">
+      <svg viewBox="0 0 900 500" xmlns="http://www.w3.org/2000/svg" role="img">
+        <title>眼界、制度與預定 心智圖</title>
+        <defs>
+          <marker id="marr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+            <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </marker>
+        </defs>
+        <rect width="900" height="500" fill="#FDFAF3"/>
+
+        <!-- 中心 -->
+        <rect x="335" y="210" width="230" height="68" rx="12" fill="#1A1208" stroke="#C9A84C" stroke-width="1.5"/>
+        <text x="450" y="238" text-anchor="middle" font-family="Noto Serif TC,serif" font-size="13" fill="#E8D08A" font-weight="700">眼界・制度・預定</text>
+        <text x="450" y="260" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="10.5" fill="rgba(255,255,255,0.5)">愛的叮嚀 · 2026.06.28</text>
+
+        <!-- 左上：眼界決定境界（金） -->
+        <path d="M380 210 Q300 165 234 122" fill="none" stroke="#C9A84C" stroke-width="1.2" marker-end="url(#marr)"/>
+        <rect x="60" y="66" width="170" height="78" rx="8" fill="#FAF3DC" stroke="#C9A84C" stroke-width="0.8"/>
+        <text x="145" y="92" text-anchor="middle" font-family="Noto Serif TC,serif" font-size="11.5" fill="#7A620A" font-weight="700">眼界決定境界</text>
+        <text x="145" y="110" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#9A7E3A">不做井底之蛙</text>
+        <text x="145" y="127" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#9A7E3A">知性・感性・靈性均衡</text>
+
+        <!-- 右上：制度決定貧富（青） -->
+        <path d="M520 210 Q600 165 666 122" fill="none" stroke="#2E7D72" stroke-width="1.2" marker-end="url(#marr)"/>
+        <rect x="670" y="66" width="170" height="78" rx="8" fill="#E0F2EF" stroke="#2E7D72" stroke-width="0.8"/>
+        <text x="755" y="92" text-anchor="middle" font-family="Noto Serif TC,serif" font-size="11.5" fill="#185049" font-weight="700">制度決定貧富</text>
+        <text x="755" y="110" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#2F7568">榨取型 vs 廣納型</text>
+        <text x="755" y="127" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#2F7568">貧窮是被設計的</text>
+
+        <!-- 左中：對失去的恐懼（紅） -->
+        <path d="M335 244 Q272 250 209 252" fill="none" stroke="#8B2130" stroke-width="1.2" marker-end="url(#marr)"/>
+        <rect x="35" y="215" width="170" height="78" rx="8" fill="#FAEAED" stroke="#8B2130" stroke-width="0.8"/>
+        <text x="120" y="241" text-anchor="middle" font-family="Noto Serif TC,serif" font-size="11.5" fill="#6B1621" font-weight="700">對失去的恐懼</text>
+        <text x="120" y="259" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#A04A57">換人沒用，要換制度</text>
+        <text x="120" y="276" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#A04A57">拆掉國王，未拆王座</text>
+
+        <!-- 右中：神之制度（藍） -->
+        <path d="M565 244 Q628 250 691 252" fill="none" stroke="#2E6DA4" stroke-width="1.2" marker-end="url(#marr)"/>
+        <rect x="695" y="215" width="170" height="78" rx="8" fill="#E8F1FA" stroke="#1E3A5F" stroke-width="0.8"/>
+        <text x="780" y="241" text-anchor="middle" font-family="Noto Serif TC,serif" font-size="11.5" fill="#0C2A4A" font-weight="700">神之制度</text>
+        <text x="780" y="259" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#46729E">團隊服侍・禱告問神</text>
+        <text x="780" y="276" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#46729E">體制章程不可改</text>
+
+        <!-- 左下：光明的一念（青） -->
+        <path d="M390 278 Q330 330 272 380" fill="none" stroke="#2E7D72" stroke-width="1.2" marker-end="url(#marr)"/>
+        <rect x="115" y="384" width="170" height="78" rx="8" fill="#E0F2EF" stroke="#2E7D72" stroke-width="0.8"/>
+        <text x="200" y="410" text-anchor="middle" font-family="Noto Serif TC,serif" font-size="11.5" fill="#185049" font-weight="700">光明的一念</text>
+        <text x="200" y="428" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#2F7568">尹衍樑・服務精神</text>
+        <text x="200" y="445" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#2F7568">願意自我更新</text>
+
+        <!-- 右下：一切都是預定的（金） -->
+        <path d="M510 278 Q570 330 628 380" fill="none" stroke="#C9A84C" stroke-width="1.2" marker-end="url(#marr)"/>
+        <rect x="615" y="384" width="170" height="78" rx="8" fill="#FAF3DC" stroke="#C9A84C" stroke-width="0.8"/>
+        <text x="700" y="410" text-anchor="middle" font-family="Noto Serif TC,serif" font-size="11.5" fill="#7A620A" font-weight="700">一切都是預定的</text>
+        <text x="700" y="428" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#9A7E3A">得榮耀／毀滅的器皿</text>
+        <text x="700" y="445" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#9A7E3A">保守自己的心</text>
+      </svg>
+    </div>
+  </section>
+
+  <div class="divider"><span>眼界決定境界</span></div>
+
+  <!-- ═══════════════ ③ 眼界・三性均衡 ═══════════════ -->
+  <section class="section" style="padding-top:0">
+    <div class="sec-title">
+      <div class="icon">👁</div>
+      <div>
+        <h2>走出井底</h2>
+        <div class="subtitle">三性均衡・態度與格局</div>
+      </div>
+    </div>
+    <div class="meaning-pillars">
+      <div class="mp-card mp1">
+        <div class="mp-head"><span class="mp-badge">其一</span></div>
+        <h4>眼界決定境界</h4>
+        <p>住在井底，抬頭只見井口那片天，還以為那是全世界。眼界一打開，境界才寬廣。</p>
+        <div class="mp-example">出來吸收該有的知識，配合 神所賜的真理。</div>
+      </div>
+      <div class="mp-card mp2">
+        <div class="mp-head"><span class="mp-badge">其二</span></div>
+        <h4>態度決定高度</h4>
+        <p>面對事情，你是正面迎戰、逃跑、還是投降？這個態度決定了你的高度。</p>
+        <div class="mp-example">對待逆境困境的態度，決定我們一生的格局。</div>
+      </div>
+      <div class="mp-card mp3">
+        <div class="mp-head"><span class="mp-badge">其三</span></div>
+        <h4>格局決定結局</h4>
+        <p>只有小鼻子小眼睛的小格局，結局就不會樂觀。所以內心一定要強大。</p>
+        <div class="mp-example">格局是否夠大夠寬廣，就決定了我們的結局。</div>
+      </div>
+    </div>
+    <div class="stages">
+      <div class="stage-item s1">
+        <div class="stage-top-bar"></div>
+        <div class="stage-no">知性</div>
+        <div class="stage-title">要提醒</div>
+        <div class="stage-body">知識與見識，是感性衝動時的提醒；缺了它，人就失了分寸。</div>
+      </div>
+      <div class="stage-item s2">
+        <div class="stage-top-bar"></div>
+        <div class="stage-no">感性</div>
+        <div class="stage-title">別爆棚</div>
+        <div class="stage-body">我們常常感性爆棚，卻沒有理性來衡量——這真的非常危險。</div>
+      </div>
+      <div class="stage-item s3">
+        <div class="stage-top-bar"></div>
+        <div class="stage-no">靈性</div>
+        <div class="stage-title">要提升</div>
+        <div class="stage-body">配合 神的真理，讓靈性不再低落；三個區塊均衡，日子才不會過得奇怪。</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"><span>國家為什麼會失敗</span></div>
+
+  <!-- ═══════════════ ④ 制度：榨取 vs 廣納 ═══════════════ -->
+  <section class="section" style="padding-top:0">
+    <div class="sec-title">
+      <div class="icon">⚖</div>
+      <div>
+        <h2>兩種制度</h2>
+        <div class="subtitle">《國家為什麼會失敗》· 2024 諾貝爾經濟學獎</div>
+      </div>
+    </div>
+    <div class="two-path">
+      <div class="path-side path-a">
+        <div class="path-label">廣納型制度</div>
+        <div class="path-title">讓多數人創造財富</div>
+        <ul class="path-list">
+          <li>權力分散，產權受保護</li>
+          <li>法律面前人人平等</li>
+          <li>有好點子就能嘗試，失敗可再來</li>
+          <li>創新被鼓勵，努力有回報</li>
+        </ul>
+      </div>
+      <div class="path-side path-b">
+        <div class="path-label">榨取型制度</div>
+        <div class="path-title">讓少數人掠奪財富</div>
+        <ul class="path-list">
+          <li>權力與財富集中在少數人手裡</li>
+          <li>從多數人身上抽取，供養少數人</li>
+          <li>努力不會讓你翻身，只讓剝削你的人更富</li>
+          <li>普通人沒有參與權</li>
+        </ul>
+      </div>
+    </div>
+    <div class="quote-block">
+      <p class="quote-text">
+        進步最大的敵人，從來不是愚蠢，<br>
+        而是那些比誰都聰明、<br>
+        卻<em>害怕在進步中失去自己位置</em>的人。
+      </p>
+      <div class="quote-src">— 《國家為什麼會失敗》</div>
+    </div>
+  </section>
+
+  <div class="divider"><span>五百年的證據</span></div>
+
+  <!-- ═══════════════ ⑤ 歷史案例時間軸 ═══════════════ -->
+  <section class="section" style="padding-top:0">
+    <div class="sec-title">
+      <div class="icon">📜</div>
+      <div>
+        <h2>歷史一再重演</h2>
+        <div class="subtitle">當權者不是不懂，而是太懂了</div>
+      </div>
+    </div>
+    <div class="timeline">
+      <div class="tl-item gold">
+        <div class="tl-dot"></div>
+        <div class="tl-year">1297・威尼斯</div>
+        <div class="tl-title">收走梯子的貴族</div>
+        <div class="tl-body">靠開放制度發財的家族成了貴族，立刻關閉大議會、廢除讓窮人翻身的契約。沒有外敵打敗威尼斯——它是被成功的那批人親手殺死。</div>
+      </div>
+      <div class="tl-item teal">
+        <div class="tl-dot"></div>
+        <div class="tl-year">1347・黑死病</div>
+        <div class="tl-title">同一場災難，兩種結局</div>
+        <div class="tl-body">勞動力短缺，西歐農奴制鬆動、走向自由；東歐反而加碼控制，成了「第二次農奴化」。微小的初始差異，在關鍵時刻被無限放大。</div>
+      </div>
+      <div class="tl-item ruby">
+        <div class="tl-dot"></div>
+        <div class="tl-year">1450・印刷術</div>
+        <div class="tl-title">古騰堡 vs 鄂圖曼</div>
+        <div class="tl-body">活字印刷改寫歐洲文明；鄂圖曼帝國卻禁止阿拉伯文印刷、違者處死。他們怕的不是技術，是技術背後——普通人開始能思考。</div>
+      </div>
+      <div class="tl-item blue">
+        <div class="tl-dot"></div>
+        <div class="tl-year">19 世紀・鐵路</div>
+        <div class="tl-title">親手阻擋的皇帝</div>
+        <div class="tl-body">奧、俄皇帝阻止鐵路修建，怕人口流動催生新階級、要求分享權力。寧可國家窮一點，也要保住自己的位置。</div>
+      </div>
+      <div class="tl-item gold">
+        <div class="tl-dot"></div>
+        <div class="tl-year">1930s・羅斯福</div>
+        <div class="tl-title">連總統也被拉回來</div>
+        <div class="tl-body">羅斯福想擴充最高法院、塞進自己的人；國會、公眾、甚至自己黨內都反對：不能讓任何人凌駕於制度之上。這就是廣納型制度的力量。</div>
+      </div>
+      <div class="tl-item teal">
+        <div class="tl-dot"></div>
+        <div class="tl-year">2024・諾貝爾獎</div>
+        <div class="tl-title">五百年，五大洲</div>
+        <div class="tl-body">兩位經濟學家走遍五大洲、用五百年歷史寫下這本書，兩年前奪下諾貝爾經濟學獎——這看見很新，卻歸納出人類共同的調式。</div>
+      </div>
+    </div>
+    <div class="insight-row">
+      <div class="insight-card">
+        <div class="insight-dot"></div>
+        <div>
+          <h4>諾加萊斯的鐵絲網</h4>
+          <p>同城、同語言、同祖先，一道圍籬分出三倍的收入差——差別只在腳下的規則。</p>
+        </div>
+      </div>
+      <div class="insight-card">
+        <div class="insight-dot"></div>
+        <div>
+          <h4>對失去的恐懼</h4>
+          <p>蘇丹知道印刷好、沙皇知道鐵路好，卻都不敢——他們輸給了同一樣東西。</p>
+        </div>
+      </div>
+      <div class="insight-card">
+        <div class="insight-dot"></div>
+        <div>
+          <h4>換人沒有用</h4>
+          <p>拆掉了國王，卻沒有拆掉王座；難的是不讓自己變成下一個暴君。</p>
+        </div>
+      </div>
+      <div class="insight-card">
+        <div class="insight-dot"></div>
+        <div>
+          <h4>規則比個人更強</h4>
+          <p>成熟制度的標誌，不是出一個好領袖，而是連壞領袖也壞不到哪裡去。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"><span>神之制度</span></div>
+
+  <!-- ═══════════════ ⑥ 神之制度不可改變 ═══════════════ -->
+  <section class="section" style="padding-top:0">
+    <div class="sec-title">
+      <div class="icon">🏛</div>
+      <div>
+        <h2>神給的，是最好的制度</h2>
+        <div class="subtitle">牧師留下的體制、章程與信仰傳承</div>
+      </div>
+    </div>
+    <div class="meaning-pillars">
+      <div class="mp-card mp1">
+        <div class="mp-head"><span class="mp-badge">第一</span></div>
+        <h4>團隊服侍</h4>
+        <p>不是一個人說了算。權力被團隊約束，才不會落入書裡那個樣子。</p>
+        <div class="mp-example">誰自己說了算，誰就是惡魔。</div>
+      </div>
+      <div class="mp-card mp2">
+        <div class="mp-head"><span class="mp-badge">第二</span></div>
+        <h4>禱告問神</h4>
+        <p>凡事求問，等候從 神來的答案；讓 神掌權，不讓老我掌權。</p>
+        <div class="mp-example">得到答案之後，肯定是從 神來的答案。</div>
+      </div>
+      <div class="mp-card mp3">
+        <div class="mp-head"><span class="mp-badge">第三</span></div>
+        <h4>行所當行</h4>
+        <p>得著正確的答案之後，忠心去行——這是牧師為我們立下的榜樣。</p>
+        <div class="mp-example">接棒的人，一定要謹遵這一條。</div>
+      </div>
+    </div>
+    <div class="quote-block">
+      <p class="quote-text">
+        我們幾個老人家總要回天家，留下你們年輕的一輩。<br>
+        無論環境如何惡劣，都要守住牧師所定的<em>體制、章程與信仰傳承</em>；<br>
+        因為在 神面前，我們都是平起平坐的弟兄姊妹。
+      </p>
+      <div class="quote-src">— 秀美師母 · 愛的叮嚀</div>
+    </div>
+  </section>
+
+  <div class="divider"><span>光明的一念</span></div>
+
+  <!-- ═══════════════ ⑦ 尹衍樑的故事 ═══════════════ -->
+  <section class="section" style="padding-top:0">
+    <div class="sec-title">
+      <div class="icon">💡</div>
+      <div>
+        <h2>從不良少年到七百項專利</h2>
+        <div class="subtitle">尹衍樑・一切都是預定的</div>
+      </div>
+    </div>
+    <div class="timeline">
+      <div class="tl-item ruby">
+        <div class="tl-dot"></div>
+        <div class="tl-year">少年</div>
+        <div class="tl-title">連字母都背不出</div>
+        <div class="tl-body">年少時是個不良少年，高中被人砍傷肚皮、腸子差點流出來，連 ABC 都背不齊。</div>
+      </div>
+      <div class="tl-item gold">
+        <div class="tl-dot"></div>
+        <div class="tl-year">轉念</div>
+        <div class="tl-title">老師的一句話</div>
+        <div class="tl-body">老師問：「你那麼聰明，為什麼要打架？」原來他只是想被注意。老師說，你不一定要打架才能被看見——他聽進去了。</div>
+      </div>
+      <div class="tl-item teal">
+        <div class="tl-dot"></div>
+        <div class="tl-year">苦讀</div>
+        <div class="tl-title">博士與教授</div>
+        <div class="tl-body">後來苦讀成了政大商學博士、台大土木系教授，人生徹底翻轉。</div>
+      </div>
+      <div class="tl-item blue">
+        <div class="tl-dot"></div>
+        <div class="tl-year">發明</div>
+        <div class="tl-title">753 項專利</div>
+        <div class="tl-body">全球擁有七百多項專利；他的建築新工法受力是傳統的兩倍，鋼筋成本省下一半。</div>
+      </div>
+      <div class="tl-item gold">
+        <div class="tl-dot"></div>
+        <div class="tl-year">開放</div>
+        <div class="tl-title">免費給全世界</div>
+        <div class="tl-body">他把這項建築專利免費開放給全世界使用。可貴的不是他多聰明，而是那份為國家社會著想的服務精神——人心的光明就在這裡。</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"><span>一切都是預定的</span></div>
+
+  <!-- ═══════════════ ⑧ 經文（和合本全文） ═══════════════ -->
+  <section class="section" style="padding-top:0">
+    <div class="sec-title">
+      <div class="icon">📖</div>
+      <div>
+        <h2>師母所讀的經文</h2>
+        <div class="subtitle">和合本・全文</div>
+      </div>
+    </div>
+    <div class="scripture">
+      <div class="ref">詩篇 139：13、16</div>
+      <p><span class="vn">13</span>我的肺腑是你所造的；我在母腹中，你已覆庇我。<span class="vn">16</span>我未成形的體質，你的眼早已看見了；你所定的日子，我尚未度一日，你都寫在你的冊上了。</p>
+    </div>
+    <div class="scripture">
+      <div class="ref">羅馬書 9：20–23</div>
+      <p><span class="vn">20</span>你這個人哪，你是誰，竟敢向 神強嘴呢？受造之物豈能對造他的說：「你為什麼這樣造我呢？」<span class="vn">21</span>窯匠難道沒有權柄從一團泥裡拿一塊做成貴重的器皿，又拿一塊做成卑賤的器皿嗎？<span class="vn">22</span>倘若 神要顯明他的忿怒，彰顯他的權能，就多多忍耐寬容那可怒預備遭毀滅的器皿，<span class="vn">23</span>又要將他豐盛的榮耀彰顯在那蒙憐憫、早預備得榮耀的器皿上。</p>
+    </div>
+    <div class="scripture">
+      <div class="ref">使徒行傳 17：26</div>
+      <p><span class="vn">26</span>他從一本造出萬族的人，住在全地上，並且預先定準他們的年限和所住的疆界，</p>
+    </div>
+  </section>
+
+  <div class="divider"><span>兩種器皿</span></div>
+
+  <!-- ═══════════════ ⑨ 得榮耀 vs 毀滅的器皿 ═══════════════ -->
+  <section class="section" style="padding-top:0">
+    <div class="sec-title">
+      <div class="icon" style="background:var(--ruby-light);color:#fff;">🏺</div>
+      <div>
+        <h2>兩種預定的器皿</h2>
+        <div class="subtitle">窯匠手中的一團泥</div>
+      </div>
+    </div>
+    <div class="two-path">
+      <div class="path-side path-a">
+        <div class="path-label">得榮耀的器皿</div>
+        <div class="path-title">蒙憐憫，早預備</div>
+        <ul class="path-list">
+          <li>傾向光明的一念</li>
+          <li>願意自我更新、自我改善</li>
+          <li>肯自我約束、治死老我</li>
+          <li>肯被 神改變</li>
+        </ul>
+      </div>
+      <div class="path-side path-b">
+        <div class="path-label">毀滅的器皿</div>
+        <div class="path-title">可怒，預備遭毀滅</div>
+        <ul class="path-list">
+          <li>傾向黑暗、沉淪的那一面</li>
+          <li>一直否定，不願被改革</li>
+          <li>死也不肯治我</li>
+          <li>被理論威脅就反對到底</li>
+        </ul>
+      </div>
+    </div>
+    <div class="insight-row">
+      <div class="insight-card">
+        <div class="insight-dot"></div>
+        <div>
+          <h4>預定，不是強迫</h4>
+          <p>牧師說：這預定不是 神命令你、強迫你，而是你在 神面前自己選的——所以不能怪 神。</p>
+        </div>
+      </div>
+      <div class="insight-card">
+        <div class="insight-dot"></div>
+        <div>
+          <h4>神是愛，盡力要救</h4>
+          <p> 神盡量要救每一個人；只是有些人早已選擇了沉淪，這不可強求。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"><span>屬靈底線</span></div>
+
+  <!-- ═══════════════ ⑩ 保守己心 ═══════════════ -->
+  <section class="section" style="padding-top:0">
+    <div class="sec-title">
+      <div class="icon" style="background:var(--teal);color:#fff;">💗</div>
+      <div>
+        <h2>保守自己的心</h2>
+        <div class="subtitle">因為一生的果效由心發出</div>
+      </div>
+    </div>
+    <div class="quote-block">
+      <p class="quote-text">
+        往後每一個人都要注意，<em>保守自己的心</em>，<br>
+        因為一生的果效是由心發出的。<br>
+        不要看人，不要看環境，不要受那些干擾。
+      </p>
+      <div class="quote-src">— 秀美師母 · 愛的叮嚀</div>
+    </div>
+    <div class="insight-row">
+      <div class="insight-card">
+        <div class="insight-dot"></div>
+        <div>
+          <h4>發揮專長，不必勉強</h4>
+          <p>人各有長短，考試的要訣是發揮專長去得分——但屬靈也不能勉強，這正是問題所在。</p>
+        </div>
+      </div>
+      <div class="insight-card">
+        <div class="insight-dot"></div>
+        <div>
+          <h4>劃清邊界，勇敢說不</h4>
+          <p>教會裡有「吸血螞蟥」——一天到晚只有負能量、吸取別人的能量讓自己好過。不要被他們一直消耗。</p>
+        </div>
+      </div>
+      <div class="insight-card">
+        <div class="insight-dot"></div>
+        <div>
+          <h4>做願意更新的人</h4>
+          <p>傾向光明的人，會自我更新、自我改善；願意治死老我的人多，這個團隊就充滿了希望。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"><span>反思</span></div>
+
+  <!-- ═══════════════ 反思提問清單 ═══════════════ -->
+  <section class="section" style="padding-top:0">
+    <div class="sec-title">
+      <div class="icon">🪞</div>
+      <div>
+        <h2>反思</h2>
+        <div class="subtitle">七道問題 · 安靜面對自己</div>
+      </div>
+    </div>
+    <div class="reflection">
+      <h3>把這幾個問題帶在心裡，慢慢思想。</h3>
+      <ol>
+        <li><strong>Q1</strong>　在我的生活或事奉裡，有沒有哪一處，我其實是「住在井底」——只看見井口那片天，卻以為那就是全世界？</li>
+        <li><strong>Q2</strong>　書中說「進步最大的敵人，是那些害怕在進步中失去自己位置的人」——我有沒有一個「位置」（權力、專長、被需要感）是我緊抓著、害怕被取代的？</li>
+        <li><strong>Q3</strong>　「他們拆掉了國王，卻沒有拆掉王座」——我有沒有換了環境、換了對象，卻把同一套老我的模式又搬了過去？</li>
+        <li><strong>Q4</strong>　師母要我們分辨兩種人：「傾向光明、願意自我更新」與「傾向黑暗、拒絕被改革」——誠實地看，這一週的我比較靠近哪一邊？</li>
+        <li><strong>Q5</strong>　讀到「預定得榮耀的器皿」與「預定毀滅的器皿」，我心裡浮現的是安穩，還是不安？為什麼？</li>
+        <li><strong>Q6</strong>　「一生的果效由心發出」——我最需要在哪一件事上「保守我的心」，好讓生命的果效不被攪亂？</li>
+        <li><strong>Q7</strong>　師母提醒要對「吸血螞蟥」劃清邊界、勇敢說不——這一週，我需要對哪一種消耗（或哪一個念頭）勇敢地說一次「不」？</li>
+      </ol>
+    </div>
+  </section>
+
+  <div class="divider"><span>文章</span></div>
+
+  <!-- ═══════════════ 文章產出 ═══════════════ -->
+  <section class="section" style="padding-top:0">
+    <div class="sec-title">
+      <div class="icon">✒️</div>
+      <div>
+        <h2>本篇文章</h2>
+        <div class="subtitle">從眼界，到制度，到一顆要保守的心</div>
+      </div>
+    </div>
+    <div class="article-block">
+      <h3>眼界、制度，與一顆要保守的心</h3>
+      <div class="art-meta">愛的叮嚀 · 2026.06.28</div>
+      <p>師母說，人若住在井底，一輩子抬頭看見的，就只是井口那一小片天，還以為那就是全世界。<strong>眼界決定境界。</strong>所以我們得走出井口，吸收該有的知識，配合 神所賜的真理，讓知性、感性、靈性三個區塊均衡——否則理性缺乏、感性爆棚、靈性低落，日子就過得很奇怪。而面對逆境的態度決定我們的高度，格局決定我們的結局；一句話：內心要強大。</p>
+      <p>帶著這樣的眼界，師母讓我們看了一部得過諾貝爾獎的書評——《國家為什麼會失敗》。兩位經濟學家走遍五大洲、用五百年的歷史，回答一個古老的問題：為什麼有些國家富裕，有些貧窮？答案不是人民懶惰，不是民族愚蠢，也不是資源匱乏，而是<strong>制度</strong>。榨取型的制度把權力與財富集中在少數人手裡，讓多數人辛苦、少數人掠奪；廣納型的制度讓權力分散、機會開放、創新有回報，讓多數人一起創造財富。</p>
+      <p>可是這本書最扎心的地方是：既然答案這麼清楚，為什麼還有那麼多窮國？不是那些統治者不懂——恰恰相反，他們太懂了。他們算過一筆帳：若開放市場，會冒出挑戰者；若保護產權，就不能隨意沒收；若教育普及，人民就不好控制。所以他們冷靜、理性、深思熟慮地選擇讓國家繼續貧窮，因為「一個貧窮可控的國家，遠好過一個富裕卻無法掌控的國家」。<strong>貧窮不是失誤，而是設計。</strong></p>
+      <p>書裡一個畫面讓人難忘：1297 年的威尼斯，那些靠開放制度發了財的家族，一旦成了貴族，立刻關閉大議會、廢除讓窮人翻身的契約——「我上來了，就把梯子收走」。結果沒有任何外敵打敗威尼斯，它是被成功的那批人親手殺死的。而歷史一再證明，換掉統治者也沒用：拆掉了國王，卻沒有拆掉王座；推翻一個暴君容易，難的是不讓自己變成下一個暴君。說到底，他們都輸給了同一樣東西——<em>對失去的恐懼</em>。人最大的困境，不是不知道什麼是對的，而是知道以後仍然沒有勇氣去做，尤其當做對的事意味著自己會失去些什麼。</p>
+      <div class="art-sep">✦ ✦ ✦</div>
+      <p>師母把這一切收回到我們中間。她說，這正是為什麼「 神給我們的制度，是最好的制度」。牧師在世時就為我們立下體制、章程與信仰傳承，最寶貴的一條就是：<strong>團隊服侍、禱告問神，得到答案之後行所當行</strong>——因為只要不讓 神掌權，人就會變成書裡那個樣子。誰自己說了算，誰就是惡魔。她鄭重交代年輕的一輩：無論環境多惡劣，都要守住牧師留下的體制與傳承，不要讓任何人為了自己的利益去動搖它，也不要甘作被人使喚的奴才——因為在 神面前，我們都是平起平坐的弟兄姊妹。</p>
+      <p>接著她放了尹衍樑的故事：一個連字母都背不出、被砍傷肚皮的不良少年，後來竟成了擁有七百多項專利的博士與教授，還把建築專利免費開放給全世界。同樣是打架的少年，有人成了流氓，有人成了發明家——一切都是預定的。而真正叫人感佩的，從來不是他多聰明、多會念書，而是他那份為國家社會著想的服務精神。<strong>人心的光明，就在這裡。</strong></p>
+      <p>於是師母翻開聖經，讓我們看「一切都是預定的」。詩篇說，我未成形的體質， 神的眼早已看見，我尚未度一日，都寫在祂的冊上了；羅馬書說，窯匠有權柄從一團泥裡，一塊做成貴重的器皿，一塊做成卑賤的器皿——有預定得榮耀的器皿，也有預定毀滅的器皿；使徒行傳說， 神從一本造出萬族，預先定準他們的年限與疆界。牧師說得清楚：這預定不是 神強迫你，而是你在 神面前自己選的，所以不能怪 神。 神是愛，祂盡力要救；只是有些人早已選擇了沉淪。</p>
+      <div class="art-sep">✦ ✦ ✦</div>
+      <p>所以師母不勉強任何人。就像她天生對歷史、數學再怎麼努力也不行，卻靠著 神給的舞蹈本能考上藝專；每個人都有長處與短處，考試的要訣本是發揮專長去得分。只是問題出在——<strong>屬靈也不能勉強</strong>。有人願意自我約束、治死老我，有人卻死也不肯。師母說，往後每一個人都要保守自己的心，因為一生的果效是由心發出的；不要看人，不要看環境，也不要被那些「怎麼樣都嫌不足」的吸血螞蟥消耗——要劃清邊界，勇敢說不。</p>
+      <p>願我們都做那「傾向光明、願意自我更新」的人，守住 神所賜的制度，保守自己的心，把結局交給 神的預定。主啊，求祢叫我們不懼怕失去，肯在祢面前被改變；賜我們強大的內心與光明的一念，走完祢為我們寫下的每一天。阿們。</p>
+    </div>
+  </section>
+
+  <!-- ═══════════════ 收尾禱告 ═══════════════ -->
+  <section class="section" style="padding-top:0;padding-bottom:2rem;">
+    <div class="sec-title">
+      <div class="icon">🕊</div>
+      <div>
+        <h2>收尾的禱告</h2>
+        <div class="subtitle">不懼怕失去，肯被改變</div>
+      </div>
+    </div>
+    <div class="quote-block">
+      <p class="quote-text">主啊，求祢叫我們<em>不懼怕失去</em>，肯在祢面前被改變；<br>守住祢所賜的制度，保守自己的心，<br>賜我們強大的內心與<em>光明的一念</em>，走完祢為我們寫下的每一天。阿們。</p>
+      <div class="quote-src">— 愛的叮嚀 · 2026.06.28</div>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="page-footer">
+  <p>愛的叮嚀 · <strong>眼界、制度，與一顆要保守的心</strong></p>
+  <p style="margin-top:4px;">2026.06.28</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,995 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>愛的叮嚀 — 三根支柱，與一念之間</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --gold: #C9A84C;
+  --gold-light: #E8D08A;
+  --gold-pale: #FAF3DC;
+  --deep: #1A1208;
+  --ink: #2C2416;
+  --muted: #6B5D3E;
+  --soft: #F5EDD8;
+  --parchment: #FBF6EC;
+  --teal: #2E7D72;
+  --teal-light: #4AA89C;
+  --teal-pale: #E0F2EF;
+  --ruby: #8B2130;
+  --ruby-light: #C2445A;
+  --ruby-pale: #FAEAED;
+  --blue-deep: #1E3A5F;
+  --blue-mid: #2E6DA4;
+  --blue-pale: #E8F1FA;
+  --radius: 12px;
+  --radius-lg: 20px;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family: 'Noto Sans TC', sans-serif;
+  background: var(--parchment);
+  color: var(--ink);
+  line-height: 1.8;
+}
+
+/* ── HERO ── */
+.hero {
+  background: var(--deep);
+  padding: 3.5rem 2rem 3rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content:'';
+  position:absolute; inset:0;
+  background: radial-gradient(ellipse at 50% 0%, rgba(201,168,76,0.18) 0%, transparent 70%);
+  pointer-events:none;
+}
+.hero-tag {
+  display: inline-block;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  font-size: 11px;
+  letter-spacing: 4px;
+  padding: 4px 16px;
+  border-radius: 2px;
+  margin-bottom: 1.2rem;
+  text-transform: uppercase;
+}
+.hero h1 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  color: #fff;
+  font-weight: 700;
+  line-height: 1.4;
+  margin-bottom: 0.6rem;
+}
+.hero h1 em { color: var(--gold-light); font-style:normal; }
+.hero-sub {
+  color: rgba(255,255,255,0.55);
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  margin-bottom: 2rem;
+}
+.hero-verse {
+  display: inline-block;
+  border-left: 2px solid var(--gold);
+  padding: 0.5rem 1rem;
+  text-align: left;
+  color: var(--gold-light);
+  font-family: 'Noto Serif TC', serif;
+  font-size: 0.9rem;
+  line-height: 1.9;
+}
+
+/* ── LAYOUT ── */
+.container { max-width: 960px; margin: 0 auto; padding: 0 1.25rem; }
+.section { padding: 2.5rem 0 1.5rem; }
+
+/* ── SECTION TITLE ── */
+.sec-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 1.5rem;
+}
+.sec-title .icon {
+  width: 36px; height: 36px;
+  background: var(--gold);
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 17px; color: var(--deep); flex-shrink:0;
+}
+.sec-title h2 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 1.2rem;
+  color: var(--deep);
+  font-weight: 700;
+}
+.sec-title .subtitle { font-size: 0.78rem; color: var(--muted); margin-top:1px; }
+
+/* ── CORE PILLARS ── */
+.pillars {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.pillar {
+  background: #fff;
+  border: 0.5px solid rgba(0,0,0,0.1);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  position: relative;
+  overflow: hidden;
+  cursor: default;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.pillar:hover { transform: translateY(-3px); box-shadow: 0 8px 28px rgba(0,0,0,0.08); }
+.pillar::before {
+  content:'';
+  position:absolute; top:0; left:0; right:0; height:3px;
+}
+.pillar.p1::before { background: linear-gradient(90deg, var(--gold), var(--gold-light)); }
+.pillar.p2::before { background: linear-gradient(90deg, var(--teal), var(--teal-light)); }
+.pillar.p3::before { background: linear-gradient(90deg, var(--ruby), var(--ruby-light)); }
+.pillar.p4::before { background: linear-gradient(90deg, var(--blue-deep), var(--blue-mid)); }
+.pillar-num {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: 0.6rem;
+  opacity: 0.12;
+  position: absolute;
+  top: 1rem; right: 1.2rem;
+}
+.pillar.p1 .pillar-num { color: var(--gold); }
+.pillar.p2 .pillar-num { color: var(--teal); }
+.pillar.p3 .pillar-num { color: var(--ruby); }
+.pillar.p4 .pillar-num { color: var(--blue-deep); }
+.pillar-icon { font-size: 1.6rem; margin-bottom: 0.5rem; }
+.pillar h3 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--deep);
+}
+.pillar p { font-size: 0.82rem; color: var(--muted); line-height: 1.7; }
+
+/* ── TIMELINE ── */
+.timeline {
+  position: relative;
+  padding-left: 2.5rem;
+  margin-bottom: 1rem;
+}
+.timeline::before {
+  content:'';
+  position: absolute;
+  left: 10px; top: 12px; bottom: 12px;
+  width: 1.5px;
+  background: linear-gradient(180deg, var(--gold) 0%, var(--teal) 50%, var(--ruby) 100%);
+}
+.tl-item {
+  position: relative;
+  margin-bottom: 1.2rem;
+}
+.tl-dot {
+  position: absolute;
+  left: -2.17rem;
+  top: 0.35rem;
+  width: 12px; height: 12px;
+  border-radius: 50%;
+  border: 2px solid;
+  background: var(--parchment);
+}
+.tl-item.gold .tl-dot { border-color: var(--gold); }
+.tl-item.teal .tl-dot { border-color: var(--teal); }
+.tl-item.ruby .tl-dot { border-color: var(--ruby); }
+.tl-item.blue .tl-dot { border-color: var(--blue-mid); }
+.tl-year {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  margin-bottom: 2px;
+}
+.tl-item.gold .tl-year { color: var(--gold); }
+.tl-item.teal .tl-year { color: var(--teal); }
+.tl-item.ruby .tl-year { color: var(--ruby); }
+.tl-item.blue .tl-year { color: var(--blue-mid); }
+.tl-title { font-weight: 500; font-size: 0.9rem; color: var(--deep); margin-bottom: 2px; }
+.tl-body { font-size: 0.8rem; color: var(--muted); line-height: 1.65; }
+
+/* ── MIND MAP SVG WRAPPER ── */
+.mindmap-wrap {
+  background: #fff;
+  border-radius: var(--radius-lg);
+  border: 0.5px solid rgba(0,0,0,0.09);
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+}
+.mindmap-wrap svg { display:block; width:100%; }
+
+/* ── THREE STAGES ── */
+.stages {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 0;
+  background: #fff;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 0.5px solid rgba(0,0,0,0.09);
+  margin-bottom: 1.5rem;
+}
+@media(max-width:600px){ .stages{grid-template-columns:1fr;} }
+.stage-item {
+  padding: 1.4rem 1.2rem;
+  border-right: 0.5px solid rgba(0,0,0,0.07);
+  position: relative;
+}
+.stage-item:last-child { border-right: none; }
+.stage-no {
+  font-size: 0.7rem;
+  letter-spacing: 2px;
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+  text-transform: uppercase;
+}
+.stage-item.s1 .stage-no { color: var(--ruby); }
+.stage-item.s2 .stage-no { color: var(--muted); }
+.stage-item.s3 .stage-no { color: var(--teal); }
+.stage-title { font-family: 'Noto Serif TC', serif; font-size: 0.95rem; font-weight: 700; color: var(--deep); margin-bottom: 0.4rem; }
+.stage-body { font-size: 0.78rem; color: var(--muted); line-height: 1.65; }
+.stage-top-bar { height: 3px; background: var(--soft); position:absolute; top:0; left:0; right:0; }
+.stage-item.s1 .stage-top-bar { background: var(--ruby); }
+.stage-item.s2 .stage-top-bar { background: #bbb; }
+.stage-item.s3 .stage-top-bar { background: var(--teal); }
+
+/* ── QUOTE BLOCK ── */
+.quote-block {
+  background: var(--deep);
+  border-radius: var(--radius-lg);
+  padding: 2rem 2rem 1.5rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+  overflow: hidden;
+}
+.quote-block::before {
+  content: '"';
+  position: absolute;
+  top: -0.5rem; left: 1rem;
+  font-family: 'Noto Serif TC', serif;
+  font-size: 6rem;
+  color: var(--gold);
+  opacity: 0.15;
+  line-height: 1;
+  pointer-events: none;
+}
+.quote-text {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 1.05rem;
+  color: #fff;
+  line-height: 1.9;
+  margin-bottom: 0.8rem;
+}
+.quote-text em { color: var(--gold-light); font-style: normal; font-weight: 700; }
+.quote-src { font-size: 0.75rem; color: rgba(255,255,255,0.45); letter-spacing: 1px; }
+
+/* ── THREE PILLARS of MEANING ── */
+.meaning-pillars {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.mp-card {
+  border-radius: var(--radius);
+  padding: 1.3rem 1.2rem;
+  position: relative;
+}
+.mp-card.mp1 { background: var(--gold-pale); border: 1px solid rgba(201,168,76,0.3); }
+.mp-card.mp2 { background: var(--teal-pale); border: 1px solid rgba(46,125,114,0.25); }
+.mp-card.mp3 { background: var(--ruby-pale); border: 1px solid rgba(139,33,48,0.2); }
+.mp-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 0.7rem;
+}
+.mp-badge {
+  font-size: 0.65rem;
+  letter-spacing: 2px;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+.mp1 .mp-badge { background: var(--gold); color: var(--deep); }
+.mp2 .mp-badge { background: var(--teal); color: #fff; }
+.mp3 .mp-badge { background: var(--ruby); color: #fff; }
+.mp-card h4 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--deep);
+}
+.mp-card p { font-size: 0.8rem; color: var(--muted); line-height: 1.7; }
+.mp-example {
+  margin-top: 0.6rem;
+  padding-top: 0.6rem;
+  border-top: 1px solid rgba(0,0,0,0.06);
+  font-size: 0.75rem;
+  line-height: 1.6;
+}
+.mp1 .mp-example { color: #7A620A; }
+.mp2 .mp-example { color: #185049; }
+.mp3 .mp-example { color: #6B1621; }
+
+/* ── KEY INSIGHT BOX ── */
+.insight-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.insight-card {
+  background: #fff;
+  border-radius: var(--radius);
+  border: 0.5px solid rgba(0,0,0,0.09);
+  padding: 1.2rem;
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+.insight-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  margin-top: 0.4rem;
+  flex-shrink: 0;
+}
+.insight-card:nth-child(1) .insight-dot { background: var(--gold); }
+.insight-card:nth-child(2) .insight-dot { background: var(--teal); }
+.insight-card:nth-child(3) .insight-dot { background: var(--ruby); }
+.insight-card:nth-child(4) .insight-dot { background: var(--blue-mid); }
+.insight-card h4 { font-size: 0.88rem; font-weight: 600; color: var(--deep); margin-bottom: 0.3rem; }
+.insight-card p { font-size: 0.78rem; color: var(--muted); line-height: 1.65; }
+
+/* ── TWO PATH BOX ── */
+.two-path {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  background: #fff;
+  border-radius: var(--radius-lg);
+  border: 0.5px solid rgba(0,0,0,0.09);
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+}
+@media(max-width:500px){ .two-path{grid-template-columns:1fr;} }
+.path-side {
+  padding: 1.5rem 1.3rem;
+}
+.path-side:first-child {
+  border-right: 0.5px solid rgba(0,0,0,0.07);
+}
+.path-label {
+  font-size: 0.68rem;
+  letter-spacing: 2.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 0.6rem;
+}
+.path-a .path-label { color: var(--gold); }
+.path-b .path-label { color: var(--blue-mid); }
+.path-title {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--deep);
+  margin-bottom: 0.6rem;
+}
+.path-list {
+  list-style: none;
+  padding: 0;
+}
+.path-list li {
+  font-size: 0.8rem;
+  color: var(--muted);
+  line-height: 1.65;
+  padding: 3px 0 3px 14px;
+  position: relative;
+}
+.path-list li::before {
+  content:'·';
+  position:absolute; left:2px;
+  font-size: 1rem;
+  line-height: 1.3;
+}
+.path-a .path-list li::before { color: var(--gold); }
+.path-b .path-list li::before { color: var(--blue-mid); }
+
+/* ── REFLECTION BOX ── */
+.reflection {
+  background: var(--soft);
+  border-radius: var(--radius-lg);
+  padding: 1.8rem 1.8rem 1.5rem;
+  border-left: 3px solid var(--gold);
+  margin-bottom: 1.5rem;
+}
+.reflection h3 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--deep);
+  margin-bottom: 0.8rem;
+}
+.reflection ol {
+  padding-left: 1.2rem;
+}
+.reflection ol li {
+  font-size: 0.85rem;
+  color: var(--ink);
+  line-height: 1.8;
+  margin-bottom: 0.3rem;
+}
+.reflection ol li strong { color: var(--deep); font-weight: 600; }
+
+/* ── DIVIDER ── */
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0.5rem 0 1.5rem;
+  opacity: 0.35;
+}
+.divider::before, .divider::after {
+  content:'';
+  flex:1;
+  height: 0.5px;
+  background: var(--muted);
+}
+.divider span { font-size: 10px; letter-spacing: 3px; color: var(--muted); text-transform: uppercase; }
+
+/* ── ARTICLE（文章產出：深度反思文章）── */
+.article-block {
+  background:#fff; border:0.5px solid rgba(0,0,0,0.09);
+  border-radius:var(--radius-lg); padding:2.2rem 2.4rem;
+  margin-bottom:1.5rem;
+}
+@media(max-width:600px){ .article-block { padding:1.6rem 1.3rem; } }
+.article-block h3 {
+  font-family:'Noto Serif TC',serif; font-size:1.15rem; font-weight:700;
+  color:var(--deep); margin-bottom:1.2rem; text-align:center;
+}
+.article-block .art-meta {
+  text-align:center; font-size:0.72rem; letter-spacing:2px;
+  color:var(--muted); margin:-0.8rem 0 1.4rem;
+}
+.article-block p {
+  font-family:'Noto Serif TC',serif; font-size:0.92rem;
+  color:var(--ink); line-height:2.05; margin-bottom:1rem;
+  text-align:justify;
+}
+.article-block p:first-of-type::first-letter { font-size:1.6em; color:var(--gold); font-weight:700; }
+/* 重點：紅色字體 */
+.article-block p strong { color:var(--ruby); font-weight:700; }
+.article-block p em { font-style:normal; color:#7A620A; font-weight:600; }
+.art-sep { text-align:center; color:var(--gold); letter-spacing:8px; margin:1.2rem 0; opacity:.6; }
+
+/* ── SCRIPTURE（經文・和合本，附加樣式）── */
+.scripture {
+  background:#fff; border:0.5px solid rgba(0,0,0,0.09);
+  border-left:3px solid var(--gold); border-radius:var(--radius);
+  padding:1.3rem 1.4rem; margin-bottom:1rem;
+}
+.scripture .ref {
+  font-family:'Noto Serif TC',serif; font-size:0.9rem; font-weight:700;
+  color:#7A620A; letter-spacing:1px; margin-bottom:0.6rem;
+}
+.scripture p {
+  font-family:'Noto Serif TC',serif; font-size:0.9rem;
+  color:var(--ink); line-height:2.05; text-align:justify;
+}
+.scripture .vn {
+  font-size:0.66rem; color:var(--gold); font-weight:700;
+  vertical-align:0.3em; margin:0 3px 0 5px;
+}
+
+/* ── FOOTER ── */
+.page-footer {
+  background: var(--deep);
+  text-align: center;
+  padding: 1.8rem 1rem;
+  margin-top: 2.5rem;
+}
+.page-footer p { font-size: 0.78rem; color: rgba(255,255,255,0.35); letter-spacing: 1px; }
+.page-footer strong { color: var(--gold); font-weight: 400; }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════ HERO ═══════════════ -->
+<header class="hero">
+  <div class="hero-tag">愛的叮嚀 · 2026.07.05</div>
+  <h1>三根支柱<br>——與<em>一念之間</em></h1>
+  <p class="hero-sub">孔子·道德 × 摩西·信仰 × 索倫·法律 × 民主與共和 × 一念天堂地獄</p>
+  <div class="hero-verse">
+    真正穩定的文明，不能只依賴赤裸的權力——<br>
+    它必須同時擁有道德的約束、<br>
+    信仰的敬畏，以及法律的秩序。<br>
+    <span style="color:rgba(255,255,255,0.4);font-size:0.78rem">— 文明的黃金三角</span>
+  </div>
+</header>
+
+<main class="container">
+
+  <!-- ═══════════════ ① 核心主題 ═══════════════ -->
+  <section class="section">
+    <div class="sec-title">
+      <div class="icon">🏛</div>
+      <div>
+        <h2>今日核心主題</h2>
+        <div class="subtitle">純心提出的「三個綱要」・自我檢討的三大綱</div>
+      </div>
+    </div>
+    <div class="pillars">
+      <div class="pillar p1">
+        <div class="pillar-num">一</div>
+        <div class="pillar-icon">🏛</div>
+        <h3>三根支柱</h3>
+        <p>美國最高法院門楣上的孔子、摩西、索倫——道德、信仰、法律，是人類文明運作的黃金三角，缺一不可。</p>
+      </div>
+      <div class="pillar p2">
+        <div class="pillar-num">二</div>
+        <div class="pillar-icon">📜</div>
+        <h3>民主與共和</h3>
+        <p>憲法裡「民主」出現零次，保障的是「共和形式的政府」。「一個共和國，如果你們能守得住的話。」核心是法律之上。</p>
+      </div>
+      <div class="pillar p3">
+        <div class="pillar-num">三</div>
+        <div class="pillar-icon">⚠</div>
+        <h3>我們的光景</h3>
+        <p>得了最好的真理，卻沒有內化成生命；聽了美德卻不去行，反而拿真理去打人、論斷人、自己做王，很野蠻。</p>
+      </div>
+      <div class="pillar p4">
+        <div class="pillar-num">四</div>
+        <div class="pillar-icon">🕊</div>
+        <h3>一念之間</h3>
+        <p>回歸這三根支柱，絕對可以蒙主喜悅。一念之間、一線之隔，天堂與地獄，就看各人的預定。</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"><span>心智圖</span></div>
+
+  <!-- ═══════════════ ② 主題心智圖 ═══════════════ -->
+  <section class="section" style="padding-top:0">
+    <div class="sec-title">
+      <div class="icon">🧠</div>
+      <div>
+        <h2>主題心智圖</h2>
+        <div class="subtitle">全篇結構一覽</div>
+      </div>
+    </div>
+    <div class="mindmap-wrap">
+      <svg viewBox="0 0 900 500" xmlns="http://www.w3.org/2000/svg" role="img">
+        <title>三根支柱 心智圖</title>
+        <defs>
+          <marker id="marr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+            <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </marker>
+        </defs>
+        <rect width="900" height="500" fill="#FDFAF3"/>
+
+        <!-- 中心 -->
+        <rect x="335" y="210" width="230" height="68" rx="12" fill="#1A1208" stroke="#C9A84C" stroke-width="1.5"/>
+        <text x="450" y="238" text-anchor="middle" font-family="Noto Serif TC,serif" font-size="13" fill="#E8D08A" font-weight="700">文明的三根支柱</text>
+        <text x="450" y="260" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="10.5" fill="rgba(255,255,255,0.5)">愛的叮嚀 · 2026.07.05</text>
+
+        <!-- 左上：孔子・道德（金） -->
+        <path d="M380 210 Q300 165 234 122" fill="none" stroke="#C9A84C" stroke-width="1.2" marker-end="url(#marr)"/>
+        <rect x="60" y="66" width="170" height="78" rx="8" fill="#FAF3DC" stroke="#C9A84C" stroke-width="0.8"/>
+        <text x="145" y="92" text-anchor="middle" font-family="Noto Serif TC,serif" font-size="11.5" fill="#7A620A" font-weight="700">孔子・道德與教化</text>
+        <text x="145" y="110" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#9A7E3A">修身・道德自覺</text>
+        <text x="145" y="127" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#9A7E3A">內心的剎車</text>
+
+        <!-- 右上：摩西・信仰（青） -->
+        <path d="M520 210 Q600 165 666 122" fill="none" stroke="#2E7D72" stroke-width="1.2" marker-end="url(#marr)"/>
+        <rect x="670" y="66" width="170" height="78" rx="8" fill="#E0F2EF" stroke="#2E7D72" stroke-width="0.8"/>
+        <text x="755" y="92" text-anchor="middle" font-family="Noto Serif TC,serif" font-size="11.5" fill="#185049" font-weight="700">摩西・信仰與戒律</text>
+        <text x="755" y="110" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#2F7568">高於人性的約束</text>
+        <text x="755" y="127" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#2F7568">對神的敬畏</text>
+
+        <!-- 左中：索倫・法律（紅） -->
+        <path d="M335 244 Q272 250 209 252" fill="none" stroke="#8B2130" stroke-width="1.2" marker-end="url(#marr)"/>
+        <rect x="35" y="215" width="170" height="78" rx="8" fill="#FAEAED" stroke="#8B2130" stroke-width="0.8"/>
+        <text x="120" y="241" text-anchor="middle" font-family="Noto Serif TC,serif" font-size="11.5" fill="#6B1621" font-weight="700">索倫・法律與制度</text>
+        <text x="120" y="259" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#A04A57">規則寫在木板上</text>
+        <text x="120" y="276" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#A04A57">法律面前人人平等</text>
+
+        <!-- 右中：民主 vs 共和（藍） -->
+        <path d="M565 244 Q628 250 691 252" fill="none" stroke="#2E6DA4" stroke-width="1.2" marker-end="url(#marr)"/>
+        <rect x="695" y="215" width="170" height="78" rx="8" fill="#E8F1FA" stroke="#1E3A5F" stroke-width="0.8"/>
+        <text x="780" y="241" text-anchor="middle" font-family="Noto Serif TC,serif" font-size="11.5" fill="#0C2A4A" font-weight="700">民主 vs 共和</text>
+        <text x="780" y="259" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#46729E">法律之上</text>
+        <text x="780" y="276" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#46729E">如果你們能守得住</text>
+
+        <!-- 左下：我們的光景（紅） -->
+        <path d="M390 278 Q330 330 272 380" fill="none" stroke="#8B2130" stroke-width="1.2" marker-end="url(#marr)"/>
+        <rect x="115" y="384" width="170" height="78" rx="8" fill="#FAEAED" stroke="#8B2130" stroke-width="0.8"/>
+        <text x="200" y="410" text-anchor="middle" font-family="Noto Serif TC,serif" font-size="11.5" fill="#6B1621" font-weight="700">我們的光景</text>
+        <text x="200" y="428" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#A04A57">拿真理打人・自己做王</text>
+        <text x="200" y="445" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#A04A57">聽了美德卻不去行</text>
+
+        <!-- 右下：一念之間（金） -->
+        <path d="M510 278 Q570 330 628 380" fill="none" stroke="#C9A84C" stroke-width="1.2" marker-end="url(#marr)"/>
+        <rect x="615" y="384" width="170" height="78" rx="8" fill="#FAF3DC" stroke="#C9A84C" stroke-width="0.8"/>
+        <text x="700" y="410" text-anchor="middle" font-family="Noto Serif TC,serif" font-size="11.5" fill="#7A620A" font-weight="700">一念之間</text>
+        <text x="700" y="428" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#9A7E3A">回歸三柱・蒙主喜悅</text>
+        <text x="700" y="445" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#9A7E3A">一線之隔・天堂地獄</text>
+      </svg>
+    </div>
+  </section>
+
+  <div class="divider"><span>三根支柱</span></div>
+
+  <!-- ═══════════════ ③ 三根支柱 ═══════════════ -->
+  <section class="section" style="padding-top:0">
+    <div class="sec-title">
+      <div class="icon">🏛</div>
+      <div>
+        <h2>文明的黃金三角</h2>
+        <div class="subtitle">最高法院門楣上的三尊浮雕</div>
+      </div>
+    </div>
+    <div class="meaning-pillars">
+      <div class="mp-card mp1">
+        <div class="mp-head"><span class="mp-badge">左・孔子</span></div>
+        <h4>道德與教化</h4>
+        <p>光靠法律抓人罰款是治標不治本。真正的秩序靠修身與道德自覺——哪怕沒有警察看著，也知道什麼能做、什麼不能做。</p>
+        <div class="mp-example">內心的剎車，溫良恭儉讓，最溫和也最省成本。</div>
+      </div>
+      <div class="mp-card mp2">
+        <div class="mp-head"><span class="mp-badge">中・摩西</span></div>
+        <h4>信仰與戒律</h4>
+        <p>手持石板，是「高於人性的神聖約束」。不管你是國王還是總統，權力再大，也大不過石板上的天條。</p>
+        <div class="mp-example">當權力大到沒人管得住，誰來管他？頭頂的神明、內心的敬畏。</div>
+      </div>
+      <div class="mp-card mp3">
+        <div class="mp-head"><span class="mp-badge">右・索倫</span></div>
+        <h4>法律與制度</h4>
+        <p>把規則從神權與血緣特權中抽離，寫在木板上、立於廣場，人人看得見。無論豪門或平民，同一套規則。</p>
+        <div class="mp-example">現代法治精神最早的雛形之一。</div>
+      </div>
+    </div>
+
+    <div class="sec-title" style="margin-top:0.5rem">
+      <div class="icon" style="background:var(--ruby-light);color:#fff;">⚠</div>
+      <div>
+        <h2>缺一不可</h2>
+        <div class="subtitle">若三柱只剩其一，社會會變成什麼？</div>
+      </div>
+    </div>
+    <div class="insight-row">
+      <div class="insight-card">
+        <div class="insight-dot"></div>
+        <div>
+          <h4>只有法律</h4>
+          <p>沒有道德與敬畏，社會冷酷得只剩鑽漏洞；表面不違法，私下什麼缺德事都幹得出來。</p>
+        </div>
+      </div>
+      <div class="insight-card">
+        <div class="insight-dot"></div>
+        <div>
+          <h4>只有信仰</h4>
+          <p>沒有理性制度與包容，走向宗教狂熱，變成可怕的神權統治與宗教裁判所。</p>
+        </div>
+      </div>
+      <div class="insight-card">
+        <div class="insight-dot"></div>
+        <div>
+          <h4>只有道德</h4>
+          <p>沒有法律與敬畏，流於表面文章——滿嘴仁義道德，背地男盜女娼的偽君子。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"><span>民主 vs 共和</span></div>
+
+  <!-- ═══════════════ ④ 民主 vs 共和 ═══════════════ -->
+  <section class="section" style="padding-top:0">
+    <div class="sec-title">
+      <div class="icon">📜</div>
+      <div>
+        <h2>民主，還是共和？</h2>
+        <div class="subtitle">憲法裡「民主」出現零次</div>
+      </div>
+    </div>
+    <div class="two-path">
+      <div class="path-side path-a">
+        <div class="path-label">純粹民主</div>
+        <div class="path-title">多數人說了算</div>
+        <ul class="path-list">
+          <li>兩人投票搶第三人的錢包，程序合法</li>
+          <li>實質是「合法搶劫」，是暴政</li>
+          <li>多數情緒脫離法律，滑向暴民政治</li>
+          <li>雅典曾以民主投票逼死蘇格拉底</li>
+        </ul>
+      </div>
+      <div class="path-side path-b">
+        <div class="path-label">憲政共和</div>
+        <div class="path-title">法律之上</div>
+        <ul class="path-list">
+          <li>不看人數多不多，看合不合法</li>
+          <li>憲法是擋住衝動的一道鐵門</li>
+          <li>哪怕 99%，也不能碰受保護的 1%</li>
+          <li>三權分立，給權力踩剎車</li>
+        </ul>
+      </div>
+    </div>
+    <div class="quote-block">
+      <p class="quote-text">
+        「你們給了我們什麼，是君主制還是共和制？」<br>
+        「一個<em>共和國</em>，女士——<em>如果你們能守得住的話。</em>」
+      </p>
+      <div class="quote-src">— 本傑明·弗蘭克林 · 走出費城制憲會議</div>
+    </div>
+    <div class="insight-row">
+      <div class="insight-card">
+        <div class="insight-dot"></div>
+        <div>
+          <h4>刻意的迴避</h4>
+          <p>華盛頓、傑弗遜、麥迪遜、漢密爾頓不寫「民主」，不是疏忽，而是熟讀歷史後極度的警惕。</p>
+        </div>
+      </div>
+      <div class="insight-card">
+        <div class="insight-dot"></div>
+        <div>
+          <h4>奧德修斯的桅杆</h4>
+          <p>憲法像把國家綁在桅杆上的繩子——承認多數人的必要，卻同時鎖住多數的衝動與掌權者的野心。</p>
+        </div>
+      </div>
+      <div class="insight-card">
+        <div class="insight-dot"></div>
+        <div>
+          <h4>共和第四條第四款</h4>
+          <p>美國憲法明文保障每一個州「共和形式的政府」；50 個州憲法，沒有一個用「民主」定義自己。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"><span>自我毀滅的周期</span></div>
+
+  <!-- ═══════════════ ⑤ 民主自我毀滅的周期 ═══════════════ -->
+  <section class="section" style="padding-top:0">
+    <div class="sec-title">
+      <div class="icon">🌀</div>
+      <div>
+        <h2>純粹民主的下坡路</h2>
+        <div class="subtitle">建國先賢最警惕的歷史循環</div>
+      </div>
+    </div>
+    <div class="mindmap-wrap">
+      <svg viewBox="0 0 860 140" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <marker id="ar2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+            <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </marker>
+        </defs>
+        <rect width="860" height="140" fill="#1A1208"/>
+        <!-- 起點 -->
+        <rect x="30" y="36" width="180" height="68" rx="10" fill="#8B2130"/>
+        <text x="120" y="64" text-anchor="middle" font-family="Noto Serif TC,serif" font-size="13" fill="#fff" font-weight="700">純粹民主</text>
+        <text x="120" y="84" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="10" fill="rgba(255,255,255,0.65)">多數人說了算</text>
+        <line x1="213" y1="70" x2="278" y2="70" stroke="#C9A84C" stroke-width="1" marker-end="url(#ar2)"/>
+        <!-- 中間 -->
+        <rect x="282" y="22" width="185" height="96" rx="12" fill="none" stroke="#C9A84C" stroke-width="1.5" stroke-dasharray="5,3"/>
+        <text x="374" y="52" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#C9A84C" letter-spacing="2">情緒脫離法律</text>
+        <text x="374" y="74" text-anchor="middle" font-family="Noto Serif TC,serif" font-size="14" fill="#E8D08A" font-weight="700">暴民政治</text>
+        <text x="374" y="96" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="rgba(255,255,255,0.5)">煽動・無政府混亂</text>
+        <line x1="470" y1="70" x2="536" y2="70" stroke="#C2445A" stroke-width="1" marker-end="url(#ar2)"/>
+        <!-- 終點 -->
+        <rect x="540" y="36" width="280" height="68" rx="10" fill="#6B1621"/>
+        <text x="680" y="60" text-anchor="middle" font-family="Noto Serif TC,serif" font-size="13" fill="#fff" font-weight="700">跪向強人・獨裁寡頭</text>
+        <text x="680" y="82" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="rgba(255,255,255,0.65)">耗盡自己，在瘋狂中謀殺自己</text>
+      </svg>
+    </div>
+    <div class="quote-block">
+      <p class="quote-text">
+        如果人人都是天使，就不需要任何政府。<br>
+        但我們是<em>用人來管理人</em>——所以必須先讓政府能管住人民，<br>
+        再<em>迫使政府管住它自己</em>。
+      </p>
+      <div class="quote-src">— 詹姆斯·麥迪遜 · 聯邦黨人文集 第 51 篇</div>
+    </div>
+  </section>
+
+  <div class="divider"><span>十誡・和合本</span></div>
+
+  <!-- ═══════════════ ⑥ 十誡（經文區） ═══════════════ -->
+  <section class="section" style="padding-top:0">
+    <div class="sec-title">
+      <div class="icon">📖</div>
+      <div>
+        <h2>摩西石板上的天條</h2>
+        <div class="subtitle">出埃及記 20 章・十誡・和合本</div>
+      </div>
+    </div>
+    <div class="scripture">
+      <div class="ref">出埃及記 20：3–17</div>
+      <p><span class="vn">3</span>除了我以外，你不可有別的神。<span class="vn">4</span>不可為自己雕刻偶像，也不可做甚麼形像彷彿上天、下地，和地底下、水中的百物。<span class="vn">5</span>不可跪拜那些像，也不可事奉它，因為我耶和華─你的 神是忌邪的 神。恨我的，我必追討他的罪，自父及子，直到三四代；<span class="vn">6</span>愛我、守我誡命的，我必向他們發慈愛，直到千代。<span class="vn">7</span>不可妄稱耶和華─你 神的名；因為妄稱耶和華名的，耶和華必不以他為無罪。<span class="vn">8</span>當記念安息日，守為聖日。<span class="vn">9</span>六日要勞碌做你一切的工，<span class="vn">10</span>但第七日是向耶和華─你 神當守的安息日。這一日你和你的兒女、僕婢、牲畜，並你城裡寄居的客旅，無論何工都不可做；<span class="vn">11</span>因為六日之內，耶和華造天、地、海，和其中的萬物，第七日便安息，所以耶和華賜福與安息日，定為聖日。<span class="vn">12</span>當孝敬父母，使你的日子在耶和華─你 神所賜你的地上得以長久。<span class="vn">13</span>不可殺人。<span class="vn">14</span>不可姦淫。<span class="vn">15</span>不可偷盜。<span class="vn">16</span>不可作假見證陷害人。<span class="vn">17</span>不可貪戀人的房屋；也不可貪戀人的妻子、僕婢、牛驢，並他一切所有的。</p>
+    </div>
+  </section>
+
+  <div class="divider"><span>師母的應用</span></div>
+
+  <!-- ═══════════════ ⑦ 師母的應用：我們的光景 ═══════════════ -->
+  <section class="section" style="padding-top:0">
+    <div class="sec-title">
+      <div class="icon" style="background:var(--ruby-light);color:#fff;">✦</div>
+      <div>
+        <h2>我們的光景</h2>
+        <div class="subtitle">得了最好的真理，為什麼表現那麼嚇人？</div>
+      </div>
+    </div>
+    <div class="insight-row">
+      <div class="insight-card">
+        <div class="insight-dot"></div>
+        <div>
+          <h4>不以真理為依據</h4>
+          <p>我們不把 神的話語、 神的真理當作依據，反而到處鑽動，充滿野心，甚至搶奪 神的榮耀。</p>
+        </div>
+      </div>
+      <div class="insight-card">
+        <div class="insight-dot"></div>
+        <div>
+          <h4>聽了卻不去行</h4>
+          <p>孔子那麼好的「溫良恭儉讓」我們也聽進去了，卻完全沒有著手去行，變得很野蠻、很原始。</p>
+        </div>
+      </div>
+      <div class="insight-card">
+        <div class="insight-dot"></div>
+        <div>
+          <h4>拿真理打人</h4>
+          <p>神之得了這麼大的恩典，卻拿著真理去打人、去砍人、去論斷人、審判人，自己做王。</p>
+        </div>
+      </div>
+    </div>
+    <div class="quote-block">
+      <p class="quote-text">
+        什麼叫野蠻人？<br>
+        就是<em>按著自己的本能、本性</em>，<br>
+        讓罪性無止盡地發揮。
+      </p>
+      <div class="quote-src">— 秀美師母 · 愛的叮嚀</div>
+    </div>
+  </section>
+
+  <div class="divider"><span>回歸三柱</span></div>
+
+  <!-- ═══════════════ ⑧ 回歸三柱・蒙主喜悅 ═══════════════ -->
+  <section class="section" style="padding-top:0">
+    <div class="sec-title">
+      <div class="icon" style="background:var(--teal);color:#fff;">🕊</div>
+      <div>
+        <h2>回歸三柱，就有盼望</h2>
+        <div class="subtitle">朝這三個目標走，行出來，結局就完全不同</div>
+      </div>
+    </div>
+    <div class="stages">
+      <div class="stage-item s1">
+        <div class="stage-top-bar"></div>
+        <div class="stage-no">道德</div>
+        <div class="stage-title">身體力行美德</div>
+        <div class="stage-body">把人類文明的美德好好身體力行，約束自己——這是孔子那一柱。</div>
+      </div>
+      <div class="stage-item s2">
+        <div class="stage-top-bar"></div>
+        <div class="stage-no">信仰</div>
+        <div class="stage-title">好好敬畏 神</div>
+        <div class="stage-body">好好敬畏 神、以主為大——這是摩西那一柱，內心的敬畏。</div>
+      </div>
+      <div class="stage-item s3">
+        <div class="stage-top-bar"></div>
+        <div class="stage-no">制度</div>
+        <div class="stage-title">以真理為法律依據</div>
+        <div class="stage-body">把 神所賜的真理當作不可動搖的法律依據——這是索倫那一柱。</div>
+      </div>
+    </div>
+    <div class="quote-block">
+      <p class="quote-text">
+        所謂<em>一念之間、一線之隔</em>，<br>
+        天堂與地獄，<br>
+        就看各人的預定。
+      </p>
+      <div class="quote-src">— 秀美師母 · 愛的叮嚀</div>
+    </div>
+  </section>
+
+  <div class="divider"><span>反思</span></div>
+
+  <!-- ═══════════════ 反思提問清單 ═══════════════ -->
+  <section class="section" style="padding-top:0">
+    <div class="sec-title">
+      <div class="icon">🪞</div>
+      <div>
+        <h2>反思</h2>
+        <div class="subtitle">七道問題 · 留給日後的思考</div>
+      </div>
+    </div>
+    <div class="reflection">
+      <h3>這一次先不回答——留給以後再讀的時候，安靜思想。</h3>
+      <ol>
+        <li><strong>Q1</strong>　道德、信仰、法律三根柱子缺一不可——誠實地看，我自己這三根柱子，哪一根最軟弱、最需要補強？</li>
+        <li><strong>Q2</strong>　師母說我們常「拿著真理去打人、去論斷人、審判人，自己做王」——最近有沒有一次，我把 神的真理拿來當武器，而不是先拿來要求自己？</li>
+        <li><strong>Q3</strong>　弗蘭克林說「一個共和國，如果你們能守得住的話」——在我的生命、家庭或事奉裡，有沒有一樣「 神給的好東西」，是我沒有守住、快要失去的？</li>
+        <li><strong>Q4</strong>　「純粹的多數」可以投票搶走第三個人的錢包——我有沒有用「大家都這樣」「多數人同意」來合理化一件其實不對的事？</li>
+        <li><strong>Q5</strong>　師母說我們「聽進了溫良恭讓，卻完全沒有著手去行」——有哪一項我明明知道是對的美德，卻始終停在「知道」，沒有「行出來」？</li>
+        <li><strong>Q6</strong>　什麼叫野蠻人？「按著自己的本能、本性，讓罪性無止盡地發揮」——這一週，我的哪一個本能反應，其實正是在放任罪性？</li>
+        <li><strong>Q7</strong>　「一念之間、一線之隔，天堂與地獄」——這一週我最可能面對的那個「一念之間」，我想預備自己怎麼選？</li>
+      </ol>
+    </div>
+  </section>
+
+  <div class="divider"><span>文章</span></div>
+
+  <!-- ═══════════════ 文章產出（重點紅字） ═══════════════ -->
+  <section class="section" style="padding-top:0">
+    <div class="sec-title">
+      <div class="icon">✒️</div>
+      <div>
+        <h2>本篇文章</h2>
+        <div class="subtitle">重點以紅字標示</div>
+      </div>
+    </div>
+    <div class="article-block">
+      <h3>三根支柱，與一念之間</h3>
+      <div class="art-meta">愛的叮嚀 · 2026.07.05</div>
+      <p>在華盛頓，美國最高法院大樓東面那塊三角形的門楣上，並列著三尊來自不同文明、不同時代、不同信仰的浮雕：左邊是長袍寬袖、神態沉靜的孔子，中間是手持石板、威嚴肅穆的摩西，右邊是代表雅典理性政治的立法者索倫。一個深受基督教文化影響的西方國家，為什麼把一位兩千多年前的中國聖人、一位帶領以色列出埃及的先知、一位雅典的政治家，一起供奉在自己最高司法權力的門楣之上？這不是裝飾，而是一則文明宣言——它們正對應著<strong>人類文明得以運作的三種核心力量</strong>。</p>
+      <p>孔子代表<strong>道德與教化</strong>。東方相信，真正的秩序不能只靠拿著法律去抓人罰款，那是治標不治本；你看不見的地方，壞人照樣作惡。真正的秩序要靠修身與道德自覺——哪怕周圍沒有警察看著，一個受過良好德性教育的人，也會因著內心的剎車，知道什麼能做、什麼不能做。可是光有道德自覺夠不夠？不夠。人性有陰暗面，遇到利益與權力的誘惑，道德往往像遇熱的冰一樣融化。</p>
+      <p>於是有了中間的摩西，代表<strong>信仰與戒律</strong>。他手持的石板不是幾個人開會商量出來的世俗條文，而是<strong>「高於人性的神聖約束」</strong>：不可殺人、不可姦淫、不可偷盜、不可作假見證陷害人——以 神的名義頒布。它的底層邏輯是：不管你是國王、貴族還是總統，在至高的 神面前，你的權力再大，也大不過石板上的天條。它回答了一個致命問題：當世俗的權力大到沒有人管得住的時候，誰來管他？答案是——<em>頭頂的神明，內心的敬畏</em>。</p>
+      <p>右邊的索倫，代表<strong>法律與制度</strong>。在他之前，秩序要麼靠拳頭、要麼靠血緣、要麼靠神權的隨意解釋；而索倫把「規則」從這些之中硬生生抽離出來，寫在木板上、立在廣場中央，讓每一個公民都看得見。不管你出身豪門還是默默無聞的平民，都得在同一套規則下走。這三尊浮雕放在一起，就是一幅<strong>缺一不可的黃金三角</strong>：只有法律而沒有道德與敬畏，社會就冷酷得只剩鑽漏洞；只有信仰而沒有理性與包容，就走向宗教的狂熱；只有道德而沒有法律與敬畏，就淪為滿嘴仁義、背地男盜女娼的偽君子。</p>
+      <div class="art-sep">✦ ✦ ✦</div>
+      <p>影片的下半段更扎心。我們天天聽美國政客把「民主」掛在嘴邊，可是翻開美國憲法、獨立宣言，「民主」這個詞出現的次數竟然是零；憲法保障的是<strong>「共和形式的政府」</strong>。八十一歲的弗蘭克林走出制憲會議，有人問他你們給了我們什麼，他說：「一個共和國，<strong>如果你們能守得住的話。</strong>」建國先賢刻意迴避「民主」，因為純粹的民主就是多數人說了算——三個人關在房間裡，兩個人投票搶走第三個人的錢包，程序上完全合乎民主，實質上卻是<strong>合法搶劫、是暴政</strong>。所以他們選擇了「法律之上」的共和：憲法像一道鐵門擋住所有人的衝動，哪怕 99% 的人，也不能碰那受憲法保護的 1%。麥迪遜說得透徹：<strong>「如果人人都是天使，就不需要任何政府。」</strong>正因為管理人的是人，才要給權力踩剎車。</p>
+      <p>師母把這三根支柱轉向我們自己。她說，我們不是石頭，連石頭有時都會被感動，何況是人？如果我們肯尋回、回歸這三根支柱，<em>絕對可以蒙主喜悅</em>。可是我們的光景很荒唐：我們不把 神的話語、 神的真理當作依據，反而到處鑽動；我們充滿野心，甚至搶奪 神的榮耀。我們不是沒讀過書，孔子那麼好的「溫良恭儉讓」我們也聽進去了，卻<strong>完全沒有著手去行</strong>——結果變得很野蠻、很原始，像沒受過教育的原始人。神之明明得了這麼大的恩典，表現卻那麼嚇人，因為我們<strong>拿著真理去打人、去砍人、去論斷人、審判人，自己做王</strong>。</p>
+      <div class="art-sep">✦ ✦ ✦</div>
+      <p>可是師母說，這絕對不是沒有盼望。什麼叫野蠻人？就是「按著自己的本能、本性，讓罪性無止盡地發揮」。而出路就在那三個目標裡：把人類文明的美德好好身體力行、約束自己（道德），好好敬畏 神、以主為大（信仰），好好把 神所賜的真理當作不可動搖的法律依據（制度）。只要真的行出來，兩種結局就完全不一樣了——所謂<strong>一念之間、一線之隔，天堂與地獄</strong>，就看各人的預定。</p>
+      <p>主啊，求祢幫助我們，不再拿真理當打人的棍子，而是先立起自己裡面那三根柱子：叫我們有道德的自覺、有敬畏祢的心、把祢的真理當作不可動搖的依據。在每一個一念之間，扶我們選擇<em>天堂那一邊</em>。阿們。</p>
+    </div>
+  </section>
+
+  <!-- ═══════════════ 收尾禱告 ═══════════════ -->
+  <section class="section" style="padding-top:0;padding-bottom:2rem;">
+    <div class="sec-title">
+      <div class="icon">🙏</div>
+      <div>
+        <h2>收尾的禱告</h2>
+        <div class="subtitle">先立起裡面那三根柱子</div>
+      </div>
+    </div>
+    <div class="quote-block">
+      <p class="quote-text">主啊，叫我們有<em>道德的自覺</em>、有<em>敬畏祢的心</em>，<br>把祢的真理當作不可動搖的依據；<br>在每一個一念之間，扶我們選擇天堂那一邊。阿們。</p>
+      <div class="quote-src">— 愛的叮嚀 · 2026.07.05</div>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="page-footer">
+  <p>愛的叮嚀 · <strong>三根支柱，與一念之間</strong></p>
+  <p style="margin-top:4px;">2026.07.05</p>
+</footer>
+
+</body>
+</html>

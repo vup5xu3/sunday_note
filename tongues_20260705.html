@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>說翻方言 — 富豪之家的責任·除去樑木·預備交帳</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --gold: #C9A84C;
+  --gold-light: #E8D08A;
+  --gold-pale: #FAF3DC;
+  --deep: #1A1208;
+  --ink: #2C2416;
+  --muted: #6B5D3E;
+  --soft: #F5EDD8;
+  --parchment: #FBF6EC;
+  --teal: #2E7D72;
+  --teal-light: #4AA89C;
+  --teal-pale: #E0F2EF;
+  --ruby: #8B2130;
+  --ruby-light: #C2445A;
+  --ruby-pale: #FAEAED;
+  --blue-deep: #1E3A5F;
+  --blue-mid: #2E6DA4;
+  --blue-pale: #E8F1FA;
+  --dove: #5B6F8A;
+  --dove-light: #8BA3C0;
+  --dove-pale: #EBF1F8;
+  --radius: 12px;
+  --radius-lg: 20px;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family: 'Noto Sans TC', sans-serif;
+  background: var(--parchment);
+  color: var(--ink);
+  line-height: 1.8;
+}
+
+/* ── HERO ── */
+.hero {
+  background: var(--deep);
+  padding: 3.5rem 2rem 3rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content:'';
+  position:absolute; inset:0;
+  background: radial-gradient(ellipse at 50% 0%, rgba(91,111,138,0.25) 0%, rgba(201,168,76,0.1) 60%, transparent 90%);
+  pointer-events:none;
+}
+.hero-tag {
+  display: inline-block;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  font-size: 11px;
+  letter-spacing: 4px;
+  padding: 4px 16px;
+  border-radius: 2px;
+  margin-bottom: 1.2rem;
+  text-transform: uppercase;
+}
+.hero h1 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  color: #fff;
+  font-weight: 700;
+  line-height: 1.4;
+  margin-bottom: 0.6rem;
+}
+.hero h1 em { color: var(--gold-light); font-style: normal; }
+.hero-sub {
+  color: rgba(255,255,255,0.55);
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  margin-bottom: 2rem;
+}
+.hero-verse {
+  display: inline-block;
+  border-left: 2px solid var(--gold);
+  padding: 0.5rem 1rem;
+  text-align: left;
+  color: var(--gold-light);
+  font-family: 'Noto Serif TC', serif;
+  font-size: 0.9rem;
+  line-height: 1.9;
+}
+
+/* ── LAYOUT ── */
+.container { max-width: 960px; margin: 0 auto; padding: 0 1.25rem; }
+.section { padding: 2.5rem 0 1.5rem; }
+
+/* ── SECTION TITLE ── */
+.sec-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 1.5rem;
+}
+.sec-title .icon {
+  width: 36px; height: 36px;
+  background: var(--gold);
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 17px; color: var(--deep); flex-shrink:0;
+}
+.sec-title h2 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 1.2rem;
+  color: var(--deep);
+  font-weight: 700;
+}
+.sec-title .subtitle { font-size: 0.78rem; color: var(--muted); margin-top:1px; }
+
+/* ── CORE PILLARS ── */
+.pillars {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.pillar {
+  background: #fff;
+  border: 0.5px solid rgba(0,0,0,0.1);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.pillar:hover { transform: translateY(-3px); box-shadow: 0 8px 28px rgba(0,0,0,0.08); }
+.pillar::before {
+  content:'';
+  position:absolute; top:0; left:0; right:0; height:3px;
+}
+.pillar.p1::before { background: linear-gradient(90deg, var(--dove), var(--dove-light)); }
+.pillar.p2::before { background: linear-gradient(90deg, var(--gold), var(--gold-light)); }
+.pillar.p3::before { background: linear-gradient(90deg, var(--ruby), var(--ruby-light)); }
+.pillar.p4::before { background: linear-gradient(90deg, var(--teal), var(--teal-light)); }
+.pillar-num {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 2.5rem; font-weight: 700; line-height: 1;
+  margin-bottom: 0.6rem; opacity: 0.12;
+  position: absolute; top: 1rem; right: 1.2rem;
+}
+.pillar.p1 .pillar-num { color: var(--dove); }
+.pillar.p2 .pillar-num { color: var(--gold); }
+.pillar.p3 .pillar-num { color: var(--ruby); }
+.pillar.p4 .pillar-num { color: var(--teal); }
+.pillar-icon { font-size: 1.6rem; margin-bottom: 0.5rem; }
+.pillar h3 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--deep);
+}
+.pillar p { font-size: 0.82rem; color: var(--muted); line-height: 1.7; }
+
+/* ── QUOTE BLOCK ── */
+.quote-block {
+  background: var(--deep);
+  border-radius: var(--radius-lg);
+  padding: 2rem 2rem 1.5rem;
+  margin-bottom: 1.5rem;
+  position: relative; overflow: hidden;
+}
+.quote-block::before {
+  content: '"';
+  position: absolute; top: -0.5rem; left: 1rem;
+  font-family: 'Noto Serif TC', serif;
+  font-size: 6rem; color: var(--gold); opacity: 0.15;
+  line-height: 1; pointer-events: none;
+}
+.quote-text {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 1.05rem; color: #fff; line-height: 1.9; margin-bottom: 0.8rem;
+}
+.quote-text em { color: var(--gold-light); font-style: normal; font-weight: 700; }
+.quote-src { font-size: 0.75rem; color: rgba(255,255,255,0.45); letter-spacing: 1px; }
+
+/* ── THREE STAGES ── */
+.stages {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 0;
+  background: #fff;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 0.5px solid rgba(0,0,0,0.09);
+  margin-bottom: 1.5rem;
+}
+@media(max-width:600px){ .stages{grid-template-columns:1fr;} }
+.stage-item {
+  padding: 1.4rem 1.2rem;
+  border-right: 0.5px solid rgba(0,0,0,0.07);
+  position: relative;
+}
+.stage-item:last-child { border-right: none; }
+.stage-no {
+  font-size: 0.7rem; letter-spacing: 2px; font-weight: 700;
+  margin-bottom: 0.4rem; text-transform: uppercase;
+}
+.stage-item.s1 .stage-no { color: var(--dove); }
+.stage-item.s2 .stage-no { color: var(--ruby); }
+.stage-item.s3 .stage-no { color: var(--teal); }
+.stage-title { font-family: 'Noto Serif TC', serif; font-size: 0.95rem; font-weight: 700; color: var(--deep); margin-bottom: 0.4rem; }
+.stage-body { font-size: 0.78rem; color: var(--muted); line-height: 1.65; }
+.stage-top-bar { height: 3px; background: var(--soft); position:absolute; top:0; left:0; right:0; }
+.stage-item.s1 .stage-top-bar { background: var(--dove); }
+.stage-item.s2 .stage-top-bar { background: var(--ruby); }
+.stage-item.s3 .stage-top-bar { background: var(--teal); }
+
+/* ── INSIGHT ROW ── */
+.insight-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.insight-card {
+  background: #fff;
+  border-radius: var(--radius);
+  border: 0.5px solid rgba(0,0,0,0.09);
+  padding: 1.2rem;
+  display: flex; gap: 12px; align-items: flex-start;
+}
+.insight-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%; margin-top: 0.4rem; flex-shrink: 0;
+}
+.ic-gold .insight-dot { background: var(--gold); }
+.ic-ruby .insight-dot { background: var(--ruby); }
+.ic-teal .insight-dot { background: var(--teal); }
+.ic-dove .insight-dot { background: var(--dove); }
+.insight-card h4 { font-size: 0.88rem; font-weight: 600; color: var(--deep); margin-bottom: 0.3rem; }
+.insight-card p { font-size: 0.78rem; color: var(--muted); line-height: 1.65; }
+
+/* ── CALL BOX ── */
+.call-box {
+  border-radius: var(--radius-lg);
+  padding: 1.8rem 1.8rem 1.5rem;
+  margin-bottom: 1.5rem;
+}
+.call-box.dove { background: var(--dove-pale); border-left: 3px solid var(--dove); }
+.call-box.gold { background: var(--gold-pale); border-left: 3px solid var(--gold); }
+.call-box.ruby { background: var(--ruby-pale); border-left: 3px solid var(--ruby); }
+.call-box.teal { background: var(--teal-pale); border-left: 3px solid var(--teal); }
+.call-box-label {
+  font-size: 0.7rem; letter-spacing: 2.5px; font-weight: 700;
+  text-transform: uppercase; margin-bottom: 0.6rem;
+}
+.call-box.dove .call-box-label { color: var(--dove); }
+.call-box.gold .call-box-label { color: #7A620A; }
+.call-box.ruby .call-box-label { color: var(--ruby); }
+.call-box.teal .call-box-label { color: var(--teal); }
+.call-box h3 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 1.05rem; font-weight: 700; color: var(--deep); margin-bottom: 0.7rem;
+}
+.call-box p, .call-box li { font-size: 0.85rem; color: var(--ink); line-height: 1.85; }
+.call-box ul { padding-left: 1.2rem; }
+.call-box ul li { margin-bottom: 0.25rem; }
+.call-box strong { color: var(--deep); }
+
+/* ── ACTION STEPS ── */
+.action-steps {
+  background: #fff;
+  border-radius: var(--radius-lg);
+  border: 0.5px solid rgba(0,0,0,0.09);
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+}
+.action-step {
+  display: flex; gap: 1rem; padding: 1.1rem 1.3rem;
+  border-bottom: 0.5px solid rgba(0,0,0,0.06);
+  align-items: flex-start;
+}
+.action-step:last-child { border-bottom: none; }
+.step-num {
+  width: 28px; height: 28px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.72rem; font-weight: 700; flex-shrink: 0; margin-top: 2px;
+}
+.action-step:nth-child(1) .step-num { background: var(--dove-pale); color: var(--dove); }
+.action-step:nth-child(2) .step-num { background: var(--ruby-pale); color: var(--ruby); }
+.action-step:nth-child(3) .step-num { background: var(--teal-pale); color: var(--teal); }
+.action-step:nth-child(4) .step-num { background: var(--gold-pale); color: #7A620A; }
+.step-content h4 { font-size: 0.9rem; font-weight: 600; color: var(--deep); margin-bottom: 0.2rem; }
+.step-content p { font-size: 0.78rem; color: var(--muted); line-height: 1.65; }
+
+/* ── MINDMAP ── */
+.mindmap-wrap {
+  background: #fff;
+  border-radius: var(--radius-lg);
+  border: 0.5px solid rgba(0,0,0,0.09);
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+}
+.mindmap-wrap svg { display:block; width:100%; }
+
+/* ── DIVIDER ── */
+.divider {
+  display: flex; align-items: center; gap: 12px;
+  margin: 0.5rem 0 1.5rem; opacity: 0.35;
+}
+.divider::before, .divider::after {
+  content:''; flex:1; height: 0.5px; background: var(--muted);
+}
+.divider span { font-size: 10px; letter-spacing: 3px; color: var(--muted); text-transform: uppercase; }
+
+/* ── TWO PATH BOX ── */
+.two-path {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 0; background: #fff;
+  border-radius: var(--radius-lg);
+  border: 0.5px solid rgba(0,0,0,0.09);
+  overflow: hidden; margin-bottom: 1.5rem;
+}
+@media(max-width:500px){ .two-path{grid-template-columns:1fr;} }
+.path-side { padding: 1.5rem 1.3rem; }
+.path-side:first-child { border-right: 0.5px solid rgba(0,0,0,0.07); }
+.path-label {
+  font-size: 0.68rem; letter-spacing: 2.5px; font-weight: 700;
+  text-transform: uppercase; margin-bottom: 0.6rem;
+}
+.path-a .path-label { color: var(--ruby); }
+.path-b .path-label { color: var(--teal); }
+.path-title {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 1.05rem; font-weight: 700; color: var(--deep); margin-bottom: 0.6rem;
+}
+.path-list { list-style: none; padding: 0; }
+.path-list li {
+  font-size: 0.8rem; color: var(--muted);
+  line-height: 1.65; padding: 3px 0 3px 14px; position: relative;
+}
+.path-list li::before {
+  content:'·'; position:absolute; left:2px; font-size: 1rem; line-height: 1.3;
+}
+.path-a .path-list li::before { color: var(--ruby); }
+.path-b .path-list li::before { color: var(--teal); }
+
+/* ── FOOTER ── */
+.page-footer {
+  background: var(--deep); text-align: center;
+  padding: 1.8rem 1rem; margin-top: 2.5rem;
+}
+.page-footer p { font-size: 0.78rem; color: rgba(255,255,255,0.35); letter-spacing: 1px; }
+.page-footer strong { color: var(--gold); font-weight: 400; }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-tag">說翻方言 · 2026.07.05</div>
+  <h1>富豪之家的責任·<em>除去樑木</em><br>——預備向主交帳</h1>
+  <p class="hero-sub">屬靈的富豪之家 × 管理的責任 × 交帳的預備</p>
+  <div class="hero-verse">
+    若在今日我取走你的性命，<br>
+    你能拿什麼來獻上給我？<br>
+    你在這世上所追求的，究竟是什麼？<br>
+    <span style="color:rgba(255,255,255,0.4);font-size:0.78rem">— 父神的話語 · 2026.07.05</span>
+  </div>
+</header>
+
+<main class="container">
+
+  <!-- ① 核心主題 -->
+  <section class="section">
+    <div class="sec-title">
+      <div class="icon">🕊️</div>
+      <div>
+        <h2>今日核心信息</h2>
+        <div class="subtitle">四大信息主軸</div>
+      </div>
+    </div>
+    <div class="pillars">
+      <div class="pillar p1">
+        <div class="pillar-num">一</div>
+        <div class="pillar-icon">👑</div>
+        <h3>生於富豪之家</h3>
+        <p>我們生長在屬靈的富豪之家，本該有王子公主的樣式。不花代價白白得著真理、恩賜與服事的機會，是何等難得。</p>
+      </div>
+      <div class="pillar p2">
+        <div class="pillar-num">二</div>
+        <div class="pillar-icon">🪵</div>
+        <h3>次序顛倒了</h3>
+        <p>不少人卻弄錯了先後的順序：把六子登科排在前面，把神放在後面；只看見別人眼中的刺，忽略了自己眼中的樑木。</p>
+      </div>
+      <div class="pillar p3">
+        <div class="pillar-num">三</div>
+        <div class="pillar-icon">🌿</div>
+        <h3>管理的責任</h3>
+        <p>亞當夏娃沒有管理好伊甸園,因此被趕出園子；基督的救贖，重新賜下我們學習管理的機會——管理自己、管理家、管理神的家。</p>
+      </div>
+      <div class="pillar p4">
+        <div class="pillar-num">四</div>
+        <div class="pillar-icon">📒</div>
+        <h3>預備向主交帳</h3>
+        <p>主再來的時候，要照各人所行來報應各人。今日若取走你的性命，你能拿什麼獻上？當常常省思、行出真理。</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"><span>心智圖</span></div>
+
+  <!-- ② 心智圖 -->
+  <section class="section" style="padding-top:0">
+    <div class="sec-title">
+      <div class="icon">🧠</div>
+      <div>
+        <h2>主題心智圖</h2>
+        <div class="subtitle">全篇結構一覽</div>
+      </div>
+    </div>
+    <div class="mindmap-wrap">
+      <svg viewBox="0 0 900 480" xmlns="http://www.w3.org/2000/svg" role="img">
+        <title>說翻方言心智圖 2026.07.05</title>
+        <defs>
+          <marker id="marr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+            <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </marker>
+        </defs>
+        <rect width="900" height="480" fill="#FDFAF3"/>
+
+        <!-- 中心 -->
+        <rect x="320" y="195" width="260" height="70" rx="12" fill="#1A1208" stroke="#C9A84C" stroke-width="1.5"/>
+        <text x="450" y="223" text-anchor="middle" font-family="Noto Serif TC,serif" font-size="13.5" fill="#E8D08A" font-weight="700">富豪之家 · 除去樑木</text>
+        <text x="450" y="247" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="10.5" fill="rgba(255,255,255,0.5)">預備向主交帳</text>
+
+        <!-- 左上：富豪之家 -->
+        <path d="M363 207 Q275 155 190 120" fill="none" stroke="#5B6F8A" stroke-width="1.2" marker-end="url(#marr)"/>
+        <rect x="45" y="78" width="160" height="72" rx="8" fill="#EBF1F8" stroke="#5B6F8A" stroke-width="0.8"/>
+        <text x="125" y="103" text-anchor="middle" font-family="Noto Serif TC,serif" font-size="11.5" fill="#1E3A5F" font-weight="700">富豪之家</text>
+        <text x="125" y="120" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#5B6F8A">白白得著的恩典</text>
+        <text x="125" y="137" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#5B6F8A">王子公主的樣式</text>
+
+        <!-- 右上：次序顛倒 -->
+        <path d="M537 207 Q625 155 710 120" fill="none" stroke="#8B2130" stroke-width="1.2" marker-end="url(#marr)"/>
+        <rect x="695" y="78" width="175" height="72" rx="8" fill="#FAEAED" stroke="#8B2130" stroke-width="0.8"/>
+        <text x="782" y="103" text-anchor="middle" font-family="Noto Serif TC,serif" font-size="11.5" fill="#6B1621" font-weight="700">次序顛倒</text>
+        <text x="782" y="120" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#8B2130">六子登科在前</text>
+        <text x="782" y="137" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#8B2130">只見刺不見樑木</text>
+
+        <!-- 左：伊甸園的鑑戒 -->
+        <path d="M330 230 Q215 230 170 230" fill="none" stroke="#C9A84C" stroke-width="1.2" marker-end="url(#marr)"/>
+        <rect x="20" y="195" width="148" height="72" rx="8" fill="#FAF3DC" stroke="#C9A84C" stroke-width="0.8"/>
+        <text x="94" y="221" text-anchor="middle" font-family="Noto Serif TC,serif" font-size="11.5" fill="#7A620A" font-weight="700">伊甸園的鑑戒</text>
+        <text x="94" y="238" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#9A7E3A">管理失職被逐</text>
+        <text x="94" y="255" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#9A7E3A">萬物遭受咒詛</text>
+
+        <!-- 右：基督的救贖 -->
+        <path d="M570 230 Q685 230 730 230" fill="none" stroke="#2E7D72" stroke-width="1.2" marker-end="url(#marr)"/>
+        <rect x="730" y="195" width="152" height="72" rx="8" fill="#E0F2EF" stroke="#2E7D72" stroke-width="0.8"/>
+        <text x="806" y="221" text-anchor="middle" font-family="Noto Serif TC,serif" font-size="11.5" fill="#185049" font-weight="700">基督的救贖</text>
+        <text x="806" y="238" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#2E7D72">一肩擔下世人的罪</text>
+        <text x="806" y="255" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#2E7D72">恢復管理的機會</text>
+
+        <!-- 左下：效法牧師 -->
+        <path d="M384 262 Q295 325 215 370" fill="none" stroke="#8B2130" stroke-width="1.2" marker-end="url(#marr)"/>
+        <rect x="45" y="340" width="178" height="88" rx="8" fill="#FAEAED" stroke="#8B2130" stroke-width="0.8"/>
+        <text x="134" y="365" text-anchor="middle" font-family="Noto Serif TC,serif" font-size="11.5" fill="#6B1621" font-weight="700">效法牧師</text>
+        <text x="134" y="383" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#8B2130">切切尋求神旨意</text>
+        <text x="134" y="399" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#8B2130">存基督耶穌的心</text>
+        <text x="134" y="415" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#8B2130">結出聖靈的果子</text>
+
+        <!-- 右下：預備交帳 -->
+        <path d="M516 262 Q605 325 680 370" fill="none" stroke="#C9A84C" stroke-width="1.2" marker-end="url(#marr)"/>
+        <rect x="666" y="340" width="178" height="88" rx="8" fill="#FAF3DC" stroke="#C9A84C" stroke-width="0.8"/>
+        <text x="755" y="365" text-anchor="middle" font-family="Noto Serif TC,serif" font-size="11.5" fill="#7A620A" font-weight="700">預備交帳</text>
+        <text x="755" y="383" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#9A7E3A">照各人所行報應</text>
+        <text x="755" y="399" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#9A7E3A">日夜思想真理</text>
+        <text x="755" y="415" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#9A7E3A">憑果子被認出</text>
+
+        <!-- 中下：盡心愛主愛人 -->
+        <path d="M450 265 L450 330" fill="none" stroke="#6B5D3E" stroke-width="1.2" stroke-dasharray="4,3" marker-end="url(#marr)"/>
+        <rect x="365" y="330" width="170" height="52" rx="8" fill="#F5EDD8" stroke="#6B5D3E" stroke-width="0.8"/>
+        <text x="450" y="352" text-anchor="middle" font-family="Noto Serif TC,serif" font-size="11.5" fill="#2C2416" font-weight="700">盡心愛主愛人</text>
+        <text x="450" y="369" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#6B5D3E">律法和先知的總綱</text>
+      </svg>
+    </div>
+  </section>
+
+  <div class="divider"><span>富豪之家</span></div>
+
+  <!-- ③ 生於富豪之家 -->
+  <section class="section" style="padding-top:0">
+    <div class="sec-title">
+      <div class="icon" style="background:var(--dove);color:#fff;">👑</div>
+      <div>
+        <h2>生長在屬靈的富豪之家</h2>
+        <div class="subtitle">白白得來的恩典，本該付上管理的責任</div>
+      </div>
+    </div>
+
+    <div class="quote-block">
+      <p class="quote-text">你們是生長在屬靈的<em>富豪之家</em>當中，<br>本該有那王子公主應有的樣式，<br>用你們所白白得到的一切，讓其他兒女也能同得這豐盛的生命。</p>
+      <p class="quote-src">— 父神的話語 · 2026.07.05</p>
+    </div>
+
+    <div class="call-box dove">
+      <div class="call-box-label">何等難得</div>
+      <h3>含著金湯匙出生的屬靈身份</h3>
+      <p>透過屬靈的父親、教師與師母不斷有耐心的教導，我們明白許多重要的真理，還被賜下各樣令人羨慕的恩賜與服事機會——<strong>這是其他教會難得擁有的，我們在屬靈上就像一出生就含著金湯匙。</strong>有這樣好的條件、領受這樣好的賞賜，就當付起應有的管理職責：管理好自己、管理好自己的家，進而能夠管理神的家。</p>
+    </div>
+  </section>
+
+  <div class="divider"><span>次序顛倒了</span></div>
+
+  <!-- ④ 次序顛倒了 -->
+  <section class="section" style="padding-top:0">
+    <div class="sec-title">
+      <div class="icon" style="background:var(--ruby);color:#fff;">🪵</div>
+      <div>
+        <h2>只看見別人眼中的刺</h2>
+        <div class="subtitle">卻忽略了自己眼中的樑木</div>
+      </div>
+    </div>
+
+    <div class="two-path">
+      <div class="path-side path-a">
+        <div class="path-label">弄錯的次序</div>
+        <div class="path-title">把自己排在最前</div>
+        <ul class="path-list">
+          <li>把個人的六子登科排在前面</li>
+          <li>把弟兄姊妹、把神放在後面</li>
+          <li>常拿真理，只看別人眼中的刺</li>
+          <li>忽略了自己眼中的樑木</li>
+          <li>自覺高人一等，心中滿是惡念</li>
+        </ul>
+      </div>
+      <div class="path-side path-b">
+        <div class="path-label">正確的次序</div>
+        <div class="path-title">先管理好自己</div>
+        <ul class="path-list">
+          <li>先除去自己眼中的樑木</li>
+          <li>管理好自己、管理好自己的家</li>
+          <li>進而承擔管理神家的責任</li>
+          <li>盡心盡性盡意盡力愛神、愛人</li>
+          <li>常常靠聖靈結出聖靈的果子</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="call-box ruby">
+      <div class="call-box-label">值得省思</div>
+      <h3>因社會地位、管理職責就自高</h3>
+      <p>不少人以為自己因具有社會地位、有管理的責任，就自覺高人一等——<strong>卻不知道自己心中所想的，乃是在追求屬世的名利與掌聲。</strong>你以為先指責、管理好別人，就勝過一切了嗎？其實你心中所擁有的世俗慾望、渴望好名聲好地位的惡念，才是真正的問題。</p>
+    </div>
+  </section>
+
+  <div class="divider"><span>伊甸園的鑑戒</span></div>
+
+  <!-- ⑤ 伊甸園的鑑戒與基督的救贖 -->
+  <section class="section" style="padding-top:0">
+    <div class="sec-title">
+      <div class="icon" style="background:#7A620A;color:var(--gold-pale);">🌿</div>
+      <div>
+        <h2>從管理權的失落到恢復</h2>
+        <div class="subtitle">伊甸園的教訓 · 基督成就的救贖</div>
+      </div>
+    </div>
+
+    <div class="stages">
+      <div class="stage-item s1">
+        <div class="stage-top-bar"></div>
+        <div class="stage-no">起初的託付</div>
+        <div class="stage-title">受命管理萬物</div>
+        <p class="stage-body">神創造亞當夏娃之初，將他們安置在伊甸園裡，本要他們好好管理神所創造的萬物。這是神最初賜下的責任與尊榮。</p>
+      </div>
+      <div class="stage-item s2">
+        <div class="stage-top-bar"></div>
+        <div class="stage-no">失落的管理權</div>
+        <div class="stage-title">因罪被趕出園子</div>
+        <p class="stage-body">亞當夏娃沒有管理好，反而犯了罪，被趕出伊甸園，地上的萬物也因此遭受咒詛。這是最早發生、卻至今仍是我們的鑑戒。</p>
+      </div>
+      <div class="stage-item s3">
+        <div class="stage-top-bar"></div>
+        <div class="stage-no">恢復的機會</div>
+        <div class="stage-title">基督成就贖罪</div>
+        <p class="stage-body">神差遣愛子耶穌基督道成肉身，被送上十字架，流出寶血、犧牲生命，一肩擔下世人的罪，修復了神與人破裂的關係，讓我們重新學習管理的責任。</p>
+      </div>
+    </div>
+
+    <div class="call-box gold">
+      <div class="call-box-label">重新學習</div>
+      <h3>從此,人可以直接向神祈求</h3>
+      <p>主耶穌的付出，讓人與神之間破裂的關係得以修復，也讓我們有機會重新學習如何管理這地球、管理神所託付的一切。<strong>祂也將祂的僕人——牧師——作為榜樣放在我們面前，讓我們能夠好好學習。</strong></p>
+    </div>
+  </section>
+
+  <div class="divider"><span>效法牧師的榜樣</span></div>
+
+  <!-- ⑥ 效法牧師的心 -->
+  <section class="section" style="padding-top:0">
+    <div class="sec-title">
+      <div class="icon" style="background:var(--teal);color:#fff;">🌱</div>
+      <div>
+        <h2>效法牧師愛神愛人的心</h2>
+        <div class="subtitle">憑著所結的果子，就可知道好樹壞樹</div>
+      </div>
+    </div>
+
+    <div class="insight-row">
+      <div class="insight-card ic-dove">
+        <div class="insight-dot"></div>
+        <div>
+          <h4>切切尋求神的旨意</h4>
+          <p>屬靈的父親一切所思所想所行，都是為要討主的喜悅。他也常說，自己存的是主耶穌基督的心——這是我們當學習的榜樣。</p>
+        </div>
+      </div>
+      <div class="insight-card ic-ruby">
+        <div class="insight-dot"></div>
+        <div>
+          <h4>愛世界的心不能同存</h4>
+          <p>人若愛世界，愛父的心就不在他裡面。若喜愛世上的名利、掌聲、錢財，就無法得到神的祝福，也結不出好果子。</p>
+        </div>
+      </div>
+      <div class="insight-card ic-teal">
+        <div class="insight-dot"></div>
+        <div>
+          <h4>憑果子被認出</h4>
+          <p>看你們所結的果子，就可知道是好樹還是壞樹。你們是否靠著聖靈，常常結出聖靈的果子呢？</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"><span>預備交帳</span></div>
+
+  <!-- ⑦ 預備向主交帳 -->
+  <section class="section" style="padding-top:0">
+    <div class="sec-title">
+      <div class="icon" style="background:var(--blue-deep);color:#fff;">📒</div>
+      <div>
+        <h2>那日，你要站在神的面前交帳</h2>
+        <div class="subtitle">照著各人所行，神必公義地報應</div>
+      </div>
+    </div>
+
+    <div class="action-steps">
+      <div class="action-step">
+        <div class="step-num">01</div>
+        <div class="step-content">
+          <h4>常常在神面前，求聖靈光照</h4>
+          <p>時常來到神的面前，求聖靈光照自己，不忘記神在我們身上所託付的使命。</p>
+        </div>
+      </div>
+      <div class="action-step">
+        <div class="step-num">02</div>
+        <div class="step-content">
+          <h4>日夜思想：我在追求什麼</h4>
+          <p>日夜所思所想的究竟是什麼？是行出真理、愛弟兄姊妹，還是仍追逐屬世的名聲、地位與掌聲？</p>
+        </div>
+      </div>
+      <div class="action-step">
+        <div class="step-num">03</div>
+        <div class="step-content">
+          <h4>治死老我，捨己順服</h4>
+          <p>學習捨己、順服、下寶座，治死老我到流血的地步——這是我們屬靈上該學習、也早已知曉的功課。</p>
+        </div>
+      </div>
+      <div class="action-step">
+        <div class="step-num">04</div>
+        <div class="step-content">
+          <h4>行出真理，直到主再來</h4>
+          <p>盡心愛主你的神，並且愛人如己——這是律法和先知的總綱。知道真理之後，就要行出來,直等到主的再來。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="call-box ruby">
+      <div class="call-box-label">嚴肅的提問</div>
+      <h3>我們想必是兩手空空</h3>
+      <p>如果主現在就再來，我們今天能夠拿出什麼向神交帳呢？<strong>我們想必是兩手空空，恐怕就要落在黑暗中哀哭切齒了。</strong>神是慈愛的，但也是信實公義的神——要照各人的所言所行來報應各人。</p>
+    </div>
+  </section>
+
+  <div class="divider"><span>行動呼召</span></div>
+
+  <!-- ⑧ 今日回應 -->
+  <section class="section" style="padding-top:0;padding-bottom:2rem">
+    <div class="sec-title">
+      <div class="icon" style="background:var(--deep);color:var(--gold);">✦</div>
+      <div>
+        <h2>今日的回應</h2>
+        <div class="subtitle">從信息到行動</div>
+      </div>
+    </div>
+    <div class="call-box dove">
+      <div class="call-box-label">三個自我檢視</div>
+      <h3>我的回應是什麼？</h3>
+      <ul>
+        <li><strong>我付起管理的責任了嗎？</strong> 生在富豪之家，是否只享受恩典，卻沒有承擔起管理自己、管理神家的職責？</li>
+        <li><strong>我的次序對了嗎？</strong> 是否常看見別人眼中的刺，卻忽略了自己眼中的樑木？</li>
+        <li><strong>我預備好交帳了嗎？</strong> 若主今日就取走我的性命，我能拿什麼獻上給祂？</li>
+      </ul>
+    </div>
+
+    <div class="quote-block" style="margin-top:1.5rem">
+      <p class="quote-text">要盡心、盡性、盡意、盡力愛神，<br>並且<em>愛人如己</em>——<br>因為這也是一切律法和先知的總綱。</p>
+      <p class="quote-src">— 父神的話語 · 2026.07.05</p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="page-footer">
+  <p>說翻方言系列 · <strong>富豪之家的責任·除去樑木·預備向主交帳</strong></p>
+  <p style="margin-top:4px;">2026.07.05 · 神之子體系 · 預備主基督再來</p>
+</footer>
+
+</body>
+</html>

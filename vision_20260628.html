@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>異象與感動分享 · 2026.06.28</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --gold: #C9A84C;
+  --gold-light: #E8D08A;
+  --gold-pale: #FAF3DC;
+  --deep: #1A1208;
+  --ink: #2C2416;
+  --muted: #6B5D3E;
+  --soft: #F5EDD8;
+  --parchment: #FBF6EC;
+  --teal: #2E7D72;
+  --teal-light: #4AA89C;
+  --teal-pale: #E0F2EF;
+  --ruby: #8B2130;
+  --ruby-light: #C2445A;
+  --ruby-pale: #FAEAED;
+  --blue-deep: #1E3A5F;
+  --blue-mid: #2E6DA4;
+  --blue-pale: #E8F1FA;
+  --purple: #5B3A8A;
+  --purple-light: #8B6BBF;
+  --purple-pale: #F0EAF8;
+  --radius: 12px;
+  --radius-lg: 20px;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family: 'Noto Sans TC', sans-serif; background: var(--parchment); color: var(--ink); line-height: 1.8; }
+
+/* ── HERO ── */
+.hero { background: var(--deep); padding: 3.5rem 2rem 3rem; text-align: center; position: relative; overflow: hidden; }
+.hero::before { content:''; position:absolute; inset:0; background: radial-gradient(ellipse at 50% 0%, rgba(201,168,76,0.18) 0%, transparent 70%); pointer-events:none; }
+.hero-tag { display:inline-block; border:1px solid var(--gold); color:var(--gold); font-size:11px; letter-spacing:4px; padding:4px 16px; border-radius:2px; margin-bottom:1.2rem; text-transform:uppercase; }
+.hero h1 { font-family:'Noto Serif TC',serif; font-size:clamp(1.6rem,4vw,2.4rem); color:#fff; font-weight:700; line-height:1.4; margin-bottom:0.6rem; }
+.hero h1 em { color:var(--gold-light); font-style:normal; }
+.hero-sub { color:rgba(255,255,255,0.55); font-size:0.85rem; letter-spacing:1px; margin-bottom:2rem; }
+.hero-verse { display:inline-block; border-left:2px solid var(--gold); padding:0.5rem 1rem; text-align:left; color:var(--gold-light); font-family:'Noto Serif TC',serif; font-size:0.9rem; line-height:1.9; }
+
+/* ── LAYOUT ── */
+.container { max-width:880px; margin:0 auto; padding:0 1.25rem; }
+.section { padding:2.5rem 0 1.5rem; }
+
+/* ── SECTION TITLE ── */
+.sec-title { display:flex; align-items:center; gap:10px; margin-bottom:1.5rem; }
+.sec-title .icon { width:36px; height:36px; background:var(--gold); border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:17px; color:var(--deep); flex-shrink:0; }
+.sec-title h2 { font-family:'Noto Serif TC',serif; font-size:1.2rem; color:var(--deep); font-weight:700; }
+.sec-title .subtitle { font-size:0.78rem; color:var(--muted); margin-top:1px; }
+
+/* ── SUMMARY CARDS ── */
+.summary-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:1rem; margin-bottom:1.5rem; }
+.summary-card { background:#fff; border-radius:var(--radius-lg); border:0.5px solid rgba(0,0,0,0.09); padding:1.4rem; }
+.summary-card .s-icon { font-size:1.5rem; margin-bottom:0.5rem; }
+.summary-card h4 { font-family:'Noto Serif TC',serif; font-size:0.95rem; font-weight:700; color:var(--deep); margin-bottom:0.5rem; }
+.summary-card p { font-size:0.8rem; color:var(--muted); line-height:1.7; }
+
+/* 各卡頂色條，用 border-top 快速套用 */
+.summary-card.s-gold  { border-top:3px solid var(--gold); }
+.summary-card.s-teal  { border-top:3px solid var(--teal); }
+.summary-card.s-ruby  { border-top:3px solid var(--ruby); }
+.summary-card.s-blue  { border-top:3px solid var(--blue-mid); }
+.summary-card.s-purple{ border-top:3px solid var(--purple); }
+.summary-card.s-muted { border-top:3px solid var(--muted); }
+
+/* ── PROMISE BAR ── */
+.promise-bar { background:var(--deep); border-radius:var(--radius-lg); padding:1.5rem 1.8rem; margin-bottom:2rem; text-align:center; }
+.promise-bar .label { font-size:0.68rem; letter-spacing:3px; color:var(--gold); font-weight:700; margin-bottom:0.8rem; text-transform:uppercase; }
+.promise-bar p { font-family:'Noto Serif TC',serif; font-size:1.1rem; color:#fff; line-height:2; }
+
+/* ── FEATURED CARD（師母） ── */
+.featured-card { background:var(--deep); border-radius:var(--radius-lg); padding:2rem 2rem 1.8rem; margin-bottom:2rem; position:relative; overflow:hidden; }
+.featured-card::before { content:'✦'; position:absolute; top:1rem; right:1.5rem; font-size:5rem; color:var(--gold); opacity:0.08; line-height:1; pointer-events:none; }
+.featured-badge { display:inline-flex; align-items:center; gap:6px; background:var(--gold); color:var(--deep); font-size:0.7rem; font-weight:700; letter-spacing:2px; padding:4px 12px; border-radius:4px; margin-bottom:1.2rem; text-transform:uppercase; }
+
+/* 師母卡內的異象區塊 */
+.vision-block { background:rgba(255,255,255,0.06); border-radius:var(--radius); border-left:2px solid var(--gold); padding:1rem 1.2rem; margin-bottom:0.8rem; }
+.vision-block.v-teal { border-left-color:var(--teal-light); }
+.vision-block.v-ruby { border-left-color:#F4A0B0; }
+.vision-block-label { font-size:0.68rem; letter-spacing:2px; color:var(--gold); font-weight:700; text-transform:uppercase; margin-bottom:0.5rem; }
+.vision-block.v-teal .vision-block-label { color:var(--teal-light); }
+.vision-block.v-ruby .vision-block-label { color:#F4A0B0; }
+.vision-block p { font-size:0.88rem; color:rgba(255,255,255,0.82); line-height:1.85; }
+
+/* 神的話語引言 */
+.word-box { display:block; margin-top:1rem; background:rgba(201,168,76,0.12); border-radius:var(--radius); padding:0.9rem 1.1rem; border:1px solid rgba(201,168,76,0.25); margin-bottom:0.8rem; }
+.word-box .w-label { font-size:0.68rem; letter-spacing:2px; color:var(--gold); font-weight:700; text-transform:uppercase; margin-bottom:0.4rem; }
+.word-box p { font-family:'Noto Serif TC',serif; font-size:0.95rem; color:var(--gold-light); line-height:1.9; }
+.word-box.w-ruby { background:rgba(139,33,48,0.12); border-color:rgba(139,33,48,0.25); }
+.word-box.w-ruby .w-label { color:#F4A0B0; }
+.word-box.w-ruby p { color:#F4A0B0; }
+
+/* ── VISION CARDS（同工） ── */
+.vision-cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1rem; margin-bottom:1.5rem; }
+.vision-card { background:#fff; border:0.5px solid rgba(0,0,0,0.09); border-radius:var(--radius-lg); padding:1.5rem; position:relative; overflow:hidden; transition:transform 0.2s, box-shadow 0.2s; }
+.vision-card:hover { transform:translateY(-3px); box-shadow:0 8px 28px rgba(0,0,0,0.08); }
+.vision-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; }
+
+/* 色條 — 依需要新增 */
+.vc-gold::before   { background:linear-gradient(90deg,var(--gold),var(--gold-light)); }
+.vc-teal::before   { background:linear-gradient(90deg,var(--teal),var(--teal-light)); }
+.vc-ruby::before   { background:linear-gradient(90deg,var(--ruby),var(--ruby-light)); }
+.vc-blue::before   { background:linear-gradient(90deg,var(--blue-deep),var(--blue-mid)); }
+.vc-purple::before { background:linear-gradient(90deg,var(--purple),var(--purple-light)); }
+
+/* 地區標籤 */
+.card-region { font-size:0.68rem; font-weight:700; letter-spacing:2px; text-transform:uppercase; padding:3px 9px; border-radius:4px; display:inline-block; margin-bottom:0.8rem; }
+.vc-gold   .card-region { background:var(--gold-pale);   color:#7A620A; }
+.vc-teal   .card-region { background:var(--teal-pale);   color:var(--teal); }
+.vc-ruby   .card-region { background:var(--ruby-pale);   color:var(--ruby); }
+.vc-blue   .card-region { background:var(--blue-pale);   color:var(--blue-deep); }
+.vc-purple .card-region { background:var(--purple-pale); color:var(--purple); }
+
+/* 卡內異象項目 */
+.card-item { margin-bottom:0.9rem; padding-bottom:0.9rem; border-bottom:1px solid rgba(0,0,0,0.06); }
+.card-item:last-of-type { margin-bottom:0; padding-bottom:0; border-bottom:none; }
+.card-item-num { font-size:0.68rem; font-weight:700; letter-spacing:1px; margin-bottom:0.3rem; }
+.vc-gold   .card-item-num { color:var(--gold); }
+.vc-teal   .card-item-num { color:var(--teal); }
+.vc-ruby   .card-item-num { color:var(--ruby); }
+.vc-blue   .card-item-num { color:var(--blue-mid); }
+.vc-purple .card-item-num { color:var(--purple); }
+.card-item p { font-size:0.83rem; color:var(--muted); line-height:1.78; }
+
+/* 卡內話語引言 */
+.card-word { margin-top:0.8rem; padding:0.7rem 0.9rem; border-radius:8px; font-size:0.82rem; font-family:'Noto Serif TC',serif; line-height:1.75; }
+.vc-gold   .card-word { background:var(--gold-pale);   color:#7A620A;        border-left:2px solid var(--gold); }
+.vc-teal   .card-word { background:var(--teal-pale);   color:#185049;        border-left:2px solid var(--teal); }
+.vc-ruby   .card-word { background:var(--ruby-pale);   color:var(--ruby);    border-left:2px solid var(--ruby); }
+.vc-blue   .card-word { background:var(--blue-pale);   color:var(--blue-deep); border-left:2px solid var(--blue-mid); }
+.vc-purple .card-word { background:var(--purple-pale); color:var(--purple);  border-left:2px solid var(--purple); }
+
+/* ── FOOTER ── */
+.page-footer { background:var(--deep); padding:2rem; text-align:center; color:rgba(255,255,255,0.4); font-size:0.78rem; line-height:1.9; }
+</style>
+</head>
+<body>
+
+<!-- ════════════════════════════════════
+     HERO
+════════════════════════════════════ -->
+<div class="hero">
+  <div class="hero-tag">異象與感動</div>
+  <h1>聖靈的<em>異象與感動</em>分享</h1>
+  <div class="hero-sub">2026年6月28日 · 各地教區同工與師母分享</div>
+  <div class="hero-verse">
+    「屬靈的末班車已經啟動了，<br>要跟上、要跟上。」
+  </div>
+</div>
+
+<main class="container">
+
+  <!-- ════════════════════════════════════
+       1. 總結重點摘要
+  ════════════════════════════════════ -->
+  <section class="section">
+    <div class="sec-title">
+      <div class="icon">📋</div>
+      <div>
+        <h2>本次異象感動總結</h2>
+        <div class="subtitle">核心信息摘要</div>
+      </div>
+    </div>
+
+    <div class="summary-grid">
+
+      <div class="summary-card s-gold">
+        <div class="s-icon">🛡</div>
+        <h4>屬靈爭戰儆醒</h4>
+        <p>仇敵從空中丟火球、手握擄掠名單設下網羅；神的軍隊以信心的盾牌抵擋，卻有人拿著盾牌睡著了。</p>
+      </div>
+
+      <div class="summary-card s-teal">
+        <div class="s-icon">💛</div>
+        <h4>彼此相愛的喜悅</h4>
+        <p>聖殿彩光交錯更顯聖潔；主說：每當看見你們彼此相愛、相互扶持，祂的內心就有無比的喜悅。</p>
+      </div>
+
+      <div class="summary-card s-blue">
+        <div class="s-icon">🐿</div>
+        <h4>各盡己責</h4>
+        <p>兩隻竹鼠只吃睡、供觀賞；各人要做好自己的責任、不推給他人，願意服侍的人才站立得穩。</p>
+      </div>
+
+      <div class="summary-card s-purple">
+        <div class="s-icon">❤️</div>
+        <h4>看重你們的心</h4>
+        <p>牧師帶領、真實同工；主看重你們一切的服侍，更看重你們是否有一顆忠心。</p>
+      </div>
+
+      <div class="summary-card s-muted">
+        <div class="s-icon">🚂</div>
+        <h4>屬靈的末班車</h4>
+        <p>火車停在最後一節車廂；屬靈的末班車已啟動，要跟上。傳揚末後信息是你們的傳承與責任，別在手中掉了棒。</p>
+      </div>
+
+      <div class="summary-card s-ruby">
+        <div class="s-icon">🎭</div>
+        <h4>莫孤芳自賞</h4>
+        <p>有人以金銅環套滿全身、孤芳自賞；順慾望的滿足如同困在網羅，屬世價值觀若不修正，屬靈路難走得專一。</p>
+      </div>
+
+    </div>
+
+    <!-- 神的應許金句大字 -->
+    <div class="promise-bar">
+      <div class="label">主的心意</div>
+      <p>「每當我看見你們彼此相愛、相互扶持，<br>我的內心就有無比的喜悅。」</p>
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════════
+       2. 秀美師母異象分享
+  ════════════════════════════════════ -->
+  <section class="section" style="padding-top:0;">
+    <div class="sec-title">
+      <div class="icon" style="background:var(--gold);">✦</div>
+      <div>
+        <h2>秀美師母異象分享</h2>
+        <div class="subtitle">高雄 · 敬愛的弟兄姊妹，大家平安</div>
+      </div>
+    </div>
+
+    <div class="featured-card">
+      <div class="featured-badge">✦ 師母分享</div>
+
+      <!-- 異象一 -->
+      <div class="vision-block">
+        <div class="vision-block-label">異象一 · 詩班獻詩時</div>
+        <p>看到神的旌旗飄揚，飄揚了一段時間。接著看到弟兄姊妹好像在練習接力賽跑的接棒、交棒；我看到有人把棒子掉了。</p>
+      </div>
+
+      <div class="word-box">
+        <div class="w-label">神的話語</div>
+        <p>「傳揚末後的信息，是你們的傳承與責任。傳承也要操練、要謹慎，不要在你的手中掉了。」</p>
+      </div>
+
+      <!-- 異象二（警戒類用 v-ruby / w-ruby） -->
+      <div class="vision-block v-ruby">
+        <div class="vision-block-label">異象二 · 說方言時</div>
+        <p>看到有一個人，用一種又像金、又像銅的管子，口徑大約三公分；他用那些金環一個個往身上套，套得滿身都是——脖子、肩膀、頭上、連腳上也都套滿了。他看起來還蠻滿足自己的，有點得意自己這番作為，一副孤芳自賞的模樣，我看了實在覺得有點好笑。</p>
+      </div>
+
+      <div class="word-box w-ruby">
+        <div class="w-label">神的話語</div>
+        <p>「順著自己慾望的滿足，如同困在自己的網羅裡。屬世的價值觀若不修正，屬靈的路就難以走得專一。」</p>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════════
+       3. 各地同工異象分享
+  ════════════════════════════════════ -->
+  <section class="section" style="padding-top:0;">
+    <div class="sec-title">
+      <div class="icon" style="background:var(--teal);color:#fff;">🕊</div>
+      <div>
+        <h2>各地同工異象分享</h2>
+        <div class="subtitle">台北・台中各教區同工</div>
+      </div>
+    </div>
+
+    <div class="vision-cards">
+
+      <!-- 台北 · 同工一（屬靈爭戰） -->
+      <div class="vision-card vc-gold">
+        <span class="card-region">台北教區</span>
+
+        <div class="card-item">
+          <div class="card-item-num">異象 · 詩班獻詩時</div>
+          <p>看見牧師在眾人前面非常專業地進行指揮。接著看見仇敵一直從空中往地面丟各種火球，地面上有神的軍隊用信心的盾牌抵擋來自四面八方的攻擊。最後看見仇敵手上握著一份「神的兒女被擄去」的名單，正計劃發起攻擊、尋找目標，討論如何為每個人量身設下網羅與攻擊，作戰計劃充滿各種原則與謀略；還有仇敵在天空中敲鑼打鼓助長氣勢。最後看見——神的軍隊中，竟有人拿著信心的盾牌卻睡著了。</p>
+        </div>
+      </div>
+
+      <!-- 台北 · 同工二（聖殿彩光） -->
+      <div class="vision-card vc-teal">
+        <span class="card-region">台北教區</span>
+
+        <div class="card-item">
+          <div class="card-item-num">異象 · 靈歌服侍時</div>
+          <p>服侍時，看見聖殿周遭充滿各種顏色的光，各色的光相互交錯、流動著，使得聖殿更為聖潔。此時有聲音迴盪在四周、賜下話語。</p>
+        </div>
+
+        <div class="card-word">「每當我看見你們彼此相愛、相互扶持，我的內心就有無比的喜悅；因為我為你們所付出的愛、所承受的一切，都是值得的。我愛你們。」</div>
+      </div>
+
+      <!-- 台中 · 同工一（竹鼠 — 教區待確認） -->
+      <div class="vision-card vc-blue">
+        <span class="card-region">台中教區</span>
+
+        <div class="card-item">
+          <div class="card-item-num">異象 · 兩隻竹鼠</div>
+          <p>看見有人養了兩隻竹鼠，但那兩隻竹鼠只是吃飽睡飽，僅供觀賞用。有話說：每個人要做好自己的責任，而不是把自己的責任推給他人替你負責；如此願意服侍的人，才不會站立不穩。</p>
+        </div>
+      </div>
+
+      <!-- 台中 · 同工二（指揮與末班車） -->
+      <div class="vision-card vc-purple">
+        <span class="card-region">台中教區</span>
+
+        <div class="card-item">
+          <div class="card-item-num">異象一 · 詩班獻詩時</div>
+          <p>看見牧師帶領指揮，感受到與牧師一起真實服侍神的那段時光。</p>
+        </div>
+
+        <div class="card-word">「我看重你們所有的服侍，更看重你們的心；你們是否有一顆忠心。」</div>
+
+        <div class="card-item">
+          <div class="card-item-num">異象二 · 靈歌服侍時</div>
+          <p>看見很像是火車開走的畫面，畫面後來停在火車最後一節車廂的側後方；鏡頭拉到最後一小節的時候，聽見有話語臨到。</p>
+        </div>
+
+        <div class="card-word">「屬靈的末班車已經啟動了，要跟上、要跟上。」</div>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<footer class="page-footer">
+  <p>異象與感動分享 · 2026年6月28日<br>各地教區同工及秀美師母</p>
+</footer>
+
+</body>
+</html>
