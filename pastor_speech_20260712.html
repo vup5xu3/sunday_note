@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>溫故知新 · 「超神學最高學府」入學須知（二三四大項）</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════════════
+   設計語言 · DESIGN TOKENS
+═══════════════════════════════════════════════ */
+:root {
+  --gold:        #C9A84C;
+  --gold-light:  #E8D08A;
+  --gold-pale:   #FAF3DC;
+  --deep:        #1A1208;
+  --ink:         #2C2416;
+  --muted:       #6B5D3E;
+  --soft:        #F5EDD8;
+  --parchment:   #FBF6EC;
+  --teal:        #2E7D72;
+  --teal-light:  #4AA89C;
+  --teal-pale:   #E0F2EF;
+  --ruby:        #8B2130;
+  --ruby-light:  #C2445A;
+  --ruby-pale:   #FAEAED;
+  --blue-deep:   #1E3A5F;
+  --blue-mid:    #2E6DA4;
+  --blue-pale:   #E8F1FA;
+  --radius:      12px;
+  --radius-lg:   20px;
+}
+
+/* ═══════════════════════════════════════════════
+   基礎重置
+═══════════════════════════════════════════════ */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Noto Sans TC', sans-serif;
+  background: var(--parchment);
+  color: var(--ink);
+  line-height: 1.8;
+}
+
+/* ═══════════════════════════════════════════════
+   HERO
+═══════════════════════════════════════════════ */
+.hero {
+  background: var(--deep);
+  padding: 3.5rem 2rem 3rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 50% 0%, rgba(201,168,76,.18) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero-tag {
+  display: inline-block;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  font-size: 11px;
+  letter-spacing: 4px;
+  padding: 4px 16px;
+  border-radius: 2px;
+  margin-bottom: 1.2rem;
+  text-transform: uppercase;
+}
+.hero h1 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: clamp(1.5rem, 4vw, 2.3rem);
+  color: #fff;
+  font-weight: 700;
+  line-height: 1.4;
+  margin-bottom: .6rem;
+}
+.hero h1 em { color: var(--gold-light); font-style: normal; }
+.hero-sub {
+  color: rgba(255,255,255,.55);
+  font-size: .85rem;
+  letter-spacing: 1px;
+  margin-bottom: 2rem;
+}
+.hero-verse {
+  display: inline-block;
+  border-left: 2px solid var(--gold);
+  padding: .5rem 1rem;
+  text-align: left;
+  color: var(--gold-light);
+  font-family: 'Noto Serif TC', serif;
+  font-size: .9rem;
+  line-height: 1.9;
+}
+.hero-verse .src {
+  color: rgba(255,255,255,.4);
+  font-size: .78rem;
+}
+
+/* ═══════════════════════════════════════════════
+   版面容器
+═══════════════════════════════════════════════ */
+.container { max-width: 960px; margin: 0 auto; padding: 0 1.25rem; }
+.section    { padding: 2.5rem 0 1.5rem; }
+
+/* ═══════════════════════════════════════════════
+   SECTION TITLE
+═══════════════════════════════════════════════ */
+.sec-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 1.5rem;
+}
+.sec-title .icon {
+  width: 36px; height: 36px;
+  background: var(--gold);
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 17px; color: var(--deep); flex-shrink: 0;
+}
+.sec-title h2 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 1.2rem;
+  color: var(--deep);
+  font-weight: 700;
+}
+.sec-title .subtitle { font-size: .78rem; color: var(--muted); margin-top: 1px; }
+
+/* ═══════════════════════════════════════════════
+   DIVIDER
+═══════════════════════════════════════════════ */
+.divider {
+  display: flex; align-items: center; gap: 12px;
+  margin: .5rem 0 1.5rem; opacity: .35;
+}
+.divider::before, .divider::after {
+  content: ''; flex: 1; height: .5px; background: var(--muted);
+}
+.divider span { font-size: 10px; letter-spacing: 3px; color: var(--muted); text-transform: uppercase; }
+
+
+/* ───────────────────────────────────────────────
+   1. PILLAR CARDS — 核心主題卡片
+─────────────────────────────────────────────── */
+.pillars {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);   /* 4 張卡：固定 2×2，避免 3+1 落單換行 */
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+@media(max-width: 560px) { .pillars { grid-template-columns: 1fr; } }
+.pillar {
+  background: #fff;
+  border: .5px solid rgba(0,0,0,.1);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  position: relative;
+  overflow: hidden;
+  transition: transform .2s, box-shadow .2s;
+}
+.pillar:hover { transform: translateY(-3px); box-shadow: 0 8px 28px rgba(0,0,0,.08); }
+.pillar::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 3px;
+}
+.pillar.p1::before { background: linear-gradient(90deg, var(--gold),      var(--gold-light)); }
+.pillar.p2::before { background: linear-gradient(90deg, var(--teal),      var(--teal-light)); }
+.pillar.p3::before { background: linear-gradient(90deg, var(--ruby),      var(--ruby-light)); }
+.pillar.p4::before { background: linear-gradient(90deg, var(--blue-deep), var(--blue-mid));   }
+.pillar-num {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 2.5rem; font-weight: 700; opacity: .12; line-height: 1;
+  position: absolute; top: 1rem; right: 1.2rem;
+}
+.pillar.p1 .pillar-num { color: var(--gold); }
+.pillar.p2 .pillar-num { color: var(--teal); }
+.pillar.p3 .pillar-num { color: var(--ruby); }
+.pillar.p4 .pillar-num { color: var(--blue-deep); }
+.pillar-icon { font-size: 1.6rem; margin-bottom: .5rem; }
+.pillar h3 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 1rem; font-weight: 700; color: var(--deep); margin-bottom: .5rem;
+}
+.pillar p { font-size: .82rem; color: var(--muted); line-height: 1.7; }
+
+
+/* ───────────────────────────────────────────────
+   2. QUOTE BLOCK — 深色引言框
+─────────────────────────────────────────────── */
+.quote-block {
+  background: var(--deep);
+  border-radius: var(--radius-lg);
+  padding: 2rem 2rem 1.5rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+  overflow: hidden;
+}
+.quote-block::before {
+  content: '"';
+  position: absolute; top: -.5rem; left: 1rem;
+  font-family: 'Noto Serif TC', serif;
+  font-size: 6rem; color: var(--gold); opacity: .15; line-height: 1;
+  pointer-events: none;
+}
+.quote-text {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 1.05rem; color: #fff; line-height: 1.9; margin-bottom: .8rem;
+}
+.quote-text em { color: var(--gold-light); font-style: normal; font-weight: 700; }
+.quote-src { font-size: .75rem; color: rgba(255,255,255,.45); letter-spacing: 1px; }
+
+
+/* ───────────────────────────────────────────────
+   3. BIBLE CARDS — 聖經節引用卡
+─────────────────────────────────────────────── */
+.bible-card {
+  background: var(--gold-pale);
+  border-left: 3px solid var(--gold);
+  border-radius: var(--radius);
+  padding: 1.1rem 1.3rem;
+  margin: .8rem 0 1.2rem;
+}
+.bible-card .ref {
+  font-size: .7rem; letter-spacing: 2px; color: var(--gold); font-weight: 700;
+  text-transform: uppercase; margin-bottom: .4rem;
+}
+.bible-card .verse {
+  font-family: 'Noto Serif TC', serif; font-size: .88rem; color: var(--deep); line-height: 1.85;
+}
+.teal-card { background: var(--teal-pale); border-left: 3px solid var(--teal); border-radius: var(--radius); padding: 1.1rem 1.3rem; margin: .8rem 0 1.2rem; }
+.teal-card .ref { font-size: .7rem; letter-spacing: 2px; color: var(--teal); font-weight: 700; text-transform: uppercase; margin-bottom: .4rem; }
+.teal-card .verse { font-family: 'Noto Serif TC', serif; font-size: .88rem; color: #185049; line-height: 1.85; }
+.ruby-card { background: var(--ruby-pale); border-left: 3px solid var(--ruby); border-radius: var(--radius); padding: 1.1rem 1.3rem; margin: .8rem 0 1.2rem; }
+.ruby-card .ref { font-size: .7rem; letter-spacing: 2px; color: var(--ruby); font-weight: 700; text-transform: uppercase; margin-bottom: .4rem; }
+.ruby-card .verse { font-family: 'Noto Serif TC', serif; font-size: .88rem; color: #6B1621; line-height: 1.85; }
+.blue-card { background: var(--blue-pale); border-left: 3px solid var(--blue-mid); border-radius: var(--radius); padding: 1.1rem 1.3rem; margin: .8rem 0 1.2rem; }
+.blue-card .ref { font-size: .7rem; letter-spacing: 2px; color: var(--blue-mid); font-weight: 700; text-transform: uppercase; margin-bottom: .4rem; }
+.blue-card .verse { font-family: 'Noto Serif TC', serif; font-size: .88rem; color: #0C2A4A; line-height: 1.85; }
+
+
+/* ───────────────────────────────────────────────
+   5. TIMELINE — 垂直時間軸
+─────────────────────────────────────────────── */
+.timeline {
+  position: relative;
+  padding-left: 2.5rem;
+  margin-bottom: 1rem;
+}
+.timeline::before {
+  content: '';
+  position: absolute; left: 10px; top: 12px; bottom: 12px;
+  width: 1.5px;
+  background: linear-gradient(180deg, var(--gold) 0%, var(--teal) 50%, var(--ruby) 100%);
+}
+.tl-item { position: relative; margin-bottom: 1.2rem; }
+.tl-dot {
+  position: absolute; left: -2.17rem; top: .35rem;
+  width: 12px; height: 12px; border-radius: 50%;
+  border: 2px solid; background: var(--parchment);
+}
+.tl-item.gold .tl-dot  { border-color: var(--gold);     }
+.tl-item.teal .tl-dot  { border-color: var(--teal);     }
+.tl-item.ruby .tl-dot  { border-color: var(--ruby);     }
+.tl-item.blue .tl-dot  { border-color: var(--blue-mid); }
+.tl-year { font-size: .72rem; font-weight: 700; letter-spacing: 1.5px; margin-bottom: 2px; }
+.tl-item.gold .tl-year  { color: var(--gold);     }
+.tl-item.teal .tl-year  { color: var(--teal);     }
+.tl-item.ruby .tl-year  { color: var(--ruby);     }
+.tl-item.blue .tl-year  { color: var(--blue-mid); }
+.tl-title { font-weight: 600; font-size: .9rem; color: var(--deep); margin-bottom: 2px; }
+.tl-body  { font-size: .8rem; color: var(--muted); line-height: 1.65; }
+
+
+/* ───────────────────────────────────────────────
+   7. COMPARE GRID — 左右對比表
+─────────────────────────────────────────────── */
+.compare-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 0;
+  background: #fff;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: .5px solid rgba(0,0,0,.09);
+  margin-bottom: 1.5rem;
+}
+@media(max-width: 500px) { .compare-grid { grid-template-columns: 1fr; } }
+.cg-side { padding: 1.5rem 1.3rem; }
+.cg-side:first-child { border-right: .5px solid rgba(0,0,0,.07); }
+.cg-label {
+  font-size: .68rem; letter-spacing: 2.5px; font-weight: 700;
+  text-transform: uppercase; margin-bottom: .6rem;
+}
+.cg-side.left  .cg-label { color: var(--gold); }
+.cg-side.right .cg-label { color: var(--ruby); }
+.cg-title {
+  font-family: 'Noto Serif TC', serif; font-size: 1rem;
+  font-weight: 700; color: var(--deep); margin-bottom: .6rem;
+}
+.cg-list { list-style: none; padding: 0; }
+.cg-list li {
+  font-size: .8rem; color: var(--muted); line-height: 1.65;
+  padding: 3px 0 3px 14px; position: relative;
+}
+.cg-list li::before { content: '·'; position: absolute; left: 2px; font-size: 1rem; line-height: 1.3; }
+.cg-side.left  .cg-list li::before { color: var(--gold); }
+.cg-side.right .cg-list li::before { color: var(--ruby); }
+
+
+/* ───────────────────────────────────────────────
+   9. WARN BOX — 警告框
+─────────────────────────────────────────────── */
+.warn-box {
+  background: #fff;
+  border: 1px solid rgba(139,33,48,.25);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+.warn-box .warn-head { display: flex; align-items: center; gap: 8px; margin-bottom: .8rem; }
+.warn-box .warn-badge {
+  background: var(--ruby); color: #fff;
+  font-size: .68rem; letter-spacing: 2px; font-weight: 700;
+  padding: 2px 10px; border-radius: 4px; text-transform: uppercase;
+}
+.warn-box h4 { font-family: 'Noto Serif TC', serif; font-size: 1rem; font-weight: 700; color: var(--ruby); }
+.warn-box p  { font-size: .82rem; color: var(--muted); line-height: 1.75; }
+.warn-box p strong { color: var(--ruby); }
+
+
+/* ───────────────────────────────────────────────
+   10. NOTE — 補充說明框
+─────────────────────────────────────────────── */
+.note {
+  background: var(--soft);
+  border-radius: var(--radius);
+  padding: .9rem 1.1rem;
+  font-size: .8rem; color: var(--muted); line-height: 1.75;
+  margin-bottom: 1.2rem;
+}
+.note strong { color: var(--deep); }
+
+
+/* ───────────────────────────────────────────────
+   14. REFLECTION BOX — 思考/操練框
+─────────────────────────────────────────────── */
+.reflection {
+  background: var(--soft);
+  border-radius: var(--radius-lg);
+  padding: 1.8rem 1.8rem 1.5rem;
+  border-left: 3px solid var(--gold);
+  margin-bottom: 1.5rem;
+}
+.reflection h3 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 1rem; font-weight: 700; color: var(--deep); margin-bottom: .8rem;
+}
+.reflection ol { padding-left: 1.2rem; }
+.reflection ol li { font-size: .85rem; color: var(--ink); line-height: 1.8; margin-bottom: .3rem; }
+.reflection ol li strong { color: var(--deep); font-weight: 600; }
+
+
+/* ═══════════════════════════════════════════════
+   FOOTER
+═══════════════════════════════════════════════ */
+.page-footer {
+  background: var(--deep);
+  text-align: center;
+  padding: 1.8rem 1rem;
+  margin-top: 2.5rem;
+}
+.page-footer p { font-size: .78rem; color: rgba(255,255,255,.35); letter-spacing: 1px; }
+.page-footer strong { color: var(--gold); font-weight: 400; }
+</style>
+</head>
+<body>
+
+
+<!-- ════════════════════════════════════════════  HERO  ════════════════════════════════════════════ -->
+<header class="hero">
+  <div class="hero-tag">溫故知新 · 講師 朱虹恩使徒 · 2026.07.12</div>
+  <h1>「<em>超神學最高學府</em>」入學須知的講解<br>——第二、三、四大項</h1>
+  <p class="hero-sub">被提的資格 × 屬靈的 IQ 與 EQ × 捨己順服</p>
+  <div class="hero-verse">
+    我們若能忍耐，也必和他一同作王；<br>
+    我們若不認他，他也必不認我們。<br>
+    <span class="src">— 提摩太後書 2:12</span>
+  </div>
+</header>
+
+
+<main class="container">
+
+
+<!-- ════════════════════════════════════════════  ① 重點摘要  ════════════════════════════════════════════ -->
+<section class="section">
+  <div class="sec-title">
+    <div class="icon">🗝</div>
+    <div>
+      <h2>今日核心重點</h2>
+      <div class="subtitle">一眼看懂這幾大項在講什麼</div>
+    </div>
+  </div>
+
+  <div class="pillars">
+
+    <div class="pillar p1">
+      <div class="pillar-num">一</div>
+      <div class="pillar-icon">🎓</div>
+      <h3>這所「最高學府」的定位</h3>
+      <p>由主基督親自帶領、造就（藉牧師的啟示信息），目標是帶領學員達到「被提的資格」、與主作王千年——這是任何神學院、教會、牧師都達不到的目標。</p>
+    </div>
+
+    <div class="pillar p2">
+      <div class="pillar-num">二</div>
+      <div class="pillar-icon">📜</div>
+      <h3>進門的關鍵：被神預定</h3>
+      <p>能不能進這個門，不在學歷或事工成績，而在你是否於創世以前就被神預定得榮耀。非預定的，看再多海報、來再久也待不住。</p>
+    </div>
+
+    <div class="pillar p3">
+      <div class="pillar-num">三</div>
+      <div class="pillar-icon">🧭</div>
+      <h3>走下去的關鍵：屬靈的 IQ 與 EQ</h3>
+      <p>屬靈 IQ＝聽得懂「預備主再來」是最要緊的事；屬靈 EQ＝承受得住神指正你的缺點。兩者不夠，環境一到就離開。</p>
+    </div>
+
+    <div class="pillar p4">
+      <div class="pillar-num">四</div>
+      <div class="pillar-icon">🕊</div>
+      <h3>最難的必修課：捨己順服</h3>
+      <p>治死老我、捨下寶座、順服神（連管教兒女都要順服）。縱使成為全世界最大的教會，不順服，主再來時照樣被撇下。</p>
+    </div>
+
+  </div>
+
+  <div class="quote-block">
+    <div class="quote-text">
+      衡量被提，不看你事工多大、帶領多少人，<br>
+      只看你<em>行在神的旨意中有多少</em>。
+    </div>
+    <div class="quote-src">本篇信息核心</div>
+  </div>
+
+</section><!-- /重點摘要 -->
+
+
+<div class="divider"><span>關鍵轉捩點</span></div>
+
+
+<!-- ════════════════════════════════════════════  ② 轉捩點  ════════════════════════════════════════════ -->
+<section class="section">
+  <div class="sec-title">
+    <div class="icon" style="background:var(--ruby);color:#fff;">⚠️</div>
+    <div>
+      <h2>轉捩點</h2>
+      <div class="subtitle">立場最關鍵、最容易被忽略的地方</div>
+    </div>
+  </div>
+
+  <div class="warn-box">
+    <div class="warn-head">
+      <span class="warn-badge">最深的警戒</span>
+      <h4>摩西擊磐石——不順服，再大的成就也被撇下</h4>
+    </div>
+    <p>神吩咐摩西「用說的」吩咐磐石出水，摩西卻仍照先前的老方法用杖擊打；水雖出來，他卻因此不得進迦南。<strong>許多傳道照熟悉的老方法服事，聖靈的引導一旦更新卻不肯跟著改</strong>；若明明有異象、有神的話卻不順服，反倒加增不信的罪。</p>
+  </div>
+
+  <div class="compare-grid">
+    <div class="cg-side left">
+      <div class="cg-label">講者所傳 · 被提的「資格」</div>
+      <div class="cg-title">預備主再來的資格</div>
+      <ul class="cg-list">
+        <li>成為十個童女中「聰明的童女」</li>
+        <li>得恩賜並實際操練（領五千、賺五千）</li>
+        <li>在逆境中結出聖靈的果子</li>
+        <li>捨己、順服、行在神的旨意中</li>
+      </ul>
+    </div>
+    <div class="cg-side right">
+      <div class="cg-label">一般所傳 · 所欠缺的</div>
+      <div class="cg-title">只講主再來，漏了資格</div>
+      <ul class="cg-list">
+        <li>多半只講「信耶穌就能被提」</li>
+        <li>或只談主再來的政治、科技、局勢</li>
+        <li>少有人講「被提的資格」</li>
+        <li>也缺少操練恩賜與果子的環境</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="note">
+    🔑 <strong>一句話定位：</strong>這幾大項在回答「這所學校是什麼、要造就出什麼樣的人」——末世大收割的精兵與將領。
+  </div>
+
+</section><!-- /轉捩點 -->
+
+
+<div class="divider"><span>內容脈絡</span></div>
+
+
+<!-- ════════════════════════════════════════════  ③ 內容脈絡  ════════════════════════════════════════════ -->
+<section class="section">
+  <div class="sec-title">
+    <div class="icon" style="background:var(--teal);color:#fff;">✝</div>
+    <div>
+      <h2>內容脈絡</h2>
+      <div class="subtitle">照逐條講解的順序，細看來龍去脈</div>
+    </div>
+  </div>
+
+  <div class="timeline">
+
+    <div class="tl-item gold">
+      <div class="tl-dot"></div>
+      <div class="tl-year">命名</div>
+      <div class="tl-title">主基督親自教導</div>
+      <div class="tl-body">學校由主基督親自帶領造就，如同在施恩寶座前受教，故稱「最高學府」。學員答：眼見是牧師，但所講都是神親自啟示。講者自述：我幾乎都講啟示信息、不會寫書，這 12 本的啟示信息都是聖靈感動、師母幫忙整理稿；每週北中南至少九場聚會，無從準備，只帶一本聖經，講的幾乎都不是原先看的——全是聖靈的恩膏。</div>
+    </div>
+
+    <div class="tl-item teal">
+      <div class="tl-dot"></div>
+      <div class="tl-year">全備真理</div>
+      <div class="tl-title">真正沒人傳的，是被提的資格</div>
+      <div class="tl-body">「全備真理一一解開」＝恩賜、聖靈恩膏、結果子、治死老我、活出來。台灣雖有幾間「全備福音教會」，但真正沒人傳的是「如何預備主再來的資格」——成為聰明童女（七大條件，首要被聖靈充滿）。恩賜（靈歌、方言、舞蹈）並非神之子專利，別的教會也有。</div>
+    </div>
+
+    <div class="tl-item ruby">
+      <div class="tl-dot"></div>
+      <div class="tl-year">預定</div>
+      <div class="tl-title">得榮耀，才進得了這個門</div>
+      <div class="tl-body">若非創世以前被神預定進榮耀，即使來作同工也會離開——各地都有來一兩年、甚至已當牧師仍走的。所以首要認清自己的身份地位，否則此門進不了。被提的操練：成為聰明童女、得恩賜並操練、在環境中結聖靈果子。</div>
+    </div>
+
+    <div class="tl-item blue">
+      <div class="tl-dot"></div>
+      <div class="tl-year">身份</div>
+      <div class="tl-title">領袖與將領</div>
+      <div class="tl-body">能進門並走下去的，未來都是「教會的領袖」與「將領」——將領是領軍打仗的（對應須知的「一文一武」）。講者逐一問學員能否成為領袖，帶出這是神的揀選、也需受造就。</div>
+    </div>
+
+    <div class="tl-item gold">
+      <div class="tl-dot"></div>
+      <div class="tl-year">第二項 · 學制</div>
+      <div class="tl-title">基督再來傳道協會</div>
+      <div class="tl-body">隸屬財團法人神之子基督教會；現台灣北中南三所（最多再增台東、花蓮共五所），各自獨立卻靈裡相通、彼此扶持。須知宣告未來成為「全世界最大的教會、人數千萬」；講者以問答論證：神有預定人數、末世唯一的「審判前大方舟」、成立財團後聖工加速（如帶團赴以色列）、第三聖殿重建後聖工才真正展開——現在都是預備，還約有五年，要趕快從瓦器煉成精器。</div>
+    </div>
+
+    <div class="tl-item teal">
+      <div class="tl-dot"></div>
+      <div class="tl-year">第三項 · 訓練目標</div>
+      <div class="tl-title">被提資格、與主作王千年</div>
+      <div class="tl-body">目標：帶領學員達到被提資格，與主基督一同作王千年，直到永遠（路加 20:35-36、22:30）。與基督作王的君尊名額有定數，經主千萬人中揀選，須屬靈資質達高標準、經千錘百鍊，並有捨己、捨下寶座之心智；牧養千人的牧師若無此心智也進不了門。學員坦言標準太高、越讀越心虛，只能仰望主的揀選。講者也提到自己被復興前，曾在三位華人名牧門下受教約十年，他們也傳主再來，只是少講被提的資格。</div>
+    </div>
+
+    <div class="tl-item ruby">
+      <div class="tl-dot"></div>
+      <div class="tl-year">關鍵素質</div>
+      <div class="tl-title">屬靈的 IQ 與 EQ</div>
+      <div class="tl-body">神之子的「苦」是被主管教的苦，別的教會只揀你愛聽的講。恩賜不是重點。屬靈 IQ＝聽得懂「預備主再來最要緊」，聽不懂的環境一到就走（曾有同工一年內走了三個）；屬靈 EQ＝承受得住神藉異象、預言指正缺點。先求神的國和義，順序別顛倒；聖靈果子藉逆境結出，先從家庭、職場，最後才是教會。</div>
+    </div>
+
+    <div class="tl-item blue">
+      <div class="tl-dot"></div>
+      <div class="tl-year">核心功課</div>
+      <div class="tl-title">捨己、順服、捨下寶座</div>
+      <div class="tl-body">這是造就的核心，也最難——多敗在「捨不得」，尤其管教兒女。講者肯定：順服的結局比不順服輕鬆幾十倍、幾百倍；不肯學就被淘汰，且要學到主再來那一刻。衡量被提，看你行在神旨意中多少，而非事工多大；縱使成為最大的教會，不順服照樣被撇下。</div>
+    </div>
+
+    <div class="tl-item gold">
+      <div class="tl-dot"></div>
+      <div class="tl-year">第四大項</div>
+      <div class="tl-title">創始人是末世真使徒</div>
+      <div class="tl-body">須知宣告：創始人（本系列講師）是末世奉神旨意作基督耶穌的真使徒，經歷如使徒保羅、約翰、彼得，曾在曠野禁食四十晝夜；除主耶穌、摩西之外，至今無人有此寶貴經歷。在禁食期間蒙神啟開幕後隱藏的奧祕，唯一受差遣，向全世界傳揚、為主再來預備道路。</div>
+    </div>
+
+  </div>
+
+  <div class="blue-card">
+    <div class="ref">路加福音 20:35-36 — 配得那世界的人</div>
+    <div class="verse">惟有算為配得那世界，與從死裡復活的人，也不娶也不嫁；因為他們不能再死，和天使一樣；既是復活的人，就為神的兒子。</div>
+  </div>
+
+  <div class="note">
+    💰 <strong>恩賜的操練（才幹的比喻）：</strong>第一階段的學員都是「領五千、賺五千」；講者說標準是「賺十錠」，甚至十乘十（賺百錠）、極少數十乘千（賺一萬錠）——用來說明恩賜要實際操練、加倍。
+  </div>
+
+</section><!-- /內容脈絡 -->
+
+
+<!-- ════════════════════════════════════════════  ④ 反思  ════════════════════════════════════════════ -->
+<section class="section">
+  <div class="reflection">
+    <h3>🌱 今日的反思問題</h3>
+    <ol>
+      <li><strong>我來到神面前，是為了「被提的資格」與神的旨意，還是為了疾病得醫治、事業、婚姻等好處？</strong></li>
+      <li><strong>當神藉話語指出我的缺點，我是順服修正，還是覺得被冒犯而想離開？</strong>——這正是屬靈的 EQ。</li>
+      <li><strong>我有沒有「摩西擊磐石」的危機？</strong>——照自己熟悉的老方法服事，卻忽略了聖靈此刻新的引導。</li>
+    </ol>
+  </div>
+</section>
+
+
+</main><!-- /container -->
+
+
+<footer class="page-footer">
+  <p>溫故知新系列 · <strong>「超神學最高學府」入學須知的講解</strong></p>
+  <p style="margin-top:4px;">第二、三、四大項 · 2026.07.12 · 講師 朱虹恩使徒</p>
+</footer>
+
+
+</body>
+</html>

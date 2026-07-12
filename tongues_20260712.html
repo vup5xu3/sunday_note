@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>說翻方言 — 純淨的靈糧·治死肉體·莫入寶山空手回</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --gold: #C9A84C;
+  --gold-light: #E8D08A;
+  --gold-pale: #FAF3DC;
+  --deep: #1A1208;
+  --ink: #2C2416;
+  --muted: #6B5D3E;
+  --soft: #F5EDD8;
+  --parchment: #FBF6EC;
+  --teal: #2E7D72;
+  --teal-light: #4AA89C;
+  --teal-pale: #E0F2EF;
+  --ruby: #8B2130;
+  --ruby-light: #C2445A;
+  --ruby-pale: #FAEAED;
+  --blue-deep: #1E3A5F;
+  --blue-mid: #2E6DA4;
+  --blue-pale: #E8F1FA;
+  --dove: #5B6F8A;
+  --dove-light: #8BA3C0;
+  --dove-pale: #EBF1F8;
+  --radius: 12px;
+  --radius-lg: 20px;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family: 'Noto Sans TC', sans-serif;
+  background: var(--parchment);
+  color: var(--ink);
+  line-height: 1.8;
+}
+
+/* ── HERO ── */
+.hero {
+  background: var(--deep);
+  padding: 3.5rem 2rem 3rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content:'';
+  position:absolute; inset:0;
+  background: radial-gradient(ellipse at 50% 0%, rgba(91,111,138,0.25) 0%, rgba(201,168,76,0.1) 60%, transparent 90%);
+  pointer-events:none;
+}
+.hero-tag {
+  display: inline-block;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  font-size: 11px;
+  letter-spacing: 4px;
+  padding: 4px 16px;
+  border-radius: 2px;
+  margin-bottom: 1.2rem;
+  text-transform: uppercase;
+}
+.hero h1 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  color: #fff;
+  font-weight: 700;
+  line-height: 1.4;
+  margin-bottom: 0.6rem;
+}
+.hero h1 em { color: var(--gold-light); font-style: normal; }
+.hero-sub {
+  color: rgba(255,255,255,0.55);
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  margin-bottom: 2rem;
+}
+.hero-verse {
+  display: inline-block;
+  border-left: 2px solid var(--gold);
+  padding: 0.5rem 1rem;
+  text-align: left;
+  color: var(--gold-light);
+  font-family: 'Noto Serif TC', serif;
+  font-size: 0.9rem;
+  line-height: 1.9;
+}
+
+/* ── LAYOUT ── */
+.container { max-width: 960px; margin: 0 auto; padding: 0 1.25rem; }
+.section { padding: 2.5rem 0 1.5rem; }
+
+/* ── SECTION TITLE ── */
+.sec-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 1.5rem;
+}
+.sec-title .icon {
+  width: 36px; height: 36px;
+  background: var(--gold);
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 17px; color: var(--deep); flex-shrink:0;
+}
+.sec-title h2 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 1.2rem;
+  color: var(--deep);
+  font-weight: 700;
+}
+.sec-title .subtitle { font-size: 0.78rem; color: var(--muted); margin-top:1px; }
+
+/* ── CORE PILLARS ── */
+.pillars {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.pillar {
+  background: #fff;
+  border: 0.5px solid rgba(0,0,0,0.1);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.pillar:hover { transform: translateY(-3px); box-shadow: 0 8px 28px rgba(0,0,0,0.08); }
+.pillar::before {
+  content:'';
+  position:absolute; top:0; left:0; right:0; height:3px;
+}
+.pillar.p1::before { background: linear-gradient(90deg, var(--dove), var(--dove-light)); }
+.pillar.p2::before { background: linear-gradient(90deg, var(--gold), var(--gold-light)); }
+.pillar.p3::before { background: linear-gradient(90deg, var(--ruby), var(--ruby-light)); }
+.pillar.p4::before { background: linear-gradient(90deg, var(--teal), var(--teal-light)); }
+.pillar-num {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 2.5rem; font-weight: 700; line-height: 1;
+  margin-bottom: 0.6rem; opacity: 0.12;
+  position: absolute; top: 1rem; right: 1.2rem;
+}
+.pillar.p1 .pillar-num { color: var(--dove); }
+.pillar.p2 .pillar-num { color: var(--gold); }
+.pillar.p3 .pillar-num { color: var(--ruby); }
+.pillar.p4 .pillar-num { color: var(--teal); }
+.pillar-icon { font-size: 1.6rem; margin-bottom: 0.5rem; }
+.pillar h3 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--deep);
+}
+.pillar p { font-size: 0.82rem; color: var(--muted); line-height: 1.7; }
+
+/* ── QUOTE BLOCK ── */
+.quote-block {
+  background: var(--deep);
+  border-radius: var(--radius-lg);
+  padding: 2rem 2rem 1.5rem;
+  margin-bottom: 1.5rem;
+  position: relative; overflow: hidden;
+}
+.quote-block::before {
+  content: '"';
+  position: absolute; top: -0.5rem; left: 1rem;
+  font-family: 'Noto Serif TC', serif;
+  font-size: 6rem; color: var(--gold); opacity: 0.15;
+  line-height: 1; pointer-events: none;
+}
+.quote-text {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 1.05rem; color: #fff; line-height: 1.9; margin-bottom: 0.8rem;
+}
+.quote-text em { color: var(--gold-light); font-style: normal; font-weight: 700; }
+.quote-src { font-size: 0.75rem; color: rgba(255,255,255,0.45); letter-spacing: 1px; }
+
+/* ── THREE STAGES ── */
+.stages {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 0;
+  background: #fff;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 0.5px solid rgba(0,0,0,0.09);
+  margin-bottom: 1.5rem;
+}
+@media(max-width:600px){ .stages{grid-template-columns:1fr;} }
+.stage-item {
+  padding: 1.4rem 1.2rem;
+  border-right: 0.5px solid rgba(0,0,0,0.07);
+  position: relative;
+}
+.stage-item:last-child { border-right: none; }
+.stage-no {
+  font-size: 0.7rem; letter-spacing: 2px; font-weight: 700;
+  margin-bottom: 0.4rem; text-transform: uppercase;
+}
+.stage-item.s1 .stage-no { color: var(--dove); }
+.stage-item.s2 .stage-no { color: var(--ruby); }
+.stage-item.s3 .stage-no { color: var(--teal); }
+.stage-title { font-family: 'Noto Serif TC', serif; font-size: 0.95rem; font-weight: 700; color: var(--deep); margin-bottom: 0.4rem; }
+.stage-body { font-size: 0.78rem; color: var(--muted); line-height: 1.65; }
+.stage-top-bar { height: 3px; background: var(--soft); position:absolute; top:0; left:0; right:0; }
+.stage-item.s1 .stage-top-bar { background: var(--dove); }
+.stage-item.s2 .stage-top-bar { background: var(--ruby); }
+.stage-item.s3 .stage-top-bar { background: var(--teal); }
+
+/* ── INSIGHT ROW ── */
+.insight-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.insight-card {
+  background: #fff;
+  border-radius: var(--radius);
+  border: 0.5px solid rgba(0,0,0,0.09);
+  padding: 1.2rem;
+  display: flex; gap: 12px; align-items: flex-start;
+}
+.insight-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%; margin-top: 0.4rem; flex-shrink: 0;
+}
+.ic-gold .insight-dot { background: var(--gold); }
+.ic-ruby .insight-dot { background: var(--ruby); }
+.ic-teal .insight-dot { background: var(--teal); }
+.ic-dove .insight-dot { background: var(--dove); }
+.insight-card h4 { font-size: 0.88rem; font-weight: 600; color: var(--deep); margin-bottom: 0.3rem; }
+.insight-card p { font-size: 0.78rem; color: var(--muted); line-height: 1.65; }
+
+/* ── CALL BOX ── */
+.call-box {
+  border-radius: var(--radius-lg);
+  padding: 1.8rem 1.8rem 1.5rem;
+  margin-bottom: 1.5rem;
+}
+.call-box.dove { background: var(--dove-pale); border-left: 3px solid var(--dove); }
+.call-box.gold { background: var(--gold-pale); border-left: 3px solid var(--gold); }
+.call-box.ruby { background: var(--ruby-pale); border-left: 3px solid var(--ruby); }
+.call-box.teal { background: var(--teal-pale); border-left: 3px solid var(--teal); }
+.call-box-label {
+  font-size: 0.7rem; letter-spacing: 2.5px; font-weight: 700;
+  text-transform: uppercase; margin-bottom: 0.6rem;
+}
+.call-box.dove .call-box-label { color: var(--dove); }
+.call-box.gold .call-box-label { color: #7A620A; }
+.call-box.ruby .call-box-label { color: var(--ruby); }
+.call-box.teal .call-box-label { color: var(--teal); }
+.call-box h3 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 1.05rem; font-weight: 700; color: var(--deep); margin-bottom: 0.7rem;
+}
+.call-box p, .call-box li { font-size: 0.85rem; color: var(--ink); line-height: 1.85; }
+.call-box ul { padding-left: 1.2rem; }
+.call-box ul li { margin-bottom: 0.25rem; }
+.call-box strong { color: var(--deep); }
+
+/* ── ACTION STEPS ── */
+.action-steps {
+  background: #fff;
+  border-radius: var(--radius-lg);
+  border: 0.5px solid rgba(0,0,0,0.09);
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+}
+.action-step {
+  display: flex; gap: 1rem; padding: 1.1rem 1.3rem;
+  border-bottom: 0.5px solid rgba(0,0,0,0.06);
+  align-items: flex-start;
+}
+.action-step:last-child { border-bottom: none; }
+.step-num {
+  width: 28px; height: 28px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.72rem; font-weight: 700; flex-shrink: 0; margin-top: 2px;
+}
+.action-step:nth-child(1) .step-num { background: var(--dove-pale); color: var(--dove); }
+.action-step:nth-child(2) .step-num { background: var(--ruby-pale); color: var(--ruby); }
+.action-step:nth-child(3) .step-num { background: var(--teal-pale); color: var(--teal); }
+.action-step:nth-child(4) .step-num { background: var(--gold-pale); color: #7A620A; }
+.step-content h4 { font-size: 0.9rem; font-weight: 600; color: var(--deep); margin-bottom: 0.2rem; }
+.step-content p { font-size: 0.78rem; color: var(--muted); line-height: 1.65; }
+
+/* ── MINDMAP ── */
+.mindmap-wrap {
+  background: #fff;
+  border-radius: var(--radius-lg);
+  border: 0.5px solid rgba(0,0,0,0.09);
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+}
+.mindmap-wrap svg { display:block; width:100%; }
+
+/* ── DIVIDER ── */
+.divider {
+  display: flex; align-items: center; gap: 12px;
+  margin: 0.5rem 0 1.5rem; opacity: 0.35;
+}
+.divider::before, .divider::after {
+  content:''; flex:1; height: 0.5px; background: var(--muted);
+}
+.divider span { font-size: 10px; letter-spacing: 3px; color: var(--muted); text-transform: uppercase; }
+
+/* ── TWO PATH BOX ── */
+.two-path {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 0; background: #fff;
+  border-radius: var(--radius-lg);
+  border: 0.5px solid rgba(0,0,0,0.09);
+  overflow: hidden; margin-bottom: 1.5rem;
+}
+@media(max-width:500px){ .two-path{grid-template-columns:1fr;} }
+.path-side { padding: 1.5rem 1.3rem; }
+.path-side:first-child { border-right: 0.5px solid rgba(0,0,0,0.07); }
+.path-label {
+  font-size: 0.68rem; letter-spacing: 2.5px; font-weight: 700;
+  text-transform: uppercase; margin-bottom: 0.6rem;
+}
+.path-a .path-label { color: var(--ruby); }
+.path-b .path-label { color: var(--teal); }
+.path-title {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 1.05rem; font-weight: 700; color: var(--deep); margin-bottom: 0.6rem;
+}
+.path-list { list-style: none; padding: 0; }
+.path-list li {
+  font-size: 0.8rem; color: var(--muted);
+  line-height: 1.65; padding: 3px 0 3px 14px; position: relative;
+}
+.path-list li::before {
+  content:'·'; position:absolute; left:2px; font-size: 1rem; line-height: 1.3;
+}
+.path-a .path-list li::before { color: var(--ruby); }
+.path-b .path-list li::before { color: var(--teal); }
+
+/* ── FOOTER ── */
+.page-footer {
+  background: var(--deep); text-align: center;
+  padding: 1.8rem 1rem; margin-top: 2.5rem;
+}
+.page-footer p { font-size: 0.78rem; color: rgba(255,255,255,0.35); letter-spacing: 1px; }
+.page-footer strong { color: var(--gold); font-weight: 400; }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-tag">說翻方言 · 2026.07.12</div>
+  <h1>純淨的靈糧·<em>治死肉體</em><br>——莫入寶山空手回</h1>
+  <p class="hero-sub">善惡二律的交戰 × 恩上加恩的供應 × 天天更新的靈命</p>
+  <div class="hero-verse">
+    你們要一直地吸入我，才能治死你們的肉體。<br>
+    不要入了寶山，還空手而回。<br>
+    <span style="color:rgba(255,255,255,0.4);font-size:0.78rem">— 父神的話語 · 2026.07.12</span>
+  </div>
+</header>
+
+<main class="container">
+
+  <!-- ① 核心主題 -->
+  <section class="section">
+    <div class="sec-title">
+      <div class="icon">🕊️</div>
+      <div>
+        <h2>今日核心信息</h2>
+        <div class="subtitle">四大信息主軸</div>
+      </div>
+    </div>
+    <div class="pillars">
+      <div class="pillar p1">
+        <div class="pillar-num">一</div>
+        <div class="pillar-icon">🍞</div>
+        <h3>身在純淨的靈糧中</h3>
+        <p>我們處在神親自建立的教會，牧師是末世的使徒，這裡有純淨的靈糧、山上樣式的敬拜。但為何仍活得像可憐軟弱的光景？</p>
+      </div>
+      <div class="pillar p2">
+        <div class="pillar-num">二</div>
+        <div class="pillar-icon">⚔️</div>
+        <h3>善惡二律的交戰</h3>
+        <p>我喜歡神的律，肢體中卻另有一個律與心中的律交戰，把我擄去，叫我附從那犯罪的律。若不靠神的力量，無法勝過仇敵。</p>
+      </div>
+      <div class="pillar p3">
+        <div class="pillar-num">三</div>
+        <div class="pillar-icon">💧</div>
+        <h3>恩典雖有只取一點點</h3>
+        <p>神的恩典、真理，我們都已經領受，且恩上加恩。但你們都有恩典，卻只有一點點——沒有操練，也沒有天天經歷聖靈。</p>
+      </div>
+      <div class="pillar p4">
+        <div class="pillar-num">四</div>
+        <div class="pillar-icon">🏔️</div>
+        <h3>莫入寶山空手回</h3>
+        <p>不論得救多久、經歷恩典多久，都需要天天新鮮更新。數十年如一日不求進步，哪怕信主三四十年，都可能被仇敵擄去。</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"><span>心智圖</span></div>
+
+  <!-- ② 心智圖 -->
+  <section class="section" style="padding-top:0">
+    <div class="sec-title">
+      <div class="icon">🧠</div>
+      <div>
+        <h2>主題心智圖</h2>
+        <div class="subtitle">全篇結構一覽</div>
+      </div>
+    </div>
+    <div class="mindmap-wrap">
+      <svg viewBox="0 0 900 480" xmlns="http://www.w3.org/2000/svg" role="img">
+        <title>說翻方言心智圖 2026.07.12</title>
+        <defs>
+          <marker id="marr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+            <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </marker>
+        </defs>
+        <rect width="900" height="480" fill="#FDFAF3"/>
+
+        <!-- 中心 -->
+        <rect x="320" y="195" width="260" height="70" rx="12" fill="#1A1208" stroke="#C9A84C" stroke-width="1.5"/>
+        <text x="450" y="223" text-anchor="middle" font-family="Noto Serif TC,serif" font-size="13.5" fill="#E8D08A" font-weight="700">純淨的靈糧 · 治死肉體</text>
+        <text x="450" y="247" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="10.5" fill="rgba(255,255,255,0.5)">莫入寶山空手回</text>
+
+        <!-- 左上：教會的身份 -->
+        <path d="M363 207 Q275 155 190 120" fill="none" stroke="#5B6F8A" stroke-width="1.2" marker-end="url(#marr)"/>
+        <rect x="45" y="78" width="160" height="72" rx="8" fill="#EBF1F8" stroke="#5B6F8A" stroke-width="0.8"/>
+        <text x="125" y="103" text-anchor="middle" font-family="Noto Serif TC,serif" font-size="11.5" fill="#1E3A5F" font-weight="700">教會的身份</text>
+        <text x="125" y="120" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#5B6F8A">末世使徒所建立</text>
+        <text x="125" y="137" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#5B6F8A">純淨的靈糧</text>
+
+        <!-- 右上：貧窮死沉的光景 -->
+        <path d="M537 207 Q625 155 710 120" fill="none" stroke="#8B2130" stroke-width="1.2" marker-end="url(#marr)"/>
+        <rect x="695" y="78" width="175" height="72" rx="8" fill="#FAEAED" stroke="#8B2130" stroke-width="0.8"/>
+        <text x="782" y="103" text-anchor="middle" font-family="Noto Serif TC,serif" font-size="11.5" fill="#6B1621" font-weight="700">貧窮死沉的光景</text>
+        <text x="782" y="120" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#8B2130">相咬相吞</text>
+        <text x="782" y="137" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#8B2130">散發負面能量</text>
+
+        <!-- 左：善惡二律交戰 -->
+        <path d="M330 230 Q215 230 170 230" fill="none" stroke="#C9A84C" stroke-width="1.2" marker-end="url(#marr)"/>
+        <rect x="20" y="195" width="148" height="72" rx="8" fill="#FAF3DC" stroke="#C9A84C" stroke-width="0.8"/>
+        <text x="94" y="221" text-anchor="middle" font-family="Noto Serif TC,serif" font-size="11.5" fill="#7A620A" font-weight="700">善惡二律交戰</text>
+        <text x="94" y="238" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#9A7E3A">肉體與靈的爭戰</text>
+        <text x="94" y="255" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#9A7E3A">保羅的哀嘆</text>
+
+        <!-- 右：恩上加恩 -->
+        <path d="M570 230 Q685 230 730 230" fill="none" stroke="#2E7D72" stroke-width="1.2" marker-end="url(#marr)"/>
+        <rect x="730" y="195" width="152" height="72" rx="8" fill="#E0F2EF" stroke="#2E7D72" stroke-width="0.8"/>
+        <text x="806" y="221" text-anchor="middle" font-family="Noto Serif TC,serif" font-size="11.5" fill="#185049" font-weight="700">恩上加恩</text>
+        <text x="806" y="238" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#2E7D72">恩典充分供應</text>
+        <text x="806" y="255" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#2E7D72">只取一點點</text>
+
+        <!-- 左下：需要操練 -->
+        <path d="M384 262 Q295 325 215 370" fill="none" stroke="#8B2130" stroke-width="1.2" marker-end="url(#marr)"/>
+        <rect x="45" y="340" width="178" height="88" rx="8" fill="#FAEAED" stroke="#8B2130" stroke-width="0.8"/>
+        <text x="134" y="365" text-anchor="middle" font-family="Noto Serif TC,serif" font-size="11.5" fill="#6B1621" font-weight="700">需要操練</text>
+        <text x="134" y="383" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#8B2130">天天在聖靈裡</text>
+        <text x="134" y="399" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#8B2130">一直仰望神</text>
+        <text x="134" y="415" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#8B2130">離開就靈命死沉</text>
+
+        <!-- 右下：莫入寶山空手回 -->
+        <path d="M516 262 Q605 325 680 370" fill="none" stroke="#C9A84C" stroke-width="1.2" marker-end="url(#marr)"/>
+        <rect x="666" y="340" width="178" height="88" rx="8" fill="#FAF3DC" stroke="#C9A84C" stroke-width="0.8"/>
+        <text x="755" y="365" text-anchor="middle" font-family="Noto Serif TC,serif" font-size="11.5" fill="#7A620A" font-weight="700">莫入寶山空手回</text>
+        <text x="755" y="383" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#9A7E3A">數十年如一日</text>
+        <text x="755" y="399" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#9A7E3A">不求進步恐被擄</text>
+        <text x="755" y="415" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#9A7E3A">天天新鮮更新</text>
+
+        <!-- 中下：感恩仰望 -->
+        <path d="M450 265 L450 330" fill="none" stroke="#6B5D3E" stroke-width="1.2" stroke-dasharray="4,3" marker-end="url(#marr)"/>
+        <rect x="365" y="330" width="170" height="52" rx="8" fill="#F5EDD8" stroke="#6B5D3E" stroke-width="0.8"/>
+        <text x="450" y="352" text-anchor="middle" font-family="Noto Serif TC,serif" font-size="11.5" fill="#2C2416" font-weight="700">感恩仰望神</text>
+        <text x="450" y="369" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#6B5D3E">支取力量對抗仇敵</text>
+      </svg>
+    </div>
+  </section>
+
+  <div class="divider"><span>身在純淨的靈糧中</span></div>
+
+  <!-- ③ 身在純淨的靈糧中 -->
+  <section class="section" style="padding-top:0">
+    <div class="sec-title">
+      <div class="icon" style="background:var(--dove);color:#fff;">🍞</div>
+      <div>
+        <h2>為何仍活得像可憐軟弱的光景？</h2>
+        <div class="subtitle">身處純淨的靈糧中,卻相咬相吞</div>
+      </div>
+    </div>
+
+    <div class="quote-block">
+      <p class="quote-text">你們處在我親自建立的教會，你們的牧師是<em>末世的使徒</em>。<br>這裡有純淨的靈糧，也有山上樣式的敬拜與讚美，<br>又有極大的屬靈屬世的恩賜——但為何你們仍然活得像可憐軟弱的光景？</p>
+      <p class="quote-src">— 父神的話語 · 2026.07.12</p>
+    </div>
+
+    <div class="call-box dove">
+      <div class="call-box-label">師母的點出</div>
+      <h3>像小惡魔到處恨，相咬相吞</h3>
+      <p>師母點出，我們像小惡魔到處記恨、相咬相吞，也像心裡的毒瘤一般，一直散發負面的能量。<strong>得榮耀的器皿太少了，可見我們大部分人屬靈的光景是貧窮死沉的。</strong>神從人群中將我們帶領來這裡，大半的生命卻仍生在罪中——不要入了寶山，還空手而回；不要信主信了一輩子，最後卻落在外面的黑暗。</p>
+    </div>
+  </section>
+
+  <div class="divider"><span>善惡二律的交戰</span></div>
+
+  <!-- ④ 善惡二律的交戰 -->
+  <section class="section" style="padding-top:0">
+    <div class="sec-title">
+      <div class="icon" style="background:var(--ruby);color:#fff;">⚔️</div>
+      <div>
+        <h2>我真是苦啊，誰能救我？</h2>
+        <div class="subtitle">保羅的哀嘆——肉體與靈之間的交戰</div>
+      </div>
+    </div>
+
+    <div class="quote-block">
+      <p class="quote-text">保羅說：按著我的意思，我是喜歡神的律；<br>但我肢體中另有一個律，和我心中的律交戰，<br>把我擄去，叫我附從那肢體中犯罪的律。我真是<em>苦啊</em>！誰能救我脫離這取死的身體？</p>
+      <p class="quote-src">— 父神的話語 · 2026.07.12</p>
+    </div>
+
+    <div class="insight-row">
+      <div class="insight-card ic-ruby">
+        <div class="insight-dot"></div>
+        <div>
+          <h4>天天交戰的二律</h4>
+          <p>使徒保羅尚且如此，何況我們這些屬靈生命還不夠的普通基督徒。我們天天都在經歷善的律、惡的律之間的交戰，肉體與靈之間的交戰。</p>
+        </div>
+      </div>
+      <div class="insight-card ic-dove">
+        <div class="insight-dot"></div>
+        <div>
+          <h4>仇敵的力量比我們大</h4>
+          <p>肉體中那犯罪的律，是帶有仇敵權柄的。仇敵的力量比我們的力量還大，我們是無法憑自己勝過他的。</p>
+        </div>
+      </div>
+      <div class="insight-card ic-teal">
+        <div class="insight-dot"></div>
+        <div>
+          <h4>順著聖靈而行</h4>
+          <p>你們若順著聖靈而行，就不會放縱肉體的情慾了。若不靠神所賜的力量，我們無法得勝仇敵、勝過肉體的惡。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"><span>恩上加恩</span></div>
+
+  <!-- ⑤ 恩典雖有只取一點點 -->
+  <section class="section" style="padding-top:0">
+    <div class="sec-title">
+      <div class="icon" style="background:#7A620A;color:var(--gold-pale);">💧</div>
+      <div>
+        <h2>你們都有恩典，但只有一點點</h2>
+        <div class="subtitle">恩上加恩，卻沒有天天支取</div>
+      </div>
+    </div>
+
+    <div class="two-path">
+      <div class="path-side path-a">
+        <div class="path-label">只取一點點</div>
+        <div class="path-title">恩典閒置</div>
+        <ul class="path-list">
+          <li>覺得處境無法忍受，就表示缺少足夠的恩典</li>
+          <li>沒有操練，沒有經歷聖靈</li>
+          <li>沒有天天時刻都在聖靈裡面</li>
+          <li>一旦離開祂，靈命就死沉</li>
+          <li>不論得救多久，仍活得像可憐軟弱的光景</li>
+        </ul>
+      </div>
+      <div class="path-side path-b">
+        <div class="path-label">充分支取</div>
+        <div class="path-title">天天更新</div>
+        <ul class="path-list">
+          <li>需要充分的恩典來做供應</li>
+          <li>操練並經歷聖靈</li>
+          <li>一直仰望神，一直在靈裡</li>
+          <li>不論得救多久，都需要新鮮的、新的</li>
+          <li>一直吸入祂，才能治死肉體</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="call-box gold">
+      <div class="call-box-label">恩典的應許</div>
+      <h3>我有恩典，有真理，而且恩上加恩</h3>
+      <p>在神的恩典裡，我們都已經領受了，而且<strong>恩上加恩。</strong>要解決我們的問題，需要有充分的恩典來做我們的供應。神告訴我們：不要說你們有多有資格，不論得救多久、經歷豐富恩典多久，你們都需要是新鮮的、新的。</p>
+    </div>
+  </section>
+
+  <div class="divider"><span>莫入寶山空手回</span></div>
+
+  <!-- ⑥ 莫入寶山空手回 -->
+  <section class="section" style="padding-top:0">
+    <div class="sec-title">
+      <div class="icon" style="background:var(--teal);color:#fff;">🏔️</div>
+      <div>
+        <h2>莫入寶山，空手而回</h2>
+        <div class="subtitle">四個具體的操練與提醒</div>
+      </div>
+    </div>
+
+    <div class="action-steps">
+      <div class="action-step">
+        <div class="step-num">01</div>
+        <div class="step-content">
+          <h4>把個人慾望完全排除在外</h4>
+          <p>我們在屬世上所給的通常只有六十分，那是屬於個人慾望的追求，要把它撇在一邊，目標定在將來要與主一同作王。</p>
+        </div>
+      </div>
+      <div class="action-step">
+        <div class="step-num">02</div>
+        <div class="step-content">
+          <h4>常存感恩的心</h4>
+          <p>沒有感恩的心，就無法從神那邊支取力量；無法支取力量，就無法對抗仇敵的各樣攻勢。要思念神對我們的好,一直仰望神。</p>
+        </div>
+      </div>
+      <div class="action-step">
+        <div class="step-num">03</div>
+        <div class="step-content">
+          <h4>不遠離神,不落入網羅</h4>
+          <p>不要遠離神,忽略了我們的神,走向魔鬼所設的網羅,否則有一天都會掉在陷阱裡面。</p>
+        </div>
+      </div>
+      <div class="action-step">
+        <div class="step-num">04</div>
+        <div class="step-content">
+          <h4>不斷求進步,吸收新的靈量</h4>
+          <p>不管來到教會多久,最需要的就是吸收新的靈量。數十年如一日不求進步,哪怕信主三十年、四十年,都有可能被仇敵擄去。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="call-box ruby">
+      <div class="call-box-label">嚴肅的警告</div>
+      <h3>不要生在福中不知福</h3>
+      <p>進到教會裡,受到恩賜與才幹的造就,我們一定要好好把握,不要入寶山而空手回——<strong>如果一而再、再而三地這樣走下去，到最後的結局，必定是在那黑暗當中哀哭。</strong>我們要時時刻刻靠著聖靈,重新支取最新的靈力,來對抗仇敵。</p>
+    </div>
+  </section>
+
+  <div class="divider"><span>行動呼召</span></div>
+
+  <!-- ⑦ 今日回應 -->
+  <section class="section" style="padding-top:0;padding-bottom:2rem">
+    <div class="sec-title">
+      <div class="icon" style="background:var(--deep);color:var(--gold);">✦</div>
+      <div>
+        <h2>今日的回應</h2>
+        <div class="subtitle">從信息到行動</div>
+      </div>
+    </div>
+    <div class="call-box dove">
+      <div class="call-box-label">三個自我檢視</div>
+      <h3>我的回應是什麼？</h3>
+      <ul>
+        <li><strong>我還在相咬相吞嗎？</strong> 是否仍像小惡魔到處記恨，散發負面的能量？</li>
+        <li><strong>我只取了一點點恩典嗎？</strong> 是否沒有操練、沒有天天時刻活在聖靈裡面？</li>
+        <li><strong>我是否數十年如一日？</strong> 信主多年，是否仍不求進步，恐怕被仇敵擄去？</li>
+      </ul>
+    </div>
+
+    <div class="quote-block" style="margin-top:1.5rem">
+      <p class="quote-text">你們要一直地仰望我，要一直地在靈裡，<br>一旦離開了我，你們的靈命就<em>死沉</em>。<br>你們要一直地吸入我，才能治死你們的肉體。</p>
+      <p class="quote-src">— 父神的話語 · 2026.07.12</p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="page-footer">
+  <p>說翻方言系列 · <strong>純淨的靈糧·治死肉體·莫入寶山空手回</strong></p>
+  <p style="margin-top:4px;">2026.07.12 · 神之子體系 · 預備主基督再來</p>
+</footer>
+
+</body>
+</html>
