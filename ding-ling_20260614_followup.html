@@ -1,0 +1,1853 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>天國憲章・深入探討 — 馬太福音 5~7章</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* ── 馬卡龍配色 ── */
+  --pink:#FFB3C6;   --pink-s:#FFE7EE;  --pink-d:#D9587E;
+  --mint:#A8E6CF;   --mint-s:#E2F7EE;  --mint-d:#3E9E7A;
+  --lemon:#FFE49A;  --lemon-s:#FFF6DC; --lemon-d:#C79612;
+  --lav:#C9B8E8;    --lav-s:#EFE9FA;   --lav-d:#7E5FBC;
+  --sky:#A8D8F0;    --sky-s:#E4F3FC;   --sky-d:#2F82BC;
+  --peach:#FFC9A8;  --peach-s:#FFEDE0; --peach-d:#D9793B;
+  --matcha:#CDE6A5; --matcha-s:#F0F8E0;--matcha-d:#71993A;
+  --rose:#F5B8CE;   --rose-s:#FCE8F0;  --rose-d:#C4527E;
+
+  --cream:#FFFBF8; --card:#FFFFFF;
+  --ink:#4A3F46; --ink-d:#332B30; --muted:#8E8189;
+  --line:rgba(0,0,0,.07);
+  --r:14px; --r-lg:22px; --r-xl:30px;
+  --sh:0 3px 14px rgba(160,120,140,.09);
+  --sh-h:0 12px 34px rgba(160,120,140,.17);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;scroll-padding-top:76px;}
+body{
+  font-family:'Noto Sans TC',-apple-system,'Microsoft JhengHei',sans-serif;
+  background:var(--cream); color:var(--ink); line-height:1.85;
+  -webkit-font-smoothing:antialiased;
+}
+body::before{
+  content:''; position:fixed; inset:0; z-index:-1; pointer-events:none;
+  background:
+    radial-gradient(circle at 8% 6%, rgba(255,179,198,.16), transparent 42%),
+    radial-gradient(circle at 92% 14%, rgba(168,216,240,.15), transparent 40%),
+    radial-gradient(circle at 78% 88%, rgba(201,184,232,.14), transparent 42%),
+    radial-gradient(circle at 14% 82%, rgba(168,230,207,.14), transparent 42%);
+}
+.serif{font-family:'Noto Serif TC',Georgia,serif;}
+
+/* ═══ HERO ═══ */
+.hero{
+  text-align:center; padding:4.2rem 1.5rem 3.4rem; position:relative; overflow:hidden;
+  background:linear-gradient(160deg,#FFF1F5 0%,#F3F6FF 38%,#EFFAF4 72%,#FFF8E8 100%);
+  border-bottom:1px solid var(--line); contain:paint;
+}
+.hero-blob{position:absolute;border-radius:50%;filter:blur(46px);opacity:.5;pointer-events:none;}
+.b1{width:280px;height:280px;background:var(--pink);top:-90px;left:-60px;}
+.b2{width:240px;height:240px;background:var(--sky);top:-60px;right:-50px;}
+.b3{width:220px;height:220px;background:var(--matcha);bottom:-100px;left:34%;}
+.hero-tag{
+  display:inline-block; background:#fff; border:1.5px solid var(--pink);
+  color:var(--pink-d); font-size:11.5px; letter-spacing:3.5px; font-weight:700;
+  padding:6px 20px; border-radius:99px; margin-bottom:1.4rem; position:relative;
+  box-shadow:var(--sh);
+}
+.hero h1{
+  font-family:'Noto Serif TC',serif; font-size:clamp(1.9rem,5.2vw,3rem);
+  font-weight:700; line-height:1.35; color:var(--ink-d); position:relative; margin-bottom:.5rem;
+}
+.hero h1 em{
+  font-style:normal;
+  background:linear-gradient(100deg,var(--pink-d),var(--lav-d) 45%,var(--sky-d));
+  -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;
+}
+.hero-sub{color:var(--muted); font-size:.9rem; letter-spacing:1.5px; position:relative; margin-bottom:2rem;}
+.hero-verse{
+  position:relative; display:inline-block; background:rgba(255,255,255,.86);
+  border:1px solid var(--line); border-radius:var(--r-lg);
+  padding:1.1rem 1.9rem; font-family:'Noto Serif TC',serif; font-size:.94rem;
+  line-height:2; color:var(--ink); box-shadow:var(--sh); max-width:600px;
+}
+.hero-verse span{display:block;font-size:.76rem;color:var(--muted);letter-spacing:2px;margin-top:.4rem;font-family:'Noto Sans TC',sans-serif;}
+.hero-chips{position:relative;display:flex;flex-wrap:wrap;gap:.5rem;justify-content:center;margin-top:1.7rem;}
+.chip{
+  font-size:.75rem; padding:5px 14px; border-radius:99px; font-weight:500;
+  background:#fff; border:1px solid var(--line); box-shadow:0 2px 7px rgba(160,120,140,.07);
+}
+.chip.c1{color:var(--pink-d);border-color:var(--pink);}
+.chip.c2{color:var(--sky-d);border-color:var(--sky);}
+.chip.c3{color:var(--matcha-d);border-color:var(--matcha);}
+.chip.c4{color:var(--lav-d);border-color:var(--lav);}
+.chip.c5{color:var(--peach-d);border-color:var(--peach);}
+.chip.c6{color:var(--mint-d);border-color:var(--mint);}
+
+/* ═══ 參考來源 ═══ */
+.srcbar{
+  background:linear-gradient(135deg,var(--lemon-s),#FFFDF7 55%,var(--peach-s));
+  border-bottom:1px solid var(--line); padding:1.1rem 1.15rem;
+}
+.srcbar-in{max-width:1080px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;gap:.6rem;}
+.srcbar-lab{
+  font-size:.72rem;letter-spacing:2.5px;font-weight:700;color:var(--lemon-d);
+  display:flex;align-items:center;gap:6px;margin-right:.3rem;flex-shrink:0;
+}
+.srcitem{
+  display:inline-flex;align-items:center;gap:7px;background:#fff;border:1px solid var(--line);
+  border-radius:99px;padding:6px 15px;font-size:.775rem;color:var(--ink);
+  text-decoration:none;box-shadow:0 2px 7px rgba(160,120,140,.07);transition:.2s;
+}
+a.srcitem:hover{transform:translateY(-2px);box-shadow:var(--sh-h);border-color:var(--peach);color:var(--peach-d);}
+.srcitem b{font-weight:700;color:var(--ink-d);}
+a.srcitem:hover b{color:var(--peach-d);}
+.srcitem .sdot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
+.srcitem .sarr{font-size:.7rem;color:var(--muted);}
+a.srcitem:hover .sarr{color:var(--peach-d);}
+
+/* ═══ NAV ═══ */
+.nav{
+  position:sticky; top:0; z-index:90; background:#FFFCFA;
+  border-bottom:1px solid var(--line); box-shadow:0 1px 10px rgba(160,120,140,.06);
+}
+.nav-in{max-width:1080px;margin:0 auto;display:flex;gap:.35rem;overflow-x:auto;padding:.6rem 1rem;scrollbar-width:none;}
+.nav-in::-webkit-scrollbar{display:none;}
+.nav a{
+  flex-shrink:0; text-decoration:none; font-size:.8rem; font-weight:500; color:var(--muted);
+  padding:7px 15px; border-radius:99px; transition:.22s; white-space:nowrap; border:1px solid transparent;
+}
+.nav a:hover{background:#fff;color:var(--ink);border-color:var(--line);}
+.nav a.on{background:var(--lav-s);color:var(--lav-d);font-weight:700;border-color:var(--lav);}
+
+/* ═══ LAYOUT ═══ */
+.wrap{max-width:1080px;margin:0 auto;padding:0 1.15rem;}
+.sec{padding:3.4rem 0 1.2rem;}
+.sec-head{display:flex;align-items:flex-start;gap:14px;margin-bottom:1.7rem;}
+.sec-ico{
+  width:48px;height:48px;border-radius:16px;display:flex;align-items:center;justify-content:center;
+  font-size:22px;flex-shrink:0;box-shadow:var(--sh);
+}
+.sec-no{font-size:.68rem;letter-spacing:3px;font-weight:700;margin-bottom:2px;text-transform:uppercase;}
+.sec-head h2{font-family:'Noto Serif TC',serif;font-size:1.42rem;font-weight:700;color:var(--ink-d);line-height:1.4;}
+.sec-head .sd{font-size:.82rem;color:var(--muted);margin-top:3px;}
+
+h3.blk{
+  font-family:'Noto Serif TC',serif;font-size:1.06rem;font-weight:700;color:var(--ink-d);
+  margin:2.2rem 0 1rem;display:flex;align-items:center;gap:9px;
+}
+h3.blk::before{content:'';width:5px;height:19px;border-radius:99px;background:var(--lav);}
+h3.blk.pk::before{background:var(--pink);} h3.blk.mt::before{background:var(--mint);}
+h3.blk.sk::before{background:var(--sky);} h3.blk.pc::before{background:var(--peach);}
+h3.blk.lm::before{background:var(--lemon);} h3.blk.mc::before{background:var(--matcha);}
+
+.lead{font-size:.93rem;color:var(--ink);line-height:2;margin-bottom:1.2rem;}
+.lead strong{color:var(--ink-d);font-weight:700;}
+
+/* ═══ CARD PRIMITIVES ═══ */
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);box-shadow:var(--sh);}
+.grid{display:grid;gap:1rem;}
+.g2{grid-template-columns:repeat(auto-fit,minmax(290px,1fr));}
+.g3{grid-template-columns:repeat(auto-fit,minmax(230px,1fr));}
+.g4{grid-template-columns:repeat(auto-fit,minmax(185px,1fr));}
+
+.tile{padding:1.35rem 1.3rem;border-radius:var(--r-lg);border:1px solid var(--line);background:#fff;box-shadow:var(--sh);transition:.25s;position:relative;overflow:hidden;}
+.tile:hover{transform:translateY(-4px);box-shadow:var(--sh-h);}
+.tile .tt{font-family:'Noto Serif TC',serif;font-size:1rem;font-weight:700;color:var(--ink-d);margin-bottom:.45rem;}
+.tile .tb{font-size:.82rem;color:var(--muted);line-height:1.8;}
+.tile .tn{position:absolute;top:.7rem;right:1rem;font-family:'Noto Serif TC',serif;font-size:2.4rem;font-weight:700;opacity:.13;line-height:1;}
+.tile .ti{font-size:1.5rem;margin-bottom:.5rem;display:block;}
+.t-pink{background:linear-gradient(165deg,var(--pink-s),#fff 62%);} .t-pink .tn{color:var(--pink-d);}
+.t-mint{background:linear-gradient(165deg,var(--mint-s),#fff 62%);} .t-mint .tn{color:var(--mint-d);}
+.t-sky{background:linear-gradient(165deg,var(--sky-s),#fff 62%);}   .t-sky .tn{color:var(--sky-d);}
+.t-lav{background:linear-gradient(165deg,var(--lav-s),#fff 62%);}   .t-lav .tn{color:var(--lav-d);}
+.t-lemon{background:linear-gradient(165deg,var(--lemon-s),#fff 62%);}.t-lemon .tn{color:var(--lemon-d);}
+.t-peach{background:linear-gradient(165deg,var(--peach-s),#fff 62%);}.t-peach .tn{color:var(--peach-d);}
+.t-matcha{background:linear-gradient(165deg,var(--matcha-s),#fff 62%);}.t-matcha .tn{color:var(--matcha-d);}
+.t-rose{background:linear-gradient(165deg,var(--rose-s),#fff 62%);} .t-rose .tn{color:var(--rose-d);}
+
+/* ═══ SCRIPTURE ═══ */
+.scr{
+  background:#fff;border:1px solid var(--line);border-left:4px solid var(--lemon);
+  border-radius:var(--r);padding:1.15rem 1.3rem;margin-bottom:1rem;box-shadow:var(--sh);
+}
+.scr .ref{font-family:'Noto Serif TC',serif;font-size:.85rem;font-weight:700;color:var(--lemon-d);letter-spacing:.5px;margin-bottom:.5rem;}
+.scr p{font-family:'Noto Serif TC',serif;font-size:.9rem;line-height:2.05;text-align:justify;color:var(--ink);}
+.scr .vn{font-size:.62rem;color:var(--lemon-d);font-weight:700;vertical-align:.35em;margin:0 3px 0 5px;}
+.scr.pk{border-left-color:var(--pink);} .scr.pk .ref{color:var(--pink-d);} .scr.pk .vn{color:var(--pink-d);}
+.scr.sk{border-left-color:var(--sky);} .scr.sk .ref{color:var(--sky-d);} .scr.sk .vn{color:var(--sky-d);}
+.scr.mt{border-left-color:var(--mint);} .scr.mt .ref{color:var(--mint-d);} .scr.mt .vn{color:var(--mint-d);}
+.scr.lv{border-left-color:var(--lav);} .scr.lv .ref{color:var(--lav-d);} .scr.lv .vn{color:var(--lav-d);}
+
+/* ═══ NOTE / CALLOUT ═══ */
+.note{
+  border-radius:var(--r-lg);padding:1.25rem 1.4rem;font-size:.86rem;line-height:1.95;
+  margin-bottom:1.1rem;border:1px solid var(--line);position:relative;
+}
+.note .nh{font-weight:700;font-size:.83rem;letter-spacing:1px;margin-bottom:.45rem;display:flex;align-items:center;gap:7px;}
+.note.disc{background:linear-gradient(150deg,var(--lemon-s),#fff);}    .note.disc .nh{color:var(--lemon-d);}
+.note.key{background:linear-gradient(150deg,var(--lav-s),#fff);}       .note.key .nh{color:var(--lav-d);}
+.note.warn{background:linear-gradient(150deg,var(--rose-s),#fff);}     .note.warn .nh{color:var(--rose-d);}
+.note.good{background:linear-gradient(150deg,var(--mint-s),#fff);}     .note.good .nh{color:var(--mint-d);}
+.note.info{background:linear-gradient(150deg,var(--sky-s),#fff);}      .note.info .nh{color:var(--sky-d);}
+.note p+p{margin-top:.6rem;}
+.note strong{color:var(--ink-d);}
+
+/* ═══ FLIP CARD ═══ */
+.flip-bar{
+  display:flex;flex-wrap:wrap;align-items:center;gap:.7rem;
+  background:#fff;border:1px solid var(--line);border-radius:99px;
+  padding:.55rem .75rem .55rem 1.15rem;box-shadow:var(--sh);margin-bottom:1.3rem;
+}
+.flip-bar .fl{font-size:.8rem;font-weight:700;color:var(--ink-d);margin-right:auto;}
+.btn{
+  font-family:inherit;font-size:.76rem;font-weight:700;padding:7px 15px;border-radius:99px;
+  border:1.5px solid var(--line);background:#fff;color:var(--muted);cursor:pointer;transition:.2s;
+}
+.btn:hover{transform:translateY(-1px);box-shadow:var(--sh);}
+.btn.on{background:var(--lav-s);border-color:var(--lav);color:var(--lav-d);}
+.btn.rose.on{background:var(--rose-s);border-color:var(--rose);color:var(--rose-d);}
+.btn.mint.on{background:var(--mint-s);border-color:var(--mint);color:var(--mint-d);}
+
+.fgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(255px,1fr));gap:1.05rem;}
+.fc{perspective:1600px;height:305px;cursor:pointer;}
+.fc-in{position:relative;width:100%;height:100%;transition:transform .68s cubic-bezier(.4,.2,.2,1);transform-style:preserve-3d;}
+.fc.flipped .fc-in{transform:rotateY(180deg);}
+.fc-f,.fc-b{
+  position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;
+  border-radius:var(--r-lg);padding:1.3rem 1.25rem;border:1px solid var(--line);
+  box-shadow:var(--sh);display:flex;flex-direction:column;overflow:hidden;
+}
+.fc:hover .fc-f,.fc:hover .fc-b{box-shadow:var(--sh-h);}
+.fc-b{transform:rotateY(180deg);background:#fff;}
+.fc-num{
+  position:absolute;top:.85rem;right:1.1rem;width:30px;height:30px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;font-family:'Noto Serif TC',serif;
+  font-size:.85rem;font-weight:700;color:#fff;
+}
+.fc-title{font-family:'Noto Serif TC',serif;font-size:1.22rem;font-weight:700;color:var(--ink-d);margin-bottom:.15rem;padding-right:34px;}
+.fc-vs{font-size:.7rem;letter-spacing:1.5px;font-weight:700;margin-bottom:.7rem;}
+.fc-say{font-family:'Noto Serif TC',serif;font-size:.88rem;line-height:1.85;color:var(--ink);margin-bottom:.7rem;}
+.fc-plain{font-size:.8rem;line-height:1.85;color:var(--muted);}
+.fc-hint{margin-top:auto;font-size:.68rem;letter-spacing:1.5px;color:var(--muted);opacity:.75;display:flex;align-items:center;gap:5px;padding-top:.6rem;}
+.fc-gk{font-family:'Noto Serif TC',Georgia,serif;font-size:1.02rem;font-weight:700;color:var(--ink-d);letter-spacing:.5px;}
+.fc-tr{font-size:.7rem;letter-spacing:1.5px;color:var(--muted);margin-bottom:.6rem;}
+.fc-lit{font-size:.79rem;line-height:1.8;color:var(--ink);margin-bottom:.7rem;}
+.fc-ot{font-size:.72rem;line-height:1.7;padding:.5rem .7rem;border-radius:9px;background:var(--lemon-s);color:var(--lemon-d);font-weight:500;}
+.fc-scroll{overflow-y:auto;flex:1;padding-right:3px;}
+.fc-scroll::-webkit-scrollbar{width:4px;} .fc-scroll::-webkit-scrollbar-thumb{background:var(--line);border-radius:9px;}
+
+/* woe mode */
+.fc.woe .fc-f{background:linear-gradient(165deg,#FBEAF0,#fff 62%)!important;}
+.fc.woe .fc-title{color:var(--rose-d);}
+.fc.woe .fc-say{color:var(--rose-d);}
+
+/* theology drawer */
+.thx{margin-top:.75rem;}
+.thx-btn{
+  width:100%;font-family:inherit;font-size:.73rem;font-weight:700;letter-spacing:1px;
+  padding:8px 12px;border-radius:11px;border:1px dashed var(--lav);background:var(--lav-s);
+  color:var(--lav-d);cursor:pointer;transition:.2s;text-align:left;
+}
+.thx-btn:hover{background:var(--lav);color:#fff;border-style:solid;}
+.thx-body{
+  display:none;margin-top:.6rem;font-size:.79rem;line-height:1.85;color:var(--ink);
+  background:var(--lav-s);border-radius:11px;padding:.85rem 1rem;
+}
+.thx-body.open{display:block;animation:fade .3s;}
+@keyframes fade{from{opacity:0;transform:translateY(-5px);}to{opacity:1;transform:none;}}
+
+/* ═══ SVG WRAP ═══ */
+.svgw{background:#fff;border:1px solid var(--line);border-radius:var(--r-xl);box-shadow:var(--sh);overflow:hidden;margin-bottom:1.3rem;}
+.svgw svg{display:block;width:100%;height:auto;}
+.svg-cap{padding:.75rem 1.3rem 1rem;font-size:.75rem;color:var(--muted);line-height:1.75;border-top:1px solid var(--line);background:var(--cream);}
+
+/* ═══ CHIASM ═══ */
+.chi{background:#fff;border:1px solid var(--line);border-radius:var(--r-xl);padding:1.5rem 1.3rem;box-shadow:var(--sh);margin-bottom:1.2rem;}
+.chi-row{
+  display:flex;align-items:center;gap:11px;padding:.5rem .8rem;border-radius:12px;
+  cursor:pointer;transition:.22s;margin-bottom:4px;
+}
+.chi-row:hover{background-color:var(--cream);}
+.chi-row.hl{background-color:var(--lav-s);box-shadow:inset 0 0 0 1.5px var(--lav);}
+.chi-row.center.hl{background-color:var(--pink-s);box-shadow:inset 0 0 0 1.5px var(--pink);}
+.chi-k{
+  width:32px;height:32px;flex-shrink:0;border-radius:9px;display:flex;align-items:center;justify-content:center;
+  font-family:'Noto Serif TC',serif;font-weight:700;font-size:.86rem;color:#fff;
+}
+.chi-t{font-size:.86rem;font-weight:500;color:var(--ink-d);flex:1;}
+.chi-t small{display:block;font-size:.71rem;color:var(--muted);font-weight:400;}
+.chi-v{font-size:.71rem;color:var(--muted);font-family:'Noto Serif TC',serif;flex-shrink:0;letter-spacing:.5px;}
+.chi-note{margin-top:1rem;padding-top:1rem;border-top:1px dashed var(--line);font-size:.79rem;color:var(--muted);line-height:1.85;}
+
+/* ═══ CONCENTRIC ═══ */
+.conc{display:flex;flex-wrap:wrap;gap:1.2rem;align-items:center;justify-content:center;background:#fff;border:1px solid var(--line);border-radius:var(--r-xl);padding:1.6rem 1.3rem;box-shadow:var(--sh);margin-bottom:1.2rem;}
+.conc-svg{flex:1 1 300px;max-width:390px;}
+.conc-info{flex:1 1 275px;min-height:190px;}
+.conc-info .ci-lab{font-size:.7rem;letter-spacing:2.5px;font-weight:700;color:var(--muted);margin-bottom:.35rem;}
+.conc-info .ci-t{font-family:'Noto Serif TC',serif;font-size:1.1rem;font-weight:700;color:var(--ink-d);margin-bottom:.55rem;}
+.conc-info .ci-b{font-size:.83rem;line-height:1.9;color:var(--ink);}
+.conc-info .ci-v{margin-top:.7rem;font-size:.78rem;font-family:'Noto Serif TC',serif;background:var(--lemon-s);color:var(--lemon-d);padding:.6rem .85rem;border-radius:10px;line-height:1.8;}
+.cring{cursor:pointer;transition:.25s;}
+.cring:hover{opacity:.85;}
+
+/* ═══ RADAR ═══ */
+.radar-box{background:#fff;border:1px solid var(--line);border-radius:var(--r-xl);padding:1.5rem 1.3rem;box-shadow:var(--sh);margin-bottom:1.2rem;}
+.radar-flex{display:flex;flex-wrap:wrap;gap:1.4rem;align-items:flex-start;}
+.radar-svg{flex:1 1 320px;min-width:280px;}
+.radar-side{flex:1 1 250px;}
+.legend{display:flex;flex-direction:column;gap:.5rem;}
+.lg{
+  display:flex;align-items:flex-start;gap:9px;padding:.6rem .8rem;border-radius:12px;
+  cursor:pointer;transition:.2s;border:1px solid transparent;font-size:.79rem;
+}
+.lg:hover{background:var(--cream);}
+.lg.off{opacity:.35;}
+.lg-sw{width:13px;height:13px;border-radius:4px;flex-shrink:0;margin-top:4px;}
+.lg-t{font-weight:700;color:var(--ink-d);}
+.lg-d{font-size:.72rem;color:var(--muted);line-height:1.65;margin-top:1px;}
+
+/* sliders */
+.sl-wrap{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:.7rem 1.2rem;}
+.sl{display:flex;align-items:center;gap:9px;}
+.sl label{font-size:.78rem;font-weight:500;color:var(--ink-d);width:74px;flex-shrink:0;}
+.sl input[type=range]{flex:1;-webkit-appearance:none;appearance:none;height:6px;border-radius:99px;background:var(--lav-s);outline:none;}
+.sl input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:17px;height:17px;border-radius:50%;background:var(--lav);border:2.5px solid #fff;box-shadow:0 1px 5px rgba(0,0,0,.2);cursor:pointer;}
+.sl input[type=range]::-moz-range-thumb{width:17px;height:17px;border-radius:50%;background:var(--lav);border:2.5px solid #fff;cursor:pointer;}
+.sl .sv{font-size:.75rem;font-weight:700;color:var(--lav-d);width:16px;text-align:center;}
+.self-out{
+  margin-top:1.1rem;padding:1rem 1.2rem;border-radius:var(--r);background:var(--cream);
+  border:1px dashed var(--line);font-size:.83rem;line-height:1.9;color:var(--ink);
+}
+.self-out b{color:var(--rose-d);}
+
+/* ═══ COMPARE TABLE ═══ */
+.tbl-scroll{overflow-x:auto;border-radius:var(--r-lg);border:1px solid var(--line);box-shadow:var(--sh);margin-bottom:1.2rem;background:#fff;}
+table{width:100%;border-collapse:collapse;min-width:660px;}
+th,td{padding:.85rem 1rem;text-align:left;font-size:.81rem;line-height:1.75;border-bottom:1px solid var(--line);vertical-align:top;}
+th{background:var(--lav-s);color:var(--lav-d);font-weight:700;font-size:.77rem;letter-spacing:1px;white-space:nowrap;position:sticky;top:0;}
+tbody tr:hover{background:var(--cream);}
+td.nm{font-weight:700;color:var(--ink-d);white-space:nowrap;}
+td small{display:block;color:var(--muted);font-size:.72rem;font-weight:400;}
+.pill{display:inline-block;font-size:.68rem;font-weight:700;padding:2px 9px;border-radius:99px;white-space:nowrap;}
+.p-pink{background:var(--pink-s);color:var(--pink-d);} .p-mint{background:var(--mint-s);color:var(--mint-d);}
+.p-sky{background:var(--sky-s);color:var(--sky-d);}   .p-lav{background:var(--lav-s);color:var(--lav-d);}
+.p-lemon{background:var(--lemon-s);color:var(--lemon-d);} .p-peach{background:var(--peach-s);color:var(--peach-d);}
+.p-rose{background:var(--rose-s);color:var(--rose-d);} .p-matcha{background:var(--matcha-s);color:var(--matcha-d);}
+
+/* ═══ BLESS / WOE MIRROR ═══ */
+.mir{display:grid;gap:.6rem;margin-bottom:1.2rem;}
+.mir-row{
+  display:grid;grid-template-columns:1fr 42px 1fr;align-items:stretch;gap:0;
+  background:#fff;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;box-shadow:var(--sh);
+  transition:.22s;
+}
+.mir-row:hover{box-shadow:var(--sh-h);transform:translateY(-2px);}
+@media(max-width:640px){.mir-row{grid-template-columns:1fr;}}
+.mir-b,.mir-w{padding:.85rem 1.05rem;}
+.mir-b{background:linear-gradient(140deg,var(--mint-s),#fff 75%);}
+.mir-w{background:linear-gradient(140deg,var(--rose-s),#fff 75%);}
+.mir-mid{display:flex;align-items:center;justify-content:center;background:var(--cream);font-size:1rem;color:var(--muted);}
+@media(max-width:640px){.mir-mid{padding:.25rem;}}
+.mir-tag{font-size:.63rem;letter-spacing:2px;font-weight:700;margin-bottom:.25rem;}
+.mir-b .mir-tag{color:var(--mint-d);} .mir-w .mir-tag{color:var(--rose-d);}
+.mir-b p,.mir-w p{font-family:'Noto Serif TC',serif;font-size:.84rem;line-height:1.75;}
+.mir-b p{color:var(--ink);} .mir-w p{color:var(--rose-d);}
+
+/* ═══ TIMELINE ═══ */
+.tl{position:relative;padding-left:2.4rem;margin-bottom:1.2rem;}
+.tl::before{content:'';position:absolute;left:11px;top:10px;bottom:10px;width:2.5px;border-radius:99px;
+  background:linear-gradient(180deg,var(--pink),var(--lemon) 30%,var(--mint) 60%,var(--sky) 85%,var(--lav));}
+.tli{position:relative;margin-bottom:1.25rem;}
+.tld{position:absolute;left:-2.06rem;top:.4rem;width:13px;height:13px;border-radius:50%;border:3px solid #fff;box-shadow:0 0 0 2px currentColor;}
+.tly{font-size:.7rem;font-weight:700;letter-spacing:2px;margin-bottom:2px;}
+.tlt{font-family:'Noto Serif TC',serif;font-weight:700;font-size:.95rem;color:var(--ink-d);margin-bottom:2px;}
+.tlb{font-size:.81rem;color:var(--muted);line-height:1.8;}
+
+/* ═══ STEP FLOW ═══ */
+.flow{display:flex;flex-wrap:wrap;gap:.65rem;align-items:stretch;margin-bottom:1.2rem;}
+.fstep{
+  flex:1 1 165px;padding:1.05rem 1rem;border-radius:var(--r-lg);border:1px solid var(--line);
+  background:#fff;box-shadow:var(--sh);position:relative;transition:.25s;
+}
+.fstep:hover{transform:translateY(-4px);box-shadow:var(--sh-h);}
+.fstep-n{font-size:.63rem;letter-spacing:2px;font-weight:700;margin-bottom:.35rem;}
+.fstep-t{font-family:'Noto Serif TC',serif;font-size:.93rem;font-weight:700;color:var(--ink-d);margin-bottom:.35rem;}
+.fstep-b{font-size:.77rem;color:var(--muted);line-height:1.75;}
+.fstep::after{content:'→';position:absolute;right:-.55rem;top:50%;transform:translateY(-50%);color:var(--line);font-size:1rem;z-index:2;}
+.fstep:last-child::after{display:none;}
+@media(max-width:600px){.fstep::after{display:none;}}
+
+/* ═══ QUOTE ═══ */
+.qb{
+  border-radius:var(--r-xl);padding:2rem 2.1rem 1.6rem;margin-bottom:1.3rem;position:relative;overflow:hidden;
+  background:linear-gradient(150deg,#FFF0F5 0%,#F1F5FF 50%,#EFFAF3 100%);border:1px solid var(--line);
+}
+.qb::before{content:'\201C';position:absolute;top:-.9rem;left:.9rem;font-family:'Noto Serif TC',serif;
+  font-size:6.5rem;color:var(--pink);opacity:.28;line-height:1;pointer-events:none;}
+.qt{position:relative;font-family:'Noto Serif TC',serif;font-size:1.02rem;line-height:2.05;color:var(--ink-d);margin-bottom:.75rem;}
+.qt em{font-style:normal;font-weight:700;color:var(--pink-d);}
+.qs{position:relative;font-size:.75rem;color:var(--muted);letter-spacing:1.5px;}
+
+/* ═══ LIST ═══ */
+.olist{counter-reset:oi;list-style:none;display:grid;gap:.55rem;margin-bottom:1.2rem;}
+.olist li{
+  counter-increment:oi;position:relative;padding:.8rem 1rem .8rem 3rem;background:#fff;
+  border:1px solid var(--line);border-radius:var(--r);font-size:.83rem;line-height:1.8;box-shadow:var(--sh);transition:.2s;
+}
+.olist li:hover{transform:translateX(4px);}
+.olist li::before{
+  content:counter(oi);position:absolute;left:.85rem;top:.82rem;width:24px;height:24px;border-radius:50%;
+  background:var(--lav-s);color:var(--lav-d);font-size:.72rem;font-weight:700;
+  display:flex;align-items:center;justify-content:center;
+}
+.olist.pk li::before{background:var(--pink-s);color:var(--pink-d);}
+.olist.mt li::before{background:var(--mint-s);color:var(--mint-d);}
+
+/* ═══ DIVIDER ═══ */
+.dv{display:flex;align-items:center;gap:13px;margin:2.2rem 0 .4rem;}
+.dv::before,.dv::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--line),transparent);}
+.dv span{font-size:.68rem;letter-spacing:3.5px;color:var(--muted);white-space:nowrap;}
+
+/* ═══ 前往分享簡報 ═══ */
+.deck-cta{
+  display:flex; align-items:center; gap:1.3rem; text-decoration:none;
+  background:linear-gradient(125deg,var(--pink-s) 0%,var(--lav-s) 45%,var(--sky-s) 100%);
+  border:1.5px solid var(--lav); border-radius:var(--r-xl);
+  padding:1.7rem 1.9rem; box-shadow:var(--sh); transition:.25s;
+}
+.deck-cta:hover{transform:translateY(-4px);box-shadow:var(--sh-h);border-color:var(--pink);}
+.deck-ico{
+  width:64px;height:64px;flex-shrink:0;border-radius:20px;background:#fff;
+  display:flex;align-items:center;justify-content:center;font-size:31px;box-shadow:var(--sh);
+}
+.deck-txt{flex:1;min-width:0;}
+.deck-lab{font-size:.72rem;letter-spacing:3px;font-weight:700;color:var(--lav-d);margin-bottom:.3rem;}
+.deck-title{font-family:'Noto Serif TC',serif;font-size:1.32rem;font-weight:700;color:var(--ink-d);margin-bottom:.45rem;}
+.deck-desc{font-size:.83rem;color:var(--ink);line-height:1.8;}
+.deck-desc span{color:var(--muted);font-size:.78rem;}
+.deck-arrow{
+  flex-shrink:0;width:44px;height:44px;border-radius:50%;background:#fff;color:var(--lav-d);
+  display:flex;align-items:center;justify-content:center;font-size:1.1rem;box-shadow:var(--sh);transition:.25s;
+}
+.deck-cta:hover .deck-arrow{background:var(--lav);color:#fff;transform:translateX(4px);}
+@media(max-width:560px){
+  .deck-cta{flex-direction:column;text-align:center;gap:1rem;}
+  .deck-arrow{display:none;}
+}
+
+/* ═══ FOOTER ═══ */
+.ft{
+  margin-top:3rem;padding:2.4rem 1.5rem;text-align:center;
+  background:linear-gradient(160deg,#FFF1F5,#F1F5FF 50%,#EFFAF3);border-top:1px solid var(--line);
+}
+.ft p{font-size:.8rem;color:var(--muted);letter-spacing:1px;}
+.ft strong{color:var(--pink-d);font-weight:700;}
+.top{
+  position:fixed;right:1.1rem;bottom:1.1rem;width:44px;height:44px;border-radius:50%;
+  background:#fff;border:1.5px solid var(--lav);color:var(--lav-d);font-size:1rem;cursor:pointer;
+  box-shadow:var(--sh-h);opacity:0;pointer-events:none;transition:.28s;z-index:95;
+}
+.top.show{opacity:1;pointer-events:auto;}
+.top:hover{background:var(--lav);color:#fff;}
+</style>
+</head>
+<body>
+
+<!-- ══════════ HERO ══════════ -->
+<header class="hero">
+  <div class="hero-blob b1"></div><div class="hero-blob b2"></div><div class="hero-blob b3"></div>
+  <div class="hero-tag">馬太福音 5~7 章 · 深入探討</div>
+  <h1>天國<em>憲章</em></h1>
+  <p class="hero-sub">屬於天國的人，應當具備什麼？</p>
+  <div class="hero-verse">
+    「他們的義若不勝於文士和法利賽人的義，<br>斷不能進天國。」
+    <span>馬太福音 5:20 · 和合本</span>
+  </div>
+  <div class="hero-chips">
+    <span class="chip c1">背景與對焦</span>
+    <span class="chip c2">交錯配置結構</span>
+    <span class="chip c3">涵蓋八大範圍</span>
+    <span class="chip c4">八福・原文</span>
+    <span class="chip c5">八福→八禍</span>
+    <span class="chip c6">六大面向張力</span>
+  </div>
+</header>
+
+<!-- ══════════ 參考來源 ══════════ -->
+<div class="srcbar">
+  <div class="srcbar-in">
+    <span class="srcbar-lab">📚 參考來源</span>
+    <span class="srcitem"><span class="sdot" style="background:var(--lemon);"></span><b>聖經</b>・和合本</span>
+    <a class="srcitem" href="https://sunday-note.vercel.app/ding-ling_20260614.html" target="_blank" rel="noopener">
+      <span class="sdot" style="background:var(--pink);"></span><b>愛的叮嚀</b>・2026.06.14<span class="sarr">↗</span></a>
+    <a class="srcitem" href="https://www.sonofgod-church.com/post/successrequiressuffering" target="_blank" rel="noopener">
+      <span class="sdot" style="background:var(--mint);"></span><b>最偉大的工程是人格改造</b><span class="sarr">↗</span></a>
+  </div>
+</div>
+
+<!-- ══════════ NAV ══════════ -->
+<nav class="nav">
+  <div class="nav-in" id="nav">
+    <a href="#s1" class="on">① 背景・價值對焦</a>
+    <a href="#s2">② 架構與內容</a>
+    <a href="#s3">③ 涵蓋範圍</a>
+    <a href="#s4">④ 八福・原文探討</a>
+    <a href="#s5">⑤ 八福 → 八禍</a>
+    <a href="#s6">⑥ 六大面向張力</a>
+    <a href="#s7">⑦ 師母的對焦</a>
+  </div>
+</nav>
+
+<main class="wrap">
+
+<!-- ═════════════════════════════════════════ ① 背景與價值對焦 ═════════════════════════════════════════ -->
+<section class="sec" id="s1">
+  <div class="sec-head">
+    <div class="sec-ico" style="background:var(--pink-s);">🏔️</div>
+    <div>
+      <div class="sec-no" style="color:var(--pink-d);">SECTION 01</div>
+      <h2>背景與價值對焦</h2>
+      <div class="sd">為什麼這三章被稱為「天國憲章」？</div>
+    </div>
+  </div>
+
+  <p class="lead">
+    馬太福音 5~7 章，教會傳統稱為<strong>「登山寶訓」</strong>，也被稱為<strong>「天國憲章」、「天國大憲章」</strong>。
+    這個名稱不是隨口說的比喻 —— 它精準指出了這段經文的<strong>文體性質</strong>：這不是一篇勵志演講，而是一份
+    <strong>國度的立國文件</strong>，宣告一個國家的身分、標準與界線。
+  </p>
+
+  <h3 class="blk pk">為何是「憲章」而不是「講道」？</h3>
+  <div class="grid g4" style="margin-bottom:1.3rem;">
+    <div class="tile t-pink"><span class="tn">一</span><span class="ti">👑</span>
+      <div class="tt">頒布者的身分</div>
+      <div class="tb">憲章由掌權者頒布。耶穌「上了山，坐下」—— 坐著是拉比與君王施教的姿勢，不是站著演講。祂以立法者的權柄說話。</div></div>
+    <div class="tile t-lemon"><span class="tn">二</span><span class="ti">⚖️</span>
+      <div class="tt">立法的語氣</div>
+      <div class="tb">「只是我告訴你們」連續六次。祂不引用任何拉比為權威，而是直接宣告 —— 這在當時是驚人的僭越，除非祂真是那位立法者。</div></div>
+    <div class="tile t-mint"><span class="tn">三</span><span class="ti">🗺️</span>
+      <div class="tt">國民的定義</div>
+      <div class="tb">憲章首先定義「誰是國民」。八福不是八種美德選項，而是<b>天國子民的身分素描</b>——這國的人長什麼樣子。</div></div>
+    <div class="tile t-sky"><span class="tn">四</span><span class="ti">🏛️</span>
+      <div class="tt">效力的範圍</div>
+      <div class="tb">從內心動機（5:21-48）、宗教生活（6:1-18）、金錢憂慮（6:19-34）到人際論斷（7:1-12）—— 覆蓋一個人的全部。</div></div>
+  </div>
+
+  <h3 class="blk lm">新摩西・新西乃 —— 馬太的敘事對焦</h3>
+  <p class="lead">
+    馬太寫給猶太人看，他刻意讓讀者聽見<strong>出埃及記的回音</strong>。這是理解「憲章」二字最關鍵的背景：
+  </p>
+  <div class="svgw">
+    <svg viewBox="0 0 920 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="摩西與耶穌的平行對照圖">
+      <defs>
+        <linearGradient id="gA" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#FFE49A"/><stop offset="1" stop-color="#FFF6DC"/></linearGradient>
+        <linearGradient id="gB" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#A8D8F0"/><stop offset="1" stop-color="#E4F3FC"/></linearGradient>
+        <marker id="ar1" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+          <path d="M2 1L8 5L2 9" fill="none" stroke="#C9B8E8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></marker>
+      </defs>
+      <rect width="920" height="300" fill="#FFFBF8"/>
+
+      <!-- 舊約側 -->
+      <rect x="34" y="30" width="380" height="238" rx="20" fill="url(#gA)" opacity=".55"/>
+      <text x="224" y="62" text-anchor="middle" font-family="Noto Serif TC,serif" font-size="15" font-weight="700" fill="#C79612">舊約・西乃山</text>
+      <text x="224" y="83" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="10.5" fill="#A78113">摩西 · 律法時代的開啟</text>
+      <g font-family="Noto Sans TC,sans-serif" font-size="11.5" fill="#7A5F0B">
+        <text x="64" y="118">・在曠野禁食四十晝夜</text>
+        <text x="64" y="145">・上到山上，領受十誡</text>
+        <text x="64" y="172">・下山，向百姓頒布律法</text>
+        <text x="64" y="199">・以色列成為「祭司的國度」</text>
+        <text x="64" y="226">・寫在<tspan font-weight="700">石版</tspan>上的約</text>
+        <text x="64" y="253" font-size="10.5" fill="#A78113">出 19–24 章 · 申 5 章</text>
+      </g>
+
+      <!-- 箭頭 -->
+      <path d="M424 149 L496 149" fill="none" stroke="#C9B8E8" stroke-width="2.2" marker-end="url(#ar1)"/>
+      <text x="460" y="138" text-anchor="middle" font-family="Noto Serif TC,serif" font-size="11" font-weight="700" fill="#7E5FBC">應驗</text>
+
+      <!-- 新約側 -->
+      <rect x="506" y="30" width="380" height="238" rx="20" fill="url(#gB)" opacity=".55"/>
+      <text x="696" y="62" text-anchor="middle" font-family="Noto Serif TC,serif" font-size="15" font-weight="700" fill="#2F82BC">新約・登山寶訓</text>
+      <text x="696" y="83" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="10.5" fill="#3F8FC4">耶穌 · 天國憲章的頒布</text>
+      <g font-family="Noto Sans TC,sans-serif" font-size="11.5" fill="#1F5D89">
+        <text x="536" y="118">・在曠野禁食四十晝夜（太 4:2）</text>
+        <text x="536" y="145">・「上了山，坐下」（太 5:1）</text>
+        <text x="536" y="172">・向門徒頒布天國的標準</text>
+        <text x="536" y="199">・「你們是世上的鹽、光」</text>
+        <text x="536" y="226">・寫在<tspan font-weight="700">心版</tspan>上的約</text>
+        <text x="536" y="253" font-size="10.5" fill="#3F8FC4">太 5–7 章 · 耶 31:33</text>
+      </g>
+    </svg>
+    <div class="svg-cap">
+      馬太福音把耶穌描繪成「比摩西更大的那一位」。摩西上山領受神的話再轉述；耶穌上山，<b>直接以第一人稱宣告</b>：「只是我告訴你們。」
+      這就是為什麼 5:17 必須先聲明「莫想我來要廢掉律法和先知；我來不是要廢掉，乃是要成全」——祂不是另立門戶，是把律法帶到它本來要去的地方。
+    </div>
+  </div>
+
+  <h3 class="blk mt">五大講論中的第一篇</h3>
+  <p class="lead">
+    馬太福音全書由<strong>五大講論</strong>構成骨架（每篇都以「耶穌說完了這些話」作結尾標記）。登山寶訓是第一篇，也是最長、最基礎的一篇 ——
+    它為後面四篇定調。
+  </p>
+  <div class="grid g3" style="margin-bottom:1.3rem;">
+    <div class="tile t-pink"><div class="tt">① 天國憲章</div><div class="tb"><b>5–7章</b><br>國度的品格與標準</div></div>
+    <div class="tile t-lemon"><div class="tt">② 差遣講論</div><div class="tb"><b>10章</b><br>國度的使命與代價</div></div>
+    <div class="tile t-mint"><div class="tt">③ 天國比喻</div><div class="tb"><b>13章</b><br>國度的隱密與生長</div></div>
+    <div class="tile t-sky"><div class="tt">④ 教會講論</div><div class="tb"><b>18章</b><br>國度群體的關係</div></div>
+    <div class="tile t-lav"><div class="tt">⑤ 末世講論</div><div class="tb"><b>24–25章</b><br>國度的成全與審判</div></div>
+  </div>
+
+  <div class="note key">
+    <div class="nh">🔑 價值對焦・這段經文到底在解決什麼問題</div>
+    <p>登山寶訓<strong>不是講「怎麼得救」</strong>，而是講「得救的人長什麼樣」。它假設聽眾已經是門徒（5:1「門徒到祂跟前來」），
+    然後回答一個問題：<strong>天國的價值觀，與這個世界的價值觀，差別在哪裡？</strong></p>
+    <p>整段的核心命題在 5:20 —— <strong>「更高的義」</strong>。法利賽人的義已經是當時最嚴謹的宗教標準了，
+    耶穌卻說要「勝於」他們。差別不在做得更多，而在<strong>層次完全不同</strong>：從行為到動機、從外面到裡面、從可見到隱密。</p>
+  </div>
+</section>
+
+<div class="dv"><span>ARCHITECTURE</span></div>
+
+<!-- ═════════════════════════════════════════ ② 架構與內容 ═════════════════════════════════════════ -->
+<section class="sec" id="s2">
+  <div class="sec-head">
+    <div class="sec-ico" style="background:var(--sky-s);">🏗️</div>
+    <div>
+      <div class="sec-no" style="color:var(--sky-d);">SECTION 02</div>
+      <h2>具體架構及內容</h2>
+      <div class="sd">登山寶訓不是散論 —— 它是一座精密的建築</div>
+    </div>
+  </div>
+
+  <p class="lead">
+    多數人讀馬太 5~7 章的感覺是「一段一段的教訓」。但學者 <strong>Dale Allison</strong> 的結構分析已成為主流共識：
+    這三章是一個<strong>交錯配置（chiasm，A-B-C-X-C'-B'-A'）</strong>—— 前後對稱、向中心收攏。
+    <strong>中心是主禱文</strong>，而主禱文的中心，是那三個「願」。
+  </p>
+
+  <h3 class="blk sk">互動：交錯配置對摺圖</h3>
+  <div class="note info" style="margin-bottom:1rem;">
+    <div class="nh">👆 點一下任何一列</div>
+    <p>與它對稱的另一列會同時亮起。你會看見這三章像一張紙一樣，從中間對摺後完全吻合。</p>
+  </div>
+  <div class="chi" id="chi">
+    <div class="chi-row" data-pair="A"><div class="chi-k" style="background:var(--pink-d);">A</div>
+      <div class="chi-t">耶穌上山，眾人圍繞<small>群眾聚集，門徒到祂跟前來，祂就開口教訓他們</small></div><div class="chi-v">4:25–5:2</div></div>
+    <div class="chi-row" data-pair="B"><div class="chi-k" style="background:var(--peach-d);">B</div>
+      <div class="chi-t">八福 —— 祝福<small>天國子民的身分素描：虛心、哀慟、溫柔…為義受逼迫</small></div><div class="chi-v">5:3–12</div></div>
+    <div class="chi-row" data-pair="C"><div class="chi-k" style="background:var(--lemon-d);">C</div>
+      <div class="chi-t">鹽與光・成全律法先知・更高的義<small>「莫想我來要廢掉<b>律法和先知</b>」（5:17）</small></div><div class="chi-v">5:13–20</div></div>
+    <div class="chi-row" data-pair="D"><div class="chi-k" style="background:var(--matcha-d);">D</div>
+      <div class="chi-t">論律法 —— 兩組三段（六個對比）<small>怒氣・情慾・離婚 ｜ 起誓・報復・愛仇敵</small></div><div class="chi-v">5:21–48</div></div>
+    <div class="chi-row center" data-pair="E"><div class="chi-k" style="background:var(--pink-d);">✦</div>
+      <div class="chi-t"><b style="color:var(--pink-d);">中心 —— 三種虔誠：施捨・禱告・禁食</b><small>而禱告的中心，就是<b>主禱文</b>（6:9–13）</small></div><div class="chi-v">6:1–18</div></div>
+    <div class="chi-row" data-pair="D"><div class="chi-k" style="background:var(--matcha-d);">D′</div>
+      <div class="chi-t">論財富與弟兄 —— 兩組三段<small>財寶・眼睛・兩個主 ｜ 不要憂慮・不要論斷・祈求就給你們</small></div><div class="chi-v">6:19–7:11</div></div>
+    <div class="chi-row" data-pair="C"><div class="chi-k" style="background:var(--lemon-d);">C′</div>
+      <div class="chi-t">黃金律 ——「這就是律法和先知的道理」<small>與 5:17 首尾呼應，形成 inclusio 包框</small></div><div class="chi-v">7:12</div></div>
+    <div class="chi-row" data-pair="B"><div class="chi-k" style="background:var(--peach-d);">B′</div>
+      <div class="chi-t">警告 —— 兩門・兩樹・兩房<small>與八福的「祝福」相對：這裡是三組非此即彼的抉擇</small></div><div class="chi-v">7:13–27</div></div>
+    <div class="chi-row" data-pair="A"><div class="chi-k" style="background:var(--pink-d);">A′</div>
+      <div class="chi-t">耶穌下山，眾人跟隨<small>「眾人希奇祂的教訓，因為祂教訓他們正像有權柄的人」</small></div><div class="chi-v">7:28–8:1</div></div>
+    <div class="chi-note">
+      <b>結構為什麼重要？</b> 因為它告訴你<b>作者的重心在哪裡</b>。一篇散論沒有重心，一個交錯配置有 ——
+      它的重心永遠在中央。登山寶訓的中央不是「愛仇敵」，不是「不要憂慮」，而是<b>與神在隱密處的關係</b>。
+      這直接顛覆了把登山寶訓當成「道德要求清單」的讀法。
+    </div>
+  </div>
+
+  <h3 class="blk pk">互動：中心的中心 —— 主禱文同心圓</h3>
+  <div class="note info" style="margin-bottom:1rem;">
+    <div class="nh">👆 點擊圓環由外而內</div>
+    <p>從整篇登山寶訓，一層層走到最裡面那三個「願」。</p>
+  </div>
+  <div class="conc">
+    <div class="conc-svg">
+      <svg viewBox="0 0 340 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="主禱文同心圓">
+        <rect width="340" height="340" fill="#FFFBF8"/>
+        <circle class="cring" data-c="0" cx="170" cy="170" r="160" fill="#E4F3FC" stroke="#A8D8F0" stroke-width="1.6"/>
+        <circle class="cring" data-c="1" cx="170" cy="170" r="126" fill="#F0F8E0" stroke="#CDE6A5" stroke-width="1.6"/>
+        <circle class="cring" data-c="2" cx="170" cy="170" r="93"  fill="#FFF6DC" stroke="#FFE49A" stroke-width="1.6"/>
+        <circle class="cring" data-c="3" cx="170" cy="170" r="61"  fill="#EFE9FA" stroke="#C9B8E8" stroke-width="1.6"/>
+        <circle class="cring" data-c="4" cx="170" cy="170" r="31"  fill="#FFE7EE" stroke="#FFB3C6" stroke-width="2"/>
+        <g font-family="Noto Serif TC,serif" font-size="11.5" font-weight="700" text-anchor="middle" pointer-events="none">
+          <text x="170" y="27"  fill="#2F82BC">登山寶訓 5–7</text>
+          <text x="170" y="61"  fill="#71993A">三種虔誠 6:1–18</text>
+          <text x="170" y="94"  fill="#C79612">論禱告 6:5–15</text>
+          <text x="170" y="126" fill="#7E5FBC">主禱文 6:9–13</text>
+          <text x="170" y="167" fill="#D9587E" font-size="10.5">三個</text>
+          <text x="170" y="182" fill="#D9587E" font-size="10.5">「願」</text>
+        </g>
+      </svg>
+    </div>
+    <div class="conc-info" id="concInfo">
+      <div class="ci-lab">層級 05 · 最核心</div>
+      <div class="ci-t">中心的中心：三個「願」</div>
+      <div class="ci-b">整篇天國憲章向內收攏的最深處，是三個以神為主詞的祈求。注意順序：<b>先是神的名、神的國、神的旨意，之後才輪到我們的日用飲食。</b>天國子民的優先次序，在這裡被完全重排。</div>
+      <div class="ci-v">「願人都尊你的名為聖。願你的國降臨。<br>願你的旨意行在地上，如同行在天上。」<br>—— 太 6:9–10</div>
+    </div>
+  </div>
+
+  <h3 class="blk mc">全篇分段內容一覽</h3>
+  <div class="tbl-scroll">
+    <table>
+      <thead><tr><th>段落</th><th>經文</th><th>主題</th><th>核心命題</th></tr></thead>
+      <tbody>
+        <tr><td class="nm">序幕</td><td>5:1–2</td><td><span class="pill p-pink">場景</span></td><td>上山、坐下、開口教訓門徒 —— 立法者的姿勢</td></tr>
+        <tr><td class="nm">八福</td><td>5:3–12</td><td><span class="pill p-peach">品格</span></td><td>天國子民的身分素描，八個「有福了」</td></tr>
+        <tr><td class="nm">鹽與光</td><td>5:13–16</td><td><span class="pill p-lemon">影響力</span></td><td>不是躲起來聖潔，是在世上發揮防腐與照明的作用</td></tr>
+        <tr><td class="nm">律法觀</td><td>5:17–20</td><td><span class="pill p-matcha">綱領</span></td><td><b>成全律法・更高的義</b>——全篇的樞紐命題</td></tr>
+        <tr><td class="nm">六個對比</td><td>5:21–48</td><td><span class="pill p-mint">內心</span></td><td>怒氣・情慾・離婚・起誓・報復・愛仇敵：把律法推回動機層</td></tr>
+        <tr><td class="nm">三種虔誠</td><td>6:1–18</td><td><span class="pill p-lav">隱密</span></td><td>施捨・禱告・禁食 ——「不可將善事行在人的面前」</td></tr>
+        <tr><td class="nm">財寶與憂慮</td><td>6:19–34</td><td><span class="pill p-sky">金錢</span></td><td>不能又事奉神又事奉瑪門；先求神的國和神的義</td></tr>
+        <tr><td class="nm">論斷與祈求</td><td>7:1–12</td><td><span class="pill p-rose">待人</span></td><td>先去掉自己眼中的樑木；黃金律總結律法和先知</td></tr>
+        <tr><td class="nm">三組抉擇</td><td>7:13–27</td><td><span class="pill p-rose">結局</span></td><td>兩門・兩樹・兩房 —— 非此即彼，沒有中間地帶</td></tr>
+        <tr><td class="nm">收尾</td><td>7:28–8:1</td><td><span class="pill p-pink">迴響</span></td><td>眾人希奇：祂的教訓正像有權柄的人</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 class="blk mt">結尾的三組抉擇 —— 憲章的執行條款</h3>
+  <p class="lead">
+    很多人讀完八福就停了，但登山寶訓的<strong>結尾才是它的牙齒</strong>。7:13–27 一連三組比喻，每一組都是<strong>二選一，沒有第三條路</strong>。
+    這一點對理解主題⑤「為何沒具備八福就有禍了」極其關鍵 —— 因為<strong>耶穌自己就是這樣結束這篇憲章的</strong>。
+  </p>
+  <div class="grid g3">
+    <div class="tile t-mint"><span class="ti">🚪</span><div class="tt">兩門・兩路</div>
+      <div class="tb"><b>7:13–14</b><br>窄門 → 引到永生，找著的人少<br>寬門 → 引到滅亡，進去的人多<br><br><b style="color:var(--mint-d);">→ 關乎「選擇」</b></div></div>
+    <div class="tile t-lemon"><span class="ti">🌳</span><div class="tt">兩樹・兩果</div>
+      <div class="tb"><b>7:15–23</b><br>好樹結好果子，壞樹結壞果子<br>「憑著他們的果子就可以認出他們來」<br><br><b style="color:var(--lemon-d);">→ 關乎「本質」</b></div></div>
+    <div class="tile t-sky"><span class="ti">🏠</span><div class="tt">兩房・兩基</div>
+      <div class="tb"><b>7:24–27</b><br>磐石上的房子，雨淋水沖風吹卻不倒<br>沙土上的房子，倒塌得很大<br><br><b style="color:var(--sky-d);">→ 關乎「根基」</b></div></div>
+  </div>
+  <div class="note warn" style="margin-top:1.1rem;">
+    <div class="nh">⚠️ 注意這三組的共同點</div>
+    <p>它們都<strong>沒有中間選項</strong>。不是「比較窄的門」與「比較寬的門」，是窄門或寬門；不是「結果較少的樹」，是好樹或壞樹；
+    不是「根基較淺」，是磐石或沙土。<strong>登山寶訓的文體本身就是二元的</strong>——這是理解「有福了／有禍了」的第一把鑰匙。</p>
+  </div>
+</section>
+
+<div class="dv"><span>SCOPE</span></div>
+
+<!-- ═════════════════════════════════════════ ③ 涵蓋範圍 ═════════════════════════════════════════ -->
+<section class="sec" id="s3">
+  <div class="sec-head">
+    <div class="sec-ico" style="background:var(--matcha-s);">🧭</div>
+    <div>
+      <div class="sec-no" style="color:var(--matcha-d);">SECTION 03 · 分享主題 4</div>
+      <h2>內容涵蓋哪些範圍？</h2>
+      <div class="sd">主耶穌在山上教導門徒 —— 一個屬於天國的人應當具備什麼</div>
+    </div>
+  </div>
+
+  <p class="lead">
+    如果把登山寶訓當成一份人格規格書，它涵蓋的<strong>八大範圍</strong>幾乎沒有留下任何死角：
+    從最裡面的動機，到最外面的錢包；從獨處時的禱告，到面對仇敵的反應。
+  </p>
+
+  <h3 class="blk mc">八大範圍矩陣</h3>
+  <div class="grid g4" style="margin-bottom:1.4rem;">
+    <div class="tile t-peach"><span class="tn">1</span><span class="ti">💎</span><div class="tt">品格</div>
+      <div class="tb"><b>5:3–12・八福</b><br>虛心、哀慟、溫柔、飢渴慕義、憐恤、清心、和睦、為義受逼迫</div></div>
+    <div class="tile t-lemon"><span class="tn">2</span><span class="ti">🧂</span><div class="tt">影響力</div>
+      <div class="tb"><b>5:13–16・鹽與光</b><br>不是離世獨善，而是在世上防腐、照明，叫人歸榮耀給天父</div></div>
+    <div class="tile t-matcha"><span class="tn">3</span><span class="ti">📜</span><div class="tt">律法觀</div>
+      <div class="tb"><b>5:17–20</b><br>不廢掉、乃成全；追求勝過文士法利賽人的「更高的義」</div></div>
+    <div class="tile t-mint"><span class="tn">4</span><span class="ti">💗</span><div class="tt">人際關係</div>
+      <div class="tb"><b>5:21–48・六個對比</b><br>怒氣、情慾、婚姻、誠信、報復、愛仇敵 —— 全部推回內心動機</div></div>
+    <div class="tile t-lav"><span class="tn">5</span><span class="ti">🙏</span><div class="tt">敬虔生活</div>
+      <div class="tb"><b>6:1–18</b><br>施捨、禱告、禁食都要在暗中；為誰而做，決定它有沒有賞賜</div></div>
+    <div class="tile t-sky"><span class="tn">6</span><span class="ti">💰</span><div class="tt">金錢與憂慮</div>
+      <div class="tb"><b>6:19–34</b><br>財寶在哪裡心也在哪裡；不能事奉兩個主；先求神的國和神的義</div></div>
+    <div class="tile t-rose"><span class="tn">7</span><span class="ti">👁️</span><div class="tt">論斷與待人</div>
+      <div class="tb"><b>7:1–12</b><br>先去自己眼中的樑木；祈求就給你們；黃金律總結一切</div></div>
+    <div class="tile t-pink"><span class="tn">8</span><span class="ti">⚓</span><div class="tt">抉擇與根基</div>
+      <div class="tb"><b>7:13–27</b><br>兩門、兩樹、兩房 —— 聽了就去行的，才是把房子蓋在磐石上</div></div>
+  </div>
+
+  <h3 class="blk sk">互動雷達圖：三種「義」的標準對照</h3>
+  <div class="note info" style="margin-bottom:1rem;">
+    <div class="nh">👆 點右側圖例可切換顯示</div>
+    <p>看看「更高的義」到底高在哪裡 —— 它不是把法利賽人的義加倍，而是<b>在每一個維度上都完全外包</b>。</p>
+  </div>
+  <div class="radar-box">
+    <div class="radar-flex">
+      <div class="radar-svg"><div id="radar1"></div></div>
+      <div class="radar-side">
+        <div class="legend" id="leg1"></div>
+        <div class="note key" style="margin-top:1rem;margin-bottom:0;font-size:.8rem;">
+          <div class="nh">💡 這張圖說明了 5:20</div>
+          <p>法利賽人的義在「代價」與「外顯行為」上是高的，卻在<strong>動機純度、內心要求、對仇敵的態度、隱密處的真實</strong>上幾乎見底。
+          耶穌說的「勝於」，是<strong>把八個維度全部拉滿</strong>——這正是為什麼門徒的反應是「這樣誰能得救呢」。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h3 class="blk pk">一個屬天國的人，應當具備什麼？</h3>
+  <p class="lead">把八大範圍收攏成一句話，登山寶訓對「天國子民」的定義是：</p>
+  <div class="qb">
+    <p class="qt">
+      一個<em>裡面被翻轉</em>、<em>在暗中真實</em>、<em>對人有憐恤</em>、<em>對世界鬆手</em>，
+      並且<em>聽了就去行</em>的人。
+    </p>
+    <div class="qs">— 馬太福音 5~7 章的人格規格</div>
+  </div>
+  <div class="grid g2">
+    <div class="note good" style="margin-bottom:0;">
+      <div class="nh">✅ 憲章要求的四個方向</div>
+      <p><b>① 向內</b>——動機純淨（清心、不含怒、不動淫念）<br>
+      <b>② 向上</b>——與神隱密處的關係（施捨、禱告、禁食都在暗中）<br>
+      <b>③ 向外</b>——對人的憐恤與和睦（愛仇敵、不論斷、黃金律）<br>
+      <b>④ 向下</b>——對地上財物的鬆手（不積財寶、不憂慮、先求神國）</p>
+    </div>
+    <div class="note warn" style="margin-bottom:0;">
+      <div class="nh">⚠️ 憲章明確排除的四種人</div>
+      <p><b>① 表演型</b>——把善事行在人前，要得人的榮耀（6:1–2）<br>
+      <b>② 雙主型</b>——又事奉神又事奉瑪門（6:24）<br>
+      <b>③ 口號型</b>——稱呼「主啊主啊」卻不遵行天父旨意（7:21）<br>
+      <b>④ 聽而不行型</b>——聽見這話卻不去行，如同蓋在沙土上（7:26）</p>
+    </div>
+  </div>
+</section>
+
+<div class="dv"><span>BEATITUDES · ORIGINAL TEXT</span></div>
+
+<!-- ═════════════════════════════════════════ ④ 八福・原文探討 ═════════════════════════════════════════ -->
+<section class="sec" id="s4">
+  <div class="sec-head">
+    <div class="sec-ico" style="background:var(--peach-s);">📖</div>
+    <div>
+      <div class="sec-no" style="color:var(--peach-d);">SECTION 04</div>
+      <h2>八福・從白話到原文</h2>
+      <div class="sd">馬太福音 5:3–10 · 逐福深入</div>
+    </div>
+  </div>
+
+  <div class="scr">
+    <div class="ref">馬太福音 5:3–10（和合本）</div>
+    <p><span class="vn">3</span>虛心的人有福了！因為天國是他們的。<span class="vn">4</span>哀慟的人有福了！因為他們必得安慰。<span class="vn">5</span>溫柔的人有福了！因為他們必承受地土。<span class="vn">6</span>飢渴慕義的人有福了！因為他們必得飽足。<span class="vn">7</span>憐恤人的人有福了！因為他們必蒙憐恤。<span class="vn">8</span>清心的人有福了！因為他們必得見 神。<span class="vn">9</span>使人和睦的人有福了！因為他們必稱為 神的兒子。<span class="vn">10</span>為義受逼迫的人有福了！因為天國是他們的。</p>
+  </div>
+
+  <h3 class="blk pc">先搞懂一個字：「有福了」</h3>
+  <div class="grid g2" style="margin-bottom:1.3rem;">
+    <div class="note disc" style="margin-bottom:0;">
+      <div class="nh">🔤 μακάριος (makarios)</div>
+      <p>希臘文 μακάριος <b>不是「快樂」的情緒詞</b>。它背後是希伯來文 <b>אַשְׁרֵי（ashrei）</b>——詩篇第 1 篇開頭的那個字：
+      「不從惡人的計謀…這人便為有福。」</p>
+      <p>ashrei 的字根意思是<b>「被認可、被肯定、蒙悅納」</b>。所以「有福了」是<strong>神的宣告</strong>，不是人的感受。
+      一個哀慟的人在情緒上絕不快樂，但神說他「有福了」。</p>
+    </div>
+    <div class="note warn" style="margin-bottom:0;">
+      <div class="nh">📐 文法上的關鍵：這是宣告句，不是條件句</div>
+      <p>八福在希臘文中是<strong>無連接詞（asyndeton）的宣告式</strong>，句型是「有福啊，那些…的人」。</p>
+      <p>它<b>不是</b>「你若做到虛心，就可以有福」。<strong>它是在描述一群已經在神國裡的人長什麼樣子。</strong>
+      這個文法區別，正是主題⑤「為何沒具備就有禍了」的解答關鍵 —— 我們稍後會回到這裡。</p>
+    </div>
+  </div>
+
+  <h3 class="blk lm">以賽亞書 61 章 —— 八福的舊約底本</h3>
+  <p class="lead">
+    八福不是憑空而來。耶穌在拿撒勒會堂讀的第一段經文（路 4:18–19）就是<strong>以賽亞書 61 章</strong>，
+    而八福中至少前三福，逐句對應這一章：
+  </p>
+  <div class="tbl-scroll">
+    <table>
+      <thead><tr><th>以賽亞書 61 章</th><th>→</th><th>馬太福音 5 章</th></tr></thead>
+      <tbody>
+        <tr><td>61:1 傳好信息給<b>謙卑的人</b>（עֲנָוִים anawim）</td><td>→</td><td class="nm">第一福・虛心的人有福了</td></tr>
+        <tr><td>61:2 <b>安慰一切悲哀的人</b></td><td>→</td><td class="nm">第二福・哀慟的人必得安慰</td></tr>
+        <tr><td>61:3 賜華冠與喜樂油代替悲哀（參詩 37:11 謙卑人必承受地土）</td><td>→</td><td class="nm">第三福・溫柔的人必承受地土</td></tr>
+        <tr><td>61:3 稱為公義樹，是耶和華所栽的</td><td>→</td><td class="nm">第四福・飢渴慕義必得飽足</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="note key">
+    <div class="nh">🔑 עֲנָוִים（anawim）—— 貫穿全部八福的那群人</div>
+    <p>舊約裡有一個特定的族群概念叫 <b>anawim</b>：「耶和華的貧窮人」。他們不只是經濟上窮，更是
+    <strong>在神面前一無倚靠、只能仰望神的人</strong>。以賽亞書 66:2 給了最完整的定義：</p>
+    <p style="font-family:'Noto Serif TC',serif;background:#fff;padding:.8rem 1rem;border-radius:11px;">
+      「但我所看顧的，就是<b>虛心痛悔、因我話而戰兢的人</b>。」</p>
+    <p>八福從頭到尾，描述的就是這一群人。<strong>認出這一點，你會發現八福不是八種可以分開挑選的美德，而是同一種人的八個側面。</strong></p>
+  </div>
+
+  <h3 class="blk pc">互動翻卡：八福逐條深入</h3>
+  <div class="flip-bar">
+    <span class="fl">🃏 點卡片翻面看原文字義 · 點「神學意涵」展開比較</span>
+    <button class="btn" id="flipAll">全部翻面</button>
+    <button class="btn" id="resetAll">全部復原</button>
+  </div>
+  <div class="fgrid" id="beatGrid"></div>
+</section>
+
+<div class="dv"><span>BLESSING &rarr; WOE</span></div>
+
+<!-- ═════════════════════════════════════════ ⑤ 八福 → 八禍 ═════════════════════════════════════════ -->
+<section class="sec" id="s5">
+  <div class="sec-head">
+    <div class="sec-ico" style="background:var(--rose-s);">⚖️</div>
+    <div>
+      <div class="sec-no" style="color:var(--rose-d);">SECTION 05 · 分享主題 5</div>
+      <h2>為何沒具備八福提到的特質<br>就「有禍了」？</h2>
+      <div class="sd">師母把八福倒過來念 —— 這不是講道手法，是聖經自己的文體</div>
+    </div>
+  </div>
+
+  <div class="note warn">
+    <div class="nh">❓ 這個問題為什麼會刺人</div>
+    <p>因為它聽起來像威脅。八福讀起來溫柔，倒過來念卻句句見血：「不虛心的人有禍了…不憐恤人的人有禍了…」
+    很多人第一反應是：<strong>這是不是講得太重了？</strong></p>
+    <p>本節要處理的正是這個問題。答案分三層：<strong>①聖經文體的根據 ②八福的文法性質 ③這句話真正的目的</strong>。</p>
+  </div>
+
+  <h3 class="blk pk">第一層・這不是誰的發明 —— 路加福音自己就這樣寫</h3>
+  <p class="lead">
+    這是整個主題最重要的發現。馬太記八福，但<strong>路加福音 6:20–26 記的是「四福四禍」</strong>——
+    路加自己就把祝福倒過來寫成災禍，用的正是希臘文 <strong>οὐαί（ouai，有禍了）</strong>。
+  </p>
+  <div class="grid g2" style="margin-bottom:1.2rem;">
+    <div class="scr mt" style="margin-bottom:0;">
+      <div class="ref">路加福音 6:20–22 · 四福</div>
+      <p><span class="vn">20</span>你們貧窮的人有福了！因為神的國是你們的。<span class="vn">21</span>你們飢餓的人有福了！因為你們將要飽足。你們哀哭的人有福了！因為你們將要喜笑。<span class="vn">22</span>人為人子恨惡你們…你們就有福了！</p>
+    </div>
+    <div class="scr pk" style="margin-bottom:0;">
+      <div class="ref">路加福音 6:24–26 · 四禍</div>
+      <p><span class="vn">24</span>但你們富足的人<b>有禍了</b>！因為你們受過你們的安慰。<span class="vn">25</span>你們飽足的人<b>有禍了</b>！因為你們將要飢餓。你們喜笑的人<b>有禍了</b>！因為你們將要哀慟哭泣。<span class="vn">26</span>人都說你們好的時候，你們就<b>有禍了</b>！</p>
+    </div>
+  </div>
+  <div class="note good">
+    <div class="nh">✅ 所以「倒過來念」有紮實的聖經根據</div>
+    <p><strong>祝福與災禍成對出現，是聖經一貫的文體</strong>，不是誰的嚴厲：</p>
+    <p>・<b>路加 6:20–26</b>　四福 ←→ 四禍（同一篇講論裡）<br>
+    ・<b>馬太 23 章</b>　　對法利賽人連續七個「你們有禍了」<br>
+    ・<b>申命記 27–28 章</b>　基利心山的祝福 ←→ 以巴路山的咒詛<br>
+    ・<b>詩篇 1 篇</b>　　義人的道路 ←→ 惡人的道路<br>
+    ・<b>馬太 7:13–27</b>　窄門/寬門、好樹/壞樹、磐石/沙土</p>
+    <p>換句話說，<strong>登山寶訓自己的結尾就是二元的</strong>。把八福倒過來念，只是把馬太隱含的另一半，用路加已經寫出來的方式說出口。</p>
+  </div>
+
+  <h3 class="blk mt">互動鏡像：八福 ↔ 八禍</h3>
+  <div class="mir" id="mirror"></div>
+
+  <h3 class="blk lm">第二層・因為八福是「身分描述」，不是「入場條件」</h3>
+  <p class="lead">
+    這是最關鍵的一層，也是最容易被誤讀的一層。
+  </p>
+  <div class="grid g2" style="margin-bottom:1.2rem;">
+    <div class="note warn" style="margin-bottom:0;">
+      <div class="nh">✖️ 誤讀：八福是八張門票</div>
+      <p>「我要努力做到虛心、哀慟、溫柔…集滿八個就能進天國。」</p>
+      <p>照這個讀法，「沒具備就有禍了」確實變成律法主義的威脅 ——
+      而且會直接撞上一個問題：<strong>誰能同時做到八樣？</strong></p>
+    </div>
+    <div class="note good" style="margin-bottom:0;">
+      <div class="nh">✔️ 正讀：八福是同一種人的八個側面</div>
+      <p>八福在希臘文是<b>宣告句</b>，描述的是同一群人（anawim）的八個面向。八福首尾兩福（第1、第8）
+      的應許<b>完全一樣</b>：「因為天國是他們的」——形成 inclusio 包框，表示<strong>這八句是一個整體，不是八選一</strong>。</p>
+      <p>所以「沒具備就有禍了」的真正意思是：<strong>缺了這些特質，代表你根本不在這個身分裡</strong>——
+      不是扣分，是不同一群人。</p>
+    </div>
+  </div>
+  <div class="svgw">
+    <svg viewBox="0 0 900 250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="八福首尾包框結構圖">
+      <rect width="900" height="250" fill="#FFFBF8"/>
+      <rect x="40" y="34" width="820" height="182" rx="18" fill="none" stroke="#FFB3C6" stroke-width="2" stroke-dasharray="7 5"/>
+      <text x="450" y="24" text-anchor="middle" font-family="Noto Serif TC,serif" font-size="12.5" font-weight="700" fill="#D9587E">同一個應許包住整組八福 · inclusio</text>
+
+      <rect x="62" y="58" width="146" height="66" rx="12" fill="#FFE7EE" stroke="#FFB3C6" stroke-width="1.5"/>
+      <text x="135" y="84" text-anchor="middle" font-family="Noto Serif TC,serif" font-size="12.5" font-weight="700" fill="#D9587E">① 虛心</text>
+      <text x="135" y="106" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="10" fill="#C4527E">天國是他們的</text>
+
+      <rect x="692" y="58" width="146" height="66" rx="12" fill="#FFE7EE" stroke="#FFB3C6" stroke-width="1.5"/>
+      <text x="765" y="84" text-anchor="middle" font-family="Noto Serif TC,serif" font-size="12.5" font-weight="700" fill="#D9587E">⑧ 為義受逼迫</text>
+      <text x="765" y="106" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="10" fill="#C4527E">天國是他們的</text>
+
+      <path d="M208 91 L688 91" fill="none" stroke="#FFB3C6" stroke-width="1.6" stroke-dasharray="5 4"/>
+      <circle cx="448" cy="91" r="15" fill="#FFB3C6"/>
+      <text x="448" y="96" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="12" font-weight="700" fill="#fff">＝</text>
+
+      <g font-family="Noto Sans TC,sans-serif" font-size="10.5" text-anchor="middle">
+        <rect x="112" y="146" width="96" height="46" rx="10" fill="#FFF6DC" stroke="#FFE49A"/><text x="160" y="167" fill="#C79612" font-weight="700">② 哀慟</text><text x="160" y="183" fill="#A78113" font-size="9">必得安慰</text>
+        <rect x="220" y="146" width="96" height="46" rx="10" fill="#F0F8E0" stroke="#CDE6A5"/><text x="268" y="167" fill="#71993A" font-weight="700">③ 溫柔</text><text x="268" y="183" fill="#5F8330" font-size="9">承受地土</text>
+        <rect x="328" y="146" width="96" height="46" rx="10" fill="#E2F7EE" stroke="#A8E6CF"/><text x="376" y="167" fill="#3E9E7A" font-weight="700">④ 飢渴慕義</text><text x="376" y="183" fill="#348064" font-size="9">必得飽足</text>
+        <rect x="436" y="146" width="96" height="46" rx="10" fill="#E4F3FC" stroke="#A8D8F0"/><text x="484" y="167" fill="#2F82BC" font-weight="700">⑤ 憐恤</text><text x="484" y="183" fill="#286C9C" font-size="9">必蒙憐恤</text>
+        <rect x="544" y="146" width="96" height="46" rx="10" fill="#EFE9FA" stroke="#C9B8E8"/><text x="592" y="167" fill="#7E5FBC" font-weight="700">⑥ 清心</text><text x="592" y="183" fill="#6A4FA0" font-size="9">必得見神</text>
+        <rect x="652" y="146" width="118" height="46" rx="10" fill="#FFEDE0" stroke="#FFC9A8"/><text x="711" y="167" fill="#D9793B" font-weight="700">⑦ 使人和睦</text><text x="711" y="183" fill="#B86530" font-size="9">稱為神的兒子</text>
+      </g>
+    </svg>
+    <div class="svg-cap">
+      第一福與第八福的應許一字不差：<b>「因為天國是他們的」</b>。中間六福的應許都是未來式（必得、必承受、必蒙…），
+      唯獨首尾兩福是<b>現在式</b>。這個包框在文學上宣告：八福是一個不可拆解的整體，描述<b>同一群人</b>。
+      更進一步：前七福是我們的選擇，<b>第八福是前七福的必然後果</b>——你若真活出前面七樣，逼迫自然臨到。
+    </div>
+  </div>
+
+  <h3 class="blk sk">第三層・這句話的目的是儆醒，不是定罪</h3>
+  <p class="lead">
+    如果「有禍了」的目的是定罪，那福音就沒有了。所以必須看清楚：<strong>先知說「有禍了」，從來都是為了叫人回轉。</strong>
+  </p>
+  <div class="flow">
+    <div class="fstep" style="background:linear-gradient(160deg,var(--lemon-s),#fff);">
+      <div class="fstep-n" style="color:var(--lemon-d);">STEP 01</div>
+      <div class="fstep-t">照鏡子</div>
+      <div class="fstep-b">八福倒念，像一面鏡子照出真實光景。師母說：「別看自己（人總是自我感覺良好），看看周遭。」</div></div>
+    <div class="fstep" style="background:linear-gradient(160deg,var(--rose-s),#fff);">
+      <div class="fstep-n" style="color:var(--rose-d);">STEP 02</div>
+      <div class="fstep-t">發現全都有禍了</div>
+      <div class="fstep-b">一條條倒著念，會發現沒有一條站得住。這正是律法最重要的功用之一 —— 照出人的無能，叫人不能自誇。</div></div>
+    <div class="fstep" style="background:linear-gradient(160deg,var(--lav-s),#fff);">
+      <div class="fstep-n" style="color:var(--lav-d);">STEP 03</div>
+      <div class="fstep-t">不是絕望，是儆醒</div>
+      <div class="fstep-b">師母說：「這正是為什麼神到今天還不斷降下話語 —— 要我們儆醒，要我們治死老我。」</div></div>
+    <div class="fstep" style="background:linear-gradient(160deg,var(--mint-s),#fff);">
+      <div class="fstep-n" style="color:var(--mint-d);">STEP 04</div>
+      <div class="fstep-t">回到第一福</div>
+      <div class="fstep-b">承認自己樣樣都缺 —— 那就是「虛心」。<b>第一福正是所有人唯一能踏上的那一階。</b></div></div>
+  </div>
+  <div class="note key">
+    <div class="nh">🔑 這裡有一個美麗的循環</div>
+    <p>把八福倒過來念，發現自己八樣全缺 —— 這個「發現」本身，就是<strong>第一福：虛心</strong>。</p>
+    <p>πτωχός（赤貧的乞丐）不是一種要達成的美德，而是<strong>一個誠實的自我認知</strong>。
+    所以「有禍了」的結局不是把人推開，而是<strong>把人推回起點</strong>——推回那個唯一能進天國的姿勢：伸出空的手。</p>
+    <p style="font-family:'Noto Serif TC',serif;background:#fff;padding:.85rem 1.05rem;border-radius:11px;margin-top:.7rem;">
+      師母在〈愛的叮嚀〉裡的那句回答，正是這個意思：<br>
+      <b>「全部都是我需要操練的。」——這句話本身，就是虛心。</b></p>
+  </div>
+
+  <h3 class="blk lv">互動自我檢視：你的八福雷達</h3>
+  <div class="note info" style="margin-bottom:1rem;">
+    <div class="nh">🪞 拉動滑桿，誠實面對自己</div>
+    <p>0＝完全沒有　5＝相當真實。這不是評分，是照鏡子。（資料只在你的瀏覽器裡，不會送到任何地方。）</p>
+  </div>
+  <div class="radar-box">
+    <div class="radar-flex">
+      <div class="radar-svg"><div id="radar2"></div></div>
+      <div class="radar-side">
+        <div class="sl-wrap" id="sliders"></div>
+        <div class="self-out" id="selfOut"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="dv"><span>THEOLOGY</span></div>
+
+<!-- ═════════════════════════════════════════ ⑥ 神學進路比較 ═════════════════════════════════════════ -->
+<section class="sec" id="s6">
+  <div class="sec-head">
+    <div class="sec-ico" style="background:var(--lav-s);">🎓</div>
+    <div>
+      <div class="sec-no" style="color:var(--lav-d);">SECTION 06</div>
+      <h2>六大面向：讀天國憲章的六條張力線</h2>
+      <div class="sd">每一條都有兩端 —— 兩端各有各的道理，也各有各的危險</div>
+    </div>
+  </div>
+
+  <p class="lead">
+    任何人讀登山寶訓，都必須回答六個問題。<strong>你答不答，答案都已經藏在你的讀法裡了。</strong>
+    這六個面向不是六種立場，而是六條<strong>張力線</strong>：每一條都有兩端，
+    偏向任何一端都有一個<strong>聽起來很對的動機</strong>，也都會付出<strong>一個具體的代價</strong>。
+    這一節不是要你選邊，是要你<strong>認出自己現在站在哪裡</strong>。
+  </p>
+
+  <h3 class="blk lv">為什麼是這六個面向？</h3>
+  <p class="lead">
+    因為登山寶訓同時是三種東西：一份<strong>律法</strong>（它有要求）、一份<strong>應許</strong>（它有恩典）、
+    一份<strong>國度宣告</strong>（它有時間性）。這三種性質，各自逼出兩個無法迴避的問題 ——
+  </p>
+  <div class="grid g3" style="margin-bottom:1.4rem;">
+    <div class="tile t-peach"><span class="ti">📜</span><div class="tt">它是律法 → 兩個問題</div>
+      <div class="tb"><b>① 要照字面做嗎？</b><br>（字面順服程度）<br><b>② 現在做得到嗎？</b><br>（今日可行性）</div></div>
+    <div class="tile t-mint"><span class="ti">🎁</span><div class="tt">它是應許 → 兩個問題</div>
+      <div class="tb"><b>③ 是靠誰成就的？</b><br>（恩典的強調）<br><b>④ 它照出我什麼？</b><br>（照出無能）</div></div>
+    <div class="tile t-sky"><span class="ti">👑</span><div class="tt">它是國度宣告 → 兩個問題</div>
+      <div class="tb"><b>⑤ 這國何時成全？</b><br>（末世取向）<br><b>⑥ 成全之前我做什麼？</b><br>（社會實踐）</div></div>
+  </div>
+  <div class="note key">
+    <div class="nh">🔑 六個面向不是可選的，是必答的</div>
+    <p>你可以不知道自己在回答，但你不可能不回答。一個人讀完登山寶訓後<strong>做了什麼、沒做什麼、對自己說了什麼</strong>，
+    就已經在這六條線上各自選了一個位置。把它們攤開來，是為了讓這個選擇<strong>從不自覺變成自覺</strong>。</p>
+  </div>
+
+  <h3 class="blk lv">互動雷達圖：三種傾斜的樣子</h3>
+  <div class="note info" style="margin-bottom:1rem;">
+    <div class="nh">👆 點圖例可單獨顯示或隱藏</div>
+    <p>建議先只留一個看它的形狀，再兩兩比較。注意兩種「偏一邊」的讀法 ——
+    它們的圖形幾乎<b>互為反面</b>：一個高的地方另一個正好低。</p>
+  </div>
+  <div class="radar-box">
+    <div class="radar-flex">
+      <div class="radar-svg"><div id="radar3"></div></div>
+      <div class="radar-side"><div class="legend" id="leg3"></div></div>
+    </div>
+  </div>
+
+  <h3 class="blk lv">逐條拆解：六條張力線的兩端</h3>
+  <p class="lead">
+    每一條線，左右兩端都有一個<strong>聽起來很敬虔的動機</strong>——這正是它危險的地方。
+    偏差很少來自壞動機，多半來自<strong>一個好動機被推到極端</strong>。
+  </p>
+
+  <div class="grid g2" id="axisCards"></div>
+
+  <div class="note key">
+    <div class="nh">🔑 六條線的共同結構：好動機 → 推到極端 → 具體代價</div>
+    <p>把六條線並排看，會發現一個一致的規律：<strong>沒有一端是出於惡意的</strong>。
+    想照字面順服的人是敬畏主的話；想保留彈性的人是怕誤用經文；強調恩典的人是護衛福音；
+    強調努力的人是渴望真實的改變。</p>
+    <p>所以判斷一個讀法健不健康，<strong>不能只看它的動機，要看它的代價</strong>——
+    看它讓你最後<strong>不去做什麼</strong>、<strong>不再面對什麼</strong>。
+    一個讀法若讓你既不必悔改、也不必行動，那不論動機多好，它已經偏了。</p>
+  </div>
+
+  <h3 class="blk lv">六面向速查表</h3>
+  <div class="tbl-scroll">
+    <table>
+      <thead><tr><th>面向</th><th>它在問什麼</th><th>偏向這端</th><th>偏向那端</th><th>健康的拿捏</th></tr></thead>
+      <tbody>
+        <tr><td class="nm">① 字面順服<small>它有多硬</small></td><td>「是就說是」要照字面做嗎？</td>
+          <td>全照字面 → 抹平處境差異</td><td>視為象徵 → 句句可被解釋掉</td><td>字面先站住，再談處境</td></tr>
+        <tr><td class="nm">② 今日可行性<small>什麼時候做</small></td><td>現在就要活出來，還是遙不可及的理想？</td>
+          <td>現在就能做到 → 低估罪的頑固</td><td>現在做不到 → 成為不動的藉口</td><td>現在就開始，一生走完</td></tr>
+        <tr><td class="nm">③ 恩典的強調<small>靠誰成就</small></td><td>這是我努力的成果，還是神做成的？</td>
+          <td>全是恩典 → 順服被架空</td><td>全靠努力 → 屬靈生活變績效</td><td>是恩典使人順服</td></tr>
+        <tr><td class="nm">④ 末世取向<small>何時成全</small></td><td>天國是將來才完全，還是現在就要看見？</td>
+          <td>將來才成全 → 失去現在的迫切</td><td>現在就實現 → 落空時信心崩塌</td><td>已然，而未然</td></tr>
+        <tr><td class="nm">⑤ 社會實踐<small>與世界的距離</small></td><td>憲章只管我裡面，還是也管我怎麼參與世界？</td>
+          <td>積極介入 → 議題取代福音</td><td>退出保守 → 燈放在斗底下</td><td>作鹽作光，在世不屬世</td></tr>
+        <tr><td class="nm">⑥ 照出無能<small>它的功用</small></td><td>主要是照鏡定罪，還是指路叫我能走？</td>
+          <td>只照鏡 → 停在自責裡</td><td>只指路 → 讀成自我提升手冊</td><td>先照出，再扶起</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="note good">
+    <div class="nh">✅ 那麼「把八福倒念成八禍」，是在哪幾條線上用力？</div>
+    <p>回到主題⑤那個問題。用這六條線來定位，答案就非常清楚了 ——
+    倒念八福，是<strong>刻意把第⑥條線「照出無能」拉到最滿</strong>，同時把第③條線「恩典的強調」<strong>暫時壓住不講</strong>。</p>
+    <p>這是<strong>一個有意的、階段性的用力</strong>，不是完整的結論：</p>
+    <p>・<b>為什麼要拉滿第⑥條？</b>因為人總是自我感覺良好。不倒過來念，就照不出真相。<br>
+    ・<b>為什麼會讓人不舒服？</b>因為第⑥條拉滿時，第③條（恩典）暫時退到背景，聽起來就只剩定罪。<br>
+    ・<b>那完整的話是什麼？</b>拉滿之後<b>必須把恩典接回來</b>——否則就停在「停在自責裡」那個代價上了。</p>
+    <p>而恩典怎麼接回來？靠的正是第②條線（今日可行性）與第③條線（恩典的強調）的重新平衡：
+    承認自己八樣全缺（第⑥條做完的工），然後發現<strong>這個承認本身就是第一福</strong>——
+    你不是被判出局，是被推回起點。</p>
+    <p>師母的講法還多加了一層，是這六條線都涵蓋不到的：<strong>神的主權與揀選</strong>——「一切都是預定的」。
+    這一層同時堵住了「絕望」與「自義」兩條岔路。下一節詳述。</p>
+  </div>
+</section>
+
+<div class="dv"><span>師母的對焦</span></div>
+
+<!-- ═════════════════════════════════════════ ⑦ 師母的對焦與未來擔憂 ═════════════════════════════════════════ -->
+<section class="sec" id="s7">
+  <div class="sec-head">
+    <div class="sec-ico" style="background:var(--mint-s);">🕊️</div>
+    <div>
+      <div class="sec-no" style="color:var(--mint-d);">SECTION 07 · 全篇歸屬</div>
+      <h2>師母說明的內涵與未來擔憂</h2>
+      <div class="sd">一切學術的探討，最後都要落在這裡</div>
+    </div>
+  </div>
+
+  <p class="lead">
+    前面六節走過了結構、原文、以及讀這三章必然要面對的六條張力線。但師母在〈愛的叮嚀〉裡的講法，
+    <strong>不是六條線上的又一個位置</strong>—— 它是這一切要抵達的地方。她的對焦可以收攏成一條線：
+    <strong>神揀選軟弱的 → 恩賜與行為不相稱 → 八福倒念全都有禍了 → 所以要儆醒、治死老我 → 而一切都是預定的，所以定睛主耶穌。</strong>
+  </p>
+
+  <h3 class="blk mt">師母對焦的五個環節</h3>
+  <div class="flow" style="margin-bottom:1.4rem;">
+    <div class="fstep" style="background:linear-gradient(160deg,var(--sky-s),#fff);">
+      <div class="fstep-n" style="color:var(--sky-d);">環節 01</div>
+      <div class="fstep-t">神揀選軟弱的</div>
+      <div class="fstep-b">林前 1:26–29 —— 有智慧的不多、有能力的不多。神專挑愚拙、軟弱、卑賤、無有的。</div></div>
+    <div class="fstep" style="background:linear-gradient(160deg,var(--matcha-s),#fff);">
+      <div class="fstep-n" style="color:var(--matcha-d);">環節 02</div>
+      <div class="fstep-t">軟弱的更不可少</div>
+      <div class="fstep-b">林前 12:22–24 —— 神把加倍的體面給有缺欠的肢體，把恩賜加在他們身上。</div></div>
+    <div class="fstep" style="background:linear-gradient(160deg,var(--rose-s),#fff);">
+      <div class="fstep-n" style="color:var(--rose-d);">環節 03</div>
+      <div class="fstep-t">為人與所為不相稱</div>
+      <div class="fstep-b">恩賜俊美，行為卻常把人嚇到 ——「像演了一場很爛的戲給天使和世人看」。</div></div>
+    <div class="fstep" style="background:linear-gradient(160deg,var(--lemon-s),#fff);">
+      <div class="fstep-n" style="color:var(--lemon-d);">環節 04</div>
+      <div class="fstep-t">八福倒念・全都有禍了</div>
+      <div class="fstep-b">別看自己，看看周遭 —— 這正是神今天仍不斷降下話語的原因：要儆醒，要治死老我。</div></div>
+    <div class="fstep" style="background:linear-gradient(160deg,var(--lav-s),#fff);">
+      <div class="fstep-n" style="color:var(--lav-d);">環節 05</div>
+      <div class="fstep-t">一切都是預定的</div>
+      <div class="fstep-b">不要看環境、不要看人、也不要看自己 —— <b>定睛在主耶穌身上</b>。</div></div>
+  </div>
+
+  <div class="qb">
+    <p class="qt">
+      師母坦白：我對歷史、數學天生不行，再好的老師也沒用。<br>
+      屬靈上也有人，叫他治我、別驕傲、別嫉妒，一輩子也做不到 —— 那怎麼辦？<br>
+      <em>一切都是預定的。</em>所以不要看環境、不要看人、也不要看自己。
+    </p>
+    <div class="qs">— 箴言師母 · 愛的叮嚀 2026.06.14</div>
+  </div>
+
+  <div class="note key">
+    <div class="nh">🔑 這一句在神學上解決了什麼？</div>
+    <p>八福倒念之後，最危險的反應有兩種：<strong>絕望</strong>（既然做不到，那就算了）或<strong>自義</strong>（我至少做到了幾樣）。
+    師母的「一切都是預定的」<strong>同時堵住了這兩條路</strong>：</p>
+    <p>・對<b>絕望</b>說：你的軟弱不是意外，神本來就是揀選軟弱的（林前 1:27）。<br>
+    ・對<b>自義</b>說：你有的一樣不是自己掙來的，「使一切有血氣的，在神面前一個也不能自誇」（林前 1:29）。</p>
+    <p>剩下唯一的出路，就是<strong>定睛主耶穌</strong>——這正好回到登山寶訓交錯配置的中心：<b>與神在隱密處的關係</b>。
+    結構分析與師母的結論，在同一個點上會合。</p>
+  </div>
+
+  <h3 class="blk sk">馬太八福 × 啟示錄七福 —— 從品格到終局</h3>
+  <p class="lead">
+    在 2011 年台中主場的那次分享中，林弟兄提到「馬太有八福，啟示錄也有七福」，師母因此想起牧師天天耳提面命的
+    <strong>《如何預備迎接主基督再來》</strong>。這兩組「福」放在一起，正好構成一條從<strong>今生品格</strong>到<strong>末世終局</strong>的完整線索。
+  </p>
+  <div class="grid g2" style="margin-bottom:1.2rem;">
+    <div class="card" style="padding:1.4rem 1.35rem;background:linear-gradient(165deg,var(--peach-s),#fff 70%);">
+      <div style="font-family:'Noto Serif TC',serif;font-size:1.02rem;font-weight:700;color:var(--peach-d);margin-bottom:.8rem;">馬太八福 · 現在的品格</div>
+      <div style="font-size:.83rem;line-height:2;color:var(--ink);">
+        ① 虛心　② 哀慟　③ 溫柔　④ 飢渴慕義<br>⑤ 憐恤人　⑥ 清心　⑦ 使人和睦　⑧ 為義受逼迫
+      </div>
+      <div style="margin-top:.9rem;padding-top:.8rem;border-top:1px dashed var(--line);font-size:.78rem;color:var(--peach-d);line-height:1.8;">
+        <b>焦點：你現在是誰。</b><br>八福描述的是天國子民此刻的內在光景。
+      </div>
+    </div>
+    <div class="card" style="padding:1.4rem 1.35rem;background:linear-gradient(165deg,var(--lav-s),#fff 70%);">
+      <div style="font-family:'Noto Serif TC',serif;font-size:1.02rem;font-weight:700;color:var(--lav-d);margin-bottom:.8rem;">啟示錄七福 · 末後的終局</div>
+      <div style="font-size:.79rem;line-height:1.95;color:var(--ink);">
+        ① 唸這書上預言的人（1:3）<br>② 在主裡面而死的人（14:13）<br>③ 儆醒看守衣服的人（16:15）<br>④ 被請赴羔羊之婚筵的人（19:9）<br>⑤ 在頭一次復活有份的人（20:6）<br>⑥ 遵守這書上預言的人（22:7）<br>⑦ 那些洗淨自己的人（22:14）
+      </div>
+      <div style="margin-top:.9rem;padding-top:.8rem;border-top:1px dashed var(--line);font-size:.78rem;color:var(--lav-d);line-height:1.8;">
+        <b>焦點：你將要如何被找著。</b><br>七福描述的是主再來時的預備狀態。
+      </div>
+    </div>
+  </div>
+  <div class="note key">
+    <div class="nh">🔗 兩組福的接點：那件細麻衣</div>
+    <p style="font-family:'Noto Serif TC',serif;background:#fff;padding:.9rem 1.1rem;border-radius:12px;margin-bottom:.7rem;">
+      「因為，羔羊婚娶的時候到了；新婦也自己預備好了，就蒙恩得穿光明潔白的細麻衣。<br>
+      <b>（這細麻衣就是聖徒所行的義。）</b>」——【啟十九：7~8】</p>
+    <p>牧師每次講到這兩節就何等歡喜快樂。而這節經文正是<strong>兩組福的鉸鏈</strong>：
+    啟示錄裡赴筵所穿的那件細麻衣，內容物就是<strong>「聖徒所行的義」</strong>——
+    也就是登山寶訓 5:20 講的那個<strong>「更高的義」</strong>。</p>
+    <p><strong>八福是織這件衣服的線，七福是穿著它赴席的那一天。</strong>這就是為什麼師母說我們是最蒙恩的一群，卻又為我們淌血 ——
+    因為<b>婚筵的日子近了，衣服卻還沒織好</b>。</p>
+  </div>
+
+  <h3 class="blk pk">師母的未來擔憂 —— 四個層面</h3>
+  <div class="grid g2" style="margin-bottom:1.2rem;">
+    <div class="tile t-rose"><span class="ti">😰</span><div class="tt">擔憂一・惜福的人太少</div>
+      <div class="tb">「我們是全世界最幸運、最蒙恩、蒙愛、蒙福的一群，但我們當中有幾個人懂得惜福呢？」
+      牧師不斷感慨：「不知何以在億萬人中，主竟揀選了我們。」——<b>蒙恩而不自知，是最深的辜負。</b></div></div>
+    <div class="tile t-peach"><span class="ti">🍽️</span><div class="tt">擔憂二・坐下吃喝，起來胡鬧</div>
+      <div class="tb">「牧師等不到渾渾噩噩的我們明白；等不到坐下吃喝、起來胡鬧的我們懂事，就被主接回了天家。」
+      這句典出出埃及記 32:6 金牛犢事件 ——<b>領受了恩典卻活得像沒有領受過。</b></div></div>
+    <div class="tile t-lemon"><span class="ti">🎭</span><div class="tt">擔憂三・為人與所為不相稱</div>
+      <div class="tb">恩賜俊美、行為卻嚇人 ——「像演了一場很爛的戲給天使和世人看。」
+      對照登山寶訓 7:21：<b>「凡稱呼我主啊主啊的人，不能都進天國；惟獨遵行我天父旨意的人才能進去。」</b></div></div>
+    <div class="tile t-lav"><span class="ti">⏳</span><div class="tt">擔憂四・預備得太慢</div>
+      <div class="tb">牧師天天耳提面命的是《如何預備迎接主基督再來》。師母的擔憂核心不是「我們不好」，
+      而是<b>時間不夠了</b>——主快來了，而衣服還沒織好。</div></div>
+  </div>
+
+  <div class="note warn">
+    <div class="nh">⚠️ 師母引用的那段最重的經文</div>
+    <p style="font-family:'Noto Serif TC',serif;background:#fff;padding:.9rem 1.1rem;border-radius:12px;">
+      「我們已經蒙了光照、嚐過天恩的滋味、又於聖靈有分，並嚐過神善道的滋味、覺悟來世權能的人，若是離棄道理，就不能叫我們重新懊悔了…
+      就如一塊田地，吃過屢次下的雨水，生長菜蔬，合乎耕種的人用，就從神得福；<b>若長荊棘和蒺藜，必被廢棄，近於咒詛，結局就是焚燒。</b>」<br>
+      ——【參來六：4~8】</p>
+    <p>注意這段的邏輯：<strong>「吃過屢次下的雨水」是同一塊田地</strong>。同樣的恩典、同樣的話語、同樣的澆灌 ——
+    差別只在長出來的是菜蔬還是荊棘。這正是登山寶訓 7:16「憑著他們的果子就可以認出他們來」的回響。</p>
+  </div>
+
+  <h3 class="blk mc">最偉大的工程：人格改造</h3>
+  <p class="lead">
+    師母另一篇分享的標題，直接給了整份天國憲章一個中文的名字 ——
+    <strong>「最偉大的工程是人格改造！要改造成功要先受得了委屈吃得了苦，否則一切枉然！」</strong>
+  </p>
+  <div class="flow" style="margin-bottom:1.3rem;">
+    <div class="fstep" style="background:linear-gradient(160deg,var(--pink-s),#fff);">
+      <div class="fstep-n" style="color:var(--pink-d);">工序 01</div>
+      <div class="fstep-t">受得了委屈</div>
+      <div class="fstep-b">對應第①③⑧福：虛心、溫柔、為義受逼迫 —— 力量交出去，不自己伸手。</div></div>
+    <div class="fstep" style="background:linear-gradient(160deg,var(--lemon-s),#fff);">
+      <div class="fstep-n" style="color:var(--lemon-d);">工序 02</div>
+      <div class="fstep-t">吃得了苦</div>
+      <div class="fstep-b">「為主受苦原是美事，受患難是預定的」；「這至輕至暫的苦楚，要成就那極重無比永遠的榮耀」。</div></div>
+    <div class="fstep" style="background:linear-gradient(160deg,var(--mint-s),#fff);">
+      <div class="fstep-n" style="color:var(--mint-d);">工序 03</div>
+      <div class="fstep-t">治死老我</div>
+      <div class="fstep-b">牧師第①條叮嚀：<b>「捨己、順服、下寶座，治死老我到流血的地步。」</b>—— 與「基督呼召一個人，就是召他來死」是同一件事。</div></div>
+    <div class="fstep" style="background:linear-gradient(160deg,var(--lav-s),#fff);">
+      <div class="fstep-n" style="color:var(--lav-d);">工序 04</div>
+      <div class="fstep-t">成為聖潔的族類</div>
+      <div class="fstep-b">「脫離卑賤的罪性到流血的地步，才能成為天國聖潔榮耀的國民。」</div></div>
+  </div>
+
+  <h3 class="blk mt">牧師的十條叮嚀 —— 天國憲章的實作版</h3>
+  <p class="lead">師母記下牧師天天苦口婆心提醒的十件事。把它們與登山寶訓對讀，會發現條條有出處：</p>
+  <ol class="olist mt">
+    <li><b>捨己、順服、下寶座，治死老我到流血的地步。</b><span style="color:var(--muted);font-size:.78rem;">　→ 太 16:24；對應第①福虛心、第③福溫柔</span></li>
+    <li><b>把握時間、環境和機會。</b><span style="color:var(--muted);font-size:.78rem;">　→ 弗 5:16；對應太 7:24 聽了就去行</span></li>
+    <li><b>不要看環境、不要看自己、不要看人。</b><span style="color:var(--muted);font-size:.78rem;">　→ 來 12:2 仰望為我們信心創始成終的耶穌</span></li>
+    <li><b>為主受苦原是美事，受患難是預定的。</b><span style="color:var(--muted);font-size:.78rem;">　→ 帖前 3:3；對應第⑧福為義受逼迫</span></li>
+    <li><b>這至輕至暫的苦楚，要為我們成就那極重無比永遠的榮耀。</b><span style="color:var(--muted);font-size:.78rem;">　→ 林後 4:17</span></li>
+    <li><b>萬事都互相效力，叫愛神的人得益處。</b><span style="color:var(--muted);font-size:.78rem;">　→ 羅 8:28；對應太 6:25–34 不要憂慮</span></li>
+    <li><b>要謹慎自守，儆醒禱告。凡事感謝、讚美神。</b><span style="color:var(--muted);font-size:.78rem;">　→ 彼前 4:7；對應太 6:5–15 論禱告</span></li>
+    <li><b>彼此切實相愛。為主基督再來預備道路。</b><span style="color:var(--muted);font-size:.78rem;">　→ 彼前 4:8；對應第⑦福使人和睦</span></li>
+    <li><b>為大的要當傭人，為首的要當僕人。</b><span style="color:var(--muted);font-size:.78rem;">　→ 太 20:26–27；對應第①福虛心</span></li>
+    <li><b>以基督的心為心，以天父的事為念。事無大小，凡事禱告求問神，完全遵行天父的旨意。</b><span style="color:var(--muted);font-size:.78rem;">　→ 腓 2:5；對應太 7:21 惟獨遵行天父旨意的人才能進去</span></li>
+  </ol>
+
+  <div class="note good">
+    <div class="nh">✅ 全篇收束：三章經文，一個姿勢</div>
+    <p>登山寶訓的交錯配置，中心是<strong>與神在隱密處的關係</strong>；八福的第一階，是<strong>承認自己一無所有</strong>；
+    六條張力線拉扯了兩千年，最後都要回到<strong>「已然，而未然」</strong>的那個中間；而師母的結論是<strong>「定睛在主耶穌身上」</strong>。</p>
+    <p>這四條線指向同一個姿勢 —— <strong>把空的手伸向祂。</strong></p>
+    <p>所以「沒具備八福就有禍了」，這句話最終不是判決書，是<strong>邀請函</strong>：
+    倒過來念一次，發現自己樣樣都缺，然後在那個發現裡，<strong>第一次真正地虛心</strong>。</p>
+  </div>
+
+  <div class="qb" style="background:linear-gradient(150deg,#EFFAF3,#F1F5FF 55%,#FFF0F5);">
+    <p class="qt">
+      主啊，求祢叫我們<em>虛心、儆醒</em>，治死老我；<br>
+      不看人、不看環境、不看自己，<em>定睛在主耶穌身上</em>，<br>
+      按著祢在我們身上的預定，走完這一生。阿們。
+    </p>
+    <div class="qs">— 天國憲章深入探討 · 收尾的禱告</div>
+  </div>
+</section>
+
+<div class="dv"><span>分享簡報</span></div>
+
+<!-- ═════════════════════════════════════════ 前往分享簡報 ═════════════════════════════════════════ -->
+<section class="sec" style="padding-top:1rem;padding-bottom:2.5rem;">
+  <a class="deck-cta" href="ding-ling_20260614_followup_ppt.html" target="_blank" rel="noopener">
+    <div class="deck-ico">🎞️</div>
+    <div class="deck-txt">
+      <div class="deck-lab">依本文整理的簡報版</div>
+      <div class="deck-title">《天國憲章》分享簡報</div>
+      <div class="deck-desc">
+        41 頁 · 起承轉合完整架構 · 兩大提問一頭一尾閉環<br>
+        <span>李之馨 姊妹　·　2026.07.21　·　可直接投影或另存 16:9 PDF</span>
+      </div>
+    </div>
+    <div class="deck-arrow">→</div>
+  </a>
+</section>
+
+</main>
+
+<footer class="ft">
+  <p>天國憲章深入探討 · <strong>馬太福音 5~7 章</strong></p>
+  <p style="margin-top:5px;font-size:.74rem;">經文引用：和合本　·　結構分析參考 Dale Allison　·　師母分享：〈愛的叮嚀〉2026.06.14、〈最偉大的工程是人格改造〉</p>
+</footer>
+
+<button class="top" id="topBtn" aria-label="回到頂端">↑</button>
+
+<script>
+/* ══════════════════════════════════════════════════════
+   資料
+   ══════════════════════════════════════════════════════ */
+const BEATS = [
+  {
+    n:'一', v:'太 5:3', title:'虛心', color:'pink',
+    say:'虛心的人有福了！因為天國是他們的。',
+    plain:'知道自己在神面前一無所有的人。不是自卑，是誠實 —— 像一個必須伸手的乞丐，沒有任何可以拿出來交換的東西。',
+    gk:'πτωχοὶ τῷ πνεύματι', tr:'ptōchoi tō pneumati',
+    lit:'πτωχός 不是「勞苦的窮人」（那個字是 πένης），而是<b>蜷縮著行乞的赤貧者</b>——字根有「蜷伏、退縮」之意，指一無所有、必須靠人施捨才能活的人。τῷ πνεύματι 是「就靈而言」的指涉與格。',
+    ot:'舊約背景：עֲנָוִים anawim（賽 61:1 謙卑的人）· 賽 66:2「虛心痛悔、因我話而戰兢的人」',
+    th:'<b>路加 vs 馬太：</b>路加作「你們貧窮的人」（實際的窮人），馬太點出其屬靈實質。兩者不衝突 —— 舊約的 anawim 本來就同時指經濟上的窮困與靈裡的倚靠。<br><br><b>這是階梯的第一階：</b>一切靈性的起點，是承認自己空無。<br><br><b>這也是律法的功用：</b>叫人承認自己一無所有，在神面前無可自誇。<br><br><b>師母的對焦：</b>〈愛的叮嚀〉裡問到「文明的三個面向，哪一項是我最需要操練的」，回答是<b>「全部都是我需要操練的」</b>。師母的回應是：能說出這句話本身就是一種虛心 —— 不挑一個比較拿手的來交差，而是承認樣樣都缺、樣樣需要被建造。',
+    woe:'不虛心的人有禍了！因為天國不是他們的。'
+  },
+  {
+    n:'二', v:'太 5:4', title:'哀慟', color:'lemon',
+    say:'哀慟的人有福了！因為他們必得安慰。',
+    plain:'為罪真正痛哭的人。不是為遭遇難過，是為自己得罪了神、為神的心被傷透而哭。',
+    gk:'πενθοῦντες', tr:'penthountes',
+    lit:'πενθέω 是希臘文中<b>最強烈的哀哭</b>，用於為死者舉哀 —— 那種掩藏不住、必然外顯的悲慟。不是輕微的難過或遺憾。分詞形式表示<b>持續的狀態</b>。',
+    ot:'賽 61:2「安慰一切悲哀的人」的直接回響 · 結 9:4 額上畫記號的，是「為城中所行可憎之事嘆息哀哭的人」',
+    th:'<b>哀慟什麼？</b>教父傳統一致認為主要指<b>為罪哀慟</b>（林後 7:10 依著神的意思憂愁，就生出沒有後悔的懊悔來）。<br><br><b>與世界的對比：</b>世界說「別難過」，天國說「哀慟的人有福了」。這是價值觀的完全翻轉。<br><br><b>師母的對焦：</b>2011 年台中主場，一位林弟兄上台把啟示錄的七個「有福了」一條一條唸出來。師母記下當時的光景：<b>「林弟兄在臺上一條一條地唸，師母在台下心中一滴一滴地在淌血。」</b>——聽見自己何等蒙福，卻同時看見自己何等虧欠，這就是 πενθέω。',
+    woe:'不哀慟的人有禍了！因為他們必不得安慰。'
+  },
+  {
+    n:'三', v:'太 5:5', title:'溫柔', color:'matcha',
+    say:'溫柔的人有福了！因為他們必承受地土。',
+    plain:'力量被神馴服的人。溫柔不是軟弱 —— 是明明有力量，卻把韁繩交在主人手裡。',
+    gk:'πραεῖς', tr:'praeis',
+    lit:'πραΰς 在古希臘文中用來形容<b>被馴服的烈馬</b>：力量絲毫未減，但完全順從騎者。所以溫柔的反面不是強壯，是<b>失控</b>。摩西被稱為「地上最謙和的人」（民 12:3），而他是那個敢對法老說話的人。',
+    ot:'直接引用詩 37:11「但謙卑人必承受地土，以豐盛的平安為樂」',
+    th:'<b>「承受地土」是什麼？</b>不是指今生的房產，而是<b>末世更新的地</b>（羅 4:13 應許亞伯拉罕承受世界；啟 21 新天新地）。<br><br><b>已然未然：</b>這一福最清楚地顯出「現在虛己、將來承受」的張力。<br><br><b>師母的對焦：</b>師母記下牧師天天耳提面命的十件事，第一件就是 ——<b>「捨己、順服、下寶座，治死老我到流血的地步。」</b>「下寶座」就是 πραΰς 最好的中文翻譯：不是沒有力量，是自己從主位上走下來。',
+    woe:'不溫柔的人有禍了！因為他們必不能承受地土。'
+  },
+  {
+    n:'四', v:'太 5:6', title:'飢渴慕義', color:'mint',
+    say:'飢渴慕義的人有福了！因為他們必得飽足。',
+    plain:'對神的義有生理性飢餓的人。不是「想要更好一點」，是那種不吃就活不下去的要。',
+    gk:'πεινῶντες καὶ διψῶντες τὴν δικαιοσύνην', tr:'peinōntes kai dipsōntes tēn dikaiosynēn',
+    lit:'關鍵在文法：「義」用的是<b>直接受格（accusative）而非部分屬格</b>。希臘文裡「餓」通常接部分屬格（想要「一些」麵包），這裡卻用直接受格 ——<b>不是要一點義，是要整個義。</b>飢渴皆為現在分詞：持續不斷的渴求。',
+    ot:'詩 42:1–2「我的心切慕你，如鹿切慕溪水」· 摩 8:11 飢餓非因無餅，乃因不聽耶和華的話',
+    th:'<b>δικαιοσύνη 的雙義：</b>在馬太福音中，「義」既指<b>神所賜的義</b>（恩典），也指<b>人所行的義</b>（倫理）—— 5:20「更高的義」、6:33「先求神的國和神的義」。兩者不可分割。<br><br><b>兩種強調：</b>有人強調「歸算的義」（神算我為義），有人強調「成聖的義」（我被造成義的）。馬太的用法<b>同時包含兩者</b>，不必二選一。<br><br><b>必得飽足：</b>χορτασθήσονται 原用於牲畜吃飽 —— 完全的、不再缺乏的滿足。',
+    woe:'不飢渴慕義的人有禍了！因為他們必不得飽足。'
+  },
+  {
+    n:'五', v:'太 5:7', title:'憐恤人', color:'sky',
+    say:'憐恤人的人有福了！因為他們必蒙憐恤。',
+    plain:'看見別人的慘況，心被扯動，然後真的伸手的人。不是同情心，是同情心加上行動。',
+    gk:'ἐλεήμονες', tr:'eleēmones',
+    lit:'ἔλεος 對應希伯來文 <b>חֶסֶד（chesed）</b>——盟約中的信實慈愛。這不只是一時的情緒，而是<b>因立過約而必然如此的忠誠之愛</b>。所以憐恤帶著承諾的重量。',
+    ot:'彌 6:8「行公義，好憐憫，存謙卑的心，與你的神同行」· 何 6:6「我喜愛良善（chesed），不喜愛祭祀」',
+    th:'<b>唯一「同義迴向」的一福：</b>憐恤人的必蒙憐恤 —— 動作與回報是同一個字。這與主禱文 6:12、6:14–15 完全一致：「你們饒恕人的過犯，你們的天父也必饒恕你們。」<br><br><b>太 18:23–35</b>不饒恕人的惡僕是這一福的反面教材。<br><br><b>張力：</b>這不是「用憐恤換憐恤」的交易，而是說 —— <b>一個真的領受過憐恤的人，不可能不憐恤人。</b>不憐恤，證明還沒真正領受過。',
+    woe:'不憐恤人的人有禍了！因為他們必不蒙憐恤。'
+  },
+  {
+    n:'六', v:'太 5:8', title:'清心', color:'lav',
+    say:'清心的人有福了！因為他們必得見 神。',
+    plain:'裡面沒有兩套帳的人。動機單一 —— 做一件事就是為那一個理由，沒有藏著第二個目的。',
+    gk:'καθαροὶ τῇ καρδίᾳ', tr:'katharoi tē kardia',
+    lit:'καθαρός 是<b>篩過、濾淨、不摻雜</b>（英文 catharsis 由此而來）。καρδία「心」在希伯來思維中<b>不是情感中心，而是意志與決斷的中心</b>。所以「清心」＝<b>意志的單純</b>，不是感情的純潔。',
+    ot:'詩 24:3–4「誰能登耶和華的山？就是手潔心清…的人」· 詩 51:10「神啊，求你為我造清潔的心」',
+    th:'<b>「必得見神」的重量：</b>出 33:20「人見我的面不能存活」—— 舊約的大禁忌。而啟 22:4 說「他們要見祂的面」。這一福<b>橫跨了整本聖經最大的張力</b>，是純粹的末世應許。<br><br><b>與 6:1–18 的呼應：</b>三種虔誠都要「在暗中」，正是因為清心 —— <b>有沒有人看見，做的是同一件事。</b><br><br><b>師母的對焦：</b>師母講到神把說預言、唱靈歌、與神相通、醫治這些恩賜加在軟弱的人身上，把他們屬靈地裝扮得俊美，叫人歎為觀止；可是我們的行為卻常把人嚇到，因為<b>「為人」與「所為」完全不相稱，像演了一場很爛的戲給天使和世人看</b>。表裡兩套帳，正是清心的反面。',
+    woe:'不清心的人有禍了！因為他們必不得見 神。'
+  },
+  {
+    n:'七', v:'太 5:9', title:'使人和睦', color:'peach',
+    say:'使人和睦的人有福了！因為他們必稱為 神的兒子。',
+    plain:'不是不惹事的人，是主動走進兩造中間、付上代價去修復關係的人。',
+    gk:'εἰρηνοποιοί', tr:'eirēnopoioi',
+    lit:'複合字：εἰρήνη（和平）＋ ποιέω（製造）——<b>是「製造」和平，不是「維持」和平</b>。這個字在整本新約<b>只出現這一次</b>。重點在於它是主動的、要付代價的動作，不是消極的不衝突。',
+    ot:'希伯來文 שָׁלוֹם（shalom）不只是「沒有戰爭」，而是<b>關係與秩序的整全恢復</b>——一切各得其所。',
+    th:'<b>為什麼是「神的兒子」？</b>因為這正是子所做的事：弗 2:14–16「祂使兩下合而為一，拆毀了中間隔斷的牆…藉這十字架使兩下歸為一體，與神和好。」<br><br><b>製造和平的代價：</b>基督製造和平的方式是上十字架。所以第⑦福必然導向第⑧福 —— <b>使人和睦的人會被逼迫。</b><br><br><b>有一種讀法</b>把這一福直接讀成絕對和平主義的聖經根據：既然要「製造」和平，就不可參與任何暴力。<br><br><b>師母的對焦：</b>牧師十條叮嚀中的第八條是 ——<b>「彼此切實相愛。為主基督再來預備道路。」</b>注意這兩句是連在一起的：彼此相愛不是目的本身，而是為主再來預備道路的方式。',
+    woe:'不使人和睦的人有禍了！因為他們必不得稱為 神的兒子。'
+  },
+  {
+    n:'八', v:'太 5:10', title:'為義受逼迫', color:'rose',
+    say:'為義受逼迫的人有福了！因為天國是他們的。',
+    plain:'因為活出前面七樣，而付上代價的人。這一福不是自己選的 —— 是前七福的結果。',
+    gk:'δεδιωγμένοι ἕνεκεν δικαιοσύνης', tr:'dediōgmenoi heneken dikaiosynēs',
+    lit:'δεδιωγμένοι 是<b>完成式被動分詞</b>——「已經受過並且持續處在被逼迫的狀態」。用完成式表示這<b>不是假設，是既成事實</b>。διώκω 的原意是「追趕、窮追不捨」。',
+    ot:'代下 24:20–21 撒迦利亞被石頭打死 · 賽 53 受苦的僕人 · 太 5:12「在你們以前的先知，人也是這樣逼迫他們」',
+    th:'<b>與第①福同一個應許：</b>「因為天國是他們的」——首尾相同，形成 inclusio 包框，宣告<b>八福是一個不可拆解的整體</b>。<br><br><b>前七福是選擇，第八福是後果：</b>不是我們去追求逼迫，是逼迫來追我們。你若真活出前面七樣，代價自然臨到。<br><br><b>作門徒的代價：</b>「基督呼召一個人，就是召他來死。」——順服與信心分不開，恩典不是廉價的。<br><br><b>師母的對焦：</b>牧師十條叮嚀中的第四、第五條連著講這件事 ——<b>「為主受苦原是美事，受患難是預定的。」「這至輕至暫的苦楚，要為我們成就那極重無比永遠的榮耀。」</b>（參帖前 3:3、林後 4:17）',
+    woe:'不為義受逼迫的人有禍了！因為天國不是他們的。'
+  }
+];
+
+const CVAR = {
+  pink:  {bg:'--pink-s',  d:'--pink-d',  hex:'#D9587E'},
+  lemon: {bg:'--lemon-s', d:'--lemon-d', hex:'#C79612'},
+  matcha:{bg:'--matcha-s',d:'--matcha-d',hex:'#71993A'},
+  mint:  {bg:'--mint-s',  d:'--mint-d',  hex:'#3E9E7A'},
+  sky:   {bg:'--sky-s',   d:'--sky-d',   hex:'#2F82BC'},
+  lav:   {bg:'--lav-s',   d:'--lav-d',   hex:'#7E5FBC'},
+  peach: {bg:'--peach-s', d:'--peach-d', hex:'#D9793B'},
+  rose:  {bg:'--rose-s',  d:'--rose-d',  hex:'#C4527E'}
+};
+
+/* ══════════════════════════════════════════════════════
+   八福翻卡
+   ══════════════════════════════════════════════════════ */
+const grid = document.getElementById('beatGrid');
+BEATS.forEach((b,i)=>{
+  const c = CVAR[b.color];
+  const el = document.createElement('div');
+  el.className = 'fc';
+  el.innerHTML = `
+    <div class="fc-in">
+      <div class="fc-f" style="background:linear-gradient(165deg,var(${c.bg}),#fff 66%);">
+        <div class="fc-num" style="background:${c.hex};">${b.n}</div>
+        <div class="fc-title">${b.title}</div>
+        <div class="fc-vs" style="color:${c.hex};">${b.v}</div>
+        <div class="fc-scroll">
+          <div class="fc-say" data-bless="${b.say}" data-woe="${b.woe}">${b.say}</div>
+          <div class="fc-plain">${b.plain}</div>
+        </div>
+        <div class="fc-hint">↻ 點卡片看原文</div>
+      </div>
+      <div class="fc-b">
+        <div class="fc-num" style="background:${c.hex};">${b.n}</div>
+        <div class="fc-title" style="font-size:1rem;">原文探討</div>
+        <div class="fc-gk">${b.gk}</div>
+        <div class="fc-tr">${b.tr}</div>
+        <div class="fc-scroll">
+          <div class="fc-lit">${b.lit}</div>
+          <div class="fc-ot">${b.ot}</div>
+          <div class="thx">
+            <button class="thx-btn" type="button">▾ 神學意涵比較</button>
+            <div class="thx-body">${b.th}</div>
+          </div>
+        </div>
+      </div>
+    </div>`;
+  el.addEventListener('click', e=>{
+    if(e.target.closest('.thx')) return;
+    el.classList.toggle('flipped');
+  });
+  el.querySelector('.thx-btn').addEventListener('click', e=>{
+    e.stopPropagation();
+    const body = el.querySelector('.thx-body');
+    body.classList.toggle('open');
+    e.target.textContent = body.classList.contains('open') ? '▴ 收起神學意涵' : '▾ 神學意涵比較';
+  });
+  grid.appendChild(el);
+});
+
+document.getElementById('flipAll').addEventListener('click', ()=>{
+  document.querySelectorAll('.fc').forEach(c=>c.classList.add('flipped'));
+});
+document.getElementById('resetAll').addEventListener('click', ()=>{
+  document.querySelectorAll('.fc').forEach(c=>{
+    c.classList.remove('flipped','woe');
+    const b=c.querySelector('.thx-body'); if(b){b.classList.remove('open');c.querySelector('.thx-btn').textContent='▾ 神學意涵比較';}
+    const s=c.querySelector('.fc-say'); s.textContent=s.dataset.bless;
+  });
+});
+
+/* ══════════════════════════════════════════════════════
+   八福 ↔ 八禍 鏡像
+   ══════════════════════════════════════════════════════ */
+const mir = document.getElementById('mirror');
+BEATS.forEach(b=>{
+  const r = document.createElement('div');
+  r.className='mir-row';
+  r.innerHTML = `
+    <div class="mir-b"><div class="mir-tag">有福了</div><p>${b.say}</p></div>
+    <div class="mir-mid">↔</div>
+    <div class="mir-w"><div class="mir-tag">有禍了</div><p>${b.woe}</p></div>`;
+  mir.appendChild(r);
+});
+
+/* ══════════════════════════════════════════════════════
+   雷達圖引擎
+   ══════════════════════════════════════════════════════ */
+function radar(mountId, opts){
+  const {axes, series, max=5, size=380} = opts;
+  const cx=size/2, cy=size/2+6, R=size*0.325, N=axes.length;
+  const NS='http://www.w3.org/2000/svg';
+  const svg=document.createElementNS(NS,'svg');
+  svg.setAttribute('viewBox',`0 0 ${size} ${size+18}`);
+  svg.setAttribute('role','img');
+  svg.style.display='block'; svg.style.width='100%'; svg.style.height='auto';
+
+  const pt=(i,v)=>{
+    const a = -Math.PI/2 + i*2*Math.PI/N;
+    const r = R*(v/max);
+    return [cx+r*Math.cos(a), cy+r*Math.sin(a)];
+  };
+  const mk=(t,at)=>{const e=document.createElementNS(NS,t);for(const k in at)e.setAttribute(k,at[k]);return e;};
+
+  // grid rings
+  for(let g=1; g<=4; g++){
+    const pts=[]; for(let i=0;i<N;i++){const[x,y]=pt(i,max*g/4);pts.push(`${x.toFixed(1)},${y.toFixed(1)}`);}
+    svg.appendChild(mk('polygon',{points:pts.join(' '),fill:g===4?'#FFFDFB':'none',stroke:'#EDE4E8','stroke-width':'1'}));
+  }
+  // spokes + labels
+  for(let i=0;i<N;i++){
+    const[x,y]=pt(i,max);
+    svg.appendChild(mk('line',{x1:cx,y1:cy,x2:x,y2:y,stroke:'#EDE4E8','stroke-width':'1'}));
+    const[lx,ly]=pt(i,max*1.235);
+    const t=mk('text',{x:lx,y:ly+4,'text-anchor':'middle','font-family':'Noto Sans TC,sans-serif','font-size':'10.5',fill:'#8E8189','font-weight':'500'});
+    t.textContent=axes[i];
+    svg.appendChild(t);
+  }
+  // series
+  const shapes=[];
+  series.forEach((s,si)=>{
+    const pts=s.vals.map((v,i)=>{const[x,y]=pt(i,v);return `${x.toFixed(1)},${y.toFixed(1)}`;});
+    const g=mk('g',{'data-si':si});
+    g.style.transition='opacity .3s';
+    g.appendChild(mk('polygon',{points:pts.join(' '),fill:s.color,'fill-opacity':s.fill||'0.2',stroke:s.color,'stroke-width':'2.2','stroke-linejoin':'round'}));
+    s.vals.forEach((v,i)=>{const[x,y]=pt(i,v);g.appendChild(mk('circle',{cx:x,cy:y,r:'3.4',fill:'#fff',stroke:s.color,'stroke-width':'2'}));});
+    svg.appendChild(g); shapes.push(g);
+  });
+  const host=document.getElementById(mountId);
+  host.innerHTML=''; host.appendChild(svg);
+  return {toggle(i,on){shapes[i].style.opacity = on?'1':'0'; shapes[i].style.pointerEvents = on?'auto':'none';},
+          update(i,vals){
+            const g=shapes[i];
+            const pts=vals.map((v,k)=>{const[x,y]=pt(k,v);return `${x.toFixed(1)},${y.toFixed(1)}`;});
+            g.querySelector('polygon').setAttribute('points',pts.join(' '));
+            const cs=g.querySelectorAll('circle');
+            vals.forEach((v,k)=>{const[x,y]=pt(k,v);cs[k].setAttribute('cx',x);cs[k].setAttribute('cy',y);});
+          }};
+}
+
+/* ── 雷達 1：三種義的標準 ── */
+const AX1=['動機純度','內心的要求','對仇敵的態度','隱密處的真實','對財物鬆手','饒恕的徹底','行動的代價','根基的穩固'];
+const S1=[
+  {name:'天國憲章的「更高的義」', desc:'太 5:20 —— 八個維度全部拉滿', color:'#D9587E', fill:'0.18', vals:[5,5,5,5,5,5,5,5]},
+  {name:'文士與法利賽人的義',   desc:'外顯嚴謹，內裡與隱密處見底', color:'#2F82BC', fill:'0.18', vals:[2,1,1,1,2,2,3,2]},
+  {name:'一般社會道德',         desc:'不害人即可，不要求動機', color:'#71993A', fill:'0.16', vals:[2,1,1,1,2,2,1,2]}
+];
+const r1=radar('radar1',{axes:AX1,series:S1});
+buildLegend('leg1',S1,r1);
+
+/* ── 雷達 2：自我檢視 ── */
+const AX2=['虛心','哀慟','溫柔','飢渴慕義','憐恤人','清心','使人和睦','為義受逼迫'];
+let SELF=[2,2,2,2,2,2,2,2];
+const r2=radar('radar2',{axes:AX2,series:[
+  {name:'天國憲章的標準',color:'#FFB3C6',fill:'0.12',vals:[5,5,5,5,5,5,5,5]},
+  {name:'我目前的光景',  color:'#7E5FBC',fill:'0.26',vals:SELF.slice()}
+]});
+const slHost=document.getElementById('sliders');
+AX2.forEach((a,i)=>{
+  const d=document.createElement('div'); d.className='sl';
+  d.innerHTML=`<label>${a}</label><input type="range" min="0" max="5" step="1" value="2" data-i="${i}"><span class="sv">2</span>`;
+  slHost.appendChild(d);
+  d.querySelector('input').addEventListener('input',e=>{
+    SELF[i]=+e.target.value;
+    d.querySelector('.sv').textContent=e.target.value;
+    r2.update(1,SELF); selfReport();
+  });
+});
+function selfReport(){
+  const out=document.getElementById('selfOut');
+  const total=SELF.reduce((a,b)=>a+b,0);
+  const min=Math.min(...SELF);
+  const weak=AX2.filter((_,i)=>SELF[i]===min);
+  const gapAll=SELF.every(v=>v<=3);
+  let msg='';
+  if(total<=8){
+    msg=`你把八項幾乎都放得很低。<b>而這個誠實，正是第一福「虛心」本身。</b>πτωχός 不是要達成的美德，是一個誠實的自我認知 —— 你已經站在那一階上了。`;
+  }else if(gapAll){
+    msg=`八項都還在建造中，沒有一項是滿的。<b>這正是師母說的：「別看自己，看看周遭 —— 你會發現全都有禍了。」</b>但結論不是絕望，是儆醒。`;
+  }else{
+    msg=`目前最缺的是 <b>${weak.join('、')}</b>。<br>但別急著只補這一項 —— 八福是同一種人的八個側面，首尾兩福的應許一字不差（「天國是他們的」），這個包框表示它們是一個整體。`;
+  }
+  out.innerHTML = `<b>總分 ${total} / 40</b><br>${msg}<br><br>
+    <span style="font-size:.78rem;color:var(--muted);">記得：這不是評分表。八福是<b>宣告句</b>不是條件句 —— 它描述的是一群人的樣子，不是八張要集滿的門票。</span>`;
+}
+selfReport();
+
+/* ── 雷達 3：六條張力線・三種傾斜 ── */
+const AX3=['字面順服程度','今日可行性','恩典的強調','末世取向','社會實踐','照出無能'];
+const S3=[
+  {name:'均衡的讀法', desc:'六條線都拿捏在中間偏上 — 既悔改，也行動', color:'#7E5FBC', fill:'0.20', vals:[4,4,4,4,4,4]},
+  {name:'偏向「內省・恩典」', desc:'重恩典與省察，輕行動與實踐 — 容易停在自責裡', color:'#2F82BC', fill:'0.16', vals:[2,2,5,4,2,5]},
+  {name:'偏向「行動・字面」', desc:'重順服與實踐，輕恩典與省察 — 容易變成績效', color:'#3E9E7A', fill:'0.16', vals:[5,5,2,2,5,2]}
+];
+const r3=radar('radar3',{axes:AX3,series:S3});
+buildLegend('leg3',S3,r3);
+
+/* ── 六條張力線的細節卡 ── */
+const AXES6=[
+  {no:'①', name:'字面順服程度', q:'「是就說是，不是就說不是」——這要照字面做嗎？', color:'peach',
+   why:'決定經文對你<b>有沒有實際約束力</b>。這條線一旦鬆掉，後面五條都會跟著鬆。',
+   aT:'全照字面', aM:'敬畏主的話，一個字都不敢打折扣。',
+   aC:'把處境差異一律抹平，容易長出新的律法主義；遇到複雜情況就卡死（例如 5:39「不要與惡人作對」是否等於受害時不能報警）。',
+   bT:'視為理想象徵', bM:'怕誤用經文，想保留應用的彈性。',
+   bC:'每一句都能被解釋掉，最後經文不再要求你任何事 —— 讀完跟沒讀一樣。'},
+  {no:'②', name:'今日可行性', q:'這是現在就要活出來的，還是一個遙不可及的理想？', color:'lemon',
+   why:'決定你<b>讀完之後會不會真的去做</b>。這條線是「知道」與「行道」之間的閘門。',
+   aT:'現在就能做到', aM:'相信神的命令必配上成全的恩典。',
+   aC:'低估罪的頑固。做不到時只剩兩條路：假裝做到了，或轉頭論斷那些沒做到的人。',
+   bT:'現在做不到', bM:'誠實承認人的有限，不想假冒為善。',
+   bC:'「反正做不到」成為永遠不動的藉口，恩典淪為廉價 —— 太 7:26 聽而不行的人，房子蓋在沙土上。'},
+  {no:'③', name:'恩典的強調', q:'這一切是我努力的成果，還是神做成的？', color:'mint',
+   why:'決定你的<b>動力來源是感恩還是恐懼</b>。同樣的行為，動力不同，結局完全不同。',
+   aT:'全是恩典', aM:'保護福音，不讓它被功德取代。',
+   aC:'順服被架空。聽道與生活可以完全脫節，因為「反正都是恩典」。',
+   bT:'全靠努力', bM:'重視看得見的、實際的改變。',
+   bC:'屬靈生活變成績效表。做得好就驕傲，做不好就絕望 —— 兩種結局都是以自己為中心。'},
+  {no:'④', name:'末世取向', q:'天國是將來才完全，還是現在就要看見？', color:'sky',
+   why:'決定你怎麼面對<b>「應許了卻還沒實現」的落差</b>。這條線管的是你的耐性與迫切感。',
+   aT:'將來才成全', aM:'知道完全是主再來那日的事，不強求。',
+   aC:'現在的不義與不聖潔都被無限期緩期，失去迫切 —— 反正將來會處理。',
+   bT:'現在就要實現', bM:'渴望看見神國在地上的真實。',
+   bC:'把天國化約成地上可量測的成就；一旦落空（病沒好、事沒成），信心跟著崩塌。'},
+  {no:'⑤', name:'社會實踐', q:'憲章只管我裡面，還是也管我怎麼參與這個世界？', color:'matcha',
+   why:'決定「你們是世上的鹽、世上的光」是<b>一句比喻，還是一項任務</b>。',
+   aT:'積極介入', aM:'相信信仰必須有公共的後果，不能只躲在裡面。',
+   aC:'容易把福音替換成議題，用外面的行動掩蓋裡面的空 —— 忙到沒有暗中的禱告（太 6:6）。',
+   bT:'退出保守', bM:'怕沾染世界，想專心在神面前保守自己。',
+   bC:'鹽失了味，燈放在斗底下 —— 太 5:13–15 正是在警告這一端。'},
+  {no:'⑥', name:'照出無能', q:'這篇的功用主要是照鏡子定我的罪，還是指路叫我能走？', color:'rose',
+   why:'決定你讀完之後<b>是被壓垮，還是被扶起</b>。這條線直接關係到主題⑤「有禍了」怎麼讀。',
+   aT:'主要是照出無能', aM:'叫人不能自誇（林前 1:29），把人逼到恩典面前。',
+   aC:'停在自責裡。只會認罪，不會前行 —— 悔改變成一種情緒的自我消耗。',
+   bT:'主要是指路可行', bM:'要有具體可操作的方向，而不只是被定罪。',
+   bC:'把天國憲章讀成一本自我提升手冊，失去悔改的深度 —— 目標變成「更好的我」而不是「新造的人」。'}
+];
+const axHost=document.getElementById('axisCards');
+AXES6.forEach(a=>{
+  const c=CVAR[a.color];
+  const el=document.createElement('div');
+  el.className='card';
+  el.style.cssText='padding:1.3rem 1.3rem;background:linear-gradient(168deg,var('+c.bg+'),#fff 60%);';
+  el.innerHTML=`
+    <div style="display:flex;align-items:baseline;gap:9px;margin-bottom:.5rem;">
+      <span style="font-family:'Noto Serif TC',serif;font-size:1.15rem;font-weight:700;color:${c.hex};">${a.no}</span>
+      <span style="font-family:'Noto Serif TC',serif;font-size:1.02rem;font-weight:700;color:var(--ink-d);">${a.name}</span>
+    </div>
+    <div style="font-size:.83rem;color:var(--ink);line-height:1.8;margin-bottom:.6rem;">${a.q}</div>
+    <div style="font-size:.78rem;color:var(--muted);line-height:1.75;padding:.6rem .8rem;background:rgba(255,255,255,.7);border-radius:10px;margin-bottom:.85rem;">
+      <b style="color:${c.hex};">為什麼重要 ·</b> ${a.why}</div>
+    <div style="display:grid;gap:.6rem;">
+      <div style="border-left:3px solid ${c.hex};padding-left:.75rem;">
+        <div style="font-size:.76rem;font-weight:700;color:${c.hex};margin-bottom:.2rem;">◀ 偏向「${a.aT}」</div>
+        <div style="font-size:.765rem;line-height:1.75;color:var(--ink);"><b>動機：</b>${a.aM}</div>
+        <div style="font-size:.765rem;line-height:1.75;color:var(--muted);"><b>後果：</b>${a.aC}</div>
+      </div>
+      <div style="border-left:3px solid var(--muted);padding-left:.75rem;">
+        <div style="font-size:.76rem;font-weight:700;color:var(--muted);margin-bottom:.2rem;">▶ 偏向「${a.bT}」</div>
+        <div style="font-size:.765rem;line-height:1.75;color:var(--ink);"><b>動機：</b>${a.bM}</div>
+        <div style="font-size:.765rem;line-height:1.75;color:var(--muted);"><b>後果：</b>${a.bC}</div>
+      </div>
+    </div>`;
+  axHost.appendChild(el);
+});
+
+function buildLegend(id,series,inst){
+  const host=document.getElementById(id);
+  series.forEach((s,i)=>{
+    const el=document.createElement('div'); el.className='lg';
+    el.innerHTML=`<div class="lg-sw" style="background:${s.color};"></div>
+      <div><div class="lg-t">${s.name}</div><div class="lg-d">${s.desc}</div></div>`;
+    el.addEventListener('click',()=>{
+      el.classList.toggle('off');
+      inst.toggle(i, !el.classList.contains('off'));
+    });
+    host.appendChild(el);
+  });
+}
+
+/* ══════════════════════════════════════════════════════
+   交錯配置 chiasm 互動
+   ══════════════════════════════════════════════════════ */
+document.querySelectorAll('#chi .chi-row').forEach(row=>{
+  row.addEventListener('click',()=>{
+    const p=row.dataset.pair;
+    const already=row.classList.contains('hl');
+    document.querySelectorAll('#chi .chi-row').forEach(r=>r.classList.remove('hl'));
+    if(!already) document.querySelectorAll(`#chi .chi-row[data-pair="${p}"]`).forEach(r=>r.classList.add('hl'));
+  });
+});
+
+/* ══════════════════════════════════════════════════════
+   同心圓
+   ══════════════════════════════════════════════════════ */
+const CONC=[
+  {lab:'層級 01 · 最外層', t:'登山寶訓全篇（太 5–7）',
+   b:'一份完整的天國憲章，交錯配置（chiasm）結構，前後對稱向中心收攏。首尾以「上山／下山」包框。',
+   v:'「耶穌看見這許多的人，就上了山，既已坐下，門徒到祂跟前來。」—— 太 5:1'},
+  {lab:'層級 02', t:'中心大段：三種虔誠（6:1–18）',
+   b:'整個交錯配置的核心大段。施捨、禱告、禁食 —— 猶太人三大敬虔操練。共同命令只有一個：<b>要在暗中。</b>不是做什麼，而是做給誰看。',
+   v:'「你們要小心，不可將善事行在人的面前，故意叫他們看見；若是這樣，就不能得你們天父的賞賜了。」—— 太 6:1'},
+  {lab:'層級 03', t:'三者中最長的一段：論禱告（6:5–15）',
+   b:'施捨與禁食各只有三節，唯獨禱告展開了十一節，並插入完整的禱文與註解。位置與篇幅都指向：<b>這是核心中的核心。</b>',
+   v:'「你禱告的時候，要進你的內屋，關上門，禱告你在暗中的父。」—— 太 6:6'},
+  {lab:'層級 04', t:'主禱文（6:9–13）',
+   b:'整篇登山寶訓的幾何中心。六個祈求分成兩組：<b>前三個關乎神，後三個關乎人。</b>這個順序本身就是天國憲章的縮影。',
+   v:'「所以，你們禱告要這樣說：我們在天上的父，願人都尊你的名為聖…」—— 太 6:9'},
+  {lab:'層級 05 · 最核心', t:'中心的中心：三個「願」',
+   b:'整篇天國憲章向內收攏的最深處，是三個以神為主詞的祈求。注意順序：<b>先是神的名、神的國、神的旨意，之後才輪到我們的日用飲食。</b>天國子民的優先次序，在這裡被完全重排。',
+   v:'「願人都尊你的名為聖。願你的國降臨。<br>願你的旨意行在地上，如同行在天上。」—— 太 6:9–10'}
+];
+document.querySelectorAll('.cring').forEach(c=>{
+  c.addEventListener('click',()=>{
+    const d=CONC[+c.dataset.c];
+    const box=document.getElementById('concInfo');
+    box.innerHTML=`<div class="ci-lab">${d.lab}</div><div class="ci-t">${d.t}</div>
+      <div class="ci-b">${d.b}</div><div class="ci-v">${d.v}</div>`;
+    box.style.animation='none'; void box.offsetWidth; box.style.animation='fade .35s';
+  });
+});
+
+/* ══════════════════════════════════════════════════════
+   導覽 scrollspy ＋ 回頂
+   ══════════════════════════════════════════════════════ */
+const links=[...document.querySelectorAll('#nav a')];
+const secs=links.map(a=>document.querySelector(a.getAttribute('href')));
+const topBtn=document.getElementById('topBtn');
+function onScroll(){
+  const y=window.scrollY+120;
+  let idx=0;
+  secs.forEach((s,i)=>{ if(s && s.offsetTop<=y) idx=i; });
+  links.forEach((a,i)=>a.classList.toggle('on',i===idx));
+  topBtn.classList.toggle('show', window.scrollY>600);
+}
+window.addEventListener('scroll',onScroll,{passive:true});
+onScroll();
+topBtn.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+
+/* ══════════════════════════════════════════════════════
+   內嵌於 iframe 時的相容處理（例如 article.html?id=…）
+   外層把 iframe 撐成內容全高且 scrolling="no"，iframe 自己
+   永遠不捲動，因此 sticky／fixed／錨點三者都會失效。
+   以下改為操作「外層頁面」的捲動來還原這三個功能。
+   單獨開啟檔案時完全不啟用，維持原行為。
+   ══════════════════════════════════════════════════════ */
+(function(){
+  if(window.self===window.top) return;              // 沒被內嵌 → 不處理
+  var pw,frame;
+  try{
+    pw=window.parent; frame=window.frameElement;
+    if(!frame||!pw.document) return;
+    void pw.scrollY;                                // 跨網域會在此丟錯
+  }catch(e){ return; }                              // 無法存取外層 → 保持原樣
+
+  var nav=document.querySelector('.nav');
+  var topBtn=document.getElementById('topBtn');
+  var links=[].slice.call(document.querySelectorAll('#nav a'));
+  var secs=links.map(function(a){ return document.querySelector(a.getAttribute('href')); });
+  if(!nav||!topBtn) return;
+
+  /* 導覽列脫離文件流前，先補等高佔位，避免下方內容上移 */
+  var navH=nav.offsetHeight, navHome=nav.offsetTop;
+  var spacer=document.createElement('div');
+  spacer.style.height=navH+'px';
+  nav.parentNode.insertBefore(spacer,nav);
+  nav.style.position='absolute';
+  nav.style.left='0';
+  nav.style.width='100%';
+  nav.style.top=navHome+'px';
+
+  topBtn.style.position='absolute';
+  topBtn.style.bottom='auto';
+
+  function frameTop(){ return frame.getBoundingClientRect().top+pw.scrollY; }
+
+  var ticking=false;
+  function update(){
+    ticking=false;
+    var vTop=pw.scrollY-frameTop();                 // 可視區頂端落在本文件的哪個位置
+    var vH=pw.innerHeight;
+    nav.style.top=(vTop>navHome?vTop:navHome)+'px'; /* ① 模擬吸頂 */
+    topBtn.style.top=(vTop+vH-60)+'px';             /* ② 回頂鈕跟著可視區右下角 */
+    topBtn.classList.toggle('show',vTop>600);
+    var y=vTop+120,idx=0;                           /* ③ 導覽高亮 */
+    secs.forEach(function(s,i){ if(s&&s.offsetTop<=y) idx=i; });
+    links.forEach(function(a,i){ a.classList.toggle('on',i===idx); });
+  }
+  function onScroll(){ if(!ticking){ ticking=true; requestAnimationFrame(update); } }
+
+  pw.addEventListener('scroll',onScroll,{passive:true});
+  pw.addEventListener('resize',onScroll);
+
+  /* ④ 章節連結 → 改捲外層頁面 */
+  links.forEach(function(a){
+    a.addEventListener('click',function(e){
+      e.preventDefault();
+      var t=document.querySelector(a.getAttribute('href'));
+      if(!t) return;
+      pw.scrollTo({top:frameTop()+t.offsetTop-navH-12,behavior:'smooth'});
+    });
+  });
+
+  /* ⑤ 回到頂端 → 捲回 iframe 起點 */
+  topBtn.addEventListener('click',function(e){
+    e.preventDefault(); e.stopPropagation();
+    pw.scrollTo({top:frameTop(),behavior:'smooth'});
+  });
+
+  update();
+  setTimeout(update,900);                           // 外層 autoResizeFrame 調完高度後再校正
+})();
+</script>
+</body>
+</html>
