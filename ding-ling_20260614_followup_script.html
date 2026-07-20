@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>天國憲章 · 分享講稿｜李之馨姊妹 2026.07.21</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700;900&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --pink:#FFB3C6; --pink-s:#FFE7EE; --pink-d:#D9587E;
+  --mint:#A8E6CF; --mint-s:#E2F7EE; --mint-d:#3E9E7A;
+  --lemon:#FFE49A;--lemon-s:#FFF6DC;--lemon-d:#B8890E;
+  --lav:#C9B8E8;  --lav-s:#EFE9FA;  --lav-d:#7E5FBC;
+  --sky:#A8D8F0;  --sky-s:#E4F3FC;  --sky-d:#2F82BC;
+  --rose:#F5B8CE; --rose-s:#FCE8F0; --rose-d:#C4527E;
+  --cream:#FFFBF8; --ink:#4A3F46; --ink-d:#2E262B; --muted:#8A7D85;
+  --line:rgba(0,0,0,.08); --sh:0 3px 14px rgba(160,120,140,.09);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;scroll-padding-top:66px;}
+body{font-family:'Noto Sans TC',-apple-system,'Microsoft JhengHei',sans-serif;
+  background:var(--cream);color:var(--ink);line-height:1.85;-webkit-font-smoothing:antialiased;}
+body::before{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;
+  background:radial-gradient(circle at 8% 6%,rgba(255,179,198,.13),transparent 42%),
+             radial-gradient(circle at 92% 90%,rgba(201,184,232,.12),transparent 42%);}
+
+.hero{text-align:center;padding:2.8rem 1.5rem 2.2rem;position:relative;
+  background:linear-gradient(155deg,#FFF1F5,#F3F6FF 45%,#EFFAF4);border-bottom:1px solid var(--line);}
+.xlink{position:absolute;top:14px;left:16px;font-size:12px;letter-spacing:1px;
+  color:var(--muted);text-decoration:none;background:rgba(255,255,255,.75);
+  border:1px solid var(--line);border-radius:99px;padding:3px 12px;transition:.2s;}
+.xlink:hover{color:var(--lav-d);border-color:var(--lav);background:#fff;}
+.hero-tag{display:inline-block;background:#fff;border:1.5px solid var(--pink);color:var(--pink-d);
+  font-size:11.5px;letter-spacing:3.5px;font-weight:700;padding:5px 18px;border-radius:99px;margin-bottom:1rem;}
+.hero h1{font-family:'Noto Serif TC',serif;font-size:clamp(1.55rem,4vw,2.1rem);font-weight:700;
+  color:var(--ink-d);line-height:1.4;margin-bottom:.45rem;}
+.hero h1 em{font-style:normal;background:linear-gradient(100deg,var(--pink-d),var(--lav-d) 50%,var(--sky-d));
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;}
+.hero-sub{font-size:.85rem;color:var(--muted);letter-spacing:1px;}
+.hero-meta{margin-top:1rem;display:flex;gap:.45rem;justify-content:center;flex-wrap:wrap;}
+.chip{font-size:.73rem;padding:4px 13px;border-radius:99px;background:#fff;border:1px solid var(--line);color:var(--muted);}
+
+.wrap{max-width:1240px;margin:0 auto;padding:0 1.1rem;}
+
+.bar{position:sticky;top:0;z-index:60;background:rgba(255,251,248,.97);
+  border-bottom:1px solid var(--line);box-shadow:0 1px 10px rgba(160,120,140,.07);margin-bottom:1.2rem;}
+.bar-in{max-width:1240px;margin:0 auto;padding:.5rem 1.1rem;display:flex;align-items:center;gap:.4rem;flex-wrap:wrap;}
+.bar a{text-decoration:none;font-size:.73rem;font-weight:700;color:var(--muted);
+  padding:5px 11px;border-radius:8px;transition:.18s;border:1px solid transparent;}
+.bar a:hover{background:var(--lav-s);color:var(--lav-d);border-color:var(--lav);}
+.bar .tot{margin-left:auto;font-size:.73rem;font-weight:700;color:var(--lav-d);
+  background:var(--lav-s);border:1px solid var(--lav);border-radius:99px;padding:4px 14px;}
+
+.secbar{display:flex;align-items:center;gap:12px;margin:2.2rem 0 .6rem;padding:.85rem 1.3rem;
+  border-radius:16px;border:1px solid var(--line);}
+.secbar .sk{font-family:'Noto Serif TC',serif;font-size:1.5rem;font-weight:900;line-height:1;}
+.secbar .st{font-family:'Noto Serif TC',serif;font-size:1.05rem;font-weight:700;color:var(--ink-d);}
+.secbar .sd{font-size:.79rem;color:var(--muted);margin-top:1px;}
+.secbar .stime{margin-left:auto;font-size:.8rem;font-weight:700;padding:4px 14px;border-radius:99px;
+  background:#fff;border:1px solid var(--line);white-space:nowrap;}
+.s-qi{background:linear-gradient(120deg,var(--pink-s),#fff 70%);} .s-qi .sk,.s-qi .stime{color:var(--pink-d);}
+.s-ch{background:linear-gradient(120deg,var(--mint-s),#fff 70%);} .s-ch .sk,.s-ch .stime{color:var(--mint-d);}
+.s-zh{background:linear-gradient(120deg,var(--lav-s),#fff 70%);} .s-zh .sk,.s-zh .stime{color:var(--lav-d);}
+.s-he{background:linear-gradient(120deg,var(--rose-s),#fff 70%);} .s-he .sk,.s-he .stime{color:var(--rose-d);}
+
+.row{display:grid;grid-template-columns:520px 1fr;gap:1.6rem;align-items:start;
+  padding:1.4rem 0;border-bottom:1px dashed var(--line);}
+@media(max-width:980px){.row{grid-template-columns:1fr;gap:1rem;}}
+.slot{position:sticky;top:66px;}
+@media(max-width:980px){.slot{position:static;}}
+.pgbar{display:flex;align-items:center;gap:8px;margin-bottom:.55rem;flex-wrap:wrap;}
+.pgno{font-family:'Noto Serif TC',serif;font-size:1rem;font-weight:700;color:#fff;
+  background:var(--lav-d);border-radius:9px;padding:2px 11px;letter-spacing:1px;}
+.pgname{font-family:'Noto Serif TC',serif;font-size:.93rem;font-weight:700;color:var(--ink-d);}
+.mins{margin-left:auto;font-size:.73rem;font-weight:700;color:var(--muted);
+  background:#fff;border:1px solid var(--line);border-radius:99px;padding:2px 11px;white-space:nowrap;}
+.frame{width:100%;aspect-ratio:16/9;border:1px solid var(--line);border-radius:14px;
+  overflow:hidden;box-shadow:var(--sh);background:#2E262B;}
+.frame iframe{width:100%;height:100%;border:none;display:block;}
+
+.script p{font-size:.96rem;line-height:2.15;color:var(--ink);margin-bottom:.7rem;}
+.script p:last-child{margin-bottom:0;}
+.script b{color:var(--ink-d);font-weight:700;}
+.script .vs{font-family:'Noto Serif TC',serif;color:var(--lemon-d);padding-left:.9rem;
+  border-left:3px solid var(--lemon);}
+.script .em{color:var(--pink-d);font-weight:700;}
+
+.ft{margin-top:2rem;padding:2.2rem 1.5rem;text-align:center;
+  background:linear-gradient(160deg,#FFF1F5,#F1F5FF 50%,#EFFAF3);border-top:1px solid var(--line);}
+.ft p{font-size:.8rem;color:var(--muted);letter-spacing:1px;}
+.ft strong{color:var(--pink-d);}
+@media print{.bar{display:none;} .slot{position:static;} .row{break-inside:avoid;} body::before{display:none;}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <a class="xlink" href="ding-ling_20260614_followup_ppt.html" target="_blank" rel="noopener">↖ 簡報</a>
+  <div class="hero-tag">分享講稿</div>
+  <h1>《天國憲章》<em>分享講稿</em></h1>
+  <p class="hero-sub">馬太福音 5~7 章 · 全 41 頁對照</p>
+  <div class="hero-meta">
+    <span class="chip">李之馨 姊妹</span>
+    <span class="chip">2026.07.21</span>
+    <span class="chip">左：簡報　右：講稿</span>
+  </div>
+</header>
+
+<nav class="bar">
+  <div class="bar-in">
+    <a href="#s1">起 01–06</a>
+    <a href="#s2">承 07–20</a>
+    <a href="#s3">轉 21–24</a>
+    <a href="#s4">合 25–39</a>
+    <a href="#p40">收尾 40–41</a>
+    <span class="tot">全長約 52 分</span>
+  </div>
+</nav>
+
+<main class="wrap" id="rows"></main>
+
+<footer class="ft">
+  <p>《天國憲章》分享講稿 · <strong>馬太福音 5~7 章</strong></p>
+  <p style="margin-top:5px;font-size:.74rem;">李之馨 姊妹　·　2026.07.21　·　左側簡報連動 ding-ling_20260614_followup_ppt.html</p>
+</footer>
+
+<script>
+const DECK='ding-ling_20260614_followup_ppt.html';
+const SEC={
+ 1:{k:'起',t:'這是一份憲章',d:'先定性，再談內容',cls:'s-qi',time:'約 8 分'},
+ 7:{k:'承',t:'它涵蓋了什麼',d:'八大範圍 · 更高的義 · 八福',cls:'s-ch',time:'約 18 分'},
+ 21:{k:'轉',t:'標準這麼高，人會怎麼反應？',d:'六個問題 · 憲章的收尾',cls:'s-zh',time:'約 4 分'},
+ 25:{k:'合',t:'為何沒具備，就有禍了？',d:'四個面向 · 然後閉環',cls:'s-he',time:'約 21 分'}
+};
+const S=[
+{n:1,name:'封面',m:'1 分',s:`
+<p>感謝主，今天要跟大家分享的，是馬太福音第五章到七章 ——《天國憲章》</p>
+<p>在準備資料的時候，發現這個五到七章的架構很迷人，也完整對應到師母的論述方式和牧師時常的提點，可能等下我沒辦法把這個感受完全分享出來；但我想說的是神之子的教導真的是全備的真理，完善且來自於神直接帶領，感謝主。</p>
+<p>那今天要探討的兩個主問題：</p>
+<p>第一個是：<b>天國憲章涵蓋哪些範圍？一個屬於天國的人，應當具備什麼？</b></p>`},
+
+{n:2,name:'章節：起',m:'1 分',s:`
+<p>那，「憲章」是什麼意思呢？</p>
+<p>是一個國家的律法、憲政體制、規章制度。</p>
+<p>所以它不是一篇單純的講道，<b>而是一份規則。</b></p>
+<p>要規範誰？<b>是屬於天國的人。</b>如果一個人根本不屬於這個國，這份憲章不會去規範他。</p>
+<p>而且它是在<b>描述</b>天國的人長什麼樣子 —— 不是說「我覺得你應該要怎麼樣，你才能成為天國的人」</p>`},
+
+{n:3,name:'提問一',m:'1 分',s:`
+<p>所以第一個問題就是：<b>這份憲章的內容涵蓋了什麼？一個屬於天國的人應當具備甚麼？</b></p>
+<p>我們想像一下 —— 假設在台灣的北方，突然出現了一個小國度。這個國度有它自己的法律憲章，上面明確寫著：要成為我們國家的人，你要具備什麼條件。</p>
+<p><b>這個地方就叫做天國。</b></p>
+<p>那這些人，會是什麼樣子？</p>`},
+
+{n:4,name:'提問一 · 先說答案',m:'1.5 分',s:`
+<p>它總共涵蓋<b>八大範圍，一個人的全部。</b></p>
+<p>收攏起來，是：<b>內、上、外、下、行。</b></p>
+<p><b>向內</b> —— 是你的動機。不含怒、不動淫念、清心，裡面沒有兩套帳。<br>
+<b>向上</b> —— 是你跟神在暗中的關係。施捨、禱告、禁食都在暗中，不是做給人看的。<br>
+<b>向外</b> —— 是你對人。愛仇敵、不論斷、使人和睦，心裡裝得下別人。<br>
+<b>向下</b> —— 是你對這個世界鬆手。不積財寶在地上，不為明天憂慮。<br>
+<b>行</b> —— 聽了就去行。不是聽懂了，是做出來。</p>
+<p>這裡有一個關鍵，<b>不是「做到幾項就加分」。</b></p>
+<p>就像我們要移民 —— 每個國家都有它的條件。你符合了，你就是那個國的國民；你不符合，不是被扣分，<b>是你本來就不在那個名單裡。</b></p>
+<p>天國也是一樣。你先承認自己是主耶穌的孩子，然後這些條件，會長在你身上。</p>`},
+
+{n:5,name:'這是一份立國文件',m:'2 分',s:`
+<p>那為什麼是一份「憲章」，而不是一篇講道呢？</p>
+<p>先看它怎麼開頭 ——</p>
+<p class="vs">「耶穌看見這許多的人，就上了山，既已坐下，門徒到他跟前來，他就開口教訓他們。」</p>
+<p><b>第一，頒布者的姿勢。</b>上了山、坐下 —— 在那個時代，坐著是拉比和君王施教的姿勢，不是站著演講。</p>
+<p><b>第二，他的語氣。</b>他每一次開頭都是「我告訴你們」，而不是「從前有誰說過」。當時的拉比講道，一定要引前輩為權威；耶穌直接說「我告訴你們」—— 這在當時是很驚人的，除非他真的就是那位立法者。</p>
+<p><b>第三，他先定義國民。</b>憲章的第一件事，就是講「誰是我們的人」—— 這就是八福。</p>
+<p><b>第四，效力範圍。</b>從最裡面的動機，到最外面的錢包，覆蓋一個人的全部。</p>
+<p>再看它怎麼結尾 ——</p>
+<p class="vs">「眾人都希奇他的教訓，因為他教訓他們，正像有權柄的人，不像他們的文士。」</p>
+<p>連當場聽的人都感覺到了：<b>這個不一樣。</b></p>`},
+
+{n:6,name:'比摩西更大的那一位',m:'1.5 分',s:`
+<p>馬太在寫的時候，刻意讓我們看見<b>出埃及記的痕跡</b></p>
+<p>摩西在曠野禁食四十晝夜，上了山，領受十誡，下山向百姓頒布律法。那是寫在<b>石版</b>上的約。</p>
+<p>主耶穌也在曠野禁食四十晝夜，上了山、坐下，向門徒頒布天國的標準。而這是寫在<b>心版</b>上的約。</p>
+<p>所以馬太是在說：<b>這一位，比摩西更大。</b></p>
+<p>也正因為這樣，五章17節主耶穌說到 ——「莫想我來要廢掉律法和先知；我來不是要廢掉，乃是要成全。」</p>
+<p>主耶穌是要把律法完整的帶出本來</p>`},
+
+{n:7,name:'章節：承',m:'0.3 分',s:`
+<p>接下來我們進到 —— <b>這份憲章，到底涵蓋了什麼</b></p>`},
+
+{n:8,name:'憲章涵蓋的八大範圍',m:'2.5 分',s:`
+<p>我們照經文的順序走一遍。</p>
+<p><b>第一，品格。</b>五章3到12節，就是八福 —— 天國子民應該有的樣子。</p>
+<p><b>第二，影響力。</b>五章13到16節 —— 你們是世上的鹽、世上的光。不是叫我們躲起來聖潔，是要在世上發揮作用。</p>
+<p><b>第三，律法觀。</b>五章17到20節 —— 成全律法，不是廢去律法。這一段是全篇的樞紐。</p>
+<p><b>第四，人際關係。</b>五章21到48節，六個對比 —— 怒氣、情慾、婚姻、誠信、報復、愛仇敵。全部推回內心。</p>
+<p><b>第五，敬虔生活。</b>六章1到18節 —— 施捨、禱告、禁食，共同的命令只有一個：<b>要在暗中。</b></p>
+<p><b>第六，金錢與憂慮。</b>六章19到34節 —— 不能又事奉神，又事奉瑪門。</p>
+<p><b>第七，論斷與待人。</b>七章1到12節 —— 先去掉自己眼中的樑木；還有黃金律。</p>
+<p><b>第八，抉擇與根基。</b>七章13到27節 —— 兩門、兩樹、兩房。</p>
+<p>所以你看，從品格、影響力、律法、人際、敬虔、金錢，一直到根基 —— <b>從最裡面的動機，到最外面的錢包，沒有留下任何死角</b></p>`},
+
+{n:9,name:'四個方向',m:'2 分',s:`
+<p>這八大範圍，可以收攏成剛剛講的四個方向 —— 而且每一個方向，都有經文根據。</p>
+<p><b>向內，動機純淨。</b>根據是五章20節：「你們的義若不勝於文士和法利賽人的義，斷不能進天國。」</p>
+<p><b>向上，與神隱密處的關係。</b>根據是六章6節：「你禱告的時候，要進你的內屋，關上門，禱告你在暗中的父。」</p>
+<p><b>向外，對人的憐恤與和睦。</b>根據是七章12節的黃金律 —— 願意人怎樣待你們，你們也要怎樣待人。這也正是師母在說的，<b>不願意成為自己所厭惡的人</b>，這就是律法和先知的道理。</p>
+<p><b>向下，對地上財物鬆手。</b>根據是六章24節跟33節：不能事奉兩個主；要先求他的國和他的義。</p>
+<p>我們現在還在地上，等於<b>同時握著兩份產業</b>。可是我們已經要移民過去了 —— 那我們怎麼看待這個世界？我們的錢財放在哪裡？我們的目光看向哪裡？</p>`},
+
+{n:10,name:'四個方向失守 → 排除的四種人',m:'1.5 分',s:`
+<p>那反過來看 —— 這四個方向只要失守，就會長出憲章明確排除的四種人。</p>
+<p><b>向上失守，會變成表演型。</b>該給神看的，給了人看 —— 把善事行在人前，要得人的榮耀。</p>
+<p><b>向下失守，會變成雙主型。</b>鬆不了手，又事奉神、又事奉瑪門。放不下工作，放不下我們在世界上投資的那些。</p>
+<p><b>向內失守，會變成口號型。</b>嘴上有，心裡沒有 —— 稱呼「主啊主啊」，卻不遵行天父的旨意。</p>
+<p>最後一種比較重 —— <b>四個方向全部失守，就是聽而不行型。</b>聽見這話卻不去行，如同把房子蓋在沙土上。這不是缺一項，是根基整個毀壞了。</p>`},
+
+{n:11,name:'核心命題 · 更高的義',m:'1 分',s:`
+<p>回到核心 ——</p>
+<p class="vs">「你們的義若不勝於文士和法利賽人的義，斷不能進天國。」</p>
+<p>法利賽人的義，已經是當時最嚴謹的宗教標準了。他們禁食、奉獻、守律法，比誰都仔細。</p>
+<p>主耶穌卻說：要「勝於」他們。</p>
+<p><b>差別不在做得更多，而是層次完全不同。</b></p>
+<p>從行為，到動機。從外面，到裡面。從可見的，到隱密的。</p>`},
+
+{n:12,name:'三種「義」的標準對照',m:'1.5 分',s:`
+<p>這一頁把三種「義」擺在一起比較，就看得很清楚了。</p>
+<p>最外面粉紅色的，是<b>天國的義</b> —— 八個維度全部拉滿。</p>
+<p>藍色的是<b>法利賽人的義</b>。你看它在「行動代價」上其實不低 —— 他們真的付出很多。但是在動機純度、內心要求、對仇敵的態度、隱密處的真實這幾項上，幾乎見底。</p>
+<p>綠色的是<b>一般社會道德</b> —— 不害人就好，不要求動機。</p>
+<p>所以主耶穌說的「勝於」，是在每一個維度上都完全外包。</p>
+<p>也難怪門徒後來的反應是：<span class="em">「這樣誰能得救呢？」</span></p>`},
+
+{n:13,name:'登山寶訓是一座精密的建築',m:'2.5 分',s:`
+<p>登山寶訓這三章的架構，我覺得很值得看。</p>
+<p>不是一段一段散開的教訓 —— <b>它是一座精密設計的建築。</b></p>
+<p>它有對稱、呼應：主耶穌上了山，對應到最後他下了山。</p>
+<p>一開始是八福，是祝福；對應到最後面是警告：兩門、兩樹、兩房。看起來一個是祝福、一個是警告，其實是同一件事的兩面。</p>
+<p>再往內一層，是「律法和先知」。五章17節說「我來是要成全律法和先知」，七章12節又說「這就是律法和先知的道理」—— <b>同一句話首尾呼應，這是刻意的包框。</b></p>
+<p>再往內，是論律法的六個對比，還有論財富與弟兄。</p>
+<p>而<b>最中心的，是主禱文。</b></p>
+<p>所以我想說的是：五章到七章，一直到八章第一節，是一個很有架構性的寫作。它不是隨隨便便說「五到七章就是登山寶訓，主耶穌在這裡講了些話」—— <b>它是設計過的。</b></p>
+<p>而一個交錯配置的重心，<b>永遠在正中央。</b></p>`},
+
+{n:14,name:'中心的中心 · 三個「願」',m:'1 分',s:`
+<p>最中央就是<b>主禱文</b>，主耶穌教導我們如何禱告</p>
+<p>而主禱文的中間，是三個「願」——</p>
+<p class="vs">「願人都尊你的名為聖。願你的國降臨。願你的旨意行在地上，如同行在天上。」</p>
+<p>先是神的名、神的國、神的旨意，<b>之後才輪到我們的日用飲食。</b></p>
+<p>所以整篇天國憲章向內收攏的最深處 —— <b>是與神的關係。</b></p>
+<p>這一點加重了登山寶訓完整度和重要程度，形成了整個登山寶訓的核心。</p>`},
+
+{n:15,name:'八福 · 天國子民的身分素描',m:'1 分',s:`
+<p>我們把八福攤開來看。</p>
+<p>虛心、哀慟、溫柔、飢渴慕義、憐恤人、清心、使人和睦、為義受逼迫。</p>
+<p>如果我們先看應許 —— 天國是他們的、必得安慰、必承受地土、必得飽足、必蒙憐恤、必得見神、必稱為神的兒子、天國是他們的。</p>
+<p>其中，<b>第一福跟第八福的應許 —— 一模一樣。</b>都是「因為天國是他們的」。這個等一下會細說</p>
+<p>那這八個不是八種可以分開挑的美德，<b>是同一種人的八個面向</b></p>`},
+
+{n:16,name:'原文一 · makarios',m:'1 分',s:`
+<p>我們先看「有福了」的原文意涵</p>
+<p>也是詩篇第一篇開頭那個字：「不從惡人的計謀……這人便為有福。」</p>
+<p>這個字的意思是：<b>被認可、被肯定、蒙悅納。</b></p>
+<p>所以「有福了」不是在講心情 —— <b>它是神的宣告。</b></p>`},
+
+{n:17,name:'原文二 · ptōchoi',m:'1 分',s:`
+<p>再來「虛心」的原文意涵</p>
+<p>是指<b>蜷縮著行乞的赤貧者</b> —— 一無所有，必須伸手才能活下去</p>
+<p>其實還有另一個字指的是勞苦的窮人 —— 要工作才能糊口的那種。<b>但主耶穌沒有用那個字。</b></p>
+<p>所以「虛心」不是我們平常講的「謙虛一點」。而是：<b>知道自己在神面前一無所有。</b></p>
+<p><b>這是整篇的鑰匙</b></p>`},
+
+{n:18,name:'原文三 · anawim',m:'1.5 分',s:`
+<p>而且八福不是憑空來的，<b>它有舊約的底本。</b></p>
+<p>舊約裡有一群特定的人，叫做 ——「<b>耶和華的貧窮人</b>」。他們不只是經濟上窮，更是在神面前一無倚靠、只能仰望神的人。</p>
+<p>在以賽亞書66章2節給了最清楚的定義 ——</p>
+<p class="vs">「但我所看顧的，就是虛心痛悔、因我話而戰兢的人。」</p>
+<p>而以賽亞書61章，前三福幾乎是逐句對應：<br>
+61章1節「傳好信息給謙卑的人」→ 第一福，虛心。<br>
+61章2節「安慰一切悲哀的人」→ 第二福，哀慟必得安慰。<br>
+61章3節「賜華冠」→ 第三福，承受地土。</p>
+<p>所以我們的虛心，不是只有謙卑而已 —— <b>是知道自己在神面前一無所有，願意放下</b></p>`},
+
+{n:19,name:'八福是宣告句，不是條件句',m:'1 分',s:`
+<p>這裡文法上有一個關鍵</p>
+<p>八福在原文裡是<b>宣告句，不是條件句。</b></p>
+<p>它不是說：「你如果做到虛心，你就可以有福。」</p>
+<p>它是在描述一群已經在神國裡的人長什麼樣子。</p>
+<p>所以，<b>憲章是描述，不是要求</b></p>`},
+
+{n:20,name:'首尾包框 · 八福是一個整體',m:'1.5 分',s:`
+<p>再看這個很有意思的地方。</p>
+<p>中間六福的應許，全部都是未來式 —— 必得安慰、必承受地土、必蒙憐恤……</p>
+<p>只有第一福跟第八福是<b>現在式</b>，而且一字不差：「因為天國是他們的。」</p>
+<p>這樣首尾呼應。是在宣告：<b>八福是一個不可拆解的整體，不是八選一。</b></p>
+<p>而且還有更深的意思</p>
+<p>假設真的做到前面七項：你虛心、哀慟、溫柔、飢渴慕義、憐恤人、清心、使人和睦……</p>
+<p>那，<b>你必定會為義受逼迫。</b></p>
+<p>所以第八福不是我們去追求的，<b>是前面七福的必然結果。</b>它像一個<b>迴力鏢</b> —— 飛出去之後回來，把前面七福整個穩固住。</p>`},
+
+{n:21,name:'章節：轉',m:'0.3 分',s:`
+<p>有個很現實的問題 —— <b>這八個標準這麼高，我們怎麼可能做到？</b></p>`},
+
+{n:22,name:'六個必答的問題',m:'1 分',s:`
+<p>有些問題我們還沒有回答，但是其實我們已經回答出來了</p>
+<p>它是<b>律法</b>，所以第一，要照字面做嗎？第二，現在做得到嗎？</p>
+<p>它是<b>應許</b>，所以第三，是靠誰成就的？第四，它照出我什麼？</p>
+<p>它是<b>國度宣告</b>，所以第五，這國什麼時候成全？第六，成全之前，我要做什麼？</p>`},
+
+{n:23,name:'兩種典型的偏差',m:'1 分',s:`
+<p>但我們回答很容易會偏向兩邊其中一邊</p>
+<p>一邊是<b>偏向內省跟恩典</b>。但容易停在自責裡，只會認罪，不會前行。</p>
+<p>另一邊是<b>偏向行動跟字面</b>。但容易把屬靈生活變成績效表，沒有先自省。</p>
+<p>這兩個偏差都有一個好動機，所以可能真的需要時刻調整，<b>不住的自省、調整、行動再回到自省</b></p>`},
+
+{n:24,name:'三組抉擇 · 這是它的牙齒',m:'1.5 分',s:`
+<p>那登山寶訓的收尾提到了三組對照</p>
+<p>七章13到27節，</p>
+<p><b>兩門兩路</b> —— 窄門引到永生，寬門引到滅亡。這關乎<b>選擇</b>。<br>
+<b>兩樹兩果</b> —— 好樹結好果子，壞樹結壞果子。這關乎<b>本質</b>。<br>
+<b>兩房兩基</b> —— 磐石上的不倒，沙土上的倒塌得很大。這關乎<b>根基</b>。</p>
+<p>三組都<b>沒有中間選項</b>，登山寶訓的文體本身，就是二元的。</p>
+<p>就像主耶穌自己說的：是就說是，不是就說不是；若再多說，就是出於那惡者。</p>
+<p>所以，在這個基礎下，我們來看下一個問題</p>`},
+
+{n:25,name:'章節：合',m:'0.2 分',s:`
+<p><b>為什麼沒有具備八福就有禍了？</b></p>`},
+
+{n:26,name:'提問二',m:'1 分',s:`
+<p>聽起來很刺耳</p>
+<p>因為，八福讀起來是溫柔的。可是倒過來念 —— 不虛心的人有禍了、不哀慟的人有禍了、不憐恤人的人有禍了……</p>
+<p>聽起來就是：<b>我們全部都有禍了</b></p>`},
+
+{n:27,name:'提問二 · 先說答案',m:'1.5 分',s:`
+<p>為什麼不具備就有禍了，<b>有四個面向</b></p>
+<p><b>第一，這是聖經自己的文體。</b>路加福音六章20到26節，本來就是四福四禍。</p>
+<p><b>第二，八福是身分描述，不是入場條件</b>、不是分開的八張門票，是一群人的素描。所以只要缺一個了，就代表不是這個身分，不屬於天國的國民。</p>
+<p><b>第三，目的是儆醒，不是定罪。</b>先知說「有禍了」，從來都是為了叫人回轉。</p>
+<p><b>第四，要把我們推回第一福。</b>如果發現自己八樣全缺 —— 而發現的本身，就是「虛心」。</p>`},
+
+{n:28,name:'第一層 · 是聖經自己的文體',m:'2 分',s:`
+<p>我們來看第一個面向</p>
+<p>馬太記八福，但路加福音六章20到26節，記的是<b>四福四禍</b> —— 用的正是原文的有禍了。</p>
+<p>路加寫「你們貧窮的人有福了、飢餓的人有福了、哀哭的人有福了」；<br>
+緊接著就是「但你們富足的人有禍了、飽足的人有禍了、喜笑的人有禍了、人都說你們好的時候，你們就有禍了」。</p>
+<p>另外在，<br>
+<b>馬太23章</b>，主對法利賽人連續七個「有禍了」。<br>
+<b>申命記27、28章</b>，基利心山的祝福，對以巴路山的咒詛。<br>
+<b>詩篇第一篇</b>，義人的道路，對惡人的道路。<br>
+還有我們剛剛講的，<b>馬太七章13到27節</b>的三組二選一。</p>
+<p>所以「倒過來念」<b>是聖經一貫的文體</b></p>`},
+
+{n:29,name:'有福了 ↔ 有禍了',m:'1.5 分',s:`
+<p>那來念一次。</p>
+<p>不虛心的人有禍了，因為天國不是他們的。<br>
+不哀慟的人有禍了，因為他們必不得安慰。<br>
+不溫柔的人有禍了，因為他們必不能承受地土。<br>
+不飢渴慕義的人有禍了，因為他們必不得飽足。<br>
+不憐恤人的人有禍了，因為他們必不蒙憐恤。<br>
+不清心的人有禍了，因為他們必不得見神。<br>
+不使人和睦的人有禍了，因為他們必不得稱為神的兒子。<br>
+不為義受逼迫的人有禍了，因為天國不是他們的。</p>`},
+
+{n:30,name:'第二層 · 身分描述，不是入場條件',m:'1 分',s:`
+<p>那為什麼會覺得刺耳？</p>
+<p>因為誤以為八福是八張門票，集滿八個才能進天國。那「有禍了」確實變成威脅</p>
+<p>但<b>八福是同一種人的八個側面。</b>它是宣告句、不是條件句。</p>
+<p>所以「沒具備就有禍了」真正的意思是：<b>缺了這些，代表你根本不在這個身份裡。</b></p>`},
+
+{n:31,name:'第三層 · 目的是儆醒，不是定罪',m:'1.5 分',s:`
+<p><b>第三個面向 —— 有禍了目的是儆醒，不是定罪。</b>這裡有四個步驟。</p>
+<p><b>第一步，照鏡子。</b>師母說：別看自己，因為人總是自我感覺良好。</p>
+<p><b>第二步，發現全都有禍了。</b>一條條倒著念，沒有一條站得住。</p>
+<p><b>第三步，不是絕望，是儆醒。</b>這正是神今天仍然不斷降下話語的原因。</p>
+<p><b>第四步，回到第一福。</b>承認自己樣樣都缺 —— 那就是虛心。</p>
+<p>先知說「有禍了」，<b>從來都是為了叫人回轉。</b></p>`},
+
+{n:32,name:'閉環 · 兩個提問在這裡接上',m:'0.5 分',s:`
+<p>把八福倒過來念，發現自己八樣全缺 ——</p>
+<p><span class="em">而這個「發現」本身，就是第一福：虛心。</span></p>`},
+
+{n:33,name:'「有禍了」不是判決書',m:'1 分',s:`
+<p>「有禍了」其實是<b>一封邀請函</b>。</p>
+<p>所以虛心，是一個<b>誠實的自我認知</b>。</p>
+<p>回到起點，正因為知道我們在神面前一無所有，才能飢渴慕義的向神伸手。</p>
+<p><b>答案不在自己身上。</b>同樣是聽見八福，最後長成什麼樣子 —— 那是每個人自己的回應。</p>`},
+
+{n:34,name:'師母的對焦 · 五個環節',m:'2 分',s:`
+<p>就對焦到師母這裡說的五個環節上</p>
+<p><b>第一，神揀選軟弱的。</b>哥林多前書一章26到29節 —— 有智慧的不多、有能力的不多、有尊貴的也不多。</p>
+<p><b>第二，軟弱的更不可少。</b>十二章22到24節 —— 神把加倍的體面，給那有缺欠的肢體。</p>
+<p><b>第三，為人與所為不相稱。</b>神把恩賜加在我們身上，把我們屬靈地裝扮得俊美；可是我們的行為，卻常常把人嚇到。師母說：像演了一場很爛的戲，給天使和世人看。</p>
+<p><b>第四，所以全都有禍了。</b>這正是神今天仍然不斷降下話語的原因 —— 要我們儆醒，治死老我。</p>
+<p><b>第五，而一切都是預定的。</b></p>
+<p>我們都是被神揀選的軟弱人，恩賜是神加上去的 —— 所以裡面跟外面的落差，本來就會存在，神早就知道了。<b>重點是我們聽見「有禍了」之後，怎麼回應。</b></p>`},
+
+{n:35,name:'一切都是預定的 · 堵住兩條岔路',m:'1 分',s:`
+<p>師母自己就是最好的例子 —— 他怎麼樣坦白地講自己的軟弱、自己的不足。</p>
+<p>不是「既然做不到，那就算了」，也不是「我至少做到了幾樣」</p>
+<p><b>而是定睛在主耶穌身上。</b></p>
+<p>所以這個結論，剛好天國憲章結構的中心 —— <b>與神的關係。</b></p>`},
+
+{n:36,name:'牧師十點囑咐 × 天國憲章（1–5）',m:'2.5 分',s:`
+<p>在官網查天國憲章，剛好可以看到牧師有提十點囑咐。而且都對應到天國憲章。</p>
+<p><b>第一，捨己、順服、下寶座，治死老我到流血的地步。</b>（太16:24）<br>
+這對應第一福虛心、第三福溫柔。「下寶座」其實就是溫柔最好的中文翻譯 —— 不是沒有力量，是自己從主位上走下來。</p>
+<p><b>第二，把握時間、環境和機會。</b>（弗5:16）<br>
+對應七章24節 —— 聽了就去行。</p>
+<p><b>第三，不要看環境、不要看自己、不要看人。</b>（來12:2）<br>
+這就是憲章的中心 —— 定睛主耶穌。</p>
+<p><b>第四，為主受苦原是美事，受患難是預定的。</b>（帖前3:3）<br>
+這一條我覺得特別美，剛好對應第八福 —— 因為為義受逼迫本來就是預定的：前面七福你做到了，第八福自然就來了。</p>
+<p><b>第五，這至輕至暫的苦楚，要為我們成就那極重無比永遠的榮耀。</b>（林後4:17）<br>
+這就是第八福的後半 —— 因為天國是他們的。</p>`},
+
+{n:37,name:'牧師十點囑咐 × 天國憲章（6–10）',m:'2.5 分',s:`
+<p><b>第六，萬事都互相效力，叫愛神的人得益處。</b>（羅8:28）<br>
+對應六章25到34節 —— 不要憂慮。</p>
+<p><b>第七，要謹慎自守，儆醒禱告；凡事感謝、讚美神。</b>（彼前4:7）<br>
+對應六章5到15節 —— 論禱告、主禱文。</p>
+<p><b>第八，彼此切實相愛，為主基督再來預備道路。</b>（彼前4:8）<br>
+這是第七福，使人和睦。注意這兩句是連在一起的 —— 彼此相愛不是目的本身，是為主再來預備道路的方式。</p>
+<p><b>第九，為大的要當傭人，為首的要當僕人。</b>（太20:26–27）<br>
+對應第一福 —— 虛心。</p>
+<p><b>第十，以基督的心為心，以天父的事為念；事無大小，凡事禱告求問神，完全遵行天父的旨意。</b>（腓2:5）<br>
+這一條最重。它直接對上馬太七章21節 ——「凡稱呼我主啊主啊的人，不能都進天國；<b>惟獨遵行我天父旨意的人才能進去。</b>」</p>`},
+
+{n:38,name:'最偉大的工程，是人格改造',m:'1.5 分',s:`
+<p>官網的這一篇文章，是師母在回應一位弟兄的分享，並且列出牧師的這十點囑咐。</p>
+<p>整篇的主軸是一句話 —— <b>最偉大的工程，是人格改造。</b></p>
+<p>「要改造成功，要先受得了委屈、吃得了苦，否則一切枉然！」</p>
+<p>所以這個改造是一個要進天國的人，本身就要經歷的工程。而且牧師已經為我們做了榜樣。</p>
+<p>改造的四道工序 ——</p>
+<p><b>受得了委屈</b> —— 對應第一、三、八福。力量交出去，不自己伸手。<br>
+<b>吃得了苦</b> —— 為主受苦原是美事。<br>
+<b>治死老我</b> —— 捨己、順服、下寶座，到流血的地步。<br>
+<b>成為聖潔的族類</b> —— 才能成為天國聖潔榮耀的國民。</p>`},
+
+{n:39,name:'那件細麻衣',m:'1 分',s:`
+<p class="vs">「羔羊婚娶的時候到了；新婦也自己預備好了，就蒙恩得穿光明潔白的細麻衣。（這細麻衣就是聖徒所行的義。）」<br>—— 啟示錄 19:7–8</p>
+<p>而「聖徒所行的義」，在五章20節提到「你們的義若不勝於文士和法利賽人的義」。</p>
+<p>是憲章整體、是九果</p>
+<p>所以師母擔憂的，不是「我們不好」。而是 —— <b>婚宴的日子近了，衣服卻還沒織好。</b></p>`},
+
+{n:40,name:'收尾的禱告',m:'0.5 分',s:`
+<p class="vs">所以求神讓我們有虛心、儆醒，讓我們不看環境、不看人、不看自己，定睛在主耶穌身上，按著神在我們身上的預定，走完這一生。</p>`},
+
+{n:41,name:'結尾',m:'0.5 分',s:`
+<p>感謝主，願我們都能夠成為<b>虛心的人</b>，因為天國是屬於虛心的人的。</p>`}
+];
+
+const host=document.getElementById('rows');
+S.forEach(function(s){
+  if(SEC[s.n]){
+    const c=SEC[s.n];
+    const b=document.createElement('div');
+    b.className='secbar '+c.cls; b.id='s'+(c.k==='起'?1:c.k==='承'?2:c.k==='轉'?3:4);
+    b.innerHTML='<span class="sk">'+c.k+'</span><div><div class="st">'+c.t+'</div>'+
+                '<div class="sd">'+c.d+'</div></div><span class="stime">'+c.time+'</span>';
+    host.appendChild(b);
+  }
+  const el=document.createElement('article');
+  el.className='row'; el.id='p'+s.n;
+  el.innerHTML=
+    '<div class="slot">'+
+      '<div class="pgbar">'+
+        '<span class="pgno">P'+String(s.n).padStart(2,'0')+'</span>'+
+        '<span class="pgname">'+s.name+'</span>'+
+        '<span class="mins">'+s.m+'</span>'+
+      '</div>'+
+      '<div class="frame"><iframe loading="lazy" title="第'+s.n+'頁" '+
+        'src="'+DECK+'?bare=1&p='+s.n+'"></iframe></div>'+
+    '</div>'+
+    '<div class="script">'+s.s+'</div>';
+  host.appendChild(el);
+});
+</script>
+</body>
+</html>

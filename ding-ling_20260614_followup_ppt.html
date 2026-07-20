@@ -196,7 +196,12 @@ body.notes-on .notes{display:block;}
 .bar button.on{background:var(--lav);color:#fff;}
 .bar .cnt{font-size:13px;color:var(--ink-d);font-weight:700;padding:0 10px;min-width:66px;text-align:center;letter-spacing:1px;}
 .prog{position:fixed;top:0;left:0;height:4px;background:linear-gradient(90deg,var(--pink),var(--lav),var(--sky));z-index:70;transition:width .3s;}
-.hint{position:fixed;top:14px;right:18px;z-index:60;font-size:12px;color:rgba(255,255,255,.5);letter-spacing:1px;}
+.hint{position:fixed;top:5px;right:88px;z-index:60;font-size:11.5px;color:rgba(255,255,255,.45);letter-spacing:1px;}
+.xlink{position:fixed;top:5px;right:18px;z-index:61;font-size:11.5px;letter-spacing:1px;
+  color:rgba(255,255,255,.55);text-decoration:none;transition:.2s;}
+.xlink:hover{color:#fff;text-decoration:underline;}
+/* 全螢幕投影時，隱藏所有螢幕操作提示 */
+body.fs .bar,body.fs .hint,body.fs .xlink{display:none!important;}
 
 
 /* ══════════ v2 · 背景花紋（疊在原有色彩背景之上） ══════════ */
@@ -213,7 +218,7 @@ body.notes-on .notes{display:block;}
 @media print{
   @page{size:13.333in 7.5in;margin:0;}
   html,body{background:#fff;overflow:visible;height:auto;}
-  .bar,.prog,.hint{display:none!important;}
+  .bar,.prog,.hint,.xlink{display:none!important;}
   #stage{position:static!important;transform:none!important;width:auto;height:auto;}
   .slide{display:flex!important;position:relative!important;inset:auto;width:1280px!important;height:720px!important;
     margin:0!important;box-shadow:none!important;break-after:page;page-break-after:always;}
@@ -226,6 +231,7 @@ body.notes-on .notes{display:block;}
 
 <div class="prog" id="prog"></div>
 <div class="hint">← → 翻頁　·　F 全螢幕　·　N 備忘稿</div>
+<a class="xlink" href="ding-ling_20260614_followup_script.html" target="_blank" rel="noopener">講稿 ↗</a>
 
 <div id="stage">
 
@@ -1320,10 +1326,26 @@ document.addEventListener('keydown',e=>{
   else if(e.key==='n'||e.key==='N'){document.getElementById('btnNotes').click();}
   else if(e.key==='f'||e.key==='F'){document.getElementById('btnFull').click();}
 });
-window.addEventListener('resize',fit);
-fit();
+/* 全螢幕偵測：涵蓋 F／全螢幕鈕（Fullscreen API）與 F11（瀏覽器全螢幕） */
+function isFs(){
+  if(document.fullscreenElement||document.webkitFullscreenElement) return true;
+  /* F11：視窗滿版「且」完全沒有瀏覽器外框（一般視窗至少有數十 px 的網址列） */
+  return window.innerHeight>=screen.height-2
+      && window.outerHeight-window.innerHeight<5
+      && window.outerWidth-window.innerWidth<5;
+}
+function syncFs(){ document.body.classList.toggle('fs',isFs()); }
+document.addEventListener('fullscreenchange',syncFs);
+document.addEventListener('webkitfullscreenchange',syncFs);
+
+window.addEventListener('resize',function(){fit();syncFs();});
+fit();syncFs();
 const _p=new URLSearchParams(location.search).get('p');
-if(new URLSearchParams(location.search).has('bare')) document.querySelector('.bar').style.display='none';
+if(new URLSearchParams(location.search).has('bare')){          /* 內嵌縮圖模式：只留投影片本身 */
+  ['.bar','.hint','.xlink'].forEach(function(q){
+    var e=document.querySelector(q); if(e) e.style.display='none';
+  });
+}
 show(_p?parseInt(_p,10)-1:0);
 </script>
 <script>
