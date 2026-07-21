@@ -1,0 +1,1102 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>愛的叮嚀 — 機器人的悟性，與那一步</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --gold: #C9A84C;
+  --gold-light: #E8D08A;
+  --gold-pale: #FAF3DC;
+  --deep: #1A1208;
+  --ink: #2C2416;
+  --muted: #6B5D3E;
+  --soft: #F5EDD8;
+  --parchment: #FBF6EC;
+  --teal: #2E7D72;
+  --teal-light: #4AA89C;
+  --teal-pale: #E0F2EF;
+  --ruby: #8B2130;
+  --ruby-light: #C2445A;
+  --ruby-pale: #FAEAED;
+  --blue-deep: #1E3A5F;
+  --blue-mid: #2E6DA4;
+  --blue-pale: #E8F1FA;
+  --radius: 12px;
+  --radius-lg: 20px;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family: 'Noto Sans TC', sans-serif;
+  background: var(--parchment);
+  color: var(--ink);
+  line-height: 1.8;
+}
+
+/* ── HERO ── */
+.hero {
+  background: var(--deep);
+  padding: 3.5rem 2rem 3rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content:'';
+  position:absolute; inset:0;
+  background: radial-gradient(ellipse at 50% 0%, rgba(201,168,76,0.18) 0%, transparent 70%);
+  pointer-events:none;
+}
+.hero-tag {
+  display: inline-block;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  font-size: 11px;
+  letter-spacing: 4px;
+  padding: 4px 16px;
+  border-radius: 2px;
+  margin-bottom: 1.2rem;
+  text-transform: uppercase;
+}
+.hero h1 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  color: #fff;
+  font-weight: 700;
+  line-height: 1.4;
+  margin-bottom: 0.6rem;
+}
+.hero h1 em { color: var(--gold-light); font-style:normal; }
+.hero-sub {
+  color: rgba(255,255,255,0.55);
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  margin-bottom: 2rem;
+}
+.hero-verse {
+  display: inline-block;
+  border-left: 2px solid var(--gold);
+  padding: 0.5rem 1rem;
+  text-align: left;
+  color: var(--gold-light);
+  font-family: 'Noto Serif TC', serif;
+  font-size: 0.9rem;
+  line-height: 1.9;
+}
+
+/* ── LAYOUT ── */
+.container { max-width: 960px; margin: 0 auto; padding: 0 1.25rem; }
+.section { padding: 2.5rem 0 1.5rem; }
+
+/* ── SECTION TITLE ── */
+.sec-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 1.5rem;
+}
+.sec-title .icon {
+  width: 36px; height: 36px;
+  background: var(--gold);
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 17px; color: var(--deep); flex-shrink:0;
+}
+.sec-title h2 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 1.2rem;
+  color: var(--deep);
+  font-weight: 700;
+}
+.sec-title .subtitle { font-size: 0.78rem; color: var(--muted); margin-top:1px; }
+
+/* ── CORE PILLARS ── */
+.pillars {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.pillar {
+  background: #fff;
+  border: 0.5px solid rgba(0,0,0,0.1);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  position: relative;
+  overflow: hidden;
+  cursor: default;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.pillar:hover { transform: translateY(-3px); box-shadow: 0 8px 28px rgba(0,0,0,0.08); }
+.pillar::before {
+  content:'';
+  position:absolute; top:0; left:0; right:0; height:3px;
+}
+.pillar.p1::before { background: linear-gradient(90deg, var(--gold), var(--gold-light)); }
+.pillar.p2::before { background: linear-gradient(90deg, var(--teal), var(--teal-light)); }
+.pillar.p3::before { background: linear-gradient(90deg, var(--ruby), var(--ruby-light)); }
+.pillar.p4::before { background: linear-gradient(90deg, var(--blue-deep), var(--blue-mid)); }
+.pillar-num {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: 0.6rem;
+  opacity: 0.12;
+  position: absolute;
+  top: 1rem; right: 1.2rem;
+}
+.pillar.p1 .pillar-num { color: var(--gold); }
+.pillar.p2 .pillar-num { color: var(--teal); }
+.pillar.p3 .pillar-num { color: var(--ruby); }
+.pillar.p4 .pillar-num { color: var(--blue-deep); }
+.pillar-icon { font-size: 1.6rem; margin-bottom: 0.5rem; }
+.pillar h3 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--deep);
+}
+.pillar p { font-size: 0.82rem; color: var(--muted); line-height: 1.7; }
+
+/* ── TIMELINE ── */
+.timeline {
+  position: relative;
+  padding-left: 2.5rem;
+  margin-bottom: 1rem;
+}
+.timeline::before {
+  content:'';
+  position: absolute;
+  left: 10px; top: 12px; bottom: 12px;
+  width: 1.5px;
+  background: linear-gradient(180deg, var(--gold) 0%, var(--teal) 50%, var(--ruby) 100%);
+}
+.tl-item { position: relative; margin-bottom: 1.2rem; }
+.tl-dot {
+  position: absolute;
+  left: -2.17rem;
+  top: 0.35rem;
+  width: 12px; height: 12px;
+  border-radius: 50%;
+  border: 2px solid;
+  background: var(--parchment);
+}
+.tl-item.gold .tl-dot { border-color: var(--gold); }
+.tl-item.teal .tl-dot { border-color: var(--teal); }
+.tl-item.ruby .tl-dot { border-color: var(--ruby); }
+.tl-item.blue .tl-dot { border-color: var(--blue-mid); }
+.tl-year {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  margin-bottom: 2px;
+}
+.tl-item.gold .tl-year { color: var(--gold); }
+.tl-item.teal .tl-year { color: var(--teal); }
+.tl-item.ruby .tl-year { color: var(--ruby); }
+.tl-item.blue .tl-year { color: var(--blue-mid); }
+.tl-title { font-weight: 500; font-size: 0.9rem; color: var(--deep); margin-bottom: 2px; }
+.tl-body { font-size: 0.8rem; color: var(--muted); line-height: 1.65; }
+
+/* ── MIND MAP SVG WRAPPER ── */
+.mindmap-wrap {
+  background: #fff;
+  border-radius: var(--radius-lg);
+  border: 0.5px solid rgba(0,0,0,0.09);
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+}
+.mindmap-wrap svg { display:block; width:100%; }
+
+/* ── THREE STAGES ── */
+.stages {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 0;
+  background: #fff;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 0.5px solid rgba(0,0,0,0.09);
+  margin-bottom: 1.5rem;
+}
+@media(max-width:600px){ .stages{grid-template-columns:1fr;} }
+.stage-item {
+  padding: 1.4rem 1.2rem;
+  border-right: 0.5px solid rgba(0,0,0,0.07);
+  position: relative;
+}
+.stage-item:last-child { border-right: none; }
+.stage-no {
+  font-size: 0.7rem;
+  letter-spacing: 2px;
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+  text-transform: uppercase;
+}
+.stage-item.s1 .stage-no { color: var(--ruby); }
+.stage-item.s2 .stage-no { color: var(--muted); }
+.stage-item.s3 .stage-no { color: var(--teal); }
+.stage-title { font-family: 'Noto Serif TC', serif; font-size: 0.95rem; font-weight: 700; color: var(--deep); margin-bottom: 0.4rem; }
+.stage-body { font-size: 0.78rem; color: var(--muted); line-height: 1.65; }
+.stage-top-bar { height: 3px; background: var(--soft); position:absolute; top:0; left:0; right:0; }
+.stage-item.s1 .stage-top-bar { background: var(--ruby); }
+.stage-item.s2 .stage-top-bar { background: #bbb; }
+.stage-item.s3 .stage-top-bar { background: var(--teal); }
+
+/* ── QUOTE BLOCK ── */
+.quote-block {
+  background: var(--deep);
+  border-radius: var(--radius-lg);
+  padding: 2rem 2rem 1.5rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+  overflow: hidden;
+}
+.quote-block::before {
+  content: '"';
+  position: absolute;
+  top: -0.5rem; left: 1rem;
+  font-family: 'Noto Serif TC', serif;
+  font-size: 6rem;
+  color: var(--gold);
+  opacity: 0.15;
+  line-height: 1;
+  pointer-events: none;
+}
+.quote-text {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 1.05rem;
+  color: #fff;
+  line-height: 1.9;
+  margin-bottom: 0.8rem;
+}
+.quote-text em { color: var(--gold-light); font-style: normal; font-weight: 700; }
+.quote-src { font-size: 0.75rem; color: rgba(255,255,255,0.45); letter-spacing: 1px; }
+
+/* ── MEANING PILLARS ── */
+.meaning-pillars {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.mp-card { border-radius: var(--radius); padding: 1.3rem 1.2rem; position: relative; }
+.mp-card.mp1 { background: var(--gold-pale); border: 1px solid rgba(201,168,76,0.3); }
+.mp-card.mp2 { background: var(--teal-pale); border: 1px solid rgba(46,125,114,0.25); }
+.mp-card.mp3 { background: var(--ruby-pale); border: 1px solid rgba(139,33,48,0.2); }
+.mp-head { display: flex; align-items: center; gap: 8px; margin-bottom: 0.7rem; }
+.mp-badge {
+  font-size: 0.65rem;
+  letter-spacing: 2px;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+.mp1 .mp-badge { background: var(--gold); color: var(--deep); }
+.mp2 .mp-badge { background: var(--teal); color: #fff; }
+.mp3 .mp-badge { background: var(--ruby); color: #fff; }
+.mp-card h4 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--deep);
+}
+.mp-card p { font-size: 0.8rem; color: var(--muted); line-height: 1.7; }
+.mp-example {
+  margin-top: 0.6rem;
+  padding-top: 0.6rem;
+  border-top: 1px solid rgba(0,0,0,0.06);
+  font-size: 0.75rem;
+  line-height: 1.6;
+}
+.mp1 .mp-example { color: #7A620A; }
+.mp2 .mp-example { color: #185049; }
+.mp3 .mp-example { color: #6B1621; }
+
+/* ── KEY INSIGHT BOX ── */
+.insight-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.insight-card {
+  background: #fff;
+  border-radius: var(--radius);
+  border: 0.5px solid rgba(0,0,0,0.09);
+  padding: 1.2rem;
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+.insight-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  margin-top: 0.4rem;
+  flex-shrink: 0;
+}
+.insight-card:nth-child(1) .insight-dot { background: var(--gold); }
+.insight-card:nth-child(2) .insight-dot { background: var(--teal); }
+.insight-card:nth-child(3) .insight-dot { background: var(--ruby); }
+.insight-card:nth-child(4) .insight-dot { background: var(--blue-mid); }
+.insight-card:nth-child(5) .insight-dot { background: var(--gold-light); }
+.insight-card:nth-child(6) .insight-dot { background: var(--teal-light); }
+.insight-card:nth-child(7) .insight-dot { background: var(--ruby-light); }
+.insight-card h4 { font-size: 0.88rem; font-weight: 600; color: var(--deep); margin-bottom: 0.3rem; }
+.insight-card p { font-size: 0.78rem; color: var(--muted); line-height: 1.65; }
+
+/* ── TWO PATH BOX ── */
+.two-path {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  background: #fff;
+  border-radius: var(--radius-lg);
+  border: 0.5px solid rgba(0,0,0,0.09);
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+}
+@media(max-width:500px){ .two-path{grid-template-columns:1fr;} }
+.path-side { padding: 1.5rem 1.3rem; }
+.path-side:first-child { border-right: 0.5px solid rgba(0,0,0,0.07); }
+.path-label {
+  font-size: 0.68rem;
+  letter-spacing: 2.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 0.6rem;
+}
+.path-a .path-label { color: var(--gold); }
+.path-b .path-label { color: var(--blue-mid); }
+.path-title {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--deep);
+  margin-bottom: 0.6rem;
+}
+.path-list { list-style: none; padding: 0; }
+.path-list li {
+  font-size: 0.8rem;
+  color: var(--muted);
+  line-height: 1.65;
+  padding: 3px 0 3px 14px;
+  position: relative;
+}
+.path-list li::before {
+  content:'·';
+  position:absolute; left:2px;
+  font-size: 1rem;
+  line-height: 1.3;
+}
+.path-a .path-list li::before { color: var(--gold); }
+.path-b .path-list li::before { color: var(--blue-mid); }
+
+/* ── REFLECTION BOX ── */
+.reflection {
+  background: var(--soft);
+  border-radius: var(--radius-lg);
+  padding: 1.8rem 1.8rem 1.5rem;
+  border-left: 3px solid var(--gold);
+  margin-bottom: 1.5rem;
+}
+.reflection h3 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--deep);
+  margin-bottom: 0.8rem;
+}
+.reflection ol { padding-left: 1.2rem; }
+.reflection ol li {
+  font-size: 0.85rem;
+  color: var(--ink);
+  line-height: 1.8;
+  margin-bottom: 0.3rem;
+}
+.reflection ol li strong { color: var(--deep); font-weight: 600; }
+
+/* ── DIVIDER ── */
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0.5rem 0 1.5rem;
+  opacity: 0.35;
+}
+.divider::before, .divider::after {
+  content:'';
+  flex:1;
+  height: 0.5px;
+  background: var(--muted);
+}
+.divider span { font-size: 10px; letter-spacing: 3px; color: var(--muted); text-transform: uppercase; }
+
+/* ── ARTICLE（文章產出：重點紅字）── */
+.article-block {
+  background:#fff; border:0.5px solid rgba(0,0,0,0.09);
+  border-radius:var(--radius-lg); padding:2.2rem 2.4rem;
+  margin-bottom:1.5rem;
+}
+@media(max-width:600px){ .article-block { padding:1.6rem 1.3rem; } }
+.article-block h3 {
+  font-family:'Noto Serif TC',serif; font-size:1.15rem; font-weight:700;
+  color:var(--deep); margin-bottom:1.2rem; text-align:center;
+}
+.article-block .art-meta {
+  text-align:center; font-size:0.72rem; letter-spacing:2px;
+  color:var(--muted); margin:-0.8rem 0 1.4rem;
+}
+.article-block p {
+  font-family:'Noto Serif TC',serif; font-size:0.92rem;
+  color:var(--ink); line-height:2.05; margin-bottom:1rem;
+  text-align:justify;
+}
+.article-block p:first-of-type::first-letter { font-size:1.6em; color:var(--gold); font-weight:700; }
+/* 重點：紅色字體 */
+.article-block p strong { color:var(--ruby); font-weight:700; }
+.article-block p em { font-style:normal; color:#7A620A; font-weight:600; }
+.art-sep { text-align:center; color:var(--gold); letter-spacing:8px; margin:1.2rem 0; opacity:.6; }
+
+/* ── SCRIPTURE（經文・和合本）── */
+.scripture {
+  background:#fff; border:0.5px solid rgba(0,0,0,0.09);
+  border-left:3px solid var(--gold); border-radius:var(--radius);
+  padding:1.3rem 1.4rem; margin-bottom:1rem;
+}
+.scripture .ref {
+  font-family:'Noto Serif TC',serif; font-size:0.9rem; font-weight:700;
+  color:#7A620A; letter-spacing:1px; margin-bottom:0.6rem;
+}
+.scripture p {
+  font-family:'Noto Serif TC',serif; font-size:0.9rem;
+  color:var(--ink); line-height:2.05; text-align:justify;
+}
+.scripture .vn {
+  font-size:0.66rem; color:var(--gold); font-weight:700;
+  vertical-align:0.3em; margin:0 3px 0 5px;
+}
+
+/* ── FOOTER ── */
+.page-footer {
+  background: var(--deep);
+  text-align: center;
+  padding: 1.8rem 1rem;
+  margin-top: 2.5rem;
+}
+.page-footer p { font-size: 0.78rem; color: rgba(255,255,255,0.35); letter-spacing: 1px; }
+.page-footer strong { color: var(--gold); font-weight: 400; }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════ HERO ═══════════════ -->
+<header class="hero">
+  <div class="hero-tag">愛的叮嚀 · 2026.07.19</div>
+  <h1>機器人的悟性<br>——與<em>那一步</em></h1>
+  <p class="hero-sub">師母的自剖 × 今世之子 × 自律的天花板 × 拖延與杏仁核 × 滑梯效應</p>
+  <div class="hero-verse">
+    因為今世之子，在世事之上，<br>
+    較比光明之子更加聰明。<br>
+    <span style="color:rgba(255,255,255,0.4);font-size:0.78rem">— 路加福音 16:8</span>
+  </div>
+</header>
+
+<main class="container">
+
+  <!-- ═══════════════ ① 核心主題 ═══════════════ -->
+  <section class="section">
+    <div class="sec-title">
+      <div class="icon">🗝</div>
+      <div>
+        <h2>今日核心主題</h2>
+        <div class="subtitle">箴言師母的四條線索</div>
+      </div>
+    </div>
+    <div class="pillars">
+      <div class="pillar p1">
+        <div class="pillar-num">一</div>
+        <div class="pillar-icon">🤖</div>
+        <h3>神所設定的 AI</h3>
+        <p>師母說自己理性強到像機器人：寧願受傷的是自己，也不要傷到別人。她靠一句話約束自己——「我不要成為一個我所厭惡的人。」</p>
+      </div>
+      <div class="pillar p2">
+        <div class="pillar-num">二</div>
+        <div class="pillar-icon">💡</div>
+        <h3>今世之子更聰明</h3>
+        <p>主耶穌親口說的：今世之子在世事之上，比光明之子更加聰明。現在缺的不是聖經知識，是悟性——不要絆倒人。</p>
+      </div>
+      <div class="pillar p3">
+        <div class="pillar-num">三</div>
+        <div class="pillar-icon">⏱</div>
+        <h3>自律的天花板</h3>
+        <p>扎克伯格、巴菲特、庫克、馬斯克。師母的質問：你們在工作崗位上能這麼渾渾噩噩嗎？ 神比你的老闆大很多。</p>
+      </div>
+      <div class="pillar p4">
+        <div class="pillar-num">四</div>
+        <div class="pillar-icon">🛝</div>
+        <h3>拖延與那一步</h3>
+        <p>拖延不是懶，是恐懼；杏仁核把挑戰誤判成危險。滑梯效應說：只要跨出那一步就夠了。不可以再原諒自己了。</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"><span>心智圖</span></div>
+
+  <!-- ═══════════════ ② 主題心智圖 ═══════════════ -->
+  <section class="section" style="padding-top:0">
+    <div class="sec-title">
+      <div class="icon">🧠</div>
+      <div>
+        <h2>主題心智圖</h2>
+        <div class="subtitle">全篇結構一覽</div>
+      </div>
+    </div>
+    <div class="mindmap-wrap">
+      <svg viewBox="0 0 900 500" xmlns="http://www.w3.org/2000/svg" role="img">
+        <title>加強悟性・打開眼界 心智圖</title>
+        <defs>
+          <marker id="marr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+            <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </marker>
+        </defs>
+        <rect width="900" height="500" fill="#FDFAF3"/>
+
+        <!-- 中心 -->
+        <rect x="335" y="210" width="230" height="68" rx="12" fill="#1A1208" stroke="#C9A84C" stroke-width="1.5"/>
+        <text x="450" y="238" text-anchor="middle" font-family="Noto Serif TC,serif" font-size="13" fill="#E8D08A" font-weight="700">加強悟性・打開眼界</text>
+        <text x="450" y="260" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="10.5" fill="rgba(255,255,255,0.5)">愛的叮嚀 · 2026.07.19</text>
+
+        <!-- 左上：神設定的 AI（金） -->
+        <path d="M380 210 Q300 165 234 122" fill="none" stroke="#C9A84C" stroke-width="1.2" marker-end="url(#marr)"/>
+        <rect x="60" y="66" width="170" height="78" rx="8" fill="#FAF3DC" stroke="#C9A84C" stroke-width="0.8"/>
+        <text x="145" y="92" text-anchor="middle" font-family="Noto Serif TC,serif" font-size="11.5" fill="#7A620A" font-weight="700">神所設定的 AI</text>
+        <text x="145" y="110" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#9A7E3A">媽媽的兩個故事</text>
+        <text x="145" y="127" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#9A7E3A">不成為我所厭惡的人</text>
+
+        <!-- 右上：今世之子（青） -->
+        <path d="M520 210 Q600 165 666 122" fill="none" stroke="#2E7D72" stroke-width="1.2" marker-end="url(#marr)"/>
+        <rect x="670" y="66" width="170" height="78" rx="8" fill="#E0F2EF" stroke="#2E7D72" stroke-width="0.8"/>
+        <text x="755" y="92" text-anchor="middle" font-family="Noto Serif TC,serif" font-size="11.5" fill="#185049" font-weight="700">今世之子更聰明</text>
+        <text x="755" y="110" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#2F7568">路加福音 16:8</text>
+        <text x="755" y="127" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#2F7568">不要絆倒人</text>
+
+        <!-- 左中：自律的天花板（紅） -->
+        <path d="M335 244 Q272 250 209 252" fill="none" stroke="#8B2130" stroke-width="1.2" marker-end="url(#marr)"/>
+        <rect x="35" y="215" width="170" height="78" rx="8" fill="#FAEAED" stroke="#8B2130" stroke-width="0.8"/>
+        <text x="120" y="241" text-anchor="middle" font-family="Noto Serif TC,serif" font-size="11.5" fill="#6B1621" font-weight="700">自律的天花板</text>
+        <text x="120" y="259" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#A04A57">四大富豪的日常</text>
+        <text x="120" y="276" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#A04A57">配當 神的孩子嗎</text>
+
+        <!-- 右中：拖延不是懶（藍） -->
+        <path d="M565 244 Q628 250 691 252" fill="none" stroke="#2E6DA4" stroke-width="1.2" marker-end="url(#marr)"/>
+        <rect x="695" y="215" width="170" height="78" rx="8" fill="#E8F1FA" stroke="#1E3A5F" stroke-width="0.8"/>
+        <text x="780" y="241" text-anchor="middle" font-family="Noto Serif TC,serif" font-size="11.5" fill="#0C2A4A" font-weight="700">拖延不是懶</text>
+        <text x="780" y="259" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#46729E">是內心的恐懼</text>
+        <text x="780" y="276" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#46729E">七種思維定式</text>
+
+        <!-- 左下：杏仁核在作祟（青） -->
+        <path d="M390 278 Q330 330 272 380" fill="none" stroke="#2E7D72" stroke-width="1.2" marker-end="url(#marr)"/>
+        <rect x="115" y="384" width="170" height="78" rx="8" fill="#E0F2EF" stroke="#2E7D72" stroke-width="0.8"/>
+        <text x="200" y="410" text-anchor="middle" font-family="Noto Serif TC,serif" font-size="11.5" fill="#185049" font-weight="700">杏仁核在作祟</text>
+        <text x="200" y="428" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#2F7568">把挑戰誤判為危險</text>
+        <text x="200" y="445" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#2F7568">要覺醒</text>
+
+        <!-- 右下：跨出那一步（金） -->
+        <path d="M510 278 Q570 330 628 380" fill="none" stroke="#C9A84C" stroke-width="1.2" marker-end="url(#marr)"/>
+        <rect x="615" y="384" width="170" height="78" rx="8" fill="#FAF3DC" stroke="#C9A84C" stroke-width="0.8"/>
+        <text x="700" y="410" text-anchor="middle" font-family="Noto Serif TC,serif" font-size="11.5" fill="#7A620A" font-weight="700">跨出那一步</text>
+        <text x="700" y="428" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#9A7E3A">粗糙啟動・滑梯效應</text>
+        <text x="700" y="445" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#9A7E3A">不可以再原諒自己</text>
+      </svg>
+    </div>
+  </section>
+
+  <div class="divider"><span>師母的自剖</span></div>
+
+  <!-- ═══════════════ ③ 媽媽的兩個故事＋自我約束 ═══════════════ -->
+  <section class="section" style="padding-top:0">
+    <div class="sec-title">
+      <div class="icon">🐻</div>
+      <div>
+        <h2>媽媽說的兩個故事</h2>
+        <div class="subtitle">像程式一樣，植入師母的內心</div>
+      </div>
+    </div>
+    <div class="insight-row">
+      <div class="insight-card">
+        <div class="insight-dot"></div>
+        <div>
+          <h4>熊媽媽的奶</h4>
+          <p>獵人開了槍，熊媽媽倒下之前一直把奶往外噴——她要把奶留給她的小熊。師母說，講到今天，一說起就還是很想哭。</p>
+        </div>
+      </div>
+      <div class="insight-card">
+        <div class="insight-dot"></div>
+        <div>
+          <h4>一面鏡子</h4>
+          <p>人與人相處像一面鏡子。你對著鏡子笑，鏡子裡的人也對你笑；你對著鏡子生氣，鏡子裡的人也對你生氣。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="sec-title" style="margin-top:0.5rem">
+      <div class="icon" style="background:var(--ruby-light);color:#fff;">✦</div>
+      <div>
+        <h2>我不要成為我所厭惡的人</h2>
+        <div class="subtitle">師母約束自己的方式</div>
+      </div>
+    </div>
+    <div class="mindmap-wrap">
+      <svg viewBox="0 0 860 140" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <marker id="ar2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+            <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </marker>
+        </defs>
+        <rect width="860" height="140" fill="#1A1208"/>
+        <!-- 起點 -->
+        <rect x="30" y="36" width="190" height="68" rx="10" fill="#8B2130"/>
+        <text x="125" y="62" text-anchor="middle" font-family="Noto Serif TC,serif" font-size="13" fill="#fff" font-weight="700">我所厭惡的</text>
+        <text x="125" y="82" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="rgba(255,255,255,0.65)">易怒・嫉妒・狂傲・不喜歡真理</text>
+        <line x1="223" y1="70" x2="283" y2="70" stroke="#C9A84C" stroke-width="1" marker-end="url(#ar2)"/>
+        <!-- 中間關鍵 -->
+        <rect x="287" y="22" width="185" height="96" rx="12" fill="none" stroke="#C9A84C" stroke-width="1.5" stroke-dasharray="5,3"/>
+        <text x="379" y="52" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#C9A84C" letter-spacing="2">一個決定</text>
+        <text x="379" y="76" text-anchor="middle" font-family="Noto Serif TC,serif" font-size="13.5" fill="#E8D08A" font-weight="700">我不要成為</text>
+        <text x="379" y="98" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="rgba(255,255,255,0.5)">我所厭惡的那種人</text>
+        <line x1="475" y1="70" x2="536" y2="70" stroke="#2E7D72" stroke-width="1" marker-end="url(#ar2)"/>
+        <!-- 終點 -->
+        <rect x="540" y="36" width="290" height="68" rx="10" fill="#2E7D72"/>
+        <text x="685" y="62" text-anchor="middle" font-family="Noto Serif TC,serif" font-size="13" fill="#fff" font-weight="700">反過來要求自己</text>
+        <text x="685" y="82" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="rgba(255,255,255,0.65)">忍耐・恩慈・良善・不計算人的惡</text>
+      </svg>
+    </div>
+    <div class="quote-block">
+      <p class="quote-text">
+        我覺得我不是人，我是機器人；<br>
+        你們才是真的有七情六慾的人。<br>
+        我很感謝 神給我<em>悟性</em>，而不是給我難以克制的七情六慾。
+      </p>
+      <div class="quote-src">— 箴言師母 · 愛的叮嚀</div>
+    </div>
+    <div class="insight-row">
+      <div class="insight-card">
+        <div class="insight-dot"></div>
+        <div>
+          <h4>她的行為模式</h4>
+          <p>寧願受傷的是我自己，也不要傷到別人；我寧願自己多做一點，這樣別人就少做一點。</p>
+        </div>
+      </div>
+      <div class="insight-card">
+        <div class="insight-dot"></div>
+        <div>
+          <h4>神給她的兩件功課</h4>
+          <p>不要被百姓激怒，不要看周遭的環境；並且不准隱居。神之是 神的，每一個弟兄姊妹也都是 神所預定的。</p>
+        </div>
+      </div>
+      <div class="insight-card">
+        <div class="insight-dot"></div>
+        <div>
+          <h4>不是因為愛管人而上台</h4>
+          <p>她從小怕當老師，因為當老師要不停否定學生。「我只是 神所設計的 AI， 神在我裡面裝什麼話語，我就說什麼話語。」</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"><span>今世之子</span></div>
+
+  <!-- ═══════════════ ④ 今世之子 vs 光明之子 ═══════════════ -->
+  <section class="section" style="padding-top:0">
+    <div class="sec-title">
+      <div class="icon">⚔</div>
+      <div>
+        <h2>今世之子 vs 光明之子</h2>
+        <div class="subtitle">主耶穌親口說的一句話</div>
+      </div>
+    </div>
+    <div class="two-path">
+      <div class="path-side path-a">
+        <div class="path-label">今世之子</div>
+        <div class="path-title">在世事之上更聰明</div>
+        <ul class="path-list">
+          <li>機能、積極度、概念上更強</li>
+          <li>內心經過歷練，不屈不撓</li>
+          <li>把自律做到天花板</li>
+          <li>看我們的表現，會懷疑我們所信的神</li>
+        </ul>
+      </div>
+      <div class="path-side path-b">
+        <div class="path-label">光明之子</div>
+        <div class="path-title">傻乎乎、渾渾噩噩</div>
+        <ul class="path-list">
+          <li>聖經倒背如流，卻活不出來</li>
+          <li>眼界狹隘，所以叫做無知愚昧</li>
+          <li>思想決定一切；格局決定結局</li>
+          <li>現在缺的不是知識，是悟性</li>
+        </ul>
+      </div>
+    </div>
+    <div class="quote-block">
+      <p class="quote-text">
+        我們這樣的表現，真的會讓他們懷疑——<br>
+        <em>這一群人所信的神，會是什麼樣的神啊？</em><br>
+        不要絆倒人。
+      </p>
+      <div class="quote-src">— 箴言師母 · 愛的叮嚀</div>
+    </div>
+  </section>
+
+  <div class="divider"><span>自律的天花板</span></div>
+
+  <!-- ═══════════════ ⑤ 四大富豪的自律 ═══════════════ -->
+  <section class="section" style="padding-top:0">
+    <div class="sec-title">
+      <div class="icon">⏱</div>
+      <div>
+        <h2>人類自律的天花板</h2>
+        <div class="subtitle">四位頂級富豪的日常</div>
+      </div>
+    </div>
+    <div class="insight-row">
+      <div class="insight-card">
+        <div class="insight-dot"></div>
+        <div>
+          <h4>扎克伯格｜被懷疑是機器人</h4>
+          <p>十小時聽證會，微笑維持 0.5 秒一次的精準頻率、每 20 分鐘勻速飲水；每天 6 點起床，繞別墅跑 5000 公尺，365 天不斷。</p>
+        </div>
+      </div>
+      <div class="insight-card">
+        <div class="insight-dot"></div>
+        <div>
+          <h4>巴菲特｜令人窒息的單調</h4>
+          <p>可怕之處不在智商。每天至少讀 500 頁枯燥財報，從 20 歲讀到九十多歲；賺錢吃 3.17 美元的早餐，虧錢吃 2.61 美元的。</p>
+        </div>
+      </div>
+      <div class="insight-card">
+        <div class="insight-dot"></div>
+        <div>
+          <h4>庫克｜凌晨 3:45</h4>
+          <p>鬧鐘準時炸響，先清掉 800 多封郵件，再健身一小時；永遠第一個開門、最後一個關燈，十幾年每個週日晚上開復盤會。</p>
+        </div>
+      </div>
+      <div class="insight-card">
+        <div class="insight-dot"></div>
+        <div>
+          <h4>馬斯克｜以分鐘為單位</h4>
+          <p>每週工作 100 小時，行程以分鐘計，吃飯五分鐘；「你的邏輯配不上我的時間。」</p>
+        </div>
+      </div>
+    </div>
+    <div class="quote-block">
+      <p class="quote-text">
+        你們在自己的工作崗位上，能這麼渾渾噩噩嗎？<br>
+        我們的 神比你們的老闆大很多——<br>
+        我們如果表現得這麼奇怪，<em>配當他的孩子嗎</em>？<br>
+        神給我們的不止是薪水，<em>連命都是 神給的</em>。
+      </p>
+      <div class="quote-src">— 箴言師母 · 愛的叮嚀</div>
+    </div>
+  </section>
+
+  <div class="divider"><span>拖延的七張面孔</span></div>
+
+  <!-- ═══════════════ ⑥ 拖延的七種思維定式 ═══════════════ -->
+  <section class="section" style="padding-top:0">
+    <div class="sec-title">
+      <div class="icon" style="background:var(--blue-mid);color:#fff;">🧩</div>
+      <div>
+        <h2>拖延不是懶，是恐懼</h2>
+        <div class="subtitle">七種思維定式・做與不做之間的中間狀態</div>
+      </div>
+    </div>
+    <div class="insight-row">
+      <div class="insight-card">
+        <div class="insight-dot"></div>
+        <div>
+          <h4>一・等有心情才做</h4>
+          <p>把馬車放在馬前面。真正成功的人都知道：先有行動，才有動力。</p>
+        </div>
+      </div>
+      <div class="insight-card">
+        <div class="insight-dot"></div>
+        <div>
+          <h4>二・完美主義</h4>
+          <p>寧願承受「沒有盡全力而自我譴責」的痛苦，也不願承受「盡了全力卻不過如此」的平庸。</p>
+        </div>
+      </div>
+      <div class="insight-card">
+        <div class="insight-dot"></div>
+        <div>
+          <h4>三・輕視回報</h4>
+          <p>覺得沒有意義、沒有價值感，做得好也沒有成就感——洗碗、拖地就這樣被拖著。</p>
+        </div>
+      </div>
+      <div class="insight-card">
+        <div class="insight-dot"></div>
+        <div>
+          <h4>四・害怕失敗</h4>
+          <p>努力了卻沒成功，那是天大的失敗；為了不體驗挫敗，就無限期推遲。</p>
+        </div>
+      </div>
+      <div class="insight-card">
+        <div class="insight-dot"></div>
+        <div>
+          <h4>五・害怕成功</h4>
+          <p>越優秀，別人的期望越高；怕不能持續優秀而讓人失望，於是乾脆不開始。</p>
+        </div>
+      </div>
+      <div class="insight-card">
+        <div class="insight-dot"></div>
+        <div>
+          <h4>六・習得性無助</h4>
+          <p>我做不做都一樣，我什麼都做不到——在這種機制下自然就拖。</p>
+        </div>
+      </div>
+      <div class="insight-card">
+        <div class="insight-dot"></div>
+        <div>
+          <h4>七・「應該」思維</h4>
+          <p>動力的死敵是強迫感。你越說「應該」，裡面就越有另一個我跳出來對抗，於是越拖延、越焦慮、越痛苦。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"><span>粗糙・啟動</span></div>
+
+  <!-- ═══════════════ ⑦ 粗糙啟動＋滑梯效應 ═══════════════ -->
+  <section class="section" style="padding-top:0">
+    <div class="sec-title">
+      <div class="icon" style="background:var(--teal);color:#fff;">🛝</div>
+      <div>
+        <h2>對策：粗糙，然後啟動</h2>
+        <div class="subtitle">降低門檻・減少選擇・小步子法</div>
+      </div>
+    </div>
+    <div class="stages">
+      <div class="stage-item s1">
+        <div class="stage-top-bar"></div>
+        <div class="stage-no">粗糙</div>
+        <div class="stage-title">先做個六十分</div>
+        <div class="stage-body">別一上來就追求 100 分。先抓關鍵點，把大事粗糙地完成，再逐漸優化——降低行動門檻。</div>
+      </div>
+      <div class="stage-item s2">
+        <div class="stage-top-bar"></div>
+        <div class="stage-no">減少選擇</div>
+        <div class="stage-title">不選才是最錯</div>
+        <div class="stage-body">別讓「三思而後行」變成「三思而不行」。你缺的不是完美的選擇，是往前粗糙地邁出一小步。</div>
+      </div>
+      <div class="stage-item s3">
+        <div class="stage-top-bar"></div>
+        <div class="stage-no">小步子法</div>
+        <div class="stage-title">降低環境要求</div>
+        <div class="stage-body">健身房沒開，路上跑半小時算不算？再降低，爬兩層樓算不算？用容易實現的小目標累積成功體驗。</div>
+      </div>
+    </div>
+    <div class="mindmap-wrap">
+      <svg viewBox="0 0 860 140" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <marker id="ar3" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+            <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </marker>
+        </defs>
+        <rect width="860" height="140" fill="#1A1208"/>
+        <!-- 起點 -->
+        <rect x="30" y="36" width="190" height="68" rx="10" fill="#8B2130"/>
+        <text x="125" y="62" text-anchor="middle" font-family="Noto Serif TC,serif" font-size="13" fill="#fff" font-weight="700">啟動阻力</text>
+        <text x="125" y="82" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="rgba(255,255,255,0.65)">杏仁核喊停・大腦預演痛苦</text>
+        <line x1="223" y1="70" x2="283" y2="70" stroke="#C9A84C" stroke-width="1" marker-end="url(#ar3)"/>
+        <!-- 中間關鍵 -->
+        <rect x="287" y="22" width="185" height="96" rx="12" fill="none" stroke="#C9A84C" stroke-width="1.5" stroke-dasharray="5,3"/>
+        <text x="379" y="52" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="#C9A84C" letter-spacing="2">關鍵的一小步</text>
+        <text x="379" y="76" text-anchor="middle" font-family="Noto Serif TC,serif" font-size="13.5" fill="#E8D08A" font-weight="700">最小啟動任務</text>
+        <text x="379" y="98" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="rgba(255,255,255,0.5)">小到無法拒絕</text>
+        <line x1="475" y1="70" x2="536" y2="70" stroke="#2E7D72" stroke-width="1" marker-end="url(#ar3)"/>
+        <!-- 終點 -->
+        <rect x="540" y="36" width="290" height="68" rx="10" fill="#2E7D72"/>
+        <text x="685" y="62" text-anchor="middle" font-family="Noto Serif TC,serif" font-size="13" fill="#fff" font-weight="700">滑梯效應</text>
+        <text x="685" y="82" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="9.5" fill="rgba(255,255,255,0.65)">未完成的緊張感推著你走完</text>
+      </svg>
+    </div>
+    <div class="insight-row">
+      <div class="insight-card">
+        <div class="insight-dot"></div>
+        <div>
+          <h4>只寫第一句話</h4>
+          <p>博主的規則：每天只要寫下第一句話就算完成。寫完想「反正都打開了」，回過神已經寫了 500 多字。</p>
+        </div>
+      </div>
+      <div class="insight-card">
+        <div class="insight-dot"></div>
+        <div>
+          <h4>只要坐到書桌前</h4>
+          <p>朋友三十歲考研，任務定為「每天只要坐到書桌前就算成功」；三個月後每天讀五小時，考上心儀的學校。</p>
+        </div>
+      </div>
+      <div class="insight-card">
+        <div class="insight-dot"></div>
+        <div>
+          <h4>還是不想動？</h4>
+          <p>那就說明啟動任務還不夠小。繼續拆解——翻開書到第一頁、讀一個標題、把腳伸出被窩，直到完全沒有心理負擔。</p>
+        </div>
+      </div>
+    </div>
+    <div class="quote-block">
+      <p class="quote-text">
+        杏仁核一天到晚神經兮兮，若不調整，<br>
+        它會把<em>任何智力上的挑戰，誤判成生存的危險</em>。<br>
+        所以要覺醒——要知道是杏仁核在作祟。
+      </p>
+      <div class="quote-src">— 箴言師母 · 愛的叮嚀</div>
+    </div>
+  </section>
+
+  <div class="divider"><span>溫故知新</span></div>
+
+  <!-- ═══════════════ ⑧ 遺忘曲線 ═══════════════ -->
+  <section class="section" style="padding-top:0">
+    <div class="sec-title">
+      <div class="icon" style="background:var(--muted);color:#fff;">⏳</div>
+      <div>
+        <h2>為什麼要溫故知新</h2>
+        <div class="subtitle">沒有努力去記，遺忘得比你想的快</div>
+      </div>
+    </div>
+    <div class="stages">
+      <div class="stage-item s1">
+        <div class="stage-top-bar"></div>
+        <div class="stage-no">20 分鐘後</div>
+        <div class="stage-title">忘掉 42%</div>
+        <div class="stage-body">才剛聽完二十分鐘，將近一半就已經留不住了。</div>
+      </div>
+      <div class="stage-item s2">
+        <div class="stage-top-bar"></div>
+        <div class="stage-no">1 小時後</div>
+        <div class="stage-title">忘掉 56%</div>
+        <div class="stage-body">聚會結束回到家的路上，已經超過一半不見了。</div>
+      </div>
+      <div class="stage-item s3">
+        <div class="stage-top-bar"></div>
+        <div class="stage-no">1 天後</div>
+        <div class="stage-title">忘掉 74%</div>
+        <div class="stage-body">主日聽的話語，禮拜一就只剩一點點——所以資料要拿回家好好消化。</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"><span>經文・和合本</span></div>
+
+  <!-- ═══════════════ ⑨ 經文區 ═══════════════ -->
+  <section class="section" style="padding-top:0">
+    <div class="sec-title">
+      <div class="icon">📖</div>
+      <div>
+        <h2>本篇經文</h2>
+        <div class="subtitle">和合本・全文</div>
+      </div>
+    </div>
+    <div class="scripture">
+      <div class="ref">路加福音 16：8</div>
+      <p><span class="vn">8</span>主人就誇獎這不義的管家做事聰明；因為今世之子，在世事之上，較比光明之子更加聰明。</p>
+    </div>
+    <div class="scripture">
+      <div class="ref">哥林多前書 13：4–7</div>
+      <p><span class="vn">4</span>愛是恆久忍耐，又有恩慈；愛是不嫉妒；愛是不自誇，不張狂，<span class="vn">5</span>不做害羞的事，不求自己的益處，不輕易發怒，不計算人的惡，<span class="vn">6</span>不喜歡不義，只喜歡真理；<span class="vn">7</span>凡事包容，凡事相信，凡事盼望，凡事忍耐。</p>
+    </div>
+    <div class="scripture">
+      <div class="ref">創世記 3：17–18</div>
+      <p><span class="vn">17</span>又對亞當說：你既聽從妻子的話，吃了我所吩咐你不可吃的那樹上的果子，地必為你的緣故受咒詛；你必終身勞苦才能從地裡得吃的。<span class="vn">18</span>地必給你長出荊棘和蒺藜來；你也要吃田間的菜蔬。</p>
+    </div>
+  </section>
+
+  <div class="divider"><span>反思</span></div>
+
+  <!-- ═══════════════ 反思提問清單 ═══════════════ -->
+  <section class="section" style="padding-top:0">
+    <div class="sec-title">
+      <div class="icon">🪞</div>
+      <div>
+        <h2>反思</h2>
+        <div class="subtitle">七道問題 · 留給日後的思考</div>
+      </div>
+    </div>
+    <div class="reflection">
+      <h3>這一次先不回答——留給以後再讀的時候，安靜思想。</h3>
+      <ol>
+        <li><strong>Q1</strong>　師母說「我不要成為一個我所厭惡的人」——我心裡最厭惡的那一種人是什麼樣子？我身上有沒有一點點他的影子？</li>
+        <li><strong>Q2</strong>　師母的模式是「寧願受傷的是我自己」「我多做一點，別人就少做一點」——誠實地看，我平常是多做一點的那個，還是連動一根手指都不肯的那個？</li>
+        <li><strong>Q3</strong>　主耶穌說「今世之子，在世事之上，較比光明之子更加聰明」——對照四位富豪那種自律，我在屬世的工作崗位、與在 神的家中，是不是用了兩套標準？</li>
+        <li><strong>Q4</strong>　師母問：「 神比你們的老闆大很多——我們表現得這麼奇怪，配當他的孩子嗎？」這句話刺到我哪裡？</li>
+        <li><strong>Q5</strong>　拖延的七種思維定式（等有心情／完美主義／輕視回報／害怕失敗／害怕成功／習得性無助／應該思維），哪一種最像我？</li>
+        <li><strong>Q6</strong>　「覺知是學習的開始，覺察是調整的開始」——我現在最該覺察的，是杏仁核把哪一件事的「挑戰」誤判成了「危險」？</li>
+        <li><strong>Q7</strong>　「想都是問題，做才是答案」——這一週，我要把哪一件一直拖著的事，拆成一個小到無法拒絕的第一步？那一步具體是什麼？</li>
+      </ol>
+    </div>
+  </section>
+
+  <div class="divider"><span>文章</span></div>
+
+  <!-- ═══════════════ 文章產出（重點紅字） ═══════════════ -->
+  <section class="section" style="padding-top:0">
+    <div class="sec-title">
+      <div class="icon">✒️</div>
+      <div>
+        <h2>本篇文章</h2>
+        <div class="subtitle">重點以紅字標示</div>
+      </div>
+    </div>
+    <div class="article-block">
+      <h3>機器人的悟性，與那一步</h3>
+      <div class="art-meta">愛的叮嚀 · 2026.07.19</div>
+      <p>一個獵人在山裡開了槍。熊媽媽倒下之前，一直把奶往外噴——她要把奶留給她的小熊。箴言師母說，這是她小時候媽媽講的故事，講到今天，只要一說起就還是很想哭。媽媽還說了第二個故事：人與人相處像一面鏡子，你對著鏡子笑，鏡子裡的人也對你笑；你對著鏡子生氣，鏡子裡的人也對你生氣。師母說，這兩個故事像程式一樣植入她的內心，從此牢牢記住——所以她覺得自己不像人，像一個 神所設定的 AI。</p>
+      <p>這是這一次愛的叮嚀裡最誠實、也最讓人安靜下來的一段。師母說：三十幾歲遇見牧師，她覺得這條路遠超乎所思所想所求，就很珍惜，就乖乖遵守；可是同樣的規矩，在弟兄姊妹眼中卻成了教條、成了捆綁人的框子。她一度懷疑人生，認知上錯愕，是主日降下的意象與話語安慰了她——她的認知並沒有誤差。</p>
+      <p>她的行為模式很單純：<strong>寧願受傷的是我自己，也不要傷到別人；我寧願自己多做一點，這樣別人就少做一點。</strong>盡量替對方著想，盡量了解對方，達成對方的心願——她覺得這是天經地義的事。所以她說：「我覺得我不是人，我是機器人；你們才是真的有七情六慾的人。」她還補一句：「我不是說我多崇高、多好，不是。」</p>
+      <p>她唯一不像機器人的地方，是<strong>很容易被百姓激怒</strong>。那她靠什麼約束自己？靠一句很硬的話：<strong>「我不要成為一個我所厭惡的人。」</strong>動不動就生氣的人，是她所厭惡的；沒有愛心、不忍耐、沒有恩慈良善、成天嫉妒、狂傲、昧著良心、不喜歡真理的人，都是她所厭惡的——所以她反過來要求自己：我要有忍耐，我要有恩慈，我要有良善，我不要計算人的惡。她說：「這些都是我的悟性。我很感謝 神給我悟性，而不是給我難以克制的七情六慾。」</p>
+      <p>牧師七十歲回天家，留下五十五歲的她，面對兵荒馬亂的神之。 神告訴她：神之是 神的，聖工是 神的，每一個弟兄姊妹也都是 神所預定的。她要做的只有兩件事——<strong>不要被百姓激怒，不要看周遭的環境</strong>；並且不准隱居。她說自己從小就怕當老師，因為當老師要不停糾正、不停否定學生，當教練還要把九十五分的選手一路補到滿分。她反而感謝 神把她造得那麼不愛管人：「我不是因為愛管人而上台。我只是 神所設計的 AI， 神在我裡面裝什麼話語，我就說什麼話語。」</p>
+      <div class="art-sep">✦ ✦ ✦</div>
+      <p>接著師母把話鋒轉到我們身上，引了主耶穌親口說的一句：<strong>「今世之子，在世事之上，較比光明之子更加聰明。」</strong>沒有信主的人，在機能、積極度、內心的歷練、不屈不撓上，往往遠比我們這群「傻乎乎、渾渾噩噩」的光明之子強。所以她放了那支影片：扎克伯格在十小時的聽證會裡，微笑維持著 0.5 秒一次的精準頻率、每二十分鐘勻速喝一次水，被人懷疑是機器人；他每天六點起床，繞著別墅跑五千公尺，三百六十五天不斷。巴菲特可怕的不是智商，是那種令人窒息的單調——每天讀至少五百頁枯燥的財報，從二十歲讀到九十多歲。庫克的鬧鐘在凌晨三點四十五分炸響，先清掉八百多封郵件，再健身一小時，永遠第一個開門、最後一個關燈。馬斯克每週工作一百小時，行程以分鐘為單位。</p>
+      <p>然後她問了一句很重的話：<strong>你們在自己的工作崗位上，能這麼渾渾噩噩嗎？</strong>如果沒有足夠的能力面對工作，還能白領薪水嗎？「我們來到神之因為不是領薪水的，所以大家無所謂。可是我們的 神是全世界的主宰，他比你們的老闆大很多。<strong>我們如果表現得這麼奇怪，配當他的孩子嗎？</strong>」她提醒：<strong>神給我們的不止是薪水，連命都是 神給的。</strong>而不榮耀 神是犯了多大的罪——人家看我們就是愚蠢愚昧。思想決定一切；思想狹隘，格局就小，格局又決定了結局。</p>
+      <div class="art-sep">✦ ✦ ✦</div>
+      <p>可是師母沒有停在責備。她接著放了關於「拖延」的影片，因為她知道我們卡在哪裡。心理學說，<strong>拖延不是懶，是恐懼</strong>——是「做與不做之間糾結的中間狀態」。它有七張面孔：等有心情才做、完美主義、輕視回報、害怕失敗、害怕成功、習得性無助，還有那個最狡猾的「應該」思維——你越強迫自己「應該」，裡面就越有另一個我跳出來對抗。對策只有兩個字：<strong>粗糙</strong>。降低行動門檻，先把大事做個六十分；主動減少選擇，因為<strong>不選才是最錯</strong>——別讓「三思而後行」變成「三思而不行」。</p>
+      <p>最關鍵的是<strong>滑梯效應</strong>：幾乎所有的拖延都死在「啟動」這一關，因為大腦天生厭惡不確定與能量消耗，會先把整個痛苦預演一遍，然後對你喊停。但只要你真的坐上滑梯，後面會順暢得超乎想像。所以秘訣是把啟動任務縮到小得無法拒絕——只寫第一句話，只換上運動服，只打開單詞書看一眼，鬧鐘響了只要把腳伸出被窩。一旦動了，那股「未完成的緊張感」自然會推著你走完。<strong>「拖延症最怕的從來不是你的堅持，而是你的開始。」</strong></p>
+      <p>師母親自作了總結。她說，我們腦部的<strong>杏仁核</strong>負責探測恐懼、發現危險——獅子來了要跑，這是好的。問題是它一天到晚神經兮兮，若不調整，它會<strong>把任何智力上的挑戰誤判成生存的危險</strong>：叫你多學一點、多做一點，它都當成威脅，於是你還沒啟動就放棄了。所以要<strong>覺醒，要知道是杏仁核在作祟</strong>。人的罪性本來就會順著「最好什麼都不做」那條路走，但滑梯效應告訴我們，只要跨出那一步就夠了。於是她說了這一篇最重的一句：<strong>「不可以再原諒自己了。不是沒有辦法治療，就看你要不要下定決心，付出行動。」</strong></p>
+      <p>原來這一切都通向同一件事：加強悟性，打開眼界，因為<strong>眼界決定境界</strong>。而悟性不是知識——師母說得很清楚，聖經你們比我熟、倒背如流了，現在缺的是把知道的活出來。<em>覺知是學習的開始，覺察是調整的開始；想都是問題，做才是答案。</em></p>
+      <p>主啊，求祢憐憫我們——把那些我們厭惡在別人身上的，先從我們自己身上除去；叫我們不再拿「沒有心情」「還沒準備好」當藉口。求祢加給我們悟性，也給我們跨出那一步的勇氣。阿們。</p>
+    </div>
+  </section>
+
+  <!-- ═══════════════ 收尾禱告 ═══════════════ -->
+  <section class="section" style="padding-top:0;padding-bottom:2rem;">
+    <div class="sec-title">
+      <div class="icon">🙏</div>
+      <div>
+        <h2>收尾的禱告</h2>
+        <div class="subtitle">求祢給我們跨出那一步的勇氣</div>
+      </div>
+    </div>
+    <div class="quote-block">
+      <p class="quote-text">主啊，把那些我們厭惡在別人身上的，<br>先從我們自己身上除去；<br>叫我們不再拿「沒有心情」當藉口。<br>求祢加給我們<em>悟性</em>，也給我們<em>跨出那一步</em>的勇氣。阿們。</p>
+      <div class="quote-src">— 愛的叮嚀 · 2026.07.19</div>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="page-footer">
+  <p>愛的叮嚀 · <strong>機器人的悟性，與那一步</strong></p>
+  <p style="margin-top:4px;">2026.07.19</p>
+</footer>
+
+</body>
+</html>
