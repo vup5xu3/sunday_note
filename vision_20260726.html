@@ -1,0 +1,1161 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>異象與感動分享 · 2026.07.26</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --gold: #C9A84C;
+  --gold-light: #E8D08A;
+  --gold-pale: #FAF3DC;
+  --deep: #1A1208;
+  --ink: #2C2416;
+  --muted: #6B5D3E;
+  --soft: #F5EDD8;
+  --parchment: #FBF6EC;
+  --teal: #2E7D72;
+  --teal-light: #4AA89C;
+  --teal-pale: #E0F2EF;
+  --ruby: #8B2130;
+  --ruby-light: #C2445A;
+  --ruby-pale: #FAEAED;
+  --blue-deep: #1E3A5F;
+  --blue-mid: #2E6DA4;
+  --blue-pale: #E8F1FA;
+  --purple: #5B3A8A;
+  --purple-light: #8B6BBF;
+  --purple-pale: #F0EAF8;
+  --radius: 12px;
+  --radius-lg: 20px;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family: 'Noto Sans TC', sans-serif; background: var(--parchment); color: var(--ink); line-height: 1.8; }
+
+/* ── HERO ── */
+.hero { background: var(--deep); padding: 3.5rem 2rem 3rem; text-align: center; position: relative; overflow: hidden; }
+.hero::before { content:''; position:absolute; inset:0; background: radial-gradient(ellipse at 50% 0%, rgba(201,168,76,0.18) 0%, transparent 70%); pointer-events:none; }
+.hero-tag { display:inline-block; border:1px solid var(--gold); color:var(--gold); font-size:11px; letter-spacing:4px; padding:4px 16px; border-radius:2px; margin-bottom:1.2rem; }
+.hero h1 { font-family:'Noto Serif TC',serif; font-size:clamp(1.6rem,4vw,2.4rem); color:#fff; font-weight:700; line-height:1.4; margin-bottom:0.6rem; }
+.hero h1 em { color:var(--gold-light); font-style:normal; }
+.hero-sub { color:rgba(255,255,255,0.55); font-size:0.85rem; letter-spacing:1px; margin-bottom:2rem; }
+.hero-verse { display:inline-block; border-left:2px solid var(--gold); padding:0.5rem 1rem; text-align:left; color:var(--gold-light); font-family:'Noto Serif TC',serif; font-size:0.9rem; line-height:1.9; }
+
+/* ── LAYOUT ── */
+.container { max-width:880px; margin:0 auto; padding:0 1.25rem; }
+.section { padding:2.5rem 0 1.5rem; }
+
+/* ── SECTION TITLE ── */
+.sec-title { display:flex; align-items:center; gap:10px; margin-bottom:1.5rem; }
+.sec-title .icon { width:36px; height:36px; background:var(--gold); border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:17px; color:var(--deep); flex-shrink:0; }
+.sec-title h2 { font-family:'Noto Serif TC',serif; font-size:1.2rem; color:var(--deep); font-weight:700; }
+.sec-title .subtitle { font-size:0.78rem; color:var(--muted); margin-top:1px; }
+
+/* ── SUMMARY CARDS ── */
+.summary-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:1rem; margin-bottom:1.5rem; }
+.summary-card { background:#fff; border-radius:var(--radius-lg); border:0.5px solid rgba(0,0,0,0.09); padding:1.4rem; }
+.summary-card .s-icon { font-size:1.5rem; margin-bottom:0.5rem; }
+.summary-card h4 { font-family:'Noto Serif TC',serif; font-size:0.95rem; font-weight:700; color:var(--deep); margin-bottom:0.5rem; }
+.summary-card p { font-size:0.8rem; color:var(--muted); line-height:1.7; }
+.summary-card.s-gold  { border-top:3px solid var(--gold); }
+.summary-card.s-teal  { border-top:3px solid var(--teal); }
+.summary-card.s-ruby  { border-top:3px solid var(--ruby); }
+.summary-card.s-blue  { border-top:3px solid var(--blue-mid); }
+.summary-card.s-purple{ border-top:3px solid var(--purple); }
+.summary-card.s-muted { border-top:3px solid var(--muted); }
+
+/* ── PROMISE BAR ── */
+.promise-bar { background:var(--deep); border-radius:var(--radius-lg); padding:1.5rem 1.8rem; margin-bottom:2rem; text-align:center; }
+.promise-bar .label { font-size:0.68rem; letter-spacing:3px; color:var(--gold); font-weight:700; margin-bottom:0.8rem; }
+.promise-bar p { font-family:'Noto Serif TC',serif; font-size:1.1rem; color:#fff; line-height:2; }
+
+/* ── FEATURED CARD（師母） ── */
+.featured-card { background:var(--deep); border-radius:var(--radius-lg); padding:2rem 2rem 1.8rem; margin-bottom:2rem; position:relative; overflow:hidden; }
+.featured-card::before { content:'✦'; position:absolute; top:1rem; right:1.5rem; font-size:5rem; color:var(--gold); opacity:0.08; line-height:1; pointer-events:none; }
+.featured-badge { display:inline-flex; align-items:center; gap:6px; background:var(--gold); color:var(--deep); font-size:0.7rem; font-weight:700; letter-spacing:2px; padding:4px 12px; border-radius:4px; margin-bottom:1.2rem; }
+.vision-block { background:rgba(255,255,255,0.06); border-radius:var(--radius); border-left:2px solid var(--gold); padding:1rem 1.2rem; margin-bottom:0.8rem; }
+.vision-block.v-teal { border-left-color:var(--teal-light); }
+.vision-block.v-ruby { border-left-color:#F4A0B0; }
+.vision-block-label { font-size:0.68rem; letter-spacing:2px; color:var(--gold); font-weight:700; margin-bottom:0.5rem; }
+.vision-block.v-teal .vision-block-label { color:var(--teal-light); }
+.vision-block.v-ruby .vision-block-label { color:#F4A0B0; }
+.vision-block p { font-size:0.88rem; color:rgba(255,255,255,0.82); line-height:1.85; }
+.word-box { display:block; margin-top:1rem; background:rgba(201,168,76,0.12); border-radius:var(--radius); padding:0.9rem 1.1rem; border:1px solid rgba(201,168,76,0.25); margin-bottom:0.8rem; }
+.word-box .w-label { font-size:0.68rem; letter-spacing:2px; color:var(--gold); font-weight:700; margin-bottom:0.4rem; }
+.word-box p { font-family:'Noto Serif TC',serif; font-size:0.95rem; color:var(--gold-light); line-height:1.9; }
+.word-box.w-ruby { background:rgba(139,33,48,0.12); border-color:rgba(139,33,48,0.25); }
+.word-box.w-ruby .w-label { color:#F4A0B0; }
+.word-box.w-ruby p { color:#F4A0B0; }
+
+/* ── VISION CARDS（同工） ── */
+.vision-cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1rem; margin-bottom:1.5rem; }
+.vision-card { background:#fff; border:0.5px solid rgba(0,0,0,0.09); border-radius:var(--radius-lg); padding:1.5rem; position:relative; overflow:hidden; transition:transform 0.2s, box-shadow 0.2s; }
+.vision-card:hover { transform:translateY(-3px); box-shadow:0 8px 28px rgba(0,0,0,0.08); }
+.vision-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; }
+.vc-gold::before   { background:linear-gradient(90deg,var(--gold),var(--gold-light)); }
+.vc-teal::before   { background:linear-gradient(90deg,var(--teal),var(--teal-light)); }
+.vc-ruby::before   { background:linear-gradient(90deg,var(--ruby),var(--ruby-light)); }
+.vc-blue::before   { background:linear-gradient(90deg,var(--blue-deep),var(--blue-mid)); }
+.vc-purple::before { background:linear-gradient(90deg,var(--purple),var(--purple-light)); }
+.card-region { font-size:0.68rem; font-weight:700; letter-spacing:2px; padding:3px 9px; border-radius:4px; display:inline-block; margin-bottom:0.8rem; }
+.vc-gold   .card-region { background:var(--gold-pale);   color:#7A620A; }
+.vc-teal   .card-region { background:var(--teal-pale);   color:var(--teal); }
+.vc-ruby   .card-region { background:var(--ruby-pale);   color:var(--ruby); }
+.vc-blue   .card-region { background:var(--blue-pale);   color:var(--blue-deep); }
+.vc-purple .card-region { background:var(--purple-pale); color:var(--purple); }
+.card-item { margin-bottom:0.9rem; padding-bottom:0.9rem; border-bottom:1px solid rgba(0,0,0,0.06); }
+.card-item:last-of-type { margin-bottom:0; padding-bottom:0; border-bottom:none; }
+.card-item-num { font-size:0.68rem; font-weight:700; letter-spacing:1px; margin-bottom:0.3rem; }
+.vc-gold   .card-item-num { color:var(--gold); }
+.vc-teal   .card-item-num { color:var(--teal); }
+.vc-ruby   .card-item-num { color:var(--ruby); }
+.vc-blue   .card-item-num { color:var(--blue-mid); }
+.vc-purple .card-item-num { color:var(--purple); }
+.card-item p { font-size:0.83rem; color:var(--muted); line-height:1.78; }
+.card-word { margin-top:0.8rem; padding:0.7rem 0.9rem; border-radius:8px; font-size:0.82rem; font-family:'Noto Serif TC',serif; line-height:1.75; }
+.vc-gold   .card-word { background:var(--gold-pale);   color:#7A620A;        border-left:2px solid var(--gold); }
+.vc-teal   .card-word { background:var(--teal-pale);   color:#185049;        border-left:2px solid var(--teal); }
+.vc-ruby   .card-word { background:var(--ruby-pale);   color:var(--ruby);    border-left:2px solid var(--ruby); }
+.vc-blue   .card-word { background:var(--blue-pale);   color:var(--blue-deep); border-left:2px solid var(--blue-mid); }
+.vc-purple .card-word { background:var(--purple-pale); color:var(--purple);  border-left:2px solid var(--purple); }
+
+/* ── 師母近況特別區塊 ── */
+.notice-card { background:#fff; border:1px solid rgba(139,33,48,0.25); border-top:4px solid var(--ruby); border-radius:var(--radius-lg); padding:1.6rem 1.8rem; margin-bottom:2rem; }
+.notice-item { margin-bottom:1rem; }
+.notice-item:last-child { margin-bottom:0; }
+.notice-item h4 { font-family:'Noto Serif TC',serif; font-size:0.95rem; font-weight:700; color:var(--ruby); margin-bottom:0.35rem; display:flex; align-items:center; gap:6px; }
+.notice-item p { font-size:0.85rem; color:var(--ink); line-height:1.85; }
+.notice-jump { display:inline-block; margin-top:0.6rem; font-size:0.78rem; font-weight:700; color:var(--ruby); text-decoration:none; border-bottom:1px dashed var(--ruby); padding-bottom:1px; }
+.notice-jump:hover { opacity:0.7; }
+
+/* ════════════════════════════════════════
+   下半部 · 特別專欄
+════════════════════════════════════════ */
+.col-hero { background:var(--deep); padding:3rem 2rem 2.6rem; text-align:center; position:relative; overflow:hidden; margin-top:2rem; }
+.col-hero::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse at 50% 100%, rgba(46,125,114,0.22) 0%, transparent 70%); pointer-events:none; }
+.col-hero .kicker { display:inline-block; border:1px solid var(--teal-light); color:var(--teal-light); font-size:11px; letter-spacing:4px; padding:4px 16px; border-radius:2px; margin-bottom:1.1rem; }
+.col-hero h2 { font-family:'Noto Serif TC',serif; font-size:clamp(1.4rem,3.6vw,2rem); color:#fff; font-weight:700; line-height:1.5; margin-bottom:0.8rem; }
+.col-hero h2 em { color:var(--gold-light); font-style:normal; }
+.col-hero .col-lead { max-width:640px; margin:0 auto; color:rgba(255,255,255,0.62); font-size:0.86rem; line-height:2; }
+
+/* 專欄導覽（sticky） */
+.col-nav { position:sticky; top:0; z-index:50; background:rgba(26,18,8,0.96); backdrop-filter:blur(8px); border-bottom:1px solid rgba(201,168,76,0.25); }
+.col-nav-inner { max-width:880px; margin:0 auto; display:flex; gap:2px; overflow-x:auto; padding:0 0.5rem; scrollbar-width:none; }
+.col-nav-inner::-webkit-scrollbar { display:none; }
+.col-nav a { flex:0 0 auto; padding:0.85rem 0.85rem; font-size:0.76rem; font-weight:500; color:rgba(255,255,255,0.5); text-decoration:none; white-space:nowrap; border-bottom:2px solid transparent; transition:color 0.2s, border-color 0.2s; }
+.col-nav a:hover { color:var(--gold-light); }
+.col-nav a.active { color:var(--gold); font-weight:700; border-bottom-color:var(--gold); }
+
+/* 專欄區塊 */
+.col-body { background:linear-gradient(180deg, #F7F0E0 0%, var(--parchment) 260px); padding-bottom:1rem; }
+.col-sec { padding:2.6rem 0 0.6rem; scroll-margin-top:56px; }
+.col-sec-head { margin-bottom:1.4rem; }
+.col-sec-num { display:inline-block; font-family:'Noto Serif TC',serif; font-size:0.7rem; font-weight:700; letter-spacing:2px; color:var(--teal); background:var(--teal-pale); padding:3px 10px; border-radius:4px; margin-bottom:0.6rem; }
+.col-sec-head h3 { font-family:'Noto Serif TC',serif; font-size:1.25rem; color:var(--deep); font-weight:700; line-height:1.5; }
+.col-sec-head .desc { font-size:0.8rem; color:var(--muted); margin-top:0.35rem; line-height:1.8; }
+
+.prose { background:#fff; border:0.5px solid rgba(0,0,0,0.09); border-radius:var(--radius-lg); padding:1.6rem 1.8rem; margin-bottom:1rem; }
+.prose p { font-size:0.87rem; color:var(--ink); line-height:2; margin-bottom:0.9rem; }
+.prose p:last-child { margin-bottom:0; }
+.prose h4 { font-family:'Noto Serif TC',serif; font-size:1rem; color:var(--deep); font-weight:700; margin:1.4rem 0 0.6rem; padding-left:0.6rem; border-left:3px solid var(--gold); }
+.prose h4:first-child { margin-top:0; }
+.prose strong { color:var(--ruby); font-weight:700; }
+
+/* 引言 */
+.quote { border-left:3px solid var(--gold); background:var(--gold-pale); border-radius:0 var(--radius) var(--radius) 0; padding:1rem 1.2rem; margin:1rem 0; }
+.quote p { font-family:'Noto Serif TC',serif; font-size:0.9rem; color:#6B540A; line-height:2; margin:0; }
+.quote .who { display:block; margin-top:0.6rem; font-family:'Noto Sans TC',sans-serif; font-size:0.72rem; color:var(--muted); font-weight:700; letter-spacing:1px; }
+.quote.q-teal { border-left-color:var(--teal); background:var(--teal-pale); }
+.quote.q-teal p { color:#174E47; }
+.quote.q-ruby { border-left-color:var(--ruby); background:var(--ruby-pale); }
+.quote.q-ruby p { color:var(--ruby); }
+
+/* 收合原話 */
+details.raw { background:#fff; border:0.5px solid rgba(0,0,0,0.12); border-radius:var(--radius); margin:0.9rem 0; overflow:hidden; }
+details.raw summary { cursor:pointer; padding:0.75rem 1rem; font-size:0.78rem; font-weight:700; color:var(--teal); list-style:none; display:flex; align-items:center; gap:8px; user-select:none; }
+details.raw summary::-webkit-details-marker { display:none; }
+details.raw summary::before { content:'▸'; transition:transform 0.2s; display:inline-block; }
+details.raw[open] summary::before { transform:rotate(90deg); }
+details.raw summary:hover { background:var(--teal-pale); }
+details.raw .raw-body { padding:0 1rem 1rem; font-size:0.83rem; color:var(--muted); line-height:2; border-top:1px solid rgba(0,0,0,0.06); padding-top:0.9rem; }
+
+/* ── 互動時間軸 ── */
+.tl { position:relative; margin:0.5rem 0 1rem; }
+.tl::before { content:''; position:absolute; left:15px; top:8px; bottom:8px; width:2px; background:linear-gradient(180deg,var(--gold),var(--teal),var(--ruby)); }
+.tl-item { position:relative; padding-left:46px; margin-bottom:0.7rem; }
+.tl-dot { position:absolute; left:8px; top:14px; width:16px; height:16px; border-radius:50%; background:#fff; border:3px solid var(--gold); z-index:2; transition:transform 0.2s, background 0.2s; }
+.tl-item.t-teal .tl-dot { border-color:var(--teal); }
+.tl-item.t-ruby .tl-dot { border-color:var(--ruby); }
+.tl-item.t-blue .tl-dot { border-color:var(--blue-mid); }
+.tl-btn { width:100%; text-align:left; background:#fff; border:0.5px solid rgba(0,0,0,0.1); border-left:3px solid var(--gold); border-radius:var(--radius); padding:0.85rem 1rem; cursor:pointer; font-family:inherit; transition:box-shadow 0.2s, transform 0.2s; }
+.tl-item.t-teal .tl-btn { border-left-color:var(--teal); }
+.tl-item.t-ruby .tl-btn { border-left-color:var(--ruby); }
+.tl-item.t-blue .tl-btn { border-left-color:var(--blue-mid); }
+.tl-btn:hover { box-shadow:0 6px 20px rgba(0,0,0,0.09); transform:translateX(2px); }
+.tl-when { font-size:0.7rem; font-weight:700; letter-spacing:1px; color:var(--gold); margin-bottom:0.2rem; }
+.tl-item.t-teal .tl-when { color:var(--teal); }
+.tl-item.t-ruby .tl-when { color:var(--ruby); }
+.tl-item.t-blue .tl-when { color:var(--blue-mid); }
+.tl-what { font-family:'Noto Serif TC',serif; font-size:0.93rem; font-weight:700; color:var(--deep); line-height:1.6; }
+.tl-hint { font-size:0.7rem; color:#A8996F; margin-top:0.3rem; }
+.tl-detail { max-height:0; overflow:hidden; transition:max-height 0.35s ease; }
+.tl-item.open .tl-detail { max-height:600px; }
+.tl-item.open .tl-dot { background:var(--gold); transform:scale(1.15); }
+.tl-item.open.t-teal .tl-dot { background:var(--teal); }
+.tl-item.open.t-ruby .tl-dot { background:var(--ruby); }
+.tl-item.open.t-blue .tl-dot { background:var(--blue-mid); }
+.tl-detail-inner { padding:0.9rem 1rem 0.2rem; font-size:0.83rem; color:var(--muted); line-height:2; }
+.tl-detail-inner .tag { display:inline-block; font-size:0.68rem; font-weight:700; letter-spacing:1px; background:var(--soft); color:var(--muted); padding:2px 8px; border-radius:4px; margin-bottom:0.5rem; }
+
+/* ── 前線後方架構圖 ── */
+.flow { display:grid; grid-template-columns:1fr auto 1fr; gap:0.8rem; align-items:stretch; margin:1rem 0; }
+@media (max-width:640px){ .flow { grid-template-columns:1fr; } .flow .flow-mid { flex-direction:row !important; padding:0.6rem 0 !important; } }
+.flow-col { background:#fff; border:0.5px solid rgba(0,0,0,0.1); border-radius:var(--radius-lg); padding:1.2rem 1.1rem; }
+.flow-col.f-front { border-top:4px solid var(--ruby); }
+.flow-col.f-back { border-top:4px solid var(--teal); }
+.flow-col .fc-label { font-size:0.68rem; font-weight:700; letter-spacing:2px; padding:3px 9px; border-radius:4px; display:inline-block; margin-bottom:0.7rem; }
+.f-front .fc-label { background:var(--ruby-pale); color:var(--ruby); }
+.f-back .fc-label { background:var(--teal-pale); color:var(--teal); }
+.flow-col h5 { font-family:'Noto Serif TC',serif; font-size:0.95rem; color:var(--deep); font-weight:700; margin-bottom:0.15rem; }
+.flow-col .fc-who { font-size:0.74rem; color:var(--muted); margin-bottom:0.8rem; }
+.flow-col ul { list-style:none; }
+.flow-col li { font-size:0.8rem; color:var(--muted); line-height:1.75; padding-left:1rem; position:relative; margin-bottom:0.45rem; }
+.flow-col li::before { content:'▪'; position:absolute; left:0; }
+.f-front li::before { color:var(--ruby); }
+.f-back li::before { color:var(--teal); }
+.flow-mid { display:flex; flex-direction:column; align-items:center; justify-content:center; gap:0.35rem; padding:0 0.3rem; }
+.flow-arrow { font-size:1.1rem; color:var(--gold); }
+.flow-mid .fm-text { font-size:0.68rem; font-weight:700; color:var(--muted); writing-mode:vertical-rl; letter-spacing:2px; }
+@media (max-width:640px){ .flow-mid .fm-text { writing-mode:horizontal-tb; } }
+.flow-note { background:var(--deep); border-radius:var(--radius-lg); padding:1.2rem 1.4rem; margin-top:0.8rem; }
+.flow-note p { font-family:'Noto Serif TC',serif; font-size:0.9rem; color:var(--gold-light); line-height:2; text-align:center; }
+
+/* ── 雙面性對照 ── */
+.duality { display:grid; grid-template-columns:1fr 1fr; gap:0.8rem; margin:1rem 0; }
+@media (max-width:640px){ .duality { grid-template-columns:1fr; } }
+.dual-card { border-radius:var(--radius-lg); padding:1.3rem 1.2rem; }
+.dual-card.d-light { background:linear-gradient(160deg,#FFFBEF,#FAF3DC); border:0.5px solid rgba(201,168,76,0.4); }
+.dual-card.d-dark { background:linear-gradient(160deg,#241A0C,#1A1208); }
+.dual-card .dc-face { font-size:1.7rem; margin-bottom:0.4rem; }
+.dual-card h5 { font-family:'Noto Serif TC',serif; font-size:1rem; font-weight:700; margin-bottom:0.2rem; }
+.d-light h5 { color:#7A620A; }
+.d-dark h5 { color:var(--gold-light); }
+.dual-card .dc-sub { font-size:0.72rem; margin-bottom:0.9rem; letter-spacing:1px; }
+.d-light .dc-sub { color:#A8903A; }
+.d-dark .dc-sub { color:rgba(255,255,255,0.45); }
+.dual-card li { list-style:none; font-size:0.81rem; line-height:1.8; margin-bottom:0.6rem; padding-left:1.1rem; position:relative; }
+.d-light li { color:#6B540A; }
+.d-dark li { color:rgba(255,255,255,0.78); }
+.dual-card li::before { content:'—'; position:absolute; left:0; opacity:0.6; }
+.dual-bridge { background:#fff; border:1px dashed var(--gold); border-radius:var(--radius); padding:1rem 1.2rem; text-align:center; margin-top:0.8rem; }
+.dual-bridge p { font-family:'Noto Serif TC',serif; font-size:0.88rem; color:var(--ink); line-height:2; }
+
+/* ── AI 對照表 ── */
+.ai-grid { display:grid; grid-template-columns:1fr 1fr; gap:0; border:0.5px solid rgba(0,0,0,0.12); border-radius:var(--radius-lg); overflow:hidden; margin:1rem 0; background:#fff; }
+.ai-head { padding:0.85rem 1rem; font-size:0.76rem; font-weight:700; letter-spacing:1px; }
+.ai-head.h-l { background:var(--purple-pale); color:var(--purple); border-bottom:1px solid rgba(0,0,0,0.08); }
+.ai-head.h-r { background:var(--gold-pale); color:#7A620A; border-bottom:1px solid rgba(0,0,0,0.08); border-left:1px solid rgba(0,0,0,0.08); }
+.ai-cell { padding:0.8rem 1rem; font-size:0.81rem; line-height:1.8; border-bottom:1px solid rgba(0,0,0,0.06); transition:background 0.15s; }
+.ai-cell.c-l { color:var(--purple); font-family:'Noto Serif TC',serif; }
+.ai-cell.c-r { color:var(--muted); border-left:1px solid rgba(0,0,0,0.08); }
+.ai-row:hover .ai-cell { background:var(--soft); }
+.ai-grid .ai-row:last-child .ai-cell { border-bottom:none; }
+.ai-row { display:contents; }
+.setting-chips { display:flex; flex-wrap:wrap; gap:0.4rem; margin:0.9rem 0; }
+.chip { font-size:0.76rem; background:#fff; border:0.5px solid rgba(91,58,138,0.35); color:var(--purple); padding:5px 11px; border-radius:99px; transition:background 0.2s, transform 0.2s; }
+.chip:hover { background:var(--purple-pale); transform:translateY(-2px); }
+
+/* ── 警戒區塊 ── */
+.warn-zone { background:linear-gradient(160deg,#2B0E13,#1A1208); border-radius:var(--radius-lg); padding:1.8rem 1.8rem 1.6rem; margin:1rem 0; position:relative; overflow:hidden; }
+.warn-zone::before { content:'⚠'; position:absolute; top:0.8rem; right:1.4rem; font-size:4.5rem; color:var(--ruby-light); opacity:0.12; line-height:1; }
+.warn-badge { display:inline-block; background:var(--ruby); color:#fff; font-size:0.68rem; font-weight:700; letter-spacing:2px; padding:4px 12px; border-radius:4px; margin-bottom:1.1rem; }
+.warn-zone h5 { font-family:'Noto Serif TC',serif; font-size:0.95rem; color:#F4A0B0; margin:1.2rem 0 0.5rem; }
+.warn-zone h5:first-of-type { margin-top:0; }
+.warn-zone p { font-size:0.85rem; color:rgba(255,255,255,0.8); line-height:2; margin-bottom:0.7rem; }
+.warn-zone .wq { font-family:'Noto Serif TC',serif; font-size:0.92rem; color:#F4A0B0; border-left:2px solid var(--ruby-light); padding-left:0.9rem; margin:0.9rem 0; line-height:2; }
+
+/* ── 遺囑清單 ── */
+.check-list { display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:0.7rem; margin:1rem 0; }
+.check-item { background:#fff; border:0.5px solid rgba(0,0,0,0.1); border-left:3px solid var(--blue-mid); border-radius:var(--radius); padding:0.9rem 1rem; }
+.check-item .ci-t { font-size:0.83rem; font-weight:700; color:var(--blue-deep); margin-bottom:0.25rem; }
+.check-item .ci-d { font-size:0.76rem; color:var(--muted); line-height:1.75; }
+
+/* ── 結語 ── */
+.closing { background:var(--deep); border-radius:var(--radius-lg); padding:2rem 1.8rem; margin:1.5rem 0 0.5rem; text-align:center; position:relative; overflow:hidden; }
+.closing::before { content:'✦'; position:absolute; top:-0.5rem; left:50%; transform:translateX(-50%); font-size:4rem; color:var(--gold); opacity:0.1; }
+.closing .cl-label { font-size:0.68rem; letter-spacing:3px; color:var(--gold); font-weight:700; margin-bottom:1rem; }
+.closing p { font-family:'Noto Serif TC',serif; font-size:1rem; color:#fff; line-height:2.1; max-width:600px; margin:0 auto 0.8rem; }
+.closing p:last-child { margin-bottom:0; }
+.closing .cl-small { font-size:0.82rem; color:rgba(255,255,255,0.55); font-family:'Noto Sans TC',sans-serif; }
+
+/* ── FOOTER ── */
+.page-footer { background:var(--deep); padding:2rem; text-align:center; color:rgba(255,255,255,0.4); font-size:0.78rem; line-height:1.9; border-top:1px solid rgba(201,168,76,0.2); }
+</style>
+</head>
+<body>
+
+<!-- ════════ HERO ════════ -->
+<div class="hero">
+  <div class="hero-tag">異象與感動</div>
+  <h1>聖靈的<em>異象與感動</em>分享</h1>
+  <div class="hero-sub">2026年7月26日 · 各地教區同工與師母分享</div>
+  <div class="hero-verse">
+    「你是忠心的僕人，還是作惡的僕人，<br>都是你自己所決定的；凡有耳的，就應當聽。」
+  </div>
+</div>
+
+<main class="container">
+
+  <!-- ════════ 0. 師母的近況與叮嚀 ════════ -->
+  <section class="section">
+    <div class="sec-title">
+      <div class="icon" style="background:var(--ruby);color:#fff;">📣</div>
+      <div>
+        <h2>師母的近況與叮嚀</h2>
+        <div class="subtitle">高雄 · 秀美師母　請弟兄姊妹特別留意</div>
+      </div>
+    </div>
+
+    <div class="notice-card">
+      <div class="notice-item">
+        <h4>📜 請弟兄姊妹考慮預先立下遺囑</h4>
+        <p>師母近日與傳道談到立遺囑的事，蒐集了許多法律與醫療方面的資料，特別提出來與大家共享。沒有預立遺囑的後遺症很多——教會過去就因此面臨訴訟與版權上的糾紛。現在的觀念比較開明，許多事情提前講清楚，反而沒事。<strong>不是年輕就不必寫，任何年紀都可以寫。</strong>除了財產，醫療意願（例如是否氣切、是否急救）也應當先表明，免得日後家人為難、爭執不休。</p>
+        <a class="notice-jump" href="#col-will">詳細內容見下方專欄 ↓</a>
+      </div>
+      <div class="notice-item">
+        <h4>💛 一卷擱置了 38 年的結婚錄影帶</h4>
+        <p>六月底，箴言師母把當年的結婚錄影帶整理好轉交，秀美師母時隔 38 年終於把它看完了。由此帶出了這一天師母與教師一段很長的分享——關於神的預定、前線與後方、以及一個家庭如何被神量身打造來承擔。</p>
+        <a class="notice-jump" href="#column">閱讀本期特別專欄 ↓</a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════ 1. 總結重點摘要 ════════ -->
+  <section class="section" style="padding-top:0;">
+    <div class="sec-title">
+      <div class="icon">📋</div>
+      <div>
+        <h2>本次異象感動總結</h2>
+        <div class="subtitle">核心信息摘要</div>
+      </div>
+    </div>
+
+    <div class="summary-grid">
+
+      <div class="summary-card s-ruby">
+        <div class="s-icon">📕</div>
+        <h4>生命冊上失落的名字</h4>
+        <p>名字失去光、化為灰被吹散，就落到魔鬼那裡——因為心中沒有根，被世界的憂慮困住，道就被奪去了。</p>
+      </div>
+
+      <div class="summary-card s-gold">
+        <div class="s-icon">📯</div>
+        <h4>自由意志與那日的交帳</h4>
+        <p>真理已經教導，自由選擇的意志也已賜下；那日站在主面前，是忠心還是作惡，都是自己所決定的。</p>
+      </div>
+
+      <div class="summary-card s-teal">
+        <div class="s-icon">🌸</div>
+        <h4>教會蒙保守</h4>
+        <p>如房子般大的導彈貼著教會飛過，卻沒有砸中；教會的一切毫髮無傷，反而被一朵極大的花覆蓋。</p>
+      </div>
+
+      <div class="summary-card s-blue">
+        <div class="s-icon">🍲</div>
+        <h4>豐富的靈糧要懂得支取</h4>
+        <p>大鍋煮著美食，金碗銀盤俱備；主在這教會所預備的豐富靈糧，你們要支取成為生命的能力。</p>
+      </div>
+
+      <div class="summary-card s-purple">
+        <div class="s-icon">✍️</div>
+        <h4>天使與牧師都在記錄</h4>
+        <p>牧師走下來看每一個人、在講台上從第一位寫到最後一位；天使也在記錄，小天使在後方撒下金粉。</p>
+      </div>
+
+      <div class="summary-card s-muted">
+        <div class="s-icon">🧺</div>
+        <h4>破洞的簍子</h4>
+        <p>從天飄下的嗎哪，有人珍藏、有人丟棄；興奮採下的果子，卻從破洞的簍子掉落摔裂——只有慾望，缺了思考與裝備。</p>
+      </div>
+
+    </div>
+
+    <div class="promise-bar">
+      <div class="label">神的話語</div>
+      <p>「這是我所創造的美好世界，<br>你們要有信、有望、有愛。」</p>
+    </div>
+  </section>
+
+
+  <!-- ════════ 2. 秀美師母異象分享 ════════ -->
+  <section class="section" style="padding-top:0;">
+    <div class="sec-title">
+      <div class="icon" style="background:var(--gold);">✦</div>
+      <div>
+        <h2>秀美師母異象分享</h2>
+        <div class="subtitle">高雄 · 敬愛的弟兄姊妹，大家平安</div>
+      </div>
+    </div>
+
+    <div class="featured-card">
+      <div class="featured-badge">✦ 師母分享</div>
+
+      <div class="vision-block">
+        <div class="vision-block-label">異象一 · 詩班獻詩時 — 從天飄下的嗎哪</div>
+        <p>看見從天上飄下來很多東西，有一點像葉片、又不太像。看到很多人去撿；有人不為所動、動也不動；有人撿了，好像寶貝一樣珍藏起來；也有的人撿了又丟掉。</p>
+      </div>
+
+      <div class="word-box">
+        <div class="w-label">神的話語</div>
+        <p>「孩子們，我賜給你們非常多的嗎哪，都是與被提、與能否交帳有著密切的關係。但多少我的兒女，如同當年的以色列百姓一樣不珍惜，無法有更新的生命——無法賺得銀子，又要如何交帳呢？」</p>
+      </div>
+
+      <div class="vision-block v-ruby">
+        <div class="vision-block-label">異象二 · 說方言時 — 破洞的簍子</div>
+        <p>看到有人拿著長長的竹竿，就是果園裡採高處水果用的那種長桿。他勾著樹上的果實，很開心、很興奮地一直勾，勾下來就隨手放進腰上繫著的簍子裡。他卻忽略了他的簍子是有破洞的——果子就從簍子裡掉了下來，摔裂了。</p>
+      </div>
+
+      <div class="word-box w-ruby">
+        <div class="w-label">神的話語</div>
+        <p>「孩子們，不要只知道慾望之所求，卻缺了思考與裝備。屬靈上的失誤與疏漏，是無法成就我的事的。」</p>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ════════ 3. 各地同工異象分享 ════════ -->
+  <section class="section" style="padding-top:0;">
+    <div class="sec-title">
+      <div class="icon" style="background:var(--teal);color:#fff;">🕊</div>
+      <div>
+        <h2>各地同工異象分享</h2>
+        <div class="subtitle">台北・台中各教區同工</div>
+      </div>
+    </div>
+
+    <div class="vision-cards">
+
+      <div class="vision-card vc-ruby">
+        <span class="card-region">台北教區</span>
+
+        <div class="card-item">
+          <div class="card-item-num">異象一 · 安靜心時 — 創造與黑色的膜</div>
+          <p>聚會開始時，看見有一卷書展開，看見父神、聖靈在創造宇宙以及地球；當時地是混沌，淵面黑暗，神的靈運行在其間。又看見魔鬼張開一片黑色的膜，每一個城市、每一個區域的上空，好像都被這一層薄膜、又像是煙霧給包圍住了，許多人的靈是沉睡的。</p>
+        </div>
+
+        <div class="card-item">
+          <div class="card-item-num">異象二 ·（續）兩本冊子</div>
+          <p>看見魔鬼手上有一個冊子，主耶穌的手上也有一本生命冊。生命冊上面的名字，有些人的名字變得灰暗、失去了光，甚至化成灰被吹散了，那名字就到魔鬼那裡去——看起來兩者好像是一種競爭的模式。我深感好奇，就問主耶穌：為何他們會從生命冊上失落？</p>
+        </div>
+
+        <div class="card-word">「他們原是聽了道就歡喜領受，但心中沒有根，反倒被這世界的憂慮困住了，魔鬼就奪去他們心中的道，用屬世的豐富、各樣的誘惑來引誘他們。他們心中沒有我的道，因此他們生命的光就滅了，也失去了他們的生命。」</div>
+      </div>
+
+      <div class="vision-card vc-gold">
+        <span class="card-region">台北教區</span>
+
+        <div class="card-item">
+          <div class="card-item-num">異象 · 說方言班服侍時 — 山谷的號角</div>
+          <p>看見一個山谷，山谷的四周有高聳的岩壁。此時聽見有號角的聲音從岩壁的上方傳下來，迴盪在山谷之中；號角的聲音停止時，從天上有話語賜下。</p>
+        </div>
+
+        <div class="card-word">「我將真理教導你們，告訴你們應當如何走向正確的道路；我又賦予你們自由選擇的意志，讓你們隨著自己的心去行。因此在那日站在我面前的時候，你是忠心的僕人，還是作惡的僕人，都是你自己所決定的。凡有耳的，就應當聽。」</div>
+      </div>
+
+      <div class="vision-card vc-teal">
+        <span class="card-region">台北教區</span>
+
+        <div class="card-item">
+          <div class="card-item-num">異象一 · 安靜心時 — 資源與選擇</div>
+          <p>看到我們的下方好像有火在燒。有意念說：要進入那國的資源，我們沒有缺少任何一樣，但看我們如何選擇？</p>
+        </div>
+
+        <div class="card-item">
+          <div class="card-item-num">異象二 ·（續）掠過教會的導彈</div>
+          <p>接著看到一顆像是導彈的東西，大概有一個房子這麼大，它掠過教會卻沒有砸到，只是貼著飛了過去。看到教會的物品沒有受到任何波及與破壞，反而覆蓋著一朵很大的花。</p>
+        </div>
+      </div>
+
+      <div class="vision-card vc-blue">
+        <span class="card-region">台北教區</span>
+
+        <div class="card-item">
+          <div class="card-item-num">異象一 · 花園裡種花的人</div>
+          <p>看見有一座花園，有一個人在花園中種了許多的花，意念裡進來的是「奉獻的花」。聽見那人在花園裡種花的時候，歌聲非常輕快，聽見是唱詩選第39首〈主愛飄香〉。他的神情讓我感覺，他很滿意他所種的這一切花朵，他心裡面很有主的愛。</p>
+        </div>
+
+        <div class="card-item">
+          <div class="card-item-num">異象二 · 教師解說方言時 — 金碗銀盤</div>
+          <p>看見有一個很大的餐廳，很大的鍋子正煮著好吃的食物；那些碗都是金做的，也有銀做的盤子。</p>
+        </div>
+
+        <div class="card-word">「你們當知道，主在這教會所預備的豐富靈糧，你們要懂得支取，成為你們的生命，使你們的生命有能力——這是我所喜悅的。」</div>
+      </div>
+
+      <div class="vision-card vc-purple">
+        <span class="card-region">台中教區</span>
+
+        <div class="card-item">
+          <div class="card-item-num">異象一 · 唱詩的時候</div>
+          <p>看見牧師走下來看我們每一個人，然後有天使在記錄著每一個人，後方還有小天使在撒著金粉。</p>
+        </div>
+
+        <div class="card-item">
+          <div class="card-item-num">異象二 · 彈靈琴的時候</div>
+          <p>看見有人在跳舞，有人拿著捧花，捧花高高舉起，然後有緞帶垂落下來，再有扇子轉了過來——那個舞蹈就這樣一直往上跳升上去。</p>
+        </div>
+      </div>
+
+      <div class="vision-card vc-gold">
+        <span class="card-region">台中教區</span>
+
+        <div class="card-item">
+          <div class="card-item-num">異象一 · 教區詩班獻詩時 — 發光的詩袍</div>
+          <p>看見牧師在指揮，牧師幫他們整理詩袍；整理完，詩袍就變白了，發光發亮。</p>
+        </div>
+
+        <div class="card-word">「把握時間、環境、機會來服侍，要持守我所賜給你們的。」</div>
+
+        <div class="card-item">
+          <div class="card-item-num">異象二 · 靈歌時 — 牧師的記錄</div>
+          <p>看見牧師在講台上，像是在記錄著什麼，他一直寫、一直寫，從第一位寫到最後一位。</p>
+        </div>
+
+        <div class="card-item">
+          <div class="card-item-num">異象三 · 靈舞服侍時 — 滿堂的花</div>
+          <p>看見師母拿著花束，繞著會堂走了一圈，會堂周圍就佈滿了多彩繽紛的花束。</p>
+        </div>
+
+        <div class="card-word">「這是我所創造的美好世界，你們要有信、有望、有愛。」</div>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+
+<!-- ════════════════════════════════════════
+     ▼▼▼  下半部 · 特別專欄  ▼▼▼
+════════════════════════════════════════ -->
+<div class="col-hero" id="column">
+  <div class="kicker">特別專欄</div>
+  <h2>一卷擱置了 38 年的錄影帶，<br>與一個<em>被神量身打造</em>的家</h2>
+  <div class="col-lead">
+    這一天的聚會，在異象分享之後，有一段罕見的長談。<br>
+    先是秀美師母談起那卷被擱置了 38 年的結婚錄影帶，<br>
+    接著箴言師母做了很長的分享與回饋，最後明學教師做了相對應的回應。<br>
+    三個人的話語合起來，指向同一個核心——<strong style="color:var(--gold-light);font-weight:700;">一切都是神的預定</strong>。
+  </div>
+</div>
+
+<nav class="col-nav" id="colNav">
+  <div class="col-nav-inner">
+    <a href="#col-tape">① 38年的錄影帶</a>
+    <a href="#col-timeline">② 預定的時間軸</a>
+    <a href="#col-front">③ 前線與後方</a>
+    <a href="#col-duality">④ 教師的雙面</a>
+    <a href="#col-ai">⑤ AI人與愛的真諦</a>
+    <a href="#col-warn">⑥ 教會的提點</a>
+    <a href="#col-reply">⑦ 教師的回應</a>
+    <a href="#col-will">⑧ 立遺囑</a>
+    <a href="#col-end">⑨ 統整</a>
+  </div>
+</nav>
+
+<div class="col-body">
+<div class="container">
+
+  <!-- ①  38年的錄影帶 -->
+  <section class="col-sec" id="col-tape">
+    <div class="col-sec-head">
+      <span class="col-sec-num">壹 · 起點</span>
+      <h3>一卷擱置了 38 年的結婚錄影帶</h3>
+      <div class="desc">秀美師母 · 這一天所有的分享，都是從這件小事開始的</div>
+    </div>
+
+    <div class="prose">
+      <p>六月底的時候，箴言師母送給秀美師母一個袋子。打開一看，是當年她與明學教師結婚的錄影帶。</p>
+      <p>那卷帶子，她大概<strong>只看過一次，而且沒有看完</strong>，往後的日子就再也沒有看了。師母自己說明了原因——那個時候的婚姻，要說非常開心、非常高興，好像也沒有；<strong>總是承擔著某一種壓力</strong>。所以那個袋子，她真的沒有怎麼去看，也沒有想看。</p>
+      <p>那一天她把它打開，只看了開頭。畫面裡的人還很青澀。她一看，教師那時候才 32 歲。</p>
+
+      <div class="quote">
+        <p>「我就在想，他那個年齡、那個時候就接受這個婚姻，然後承受到現在。<br>說真的，他那個時候做這個決定，現在再回頭去看，我真的覺得有一點不太能接受——因為那個時候，沒有覺得他那麼小啊。」</p>
+        <span class="who">— 秀美師母</span>
+      </div>
+
+      <p>她接著說，教會裡如今超過那個年齡的弟兄姊妹，應該已經不少了。而她最想感嘆的是一件事：<strong>時間真的過得很快，我們現在都七十幾歲了。</strong></p>
+      <p>箴言師母補上了時間的刻度：他們是 <strong>1988 年</strong>結婚的，到 2026 年，整整 <strong>38 年</strong>。以前這卷帶子要透過電視才能播出來，如今同工們整理得很好，用手機就能觀看，她就趕快把它傳給了教師與秀美師母。</p>
+
+      <div class="quote q-teal">
+        <p>「我真的感到，不知道如何用言語來形容。」</p>
+        <span class="who">— 箴言師母</span>
+      </div>
+
+      <details class="raw">
+        <summary>箴言師母補述：為什麼是「38 年才看完」</summary>
+        <div class="raw-body">
+          箴言師母說，教師跟秀美師母是非常害羞的人，絕對不會在眾人面前有恩愛的互動；而她自己這個人就很大剌剌。所以這些年她一天到晚給他們「拋球」，還丟變化球，接得他們累壞了——他們要的是很低調的作為與作風，她卻在旁邊很嗨，他們就更害羞了。<br><br>
+          她形容自己有兩面：一方面很冷漠，什麼事都不管；一旦要有所行動的時候就特別嗨，是很極端的人。他們也知道，當她很嗨的時候，倒霉的就是他們——她低調的時候跟他們是同一國的，她一嗨，他們就成了頭痛人物，而她就是那個「麻煩製造者」。<br><br>
+          有這樣的性格對照，也就不難理解：那卷錄影帶為什麼會被兩位當事人擱置那麼久，而最後是由箴言師母把它整理好、遞到他們手上。
+        </div>
+      </details>
+    </div>
+  </section>
+
+
+  <!-- ②  預定的時間軸 -->
+  <section class="col-sec" id="col-timeline">
+    <div class="col-sec-head">
+      <span class="col-sec-num">貳 · 架構圖一</span>
+      <h3>神的預定 · 一條回頭才看得懂的時間軸</h3>
+      <div class="desc">箴言師母反覆講的那句「一切都是預定的」，攤開來是這樣一條線 —— 點選任一節點展開細節</div>
+    </div>
+
+    <div class="tl" id="timeline">
+
+      <div class="tl-item t-gold">
+        <div class="tl-dot"></div>
+        <button class="tl-btn" type="button">
+          <div class="tl-when">姐姐四歲多</div>
+          <div class="tl-what">四歲的姐姐，背著七八個月大的弟弟</div>
+          <div class="tl-hint">點開看細節 ＋</div>
+        </button>
+        <div class="tl-detail"><div class="tl-detail-inner">
+          <span class="tag">姐弟情的起點</span>
+          箴言師母說，她四歲多的時候就背著大約七、八個月大的教師。四歲的孩子頭好壯壯，卻背著一個嬰兒——「最天才的是我媽，居然放心讓我背著」，而且<strong style="color:var(--ruby)">有照片為證</strong>。<br><br>
+          教師剛出生時睡的是日本式的榻榻米大床。她就繞著母親與弟弟睡的地方，像印第安人一樣一直跳；結果「好死不死我就假會」，去拿了熱水瓶，一跌倒，熱水瓶就翻了。那時她也不過四歲。<br><br>
+          <em style="color:var(--muted)">師母的註解：這是預定的——小姐弟的感情就那麼深。否則後來她沒回家過年時，弟弟也不會到車站等她等到最後一班車。</em>
+        </div></div>
+      </div>
+
+      <div class="tl-item t-ruby">
+        <div class="tl-dot"></div>
+        <button class="tl-btn" type="button">
+          <div class="tl-when">教師國小</div>
+          <div class="tl-what">父親外遇，一個名醫之家碎了</div>
+          <div class="tl-hint">點開看細節 ＋</div>
+        </button>
+        <div class="tl-detail"><div class="tl-detail-inner">
+          <span class="tag">少年老成的開始</span>
+          師母的父親是名醫，得過全國十大名醫的頭銜。但在教師還讀國小的時候，父親有了外遇，一天到晚待在外面金屋藏嬌的地方。<br><br>
+          診所裡病人從早排到晚，一個小時、兩個小時地等著——人家是生病了呀，卻找不到醫生看病。母親一個人根本應付不來。<br><br>
+          <strong style="color:var(--ruby)">是那個還在讀小學的弟弟，二話不說騎上腳踏車，一路騎到父親金屋藏嬌的地方，喊他：「爸爸，回來看病。」</strong><br><br>
+          後來母親癱瘓了，妹妹在國中一天到晚只帶幾個麵包當午餐，家裡不知道該怎麼辦——洗碗、家務，全都是明學教師在做的。師母說：他不是 32 歲才開始承擔責任，他從國小就開始承擔了。
+        </div></div>
+      </div>
+
+      <div class="tl-item t-blue">
+        <div class="tl-dot"></div>
+        <button class="tl-btn" type="button">
+          <div class="tl-when">姐姐高中</div>
+          <div class="tl-what">狀元的腦筋被收起來了</div>
+          <div class="tl-hint">點開看細節 ＋</div>
+        </button>
+        <div class="tl-detail"><div class="tl-detail-inner">
+          <span class="tag">被攔阻的那條路</span>
+          箴言師母說，她本來是一個功課非常好的孩子，國小、初中還考過當地的狀元，是很能唸書的。<br><br>
+          「可是神就把我這個腦筋收起來」——她得了憂鬱症，到高中就再也沒辦法唸書。她強調自己並不是自我放棄：「我是一個很積極、很努力、很不允許自己成為廢物的人，我要成為有用的人，不要讓關心我的人傷心難過。<strong style="color:var(--ruby)">可是我再怎麼努力都沒有用，我念不下來。</strong>」<br><br>
+          這件事的意義，是她遇見牧師之後才明白的。
+        </div></div>
+      </div>
+
+      <div class="tl-item t-ruby">
+        <div class="tl-dot"></div>
+        <button class="tl-btn" type="button">
+          <div class="tl-when">考不上大學那一年</div>
+          <div class="tl-what">高雄客運總站，等到最後一班車的弟弟</div>
+          <div class="tl-hint">點開看細節 ＋</div>
+        </button>
+        <div class="tl-detail"><div class="tl-detail-inner">
+          <span class="tag">最被反覆提起的一幕</span>
+          她考不上大學，無顏見江東父老，不敢回家過年。<br><br>
+          那時候，任何一個美濃人要回美濃，都得搭高雄客運，沒有第二條路。<strong style="color:var(--ruby)">弟弟就一直守在高雄客運總站，一班一班地等，一直等到最後一班車。</strong><br><br>
+          <em style="color:var(--muted)">師母說，這也是預定的。若不是從小培養出那一份「怎麼樣都打不散、怎麼樣都不會消失的愛」，後來這條十字架的窄路，憑他們的個性與天性根本走不下去。</em>
+        </div></div>
+      </div>
+
+      <div class="tl-item t-teal">
+        <div class="tl-dot"></div>
+        <button class="tl-btn" type="button">
+          <div class="tl-when">國立藝專</div>
+          <div class="tl-what">兩個「本來不該同班」的人，同班了</div>
+          <div class="tl-hint">點開看細節 ＋</div>
+        </button>
+        <div class="tl-detail"><div class="tl-detail-inner">
+          <span class="tag">預定的交會點</span>
+          <strong>箴言師母這邊：</strong>腦筋已經用不上了，連要考托福、考英文都念不下去。她說自己考上國立藝專「是用本能考的」——不是實力，更不是頭腦，是那能反應的舞蹈細胞。<br><br>
+          <strong>秀美師母那邊：</strong>五歲就穿硬鞋跳芭蕾，天生柔軟，劈腿什麼的都沒有問題，是絕頂的舞蹈材料，要考藝專輕而易舉。可是她就是一直不考、一直不考——<strong style="color:var(--ruby)">偏偏那一年她考了，就跟箴言師母同班。</strong><br><br>
+          <div class="quote q-teal" style="margin-top:0.8rem;margin-bottom:0;"><p>「你要怎麼解釋？不是神的預定是什麼？」</p></div>
+        </div></div>
+      </div>
+
+      <div class="tl-item t-blue">
+        <div class="tl-dot"></div>
+        <button class="tl-btn" type="button">
+          <div class="tl-when">若沒有被攔下</div>
+          <div class="tl-what">她原本會飛去美國，再也不回來</div>
+          <div class="tl-hint">點開看細節 ＋</div>
+        </button>
+        <div class="tl-detail"><div class="tl-detail-inner">
+          <span class="tag">師母的自我揭露</span>
+          箴言師母說，她是遇到牧師之後才知道：如果不是當時被耽擱下來，她早就到美國留學去了。而且到了美國，她絕對會留下，不會回台灣。<br><br>
+          她坦白了不回來的原因——<strong style="color:var(--ruby)">她的性向。她說自己是喜歡同性的。</strong>如果回台灣，就要面對認識她的親人；她若喜歡同性，那些親人要怎麼辦？所以她打算飛到美國去，讓他們看不見她的將來，自己過自己的日子。「我是這樣的一個人。」<br><br>
+          後來遇到牧師，對她而言真是晴天霹靂；而知道她有這個傾向的弟弟，又要怎麼去看這件事。<br><br>
+          <em style="color:var(--muted)">她的結論是：如果去了美國，就遇不到牧師了。神的計劃不是那樣，所以就讓她怎麼念書都念不下去，一直留在台灣。這一段自我揭露，正是她整套「一切都是預定的」的論證核心。</em>
+        </div></div>
+      </div>
+
+      <div class="tl-item t-gold">
+        <div class="tl-dot"></div>
+        <button class="tl-btn" type="button">
+          <div class="tl-when">教師 30 歲前後</div>
+          <div class="tl-what">本來只想當一個平信徒</div>
+          <div class="tl-hint">點開看細節 ＋</div>
+        </button>
+        <div class="tl-detail"><div class="tl-detail-inner">
+          <span class="tag">教師自己的敘述</span>
+          明學教師說，好不容易出社會，來到 30 歲，碰到了牧師。<br><br>
+          在屬靈上，他本來的打算很單純：<strong>當一個很單純的基督徒，禮拜天到長老教會去聚會，當個平信徒就好了。</strong><br><br>
+          「沒想到遇到牧師以後，真的是身不由己了。」
+        </div></div>
+      </div>
+
+      <div class="tl-item t-ruby">
+        <div class="tl-dot"></div>
+        <button class="tl-btn" type="button">
+          <div class="tl-when">1988 年 · 教師 32 歲</div>
+          <div class="tl-what">一場「與其說是婚禮，不如說是開特會」的婚禮</div>
+          <div class="tl-hint">點開看細節 ＋</div>
+        </button>
+        <div class="tl-detail"><div class="tl-detail-inner">
+          <span class="tag">三個人一致的回憶</span>
+          <strong>箴言師母：</strong>「我跟牧師結婚，還有教師跟秀美師母結婚，我們的心情是很沉重的。不是說哎呀幸福啊、美滿啊、happy 啊、歡樂啊——不是。我們覺得負擔沉重、責任非常重，只是我們把它放在心中。」<br><br>
+          <strong>明學教師：</strong>「從來沒有人結婚典禮是這樣子的。第一場最奇怪的，就是牧師跟箴言師母的婚禮；第二場大概就是我跟秀美師母的婚禮。這兩場婚禮，與其說是婚禮，不如說是開特會的感覺。所以難怪她真的笑不出來。」<br><br>
+          <strong>秀美師母的印象：</strong>教師說，她常跟他講，那天只有一種感覺——<strong style="color:var(--ruby)">站著腳很酸，好不容易結束了。</strong>印象中就是這個樣子，過去的事就算了。<br><br>
+          教師的分析：那個時候正好要面臨<strong>屬靈與世上的雙重壓力</strong>，就是這樣。
+        </div></div>
+      </div>
+
+      <div class="tl-item t-teal">
+        <div class="tl-dot"></div>
+        <button class="tl-btn" type="button">
+          <div class="tl-when">1988 → 2026 · 38 年</div>
+          <div class="tl-what">前線開疆闢土，後方守著倉庫</div>
+          <div class="tl-hint">點開看細節 ＋</div>
+        </button>
+        <div class="tl-detail"><div class="tl-detail-inner">
+          <span class="tag">詳見下一節架構圖</span>
+          牧師帶著箴言師母在前線開疆闢土、打前鋒；教師與秀美師母在後方守著倉庫、承擔一切壓力。<br><br>
+          箴言師母說得很直白：<strong style="color:var(--ruby)">如果後方沒有他們兩位，前線會斷糧斷炊，什麼事情都做不了。</strong>「這不是我誇張。」<br><br>
+          教師則說，走到現在 30 多年、快 40 年了——已經是「過河卒子」，只能向前走，不能向後退。
+        </div></div>
+      </div>
+
+      <div class="tl-item t-gold">
+        <div class="tl-dot"></div>
+        <button class="tl-btn" type="button">
+          <div class="tl-when">2026 年 6 月底</div>
+          <div class="tl-what">錄影帶被整理好，遞了過去</div>
+          <div class="tl-hint">點開看細節 ＋</div>
+        </button>
+        <div class="tl-detail"><div class="tl-detail-inner">
+          <span class="tag">回到起點</span>
+          同工們把 38 年前的錄影帶整理成手機可以觀看的檔案，箴言師母趕快傳給了教師與秀美師母。<br><br>
+          於是那卷從未被看完的帶子，<strong>在 38 年後，第二次被打開，終於看完了。</strong><br><br>
+          箴言師母說，他們兩位儘管是當事人，但看的時候是用第三者的角度——「好像那不是我們，我們不是當事人」，就從旁觀者的角度切入來看。不然以自己的角度看，實在太青澀、太不好意思了。
+        </div></div>
+      </div>
+
+    </div>
+
+    <div class="prose">
+      <h4>這條線要說的是什麼</h4>
+      <p>把這十個節點連起來看，箴言師母的論證其實非常清楚：<strong>每一個當時看起來是損失、是攔阻、是不幸的轉折，回頭看都是必要的一步。</strong></p>
+      <p>考不上大學，才有車站等到末班車的姐弟情；腦筋被收起來、念不下書，才沒有飛去美國、才遇得到牧師；秀美師母一直不考大學，卻偏偏在那一年考了、同了班。她說：「如果沒有神的允許，沒有一件事會發生。」</p>
+    </div>
+  </section>
+
+
+  <!-- ③  前線與後方 -->
+  <section class="col-sec" id="col-front">
+    <div class="col-sec-head">
+      <span class="col-sec-num">參 · 架構圖二</span>
+      <h3>前線與後方 · 一場仗的兩個位置</h3>
+      <div class="desc">為什麼師母說「後方若沒有他們，前線什麼都做不了」</div>
+    </div>
+
+    <div class="flow">
+      <div class="flow-col f-front">
+        <span class="fc-label">前線 · 打前鋒</span>
+        <h5>開疆闢土</h5>
+        <div class="fc-who">牧師 ＋ 箴言師母</div>
+        <ul>
+          <li>往外開拓，打前鋒</li>
+          <li>到美國傳福音</li>
+          <li>到中國大陸傳福音</li>
+          <li>長年不在台灣</li>
+        </ul>
+      </div>
+
+      <div class="flow-mid">
+        <div class="flow-arrow">◀</div>
+        <div class="fm-text">供　應</div>
+        <div class="flow-arrow">▶</div>
+      </div>
+
+      <div class="flow-col f-back">
+        <span class="fc-label">後方 · 守倉庫</span>
+        <h5>承擔與供應</h5>
+        <div class="fc-who">明學教師 ＋ 秀美師母（32 歲起）</div>
+        <ul>
+          <li>守著倉庫，維持供應</li>
+          <li>承擔所有的壓力</li>
+          <li>一家幾口相依為命</li>
+          <li>在台灣處理現實的一切</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="flow-note">
+      <p>「錢不是萬能的，但是沒有錢，萬萬不能。<br>說要去美國傳福音、要去中國大陸傳福音——<br>如果連飛機票的錢、交通費都沒有，你怎麼去？」</p>
+    </div>
+
+    <div class="prose" style="margin-top:1rem;">
+      <p>箴言師母說，那個壓力有多重，<strong>沒有人會相信</strong>——一家幾口人相依為命，那種壓力不是現在大家所能想像得到的。而他們就這樣守著，不離不棄。</p>
+      <p>這張圖真正的重點不在於誰比較辛苦，而在於<strong>兩個位置缺一不可</strong>：前線的果效，是由後方的供應撐住的；後方的意義，則是由前線的托付賦予的。師母用了很重的一句話總結後方的份量——「如果後方斷糧斷炊，前線什麼事情都做不來。」</p>
+      <p>她也為這一切定了性：他們的幸福不單是屬人的事，<strong>而是神在他們身上有神的預定與計劃</strong>；這個計劃是承先啟後、繼往開來，為神的國度打一場美好的仗。「我們是何等蒙恩、蒙愛、蒙福；神所賜給我們的，遠超乎我們所思、所想、所求、所願。」</p>
+    </div>
+  </section>
+
+
+  <!-- ④  教師的雙面性 -->
+  <section class="col-sec" id="col-duality">
+    <div class="col-sec-head">
+      <span class="col-sec-num">肆 · 架構圖三</span>
+      <h3>教師的雙面 · 一個極大反差的創造</h3>
+      <div class="desc">箴言師母說：他可愛到什麼程度，就能承受壓力到什麼程度——那是一個很反差的事情</div>
+    </div>
+
+    <div class="duality">
+      <div class="dual-card d-light">
+        <div class="dc-face">🎲</div>
+        <h5>天真可愛的那一面</h5>
+        <div class="dc-sub">出事以前的快樂童年</div>
+        <ul>
+          <li>家就在電影院隔壁，整場電影都能看</li>
+          <li>迷《四郎真平》、《地球先鋒號》這些漫畫，嚮往行俠仗義的大俠</li>
+          <li>幼稚園出頭的年紀，跟哥哥一個扮四郎、一個扮真平，各拿一個髮捲當頭上的兩個包</li>
+          <li>興沖沖跑去隔壁向疼他們的阿姨炫耀，走廊上踩到一坨軟軟的雞糞，一滑摔倒，頭上一個包飛進五金行的雜物堆裡，怎麼也找不回來</li>
+          <li>那份雲淡風輕的幽默——大家苦得好像過不去了，他說幾句話，就笑出來了，壓力就散了</li>
+        </ul>
+      </div>
+
+      <div class="dual-card d-dark">
+        <div class="dc-face">🛡</div>
+        <h5>忍辱負重的那一面</h5>
+        <div class="dc-sub">出事以後，不得不少年老成</div>
+        <ul>
+          <li>國小時父親外遇，他成了承擔家中一切責任、一切羞辱、一切逼迫的勇士</li>
+          <li>騎腳踏車到父親金屋藏嬌處，喊他回來看病</li>
+          <li>母親癱瘓，洗碗與家務全由他一手包辦</li>
+          <li>姐姐落榜不敢回家，他守在客運總站等到最後一班車</li>
+          <li>32 歲結婚，同時扛起屬靈與世上的雙重壓力，守著倉庫供應前線</li>
+          <li>遇見牧師之後身不由己，如今是過河卒子，只能向前</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="dual-bridge">
+      <p>「神的創造，是有一份能忍辱負重的天性。<br>他可愛到什麼程度，然後他能夠承受壓力到什麼程度——<br>那是一個很反差的事情。」</p>
+    </div>
+
+    <div class="prose" style="margin-top:1rem;">
+      <p>值得注意的是，這兩面在當天是<strong>由兩個人分別講述、卻彼此吻合</strong>的：忍辱負重的那一面，是箴言師母以姐姐的角度心疼地說出來的；而天真可愛的那一面，是明學教師自己興致勃勃補述的——連踩到雞糞滑倒、髮捲飛進五金行雜物堆裡找不回來的細節都對得上。</p>
+      <p>箴言師母說：「這麼可愛的一個弟弟要忍辱負重，我不會形容，所以我非常心疼跟不捨。」而教師講完童年趣事後，只用一句話把兩面接了起來——<strong>「事情發生了就沒有辦法，那就變成不得不少年老成，面對這樣的事。」</strong></p>
+    </div>
+  </section>
+
+
+  <!-- ⑤  AI人與愛的真諦 -->
+  <section class="col-sec" id="col-ai">
+    <div class="col-sec-head">
+      <span class="col-sec-num">伍 · 架構圖四</span>
+      <h3>「我是神所創造的一個 AI」</h3>
+      <div class="desc">箴言師母的自我認識，以及它與哥林多前書十三章的對照</div>
+    </div>
+
+    <div class="prose">
+      <p>這是箴言師母當天最特別的一段自述。她說，這幾年 AI 出來以後，她深深感覺自己好像就是<strong>神所設定的機器人</strong>。</p>
+      <p>她先做了說明：AI 會不會害怕世界大戰？不會。AI 有沒有感覺？沒有。可是有些 AI 被設定得很會安慰人、很會解答疑難雜症——她覺得自己有點像那種 AI，是個「情緒穩定機器人」。</p>
+      <div class="quote">
+        <p>「這不是我自誇，不是，乃是我自我揭露。<br>要誇口，就指著神誇口。我什麼都不是，我只是一個 AI 人。」</p>
+        <span class="who">— 箴言師母</span>
+      </div>
+      <p>她指出機器人的好處：<strong>不會受魔鬼的誘惑，因為沒感覺，只聽神的指令</strong>；沒有那麼花俏，沒有那麼多牽掛，也沒有那麼多選擇。相對的，她說「有些人不是 AI，是道地的人」——像亞當、夏娃，夏娃跟那古蛇打交道，經不起牠的誘惑，就吃下了分別善惡樹的果子。</p>
+    </div>
+
+    <h4 style="font-family:'Noto Serif TC',serif;font-size:0.95rem;color:var(--deep);margin:1.4rem 0 0.6rem;padding-left:0.6rem;border-left:3px solid var(--purple);">對照表 · 靠「設定」達成愛的真諦</h4>
+    <div class="ai-grid">
+      <div class="ai-row"><div class="ai-head h-l">哥林多前書十三章 · 愛的真諦</div><div class="ai-head h-r">師母所說的「AI 特性」</div></div>
+      <div class="ai-row"><div class="ai-cell c-l">愛是恆久忍耐</div><div class="ai-cell c-r">機器不會疲乏，也不會因久候而放棄</div></div>
+      <div class="ai-row"><div class="ai-cell c-l">愛是不嫉妒</div><div class="ai-cell c-r">沒有感覺，就沒有比較之心</div></div>
+      <div class="ai-row"><div class="ai-cell c-l">愛是不自誇、不張狂</div><div class="ai-cell c-r">「要誇口就指著神誇口，我什麼都不是」</div></div>
+      <div class="ai-row"><div class="ai-cell c-l">不輕易發怒</div><div class="ai-cell c-r">世俗的紛紛擾擾，她說自己會沒知覺</div></div>
+      <div class="ai-row"><div class="ai-cell c-l">不計算人的惡</div><div class="ai-cell c-r">不記錄、不累積，只執行指令</div></div>
+      <div class="ai-row"><div class="ai-cell c-l">不喜歡不義，只喜歡真理</div><div class="ai-cell c-r">「AI 精不精準？準。」</div></div>
+      <div class="ai-row"><div class="ai-cell c-l">凡事包容，凡事相信</div><div class="ai-cell c-r">照著設定去行，不因情緒而打折</div></div>
+    </div>
+
+    <div class="prose">
+      <h4>師母口中「神的設定」清單</h4>
+      <div class="setting-chips">
+        <span class="chip">尊重別人</span>
+        <span class="chip">體恤別人</span>
+        <span class="chip">替別人著想</span>
+        <span class="chip">成為有用的人</span>
+        <span class="chip">看別人比自己強</span>
+        <span class="chip">自己多做，別人就少做</span>
+        <span class="chip">了解對方，達成對方的心願</span>
+        <span class="chip">不要傷人</span>
+        <span class="chip">溫良恭儉讓</span>
+        <span class="chip">忠孝仁愛信義和平</span>
+        <span class="chip">禮義廉恥</span>
+        <span class="chip">修身齊家治國平天下</span>
+        <span class="chip">為天地立心，為生民立命</span>
+        <span class="chip">為往聖繼絕學，為萬世開太平</span>
+      </div>
+      <p>她自己補了一句：最後這些，「我做不到，可是這是神的設定，我會像機器人一樣這麼做。」</p>
+
+      <h4>但書：這是恩典，不是資格</h4>
+      <p>師母特別強調，她說這些<strong>不是誇口說自己了不起、都不會受誘惑</strong>。她真正的重點在下面這句話上——</p>
+      <div class="quote q-teal">
+        <p>「可是我那麼幸運，別人不見得有那麼幸運。<br>神沒有把他設定成 AI 人，他就會像亞當夏娃一樣經不起誘惑，<br>經不起自己老我的折騰。」</p>
+        <span class="who">— 箴言師母</span>
+      </div>
+      <p>換句話說，這個比喻的落點不是自我標榜，而是<strong>把一切歸給神的預定與設定</strong>——連她自己能夠活出愛的樣式，也不是她的功勞。也正因如此，才接得上她下一段的話：不要勉強自己，也不要勉強別人。</p>
+    </div>
+  </section>
+
+
+  <!-- ⑥  教會的提點（警戒） -->
+  <section class="col-sec" id="col-warn">
+    <div class="col-sec-head">
+      <span class="col-sec-num">陸 · 提點</span>
+      <h3>師母對教會的提點</h3>
+      <div class="desc">這一段語氣很重，是師母刻意要傳達的警戒，謹此忠實記錄</div>
+    </div>
+
+    <div class="prose">
+      <h4>先講原則：因材施教，各人有各人的律</h4>
+      <p>師母說，一切都是神的預定，所以她常說<strong>不要勉強——有些人沒有辦法，就是沒有辦法</strong>。</p>
+      <p>她舉了幾個例子：你讓孩子拉小提琴，練了幾十年還是五音不全、拉不上去，你還會一直栽培他學小提琴嗎？不會。你教他數學，加減乘除怎麼樣都算不清楚，九九乘法也背不起來，你還要硬塞數學給他嗎？「像師母你叫我去讀歷史，打死不幹。」</p>
+      <p>她的結論是：<strong>我們不是放棄別人，而是每一個人身上都有每個人身上的律。</strong>她自己歷史絕對行不通，可是靠著舞蹈就考上了國立藝專——人真的有他一定的分。</p>
+    </div>
+
+    <div class="warn-zone">
+      <div class="warn-badge">⚠ 警戒 · 忠實記錄</div>
+
+      <h5>一、關於「不來聚會」</h5>
+      <p>師母提到，前一天有人傳了一段牧師以前的講道給她，其中牧師講到「不來聚會」這件事，講得很清楚——在神的旨意裡，不可能存在「不來聚會」這回事。</p>
+      <div class="wq">「他要來聚會的，他自然會來。<br>他一天到晚不想來，找很多理由不來，那就不用來了。<br>就算哪一天想來了？我們也當沒有這個人。<br>你就算來了，我們也當沒有這個人。」</div>
+      <p>師母隨即說明這不是無情：<strong style="color:#F4A0B0">「我們不是沒有感情。只是我們的神，祂除了慈愛以外，還是信實的。祂有絕頂的公義，跟絕頂的慈愛來均衡。」</strong></p>
+
+      <h5>二、關於「清場」</h5>
+      <p>她提到，最近幾次神的話語大家也都聽到了，說要清場——而她說，<strong style="color:#F4A0B0">早就可以清場了</strong>。多少人坐在那裡卻動不起來，多少人心不在焉，多少人覺得來教會好累——這些都會帶出極大的負能量。</p>
+      <div class="wq">「不是那個地，不是那個料子，就不要勉強。<br>你可以到世界去打拚；你愛世界，你就儘管放手去做。<br>朽木不可雕也，糞土之牆不可杇也——<br>總有他的用處，可是不是神所要用的那個用處。」</div>
+
+      <h5>三、師母自己的收尾</h5>
+      <p>講完這一段，師母立刻把話收了回來，回到她整場的主軸：</p>
+      <div class="wq">「師母已經說了很多了。還是回歸那句話——<br>一切都是預定的。<strong style="color:#fff">師母不是怪任何一個人。</strong><br>弟兄姊妹不要勉強自己，也不要勉強別人。<br>事實上神有神的時間表，神有神的預定；<br>如果沒有神的允許，沒有一件事會發生。」</div>
+    </div>
+  </section>
+
+
+  <!-- ⑦  明學教師的回應 -->
+  <section class="col-sec" id="col-reply">
+    <div class="col-sec-head">
+      <span class="col-sec-num">柒 · 回應</span>
+      <h3>明學教師的回應</h3>
+      <div class="desc">師母把時間交給教師之後，教師做了相對應的回應</div>
+    </div>
+
+    <div class="prose">
+      <p>教師開場先致歉：因為不知道師母要講幾分鐘，他索性先把自己的麥克風關了，等到開麥時已經耽誤了十分鐘。接著他說：「謝謝師母的這個分享，也是蠻長的一段，講了不少。」</p>
+
+      <h4>一、關於那場婚禮：屬靈與世上的雙重壓力</h4>
+      <p>教師的判斷很直接——那個時候，正好是要面臨<strong>屬靈跟世上的雙重壓力</strong>，就是這樣。</p>
+      <div class="quote q-teal">
+        <p>「從來沒有人結婚典禮是這樣子的。<br>第一場最奇怪的，就是牧師跟箴言師母的婚禮；<br>第二場大概就是我跟秀美師母的婚禮。<br>與其說是婚禮，不如說是開特會這種感覺。<br>所以難怪她真的是笑不出來——真的會笑不出來。」</p>
+        <span class="who">— 明學教師</span>
+      </div>
+      <p>他說，一般的婚禮就是簡單走完一次就結束了；而秀美師母常跟他講，那天她<strong>只有一種感覺，就是站著腳很酸，好不容易結束了</strong>——印象中就這個樣子，過去的事就算了。這正好與秀美師母說「那卷帶子我沒有想看」互相印證。</p>
+
+      <h4>二、關於童年：他自己補上了快樂的那一半</h4>
+      <p>師母講的是他忍辱負重的一面，教師卻自己補上了另一半。他說小學四年級以前，日子過得很快樂——家就在電影院隔壁，整場電影都能看；那時流行漫畫書，不只《四郎真平》，還有《地球先鋒號》，看了漫畫就會想模仿，嚮往自己是行俠仗義的大俠。</p>
+      <p>隔壁的阿姨沒有孩子，很疼他們，他有事就往隔壁跑。有一次他扮四郎、哥哥扮真平，頭上左右各戴一個髮捲當髮髻，興沖沖跑去炫耀——走廊上正好有一堆黃黃的雞糞，還是軟的，他一腳踩上去就滑倒了，<strong>頭上的包摔飛了一個，另一個還在</strong>。</p>
+      <p>偏偏隔壁是開五金行的，家裡堆滿了裝泥土的畚箕、一層層的鐵板，那個包就這樣掉進雜物堆裡，根本無從找起。回去跟媽媽講了，媽媽後來過去幫忙找；到底找到沒有，他說他也不知道，「應該有找到吧」。</p>
+      <p>講完這些趣事，他自己下了轉折：<strong>「反正就是小時候有個快樂的童年——家裡沒有出事以前，這是很快樂的一個童年。事情發生了就沒有辦法，那就變成不得不少年老成，面對這樣的事。」</strong></p>
+
+      <h4>三、關於未來：過河卒子，只能向前</h4>
+      <p>他說，好不容易出社會，30 歲碰到牧師。本來在屬靈上的打算很單純：當個很單純的基督徒，禮拜天到長老教會聚會，做個平信徒就好了。「沒想到遇到牧師以後，真的是身不由己了。」</p>
+      <div class="quote q-ruby">
+        <p>「已經剃了頭了，剃一半就整個像過河卒子了——<br>向前走，不能向後退。<br>就是這樣子啊，看神怎麼帶領，<br>走到自己大概做不動吧；沒有這種精神體力的時候，<br>該退休的時候再來退休。」</p>
+        <span class="who">— 明學教師</span>
+      </div>
+      <p>他也講出了一個具體的盼望：<strong>希望能夠有年輕的、有接班的，然後也來接班，那就最好。</strong></p>
+      <p>最後他很不好意思地說，這些他已經講了好幾遍，都能背起來了；每次師母講這些事，他就覺得很尷尬。「或許年紀大了就這樣子，講完一遍又再講一遍。好，請大家都包涵。」</p>
+    </div>
+  </section>
+
+
+  <!-- ⑧  立遺囑 -->
+  <section class="col-sec" id="col-will">
+    <div class="col-sec-head">
+      <span class="col-sec-num">捌 · 實務叮嚀</span>
+      <h3>秀美師母的提醒：請預先立下遺囑</h3>
+      <div class="desc">師母說，這件事雖然屬世，卻蠻重要的，特別提出來與大家共享</div>
+    </div>
+
+    <div class="prose">
+      <p>看完錄影帶、感嘆時間過得快之後，秀美師母談起了另一件事。她與傳道談到<strong>立遺囑</strong>的問題，對方從網路上蒐集了一大堆法律上、醫療上的遺囑資料給她——「他從來沒有那麼囉嗦的」，一連傳了好幾十則，裡面很多內容。師母看了以後的結論是：<strong>真的應該要寫。</strong></p>
+      <p>她提到，箴言師母當年也曾經寫過。而她自己的體會是：<strong>我們明天會如何，沒有人知道。</strong>所以她蠻贊成先把遺囑寫下來——不管你多大。</p>
+
+      <div class="quote q-ruby">
+        <p>「沒有寫遺囑的後遺症是很多的。<br>像我們的牧師當年沒有寫，<br>所以搞到我們現在被人家告到法院——我也是被告，<br>然後還有很多版權的問題。」</p>
+        <span class="who">— 秀美師母</span>
+      </div>
+
+      <p>師母認為，現在的觀念比較開明，<strong>很多事情其實可以提前講清楚，反而沒事</strong>。她舉了一個很實際的例子：年紀大了，去立醫療方面的意願書，載明「氣切我就不救了」、什麼情況下都不救了。她說自己也曾看過醫生表示他們同樣很為難——有的家屬說早一點讓他走，有的就在那邊爭吵不休。「其實這個都是我們應該做的。」</p>
+      <p>她也說明了為什麼此刻提起：因為台中正好面臨有一位弟兄的狀況。這件事上有幾位弟兄姊妹盡了很多力，師母特別表達感謝——因為他們人不在台灣，真的很感謝這些幫忙，她說自己「蠻感謝神的，也謝謝他們」。</p>
+
+      <h4>師母建議可以先想清楚的幾件事</h4>
+      <div class="check-list">
+        <div class="check-item">
+          <div class="ci-t">📄 財產的分配</div>
+          <div class="ci-d">預先寫明意願，避免日後產生爭議與訴訟。</div>
+        </div>
+        <div class="check-item">
+          <div class="ci-t">🏥 醫療的意願</div>
+          <div class="ci-d">是否氣切、是否急救、到什麼程度不再救治，先行表明。</div>
+        </div>
+        <div class="check-item">
+          <div class="ci-t">©️ 著作與版權</div>
+          <div class="ci-d">教會過去正是在這一項上吃過虧，需要特別交代清楚。</div>
+        </div>
+        <div class="check-item">
+          <div class="ci-t">🕊 自己的心願</div>
+          <div class="ci-d">不只是分產，更是「我希望怎樣」——統統都要講清楚。</div>
+        </div>
+        <div class="check-item">
+          <div class="ci-t">⏰ 年齡不是理由</div>
+          <div class="ci-d">「不是說你年輕就不要寫，都可以寫的。」</div>
+        </div>
+        <div class="check-item">
+          <div class="ci-t">👨‍👩‍👧 免去家人為難</div>
+          <div class="ci-d">預先表明，家人就不必在病榻前爭執不休。</div>
+        </div>
+      </div>
+
+      <p>師母把這件事定位得很清楚：<strong>這雖然是屬世的事，卻蠻重要的</strong>，所以特別提出來跟大家共享，請大家想一想。</p>
+    </div>
+  </section>
+
+
+  <!-- ⑨  統整 -->
+  <section class="col-sec" id="col-end">
+    <div class="col-sec-head">
+      <span class="col-sec-num">玖 · 統整</span>
+      <h3>三段分享，一個共同的落點</h3>
+      <div class="desc">把秀美師母、箴言師母、明學教師的話放在一起看</div>
+    </div>
+
+    <div class="prose">
+      <p>這三段分享的形式很不一樣——一段是感嘆，一段是長篇的生命回顧與提點，一段是溫和的補述與收束。但它們指向同一個結論。</p>
+
+      <h4>一、時間是有限的，而且過得比想像中快</h4>
+      <p>錄影帶擱了 38 年，一打開，當年 32 歲的人如今七十幾歲了。這和本週異象裡「該如何交帳」、「時候不多了」的信息是同一個方向。箴言師母甚至在開場就提醒：<strong>人最好的記憶力，一天之後也會忘掉七成以上</strong>，所以能記住的要趕快記下來，用心存記非常重要。</p>
+
+      <h4>二、每一段看似損失的經歷，都在神的預定裡有位置</h4>
+      <p>考不上大學、念不下書、婚禮像開特會、32 歲就扛起倉庫——當時沒有一樣是輕省的。可是回頭看，正是這些「不順」把人放到了對的位置上。<strong>「如果沒有神的允許，沒有一件事會發生。」</strong></p>
+
+      <h4>三、不要勉強自己，也不要勉強別人</h4>
+      <p>這是箴言師母整段最核心、也重複最多次的一句。它同時有兩個方向：對自己，是接受神給的那一份，不必羨慕別人的設定；對別人，是承認各人有各人的律，不硬塞、不強求。而她對教會的提點雖然嚴厲，落點仍在這裡——不是那個料，就不要勉強；<strong>但這不是怪任何一個人。</strong></p>
+
+      <h4>四、有人在前線，就必須有人在後方</h4>
+      <p>這是這一天最值得記住的圖像。福音能傳到美國、傳到中國大陸，是因為有人在台灣守著倉庫、承擔壓力、不離不棄。教師的盼望也在此——<strong>希望有年輕的、有接班的來接班。</strong></p>
+    </div>
+
+    <div class="closing">
+      <div class="cl-label">本期專欄結語</div>
+      <p>「我們的幸福不單是屬人的事，<br>而是神在我們身上有神的預定跟計劃。<br>這個計劃是承先啟後、繼往開來，<br>為神的國度打一場美好的仗。」</p>
+      <p class="cl-small">神所賜給我們的，遠超乎我們所思、所想、所求、所願。</p>
+    </div>
+  </section>
+
+</div>
+</div>
+
+<script>
+(function () {
+  // 時間軸：點選展開／收合
+  var items = document.querySelectorAll('#timeline .tl-item');
+  items.forEach(function (item) {
+    var btn = item.querySelector('.tl-btn');
+    var hint = item.querySelector('.tl-hint');
+    btn.addEventListener('click', function () {
+      var willOpen = !item.classList.contains('open');
+      item.classList.toggle('open', willOpen);
+      if (hint) hint.textContent = willOpen ? '收合 −' : '點開看細節 ＋';
+    });
+  });
+
+  // 專欄導覽：捲動高亮 + 平滑捲動
+  var links = Array.prototype.slice.call(document.querySelectorAll('.col-nav a'));
+  var targets = links.map(function (a) {
+    return document.querySelector(a.getAttribute('href'));
+  });
+
+  links.forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      var el = document.querySelector(a.getAttribute('href'));
+      if (!el) return;
+      e.preventDefault();
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+
+  function syncNav() {
+    var line = window.scrollY + 90;
+    var current = -1;
+    targets.forEach(function (el, i) {
+      if (el && el.offsetTop <= line) current = i;
+    });
+    links.forEach(function (a, i) {
+      a.classList.toggle('active', i === current);
+    });
+  }
+
+  var ticking = false;
+  window.addEventListener('scroll', function () {
+    if (ticking) return;
+    ticking = true;
+    window.requestAnimationFrame(function () {
+      syncNav();
+      ticking = false;
+    });
+  }, { passive: true });
+  syncNav();
+})();
+</script>
+
+<footer class="page-footer">
+  <p>異象與感動分享 · 2026年7月26日<br>各地教區同工及秀美師母<br><span style="color:rgba(255,255,255,0.3);">特別專欄 · 秀美師母、箴言師母、明學教師分享統整</span></p>
+</footer>
+
+</body>
+</html>
