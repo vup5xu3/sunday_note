@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>有禍或有福 · 核心議題分析報告 · 之馨</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700;900&family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --pink:#FFB3C6; --pink-s:#FFE7EE; --pink-d:#D9587E;
+  --mint:#A8E6CF; --mint-s:#E2F7EE; --mint-d:#3E9E7A;
+  --lemon-s:#FFF6DC;--lemon-d:#B8890E;
+  --lav-s:#EFE9FA;  --lav-d:#7E5FBC;
+  --peach-s:#FFEDE0;--peach-d:#D9793B;
+  --matcha-d:#6B9137;
+  --rose-s:#FCE8F0; --rose-d:#C4527E;
+  --cream:#FFFBF8; --ink:#463C42; --ink-d:#2E262B; --muted:#8A7D85;
+  --line:rgba(0,0,0,.08); --sh:0 3px 14px rgba(160,120,140,.09); --sh-h:0 12px 32px rgba(160,120,140,.16);
+  /* 深藍 · 數據 */
+  --navy:#111a30; --navy2:#182644; --navy3:#22345c;
+  --nink:#EAF0FB; --nmut:#8FA0C4; --nline:rgba(255,255,255,.10);
+  --cyan:#5AD2E6; --violet:#9E8CFF; --blue:#5B8DEF;
+  --amber:#FFC24B; --red:#FF6B8A; --green:#54D6A6;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Noto Sans TC',-apple-system,'Microsoft JhengHei',sans-serif;
+  background:var(--cream);color:var(--ink);line-height:1.9;-webkit-font-smoothing:antialiased;}
+body::before{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;
+  background:radial-gradient(circle at 8% 4%,rgba(91,141,239,.10),transparent 40%),
+             radial-gradient(circle at 92% 90%,rgba(158,140,255,.10),transparent 42%);}
+.wrap{max-width:1080px;margin:0 auto;padding:0 1.1rem;}
+.num{font-variant-numeric:tabular-nums;letter-spacing:.5px;}
+
+/* ══ 深藍面板 ══ */
+.dark{background:linear-gradient(160deg,var(--navy),var(--navy2) 60%,#141f39);color:var(--nink);
+  border:1px solid var(--nline);border-radius:13px;position:relative;overflow:hidden;box-shadow:0 18px 50px rgba(20,30,60,.35);}
+.dark::before{content:'';position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(circle at 12% 0%,rgba(90,210,230,.16),transparent 45%),
+            radial-gradient(circle at 100% 100%,rgba(158,140,255,.16),transparent 42%);}
+.dark::after{content:'';position:absolute;inset:0;pointer-events:none;opacity:.5;
+  background-image:linear-gradient(var(--nline) 1px,transparent 1px),linear-gradient(90deg,var(--nline) 1px,transparent 1px);
+  background-size:44px 44px;-webkit-mask-image:radial-gradient(circle at 50% 40%,#000,transparent 78%);mask-image:radial-gradient(circle at 50% 40%,#000,transparent 78%);}
+.dark>*{position:relative;z-index:1;}
+
+/* ══ 封面 ══ */
+.hero{margin:0 -1.1rem;border-radius:0 0 14px 14px;padding:2.8rem 1.6rem 2.4rem;text-align:center;}
+.hero .kase{font-family:'Noto Sans TC';font-size:11px;letter-spacing:5px;font-weight:700;color:var(--cyan);
+  text-shadow:0 0 16px rgba(90,210,230,.6);margin-bottom:1.1rem;}
+.hero h1{font-family:'Noto Serif TC',serif;font-size:clamp(1.8rem,5.6vw,2.7rem);font-weight:900;letter-spacing:2px;line-height:1.28;
+  color:#fff;text-shadow:0 0 28px rgba(120,170,255,.45);margin-bottom:.5rem;}
+.hero h1 em{font-style:normal;background:linear-gradient(100deg,var(--cyan),var(--violet));
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;filter:drop-shadow(0 0 18px rgba(158,140,255,.5));}
+.hero .sub{font-family:'Noto Serif TC',serif;font-size:1rem;color:var(--nmut);letter-spacing:1.5px;}
+.hero .rr{display:inline-flex;flex-wrap:wrap;gap:.5rem;justify-content:center;margin-top:1.3rem;}
+.hero .rr span{font-size:.74rem;color:var(--nmut);border:1px solid var(--nline);border-radius:5px;padding:4px 13px;letter-spacing:.5px;}
+.hero .rr b{color:var(--cyan);font-weight:700;}
+.hero .back{position:absolute;top:14px;left:14px;z-index:2;text-decoration:none;font-size:.76rem;font-weight:700;
+  color:var(--cyan);border:1px solid rgba(90,210,230,.4);border-radius:5px;padding:5px 13px;background:rgba(90,210,230,.08);}
+.hero .gs{position:absolute;top:14px;right:14px;z-index:2;text-decoration:none;font-size:.76rem;font-weight:700;
+  color:var(--violet);border:1px solid rgba(158,140,255,.45);border-radius:5px;padding:5px 13px;background:rgba(158,140,255,.10);transition:.18s;}
+.hero .gs:hover{background:rgba(158,140,255,.22);}
+
+/* ══ 區塊 ══ */
+.sec{margin:2.4rem 0;}
+.sh{display:flex;align-items:center;gap:.7rem;margin:0 0 1.1rem;}
+.sh .sn{font-family:'Noto Sans TC';font-size:.72rem;font-weight:900;letter-spacing:2px;color:#fff;
+  background:linear-gradient(135deg,var(--blue),var(--violet));border-radius:5px;padding:4px 10px;flex-shrink:0;
+  box-shadow:0 0 16px rgba(91,141,239,.4);}
+.sh h2{font-family:'Noto Serif TC',serif;font-size:clamp(1.25rem,3.6vw,1.55rem);font-weight:700;color:var(--ink-d);line-height:1.4;}
+.note{font-size:.94rem;line-height:2.05;color:var(--ink);margin-bottom:1rem;}
+.note b{color:var(--ink-d);}
+
+/* ══ 數據總覽 ══ */
+.dash{padding:1.5rem 1.4rem 1.3rem;}
+.kpis{display:grid;grid-template-columns:repeat(5,1fr);gap:.7rem;margin-bottom:1.3rem;}
+.kpi{background:rgba(255,255,255,.04);border:1px solid var(--nline);border-radius:8px;padding:.85rem .7rem;text-align:center;}
+.kpi .kl{font-size:.66rem;letter-spacing:1px;color:var(--nmut);margin-bottom:.4rem;line-height:1.4;}
+.kpi .kv{font-family:'Noto Serif TC',serif;font-size:1.5rem;font-weight:900;color:#fff;line-height:1;text-shadow:0 0 16px rgba(120,180,255,.5);}
+.kpi .kv small{font-size:.66rem;color:var(--nmut);font-weight:400;text-shadow:none;}
+.kpi .ku{font-size:.68rem;margin-top:.3rem;font-weight:700;}
+.dgrid{display:grid;grid-template-columns:1.05fr 1fr;gap:1.2rem;align-items:center;}
+.dgrid svg{display:block;width:100%;height:auto;filter:drop-shadow(0 0 10px rgba(90,210,230,.25));}
+.dcap{font-size:.72rem;color:var(--nmut);text-align:center;margin-top:.2rem;letter-spacing:.5px;}
+.nbars .nb{display:flex;align-items:center;gap:.5rem;font-size:.82rem;padding:.22rem 0;color:var(--nink);}
+.nbars .nb .nn{width:5.4em;flex-shrink:0;font-weight:700;white-space:nowrap;}
+.nbars .nb .nt{flex:1;height:8px;border-radius:3px;background:rgba(255,255,255,.09);overflow:hidden;position:relative;}
+.nbars .nb .nt i{display:block;height:100%;border-radius:3px;box-shadow:0 0 10px currentColor;}
+.nbars .nb .nt u{position:absolute;top:-2px;bottom:-2px;width:2px;background:rgba(255,255,255,.5);}
+.nbars .nb .nv{width:2.5em;text-align:right;flex-shrink:0;font-weight:800;}
+.nbars .lbl{font-size:.72rem;color:var(--cyan);letter-spacing:1.5px;font-weight:700;margin:.2rem 0 .5rem;text-shadow:0 0 12px rgba(90,210,230,.5);}
+.dhint{font-size:.72rem;color:var(--nmut);margin-top:.6rem;line-height:1.7;}
+
+/* ══ 核心議題 ══ */
+.core{padding:1.8rem 1.5rem;}
+.core .clab{font-size:.72rem;letter-spacing:3px;font-weight:700;color:var(--cyan);text-shadow:0 0 14px rgba(90,210,230,.6);margin-bottom:1rem;text-align:center;}
+.funnel{display:flex;flex-wrap:wrap;justify-content:center;gap:.5rem;margin-bottom:.4rem;}
+.sig{display:flex;align-items:center;gap:.45rem;background:rgba(255,255,255,.05);border:1px solid var(--nline);
+  border-radius:6px;padding:.5rem .75rem;font-size:.82rem;color:var(--nink);}
+.sig .sd{width:8px;height:8px;border-radius:50%;flex-shrink:0;box-shadow:0 0 8px currentColor;}
+.sig b{font-weight:800;}.sig .ar{font-size:.8rem;font-weight:900;}
+.chev{text-align:center;font-size:1.4rem;color:var(--violet);margin:.5rem 0 .7rem;filter:drop-shadow(0 0 10px rgba(158,140,255,.6));}
+.corebox{background:linear-gradient(120deg,rgba(90,210,230,.10),rgba(158,140,255,.10));
+  border:1.5px solid rgba(158,140,255,.4);border-radius:10px;padding:1.4rem 1.4rem;box-shadow:0 0 40px rgba(120,120,255,.2) inset;}
+.corebox .ct{font-family:'Noto Serif TC',serif;font-size:clamp(1.15rem,3.2vw,1.4rem);font-weight:700;color:#fff;
+  line-height:1.7;text-shadow:0 0 20px rgba(140,180,255,.4);margin-bottom:.8rem;}
+.corebox .ct em{font-style:normal;color:var(--cyan);}
+.corebox p{font-size:.92rem;line-height:2;color:var(--nink);margin-bottom:0;}
+.corebox p b{color:var(--violet);}
+.strat{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;margin-top:1.1rem;}
+.strat .st{background:rgba(255,255,255,.04);border:1px solid var(--nline);border-radius:8px;padding:.9rem 1rem;font-size:.86rem;line-height:1.85;color:var(--nink);}
+.strat .st .sh2{font-family:'Noto Serif TC',serif;font-weight:700;font-size:1rem;margin-bottom:.3rem;display:flex;align-items:center;gap:.4rem;}
+.strat .st.a .sh2{color:var(--cyan);}.strat .st.b .sh2{color:var(--violet);}
+.strat .st .tag{font-size:.68rem;font-weight:700;border-radius:5px;padding:1px 8px;}
+.root{text-align:center;margin-top:1rem;font-size:.9rem;color:var(--nmut);}
+.root b{color:#fff;}
+
+/* ══ 卡片 / 表 ══ */
+.rl{font-size:.72rem;letter-spacing:2px;font-weight:700;margin-bottom:.7rem;}
+.card{background:#fff;border:1px solid var(--line);border-radius:10px;padding:1.3rem 1.4rem;margin-bottom:1rem;box-shadow:var(--sh);font-size:.95rem;line-height:2.05;}
+.card p{margin-bottom:.75rem;}.card p:last-child{margin-bottom:0;}.card b{color:var(--ink-d);}
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:9px;box-shadow:var(--sh);margin-bottom:1rem;background:#fff;}
+table{width:100%;border-collapse:collapse;min-width:560px;}
+th,td{padding:.75rem .9rem;text-align:left;font-size:.87rem;line-height:1.75;border-bottom:1px solid var(--line);vertical-align:top;}
+thead th{background:var(--navy);color:var(--nink);font-weight:700;font-size:.8rem;letter-spacing:.5px;border-bottom:none;}
+thead th:first-child{border-radius:0;}
+tbody tr:last-child td{border-bottom:none;}
+td b{color:var(--ink-d);}
+table th:first-child,table td:first-child{width:7.5em;min-width:7.5em;}
+.mech{font-weight:700;color:var(--blue);white-space:nowrap;}
+
+/* 涵蓋度矩陣 */
+.cov{display:flex;flex-direction:column;gap:.7rem;margin-bottom:1rem;}
+.cvrow{background:#fff;border:1px solid var(--line);border-left:5px solid;border-radius:0 8px 8px 0;padding:1rem 1.2rem;box-shadow:var(--sh);}
+.cvrow.g{border-left-color:var(--green);}.cvrow.y{border-left-color:var(--amber);}.cvrow.r{border-left-color:var(--red);}
+.cvh{display:flex;align-items:center;gap:.6rem;flex-wrap:wrap;margin-bottom:.5rem;}
+.cvh .cm{font-family:'Noto Serif TC',serif;font-size:1.02rem;font-weight:700;color:var(--ink-d);}
+.cvh .cstat{margin-left:auto;font-size:.72rem;font-weight:800;color:#fff;border-radius:5px;padding:3px 12px;letter-spacing:.5px;}
+.cvrow.g .cstat{background:var(--green);}.cvrow.y .cstat{background:var(--amber);}.cvrow.r .cstat{background:var(--red);}
+.cvbar{height:7px;border-radius:3px;background:rgba(0,0,0,.06);overflow:hidden;margin:.2rem 0 .7rem;}
+.cvbar i{display:block;height:100%;border-radius:3px;}
+.cvrow.g .cvbar i{background:var(--green);}.cvrow.y .cvbar i{background:var(--amber);}.cvrow.r .cvbar i{background:var(--red);}
+.cvrow .cxa{font-size:.82rem;color:var(--muted);line-height:1.8;}
+.cvrow .cxa b{color:var(--ink-d);}
+.cvrow p{font-size:.92rem;line-height:1.95;margin-top:.4rem;}
+
+/* 加強建議 */
+.fix{background:#fff;border:1px solid var(--line);border-radius:9px;padding:1.2rem 1.3rem;margin-bottom:.9rem;box-shadow:var(--sh);position:relative;overflow:hidden;}
+.fix::before{content:'';position:absolute;left:0;top:0;bottom:0;width:4px;background:linear-gradient(var(--blue),var(--violet));}
+.fix .fn{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:5px;
+  background:linear-gradient(135deg,var(--blue),var(--violet));color:#fff;font-weight:900;font-size:.85rem;margin-right:.5rem;box-shadow:0 0 14px rgba(120,120,255,.4);}
+.fix .ft2{font-family:'Noto Serif TC',serif;font-size:1.05rem;font-weight:700;color:var(--ink-d);}
+.fix .tgt{font-size:.72rem;font-weight:700;color:var(--blue);margin:.5rem 0 .5rem 2.1rem;}
+.fix p{font-size:.93rem;line-height:2;margin:.3rem 0 0 2.1rem;}
+.fix b{color:var(--ink-d);}
+
+/* 結論 */
+.concl{padding:1.8rem 1.6rem;}
+.concl .clab{font-size:.72rem;letter-spacing:3px;font-weight:700;color:var(--cyan);text-shadow:0 0 14px rgba(90,210,230,.6);margin-bottom:1rem;}
+.concl p{font-size:.98rem;line-height:2.1;color:var(--nink);margin-bottom:.9rem;}
+.concl p:last-child{margin-bottom:0;}
+.concl b{color:#fff;}.concl em{font-style:normal;color:var(--cyan);}
+.concl .fin{border-top:1px solid var(--nline);margin-top:1.1rem;padding-top:1rem;font-size:.78rem;color:var(--nmut);letter-spacing:.5px;}
+.concl .prio{display:flex;gap:.6rem;flex-wrap:wrap;margin:.7rem 0 .3rem;}
+.concl .prio span{font-size:.8rem;background:rgba(255,255,255,.05);border:1px solid var(--nline);border-radius:6px;padding:.5rem .8rem;color:var(--nink);}
+.concl .prio b{color:var(--cyan);}
+
+/* 原始資料 */
+.data{background:#fff;border:1px solid var(--line);border-radius:8px;padding:.9rem 1.1rem;margin-bottom:.6rem;box-shadow:var(--sh);}
+.data .dq{font-size:.78rem;font-weight:700;color:var(--blue);margin-bottom:.3rem;}
+.data .da{font-size:.9rem;line-height:1.9;color:var(--ink);}
+details.more{margin:1rem 0 0;border:1.5px dashed var(--blue);border-radius:9px;background:rgba(91,141,239,.05);overflow:hidden;}
+details.more>summary{font-size:.9rem;font-weight:700;color:var(--blue);padding:.85rem 1.2rem;cursor:pointer;list-style:none;}
+details.more>summary::-webkit-details-marker{display:none;}
+details.more>summary::before{content:'▸ ';}details.more[open]>summary::before{content:'▾ ';}
+details.more .mb{padding:0 1.2rem 1.2rem;font-size:.88rem;line-height:1.95;}
+details.more table{min-width:auto;}details.more th,details.more td{border-bottom:1px solid var(--line);}
+details.more thead th{background:#eef1f7;color:var(--ink-d);}
+
+.ft{margin-top:2.6rem;padding:1.8rem 1.4rem;text-align:center;color:var(--nmut);font-size:.76rem;letter-spacing:.5px;line-height:1.9;}
+@media(max-width:640px){ .kpis{grid-template-columns:repeat(2,1fr);} .dgrid{grid-template-columns:1fr;} .strat{grid-template-columns:1fr;} }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <!-- 封面 -->
+  <div class="hero dark">
+    <a class="back" href="https://chih-hsin-bibble-study.vercel.app/studies/NT-40_Matthew_05-07_天國憲章.html" target="_blank" rel="noopener">← 回導覽</a>
+    <a class="gs" href="https://docs.google.com/spreadsheets/d/1qYkmg91tseF99O2M-J2q8e_o4bjm0mHHmLA3ySlkNAc/edit?usp=sharing" target="_blank" rel="noopener">📊 我的檢核表 ↗</a>
+    <div class="kase">CORE ISSUE ANALYSIS · 核心議題分析報告</div>
+    <h1>有禍或有福，<em>自己選擇</em></h1>
+    <div class="sub">八福 × 情慾 × 自述　交錯人性分析</div>
+    <div class="rr">
+      <span>受測者：<b>之馨</b></span>
+      <span>分析日期：<b>2026 / 07 / 27</b></span>
+      <span>計畫啟動：<b>2026 / 07 / 20</b></span>
+      <span>資料源：<b>八福自評 · 情慾自評 · 六項自述</b></span>
+    </div>
+  </div>
+
+  <!-- 一、數據總覽 -->
+  <div class="sec">
+    <div class="sh"><span class="sn">01</span><h2>數據總覽</h2></div>
+    <div class="dash dark">
+      <div class="kpis">
+        <div class="kpi"><div class="kl">八福均分</div><div class="kv num">6.8<small>/10</small></div><div class="ku" style="color:var(--green)">中段</div></div>
+        <div class="kpi"><div class="kl">站得住階數</div><div class="kv num">6<small>/8</small></div><div class="ku" style="color:var(--green)">≥6.5</div></div>
+        <div class="kpi"><div class="kl">最低階</div><div class="kv num">5.8</div><div class="ku" style="color:var(--amber)">為義受逼迫</div></div>
+        <div class="kpi"><div class="kl">情慾最明顯組</div><div class="kv num">3.5</div><div class="ku" style="color:var(--amber)">向外·價值</div></div>
+        <div class="kpi"><div class="kl">核心機制</div><div class="kv" style="font-size:.92rem;line-height:1.35">條件式<br>自我價值</div><div class="ku" style="color:var(--red)">見 03</div></div>
+      </div>
+      <div class="dgrid">
+        <div><div id="radar"></div><div class="dcap">八福八階 · 越飽滿越成熟</div></div>
+        <div class="nbars">
+          <div class="lbl">八福八階（豎線＝6.5 站得住線）</div>
+          <div id="bBars"></div>
+          <div class="lbl" style="margin-top:1rem;color:var(--violet);text-shadow:0 0 12px rgba(158,140,255,.5)">情慾四方向（豎線＝3 留意線 · 越低越好）</div>
+          <div id="fBars"></div>
+          <div class="dhint">兩份量表方向相反：八福越高越好，情慾越低越好。兩者交叉的落點，見下一節。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 二、交叉分析 → 核心議題 -->
+  <div class="sec">
+    <div class="sh"><span class="sn">02</span><h2>交錯分析：五個訊號收斂於一個根</h2></div>
+    <p class="note">三組資料（八福量表、情慾量表、六項自述）彼此獨立，卻在同一處交會。以下五個訊號 —— 兩個八福低點、一個情慾高點、兩項自述 —— 指向單一機制。</p>
+    <div class="core dark">
+      <div class="clab">CONVERGENCE · 訊號收斂</div>
+      <div class="funnel">
+        <div class="sig"><span class="sd" style="color:var(--amber)"></span>溫柔 <b class="num">6.4</b> <span class="ar" style="color:var(--amber)">↓</span></div>
+        <div class="sig"><span class="sd" style="color:var(--red)"></span>為義受逼迫 <b class="num">5.8</b> <span class="ar" style="color:var(--red)">↓ 最低</span></div>
+        <div class="sig"><span class="sd" style="color:var(--violet)"></span>向外·想要價值 <b class="num">3.5</b> <span class="ar" style="color:var(--violet)">↑ 最高</span></div>
+        <div class="sig"><span class="sd" style="color:var(--cyan)"></span>自述：傳福音膽怯、看人反應</div>
+        <div class="sig"><span class="sd" style="color:var(--cyan)"></span>自述：規劃多、忽略問神</div>
+      </div>
+      <div class="chev">▼▼▼</div>
+      <div class="corebox">
+        <div class="ct">核心議題：價值感與安全感的來源，仍建立在<em>「自我的表現」與「他人的肯定」</em>之上。</div>
+        <p>由這一個來源，衍生出兩個方向相反、根卻相同的自我保護策略。它們解釋了為什麼「掌控」與「膽怯」會同時出現在同一個人身上 —— <b>兩者都在保護同一個脆弱的自我。</b></p>
+        <div class="strat">
+          <div class="st a"><div class="sh2">掌控 <span class="tag" style="background:rgba(90,210,230,.15);color:var(--cyan)">維持安全</span></div>以過度規劃、歸納，把不確定壓到最低。代價：動手前不再問神。對應八福 <b>溫柔 6.4 偏低</b>。</div>
+          <div class="st b"><div class="sh2">迴避 <span class="tag" style="background:rgba(158,140,255,.15);color:var(--violet)">保護價值</span></div>以膽怯、「無交流必要」，避開價值被否定的風險。對應八福 <b>為義受逼迫 5.8 最低</b>。</div>
+        </div>
+      </div>
+      <div class="root">兩策略的根只有一個 —— 第 8 章的判詞：<b>「我自己坐在那個位子上。」</b></div>
+    </div>
+  </div>
+
+  <!-- 三、心理學怎麼對付 -->
+  <div class="sec">
+    <div class="sh"><span class="sn">03</span><h2>傳統心理學如何處理這個機制</h2></div>
+    <p class="note">這個核心議題在心理學裡有明確的名稱與處遇方式。三個成分各有對應的實證取向。八福不與這些取向競爭 —— 心理學<b>描述機制、指出方向</b>，八福則為同一個方向<b>提供自我以外的歸屬</b>。</p>
+    <div class="tbl"><table>
+      <thead><tr><th>機制成分</th><th>心理學的命名與解法</th><th>八福的定位（歸屬主軸）</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><span class="mech">價值來源</span><br><b>條件式自我價值</b></td>
+          <td>自尊繫於「達標」與「被認可」，波動大、易疲乏（Crocker）。解法不是提高自尊，而是<b>移轉價值基準</b>到非表現性的穩定來源 —— 無條件的自我接納、自我慈悲（Neff）。</td>
+          <td>價值的穩定來源被定位在自我之外 —— <b>神看為寶貴</b>。虛心（承認一無所有）正是把價值的計算交出去的起點。</td>
+        </tr>
+        <tr>
+          <td><span class="mech">迴避</span><br><b>社交評價焦慮</b></td>
+          <td>害怕被評價 → 以迴避換取短期安心，反而讓恐懼被增強（負增強）。標準解法是<b>分級暴露</b>與行為實驗：在可控的小步中直接面對，使災難化的預測被證否，迴避自然消退。</td>
+          <td><b>為義受逼迫</b>＝憑順服而非憑反應的暴露。不是靠意志硬撐，是把「開不開口」的決定權，從人的臉色移回神的旨意。</td>
+        </tr>
+        <tr>
+          <td><span class="mech">掌控</span><br><b>無法容忍不確定</b></td>
+          <td>過度規劃是焦慮的調節手段（Dugas）。解法是<b>容忍不確定</b>的練習與「價值導向的行動」（ACT）—— 帶著不確定仍去做對的事，而非等到完全掌握才動。</td>
+          <td><b>溫柔</b>＝下寶座。牧師說的「下寶座」正是容忍不確定的屬靈版：力量未減，卻把主權交還給騎者。</td>
+        </tr>
+      </tbody>
+    </table></div>
+    <div class="card" style="background:linear-gradient(140deg,var(--lav-s),#fff 68%);border-color:#d8c9ef">
+      <p style="margin:0"><b>一句話對接：</b>心理學說「把價值的地基從表現移開、用暴露拆掉迴避、用容忍不確定鬆開掌控」。八福說的是同一組動作，但把地基指向一個具體的位格 —— <b>不是換一個更穩的自我，是換一個主。</b></p>
+    </div>
+  </div>
+
+  <!-- 四、計畫涵蓋度 -->
+  <div class="sec">
+    <div class="sh"><span class="sn">04</span><h2>現行一年計畫的涵蓋度分析</h2></div>
+    <p class="note">將既有的一年計畫，逐一對到上述三個機制成分，評估涵蓋程度。結論：<b>行為介入這一塊做得對，價值與掌控兩塊留有缺口。</b></p>
+    <div class="cov">
+      <div class="cvrow g">
+        <div class="cvh"><span class="cm">迴避 · 社交評價焦慮</span><span class="cstat">涵蓋 高</span></div>
+        <div class="cvbar"><i style="width:80%"></i></div>
+        <div class="cxa">解法＝分級暴露　·　計畫對應＝<b>福音微型行動</b>（主動微笑 → 每週至少一人 → 醫院／超市／散步三場域）</div>
+        <p>這是整套計畫最準的一塊。「從主動微笑這個物理起點開始」正是分級暴露的教科書做法 —— 直覺上就建了對的介入。<b>缺口：尚未系統化</b> —— 沒有恐懼階層、沒有焦慮值記錄，消退無法被量測。</p>
+      </div>
+      <div class="cvrow y">
+        <div class="cvh"><span class="cm">掌控 · 無法容忍不確定</span><span class="cstat">涵蓋 部分</span></div>
+        <div class="cvbar"><i style="width:42%"></i></div>
+        <div class="cxa">解法＝容忍不確定、放手　·　計畫對應＝<b>四階段的「減法／能量水位」</b>（間接觸及）</div>
+        <p>「絕不開新專案、評估能量水位」是健康的自我調節，間接鬆動掌控。但<b>「規劃之前先問神」這個直接對治點，未被列入任何一層檢核</b> —— 而這正是自述指出的失守處。</p>
+      </div>
+      <div class="cvrow r">
+        <div class="cvh"><span class="cm">價值來源 · 條件式自我價值</span><span class="cstat">缺 · 有反效果風險</span></div>
+        <div class="cvbar"><i style="width:15%"></i></div>
+        <div class="cxa">解法＝移轉價值基準到非表現　·　計畫對應＝<b>無直接處理</b></div>
+        <p>核心議題的根，計畫沒有直接對到。更需要留意的是<b>結構性反效果</b>：整套計畫以「里程碑、產出、檢核達標」構成 —— 這種成就導向，本身可能反過來餵養「向外·想要價值」，讓服事變成新的價值競技場。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 五、加強建議 -->
+  <div class="sec">
+    <div class="sh"><span class="sn">05</span><h2>三項加強：補缺口、對治根</h2></div>
+    <p class="note">依涵蓋度分析，優先補「價值來源」與「掌控」（對治根），再深化「暴露」（對治症狀）。三項都接在既有的日／週檢核上，不另開專案。</p>
+
+    <div class="fix">
+      <div><span class="fn">1</span><span class="ft2">設一個非表現性指標 —— 防止服事變成價值競技場</span></div>
+      <div class="tgt">對治：價值來源（紅 · 最關鍵）</div>
+      <p>既有計畫以產出與里程碑計分。加設一個<b>不以成果衡量</b>的指標：每日只記錄「今天是否憑順服而行、是否把價值交還給神」，用「忠心」而非「產出」結算。這是把價值基準從表現移開的每日操作 —— 直接對治核心議題的根。</p>
+    </div>
+    <div class="fix">
+      <div><span class="fn">2</span><span class="ft2">在規劃動筆前，加一個「交還主權」的固定動作</span></div>
+      <div class="tgt">對治：掌控（黃 → 綠）</div>
+      <p>每次規劃、歸納之前，先做一個固定動作：<b>寫下這件事裡「不確定、不強求」的部分，交託後才動筆</b>。這同時是容忍不確定的練習與溫柔（下寶座）的操練，補上自述所指的「規劃多、忽略問神」。</p>
+    </div>
+    <div class="fix">
+      <div><span class="fn">3</span><span class="ft2">把「暴露」系統化、可量測</span></div>
+      <div class="tgt">對治：迴避（綠 → 更有效）</div>
+      <p>將「每週一人」升級為<b>恐懼階層</b>：由易到難列出五級福音接觸情境，每次接觸前後記錄焦慮值（0–10），兩週回看曲線。讓迴避的消退從「感覺有進步」變成<b>看得見的數據</b>，也接上既有的雙週系統維護。</p>
+    </div>
+  </div>
+
+  <!-- 六、結論 -->
+  <div class="sec">
+    <div class="sh"><span class="sn">06</span><h2>結論</h2></div>
+    <div class="concl dark">
+      <div class="clab">CONCLUSION · 定版結論</div>
+      <p>綜合八福、情慾與自述三組資料，核心議題單一而清楚：<b>價值與安全的來源仍在自我。</b>五個訊號 —— 溫柔 6.4↓、為義受逼迫 5.8↓、向外·價值 3.5↑，以及膽怯、規劃忽略問神兩項自述 —— 收斂於同一個根。</p>
+      <p>現行一年計畫已內建正確的行為介入（分級暴露），此為明顯的強項；但在<em>「價值來源移轉」</em>與<em>「交還主權」</em>兩處留有缺口，且成就導向的計畫結構，對核心議題本身帶有反效果風險。</p>
+      <div class="prio"><span>優先序 <b>1</b>　補價值來源</span><span>優先序 <b>2</b>　補交還主權</span><span>優先序 <b>3</b>　深化暴露</span></div>
+      <p>八福的定位，使這三項不停在自我調適的層次，而有一個自我以外的歸屬：<b>溫柔＝下寶座，為義受逼迫＝憑順服，價值＝神看為寶貴。</b>有禍與有福不是命定，是每天在「自我坐主位」與「下寶座」之間的揀選。</p>
+      <div class="fin">本報告為 2026/07/27 之定版分析　·　資料源：八福自評 · 情慾自評 · 六項自述　·　依《天國憲章》第 3、7、8 章之架構</div>
+    </div>
+  </div>
+
+  <!-- 附：原始資料 -->
+  <div class="sec">
+    <div class="sh"><span class="sn">附</span><h2>受測者原始陳述（分析依據）</h2></div>
+    <div id="data"></div>
+
+    <details class="more">
+      <summary>更多參考依據</summary>
+      <div class="mb">
+        <p><b>路加四禍 ＝ 八福的鏡像</b>（路 6:24–26）</p>
+        <table>
+          <thead><tr><th>八福（有福了）</th><th>四禍（有禍了）</th></tr></thead>
+          <tbody>
+          <tr><td>虛心的人</td><td>富足的人（被看見的富足）</td></tr>
+          <tr><td>飢渴慕義的人</td><td>飽足的人（含資訊與計畫的飽）</td></tr>
+          <tr><td>哀慟的人</td><td>喜笑的人</td></tr>
+          <tr><td>為義受逼迫的人</td><td>人都說你們好的（看人稱許）</td></tr>
+          </tbody>
+        </table>
+        <p style="margin-top:.6rem">四禍不是四種人，是同一條路走反了的四個樣子。與本報告核心議題直接對應的是第一與第四項：價值的富足、與被稱許的富足。</p>
+        <p style="margin-top:1rem"><b>心理學參照</b>：條件式自我價值（Crocker &amp; Wolfe, 2001）、自我慈悲（Neff, 2003）、社交焦慮的暴露處遇、無法容忍不確定（Dugas）、接納與承諾治療（ACT）。此處僅作機制描述之背景，非治療建議。</p>
+        <p style="margin-top:1rem"><b>「二十種美好商數」長期自評</b>：受測者以此表按季自評逾兩年，最新一季（2026 Q2＝70）為啟用以來最高，趨勢向上。其中美麗商數（看別人比自己強）對應向外·價值，次序商數（神→家庭→教會）對應溫柔，領導商數（基督馨香、說造就人的話、有擔當）對應核心目的。可與本八福報告並行。</p>
+        <p style="margin-top:1rem"><b>「有禍或有福，自己選擇」</b>：申命記 30:19「我將生死禍福陳明在你面前……所以你要揀選生命。」有福有禍非命定，是每天的揀選。</p>
+      </div>
+    </details>
+  </div>
+
+</div>
+
+<footer class="ft">《天國憲章》附錄 · 核心議題分析報告 · 2026/07/27</footer>
+
+<script>
+/* ═══ 資料（2026-07 定版，寫死；文字分析針對這些數字，不動態覆蓋）═══ */
+const AX=['虛心','哀慟','溫柔','飢渴慕義','憐恤','清心','使人和睦','為義受逼迫'];
+const AC=['#5AD2E6','#9E8CFF','#FFC24B','#FFC24B','#54D6A6','#54D6A6','#5B8DEF','#FF6B8A'];
+const bv=[7.0,7.4,6.4,7.0,7.0,7.4,6.6,5.8];
+const FG=['向內·想要親密','向上·想要平安','向外·想要價值','向下·想要安慰'];
+const FC=['#C4527E','#9E8CFF','#FFC24B','#5B8DEF'];
+const fg=[2.3,2.0,3.5,3.0];
+const B_PASS=6.5, F_WATCH=3;
+
+/* ═══ 雷達（深色 + 炫光）═══ */
+function radar(v){
+  const N=8,R=112,cx=R+92,cy=R+52,W=cx*2,H=cy+R+56;
+  const pt=(i,r)=>{const a=-Math.PI/2+i*2*Math.PI/N;return [+(cx+Math.cos(a)*r).toFixed(1),+(cy+Math.sin(a)*r).toFixed(1)];};
+  let g='';
+  [2,4,6,8,10].forEach(t=>{let p=[];for(let i=0;i<N;i++)p.push(pt(i,R*t/10).join(','));
+    g+=`<polygon points="${p.join(' ')}" fill="none" stroke="rgba(255,255,255,${t===10?.22:.09})" stroke-width="1"/>`;});
+  for(let i=0;i<N;i++)g+=`<line x1="${cx}" y1="${cy}" x2="${pt(i,R)[0]}" y2="${pt(i,R)[1]}" stroke="rgba(255,255,255,.10)"/>`;
+  let p=[];for(let i=0;i<N;i++)p.push(pt(i,R*Math.max(v[i],.35)/10).join(','));
+  g+=`<polygon points="${p.join(' ')}" fill="url(#ag)" stroke="url(#ah)" stroke-width="2.4" stroke-linejoin="round" filter="url(#glow)"/>`;
+  for(let i=0;i<N;i++){const q=pt(i,R*Math.max(v[i],.35)/10);
+    g+=`<circle cx="${q[0]}" cy="${q[1]}" r="3.6" fill="#0e1730" stroke="${AC[i]}" stroke-width="2.2"/>`;}
+  for(let i=0;i<N;i++){const a=-Math.PI/2+i*2*Math.PI/N,ct=Math.cos(a),st=Math.sin(a),q=pt(i,R+22);
+    const an=Math.abs(ct)<.18?'middle':(ct>0?'start':'end'),dx=Math.abs(ct)<.18?0:(ct>0?6:-6),dy=st<-.9?-8:(st>.9?14:4+st*8);
+    g+=`<text x="${q[0]+dx}" y="${q[1]+dy}" text-anchor="${an}" font-size="12.5" font-weight="700" fill="${AC[i]}" font-family="'Noto Serif TC',serif">${AX[i]}</text>`;
+    g+=`<text x="${q[0]+dx}" y="${q[1]+dy+14}" text-anchor="${an}" font-size="10.5" font-weight="700" fill="#8FA0C4">${v[i].toFixed(1)}</text>`;}
+  return `<svg viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="八福雷達圖">
+    <defs>
+      <linearGradient id="ag" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#5AD2E6" stop-opacity=".28"/><stop offset="100%" stop-color="#9E8CFF" stop-opacity=".28"/></linearGradient>
+      <linearGradient id="ah" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#5AD2E6"/><stop offset="100%" stop-color="#9E8CFF"/></linearGradient>
+      <filter id="glow" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    </defs>${g}</svg>`;
+}
+document.getElementById('radar').innerHTML=radar(bv);
+
+/* ═══ 深色分數條 ═══ */
+function bTier(x){ return x>=B_PASS?{n:'站得住',c:'#54D6A6'}:x>=5?{n:'勉強',c:'#FFC24B'}:{n:'弱',c:'#FF6B8A'}; }
+function fTier(x){ return x>=7?{n:'主導',c:'#FF6B8A'}:x>=5?{n:'明顯',c:'#FFC24B'}:x>=F_WATCH?{n:'留意',c:'#FFC24B'}:{n:'不明顯',c:'#54D6A6'}; }
+let bh='';
+AX.forEach((n,i)=>{ const t=bTier(bv[i]);
+  bh+=`<div class="nb"><span class="nn">${n}</span>
+    <span class="nt"><i style="width:${bv[i]*10}%;color:${AC[i]};background:${AC[i]}"></i><u style="left:${B_PASS*10}%"></u></span>
+    <span class="nv" style="color:${t.c}">${bv[i].toFixed(1)}</span></div>`; });
+document.getElementById('bBars').innerHTML=bh;
+let fh='';
+FG.forEach((n,i)=>{ const t=fTier(fg[i]);
+  fh+=`<div class="nb"><span class="nn" style="width:6.8em">${n}</span>
+    <span class="nt"><i style="width:${fg[i]*10}%;color:${FC[i]};background:${FC[i]}"></i><u style="left:${F_WATCH*10}%"></u></span>
+    <span class="nv" style="color:${t.c}">${fg[i].toFixed(1)}</span></div>`; });
+document.getElementById('fBars').innerHTML=fh;
+
+/* ═══ 原始陳述（唯讀）═══ */
+const DATA=[
+ ['八福自評最弱的一項', '「覺得只有虛心跟清心比較好，其他都不好。因為我知道自己是個很自私、沒有愛心的人，跟別人有關係的，就會有很多面向是不好的。」'],
+ ['因某特質不夠而付的代價', '「喜歡計畫很多事情、歸納整理，但最近資訊量太多、沒有好好消化。付出的代價是：因為自己規劃很多，反而忽略了要問神，沒有溫柔。」'],
+ ['最常「自己去拿」的渴望', '「想要價值。也跟我的自私有關 —— 其他渴望都需要與另一個有愛的互動，所以我的需求比較低；但我對自己的期許和要求高，就會有『希望價值被看到』的隱性需求。」'],
+ ['一年計畫的核心目的', '「準備成為一個能夠傳講『如何預備主基督再來』、以全備真理領人信主的人；看見自己的各樣不足，並且突破。」'],
+ ['一年後的目標形象', '「不害羞、不侷促，心中有墨；對主有極大的信心和依靠；傳福音全憑神的旨意，不是看別人的反應，全然靠神；但又要有智慧，能夠榮神益人。」'],
+ ['最可能讓計畫卡住的障礙', '「膽怯，以及照顧母親、居家上班帶來的能量水位問題 —— 生活場域受限，缺乏傳統的社交與福音場合。」']
+];
+document.getElementById('data').innerHTML=DATA.map((d,i)=>
+  `<div class="data"><div class="dq">${String(i+1).padStart(2,'0')} · ${d[0]}</div><div class="da">${d[1]}</div></div>`).join('');
+</script>
+</body>
+</html>

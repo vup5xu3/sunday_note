@@ -440,6 +440,26 @@ td small{display:block;color:var(--muted);font-size:.72rem;font-weight:400;}
   .deck-arrow{display:none;}
 }
 
+/* ═══ 三張延伸卡（導覽／行動計畫／簡報）═══ */
+.deck-row{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;}
+.deck3{display:flex;flex-direction:column;text-decoration:none;position:relative;
+  border:1.5px solid var(--lav);border-radius:var(--r-lg);padding:1.4rem 1.35rem;box-shadow:var(--sh);transition:.25s;}
+.deck3:hover{transform:translateY(-4px);box-shadow:var(--sh-h);}
+.deck3 .d3-ico{width:52px;height:52px;border-radius:16px;background:#fff;display:flex;align-items:center;
+  justify-content:center;font-size:26px;box-shadow:var(--sh);margin-bottom:.9rem;}
+.deck3 .d3-lab{font-size:.68rem;letter-spacing:2px;font-weight:700;margin-bottom:.3rem;}
+.deck3 .d3-title{font-family:'Noto Serif TC',serif;font-size:1.1rem;font-weight:700;color:var(--ink-d);margin-bottom:.4rem;line-height:1.4;}
+.deck3 .d3-desc{font-size:.8rem;color:var(--muted);line-height:1.75;flex:1;}
+.deck3 .d3-go{margin-top:.9rem;font-size:.78rem;font-weight:700;}
+.deck3 .d3-tag{position:absolute;top:12px;right:12px;font-size:.62rem;font-weight:700;border-radius:99px;padding:2px 9px;}
+.deck3.g1{background:linear-gradient(150deg,var(--sky-s),#fff 72%);border-color:var(--sky);}
+.deck3.g1 .d3-lab,.deck3.g1 .d3-go{color:var(--sky-d);}
+.deck3.g2{background:linear-gradient(150deg,var(--rose-s),#fff 72%);border-color:var(--rose);}
+.deck3.g2 .d3-lab,.deck3.g2 .d3-go{color:var(--rose-d);}
+.deck3.g3{background:linear-gradient(150deg,var(--lemon-s),#fff 72%);border-color:var(--lemon);}
+.deck3.g3 .d3-lab,.deck3.g3 .d3-go{color:var(--lemon-d);}
+@media(max-width:680px){.deck-row{grid-template-columns:1fr;}}
+
 /* ═══ FOOTER ═══ */
 .ft{
   margin-top:3rem;padding:2.4rem 1.5rem;text-align:center;
@@ -1328,18 +1348,30 @@ td small{display:block;color:var(--muted);font-size:.72rem;font-weight:400;}
 
 <!-- ═════════════════════════════════════════ 前往分享簡報 ═════════════════════════════════════════ -->
 <section class="sec" style="padding-top:1rem;padding-bottom:2.5rem;">
-  <a class="deck-cta" href="ding-ling_20260614_followup_ppt.html" target="_blank" rel="noopener">
-    <div class="deck-ico">🎞️</div>
-    <div class="deck-txt">
-      <div class="deck-lab">依本文整理的簡報版</div>
-      <div class="deck-title">《天國憲章》分享簡報</div>
-      <div class="deck-desc">
-        41 頁 · 起承轉合完整架構 · 兩大提問一頭一尾閉環<br>
-        <span>李之馨 姊妹　·　2026.07.21　·　可直接投影或另存 16:9 PDF</span>
-      </div>
-    </div>
-    <div class="deck-arrow">→</div>
-  </a>
+  <div class="deck-row">
+    <a class="deck3 g1" href="https://chih-hsin-bibble-study.vercel.app/studies/NT-40_Matthew_05-07_天國憲章.html" target="_blank" rel="noopener">
+      <div class="d3-ico">📖</div>
+      <div class="d3-lab">導覽版</div>
+      <div class="d3-title">《天國憲章》導覽</div>
+      <div class="d3-desc">12 章逐章導讀，附八福・情慾兩份自評與雷達圖。</div>
+      <div class="d3-go">前往閱讀 →</div>
+    </a>
+    <a class="deck3 g2" href="ding-ling_20260614_plan.html" target="_blank" rel="noopener">
+      <div class="d3-tag" style="background:var(--rose-s);color:var(--rose-d)">個人</div>
+      <div class="d3-ico">🎯</div>
+      <div class="d3-lab">行動計畫</div>
+      <div class="d3-title">邁進八福・行動計畫</div>
+      <div class="d3-desc">核心議題分析報告 ——「有禍或有福，自己選擇」。</div>
+      <div class="d3-go">開啟報告 →</div>
+    </a>
+    <a class="deck3 g3" href="ding-ling_20260614_followup_ppt.html" target="_blank" rel="noopener">
+      <div class="d3-ico">🎞️</div>
+      <div class="d3-lab">分享簡報</div>
+      <div class="d3-title">《天國憲章》分享簡報</div>
+      <div class="d3-desc">41 頁完整架構，可直接投影或另存 16:9 PDF。</div>
+      <div class="d3-go">開啟簡報 →</div>
+    </a>
+  </div>
 </section>
 
 </main>
