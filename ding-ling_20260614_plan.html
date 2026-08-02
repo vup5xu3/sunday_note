@@ -180,7 +180,63 @@ details.more table{min-width:auto;}details.more th,details.more td{border-bottom
 details.more thead th{background:#eef1f7;color:var(--ink-d);}
 
 .ft{margin-top:2.6rem;padding:1.8rem 1.4rem;text-align:center;color:var(--nmut);font-size:.76rem;letter-spacing:.5px;line-height:1.9;}
-@media(max-width:640px){ .kpis{grid-template-columns:repeat(2,1fr);} .dgrid{grid-template-columns:1fr;} .strat{grid-template-columns:1fr;} }
+
+/* ══ 內心狀態整合雷達 ══ */
+.fuse{padding:1.5rem 1.4rem 1.3rem;}
+.fuse-grid{display:grid;grid-template-columns:1.02fr 1fr;gap:1.3rem;align-items:center;}
+.fuse-radar{position:relative;}
+.fuse-radar svg{display:block;width:100%;height:auto;filter:drop-shadow(0 0 10px rgba(90,210,230,.22));}
+.fuse-radar svg text[data-i]{cursor:pointer;}
+.fuse-legend{display:flex;justify-content:center;gap:1.2rem;margin-top:.3rem;font-size:.72rem;color:var(--nmut);}
+.fuse-legend i{display:inline-block;width:16px;height:0;vertical-align:middle;margin-right:.35rem;}
+.fuse-legend .lg-ghost{border-top:2px dashed rgba(255,255,255,.5);}
+.fuse-legend .lg-main{border-top:3px solid var(--cyan);}
+.fuse-detail{background:rgba(255,255,255,.04);border:1px solid var(--nline);border-radius:10px;padding:1.1rem 1.2rem;min-height:230px;}
+.fd-h{display:flex;align-items:baseline;gap:.6rem;flex-wrap:wrap;font-family:'Noto Serif TC',serif;font-size:1.2rem;font-weight:700;color:#fff;margin-bottom:.2rem;}
+.fd-h .fd-sc{font-size:.82rem;font-weight:700;border-radius:5px;padding:2px 9px;background:rgba(90,210,230,.16);color:var(--cyan);}
+.fd-h .fd-raw{font-size:.74rem;color:var(--nmut);font-weight:400;}
+.fd-pull{font-size:.8rem;color:var(--amber);margin-bottom:.7rem;}
+.fd-pull.none{color:var(--green);}
+.fd-hint{font-size:.82rem;color:var(--nmut);line-height:1.9;}
+.fd-list{list-style:none;margin:.2rem 0 0;}
+.fd-list li{display:flex;align-items:flex-start;gap:.5rem;padding:.5rem 0;border-bottom:1px dashed var(--nline);font-size:.86rem;line-height:1.7;color:var(--nink);}
+.fd-list li:last-child{border-bottom:none;}
+.fd-list .ft-t{flex:1;}
+.fd-list .fr{flex-shrink:0;font-size:.66rem;font-weight:700;border-radius:5px;padding:1px 7px;background:rgba(255,255,255,.08);color:var(--nmut);white-space:nowrap;}
+.fd-list .fm{flex-shrink:0;font-size:.66rem;font-weight:700;border-radius:5px;padding:1px 7px;white-space:nowrap;}
+.fm.v{background:rgba(255,107,138,.16);color:var(--red);}
+.fm.c{background:rgba(90,210,230,.16);color:var(--cyan);}
+.fm.a{background:rgba(158,140,255,.16);color:var(--violet);}
+.fm.e{background:rgba(84,214,166,.16);color:var(--green);}
+.fd-why{font-size:.82rem;line-height:1.85;color:var(--nink);background:rgba(158,140,255,.08);
+  border-left:2px solid rgba(158,140,255,.5);border-radius:0 6px 6px 0;padding:.55rem .8rem;margin-bottom:.8rem;}
+.fd-why b{color:var(--violet);}
+.fd-grp{font-size:.68rem;letter-spacing:1px;font-weight:700;margin:.5rem 0 .1rem;}
+.fd-grp.new{color:var(--cyan);}
+.fd-grp.old{color:var(--nmut);}
+.fd-list li .nb2{flex-shrink:0;font-size:.62rem;font-weight:700;border-radius:4px;padding:1px 6px;white-space:nowrap;background:rgba(90,210,230,.18);color:var(--cyan);}
+.fuse-chips{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:1.1rem;justify-content:center;}
+.fchip{font-size:.76rem;font-weight:700;border:1px solid var(--nline);border-radius:5px;padding:4px 11px;cursor:pointer;
+  color:var(--nink);background:rgba(255,255,255,.04);transition:.15s;}
+.fchip:hover,.fchip.on{background:rgba(90,210,230,.14);border-color:rgba(90,210,230,.5);color:#fff;}
+
+/* ══ 每日／每週／每月 節奏 ══ */
+.cad{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;}
+.cad-col{background:#fff;border:1px solid var(--line);border-radius:10px;padding:1.2rem 1.3rem;box-shadow:var(--sh);border-top:4px solid;}
+.cad-col.d{border-top-color:var(--blue);}
+.cad-col.w{border-top-color:var(--violet);}
+.cad-col.m{border-top-color:var(--peach-d,#D9793B);}
+.cad-h{font-family:'Noto Serif TC',serif;font-size:1.12rem;font-weight:700;color:var(--ink-d);margin-bottom:.2rem;}
+.cad-sub{font-size:.72rem;color:var(--muted);margin-bottom:.8rem;letter-spacing:1px;}
+.cad-col ul{list-style:none;}
+.cad-col li{display:flex;align-items:flex-start;gap:.5rem;padding:.42rem 0;font-size:.9rem;line-height:1.7;color:var(--ink);border-bottom:1px dashed var(--line);}
+.cad-col li:last-child{border-bottom:none;}
+.cad-col li .cdot{flex-shrink:0;width:7px;height:7px;border-radius:50%;margin-top:.55rem;background:var(--muted);}
+.cad-col li.star .cdot{background:var(--rose-d);box-shadow:0 0 6px var(--rose-d);}
+.cad-col li b.stt{color:var(--rose-d);}
+.cad-note{font-size:.78rem;color:var(--muted);margin-top:.8rem;}
+@media(max-width:760px){ .cad{grid-template-columns:1fr;} }
+@media(max-width:640px){ .kpis{grid-template-columns:repeat(2,1fr);} .dgrid{grid-template-columns:1fr;} .strat{grid-template-columns:1fr;} .fuse-grid{grid-template-columns:1fr;} }
 </style>
 </head>
 <body>
@@ -329,15 +385,74 @@ details.more thead th{background:#eef1f7;color:var(--ink-d);}
     </div>
   </div>
 
-  <!-- 六、結論 -->
+  <!-- 六、內心狀態整合雷達 + 行動對應 -->
   <div class="sec">
-    <div class="sh"><span class="sn">06</span><h2>結論</h2></div>
+    <div class="sh"><span class="sn">06</span><h2>內心狀態整合雷達 · 你的行動落在哪</h2></div>
+    <p class="note">把兩份測驗<b>整合成一張圖</b>：每一階的八福分，扣掉對應情慾方向的<b>拉力</b>（情慾越過留意線後<b>加倍</b>計入，凹得更明顯），得到「內心的實際狀態」。<b>淡色虛線</b>是八福原始分，<b>實色</b>是整合分 —— 凹陷最深的是<b>向外·價值</b>那一側（憐恤、使人和睦）。滑鼠移到任一維度（或點下方標籤）會看到：<b>為什麼這一階被這個情慾拉</b>、以及你為它做的行動（<b>新增在上、原有在下</b>）。分數後的括號＝行動數，如 <b>(1/2)</b> 表示 2 項中 1 項是新增。</p>
+    <div class="fuse dark">
+      <div class="fuse-grid">
+        <div class="fuse-radar">
+          <div id="radar2"></div>
+          <div class="fuse-legend"><span><i class="lg-ghost"></i>八福原始分</span><span><i class="lg-main"></i>整合分（扣情慾拉力）</span></div>
+        </div>
+        <div class="fuse-detail" id="fdetail"></div>
+      </div>
+      <div class="fuse-chips" id="fchips"></div>
+    </div>
+  </div>
+
+  <!-- 七、每日／每週／每月 -->
+  <div class="sec">
+    <div class="sh"><span class="sn">07</span><h2>實際節奏：每日 · 每週 · 每月</h2></div>
+    <p class="note">上面的維度，落到日常就是下面這些動作。<b style="color:var(--rose-d)">★</b> ＝報告新增的三項加強（對治核心議題的根）。</p>
+    <div class="cad">
+      <div class="cad-col d">
+        <div class="cad-h">每日</div><div class="cad-sub">DAILY</div>
+        <ul>
+          <li><span class="cdot"></span><span>個人祭壇 7:30–8:00（讀經禱告・認罪省察）</span></li>
+          <li class="star"><span class="cdot"></span><span>規劃或歸納「動筆前」，先問神、<b class="stt">交還主權</b> ★</span></li>
+          <li class="star"><span class="cdot"></span><span>每日結算：<b class="stt">憑順服，不憑產出</b>（記忠心，不記成果）★</span></li>
+          <li><span class="cdot"></span><span>主動微笑、找出一個人的優點（暴露暖身）</span></li>
+          <li class="star"><span class="cdot"></span><span>被當面指正時，先說「<b class="stt">謝謝你的提醒，讓我又上了一階</b>」，先領受不辯解 ★</span></li>
+          <li><span class="cdot"></span><span>（階段二起）啟示信息書 2–3 頁</span></li>
+        </ul>
+      </div>
+      <div class="cad-col w">
+        <div class="cad-h">每週</div><div class="cad-sub">WEEKLY</div>
+        <ul>
+          <li><span class="cdot"></span><span>主日靈糧筆記本：更新、內化、分享</span></li>
+          <li><span class="cdot"></span><span>初信造就，每週三題解析</span></li>
+          <li><span class="cdot"></span><span>聖經核心人物六大維度探討，一次</span></li>
+          <li><span class="cdot"></span><span>與媽媽小組：陪伴禱告</span></li>
+          <li class="star"><span class="cdot"></span><span>至少與一人福音交流，<b class="stt">前後記焦慮值（分級暴露）</b> ★</span></li>
+          <li class="star"><span class="cdot"></span><span><b class="stt">主動稱讚三人以上</b>（看見並說出別人的好）★</span></li>
+          <li class="star"><span class="cdot"></span><span><b class="stt">迫切為一個看不順眼的人祝福禱告</b> ★</span></li>
+        </ul>
+      </div>
+      <div class="cad-col m">
+        <div class="cad-h">每月 / 每季</div><div class="cad-sub">MONTHLY · QUARTERLY</div>
+        <ul>
+          <li><span class="cdot"></span><span>每月禁食一次</span></li>
+          <li><span class="cdot"></span><span>月檢核：回顧「能量水位」是否健康</span></li>
+          <li><span class="cdot"></span><span>Q3 里程碑：度過環境調整＋2 次戶外發單張</span></li>
+          <li><span class="cdot"></span><span>半年：讀完 1 本啟示信息書＋2 次短講</span></li>
+          <li><span class="cdot"></span><span>年終：產出並實際使用查經企劃書</span></li>
+        </ul>
+      </div>
+    </div>
+    <p class="cad-note">＊完整逐項勾選（頻率 · 對應八福 · 對治什麼）在「行動計畫檢核系統」試算表；右上角 📊 可直接開啟。</p>
+  </div>
+
+  <!-- 八、結論 -->
+  <div class="sec">
+    <div class="sh"><span class="sn">08</span><h2>結論</h2></div>
     <div class="concl dark">
       <div class="clab">CONCLUSION · 定版結論</div>
       <p>綜合八福、情慾與自述三組資料，核心議題單一而清楚：<b>價值與安全的來源仍在自我。</b>五個訊號 —— 溫柔 6.4↓、為義受逼迫 5.8↓、向外·價值 3.5↑，以及膽怯、規劃忽略問神兩項自述 —— 收斂於同一個根。</p>
       <p>現行一年計畫已內建正確的行為介入（分級暴露），此為明顯的強項；但在<em>「價值來源移轉」</em>與<em>「交還主權」</em>兩處留有缺口，且成就導向的計畫結構，對核心議題本身帶有反效果風險。</p>
       <div class="prio"><span>優先序 <b>1</b>　補價值來源</span><span>優先序 <b>2</b>　補交還主權</span><span>優先序 <b>3</b>　深化暴露</span></div>
-      <p>八福的定位，使這三項不停在自我調適的層次，而有一個自我以外的歸屬：<b>溫柔＝下寶座，為義受逼迫＝憑順服，價值＝神看為寶貴。</b>有禍與有福不是命定，是每天在「自我坐主位」與「下寶座」之間的揀選。</p>
+      <p>加強版拉力把凹陷指得更清楚：<b>向外·價值</b>（憐恤 4.0、使人和睦 3.6）凹得最深。本版已在此補上每週的具體行動（<b>主動稱讚三人、為看不順眼的人祝福禱告</b>），並在<b>溫柔</b>加上「受指正時先領受」的操練 —— 都直接對治「從比較裡拿價值」與「自我坐主位」的根。</p>
+      <p>八福的定位，使這些行動不停在自我調適的層次，而有一個自我以外的歸屬：<b>溫柔＝下寶座，為義受逼迫＝憑順服，價值＝神看為寶貴。</b>有禍與有福不是命定，是每天在「自我坐主位」與「下寶座」之間的揀選。</p>
       <div class="fin">本報告為 2026/07/27 之定版分析　·　資料源：八福自評 · 情慾自評 · 六項自述　·　依《天國憲章》第 3、7、8 章之架構</div>
     </div>
   </div>
@@ -422,6 +537,93 @@ FG.forEach((n,i)=>{ const t=fTier(fg[i]);
     <span class="nt"><i style="width:${fg[i]*10}%;color:${FC[i]};background:${FC[i]}"></i><u style="left:${F_WATCH*10}%"></u></span>
     <span class="nv" style="color:${t.c}">${fg[i].toFixed(1)}</span></div>`; });
 document.getElementById('fBars').innerHTML=fh;
+
+/* ═══ 內心狀態整合雷達（八福 − 情慾拉力）═══ */
+/* 每階對應的情慾方向（fg 索引）；-1＝無 —— 對照第 8 章的病藥對應 */
+const MAP=[1,3,1,3,2,0,2,-1]; /* 虛心→平安 哀慟→安慰 溫柔→平安 飢渴→安慰 憐恤→價值 清心→親密 使人和睦→價值 為義→無 */
+const DIRNAME=['向內·親密','向上·平安','向外·價值','向下·安慰'];
+/* 拉力加強版：情慾越過留意線(2)的部分，以 2 倍計入 */
+const pull=MAP.map(m=> m<0?0:+(Math.max(0,fg[m]-2)*2).toFixed(1));
+const iv=bv.map((b,i)=>Math.max(0,+(b-pull[i]).toFixed(1)));
+const MECHNAME={v:'價值',c:'掌控',a:'迴避',e:'安慰'};
+/* 為什麼這一階會被這個情慾拉（背後因素）*/
+const WHY=[
+ '平安的情慾是把安全感放在別的東西上、想<b>掌控</b>結果；虛心卻是承認自己一無所有 —— 越想掌控，越拉低虛心。',
+ '安慰的情慾是用東西讓自己「<b>不用去感覺</b>」（醉酒、荒宴）；哀慟卻要為罪真實地難過 —— 逃避感覺，就哀慟不起來。',
+ '平安的情慾是要自己安排、掌控；溫柔（下寶座、交還主權）正是它的反面 —— 越想掌控，越拉低溫柔。',
+ '安慰的情慾是「<b>自己去填滿</b>」；飢渴慕義卻要餓著、等神餵（必得飽足是被動式）—— 自己填滿，就不再餓、不再等神。',
+ '價值的情慾是<b>從比較裡拿價值、見不得別人好</b>；憐恤卻要為別人的好而喜樂、白白給 —— 一個往內拿，一個往外給，正相衝。',
+ '親密的情慾是越界的靠近＝<b>意志摻雜</b>；清心卻是意志的單純、不摻雜 —— 摻雜就不清。',
+ '價值的情慾會<b>結黨、把人分成兩邊</b>；使人和睦卻要主動把兩邊接回來 —— 自我抬舉，正是和睦的破口。',
+ '為義受逼迫<b>不對應單一情慾方向</b> —— 它是前七階的必然後果；前面站穩了，它自然出現。'
+];
+/* 每階的實際行動：[文字, 頻率, 對治(v/c/a/e/''), 新增?] —— 新增在上、原有在下 */
+const ACT=[
+ [['四階段「減法・能量水位」檢核，承認有限、不硬撐','每月','',false]],
+ [['個人祭壇中的認罪省察，為得罪神的事真心難過','每日','',false]],
+ [['規劃或歸納「動筆前」，先問神、交還主權','每日','c',true],['有人當面指正時，先回「謝謝你的提醒，讓我又上了一階」，先領受、不辯解','當下','c',true],['每月禁食：把主權與胃口一起交出去','每月','c',false]],
+ [['個人祭壇 7:30–8:00 讀經禱告','每日','',false],['主日靈糧筆記本：更新、內化、分享','每週','',false],['初信造就，每週三題解析','每週','',false],['聖經核心人物六大維度探討','每週','',false],['啟示信息書每日 2–3 頁（階段二起）','每日','',false]],
+ [['每週主動稱讚三人以上，看見並為別人的好而喜樂','每週','v',true],['每週迫切為一個看不順眼的人祝福禱告','每週','v',true],['與媽媽小組：陪伴禱告','每週','',false]],
+ [['每日結算：憑順服而行，不憑產出（記忠心，不記成果）','每日','v',true]],
+ [['每週主動稱讚三人以上，用造就人的話','每週','v',true],['每週迫切為一個看不順眼的人祝福禱告','每週','v',true],['主動微笑、找出一個人的優點','每日','a',false]],
+ [['每週至少與一人福音交流；前後記錄焦慮值（分級暴露）','每週','a',true]],
+];
+function actCount(i){ const t=ACT[i].length, n=ACT[i].filter(a=>a[3]).length; return n>0?('('+n+'/'+t+')'):('('+t+')'); }
+function radar2(sel){
+  const N=8,R=110,cx=R+96,cy=R+54,W=cx*2,H=cy+R+58;
+  const pt=(i,r)=>{const a=-Math.PI/2+i*2*Math.PI/N;return [+(cx+Math.cos(a)*r).toFixed(1),+(cy+Math.sin(a)*r).toFixed(1)];};
+  let g='';
+  [2,4,6,8,10].forEach(t=>{let p=[];for(let i=0;i<N;i++)p.push(pt(i,R*t/10).join(','));
+    g+=`<polygon points="${p.join(' ')}" fill="none" stroke="rgba(255,255,255,${t===10?.22:.08})" stroke-width="1"/>`;});
+  for(let i=0;i<N;i++)g+=`<line x1="${cx}" y1="${cy}" x2="${pt(i,R)[0]}" y2="${pt(i,R)[1]}" stroke="rgba(255,255,255,.09)"/>`;
+  let pg=[];for(let i=0;i<N;i++)pg.push(pt(i,R*Math.max(bv[i],.35)/10).join(','));
+  g+=`<polygon points="${pg.join(' ')}" fill="none" stroke="rgba(255,255,255,.5)" stroke-width="1.4" stroke-dasharray="4 3"/>`;
+  let pm=[];for(let i=0;i<N;i++)pm.push(pt(i,R*Math.max(iv[i],.35)/10).join(','));
+  g+=`<polygon points="${pm.join(' ')}" fill="url(#ag2)" stroke="url(#ah2)" stroke-width="2.4" stroke-linejoin="round" filter="url(#glow2)"/>`;
+  for(let i=0;i<N;i++){const q=pt(i,R*Math.max(iv[i],.35)/10);const on=(i===sel);
+    g+=`<circle cx="${q[0]}" cy="${q[1]}" r="${on?6:3.6}" fill="${on?'#fff':'#0e1730'}" stroke="${AC[i]}" stroke-width="${on?3:2.2}"/>`;}
+  for(let i=0;i<N;i++){const a=-Math.PI/2+i*2*Math.PI/N,ct=Math.cos(a),st=Math.sin(a),q=pt(i,R+20);
+    const an=Math.abs(ct)<.18?'middle':(ct>0?'start':'end'),dx=Math.abs(ct)<.18?0:(ct>0?6:-6),dy=st<-.9?-6:(st>.9?16:5+st*8);
+    const on=(i===sel);
+    g+=`<circle data-i="${i}" cx="${(+q[0]+dx).toFixed(1)}" cy="${(+q[1]+dy-4).toFixed(1)}" r="22" fill="transparent"/>`;
+    g+=`<text data-i="${i}" x="${(+q[0]+dx).toFixed(1)}" y="${q[1]+dy}" text-anchor="${an}" font-size="12.5" font-weight="700" fill="${on?'#fff':AC[i]}" font-family="'Noto Serif TC',serif">${AX[i]}</text>`;
+    g+=`<text data-i="${i}" x="${(+q[0]+dx).toFixed(1)}" y="${q[1]+dy+14}" text-anchor="${an}" font-size="10.5" font-weight="700" fill="${on?'#fff':'#8FA0C4'}">${iv[i].toFixed(1)} <tspan fill="${on?'#5AD2E6':'#6f7fa0'}">${actCount(i)}</tspan></text>`;}
+  return `<svg viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="內心狀態整合雷達">
+    <defs>
+      <linearGradient id="ag2" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#5AD2E6" stop-opacity=".30"/><stop offset="100%" stop-color="#9E8CFF" stop-opacity=".30"/></linearGradient>
+      <linearGradient id="ah2" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#5AD2E6"/><stop offset="100%" stop-color="#9E8CFF"/></linearGradient>
+      <filter id="glow2" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    </defs>${g}</svg>`;
+}
+function actLi(a){ return '<li>'+(a[3]?'<span class="nb2">新</span>':'')+'<span class="ft-t">'+a[0]+'</span><span class="fr">'+a[1]+'</span>'+(a[2]?'<span class="fm '+a[2]+'">'+MECHNAME[a[2]]+'</span>':'')+'</li>'; }
+function detailHTML(i){
+  const m=MAP[i];
+  let pullTxt;
+  if(m<0) pullTxt='<div class="fd-pull none">此階無對應的情慾方向 —— 為義受逼迫是前七階的必然後果，不被單一渴望拉扯。</div>';
+  else if(pull[i]>0) pullTxt='<div class="fd-pull">情慾拉力：'+DIRNAME[m]+' −'+pull[i].toFixed(1)+'（把原始 '+bv[i].toFixed(1)+' 拉到 '+iv[i].toFixed(1)+'）</div>';
+  else pullTxt='<div class="fd-pull none">情慾拉力：'+DIRNAME[m]+' 目前不明顯，幾乎沒有下拉。</div>';
+  const newA=ACT[i].filter(a=>a[3]), oldA=ACT[i].filter(a=>!a[3]);
+  let acts='';
+  if(newA.length) acts+='<div class="fd-grp new">新增 · 對治核心議題</div><ul class="fd-list">'+newA.map(actLi).join('')+'</ul>';
+  if(oldA.length) acts+='<div class="fd-grp old">原有</div><ul class="fd-list">'+oldA.map(actLi).join('')+'</ul>';
+  if(!ACT[i].length) acts='<div class="fd-hint" style="color:var(--amber)">目前這一階還沒有專屬行動。</div>';
+  return '<div class="fd-h">'+AX[i]+'<span class="fd-sc">整合 '+iv[i].toFixed(1)+'</span><span class="fd-raw">原始 '+bv[i].toFixed(1)+' · 行動 '+actCount(i)+'</span></div>'
+    +pullTxt+'<div class="fd-why"><b>為什麼被拉：</b>'+WHY[i]+'</div>'+acts;
+}
+document.getElementById('fchips').innerHTML=AX.map((n,i)=>'<span class="fchip" data-i="'+i+'">'+n+' '+iv[i].toFixed(1)+'</span>').join('');
+function selDim(i){
+  document.getElementById('radar2').innerHTML=radar2(i); wireRadar();
+  document.getElementById('fdetail').innerHTML=detailHTML(i);
+  document.querySelectorAll('#fchips .fchip').forEach(c=>c.classList.toggle('on',+c.dataset.i===i));
+}
+function wireRadar(){ document.querySelectorAll('#radar2 [data-i]').forEach(el=>{
+  const i=+el.getAttribute('data-i');
+  el.addEventListener('mouseenter',()=>selDim(i));
+  el.addEventListener('click',()=>selDim(i)); }); }
+document.querySelectorAll('#fchips .fchip').forEach(c=>{
+  c.addEventListener('mouseenter',()=>selDim(+c.dataset.i));
+  c.addEventListener('click',()=>selDim(+c.dataset.i)); });
+(function(){ let w=0; iv.forEach((x,i)=>{if(x<iv[w])w=i;}); selDim(w); })();
 
 /* ═══ 原始陳述（唯讀）═══ */
 const DATA=[
