@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1229輯週訓【2026.7.26】以賽亞書查經：明亮之星路西弗的墜落</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;500;600;700;900&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --gold:       #C9A84C;
+  --gold-light: #E8D08A;
+  --gold-pale:  #FAF3DC;
+  --deep:       #14100C;
+  --ink:        #28200E;
+  --ink-soft:   #3A3020;
+  --muted:      #7A6B50;
+  --border:     #E0D4BA;
+  --parchment:  #FBF7F0;
+  --parchment2: #F4EDD8;
+  --dove:       #5C7289;
+  --dove-light: #8CAAC4;
+  --dove-pale:  #EAF1F8;
+  --ruby:       #8C2030;
+  --ruby-light: #C44058;
+  --ruby-pale:  #FAEAED;
+  --teal:       #2E7A70;
+  --teal-light: #4BADA0;
+  --teal-pale:  #E0F2EF;
+  --sage:       #4E6848;
+  --sage-light: #78A070;
+  --sage-pale:  #EAF3E6;
+  --r: 14px;
+  --r-lg: 22px;
+  --shadow: 0 2px 16px rgba(20,16,12,.07);
+  --shadow-hover: 0 8px 36px rgba(20,16,12,.14);
+}
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Noto Sans TC', sans-serif; background: var(--parchment); color: var(--ink); line-height: 1.8; }
+
+/* HERO */
+.hero { background: var(--deep); padding: 4rem 2rem 3.5rem; text-align: center; position: relative; overflow: hidden; }
+.hero::before { content:''; position:absolute; inset:0; background: radial-gradient(ellipse at 30% 0%, rgba(201,168,76,.14) 0%, transparent 55%), radial-gradient(ellipse at 70% 100%, rgba(92,114,137,.1) 0%, transparent 55%); pointer-events:none; }
+.hero-series { display:inline-flex; align-items:center; gap:8px; border:1px solid rgba(201,168,76,.4); color:var(--gold); font-size:11px; letter-spacing:4px; padding:5px 18px; border-radius:2px; margin-bottom:1.4rem; text-transform:uppercase; }
+.hero h1 { font-family:'Noto Serif TC',serif; font-size:clamp(1.8rem,5vw,3rem); color:#fff; font-weight:900; line-height:1.3; margin-bottom:.5rem; }
+.hero h1 em { color:var(--gold-light); font-style:normal; }
+.hero-meta { color:rgba(255,255,255,.45); font-size:.82rem; letter-spacing:2px; margin-bottom:2.2rem; }
+.hero-date-badge { display:inline-block; background:rgba(201,168,76,.12); border:1px solid rgba(201,168,76,.3); color:var(--gold-light); font-size:.78rem; padding:4px 16px; border-radius:20px; letter-spacing:1.5px; }
+
+/* TOC */
+.toc-bar { background:var(--deep); border-bottom:1px solid rgba(201,168,76,.25); position:sticky; top:0; z-index:100; overflow-x:auto; scrollbar-width:none; }
+.toc-bar::-webkit-scrollbar{display:none;}
+.toc-inner { display:flex; align-items:center; max-width:1040px; margin:0 auto; padding:0 16px; gap:2px; min-width:max-content; }
+.toc-link { display:flex; align-items:center; gap:5px; padding:11px 13px; color:rgba(255,255,255,.45); font-size:12px; font-weight:500; text-decoration:none; white-space:nowrap; border-bottom:2px solid transparent; transition:all .2s; }
+.toc-link:hover { color:var(--gold); }
+.toc-link.active { color:var(--gold); border-bottom-color:var(--gold); }
+.toc-dot { width:6px; height:6px; border-radius:50%; flex-shrink:0; }
+
+/* OVERVIEW */
+.overview { max-width:1040px; margin:0 auto; padding:2.5rem 1.25rem 1rem; }
+.overview-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:.85rem; margin-top:1.4rem; }
+.overview-card { background:#fff; border:0.5px solid rgba(0,0,0,.08); border-radius:var(--r); padding:1.2rem 1.3rem; display:flex; gap:12px; align-items:flex-start; box-shadow:var(--shadow); cursor:pointer; text-decoration:none; transition:all .22s; position:relative; overflow:hidden; }
+.overview-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; }
+.oc-dove::before  { background:linear-gradient(90deg,var(--dove),var(--dove-light)); }
+.oc-teal::before { background:linear-gradient(90deg,var(--teal),var(--teal-light)); }
+.oc-gold::before { background:linear-gradient(90deg,var(--gold),var(--gold-light)); }
+.oc-ruby::before  { background:linear-gradient(90deg,var(--ruby),var(--ruby-light)); }
+.oc-sage::before   { background:linear-gradient(90deg,var(--sage),var(--sage-light)); }
+.overview-card:hover { transform:translateY(-3px); box-shadow:var(--shadow-hover); }
+.ov-icon { width:36px; height:36px; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:16px; flex-shrink:0; }
+.oc-dove  .ov-icon { background:var(--dove-pale); }
+.oc-teal .ov-icon { background:var(--teal-pale); }
+.oc-gold .ov-icon { background:var(--gold-pale); }
+.oc-ruby  .ov-icon { background:var(--ruby-pale); }
+.oc-sage   .ov-icon { background:var(--sage-pale); }
+.ov-body h4 { font-size:.88rem; font-weight:700; color:var(--ink); margin-bottom:2px; }
+.ov-body p  { font-size:.73rem; color:var(--muted); line-height:1.55; }
+
+/* SECTION */
+.container { max-width:1040px; margin:0 auto; padding:0 1.25rem; }
+.sec { padding:2.8rem 0 1.5rem; }
+.sec-anchor { padding-top:70px; margin-top:-70px; }
+.sec-hdr { display:flex; align-items:center; gap:12px; margin-bottom:1.6rem; padding-bottom:1rem; border-bottom:1px solid var(--border); }
+.sec-badge { padding:4px 14px; border-radius:20px; font-size:.7rem; font-weight:700; letter-spacing:2px; text-transform:uppercase; }
+.badge-dove  { background:var(--dove-pale); color:var(--dove); }
+.badge-teal { background:var(--teal-pale); color:var(--teal); }
+.badge-gold { background:var(--gold-pale); color:#7A620A; }
+.badge-ruby  { background:var(--ruby-pale); color:var(--ruby); }
+.badge-sage   { background:var(--sage-pale); color:var(--sage); }
+.sec-hdr h2 { font-family:'Noto Serif TC',serif; font-size:1.25rem; font-weight:900; color:var(--ink); }
+.sec-sub { font-size:.75rem; color:var(--muted); margin-top:1px; }
+
+/* QUOTE BLOCK */
+.qblock { background:var(--deep); border-radius:var(--r-lg); padding:2rem 2rem 1.6rem; margin-bottom:1.4rem; position:relative; overflow:hidden; }
+.qblock::before { content:'"'; position:absolute; top:-1rem; left:1.2rem; font-family:'Noto Serif TC',serif; font-size:7rem; color:var(--gold); opacity:.12; line-height:1; pointer-events:none; }
+.qblock p { font-family:'Noto Serif TC',serif; font-size:1.02rem; color:#fff; line-height:1.95; margin-bottom:.7rem; }
+.qblock p em { color:var(--gold-light); font-style:normal; font-weight:700; }
+.qblock-src { font-size:.73rem; color:rgba(255,255,255,.4); letter-spacing:1.5px; }
+
+/* HIGHLIGHT BOX */
+.hbox { border-radius:var(--r); padding:1.4rem 1.5rem; margin-bottom:1.2rem; }
+.hbox.gold  { background:var(--gold-pale);  border-left:3px solid var(--gold); }
+.hbox.dove  { background:var(--dove-pale);  border-left:3px solid var(--dove); }
+.hbox.ruby  { background:var(--ruby-pale);  border-left:3px solid var(--ruby); }
+.hbox.teal  { background:var(--teal-pale);  border-left:3px solid var(--teal); }
+.hbox.sage  { background:var(--sage-pale);  border-left:3px solid var(--sage); }
+.hbox-label { font-size:.68rem; letter-spacing:2.5px; font-weight:700; text-transform:uppercase; margin-bottom:.5rem; }
+.hbox.gold  .hbox-label { color:#7A620A; }
+.hbox.dove  .hbox-label { color:var(--dove); }
+.hbox.ruby  .hbox-label { color:var(--ruby); }
+.hbox.teal  .hbox-label { color:var(--teal); }
+.hbox.sage  .hbox-label { color:var(--sage); }
+.hbox h3 { font-family:'Noto Serif TC',serif; font-size:1rem; font-weight:700; color:var(--ink); margin-bottom:.5rem; }
+.hbox p, .hbox li { font-size:.84rem; color:var(--ink-soft); line-height:1.85; }
+.hbox ul, .hbox ol { padding-left:1.1rem; }
+.hbox li { margin-bottom:.2rem; }
+.hbox strong { color:var(--ink); }
+
+/* CARD GRID */
+.card-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:1rem; margin-bottom:1.4rem; }
+.card { background:#fff; border:0.5px solid rgba(0,0,0,.09); border-radius:var(--r-lg); padding:1.4rem; box-shadow:var(--shadow); transition:all .2s; position:relative; overflow:hidden; }
+.card:hover { transform:translateY(-2px); box-shadow:var(--shadow-hover); }
+.card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; }
+.card.c-gold::before  { background:linear-gradient(90deg,var(--gold),var(--gold-light)); }
+.card.c-dove::before  { background:linear-gradient(90deg,var(--dove),var(--dove-light)); }
+.card.c-ruby::before  { background:linear-gradient(90deg,var(--ruby),var(--ruby-light)); }
+.card.c-teal::before  { background:linear-gradient(90deg,var(--teal),var(--teal-light)); }
+.card.c-sage::before  { background:linear-gradient(90deg,var(--sage),var(--sage-light)); }
+.card-num { font-family:'Noto Serif TC',serif; font-size:2.4rem; font-weight:900; opacity:.08; position:absolute; top:.8rem; right:1rem; line-height:1; }
+.c-gold .card-num { color:var(--gold); }
+.c-dove .card-num { color:var(--dove); }
+.c-ruby .card-num { color:var(--ruby); }
+.c-teal .card-num { color:var(--teal); }
+.c-sage .card-num { color:var(--sage); }
+.card-icon { font-size:1.5rem; margin-bottom:.5rem; }
+.card h4 { font-family:'Noto Serif TC',serif; font-size:.95rem; font-weight:700; color:var(--ink); margin-bottom:.4rem; }
+.card p { font-size:.79rem; color:var(--muted); line-height:1.7; }
+
+/* VISION / STEP LIST */
+.vision-list { display:flex; flex-direction:column; gap:.85rem; margin-bottom:1.4rem; }
+.vision-item { background:#fff; border:0.5px solid rgba(0,0,0,.08); border-radius:var(--r); padding:1.2rem 1.3rem; display:flex; gap:14px; align-items:flex-start; box-shadow:var(--shadow); }
+.v-num { min-width:30px; height:30px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:.72rem; font-weight:700; flex-shrink:0; margin-top:1px; }
+.v-num.teal { background:var(--teal-pale); color:var(--teal); }
+.v-num.ruby { background:var(--ruby-pale); color:var(--ruby); }
+.v-num.gold { background:var(--gold-pale); color:#7A620A; }
+.v-num.dove { background:var(--dove-pale); color:var(--dove); }
+.v-num.sage { background:var(--sage-pale); color:var(--sage); }
+.v-body strong { display:block; font-size:.88rem; font-weight:700; color:var(--ink); margin-bottom:3px; }
+.v-body p { font-size:.8rem; color:var(--muted); line-height:1.7; }
+.v-word { margin-top:.6rem; padding:.7rem .9rem; border-radius:8px; font-size:.79rem; line-height:1.75; }
+.vw-teal { background:var(--teal-pale); border-left:2px solid var(--teal); color:#185049; }
+.vw-ruby { background:var(--ruby-pale); border-left:2px solid var(--ruby); color:#6B1621; }
+.vw-gold { background:var(--gold-pale); border-left:2px solid var(--gold); color:#7A620A; }
+.vw-dove { background:var(--dove-pale); border-left:2px solid var(--dove); color:#2B4A62; }
+.vw-sage { background:var(--sage-pale); border-left:2px solid var(--sage); color:#2E4A2B; }
+.v-word-label { font-size:.65rem; letter-spacing:2px; font-weight:700; text-transform:uppercase; margin-bottom:4px; }
+.vw-teal .v-word-label { color:var(--teal); }
+.vw-ruby .v-word-label { color:var(--ruby); }
+.vw-gold .v-word-label { color:#7A620A; }
+.vw-dove .v-word-label { color:var(--dove); }
+.vw-sage .v-word-label { color:var(--sage); }
+
+/* SCRIPTURE */
+.scripture { background:var(--deep); border-radius:var(--r); padding:1.5rem 1.8rem; margin-bottom:1.2rem; position:relative; }
+.scripture-ref { font-size:.68rem; letter-spacing:2px; color:var(--gold); font-weight:700; text-transform:uppercase; margin-bottom:.5rem; }
+.scripture p { font-family:'Noto Serif TC',serif; font-size:.88rem; color:rgba(255,255,255,.82); line-height:2; }
+.scripture p em { color:var(--gold-light); font-style:normal; }
+
+/* MINDMAP */
+.mm-wrap { background:#fff; border-radius:var(--r-lg); border:.5px solid rgba(0,0,0,.09); overflow:hidden; margin-bottom:1.4rem; }
+.mm-wrap svg { display:block; width:100%; }
+
+/* DIVIDER */
+.divider { display:flex; align-items:center; gap:12px; margin:.4rem 0 1.4rem; opacity:.3; }
+.divider::before, .divider::after { content:''; flex:1; height:.5px; background:var(--muted); }
+.divider span { font-size:9px; letter-spacing:3px; color:var(--muted); text-transform:uppercase; }
+
+/* ALERT */
+.alert { border-radius:var(--r); padding:1rem 1.3rem; margin-bottom:1.2rem; display:flex; gap:10px; align-items:flex-start; }
+.alert.warn { background:#FFF8E8; border:1px solid #E8C840; }
+.alert.info { background:var(--dove-pale); border:1px solid var(--dove-light); }
+.alert-icon { font-size:1.2rem; flex-shrink:0; margin-top:1px; }
+.alert p { font-size:.8rem; color:var(--ink-soft); line-height:1.75; }
+.alert strong { color:var(--ink); }
+
+/* NATIONS TABLE */
+.nations-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:.7rem; margin-bottom:1.4rem; }
+.nation-card { background:#fff; border:.5px solid rgba(0,0,0,.09); border-radius:var(--r); padding:1rem 1.1rem; box-shadow:var(--shadow); }
+.nation-card.highlighted { background:var(--ruby-pale); border-color:rgba(140,32,48,.2); }
+.nation-name { font-family:'Noto Serif TC',serif; font-size:.95rem; font-weight:700; color:var(--ink); margin-bottom:3px; }
+.nation-tag { font-size:.67rem; letter-spacing:1.5px; font-weight:700; text-transform:uppercase; color:var(--muted); margin-bottom:.4rem; }
+.nation-card.highlighted .nation-tag { color:var(--ruby); }
+.nation-note { font-size:.75rem; color:var(--muted); line-height:1.6; }
+.nation-card.highlighted .nation-note { color:var(--ink-soft); }
+
+/* COMPARISON TWO-COL */
+.two-col { display:grid; grid-template-columns:1fr 1fr; gap:0; background:#fff; border-radius:var(--r-lg); border:.5px solid rgba(0,0,0,.09); overflow:hidden; margin-bottom:1.4rem; }
+@media(max-width:560px){ .two-col { grid-template-columns:1fr; } }
+.col-side { padding:1.5rem 1.4rem; }
+.col-side:first-child { border-right:.5px solid rgba(0,0,0,.07); }
+.col-label { font-size:.66rem; letter-spacing:2.5px; font-weight:700; text-transform:uppercase; margin-bottom:.5rem; }
+.col-title { font-family:'Noto Serif TC',serif; font-size:1rem; font-weight:700; color:var(--ink); margin-bottom:.6rem; }
+.col-list { list-style:none; padding:0; }
+.col-list li { font-size:.79rem; color:var(--muted); line-height:1.65; padding:3px 0 3px 14px; position:relative; }
+.col-list li::before { content:'·'; position:absolute; left:2px; font-size:1rem; line-height:1.3; }
+
+/* PERSON HEADER */
+.person-hdr { display:flex; align-items:center; gap:10px; margin-bottom:1rem; padding:.6rem 1rem; background:var(--parchment2); border-radius:8px; }
+.person-avatar { width:34px; height:34px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:14px; font-weight:700; flex-shrink:0; background:var(--deep); color:var(--gold); font-family:'Noto Serif TC',serif; }
+.person-name { font-size:.85rem; font-weight:700; color:var(--ink); }
+.person-role { font-size:.72rem; color:var(--muted); }
+
+/* FOOTER */
+.page-footer { background:var(--deep); text-align:center; padding:2rem 1rem; margin-top:3rem; border-top:1px solid rgba(201,168,76,.2); }
+.page-footer p { font-size:.76rem; color:rgba(255,255,255,.3); letter-spacing:1px; }
+.page-footer strong { color:var(--gold); font-weight:400; }
+
+@media(max-width:640px){
+  .hero { padding:3rem 1.2rem 2.5rem; }
+  .overview { padding:1.8rem .9rem .5rem; }
+  .container { padding:0 .9rem; }
+  .toc-link { padding:10px 10px; font-size:11px; }
+}
+
+/* QUIZ（個人延伸互動） */
+.quiz-q { background:#fff; border:.5px solid rgba(0,0,0,.09); border-radius:var(--r); padding:1.05rem 1.2rem; box-shadow:var(--shadow); margin-bottom:.8rem; }
+.q-scene { font-size:.85rem; font-weight:700; color:var(--ink); margin-bottom:.7rem; display:flex; gap:9px; align-items:baseline; }
+.q-idx { color:var(--ruby); font-family:'Noto Serif TC',serif; font-weight:900; font-size:1.05rem; }
+.quiz-opts { display:grid; grid-template-columns:1fr 1fr; gap:.6rem; }
+@media(max-width:520px){ .quiz-opts { grid-template-columns:1fr; } }
+.quiz-opt { text-align:left; cursor:pointer; border:1px solid var(--border); background:var(--parchment); border-radius:10px; padding:.6rem .85rem; font-family:inherit; font-size:.79rem; color:var(--ink-soft); line-height:1.5; transition:all .15s; }
+.quiz-opt:hover { border-color:var(--gold); }
+.quiz-opt .opt-tag { display:block; font-size:.62rem; letter-spacing:1.5px; font-weight:700; text-transform:uppercase; margin-bottom:2px; }
+.quiz-opt[data-side="free"] .opt-tag { color:var(--sage); }
+.quiz-opt[data-side="throne"] .opt-tag { color:var(--ruby); }
+.quiz-opt.sel[data-side="free"] { background:var(--sage-pale); border-color:var(--sage); color:var(--ink); }
+.quiz-opt.sel[data-side="throne"] { background:var(--ruby-pale); border-color:var(--ruby); color:var(--ink); }
+.quiz-actions { display:flex; gap:.7rem; align-items:center; margin:1.2rem 0 .3rem; flex-wrap:wrap; }
+.quiz-btn { cursor:pointer; border:none; border-radius:20px; padding:.55rem 1.4rem; font-family:inherit; font-size:.8rem; font-weight:700; background:var(--deep); color:var(--gold-light); letter-spacing:1px; transition:background .15s; }
+.quiz-btn:hover { background:#221a12; }
+.quiz-btn.ghost { background:transparent; color:var(--muted); border:1px solid var(--border); }
+.quiz-result { display:none; margin-top:1rem; }
+.quiz-result.show { display:block; }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════ HERO ═══════════════ -->
+<header class="hero">
+  <div class="hero-series">📖 1229 輯週訓</div>
+  <h1>明亮之星 · <em>路西弗</em>的墜落</h1>
+  <p class="hero-meta">2022年6月18日 高雄查經聚會 · 主領：林明學教師</p>
+  <div class="hero-date-badge">週訓整理日期 2026.7.26</div>
+</header>
+
+<!-- ═══════════════ TOC ═══════════════ -->
+<nav class="toc-bar" id="tocBar">
+  <div class="toc-inner">
+    <a class="toc-link active" href="#overview">
+      <span class="toc-dot" style="background:var(--gold)"></span>總覽
+    </a>
+    <a class="toc-link" href="#context">
+      <span class="toc-dot" style="background:var(--dove)"></span>📜 溫故·憐恤與寄居
+    </a>
+    <a class="toc-link" href="#sheol">
+      <span class="toc-dot" style="background:var(--teal)"></span>🕯️ 陰間的迎接
+    </a>
+    <a class="toc-link" href="#lucifer">
+      <span class="toc-dot" style="background:var(--ruby)"></span>⭐ 明亮之星墜落
+    </a>
+    <a class="toc-link" href="#tyre">
+      <span class="toc-dot" style="background:var(--gold)"></span>💎 推羅王哀歌
+    </a>
+    <a class="toc-link" href="#doom">
+      <span class="toc-dot" style="background:var(--sage)"></span>⚰️ 被拋棄的下場
+    </a>
+    <a class="toc-link" href="#reflect">
+      <span class="toc-dot" style="background:var(--ruby)"></span>🪞 延伸反思
+    </a>
+    <a class="toc-link" href="#quiz">
+      <span class="toc-dot" style="background:var(--sage)"></span>✍️ 自我測驗
+    </a>
+  </div>
+</nav>
+
+<!-- ═══════════════ OVERVIEW ═══════════════ -->
+<div class="overview" id="overview">
+  <div class="sec-hdr" style="border-bottom:0;padding-bottom:0;margin-bottom:.5rem;">
+    <div>
+      <div style="font-size:.68rem;letter-spacing:3px;color:var(--gold);font-weight:700;text-transform:uppercase;margin-bottom:3px;">本期架構一覽</div>
+      <h2 style="font-family:'Noto Serif TC',serif;font-size:1.1rem;font-weight:900;color:var(--ink);">查經 5 區塊 ＋ 個人延伸 · 點擊直達</h2>
+    </div>
+  </div>
+
+  <div style="background:var(--deep);border-radius:var(--r-lg);padding:1.5rem 1.8rem;margin:1.2rem 0 1.4rem;position:relative;overflow:hidden;">
+    <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 60% 50%,rgba(201,168,76,.09),transparent 70%);pointer-events:none;"></div>
+    <div style="font-size:.68rem;letter-spacing:3px;color:var(--gold);font-weight:700;text-transform:uppercase;margin-bottom:.8rem;">本週核心三重信息</div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:.8rem;">
+      <div style="background:rgba(255,255,255,.05);border-radius:10px;padding:1rem 1.1rem;">
+        <div style="font-size:.68rem;letter-spacing:2px;color:var(--dove-light);font-weight:700;text-transform:uppercase;margin-bottom:4px;">第一重</div>
+        <div style="font-family:'Noto Serif TC',serif;font-size:.95rem;color:#fff;font-weight:700;margin-bottom:4px;">神憐恤以色列 · 風水輪流轉</div>
+        <div style="font-size:.75rem;color:rgba(255,255,255,.45);line-height:1.6;">巴比倫覆亡後，神轉而憐恤以色列、安置本地賜平安 → 寄居者(gerin)融為一家，成為更富強的「新以色列」</div>
+      </div>
+      <div style="background:rgba(255,255,255,.05);border-radius:10px;padding:1rem 1.1rem;">
+        <div style="font-size:.68rem;letter-spacing:2px;color:var(--ruby-light);font-weight:700;text-transform:uppercase;margin-bottom:4px;">第二重</div>
+        <div style="font-family:'Noto Serif TC',serif;font-size:.95rem;color:#fff;font-weight:700;margin-bottom:4px;">明亮之星的墜落</div>
+        <div style="font-size:.75rem;color:rgba(255,255,255,.45);line-height:1.6;">巴比倫王的野心如路西弗(Helel／早晨之子)，五個「我要」想與至上者同等 → 卻墜落陰間坑中極深之處</div>
+      </div>
+      <div style="background:rgba(255,255,255,.05);border-radius:10px;padding:1rem 1.1rem;">
+        <div style="font-size:.68rem;letter-spacing:2px;color:var(--gold-light);font-weight:700;text-transform:uppercase;margin-bottom:4px;">第三重</div>
+        <div style="font-family:'Noto Serif TC',serif;font-size:.95rem;color:#fff;font-weight:700;margin-bottom:4px;">自高者的悲慘下場</div>
+        <div style="font-size:.75rem;color:rgba(255,255,255,.45);line-height:1.6;">推羅王哀歌(結28)平行對照 → 被拋棄不得入墳、如可憎的枝子、連子孫都要滅亡</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="overview-grid">
+    <a class="overview-card oc-dove" href="#context">
+      <div class="ov-icon">📜</div>
+      <div class="ov-body">
+        <h4>溫故 · 憐恤與寄居者</h4>
+        <p>14:1–8；神憐恤雅各、寄居者 gerin／新以色列、欺壓的杖棍被折斷、全地得安息。</p>
+      </div>
+    </a>
+    <a class="overview-card oc-teal" href="#sheol">
+      <div class="ov-icon">🕯️</div>
+      <div class="ov-body">
+        <h4>陰間的迎接</h4>
+        <p>14:9–11；陰間震動迎接，列國君王的陰魂嘲諷「你也變軟弱像我們一樣嗎？」下鋪是蟲、上蓋是蛆。</p>
+      </div>
+    </a>
+    <a class="overview-card oc-ruby" href="#lucifer">
+      <div class="ov-icon">⭐</div>
+      <div class="ov-body">
+        <h4>明亮之星的墜落</h4>
+        <p>14:12–15；Helel＝金星、Ben shahar＝路西弗；五個「我要」與至上者同等，卻墜落坑中。</p>
+      </div>
+    </a>
+    <a class="overview-card oc-gold" href="#tyre">
+      <div class="ov-icon">💎</div>
+      <div class="ov-body">
+        <h4>推羅王的哀歌</h4>
+        <p>以西結 28:11–19；在伊甸神園、遮掩約櫃的基路伯，因高傲、貿易不公被摔倒、火燒成爐灰。</p>
+      </div>
+    </a>
+    <a class="overview-card oc-sage" href="#doom">
+      <div class="ov-icon">⚰️</div>
+      <div class="ov-body">
+        <h4>被拋棄的下場</h4>
+        <p>14:16–21；戰場屍首、不得入墳、可憎的枝子、子孫滅亡；結局經文與結束禱告。</p>
+      </div>
+    </a>
+  </div>
+
+  <div style="margin-top:1.6rem;padding-top:1.3rem;border-top:1px dashed var(--border);">
+    <div style="font-size:.68rem;letter-spacing:3px;color:var(--ruby);font-weight:700;text-transform:uppercase;margin-bottom:.2rem;">個人延伸 · 非聚會記錄</div>
+    <div style="font-size:.75rem;color:var(--muted);margin-bottom:.9rem;">從「明亮之星」延伸的自我反思與測驗（融合心理學觀點與信仰）</div>
+    <div class="overview-grid" style="margin-top:0;">
+      <a class="overview-card oc-ruby" href="#reflect">
+        <div class="ov-icon">🪞</div>
+        <div class="ov-body">
+          <h4>延伸反思 — 看似獨立，是路西弗嗎？</h4>
+          <p>自主≠獨立；傲慢與膽怯是同一恐懼的兩種解法；換光源，與退場的自由。</p>
+        </div>
+      </a>
+      <a class="overview-card oc-sage" href="#quiz">
+        <div class="ov-icon">✍️</div>
+        <div class="ov-body">
+          <h4>自我測驗 — 健康的自主 vs 自己坐主位</h4>
+          <p>六個情境的誠實自檢，加一個「空白一天」的實驗。是鏡子，不是分數。</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- 溫故知新 -->
+  <div class="alert warn" style="margin-bottom:1.2rem;margin-top:.5rem;">
+    <span class="alert-icon">🔁</span>
+    <p><strong>上次進度回顧：</strong>上週讀到【以賽亞書】第 14 章第 1 節（讀了 5、6 節）。本次繼續讀第 14 章 —— 論巴比倫王的<strong>諷刺哀歌</strong>，先複習 14:1–7，再往下讀第二段（陰間）、第三段（明亮之星），直到第 21 節。</p>
+  </div>
+
+  <!-- ═══════════════ Section 1：溫故·憐恤與寄居 ═══════════════ -->
+  <div id="context" class="sec-anchor"></div>
+  <section class="sec">
+    <div class="sec-hdr">
+      <span class="sec-badge badge-dove">溫故知新</span>
+      <div>
+        <h2>神憐恤以色列，與寄居者聯合</h2>
+        <div class="sec-sub">以賽亞書 14:1–8 · 諷刺巴比倫王的哀歌起首</div>
+      </div>
+    </div>
+
+    <div class="qblock">
+      <p>當耶和華使你脫離愁苦、煩惱，並人勉強你做的苦工，得享安息的日子，你必題這詩歌論巴比倫王說：<em>欺壓人的何竟息滅？強暴的何竟止息？</em>耶和華折斷了惡人的杖，轄制人的圭……現在全地得安息，享平靜；人皆發聲歡呼。</p>
+      <p class="qblock-src">— 以賽亞書 14:3–7（論巴比倫王的哀歌）</p>
+    </div>
+
+    <div class="hbox dove">
+      <div class="hbox-label">背景脈絡</div>
+      <h3>一首諷刺哀歌，與 13:9–16 連貫</h3>
+      <p>第 14 章是針對巴比倫帝國敗亡後的一首<strong>諷刺預言詩</strong>，把【以賽亞書】13:9–16 的上文連貫起來。在遍地毀滅荒蕪之下（就像現在的烏克蘭），上帝耶和華轉過來憐恤以色列，把他們安置在自己的土地上、賜給平安。以色列人如「打不死的蟑螂」——滅國一段時間又爬起來，如森林被大火燒過又重生（亡國兩千年、二戰後復國）。這正是【以賽亞書】的特色：<strong>預言怎麼說，就怎麼實現</strong>。</p>
+    </div>
+
+    <div class="hbox gold">
+      <div class="hbox-label">名詞解析</div>
+      <h3>寄居者 gerin —— 新入教者、新以色列</h3>
+      <p>「寄居」希伯來文 <strong>gerin</strong>，在以色列法律上是重要名詞，指生活在以色列的非以色列人，享有與以色列人同樣的權利和優惠：一樣要守安息日，但吃東西卻不受食物條例限制。後來 gerin 引申為「<strong>新入教者</strong>」。寄居者與從巴比倫回歸的以色列人混居、注入新血，反使這地更富強；「寄居的必與他們聯合，緊貼雅各家」，融成一家——這就是回歸後重建的「新以色列」。</p>
+    </div>
+
+    <p style="font-size:.84rem;color:var(--ink-soft);line-height:1.85;margin:0 0 1rem;">這首哀歌用喪禮「嗚呼哀哉」的沉重風格，來慶祝野心勃勃、最後失敗的暴君之死。詩中的巴比倫王到底指誰？</p>
+
+    <div class="nations-grid">
+      <div class="nation-card">
+        <div class="nation-tag">頭號戰犯</div>
+        <div class="nation-name">尼布甲尼撒</div>
+        <div class="nation-note">攻擊耶路撒冷、做了大壞事，有人認為是他。</div>
+      </div>
+      <div class="nation-card">
+        <div class="nation-tag">亡國之君</div>
+        <div class="nation-name">拿波尼度</div>
+        <div class="nation-note">當巴比倫王時被波斯古列王打敗、亡國，也有此一說。</div>
+      </div>
+      <div class="nation-card highlighted">
+        <div class="nation-tag">解經學家最傾向</div>
+        <div class="nation-name">伯沙撒王</div>
+        <div class="nation-note">學者認為最恰當的應該是伯沙撒王。</div>
+      </div>
+    </div>
+
+    <div class="scripture">
+      <div class="scripture-ref">以賽亞書 14:8</div>
+      <p>松樹和黎巴嫩的香柏樹都因你歡樂，說：<em>自從你撲倒，再無人上來砍伐我們。</em></p>
+    </div>
+
+    <p style="font-size:.84rem;color:var(--ink-soft);line-height:1.85;margin:0;">連樹都會講話——其實說來說去都是作者（以賽亞先知）說的。到了 9:4 預言有了應驗：欺壓他們的杖和棍終於被折斷，巴比倫王死了、無法再欺壓以色列人，還有什麼比這更值得慶祝的呢？</p>
+  </section>
+
+  <div class="divider"><span>陰間的迎接</span></div>
+
+  <!-- ═══════════════ Section 2：陰間的迎接 ═══════════════ -->
+  <div id="sheol" class="sec-anchor"></div>
+  <section class="sec">
+    <div class="sec-hdr">
+      <span class="sec-badge badge-teal">第二段 · 14:9–11</span>
+      <div>
+        <h2>下到陰間，難兄難弟的嘲諷</h2>
+        <div class="sec-sub">曾為列國君王的陰魂，都離位站起</div>
+      </div>
+    </div>
+
+    <div class="scripture">
+      <div class="scripture-ref">以賽亞書 14:9–11</div>
+      <p>你下到陰間，陰間就因你震動來迎接你，又因你驚動在世曾為首領的陰魂，並使那曾為列國君王的，都離位站起。他們都要發言對你說：<em>你也變為軟弱像我們一樣嗎？你也成了我們的樣子嗎？</em>你的威勢和你琴瑟的聲音都下到陰間。你下鋪的是蟲，上蓋的是蛆。</p>
+    </div>
+
+    <div class="hbox teal">
+      <div class="hbox-label">諷刺</div>
+      <h3>風光一世，死後只是柔弱的靈魂</h3>
+      <p>巴比倫王在世何等風光——住最豪華的皇宮、吃最好的美食、穿最華美的衣服、財產不計其數；死後卻到了陰間。那些過去被他統治的列國君王、臣民比他先到，如今<strong>不再跪拜，反以嘲諷的態度迎接他</strong>：強壯的與軟弱的死後都變成一樣，只不過是柔弱的靈魂而已，什麼都不是。</p>
+    </div>
+
+    <div class="scripture">
+      <div class="scripture-ref">以賽亞書 26:14</div>
+      <p>他們死了，必不能再活；他們去世，必不能再起；因為祢刑罰他們，毀滅他們，<em>他們的名號就全然消滅。</em></p>
+    </div>
+
+    <p style="font-size:.84rem;color:var(--ink-soft);line-height:1.85;margin:0;">人一旦死了就完全消滅，什麼都沒有了，空空如也。</p>
+  </section>
+
+  <div class="divider"><span>明亮之星墜落</span></div>
+
+  <!-- ═══════════════ Section 3：明亮之星的墜落 ═══════════════ -->
+  <div id="lucifer" class="sec-anchor"></div>
+  <section class="sec">
+    <div class="sec-hdr">
+      <span class="sec-badge badge-ruby">第三段 · 14:12–15</span>
+      <div>
+        <h2>明亮之星，早晨之子的墜落</h2>
+        <div class="sec-sub">Helel（金星）· Ben shahar（路西弗）</div>
+      </div>
+    </div>
+
+    <div class="qblock">
+      <p><em>明亮之星，早晨之子啊，你何竟從天墜落？</em>你這攻敗列國的何竟被砍倒在地上？你心裏曾說：我要升到天上；我要高舉我的寶座在 神眾星以上；我要坐在聚會的山上，在北方的極處。我要升到高雲之上；<em>我要與至上者同等。</em>然而，你必墜落陰間，到坑中極深之處。</p>
+      <p class="qblock-src">— 以賽亞書 14:12–15</p>
+    </div>
+
+    <div class="hbox ruby">
+      <div class="hbox-label">字義</div>
+      <h3>明亮之星 Helel ＝ 路西弗</h3>
+      <p>「明亮之星」希伯來文是 <strong>Helel</strong>，即「維納斯」——最亮的金星；「早晨之子」希伯來文 <strong>Ben shahar</strong>，也就是大家熟知的 <strong>Lucifer 路西弗</strong>。這個名號用在巴比倫王身上，是諷刺他野心大到自認為就是上帝、想與至上者同等。</p>
+    </div>
+
+    <div class="card-grid">
+      <div class="card c-ruby"><div class="card-num">魔</div><div class="card-icon">😈</div><h4>路西弗（靈界）</h4><p>那明亮之星、早晨之子，本是天上的，卻因野心從天墜落——天使的墮落。</p></div>
+      <div class="card c-gold"><div class="card-num">王</div><div class="card-icon">👑</div><h4>巴比倫王（地上）</h4><p>自認為就是上帝，野心與路西弗一模一樣，最後掉到地獄、深坑之中。</p></div>
+      <div class="card c-dove"><div class="card-num">人</div><div class="card-icon">🍎</div><h4>亞當、夏娃</h4><p>聽了蛇的話，想吃分別善惡樹的果子、變得跟上帝一樣有能力，結果闖下大禍。</p></div>
+      <div class="card c-teal"><div class="card-num">塔</div><div class="card-icon">🗼</div><h4>巴別塔</h4><p>全世界同一種話，想造高塔與上帝平起平坐；神就變亂他們的口音，彼此難以溝通。</p></div>
+    </div>
+
+    <div class="hbox dove">
+      <div class="hbox-label">背景補充</div>
+      <h3>「聚會的山、北方的極處、高雲之上」</h3>
+      <p>巴比倫王想坐的「聚會的山、北方的極處」，在古代神話中如希臘的<strong>奧林匹克山</strong>（傳說眾神的居所）；而「高雲之上」正是上帝耶和華真正的居所。這些也是自古傳下來的迦南神話語言（各宗教都有類似傳說，如洪水故事）。以下經文都在形容以色列的 神所在之處。</p>
+    </div>
+
+    <div class="scripture">
+      <div class="scripture-ref">詩篇 48:2–3 · 阿摩司書 4:13 · 彌迦書 1:3 · 約伯記 9:8–9</div>
+      <p>錫安山大君王的城，在北面居高華美，為全地所喜悅。 神在其宮中，自顯為避難所。（詩 48:2–3）……那創山、造風……祂的名是耶和華萬軍之 神。（摩 4:13）……耶和華出了祂的居所，降臨步行地的高處。（彌 1:3）……<em>祂獨自鋪張蒼天，步行在海浪之上；祂造北斗、參星、昴星，並南方的密宮。</em>（伯 9:8–9）</p>
+    </div>
+
+    <div class="scripture">
+      <div class="scripture-ref">路加福音 10:15</div>
+      <p>迦百農啊！你已經升到天上；<em>將來必推下陰間。</em></p>
+    </div>
+  </section>
+
+  <div class="divider"><span>推羅王哀歌</span></div>
+
+  <!-- ═══════════════ Section 4：推羅王的哀歌 ═══════════════ -->
+  <div id="tyre" class="sec-anchor"></div>
+  <section class="sec">
+    <div class="sec-hdr">
+      <span class="sec-badge badge-gold">平行對照</span>
+      <div>
+        <h2>推羅王的哀歌</h2>
+        <div class="sec-sub">以西結書 28:11–19 · 與巴比倫王的墮落相互呼應</div>
+      </div>
+    </div>
+
+    <div class="hbox gold">
+      <div class="hbox-label">對照</div>
+      <h3>另一首平行的哀歌</h3>
+      <p>【以西結書】為推羅王作哀歌，與巴比倫王的墮落彼此呼應：推羅王「無所不備，智慧充足，全然美麗」，曾在<strong>伊甸 神的園中</strong>，是「受膏遮掩約櫃的基路伯」，在 神的聖山上往來——後來卻因美麗心中高傲、貿易不公犯罪，被 神摔倒、火燒成爐灰。</p>
+    </div>
+
+    <div class="scripture">
+      <div class="scripture-ref">以西結書 28:12–17（節錄）</div>
+      <p>你無所不備，智慧充足，全然美麗。<em>你曾在伊甸 神的園中</em>……你是那受膏遮掩約櫃的基路伯；我將你安置在 神的聖山上……你從受造之日所行的都完全，後來在你中間又察出不義……<em>你因美麗心中高傲，又因榮光敗壞智慧，我已將你摔倒在地。</em></p>
+    </div>
+
+    <div class="scripture">
+      <div class="scripture-ref">以西結書 28:18–19</div>
+      <p>故此，我使火從你中間發出，燒滅你，<em>使你在所有觀看的人眼前變為地上的爐灰</em>……你令人驚恐，不再存留於世，直到永遠。</p>
+    </div>
+  </section>
+
+  <div class="divider"><span>被拋棄的下場</span></div>
+
+  <!-- ═══════════════ Section 5：被拋棄的下場（收尾） ═══════════════ -->
+  <div id="doom" class="sec-anchor"></div>
+  <section class="sec" style="padding-bottom:3rem;">
+    <div class="sec-hdr">
+      <span class="sec-badge badge-sage">第四段 · 14:16–21</span>
+      <div>
+        <h2>被拋棄，死無葬身之地</h2>
+        <div class="sec-sub">旁觀者的冷嘲熱諷 · 自高者的結局</div>
+      </div>
+    </div>
+
+    <div class="scripture">
+      <div class="scripture-ref">以賽亞書 14:16–17</div>
+      <p>凡看見你的，都要定睛看你，留意看你，說：<em>使大地戰抖，使列國震動，使世界如同荒野，使城邑傾覆，不釋放被擄的人回家，是這個人嗎？</em></p>
+    </div>
+
+    <div class="hbox ruby">
+      <div class="hbox-label">下場</div>
+      <h3>當王當到死，都無法下葬</h3>
+      <p>旁觀者、路人都對他冷嘲熱諷；場景像佈滿屍首的戰場（如烏克蘭，一顆飛彈就打掉一、二十人）。巴比倫王「<strong>唯獨你被拋棄，不得入你的墳墓</strong>……又像被踐踏的屍首一樣」——當過君王卻死無葬身之地，是最難看的下場。</p>
+    </div>
+
+    <div class="alert info">
+      <span class="alert-icon">💡</span>
+      <p><strong>教師補充：</strong>「可憎的枝子」教師以果園的<strong>棗子樹</strong>為喻——多刺、會勾住衣服讓人動彈不得，難種又易被果蠅叮壞；另一種翻譯是「叫人厭惡的<strong>腐肉</strong>」，教師便分享年輕時買中古冰箱、連假三天回來發現冷凍肉全臭掉的往事，說「電器還是買新的有保障」。「坑中的石頭」則形容陰間黑漆漆、恐怖淒涼、什麼也沒有的景象。</p>
+    </div>
+
+    <div class="scripture">
+      <div class="scripture-ref">以賽亞書 14:20–21</div>
+      <p>你不得與君王同葬，因為你敗壞你的國，殺戮你的民。<em>惡人後裔的名，必永不提說。</em>先人既有罪孽，就要預備殺戮他的子孫，免得他們興起來，得了遍地，在世上修滿城邑。</p>
+    </div>
+
+    <div class="hbox sage">
+      <div class="hbox-label">總結</div>
+      <h3>自高想超越神的人，下場都很悲慘</h3>
+      <p>這整首詩以咒詛作結，不只針對巴比倫王，也針對一切像他一樣、野心勃勃想超越上帝的人——<strong>連子孫都要滅亡</strong>。聖經中不少詩篇、詩歌都用這種「作為怎樣、結局就怎樣」的方式收尾，如【詩篇】104:35：「願罪人從世上消滅，願惡人歸於無有……你們要讚美耶和華！」</p>
+    </div>
+
+    <div class="scripture">
+      <div class="scripture-ref">士師記 5:31（底波拉之歌）</div>
+      <p>耶和華啊，願祢的仇敵都要這樣滅亡！<em>願愛祢的人如日頭出現，光輝烈烈！</em>這樣，國中太平四十年。</p>
+    </div>
+
+    <div class="hbox dove">
+      <div class="hbox-label">下次預告</div>
+      <h3>第 14 章讀至第 21 節 —— 下次接續</h3>
+      <p>論巴比倫王的哀歌（14:4–21）今天讀到這裏；第 14 章其餘的內容留待下次繼續。（底波拉是女先知、拉比多的妻，當時作以色列的士師，戰敗西西拉——見【士師記】第 4–5 章。）</p>
+    </div>
+
+    <div class="qblock">
+      <p>慈愛的 父神、救主耶穌基督、聖靈保惠師，孩子們滿心感謝讚美 祢的恩典。謝謝祢一個禮拜的保守跟帶領，雖然肺炎疫情還四處蔓延，然而比起過去已慢慢有下滑的趨勢。求主保守帶領我們眾同工的腳步，讓每位同工都能<em>蒙祢的光照、行在旨意當中</em>，遠離疫情、平安喜樂健康地度過每一天。</p>
+      <p>今天是孩子們的禱告會，也求主垂聽孩子們的禱告，不管在健康、學業、事業、家庭各方面，都按祢的旨意來成就、來保守；讓大家在走這十字架的血路、在聖工服事當中，都有精神、有體力，專注地望著祢的標竿直走。我們這樣禱告，<em>感謝奉靠主耶穌的聖名，阿們！</em></p>
+      <p class="qblock-src">— 林明學教師 結束禱告</p>
+    </div>
+
+    <div class="alert warn">
+      <span class="alert-icon">📌</span>
+      <p><strong>牧關代禱：</strong>今天是孩子們的禱告會，教師特別為弟兄姊妹的健康、學業、事業、家庭各方面代禱，求主按祂的旨意成就、保守；也求主保守同工遠離疫情、確診者早日康復。</p>
+    </div>
+  </section>
+
+  <div class="divider"><span>個人延伸 · 反思與測驗</span></div>
+
+  <!-- ═══════════════ 延伸 A：反思 ═══════════════ -->
+  <div id="reflect" class="sec-anchor"></div>
+  <section class="sec">
+    <div class="sec-hdr">
+      <span class="sec-badge badge-ruby">延伸反思</span>
+      <div>
+        <h2>看似獨立的你，是路西弗嗎？</h2>
+        <div class="sec-sub">從「明亮之星」延伸 · 融合心理學觀點與信仰 · 個人默想（非聚會記錄）</div>
+      </div>
+    </div>
+
+    <div class="alert info">
+      <span class="alert-icon">🪞</span>
+      <p>本區是從本集「明亮之星」延伸的<strong>個人反思</strong>，不是聚會的教導記錄。它把一份心理學角度的自我分析，放進【以賽亞書】14 章的光裏來看。</p>
+    </div>
+
+    <div class="qblock">
+      <p>「主權回歸自己」其實是三件事疊在一起。心理學上，<em>自主（autonomy）不等於獨立（independence）</em>：自主是「這行動出於我真心的認可」，獨立是「我不依靠別人」。研究裏，自主與親密是<em>正相關</em>——一個人可以完全自願地依靠、完全出於自己地順服。</p>
+      <p>所以判準不在<em>誰做決定</em>，而在這個決定是<em>被恐懼推的，還是被信任牽的</em>。</p>
+      <p class="qblock-src">— 自我決定論（Deci &amp; Ryan）</p>
+    </div>
+
+    <div class="hbox dove">
+      <div class="hbox-label">同一個決定，兩種裏子</div>
+      <h3>你每天早上的祭壇，是哪一種？</h3>
+      <p>同樣是順服：若內在句子是「我應該，否則我就不夠好」，那是<strong>內攝式調節</strong>，會耗盡人；若是「我看見這是好的，我要」，那是<strong>整合式調節</strong>，反而是自主的最高形式。同一個外顯行為，兩種完全不同的機制——只有你自己知道。信仰要的不是退回「看人臉色、被群體定義」，而是往「連我這套自我系統本身也可以被鬆開」去。</p>
+    </div>
+
+    <div class="hbox ruby">
+      <div class="hbox-label">五個「我要」的真正終點</div>
+      <h3>第五句才是全部的重心</h3>
+      <p>賽 14:13–14 的五個「我要」是有順序的：升到天上 → 高舉寶座<strong>在眾星以上</strong>（這是社會比較，不是卓越）→ 坐在聚會的山上（以主位進入群體）→ 升到高雲之上 →「<strong>我要與至上者同等</strong>」。前四句是手段，第五句是願望本身。翻成心理學不是「我想偉大」，是「<strong>我不要再被任何他者評定</strong>」——把那個有資格評價我的位格消掉。</p>
+      <p style="margin-top:.6rem;">而經文的處置精準得驚人：他下到陰間被一群陰魂圍著品頭論足（14:9–11），在地上又被路人定睛看、議論（14:16–17）。<strong>他受的刑罰，形式上正是他一生最想逃開的事：被看、被評、被說。</strong></p>
+    </div>
+
+    <div class="two-col">
+      <div class="col-side" style="background:var(--ruby-pale);">
+        <div class="col-label" style="color:var(--ruby);">巴比倫王的解法</div>
+        <div class="col-title">爬到頂端</div>
+        <ul class="col-list">
+          <li style="color:var(--ink-soft);">爬到評價階層的最頂——沒有人有資格評我。</li>
+          <li style="color:var(--ink-soft);">誇大與羞恥是同一核心的兩件外衣：想「與至上者同等」的人，結局是「下鋪的是蟲，上蓋的是蛆」。</li>
+        </ul>
+      </div>
+      <div class="col-side" style="background:var(--dove-pale);">
+        <div class="col-label" style="color:var(--dove);">內縮的解法</div>
+        <div class="col-title">退出現場</div>
+        <ul class="col-list">
+          <li style="color:var(--ink-soft);">退出評價現場——沒有人有機會評我；再加過度規劃——沒有人抓得到破綻。</li>
+          <li style="color:var(--ink-soft);">「低需求」多半不是體質，是很早就把需要關掉的一個決定（強迫性自我依靠）。</li>
+        </ul>
+      </div>
+    </div>
+
+    <div style="font-size:.84rem;color:var(--ink-soft);line-height:1.85;margin:0 0 1.2rem;">兩條路，<strong>同一個目的地：免於被他者評定</strong>。所以「看起來獨立」本身不是路西弗——那多半是真實的發展成就，只是可能混著一份把需求關掉的決定。</div>
+
+    <div class="hbox gold">
+      <div class="hbox-label">翻轉 · 明亮之星的隱喻</div>
+      <h3>問題從來不是「亮」</h3>
+      <p>Helel 是金星，是晨星——<strong>全天最亮，卻沒有一克光是自己產的</strong>，只反射太陽光；而且它最亮的時刻是日出前，<strong>日頭一出來，它就消失了</strong>。所以問題不是亮，是<strong>忘記光是借來的</strong>，以及<strong>不肯在日頭出現時退場</strong>。</p>
+    </div>
+
+    <div class="scripture">
+      <div class="scripture-ref">但以理書 12:3 · 啟示錄 22:16</div>
+      <p>智慧人<em>必發光</em>，如同天上的光；那使多人歸義的，<em>必發光如星</em>，直到永永遠遠。（但 12:3——被動語態，是被給的光、永存的光）……我耶穌……<em>我是明亮的晨星</em>。（啟 22:16——這名號有正主）</p>
+    </div>
+
+    <div class="hbox sage">
+      <div class="hbox-label">給自己的判準</div>
+      <h3>日頭出來的時候，我能不能高興地暗下去？</h3>
+      <p>不需要壓抑想發光的渴望（壓抑會反彈，而且高標準本身是恩賜）。要換的是<strong>光源</strong>，和<strong>退場的自由</strong>。具體一點：別人講得比我好、我熬很久的洞見沒被看見——那一刻我是鬆一口氣，還是失落？第一反應，比任何自評量表都準。</p>
+    </div>
+
+    <div class="hbox dove">
+      <div class="hbox-label">最後 · 不要把「虛心」做成自我攻擊</div>
+      <h3>真正的虛心是自我遺忘</h3>
+      <p>「我知道自己很自私、沒有愛心」——自我批判並沒有把自我從中心移開，只是把自己從被告席換到法官席，注意力仍百分之百在自己身上。真正的虛心不是換一個更難聽的結論，而是<strong>不再需要對自己下結論</strong>。而且自評與行為的落差本身，就是「用高於事實的標準懲罰自己」的指紋——那個引擎會跑，但它燒的是你。<strong>對自己嚴厲，同樣是一種掌控；「溫柔＝下寶座」，也包含對自己溫柔。</strong></p>
+    </div>
+
+    <div class="qblock">
+      <p>回到最初的問題：分野不在你有多少主導權，而在兩件事——<em>你的價值是從哪裡領的，以及上面還有沒有人。</em></p>
+      <p>第五個「我要」是唯一致命的那一個；<em>前四個都還可以被贖回。</em></p>
+      <p class="qblock-src">— 明亮之星的延伸默想</p>
+    </div>
+  </section>
+
+  <div class="divider"><span>自我測驗</span></div>
+
+  <!-- ═══════════════ 延伸 B：測驗（互動） ═══════════════ -->
+  <div id="quiz" class="sec-anchor"></div>
+  <section class="sec" style="padding-bottom:3rem;">
+    <div class="sec-hdr">
+      <span class="sec-badge badge-sage">自我測驗</span>
+      <div>
+        <h2>健康的自主，還是自己坐主位？</h2>
+        <div class="sec-sub">六個情境的誠實自檢 · 這是鏡子，不是分數</div>
+      </div>
+    </div>
+
+    <div class="alert warn">
+      <span class="alert-icon">🧭</span>
+      <p><strong>使用方式：</strong>不要用「能不能一個人把事情做完」來判斷，而是看「<strong>能不能承受需要人、與被人需要</strong>」。每題選一個<strong>最誠實</strong>的第一反應——沒有標準答案，也不必當真打分數。</p>
+    </div>
+
+    <div id="quizForm">
+      <div class="quiz-q">
+        <div class="q-scene"><span class="q-idx">1</span>別人主動幫我</div>
+        <div class="quiz-opts">
+          <button type="button" class="quiz-opt" data-side="free"><span class="opt-tag">自主</span>能收下，說謝謝</button>
+          <button type="button" class="quiz-opt" data-side="throne"><span class="opt-tag">坐主位</span>覺得欠、想立刻還回去</button>
+        </div>
+      </div>
+      <div class="quiz-q">
+        <div class="q-scene"><span class="q-idx">2</span>計畫被打斷</div>
+        <div class="quiz-opts">
+          <button type="button" class="quiz-opt" data-side="free"><span class="opt-tag">自主</span>調整，有點可惜</button>
+          <button type="button" class="quiz-opt" data-side="throne"><span class="opt-tag">坐主位</span>有一種被侵犯的憤怒</button>
+        </div>
+      </div>
+      <div class="quiz-q">
+        <div class="q-scene"><span class="q-idx">3</span>被當面指正</div>
+        <div class="quiz-opts">
+          <button type="button" class="quiz-opt" data-side="free"><span class="opt-tag">自主</span>好奇他看到了什麼</button>
+          <button type="button" class="quiz-opt" data-side="throne"><span class="opt-tag">坐主位</span>先解釋、先補脈絡</button>
+        </div>
+      </div>
+      <div class="quiz-q">
+        <div class="q-scene"><span class="q-idx">4</span>別人做得比我好</div>
+        <div class="quiz-opts">
+          <button type="button" class="quiz-opt" data-side="free"><span class="opt-tag">自主</span>真心高興</button>
+          <button type="button" class="quiz-opt" data-side="throne"><span class="opt-tag">坐主位</span>表面祝賀，心裡有一根刺</button>
+        </div>
+      </div>
+      <div class="quiz-q">
+        <div class="q-scene"><span class="q-idx">5</span>事情還不確定</div>
+        <div class="quiz-opts">
+          <button type="button" class="quiz-opt" data-side="free"><span class="opt-tag">自主</span>帶著不確定先動</button>
+          <button type="button" class="quiz-opt" data-side="throne"><span class="opt-tag">坐主位</span>沒掌握就動不了</button>
+        </div>
+      </div>
+      <div class="quiz-q">
+        <div class="q-scene"><span class="q-idx">6</span>獨處時的自我對話</div>
+        <div class="quiz-opts">
+          <button type="button" class="quiz-opt" data-side="free"><span class="opt-tag">自主</span>大致溫和</button>
+          <button type="button" class="quiz-opt" data-side="throne"><span class="opt-tag">坐主位</span>像一場法庭</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="quiz-actions">
+      <button type="button" class="quiz-btn" id="quizShow">看見結果（不是評分）</button>
+      <button type="button" class="quiz-btn ghost" id="quizReset">重來</button>
+    </div>
+
+    <div class="quiz-result" id="quizResult">
+      <div class="hbox sage">
+        <div class="hbox-label">你的鏡子</div>
+        <h3 id="quizHeadline">—</h3>
+        <p id="quizBody">—</p>
+      </div>
+    </div>
+
+    <div class="hbox dove">
+      <div class="hbox-label">一個實驗（比再加一個指標更接近根）</div>
+      <h3>這個月，刻意讓某一項檢核空白一天</h3>
+      <p>不補、不解釋、不在備註欄合理化。然後觀察自己接下來 24 小時的內在反應——<strong>那個反應就是資料</strong>。如果這套系統能被打斷而你不慌，它就是僕人；如果打斷它你會焦慮，它就在寶座上。</p>
+    </div>
+
+    <div class="alert info">
+      <span class="alert-icon">🕊️</span>
+      <p><strong>還有一個隱藏的失敗模式：</strong>「動筆前先問神」可能變成一道<strong>儀式性的通關手續</strong>——問完了，然後照原計畫動筆。真正的交還主權，判準是<strong>神有沒有可能改掉這個計畫</strong>。如果答案永遠是「沒改」，那不是順服，是報備。</p>
+    </div>
+  </section>
+
+</div><!-- end container -->
+
+<!-- ═══════════════ FOOTER ═══════════════ -->
+<footer class="page-footer">
+  <p>1229 輯週訓 · <strong>明亮之星 · 路西弗的墜落（以賽亞書 14 章續）</strong></p>
+  <p style="margin-top:4px;">2022年6月18日 高雄查經聚會 · 主領：林明學教師 · 週訓整理日期 2026.7.26</p>
+</footer>
+
+<script>
+const tocLinks = document.querySelectorAll('.toc-link');
+const anchors = ['overview','context','sheol','lucifer','tyre','doom','reflect','quiz'];
+const sections = anchors.map(id => document.getElementById(id));
+
+function updateToc() {
+  let current = 'overview';
+  const offset = 80;
+  sections.forEach((el, i) => {
+    if (el && el.getBoundingClientRect().top < offset + 20) {
+      current = anchors[i];
+    }
+  });
+  tocLinks.forEach(a => {
+    const href = a.getAttribute('href').replace('#','');
+    a.classList.toggle('active', href === current);
+  });
+}
+window.addEventListener('scroll', updateToc, { passive: true });
+updateToc();
+
+// 個人延伸 · 自我測驗互動（是鏡子，不是分數）
+(function(){
+  const form = document.getElementById('quizForm');
+  if (!form) return;
+  form.querySelectorAll('.quiz-q').forEach(function(q){
+    q.querySelectorAll('.quiz-opt').forEach(function(opt){
+      opt.addEventListener('click', function(){
+        q.querySelectorAll('.quiz-opt').forEach(function(o){ o.classList.remove('sel'); });
+        opt.classList.add('sel');
+      });
+    });
+  });
+  const result = document.getElementById('quizResult');
+  const head = document.getElementById('quizHeadline');
+  const body = document.getElementById('quizBody');
+  const showBtn = document.getElementById('quizShow');
+  const resetBtn = document.getElementById('quizReset');
+  if (showBtn) showBtn.addEventListener('click', function(){
+    const sel = form.querySelectorAll('.quiz-opt.sel');
+    const answered = sel.length;
+    let throne = 0;
+    sel.forEach(function(o){ if (o.dataset.side === 'throne') throne++; });
+    let h;
+    if (answered === 0) { h = '還沒有選——沒關係，選你最誠實的第一反應就好。'; }
+    else if (throne === 0) { h = '六題都偏向自主——也留意：這會不會是「我不需要被評」的另一種漂亮版本？'; }
+    else if (throne <= 2) { h = '大致落在自主這一側，有一兩處值得停下來看。'; }
+    else if (throne <= 4) { h = '有幾處落在「退出評價現場」——那正是你最真實的戰場。'; }
+    else { h = '多數落在坐主位這一側——先別急著自責，自責也是一種掌控。'; }
+    head.textContent = h;
+    const prefix = answered ? ('你有 ' + throne + ' 題（共 ' + answered + ' 題已作答）偏向「自己坐主位」。') : '';
+    body.innerHTML = prefix + '這不是判決，是<strong>資料</strong>——請帶著好奇看它，不是審判。分野不在你有多少主導權，而在<strong>你的價值從哪裡領、上面還有沒有人</strong>。日頭出來的時候——<strong>你能不能高興地暗下去？</strong>';
+    result.classList.add('show');
+    result.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  });
+  if (resetBtn) resetBtn.addEventListener('click', function(){
+    form.querySelectorAll('.quiz-opt.sel').forEach(function(o){ o.classList.remove('sel'); });
+    result.classList.remove('show');
+  });
+})();
+</script>
+</body>
+</html>

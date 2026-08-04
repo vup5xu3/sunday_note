@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>異象與愛的叮嚀 — 遇見更好的自己 · 2026.08.02</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --gold: #C9A84C;
+  --gold-light: #E8D08A;
+  --gold-pale: #FAF3DC;
+  --deep: #1A1208;
+  --ink: #2C2416;
+  --muted: #6B5D3E;
+  --soft: #F5EDD8;
+  --parchment: #FBF6EC;
+  --teal: #2E7D72;
+  --teal-light: #4AA89C;
+  --teal-pale: #E0F2EF;
+  --ruby: #8B2130;
+  --ruby-light: #C2445A;
+  --ruby-pale: #FAEAED;
+  --blue-deep: #1E3A5F;
+  --blue-mid: #2E6DA4;
+  --blue-pale: #E8F1FA;
+  --purple: #5B3A8A;
+  --purple-light: #8B6BBF;
+  --purple-pale: #F0EAF8;
+  --radius: 12px;
+  --radius-lg: 20px;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; }
+body { font-family:'Noto Sans TC', sans-serif; background:var(--parchment); color:var(--ink); line-height:1.8; }
+section[id], div[id] { scroll-margin-top: 64px; }
+
+/* ── HERO ── */
+.hero { background:var(--deep); padding:3.5rem 2rem 3rem; text-align:center; position:relative; overflow:hidden; }
+.hero::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse at 50% 0%, rgba(201,168,76,0.18) 0%, transparent 70%); pointer-events:none; }
+.hero-tag { display:inline-block; border:1px solid var(--gold); color:var(--gold); font-size:11px; letter-spacing:4px; padding:4px 16px; border-radius:2px; margin-bottom:1.2rem; }
+.hero h1 { font-family:'Noto Serif TC',serif; font-size:clamp(1.6rem,4vw,2.4rem); color:#fff; font-weight:700; line-height:1.4; margin-bottom:0.6rem; }
+.hero h1 em { color:var(--gold-light); font-style:normal; }
+.hero-sub { color:rgba(255,255,255,0.55); font-size:0.85rem; letter-spacing:1px; margin-bottom:2rem; }
+.hero-verse { display:inline-block; border-left:2px solid var(--gold); padding:0.5rem 1rem; text-align:left; color:var(--gold-light); font-family:'Noto Serif TC',serif; font-size:0.9rem; line-height:1.9; }
+
+/* ── TOC（sticky 目錄） ── */
+.toc { position:sticky; top:0; z-index:30; background:rgba(26,18,8,0.96); border-bottom:1px solid rgba(201,168,76,0.3); }
+.toc-inner { max-width:960px; margin:0 auto; display:flex; gap:0.4rem; overflow-x:auto; padding:0.6rem 1rem; }
+.toc-inner::-webkit-scrollbar { height:0; }
+.toc a { flex-shrink:0; font-size:0.75rem; color:rgba(255,255,255,0.7); text-decoration:none; padding:4px 12px; border-radius:20px; border:1px solid rgba(201,168,76,0.25); white-space:nowrap; transition:background 0.15s, color 0.15s; }
+.toc a:hover { background:var(--gold); color:var(--deep); border-color:var(--gold); }
+.toc a.toc-part { color:var(--gold-light); font-weight:700; border-color:rgba(201,168,76,0.5); }
+
+/* ── LAYOUT ── */
+.container { max-width:960px; margin:0 auto; padding:0 1.25rem; }
+.section { padding:2.2rem 0 1.2rem; }
+
+/* ── PART LABEL ── */
+.part-label { display:flex; align-items:baseline; gap:12px; margin:2rem 0 1.2rem; padding-top:1rem; border-top:2px solid rgba(201,168,76,0.3); }
+.part-label .pl-no { font-family:'Noto Serif TC',serif; font-size:2rem; font-weight:700; color:var(--gold); opacity:0.5; line-height:1; }
+.part-label .pl-tag { font-family:'Noto Serif TC',serif; font-size:1.35rem; font-weight:700; color:var(--deep); }
+.part-label .pl-sub { font-size:0.75rem; color:var(--muted); }
+
+/* ── SECTION TITLE ── */
+.sec-title { display:flex; align-items:center; gap:10px; margin-bottom:1.3rem; }
+.sec-title .icon { width:36px; height:36px; background:var(--gold); border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:17px; color:var(--deep); flex-shrink:0; }
+.sec-title h2 { font-family:'Noto Serif TC',serif; font-size:1.2rem; color:var(--deep); font-weight:700; }
+.sec-title .subtitle { font-size:0.78rem; color:var(--muted); margin-top:1px; }
+
+/* ── DIVIDER ── */
+.divider { display:flex; align-items:center; gap:12px; margin:0.5rem 0 1.5rem; opacity:0.35; }
+.divider::before, .divider::after { content:''; flex:1; height:0.5px; background:var(--muted); }
+.divider span { font-size:10px; letter-spacing:3px; color:var(--muted); text-transform:uppercase; }
+
+/* ═══════════ 異象元件 ═══════════ */
+/* SUMMARY CARDS */
+.summary-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:1rem; margin-bottom:1.5rem; }
+.summary-card { background:#fff; border-radius:var(--radius-lg); border:0.5px solid rgba(0,0,0,0.09); padding:1.4rem; }
+.summary-card .s-icon { font-size:1.5rem; margin-bottom:0.5rem; }
+.summary-card h4 { font-family:'Noto Serif TC',serif; font-size:0.95rem; font-weight:700; color:var(--deep); margin-bottom:0.5rem; }
+.summary-card p { font-size:0.8rem; color:var(--muted); line-height:1.7; }
+.summary-card.s-gold  { border-top:3px solid var(--gold); }
+.summary-card.s-teal  { border-top:3px solid var(--teal); }
+.summary-card.s-ruby  { border-top:3px solid var(--ruby); }
+.summary-card.s-blue  { border-top:3px solid var(--blue-mid); }
+.summary-card.s-purple{ border-top:3px solid var(--purple); }
+.summary-card.s-muted { border-top:3px solid var(--muted); }
+
+/* PROMISE BAR */
+.promise-bar { background:var(--deep); border-radius:var(--radius-lg); padding:1.5rem 1.8rem; margin-bottom:2rem; text-align:center; }
+.promise-bar .label { font-size:0.68rem; letter-spacing:3px; color:var(--gold); font-weight:700; margin-bottom:0.8rem; }
+.promise-bar p { font-family:'Noto Serif TC',serif; font-size:1.1rem; color:#fff; line-height:2; }
+
+/* FEATURED CARD（師母） */
+.featured-card { background:var(--deep); border-radius:var(--radius-lg); padding:2rem 2rem 1.8rem; margin-bottom:1.5rem; position:relative; overflow:hidden; }
+.featured-card::before { content:'✦'; position:absolute; top:1rem; right:1.5rem; font-size:5rem; color:var(--gold); opacity:0.08; line-height:1; pointer-events:none; }
+.featured-badge { display:inline-flex; align-items:center; gap:6px; background:var(--gold); color:var(--deep); font-size:0.7rem; font-weight:700; letter-spacing:2px; padding:4px 12px; border-radius:4px; margin-bottom:1.2rem; }
+.vision-block { background:rgba(255,255,255,0.06); border-radius:var(--radius); border-left:2px solid var(--gold); padding:1rem 1.2rem; margin-bottom:0.8rem; }
+.vision-block.v-teal { border-left-color:var(--teal-light); }
+.vision-block.v-ruby { border-left-color:#F4A0B0; }
+.vision-block.v-purple { border-left-color:var(--purple-light); }
+.vision-block-label { font-size:0.68rem; letter-spacing:2px; color:var(--gold); font-weight:700; margin-bottom:0.5rem; }
+.vision-block.v-teal .vision-block-label { color:var(--teal-light); }
+.vision-block.v-ruby .vision-block-label { color:#F4A0B0; }
+.vision-block.v-purple .vision-block-label { color:var(--purple-light); }
+.vision-block p { font-size:0.88rem; color:rgba(255,255,255,0.82); line-height:1.85; }
+.word-box { display:block; margin-top:0.4rem; background:rgba(201,168,76,0.12); border-radius:var(--radius); padding:0.9rem 1.1rem; border:1px solid rgba(201,168,76,0.25); margin-bottom:1rem; }
+.word-box .w-label { font-size:0.68rem; letter-spacing:2px; color:var(--gold); font-weight:700; margin-bottom:0.4rem; }
+.word-box p { font-family:'Noto Serif TC',serif; font-size:0.95rem; color:var(--gold-light); line-height:1.9; }
+.word-box.w-ruby { background:rgba(139,33,48,0.14); border-color:rgba(196,68,90,0.3); }
+.word-box.w-ruby .w-label { color:#F4A0B0; }
+.word-box.w-ruby p { color:#F4A0B0; }
+
+/* ═══════════ 愛的叮嚀元件 ═══════════ */
+/* PILLARS */
+.pillars { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:1rem; margin-bottom:1.5rem; }
+.pillar { background:#fff; border:0.5px solid rgba(0,0,0,0.1); border-radius:var(--radius-lg); padding:1.5rem; position:relative; overflow:hidden; }
+.pillar::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; }
+.pillar.p1::before { background:linear-gradient(90deg,var(--gold),var(--gold-light)); }
+.pillar.p2::before { background:linear-gradient(90deg,var(--teal),var(--teal-light)); }
+.pillar.p3::before { background:linear-gradient(90deg,var(--ruby),var(--ruby-light)); }
+.pillar.p4::before { background:linear-gradient(90deg,var(--blue-deep),var(--blue-mid)); }
+.pillar-num { font-family:'Noto Serif TC',serif; font-size:2.5rem; font-weight:700; line-height:1; opacity:0.12; position:absolute; top:1rem; right:1.2rem; }
+.pillar.p1 .pillar-num { color:var(--gold); }
+.pillar.p2 .pillar-num { color:var(--teal); }
+.pillar.p3 .pillar-num { color:var(--ruby); }
+.pillar.p4 .pillar-num { color:var(--blue-deep); }
+.pillar-icon { font-size:1.6rem; margin-bottom:0.5rem; }
+.pillar h3 { font-family:'Noto Serif TC',serif; font-size:1rem; font-weight:700; margin-bottom:0.5rem; color:var(--deep); }
+.pillar p { font-size:0.82rem; color:var(--muted); line-height:1.7; }
+
+/* QUOTE BLOCK */
+.quote-block { background:var(--deep); border-radius:var(--radius-lg); padding:2rem 2rem 1.5rem; margin-bottom:1.5rem; position:relative; overflow:hidden; }
+.quote-block::before { content:'"'; position:absolute; top:-0.5rem; left:1rem; font-family:'Noto Serif TC',serif; font-size:6rem; color:var(--gold); opacity:0.15; line-height:1; pointer-events:none; }
+.quote-text { font-family:'Noto Serif TC',serif; font-size:1.05rem; color:#fff; line-height:1.9; margin-bottom:0.8rem; }
+.quote-text em { color:var(--gold-light); font-style:normal; font-weight:700; }
+.quote-src { font-size:0.75rem; color:rgba(255,255,255,0.45); letter-spacing:1px; }
+
+/* INSIGHT ROW */
+.insight-row { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:1rem; margin-bottom:1.5rem; }
+.insight-card { background:#fff; border-radius:var(--radius); border:0.5px solid rgba(0,0,0,0.09); padding:1.2rem; display:flex; gap:12px; align-items:flex-start; }
+.insight-dot { width:8px; height:8px; border-radius:50%; margin-top:0.4rem; flex-shrink:0; }
+.insight-card:nth-child(1) .insight-dot { background:var(--gold); }
+.insight-card:nth-child(2) .insight-dot { background:var(--teal); }
+.insight-card:nth-child(3) .insight-dot { background:var(--ruby); }
+.insight-card:nth-child(4) .insight-dot { background:var(--blue-mid); }
+.insight-card h4 { font-size:0.88rem; font-weight:600; color:var(--deep); margin-bottom:0.3rem; }
+.insight-card p { font-size:0.78rem; color:var(--muted); line-height:1.65; }
+
+/* STAGES */
+.stages { display:grid; grid-template-columns:repeat(3,1fr); background:#fff; border-radius:var(--radius-lg); overflow:hidden; border:0.5px solid rgba(0,0,0,0.09); margin-bottom:1.5rem; }
+@media(max-width:600px){ .stages{grid-template-columns:1fr;} }
+.stage-item { padding:1.4rem 1.2rem; border-right:0.5px solid rgba(0,0,0,0.07); position:relative; }
+.stage-item:last-child { border-right:none; }
+.stage-no { font-size:0.7rem; letter-spacing:2px; font-weight:700; margin-bottom:0.4rem; }
+.stage-item.s1 .stage-no { color:var(--ruby); }
+.stage-item.s2 .stage-no { color:var(--muted); }
+.stage-item.s3 .stage-no { color:var(--teal); }
+.stage-title { font-family:'Noto Serif TC',serif; font-size:0.95rem; font-weight:700; color:var(--deep); margin-bottom:0.4rem; }
+.stage-body { font-size:0.78rem; color:var(--muted); line-height:1.65; }
+.stage-top-bar { height:3px; position:absolute; top:0; left:0; right:0; background:var(--soft); }
+.stage-item.s1 .stage-top-bar { background:var(--ruby); }
+.stage-item.s2 .stage-top-bar { background:#bbb; }
+.stage-item.s3 .stage-top-bar { background:var(--teal); }
+
+/* ANALYSIS LIST（大項逐條：心理學＋經文） */
+.fw-band { border-radius:var(--radius-lg); padding:1.1rem 1.3rem; margin-bottom:1.2rem; color:#fff; }
+.fw-band.fw1 { background:linear-gradient(100deg,var(--gold),#B8942F); }
+.fw-band.fw2 { background:linear-gradient(100deg,var(--teal),#20655C); }
+.fw-band.fw3 { background:linear-gradient(100deg,var(--purple),#452A6B); }
+.fw-band .fw-k { font-size:0.68rem; letter-spacing:3px; opacity:0.85; font-weight:700; margin-bottom:0.3rem; }
+.fw-band h3 { font-family:'Noto Serif TC',serif; font-size:1.15rem; font-weight:700; margin-bottom:0.3rem; }
+.fw-band p { font-size:0.8rem; opacity:0.92; line-height:1.7; }
+.analysis { display:grid; gap:0.7rem; margin-bottom:1.5rem; }
+.a-item { background:#fff; border:0.5px solid rgba(0,0,0,0.09); border-radius:var(--radius); padding:1rem 1.15rem; border-left:3px solid var(--gold); }
+.a-item.al-teal { border-left-color:var(--teal); }
+.a-item.al-purple { border-left-color:var(--purple); }
+.a-head { display:flex; align-items:baseline; gap:8px; margin-bottom:0.45rem; }
+.a-no { font-family:'Noto Serif TC',serif; font-size:0.9rem; font-weight:700; color:var(--gold); flex-shrink:0; }
+.a-item.al-teal .a-no { color:var(--teal); }
+.a-item.al-purple .a-no { color:var(--purple); }
+.a-title { font-family:'Noto Serif TC',serif; font-size:0.95rem; font-weight:700; color:var(--deep); }
+.a-row { font-size:0.8rem; line-height:1.72; margin-top:0.3rem; }
+.a-tag { display:inline-block; font-size:0.6rem; font-weight:700; letter-spacing:1px; padding:1px 7px; border-radius:4px; margin-right:6px; }
+.a-tag.t-psy { background:var(--blue-pale); color:var(--blue-deep); }
+.a-tag.t-bib { background:var(--gold-pale); color:#7A620A; }
+.a-row.r-psy { color:var(--muted); }
+.a-row.r-bib { color:var(--ink); }
+.a-row.r-bib b { color:#7A620A; font-weight:700; }
+
+/* CROSS MATRIX */
+.matrix-wrap { overflow-x:auto; margin-bottom:1.5rem; border-radius:var(--radius); border:0.5px solid rgba(0,0,0,0.09); }
+.matrix { width:100%; border-collapse:collapse; font-size:0.8rem; background:#fff; min-width:620px; }
+.matrix th, .matrix td { padding:0.7rem 0.9rem; text-align:left; border-bottom:0.5px solid rgba(0,0,0,0.07); vertical-align:top; }
+.matrix thead th { background:var(--deep); color:var(--gold-light); font-family:'Noto Serif TC',serif; font-weight:700; }
+.matrix tbody th { font-weight:700; color:var(--deep); background:var(--soft); white-space:nowrap; }
+.matrix td { color:var(--muted); line-height:1.6; }
+
+/* RADAR */
+.radar-wrap { background:#fff; border-radius:var(--radius-lg); border:0.5px solid rgba(0,0,0,0.09); padding:1.2rem; margin-bottom:1rem; }
+.radar-wrap svg { display:block; width:100%; max-width:600px; margin:0 auto; }
+.radar-legend { display:flex; flex-wrap:wrap; gap:1.2rem; justify-content:center; margin-top:0.6rem; }
+.radar-legend span { display:inline-flex; align-items:center; gap:6px; font-size:0.78rem; color:var(--ink); }
+.radar-legend i { width:16px; height:3px; border-radius:2px; display:inline-block; }
+
+/* SCRIPTURE */
+.scripture { background:#fff; border:0.5px solid rgba(0,0,0,0.09); border-left:3px solid var(--gold); border-radius:var(--radius); padding:1.3rem 1.4rem; margin-bottom:1rem; }
+.scripture .ref { font-family:'Noto Serif TC',serif; font-size:0.9rem; font-weight:700; color:#7A620A; letter-spacing:1px; margin-bottom:0.6rem; }
+.scripture p { font-family:'Noto Serif TC',serif; font-size:0.9rem; color:var(--ink); line-height:2.05; text-align:justify; }
+.scripture .vn { font-size:0.66rem; color:var(--gold); font-weight:700; vertical-align:0.3em; margin:0 3px 0 5px; }
+
+/* REFLECTION */
+.reflection { background:var(--soft); border-radius:var(--radius-lg); padding:1.8rem 1.8rem 1.5rem; border-left:3px solid var(--gold); margin-bottom:1.5rem; }
+.reflection h3 { font-family:'Noto Serif TC',serif; font-size:1rem; font-weight:700; color:var(--deep); margin-bottom:0.8rem; }
+.reflection ol { padding-left:1.2rem; }
+.reflection ol li { font-size:0.85rem; color:var(--ink); line-height:1.8; margin-bottom:0.3rem; }
+.reflection ol li strong { color:var(--deep); font-weight:600; }
+
+/* FOOTER */
+.page-footer { background:var(--deep); padding:2rem; text-align:center; color:rgba(255,255,255,0.4); font-size:0.78rem; line-height:1.9; }
+.page-footer strong { color:var(--gold); font-weight:400; }
+</style>
+</head>
+<body>
+
+<!-- ════════ HERO ════════ -->
+<div class="hero">
+  <div class="hero-tag">主日訊息 · 2026.08.02</div>
+  <h1>遇見更好的自己<br>——異象與<em>成功又快樂的人</em></h1>
+  <div class="hero-sub">秀美師母異象分享 · 箴言師母愛的叮嚀 · 融合 2022/6/19 週訓</div>
+  <div class="hero-verse">
+    「要保守你心，勝過保守一切，<br>因為一生的果效是由心發出。」<br>
+    <span style="color:rgba(255,255,255,0.4);font-size:0.78rem">— 箴言 4:23</span>
+  </div>
+</div>
+
+<!-- ════════ TOC ════════ -->
+<nav class="toc">
+  <div class="toc-inner">
+    <a class="toc-part" href="#vision">✦ 異象</a>
+    <a class="toc-part" href="#ding">📖 愛的叮嚀</a>
+    <a href="#intro">本週引子</a>
+    <a href="#f1">十個好習慣</a>
+    <a href="#f2">帶團隊十法</a>
+    <a href="#f3">25 個特質</a>
+    <a href="#cross">交叉整理</a>
+    <a href="#radar">背後動機・雷達圖</a>
+    <a href="#reflect">反思</a>
+  </div>
+</nav>
+
+<main class="container">
+
+  <!-- ═══════════════════════════════════════════
+       PART A · 異象（秀美師母在前，簡明）
+       ═══════════════════════════════════════════ -->
+  <div class="part-label">
+    <span class="pl-no">壹</span>
+    <div>
+      <div class="pl-tag">異象與感動</div>
+      <div class="pl-sub">秀美師母 · 各地同工 · 2026.08.02</div>
+    </div>
+  </div>
+
+  <!-- A1 · 秀美師母異象 -->
+  <section class="section" id="vision" style="padding-top:0.5rem;">
+    <div class="sec-title">
+      <div class="icon">✦</div>
+      <div>
+        <h2>秀美師母異象分享</h2>
+        <div class="subtitle">高雄 · 敬愛的弟兄姊妹，大家平安</div>
+      </div>
+    </div>
+
+    <div class="featured-card">
+      <div class="featured-badge">✦ 師母分享</div>
+
+      <div class="vision-block">
+        <div class="vision-block-label">異象一 · 靈琴服侍時 — 萬物歡呼歌唱</div>
+        <p>看到一片草原，那些草隨著旋律整齊地舞動；我看見石頭也都開口在笑，花也一群一群地擺動著。</p>
+      </div>
+      <div class="word-box w-ruby">
+        <div class="w-label">神的話語</div>
+        <p>「孩子們，我所創造的萬物都歡呼歌唱；唯獨我的兒女，是有心、有感覺的，卻無法敞開心來歌唱讚美。」</p>
+      </div>
+
+      <div class="vision-block v-teal">
+        <div class="vision-block-label">異象二 · 唱靈歌時 — 不虛發的子彈</div>
+        <p>看見師母腰間垂著一個東西，不曉得是罐子還是袋子；隨著所唱的旋律，那旋律都會進到這個罐子裡面，進了之後，就發射往天上去。</p>
+      </div>
+      <div class="word-box">
+        <div class="w-label">神的話語</div>
+        <p>「子彈沒有虛發的；凡事都要作在合我心意的事上。」</p>
+      </div>
+
+      <div class="vision-block v-ruby">
+        <div class="vision-block-label">異象三 · 說方言、翻方言時 — 發亮的路</div>
+        <p>看到有一條發亮的路，看見蠻多人上去了卻又掉下來，好像有一種力量就把他們拉了下來。</p>
+      </div>
+      <div class="word-box w-ruby">
+        <div class="w-label">神的話語</div>
+        <p>「孩子們，這是聖潔屬靈的道路；非聖潔的人，無法走完這條路。」</p>
+      </div>
+
+      <div class="vision-block v-teal">
+        <div class="vision-block-label">異象四 · 守聖餐、喝杯之後</div>
+        <p>看到主很溫和地對我們說話。</p>
+      </div>
+      <div class="word-box" style="margin-bottom:0;">
+        <div class="w-label">神的話語</div>
+        <p>「你們吃了餅、喝了杯，就是新造的生命，要有新的樣式。」</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- A2 · 各地同工異象重點（精簡） -->
+  <section class="section" style="padding-top:0;">
+    <div class="sec-title">
+      <div class="icon" style="background:var(--teal);color:#fff;">🕊</div>
+      <div>
+        <h2>各地同工異象・重點</h2>
+        <div class="subtitle">台北・台中教區同工</div>
+      </div>
+    </div>
+
+    <div class="summary-grid">
+      <div class="summary-card s-gold">
+        <div class="s-icon">🤍</div>
+        <h4>寶座前的白袍聖徒</h4>
+        <p>天上許多聖徒身穿白袍，環繞父的寶座一同敬拜；聖餐中也見主與門徒最後晚餐的場景。（台北）</p>
+      </div>
+      <div class="summary-card s-teal">
+        <div class="s-icon">🕊</div>
+        <h4>我是平安的神</h4>
+        <p>白鴿降在聖殿，四周捲起風、聖殿更顯潔白光亮；真平安無法被奪去，並隨信心加增而日益顯明。（台北）</p>
+      </div>
+      <div class="summary-card s-blue">
+        <div class="s-icon">🦌</div>
+        <h4>人到，心沒到</h4>
+        <p>小鹿在溪邊喝水，脖子卻僵硬如木頭一般直挺——人到了、心沒到，也是枉然。（台北）</p>
+      </div>
+      <div class="summary-card s-ruby">
+        <div class="s-icon">🥛</div>
+        <h4>參與度低，破壞力強</h4>
+        <p>有人用牛奶當水擦地，別人得花更多力氣收拾，他卻袖手竊喜；這種人也在你們當中，要有智慧識破。（台北）</p>
+      </div>
+      <div class="summary-card s-purple">
+        <div class="s-icon">🏊</div>
+        <h4>順服教會的帶領</h4>
+        <p>水壩上游游得自在卻身處危險；泳池裡卻有教練教導正確姿勢、先行熱身——聖工要按教會的教導而行。（台中）</p>
+      </div>
+      <div class="summary-card s-muted">
+        <div class="s-icon">🙏</div>
+        <h4>受苦的主・順服</h4>
+        <p>主跪在客西馬尼禱告，俯伏在父面前——明知要上十字架仍順服父的旨意；你們也當順服我所設立的。（台中）</p>
+      </div>
+    </div>
+
+    <div class="promise-bar">
+      <div class="label">神的應許</div>
+      <p>「這平安也要隨著你信心的加增而日益顯明，<br>因為我是平安的神。」</p>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       PART B · 箴言師母 愛的叮嚀
+       ═══════════════════════════════════════════ -->
+  <div class="part-label" id="ding">
+    <span class="pl-no">貳</span>
+    <div>
+      <div class="pl-tag">愛的叮嚀 · 成功又快樂的人</div>
+      <div class="pl-sub">箴言師母 · 融合 2022/6/19 台中主日敬拜週訓</div>
+    </div>
+  </div>
+
+  <!-- B0 · 本週引子 -->
+  <section class="section" id="intro" style="padding-top:0.5rem;padding-bottom:0.6rem;">
+    <div class="sec-title">
+      <div class="icon">🌱</div>
+      <div>
+        <h2>本週引子</h2>
+        <div class="subtitle">遇見更好的自己 · 從滑梯效應到快樂的功課</div>
+      </div>
+    </div>
+    <p style="font-family:'Noto Serif TC',serif;font-size:0.95rem;color:var(--ink);line-height:2.05;margin-bottom:1.2rem;text-align:justify;">
+      箴言師母先帶大家<strong style="color:var(--ruby);">溫故知新</strong>——因為聽過的話 20 分鐘忘 42%、一小時忘 56%、一天忘 74%。她重播了上週的<strong style="color:var(--ruby);">滑梯效應</strong>：拖延不是懶，是腦裡的杏仁核把「要動腦的事」誤判成生存危險，於是還沒啟動就喊停；破解之道，是把第一步縮到小得無法拒絕，一旦坐上滑梯就順順滑下去。接著她把這份「克服老我」的功課，接到四年前 2022/6/19 的那篇稿——<strong style="color:var(--ruby);">如何成為一個成功又快樂的人</strong>。
+    </p>
+    <div class="pillars">
+      <div class="pillar p1">
+        <div class="pillar-num">壹</div>
+        <div class="pillar-icon">🎯</div>
+        <h3>遇見更好的自己</h3>
+        <p>今年是牧師前往以色列曠野隱居滿週年的一年，全體系的目標——只要稍微克服一下，就能遇見更好的自己。</p>
+      </div>
+      <div class="pillar p2">
+        <div class="pillar-num">貳</div>
+        <div class="pillar-icon">🛝</div>
+        <h3>滑梯效應</h3>
+        <p>踏出堅定的那一步，順著滑梯滑下去，就能越過啟動的痛苦。覺知是學習的開始，覺察是調整的開始。</p>
+      </div>
+      <div class="pillar p3">
+        <div class="pillar-num">參</div>
+        <div class="pillar-icon">🧠</div>
+        <h3>杏仁核與老我</h3>
+        <p>本能本是保護（遇獅子要逃），但過與不及就成了貪生怕死、七情六慾的氾濫——要與老我決一死戰。</p>
+      </div>
+      <div class="pillar p4">
+        <div class="pillar-num">肆</div>
+        <div class="pillar-icon">😊</div>
+        <h3>快樂與成功</h3>
+        <p>神的命令是「你們要喜樂」；但腦部結構加上罪性，讓快樂並不容易。所以要一條一條地整理、操練。</p>
+      </div>
+    </div>
+    <div class="quote-block">
+      <p class="quote-text">
+        「我真是苦啊！誰能救我脫離這取死的身體呢？」<br>
+        連保羅都這樣嘆息——<em>我想做的，我做不到；我不想做的，我反去做。</em><br>
+        更何況是我們。
+      </p>
+      <div class="quote-src">— 箴言師母引 · 羅馬書 7:24（並 7:19）</div>
+    </div>
+  </section>
+
+  <!-- B1 · 大項一：十個好習慣 -->
+  <section class="section" id="f1" style="padding-top:1rem;">
+    <div class="fw-band fw1">
+      <div class="fw-k">大項一 · FRAMEWORK 1</div>
+      <h3>十個好習慣，讓你更快樂</h3>
+      <p>真正持久的快樂來自內心——「要保守你心，勝過保守一切，因為一生的果效是由心發出。」（箴 4:23）以下每個好習慣，都配上它的心理學機轉與可對應的經文。</p>
+    </div>
+    <div class="analysis">
+      <div class="a-item">
+        <div class="a-head"><span class="a-no">1</span><span class="a-title">懷抱感恩的心</span></div>
+        <div class="a-row r-psy"><span class="a-tag t-psy">心理學</span>睡前寫下三件感恩的人事物。刻意的感恩會把注意力導向正向線索，提升正向情緒、降低壓力荷爾蒙——這就是「感恩日記」的效果。</div>
+        <div class="a-row r-bib"><span class="a-tag t-bib">經文</span><b>帖前 5:16–18</b>「要常常喜樂，不住地禱告，凡事謝恩，因為這是神在基督耶穌裡向你們所定的旨意。」</div>
+      </div>
+      <div class="a-item">
+        <div class="a-head"><span class="a-no">2</span><span class="a-title">養成運動的習慣</span></div>
+        <div class="a-row r-psy"><span class="a-tag t-psy">心理學</span>只要運動十分鐘，身體就釋放腦內啡、多巴胺、血清素，調節大腦、穩定情緒。我們現在多是「勞動」不是「運動」，所以快樂不起來。</div>
+        <div class="a-row r-bib"><span class="a-tag t-bib">經文</span><b>林前 6:19–20</b>「豈不知你們的身子就是聖靈的殿嗎？……所以要在你們的身子上榮耀神。」</div>
+      </div>
+      <div class="a-item">
+        <div class="a-head"><span class="a-no">3</span><span class="a-title">把錢花在別人身上</span></div>
+        <div class="a-row r-psy"><span class="a-tag t-psy">心理學</span>「利社會消費」比花在自己身上更能提升幸福感。不一定要有錢——沒錢也可以用你的心對人好。施比受更有福。</div>
+        <div class="a-row r-bib"><span class="a-tag t-bib">經文</span><b>徒 20:35</b>「主耶穌的話，說：『施比受更為有福。』」</div>
+      </div>
+      <div class="a-item">
+        <div class="a-head"><span class="a-no">4</span><span class="a-title">身邊要充滿快樂的人</span></div>
+        <div class="a-row r-psy"><span class="a-tag t-psy">心理學</span>情緒會「感染」。與充滿負能量的人接觸，會被沾染；所以要有「邊界感」，跟負面情緒的人保持適當距離，不必勉強去改變別人。</div>
+        <div class="a-row r-bib"><span class="a-tag t-bib">經文</span><b>箴 13:20</b>「與智慧人同行的，必得智慧；和愚昧人作伴的，必受虧損。」</div>
+      </div>
+      <div class="a-item">
+        <div class="a-head"><span class="a-no">5</span><span class="a-title">充滿正面能量（一念之間）</span></div>
+        <div class="a-row r-psy"><span class="a-tag t-psy">心理學</span>你快不快樂，關鍵在你如何「看待」發生的每一件事——這就是認知重評。同一件事，正面詮釋就越戰越勇。這極難，因為杏仁核總是先恐懼。</div>
+        <div class="a-row r-bib"><span class="a-tag t-bib">經文</span><b>腓 4:8</b>「凡是真實的、可敬的、公義的、清潔的、可愛的、有美名的……這些事你們都要思念。」</div>
+      </div>
+      <div class="a-item">
+        <div class="a-head"><span class="a-no">6</span><span class="a-title">擁有充足的睡眠</span></div>
+        <div class="a-row r-psy"><span class="a-tag t-psy">心理學</span>好好睡覺，大腦才會清除有毒的蛋白質；睡不夠，毒素排不掉，腦筋越轉越不靈光，就越不快樂。勤奮過度反而傷腦。</div>
+        <div class="a-row r-bib"><span class="a-tag t-bib">經文</span><b>詩 127:2</b>「你們清晨早起，夜晚安歇，吃勞碌得來的飯，本是枉然；惟有耶和華所親愛的，必叫他安然睡覺。」</div>
+      </div>
+      <div class="a-item">
+        <div class="a-head"><span class="a-no">7</span><span class="a-title">養成深度的心靈對話</span></div>
+        <div class="a-row r-psy"><span class="a-tag t-psy">心理學</span>與人分享經歷、價值觀與想法，能建立親密與意義感。難處在於好的傾聽者太少；實在沒有人，就找我們的神；也要學做別人的傾聽者。</div>
+        <div class="a-row r-bib"><span class="a-tag t-bib">經文</span><b>箴 27:17</b>「鐵磨鐵，磨出刃來；朋友相感（原文是磨朋友的臉），也是如此。」</div>
+      </div>
+      <div class="a-item">
+        <div class="a-head"><span class="a-no">8</span><span class="a-title">樂於助人</span></div>
+        <div class="a-row r-psy"><span class="a-tag t-psy">心理學</span>幫助別人時，大腦釋放催產素、血清素、多巴胺——所以「助人為快樂之本」真有生理根據，既幫了人，自己也更快樂。</div>
+        <div class="a-row r-bib"><span class="a-tag t-bib">經文</span><b>加 6:2</b>「你們各人的重擔要互相擔當，如此，就完全了基督的律法。」</div>
+      </div>
+      <div class="a-item">
+        <div class="a-head"><span class="a-no">9</span><span class="a-title">積極處理負面情緒</span></div>
+        <div class="a-row r-psy"><span class="a-tag t-psy">心理學</span>憤怒之前先處理情緒：面對它、命名它（我到底在氣什麼？），再把它轉化成行動力。有人把生氣化為努力，結果買了好幾棟房子。</div>
+        <div class="a-row r-bib"><span class="a-tag t-bib">經文</span><b>弗 4:26</b>「生氣卻不要犯罪；不可含怒到日落。」</div>
+      </div>
+      <div class="a-item">
+        <div class="a-head"><span class="a-no">10</span><span class="a-title">養成成長型的思維模式</span></div>
+        <div class="a-row r-psy"><span class="a-tag t-psy">心理學</span>固定型思維覺得「怎麼樣都沒用」；成長型思維相信「只要努力就有進步」，是一種自我鼓勵。努力不一定解決問題，但一定會帶來進步。</div>
+        <div class="a-row r-bib"><span class="a-tag t-bib">經文</span><b>腓 3:13–14</b>「忘記背後，努力面前的，向著標竿直跑，要得神在基督耶穌裡從上面召我來得的獎賞。」</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- B2 · 大項二：讓大家快樂的方法（帶團隊） -->
+  <section class="section" id="f2" style="padding-top:1rem;">
+    <div class="fw-band fw2">
+      <div class="fw-k">大項二 · FRAMEWORK 2</div>
+      <h3>讓大家快樂的十個方法（帶團隊）</h3>
+      <p>快樂的人比不快樂的人多出 12% 的生產力。快樂是團隊合作無間的要素——在教會、小組、家庭都一樣。以下是師母整理的帶團隊心法（原講列出九點）。</p>
+    </div>
+    <div class="analysis">
+      <div class="a-item al-teal">
+        <div class="a-head"><span class="a-no">1</span><span class="a-title">彈性・遠距工作</span></div>
+        <div class="a-row r-psy"><span class="a-tag t-psy">心理學</span>員工有需要就讓他們在家遠距，只要交得出進度。給人自主權會提升內在動機，被信任的人反而更投入。</div>
+        <div class="a-row r-bib"><span class="a-tag t-bib">經文</span><b>太 11:29–30</b>「我心裡柔和謙卑……因為我的軛是容易的，我的擔子是輕省的。」</div>
+      </div>
+      <div class="a-item al-teal">
+        <div class="a-head"><span class="a-no">2</span><span class="a-title">輕鬆的工作環境</span></div>
+        <div class="a-row r-psy"><span class="a-tag t-psy">心理學</span>主管本身有壓力，卻要提供輕鬆的氛圍，關鍵在 EQ 高、幽默得起來。心理安全感是高效團隊的基礎——神就賜給我們那麼幽默的牧師和教師。</div>
+        <div class="a-row r-bib"><span class="a-tag t-bib">經文</span><b>箴 17:22</b>「喜樂的心乃是良藥；憂傷的靈使骨枯乾。」</div>
+      </div>
+      <div class="a-item al-teal">
+        <div class="a-head"><span class="a-no">3</span><span class="a-title">鼓勵運動・笑聲不斷</span></div>
+        <div class="a-row r-psy"><span class="a-tag t-psy">心理學</span>運動讓人健康、分泌好的化學物質；讓辦公室笑聲不斷，正向情緒會「擴展」創造力與韌性。</div>
+        <div class="a-row r-bib"><span class="a-tag t-bib">經文</span><b>尼 8:10</b>「不要憂愁，因靠耶和華而得的喜樂是你們的力量。」</div>
+      </div>
+      <div class="a-item al-teal">
+        <div class="a-head"><span class="a-no">4</span><span class="a-title">恰到好處的挑戰・知人善用</span></div>
+        <div class="a-row r-psy"><span class="a-tag t-psy">心理學</span>任務挑戰與能力匹配時會進入「心流」；看準他的優點、讓他發揮長處，挑戰成功就有成就感。</div>
+        <div class="a-row r-bib"><span class="a-tag t-bib">經文</span><b>太 25:15</b>「按著各人的才幹給他們銀子……」（才幹的比喻）</div>
+      </div>
+      <div class="a-item al-teal">
+        <div class="a-head"><span class="a-no">5</span><span class="a-title">讓員工參與決策</span></div>
+        <div class="a-row r-psy"><span class="a-tag t-psy">心理學</span>不要自己說了算——參與感帶來當責與投入。在神之子體系，聖工都藉團隊服事、禱告求問神，無形中就讓同工參與了。</div>
+        <div class="a-row r-bib"><span class="a-tag t-bib">經文</span><b>箴 15:22</b>「不先商議，所謀無效；謀士眾多，所謀乃成。」</div>
+      </div>
+      <div class="a-item al-teal">
+        <div class="a-head"><span class="a-no">6</span><span class="a-title">學習與人相處</span></div>
+        <div class="a-row r-psy"><span class="a-tag t-psy">心理學</span>這主題三天三夜講不完，簡單說就是「彼此切實相愛」。高品質的人際連結，是團隊幸福的核心。</div>
+        <div class="a-row r-bib"><span class="a-tag t-bib">經文</span><b>彼前 4:8</b>「最要緊的是彼此切實相愛，因為愛能遮掩許多的罪。」</div>
+      </div>
+      <div class="a-item al-teal">
+        <div class="a-head"><span class="a-no">7</span><span class="a-title">別開太多不必要的會議</span></div>
+        <div class="a-row r-psy"><span class="a-tag t-psy">心理學</span>年終開一次就好，必要時再臨時召開；善用線上協作。減少不必要的會議＝降低認知負荷、尊重專注的時間。</div>
+        <div class="a-row r-bib"><span class="a-tag t-bib">經文</span><b>箴 10:19</b>「多言多語難免有過；禁止嘴唇是有智慧。」</div>
+      </div>
+      <div class="a-item al-teal">
+        <div class="a-head"><span class="a-no">8</span><span class="a-title">適度給予獎勵和肯定</span></div>
+        <div class="a-row r-psy"><span class="a-tag t-psy">心理學</span>從牧師時代就有年終獎勵——倒不是錢多少，而是肯定你的付出。「被看見」的需求被滿足，好行為會被強化。</div>
+        <div class="a-row r-bib"><span class="a-tag t-bib">經文</span><b>帖前 5:11</b>「要彼此勸慰，互相建立，正如你們素常所行的。」</div>
+      </div>
+      <div class="a-item al-teal">
+        <div class="a-head"><span class="a-no">9</span><span class="a-title">了解成員想成就什麼</span></div>
+        <div class="a-row r-psy"><span class="a-tag t-psy">心理學</span>在「我能為教會做什麼」的大前提下，仍要了解弟兄姊妹想成就的是什麼——是貢獻感與自我實現，不是滿足虛榮，拿捏之間別傷自尊。</div>
+        <div class="a-row r-bib"><span class="a-tag t-bib">經文</span><b>腓 2:4</b>「各人不要單顧自己的事，也要顧別人的事。」</div>
+      </div>
+    </div>
+    <div class="quote-block">
+      <p class="quote-text">
+        「最好的計劃，就是<em>最不可行</em>的計劃。」<br>
+        理想歸理想，現實歸現實——彼此體恤、良性溝通，<br>差不多拿捏、折衷一下就好。
+      </p>
+      <div class="quote-src">— 箴言師母引珮芳的話</div>
+    </div>
+  </section>
+
+  <!-- B3 · 大項三：成功又快樂的人的25個特質 -->
+  <section class="section" id="f3" style="padding-top:1rem;">
+    <div class="fw-band fw3">
+      <div class="fw-k">大項三 · FRAMEWORK 3</div>
+      <h3>成功又快樂的人的 25 個特質</h3>
+      <p>把前面的好習慣與帶團隊心法，收攏成一個人的整體樣貌。25 個特質全列如下，關鍵幾項附上可對應的經文。</p>
+    </div>
+    <div class="summary-grid">
+      <div class="summary-card s-purple"><h4>1 · 享受每一個瞬間</h4><p>活在當下，不拘泥過去、不幻想未來，把現在過好。<b>太 6:34</b>「不要為明天憂慮。」</p></div>
+      <div class="summary-card s-gold"><h4>2 · 晝夜思想神的話語</h4><p>沒信主的想人生哲學，基督徒就晝夜思想神的話。<b>詩 1:2</b>「惟喜愛耶和華的律法，晝夜思想。」</p></div>
+      <div class="summary-card s-teal"><h4>3 · 不記仇，不懷恨</h4><p>別讓負面的人事物免費住進腦袋當「惡房客」。<b>弗 4:32</b>「並要以恩慈相待，彼此饒恕。」</p></div>
+      <div class="summary-card s-blue"><h4>4 · 願意花在他人身上</h4><p>建立友誼不一定花錢，但一定要花時間陪伴——陪伴比錢更難得。</p></div>
+      <div class="summary-card s-ruby"><h4>5 · 忙，但不匆忙</h4><p>忙中有序，在工作與生活之間取得平衡，兩者都要熱愛。</p></div>
+      <div class="summary-card s-muted"><h4>6 · 與正確的人相處</h4><p>快樂會傳染，與有正能量的人在一起會建立自信、提升創造力。</p></div>
+      <div class="summary-card s-purple"><h4>7 · 專注能掌握的事</h4><p>簡單的事重複、認真地做（工匠精神），不被無法控制的事牽絆。</p></div>
+      <div class="summary-card s-gold"><h4>8 · 恭喜別人的成功</h4><p>看別人比自己強，如何回應決定關係被建立或破壞。<b>羅 12:15</b>「與喜樂的人要同樂。」</p></div>
+      <div class="summary-card s-teal"><h4>9 · 以尊敬善意待人</h4><p>善意讓內心溫暖舒服——沒有人希望被藐視、被惡待，何必如此對人？</p></div>
+      <div class="summary-card s-blue"><h4>10 · 很樂觀</h4><p>不抱怨、不亂哭，專注在如何解決問題。抱怨會招來更多壞事、傳染負能量。<b>腓 2:14</b>「凡所行的都不要發怨言。」</p></div>
+      <div class="summary-card s-ruby"><h4>11 · 對人際很主動</h4><p>常主動關心別人、願意當傾聽者，不只想著自己的事。</p></div>
+      <div class="summary-card s-muted"><h4>12 · 有充足的睡眠</h4><p>睡眠讓大腦排毒，否則腦會生病，甚至走向失智。</p></div>
+      <div class="summary-card s-purple"><h4>13 · 徜徉在大自然</h4><p>接地氣、曬太陽、去散步；散步還能讓負責記憶的組織長大。</p></div>
+      <div class="summary-card s-gold"><h4>14 · 積極面對挑戰</h4><p>把問題當成提升自己的好機會，解決了就能繼續向前。<b>雅 1:2–4</b>「落在百般試煉中，都要以為大喜樂。」</p></div>
+      <div class="summary-card s-teal"><h4>15 · 會犒賞自己</h4><p>告訴自己再多做一些，適度地給自己小小的安慰（不是大吃大喝）。</p></div>
+      <div class="summary-card s-blue"><h4>16 · 確實表示感激</h4><p>常說「謝謝你」——這是成功快樂的人很好的特質。</p></div>
+      <div class="summary-card s-ruby"><h4>17 · 懷遠大夢想並努力</h4><p>走出舒適區、努力工作，並接受隨時可能要重來、再接再厲。</p></div>
+      <div class="summary-card s-muted"><h4>18 · 有獨處的時間</h4><p>懂得做事、與人互動，也懂得如何獨處——獨處時相當快樂。</p></div>
+      <div class="summary-card s-purple"><h4>19 · 不會找藉口</h4><p>為自己的錯誤負責，把失敗當作提升自己的素材。<b>箴 28:13</b>「遮掩罪過的必不亨通；承認離棄的必蒙憐恤。」</p></div>
+      <div class="summary-card s-gold"><h4>20 · 具有成長思維</h4><p>相信只要努力就會有進步——這讓人更容易面對、解決問題。</p></div>
+      <div class="summary-card s-teal"><h4>21 · 花錢買經驗</h4><p>花錢買經驗，比花錢買物質更重要、更值得。</p></div>
+      <div class="summary-card s-blue"><h4>22 · 有早晨儀式</h4><p>生活情趣就在小細節裡——例如早上一定要喝一杯咖啡的儀式感。</p></div>
+      <div class="summary-card s-ruby"><h4>23 · 懂得照顧自己</h4><p>越來越懂得照顧自己的身心，是成熟也是快樂的表現。</p></div>
+      <div class="summary-card s-muted"><h4>24 · 善用個人優勢</h4><p>看別人比自己強，可是自己的優點在哪裡，也不要妄自菲薄。</p></div>
+      <div class="summary-card s-purple"><h4>25 · 有深度的講話</h4><p>當個好的傾聽者，在深度對話中往往能發現快樂的泉源。</p></div>
+    </div>
+  </section>
+
+  <!-- B4 · 交叉綜合整理 -->
+  <section class="section" id="cross" style="padding-top:1rem;">
+    <div class="sec-title">
+      <div class="icon" style="background:var(--blue-mid);color:#fff;">🔗</div>
+      <div>
+        <h2>交叉綜合整理</h2>
+        <div class="subtitle">三個框架 × 六條共同主軸</div>
+      </div>
+    </div>
+    <p style="font-size:0.88rem;color:var(--muted);line-height:1.9;margin-bottom:1rem;">
+      把三個框架的 44 個項目擺在一起，會發現它們其實圍繞著<strong style="color:var(--ink);">六條共同的心理主軸</strong>。下表把每個框架落在各主軸的代表項目對照排開——這也正是後面雷達圖的六個座標軸。
+    </p>
+    <div class="matrix-wrap">
+      <table class="matrix">
+        <thead>
+          <tr>
+            <th>背後主軸</th>
+            <th>① 十個好習慣</th>
+            <th>② 帶團隊十法</th>
+            <th>③ 25 個特質</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>感恩與意義</th>
+            <td>懷抱感恩的心①</td>
+            <td>獎勵與肯定⑧</td>
+            <td>確實表示感激⑯・晝夜思想神的話②</td>
+          </tr>
+          <tr>
+            <th>連結與利他</th>
+            <td>施予③・助人⑧・深度對話⑦</td>
+            <td>彼此相愛⑥・參與決策⑤</td>
+            <td>恭喜別人⑧・善意待人⑨・主動人際⑪</td>
+          </tr>
+          <tr>
+            <th>情緒調節</th>
+            <td>運動②・睡眠⑥・正能量⑤・處理怒氣⑨</td>
+            <td>輕鬆環境②・笑聲不斷③</td>
+            <td>樂觀⑩・不記仇③・會犒賞自己⑮</td>
+          </tr>
+          <tr>
+            <th>成長與勝任</th>
+            <td>成長型思維⑩</td>
+            <td>恰好的挑戰④・參與決策⑤</td>
+            <td>積極面對⑭・成長思維⑳・不找藉口⑲</td>
+          </tr>
+          <tr>
+            <th>自主與臨在</th>
+            <td>（著墨較少）</td>
+            <td>彈性遠距①・少開會⑦</td>
+            <td>活在當下①・獨處⑱・早晨儀式㉒</td>
+          </tr>
+          <tr>
+            <th>信仰與超越</th>
+            <td>保守己心・神的話</td>
+            <td>團隊服事・禱告求問神</td>
+            <td>晝夜思想神的話語②</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- B5 · 心理學背後動機拆解 ＋ 雷達圖 -->
+  <section class="section" id="radar" style="padding-top:1rem;">
+    <div class="sec-title">
+      <div class="icon" style="background:var(--purple);color:#fff;">🎯</div>
+      <div>
+        <h2>背後動機・雷達圖</h2>
+        <div class="subtitle">三個框架在六條動機軸上的側重與互補</div>
+      </div>
+    </div>
+    <p style="font-size:0.88rem;color:var(--muted);line-height:1.9;margin-bottom:1rem;">
+      把三個框架各自畫成一個多邊形，疊在同一張雷達圖上：<strong style="color:#7A620A;">十個好習慣</strong>（金）偏內在的自我照顧、<strong style="color:var(--teal);">帶團隊十法</strong>（青）偏關係與賦權、<strong style="color:var(--purple);">25 個特質</strong>（紫）最全面。外圈＝該動機被強調的程度。
+    </p>
+
+    <div class="radar-wrap">
+      <svg viewBox="0 0 520 470" xmlns="http://www.w3.org/2000/svg" role="img">
+        <title>三框架 × 六動機 雷達圖</title>
+        <!-- 網格環 -->
+        <polygon points="260,192.5 292.5,211.25 292.5,248.75 260,267.5 227.5,248.75 227.5,211.25" fill="none" stroke="#E4DAC4" stroke-width="1"/>
+        <polygon points="260,155 325,192.5 325,267.5 260,305 195,267.5 195,192.5" fill="none" stroke="#E4DAC4" stroke-width="1"/>
+        <polygon points="260,117.5 357.4,173.75 357.4,286.25 260,342.5 162.6,286.25 162.6,173.75" fill="none" stroke="#E4DAC4" stroke-width="1"/>
+        <polygon points="260,80 389.9,155 389.9,305 260,380 130.1,305 130.1,155" fill="none" stroke="#D8CBAE" stroke-width="1.2"/>
+        <!-- 軸線 -->
+        <g stroke="#D8CBAE" stroke-width="1">
+          <line x1="260" y1="230" x2="260" y2="80"/>
+          <line x1="260" y1="230" x2="389.9" y2="155"/>
+          <line x1="260" y1="230" x2="389.9" y2="305"/>
+          <line x1="260" y1="230" x2="260" y2="380"/>
+          <line x1="260" y1="230" x2="130.1" y2="305"/>
+          <line x1="260" y1="230" x2="130.1" y2="155"/>
+        </g>
+        <!-- 資料多邊形：③ 25 特質（紫，底層） -->
+        <polygon points="260,117.5 376.9,162.5 363.9,290 260,365 143.1,297.5 182.1,185" fill="rgba(91,58,138,0.14)" stroke="#5B3A8A" stroke-width="2" stroke-linejoin="round"/>
+        <!-- ② 帶團隊（青） -->
+        <polygon points="260,147.5 370.4,166.25 337.9,275 260,350 162.6,286.25 188.6,188.75" fill="rgba(46,125,114,0.12)" stroke="#2E7D72" stroke-width="2" stroke-linejoin="round"/>
+        <!-- ① 十個好習慣（金，上層） -->
+        <polygon points="260,110 357.4,173.75 383.4,301.25 260,312.5 208.04,260 169.1,177.5" fill="rgba(201,168,76,0.16)" stroke="#C9A84C" stroke-width="2" stroke-linejoin="round"/>
+        <!-- 頂點小圓 -->
+        <g>
+          <circle cx="260" cy="117.5" r="3" fill="#5B3A8A"/><circle cx="376.9" cy="162.5" r="3" fill="#5B3A8A"/><circle cx="363.9" cy="290" r="3" fill="#5B3A8A"/><circle cx="260" cy="365" r="3" fill="#5B3A8A"/><circle cx="143.1" cy="297.5" r="3" fill="#5B3A8A"/><circle cx="182.1" cy="185" r="3" fill="#5B3A8A"/>
+          <circle cx="260" cy="147.5" r="3" fill="#2E7D72"/><circle cx="370.4" cy="166.25" r="3" fill="#2E7D72"/><circle cx="337.9" cy="275" r="3" fill="#2E7D72"/><circle cx="260" cy="350" r="3" fill="#2E7D72"/><circle cx="162.6" cy="286.25" r="3" fill="#2E7D72"/><circle cx="188.6" cy="188.75" r="3" fill="#2E7D72"/>
+          <circle cx="260" cy="110" r="3" fill="#C9A84C"/><circle cx="357.4" cy="173.75" r="3" fill="#C9A84C"/><circle cx="383.4" cy="301.25" r="3" fill="#C9A84C"/><circle cx="260" cy="312.5" r="3" fill="#C9A84C"/><circle cx="208.04" cy="260" r="3" fill="#C9A84C"/><circle cx="169.1" cy="177.5" r="3" fill="#C9A84C"/>
+        </g>
+        <!-- 軸標籤 -->
+        <g font-family="Noto Serif TC,serif" font-size="12.5" fill="#2C2416" font-weight="700">
+          <text x="260" y="66" text-anchor="middle">感恩與意義</text>
+          <text x="399" y="152" text-anchor="start">連結與利他</text>
+          <text x="399" y="310" text-anchor="start">情緒調節</text>
+          <text x="260" y="403" text-anchor="middle">成長與勝任</text>
+          <text x="121" y="310" text-anchor="end">自主與臨在</text>
+          <text x="121" y="152" text-anchor="end">信仰與超越</text>
+        </g>
+      </svg>
+      <div class="radar-legend">
+        <span><i style="background:#C9A84C;"></i>① 十個好習慣</span>
+        <span><i style="background:#2E7D72;"></i>② 帶團隊十法</span>
+        <span><i style="background:#5B3A8A;"></i>③ 25 個特質</span>
+      </div>
+    </div>
+
+    <div class="insight-row">
+      <div class="insight-card">
+        <div class="insight-dot"></div>
+        <div>
+          <h4>好習慣 → 情緒調節最突出</h4>
+          <p>金色多邊形在「情緒調節」拉到最高：運動、睡眠、認知重評——先把自己內在的生理與情緒顧好。</p>
+        </div>
+      </div>
+      <div class="insight-card">
+        <div class="insight-dot"></div>
+        <div>
+          <h4>帶團隊 → 關係・賦權・自主</h4>
+          <p>青色多邊形在「連結・成長勝任・自主臨在」較滿：讓人被愛、被信任、有發揮，團隊就快樂。</p>
+        </div>
+      </div>
+      <div class="insight-card">
+        <div class="insight-dot"></div>
+        <div>
+          <h4>25 特質 → 最全面</h4>
+          <p>紫色多邊形幾乎撐滿六軸，尤其「自主與臨在」「成長與勝任」最高——這是最成熟的整合樣貌。</p>
+        </div>
+      </div>
+      <div class="insight-card">
+        <div class="insight-dot"></div>
+        <div>
+          <h4>共同交集 → 連結與利他</h4>
+          <p>三個多邊形在「連結與利他」都很飽滿——快樂的最大公因數，始終是「愛與關係」。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="quote-block">
+      <p class="quote-text">
+        說到快樂，你一定要有<em>愛</em>。<br>
+        如果我們失去了<em>愛的功能</em>，我們真的是無法快樂的。
+      </p>
+      <div class="quote-src">— 箴言師母 · 愛的叮嚀（本篇的最底層動機）</div>
+    </div>
+    <p style="font-size:0.86rem;color:var(--muted);line-height:1.95;">
+      這是把六條動機再往下拆到底層的答案。師母從街頭的流浪者、和那隻得了癌症仍向主人搖尾巴的狗狗講起——<strong style="color:var(--ink);">失去愛的功能的人，看似麻木無感，其實已經無法快樂</strong>。所以無論是十個好習慣、帶團隊十法，還是 25 個特質，最終都指向同一件事：<strong style="color:var(--ruby);">重新啟動我們「愛的功能」</strong>。而這，也正呼應了本週異象——「唯獨我的兒女，卻無法敞開心來歌唱讚美」。
+    </p>
+  </section>
+
+  <!-- B6 · 反思 -->
+  <section class="section" id="reflect" style="padding-top:1rem;">
+    <div class="sec-title">
+      <div class="icon">🪞</div>
+      <div>
+        <h2>反思</h2>
+        <div class="subtitle">七道問題 · 留給日後的思考</div>
+      </div>
+    </div>
+    <div class="reflection">
+      <h3>這一次先不回答——留給以後再讀的時候，安靜思想。</h3>
+      <ol>
+        <li><strong>Q1</strong>　十個好習慣裡，哪一個是我最缺、卻最能立刻開始的「第一步」？我要怎麼用滑梯效應把它縮到小得無法拒絕？</li>
+        <li><strong>Q2</strong>　我身邊有沒有一段「吸走我能量」的關係，是我需要練習「邊界感」的？</li>
+        <li><strong>Q3</strong>　「一念之間」——最近有哪一件我一直負面解讀的事，其實可以換一個正面的眼光？</li>
+        <li><strong>Q4</strong>　帶團隊或帶家庭時，我比較像「自己說了算」，還是願意讓人參與、被看見、被肯定？</li>
+        <li><strong>Q5</strong>　25 個特質裡，哪一個最戳中我此刻的光景（不論是我已有的，還是我最缺的）？</li>
+        <li><strong>Q6</strong>　雷達圖的六條動機——感恩與意義／連結與利他／情緒調節／成長與勝任／自主與臨在／信仰與超越——我最凹陷的是哪一軸？</li>
+        <li><strong>Q7</strong>　師母說「失去愛的功能就無法快樂」——這一週，我可以向誰，重新伸出我「愛的功能」？</li>
+      </ol>
+    </div>
+
+    <div class="quote-block" style="margin-bottom:0;">
+      <p class="quote-text">
+        主啊，求祢重新啟動我們<em>愛的功能</em>——<br>
+        叫我們肯跨出那一步，操練成為又快樂、又成功的人；<br>
+        像萬物一樣，向祢<em>敞開心來歌唱讚美</em>。阿們。
+      </p>
+      <div class="quote-src">— 收尾的禱告 · 2026.08.02</div>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="page-footer">
+  <p>主日訊息 · <strong>遇見更好的自己｜異象與愛的叮嚀</strong><br>2026年8月2日 · 秀美師母異象 · 箴言師母愛的叮嚀</p>
+</footer>
+
+</body>
+</html>
